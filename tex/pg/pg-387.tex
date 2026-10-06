@@ -1,0 +1,77 @@
+% ---- pg-387 （书页 375） ----
+
+\phantomsection\label{eq:9-1}
+\begin{equation}
+\begin{aligned}
+X_2-\mu_2 &= l_{21}F_1+l_{22}F_2+\cdots+l_{2m}F_m+\varepsilon_2\\
+&\qquad\vdots\qquad\qquad\qquad\vdots\\
+X_p-\mu_p &= l_{p1}F_1+l_{p2}F_2+\cdots+l_{pm}F_m+\varepsilon_p
+\end{aligned}
+\tag{9-1}
+\end{equation}
+
+或者写为矩阵形式
+\phantomsection\label{eq:9-2}
+\begin{equation}
+\underset{(p\times1)}{\mathbf{X}-\boldsymbol{\mu}}=\underset{(p\times m)}{\mathbf{L}}\underset{(m\times1)}{\mathbf{F}}+\underset{(p\times1)}{\boldsymbol{\varepsilon}}
+\tag{9-2}
+\end{equation}
+称系数 $l_{ij}$ 为第 $i$ 个变量在第 $j$ 个因子上的载荷, 故矩阵 $\mathbf{L}$ 是因子载荷阵. 注意, 第 $i$ 个特殊因子 $\varepsilon_i$ 只与第 $i$ 个响应 $X_i$ 相联系. $p$ 个差 $X_1-\mu_1,X_2-\mu_2,\cdots,X_p-\mu_p$ 用 $p+m$ 个随机变量 $F_1,F_2,\cdots,F_m,\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_p$ 表达, 这些随机变量是不能观测到的. 这是\hyperref[eq:9-2]{式(9-2)}中因子模型与\hyperref[eq:7-23]{式(7-23)}中的多元回归模型区别所在, 后一模型中独立变量[在\hyperref[eq:9-2]{式(9-2)}中用 $\mathbf{F}$ 占据了这个位置]可以被观测到.
+
+由于有如此之多的不能观测量, 从 $X_1,X_2,\cdots,X_p$ 的观测值来直接确认这个因子模型, 是没有希望的. 然而, 对随机向量 $\mathbf{F}$ 和 $\boldsymbol{\varepsilon}$ 作某些附加假设后, 模型(9-2)可推出某种协方差关系, 并且这些关系可以得到核查.
+
+我们设
+\[
+E(\mathbf{F})=\underset{(m\times1)}{\mathbf{0}},\qquad
+\mathrm{Cov}(\mathbf{F})=E[\mathbf{F}\mathbf{F}']=\underset{(m\times m)}{\mathbf{I}}
+\]
+\phantomsection\label{eq:9-3}
+\begin{equation}
+E(\boldsymbol{\varepsilon})=\underset{(p\times1)}{\mathbf{0}},\qquad
+\mathrm{Cov}(\boldsymbol{\varepsilon})=E[\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}']=\underset{(p\times p)}{\boldsymbol{\Psi}}
+=\begin{bmatrix}
+\psi_1&0&\cdots&0\\
+0&\psi_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&\psi_p
+\end{bmatrix}
+\tag{9-3}
+\end{equation}
+且 $\mathbf{F}$ 与 $\boldsymbol{\varepsilon}$ 独立, 故
+\[
+\mathrm{Cov}(\boldsymbol{\varepsilon},\mathbf{F})=E(\boldsymbol{\varepsilon}\mathbf{F}')=\underset{(p\times m)}{\mathbf{0}}
+\]
+这些假设和\hyperref[eq:9-2]{式(9-2)}中的关系构成正交因子模型.\footnote{允许因子 $\mathbf{F}$ 是相关的, 从而 $\mathrm{Cov}(\mathbf{F})$ 不是对角阵, 这给出斜交因子模型. 斜交模型带来某些额外的估计困难, 本书将不作讨论(可见文献[10]).}
+
+\begin{mvbox}
+\begin{center}
+\textbf{有 $m$ 个公共因子的正交因子模型}
+\end{center}
+\phantomsection\label{eq:9-4}
+\begin{equation}
+\begin{aligned}
+\underset{(p\times1)}{\mathbf{X}}&=\underset{(p\times1)}{\boldsymbol{\mu}}+\underset{(p\times m)}{\mathbf{L}}\underset{(m\times1)}{\mathbf{F}}+\underset{(p\times1)}{\boldsymbol{\varepsilon}}\\
+\mu_i&=\text{变量 } i \text{ 的均值}\\
+\varepsilon_i&=\text{第 } i \text{ 个特殊因子}\\
+F_j&=\text{第 } j \text{ 个公共因子}\\
+l_{ij}&=\text{第 } i \text{ 个变量在第 } j \text{ 个因子上的载荷}
+\end{aligned}
+\tag{9-4}
+\end{equation}
+不能观测的随机因子 $\mathbf{F}$ 和 $\boldsymbol{\varepsilon}$ 满足下列条件:
+\[
+\begin{aligned}
+&\mathbf{F}\ \text{和}\ \boldsymbol{\varepsilon}\ \text{独立}\\
+&E(\mathbf{F})=\mathbf{0},\ \mathrm{Cov}(\mathbf{F})=\mathbf{I}\\
+&E(\boldsymbol{\varepsilon})=\mathbf{0},\ \mathrm{Cov}(\boldsymbol{\varepsilon})=\boldsymbol{\Psi},\ \boldsymbol{\Psi}\ \text{是对角矩阵}
+\end{aligned}
+\]
+\end{mvbox}
+
+正交因子模型推出 $\mathbf{X}$ 的协方差结构. 从模型(9-4),
+\[
+\begin{aligned}
+(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})'&=(\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon})(\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon})'\\
+&=(\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon})((\mathbf{L}\mathbf{F})'+\boldsymbol{\varepsilon}')
+\end{aligned}
+\]

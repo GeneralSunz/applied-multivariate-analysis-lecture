@@ -1,0 +1,97 @@
+% ---- pg-317 （书页 305） ----
+
+\begin{mvframe}[显示板 7.2(续)]
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Parameter & Estimate & T for H0: Parameter $=0$ & Pr $>|T|$ & Std Error of Estimate\\
+\midrule
+INTERCEPT & $-1.000\ 000\ 000$ & $-1.12$ & $0.345\ 0$ & $0.894\ 427\ 19$\\
+Z1 & $1.000\ 000\ 000$ & $2.74$ & $0.071\ 4$ & $0.365\ 148\ 37$\\
+\bottomrule
+\end{tabular}
+
+\medskip
+\begin{tabular}{c}
+E = Error SS \& CP Matrix
+\end{tabular}
+
+\medskip
+\begin{tabular}{ccc}
+ & Y1 & Y2\\
+Y1 & 6 & $-2$\\
+Y2 & $-2$ & 4\\
+\end{tabular}
+
+\medskip
+\begin{tabular}{c}
+Manova Test Criteria and Exact F Statistics for\\
+the Hypothesis of no Overall Z1 Effect\\
+H = Type III SS\&CP Matrix for Z1 \quad E = Error SS\&CP Matrix\\
+S = 1 \quad M = 0 \quad N = 0
+\end{tabular}
+
+\medskip
+\begin{tabular}{lrrrrr}
+\toprule
+Statistic & Value & F & Num DF & Den DF & Pr $>$ F\\
+\midrule
+Wilks' Lambda & 0.062 500 00 & 15.000 0 & 2 & 2 & 0.062 5\\
+Pillai's Trace & 0.937 500 00 & 15.000 0 & 2 & 2 & 0.062 5\\
+Hotelling-Lawley Trace & 15.000 000 00 & 15.000 0 & 2 & 2 & 0.062 5\\
+Roy's Greatest Root & 15.000 000 00 & 15.000 0 & 2 & 2 & 0.062 5\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{mvframe}
+
+\mvthm{结论 7.9}{对模型(7-23)及满秩 $(\mathbf{Z})=r+1<n$, 最小二乘估计量
+$\hat{\boldsymbol{\beta}}=\left[\begin{array}{c:c:c:c}\hat{\boldsymbol{\beta}}_{(1)}&\hat{\boldsymbol{\beta}}_{(2)}&\cdots&\hat{\boldsymbol{\beta}}_{(m)}\end{array}\right]$
+满足}
+\[
+E(\hat{\boldsymbol{\beta}}_{(i)})=\boldsymbol{\beta}_{(i)},\qquad E(\hat{\boldsymbol{\beta}})=\boldsymbol{\beta}
+\]
+且
+\[
+\operatorname{Cov}(\hat{\boldsymbol{\beta}}_{(i)},\hat{\boldsymbol{\beta}}_{(k)})=\sigma_{ik}(\mathbf{Z}'\mathbf{Z})^{-1},\qquad i,k=1,2,\cdots,m
+\]
+残差
+$\hat{\boldsymbol{\epsilon}}=\left[\begin{array}{c:c:c:c}\hat{\boldsymbol{\epsilon}}_{(1)}&\hat{\boldsymbol{\epsilon}}_{(2)}&\cdots&\hat{\boldsymbol{\epsilon}}_{(m)}\end{array}\right]=\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}}$,
+满足 $E(\hat{\boldsymbol{\epsilon}}_{(i)})=\mathbf{0}$ 且 $E(\hat{\boldsymbol{\epsilon}}_{(i)}'\hat{\boldsymbol{\epsilon}}_{(k)})=(n-r-1)\sigma_{ik}$, 故
+\[
+E(\hat{\boldsymbol{\epsilon}})=\mathbf{0}\qquad E\left(\frac{1}{n-r-1}\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}\right)=\boldsymbol{\Sigma}
+\]
+此外, $\hat{\boldsymbol{\epsilon}}$ 和 $\hat{\boldsymbol{\beta}}$ 不相关.
+
+\medskip
+\noindent\textbf{证明}\quad 第 $i$ 个响应服从多重回归模型
+\[
+\mathbf{Y}_{(i)}=\mathbf{Z}\boldsymbol{\beta}_{(i)}+\boldsymbol{\epsilon}_{(i)},\quad
+E(\boldsymbol{\epsilon}_{(i)})=\mathbf{0},\quad
+E(\boldsymbol{\epsilon}_{(i)}\boldsymbol{\epsilon}_{(i)}')=\sigma_{ii}\mathbf{I}
+\]
+又, 如同\hyperref[eq:7-24]{式(7-24)}中那样有
+\phantomsection\label{eq:7-33}
+\begin{equation}
+\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)}
+=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}_{(i)}-\boldsymbol{\beta}_{(i)}
+=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\boldsymbol{\epsilon}_{(i)}
+\tag{7-33}
+\end{equation}
+及
+\[
+\hat{\boldsymbol{\epsilon}}_{(i)}=\mathbf{Y}_{(i)}-\hat{\mathbf{Y}}_{(i)}
+=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Y}_{(i)}
+=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\boldsymbol{\epsilon}_{(i)}
+\]
+故 $E(\hat{\boldsymbol{\beta}}_{(i)})=\boldsymbol{\beta}_{(i)}$ 且 $E(\hat{\boldsymbol{\epsilon}}_{(i)})=\mathbf{0}$. 接下来, 有
+\[
+\begin{aligned}
+\operatorname{Cov}(\hat{\boldsymbol{\beta}}_{(i)},\hat{\boldsymbol{\beta}}_{(k)})
+&=E(\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})(\hat{\boldsymbol{\beta}}_{(k)}-\boldsymbol{\beta}_{(k)})'\\
+&=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'E(\boldsymbol{\epsilon}_{(i)}\boldsymbol{\epsilon}_{(k)}')\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}
+=\sigma_{ik}(\mathbf{Z}'\mathbf{Z})^{-1}
+\end{aligned}
+\]
+用结论 4.9 及结论 7.2 的证明, 对任意随机向量 $\mathbf{U}$ 和常数阵 $\mathbf{A}$, 我们有
+$E[\mathbf{U}'\mathbf{A}\mathbf{U}]=$

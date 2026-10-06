@@ -1,0 +1,49 @@
+% ---- pg-488 （书页 476） ----
+
+\noindent\textbf{评注}\quad \hyperref[eq:11-49]{式(11-49)}为 $\mathbf{x}$ 的一个简单的线性函数. 对协方差矩阵相同的情形, 在\hyperref[eq:11-45]{式(11-45)}中略去常数项 $-\frac{1}{2}\ln|\boldsymbol{\Sigma}|$, 便可得出一个等价的分类函数. 将未知总体参数用样本的估计量代替, 就可用 $\mathbf{x}$ 到样本均值向量 $\bar{\mathbf{x}}_i$ 的平方距离
+\phantomsection\label{eq:11-53}
+\begin{equation}
+D_i^2(\mathbf{x})=(\mathbf{x}-\bar{\mathbf{x}}_i)'\mathbf{S}_{\mathrm{p}}^{-1}(\mathbf{x}-\bar{\mathbf{x}}_i)
+\tag{11-53}
+\end{equation}
+来解释上述结果. 于是分配法则为:
+\phantomsection\label{eq:11-54}
+\begin{equation}
+\text{若 }-\frac{1}{2}D_i^2(\mathbf{x})+\ln p_i\text{ 最大, 则将 }\mathbf{x}\text{ 分到总体 }\pi_i
+\tag{11-54}
+\end{equation}
+我们看到, 这个法则将 $\mathbf{x}$ 分到“最近”的总体(距离量度受到 $\ln p_i$ 的干扰).
+
+若先验概率未知, 通常的做法是令 $p_1=p_2=\cdots=p_g=1/g$. 这时观测值被分入最近的总体.
+
+\noindent\textbf{例 11.10}\quad (在假定有公共协方差阵的条件下计算样本判别得分)
+
+让我们在 $g=3$ 个总体, 有相同协方差矩阵的二元正态分布下来计算线性判别得分. 来自总体 $\pi_1$, $\pi_2$ 和 $\pi_3$ 的随机样本、均值向量和样本协方差阵为:
+\[
+\pi_1:\mathbf{X}_1=\begin{bmatrix}-2&5\\0&3\\-1&1\end{bmatrix},\quad n_1=3,\quad \bar{\mathbf{x}}_1=\begin{bmatrix}-1\\3\end{bmatrix},\quad \mathbf{S}_1=\begin{bmatrix}1&-1\\-1&4\end{bmatrix}
+\]
+\[
+\pi_2:\mathbf{X}_2=\begin{bmatrix}0&6\\2&4\\1&2\end{bmatrix},\quad n_2=3,\quad \bar{\mathbf{x}}_2=\begin{bmatrix}1\\4\end{bmatrix},\quad \mathbf{S}_2=\begin{bmatrix}1&-1\\-1&4\end{bmatrix}
+\]
+\[
+\pi_3:\mathbf{X}_3=\begin{bmatrix}1&-2\\0&0\\-1&4\end{bmatrix},\quad n_3=3,\quad \bar{\mathbf{x}}_3=\begin{bmatrix}0\\-2\end{bmatrix},\quad \mathbf{S}_3=\begin{bmatrix}1&1\\1&4\end{bmatrix}
+\]
+给定 $p_1=p_2=0.25$, $p_3=0.50$, 我们来根据\hyperref[eq:11-52]{式(11-52)}将 $\mathbf{x}_0'=[x_{01},x_{02}]=[-2,-1]$ 进行分类. 由\hyperref[eq:11-50]{式(11-50)},
+\[
+\begin{aligned}
+\mathbf{S}_{\mathrm{p}}&=\frac{3-1}{9-3}\begin{bmatrix}1&-1\\-1&4\end{bmatrix}+\frac{3-1}{9-3}\begin{bmatrix}1&-1\\-1&4\end{bmatrix}+\frac{3-1}{9-3}\begin{bmatrix}1&1\\1&4\end{bmatrix}\\
+&=\frac{2}{6}\begin{bmatrix}1+1+1&-1-1+1\\-1-1+1&4+4+4\end{bmatrix}=\begin{bmatrix}1&-\frac{1}{3}\\-\frac{1}{3}&4\end{bmatrix}
+\end{aligned}
+\]
+故
+\[
+\mathbf{S}_{\mathrm{p}}^{-1}=\frac{9}{35}\begin{bmatrix}4&\frac{1}{3}\\[2pt]\frac{1}{3}&1\end{bmatrix}=\frac{1}{35}\begin{bmatrix}36&3\\3&9\end{bmatrix}
+\]
+其次有
+\[
+\bar{\mathbf{x}}_1'\mathbf{S}_{\mathrm{p}}^{-1}=[-1\quad 3]\frac{1}{35}\begin{bmatrix}36&3\\3&9\end{bmatrix}=\frac{1}{35}[-27\quad 24]
+\]
+因而
+\[
+\bar{\mathbf{x}}_1'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_1=\frac{1}{35}[-27\quad 24]\begin{bmatrix}-1\\3\end{bmatrix}=\frac{99}{35}
+\]

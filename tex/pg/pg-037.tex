@@ -1,0 +1,45 @@
+% ---- pg-037 （书页 25） ----
+
+沿着 $x_2$ 坐标轴.长轴与短轴的半轴长分别为 $\sqrt{4} = 2$ 和 $\sqrt{1} = 1$.单位距离的椭圆在\hyperref[fig:1.22]{图 1.22} 中画出.椭圆上的所有点到原点有相等的统计距离.在此例中,距离为 1. \ $\blacksquare$
+
+\begin{mvfigure}
+\mvinc{pg-037}{0.589,0.118,0.890,0.235}
+\phantomsection\label{fig:1.22}\mvcap{图 1.22\quad 单位距离的椭圆}
+\vspace{2pt}
+$\dfrac{x_1^2}{4} + \dfrac{x_2^2}{1} = 1$
+\end{mvfigure}
+
+\hyperref[eq:1-13]{式(1-13)}可以加以引申来适应计算任意一点 $P = (x_1,x_2)$ 到任何固定点 $Q = (y_1,y_2)$ 的统计距离.如果我们假定一个变量坐标的变化独立于另一个,则 $P$ 到 $Q$ 的距离为
+
+\phantomsection\label{eq:1-15}
+\begin{equation}
+d(P,Q) = \sqrt{\frac{(x_1 - y_1)^2}{s_{11}} + \frac{(x_2 - y_2)^2}{s_{22}}} \tag{1-15}
+\end{equation}
+
+这一统计距离公式可直接推广到大于二维的空间中.令点 $P$ 和 $Q$ 含有 $p$ 个坐标,即 $P = (x_1,x_2,\cdots,x_p)$ 和 $Q = (y_1,y_2,\cdots,y_p)$.假设 $Q$ 是一固定点[它可以是原点 $O = (0,0,\cdots,0)$]且变量坐标的变化相互独立.令 $s_{11},s_{22},\cdots,s_{pp}$ 分别是由 $x_1,x_2,\cdots,x_p$ 的 $n$ 个测量值构造的样本方差,则从 $P$ 到 $Q$ 的统计距离是
+
+\phantomsection\label{eq:1-16}
+\begin{equation}
+d(P,Q) = \sqrt{\frac{(x_1 - y_1)^2}{s_{11}} + \frac{(x_2 - y_2)^2}{s_{22}} + \cdots + \frac{(x_p - y_p)^2}{s_{pp}}} \tag{1-16}
+\end{equation}
+
+所有到 $Q$ 的距离平方为某定值的点 $P$ 分布在一个超椭球面上,其中心为 $Q$,长轴及短轴平行于坐标轴.我们应注意下列几点:
+
+1. 要得到 $P$ 到原点 $O$ 的距离,需对\hyperref[eq:1-16]{式(1-16)}设 $y_1 = y_2 = \cdots = y_p = 0$.
+2. 如果 $s_{11} = s_{22} = \cdots = s_{pp}$,\hyperref[eq:1-12]{式(1-12)}中的欧几里德距离公式是适用的.
+
+\begin{mvfigure}
+\mvinc{pg-037}{0.141,0.466,0.458,0.673}
+\phantomsection\label{fig:1.23}\mvcap{图 1.23\quad 对正相关测量值和一个\\旋转坐标系的散布图}
+\end{mvfigure}
+
+由于假设坐标是独立的,\hyperref[eq:1-16]{式(1-16)}中的距离公式仍未包括我们将要遇到的许多重要情况.\hyperref[fig:1.23]{图 1.23} 的散布图描述了一个二维空间中 $x_1$ 的测量值的变化依赖于 $x_2$ 的情况.实际上,这一对变量 $(x_1,x_2)$ 的坐标显示出同大或同小的趋势,并且样本相关系数是正的.此外, $x_2$ 方向的可变性大于 $x_1$ 方向的可变性.
+
+当 $x_1$ 方向的可变性与 $x_2$ 方向的可变性不同并且变量 $x_1$ 与 $x_2$ 相关时,什么是有意义的距离的度量？实际上,只要我们用正确的方法观察事物,我们就可以利用已介绍过的方法.从\hyperref[fig:1.23]{图 1.23},我们发现如果在保持散布不变的基础上,将原始的坐标系旋转 $\theta$ 角并标出旋转过的坐标轴 $\tilde{x}_1$ 和 $\tilde{x}_2$,在新坐标轴下的散布图看起来非常像\hyperref[fig:1.20]{图 1.20} 中所画的.(你可以将书旋转,使 $\tilde{x}_1$ 和 $\tilde{x}_2$ 轴回到它们通常的位置.)假设我们用 $\tilde{x}_1$ 和 $\tilde{x}_2$ 坐标计算样本方差,用\hyperref[eq:1-13]{式(1-13)}度量距离,即,根据 $\tilde{x}_1$ 和 $\tilde{x}_2$,我们把点 $P = (\tilde{x}_1,\tilde{x}_2)$ 到原点 $O = (0,0)$ 的距离定义为
+
+\phantomsection\label{eq:1-17}
+\begin{equation}
+d(O,P) = \sqrt{\frac{\tilde{x}_1^2}{\tilde{s}_{11}} + \frac{\tilde{x}_2^2}{\tilde{s}_{22}}} \tag{1-17}
+\end{equation}
+
+其中 $\tilde{s}_{11}$ 和 $\tilde{s}_{22}$ 分别表示由 $\tilde{x}_1$ 和 $\tilde{x}_2$ 的测量值计算出的样本方差.

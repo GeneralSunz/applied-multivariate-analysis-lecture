@@ -1,0 +1,24 @@
+% =====================================================================
+%  实用多元统计分析（第6版）—— 电子讲义版
+%  与"书版"的区别仅在于版面：单面 / A4 / 版心居中 / 统一居中页眉页脚 /
+%  章首页居中 / 自动目录 / 彩色链接 / 行距放宽。正文内容与书版完全一致。
+% =====================================================================
+\documentclass[UTF8,zihao=5,fontset=windows,oneside,openany]{ctexbook}
+
+\input{preamble_lecture}
+
+\begin{document}
+
+% ---------------- 前置部分 ----------------
+\frontmatter
+\pagenumbering{Roman}
+\input{tex/part_frontmatter_lecture}
+
+% ---------------- 正文 ----------------
+\let\cleardoublepage\clearpage
+\mainmatter
+\pagenumbering{arabic}
+\mvnomalign
+\input{book_body}
+
+\end{document}

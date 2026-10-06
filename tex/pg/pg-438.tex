@@ -1,0 +1,68 @@
+% ---- pg-438 （书页 426） ----
+
+故
+\[
+\boldsymbol{\rho}_{U_1,Z^{(1)}}=\mathbf{A}_z\boldsymbol{\rho}_{11}=[0.86,0.28]\begin{bmatrix}1.0 & 0.4\\ 0.4 & 1.0\end{bmatrix}=[0.97,0.62]
+\]
+且
+\[
+\boldsymbol{\rho}_{V_1,Z^{(2)}}=\mathbf{B}_z\boldsymbol{\rho}_{22}=[0.54,0.74]\begin{bmatrix}1.0 & 0.2\\ 0.2 & 1.0\end{bmatrix}=[0.69,0.85]
+\]
+我们得出结论, 组 $\mathbf{Z}^{(1)}$ 中两个变量里的第一个与典型变量 $U_1$ 联系更紧密. 组 $\mathbf{Z}^{(2)}$ 中两个变量的第二个与 $V_1$ 联系更紧密. 此时, 相关系数加强了标准化系数 $\mathbf{A}_z$ 和 $\mathbf{B}_z$ 所提供的信息. 不过, 因为这些相关系数忽略了每组中余下变量的贡献, 所以, 该相关系数提高了 $Z_2^{(1)}$ 在第一组和 $Z_1^{(2)}$ 在第二组中的相对重要性.
+
+由\hyperref[eq:10-15]{式(10-15)}, 我们还可得到相关系数
+\[
+\boldsymbol{\rho}_{U_1,Z^{(2)}}=\mathbf{A}_z\boldsymbol{\rho}_{12}=[0.86,0.28]\begin{bmatrix}0.5 & 0.6\\ 0.3 & 0.4\end{bmatrix}=[0.51,0.63]
+\]
+和
+\[
+\boldsymbol{\rho}_{V_1,Z^{(1)}}=\mathbf{B}_z\boldsymbol{\rho}_{21}=\mathbf{B}_z\boldsymbol{\rho}_{12}'=[0.54,0.74]\begin{bmatrix}0.5 & 0.3\\ 0.6 & 0.4\end{bmatrix}=[0.71,0.46]
+\]
+在以后我们对样本典型变量的讨论中, 我们会对最后几种相关系数的解释进行评价.\hfill$\blacksquare$
+
+相关系数 $\boldsymbol{\rho}_{U,X^{(1)}}$ 和 $\boldsymbol{\rho}_{V,X^{(2)}}$ 可以帮助提供典型变量的含义. 这精神同作主成分分析时是一样的, 在那里主成分及其联系变量之间的相关系数可提供对成分的实际题材的解释.
+
+\mvsub{典型相关系数作为其他相关系数的推广}
+
+首先, 典型相关系数概括了两个变量间的相关系数. 当 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 都各只含一个变量时, 则 $p=q=1$,
+\[
+|\mathrm{Corr}(X_1^{(1)},X_1^{(2)})|=|\mathrm{Corr}(aX_1^{(1)},bX_1^{(2)})|,\ \text{对一切}\ a,b\ne 0
+\]
+因此, “典型变量”$U_1=X_1^{(1)}$ 和 $V_1=X_1^{(2)}$ 有相关系数 $\rho_1^*=|\mathrm{Corr}(X_1^{(1)},X_1^{(2)})|$. 当 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 有更多分量时, 令 $\mathbf{a}'=[0,\cdots,0,1,0,\cdots,0]$, 其中第 $i$ 个元为 1, 令 $\mathbf{b}'=[0,\cdots,0,1,0,\cdots,0]$, 其第 $k$ 个元为 1, 则得到
+\phantomsection\label{eq:10-16}
+\begin{equation}
+\begin{aligned}
+|\mathrm{Corr}(X_i^{(1)},X_k^{(2)})|&=|\mathrm{Corr}(\mathbf{a}'\mathbf{X}^{(1)},\mathbf{b}'\mathbf{X}^{(2)})|\\
+&\le\max_{a,b}\mathrm{Corr}(\mathbf{a}'\mathbf{X}^{(1)},\mathbf{b}'\mathbf{X}^{(2)})=\rho_1^*
+\end{aligned}
+\tag{10-16}
+\end{equation}
+也就是, 第一典型相关系数比 $\boldsymbol{\rho}_{12}=\mathbf{V}_{11}^{-1/2}\boldsymbol{\Sigma}_{12}\mathbf{V}_{22}^{-1/2}$ 中任一项的绝对值都大.
+
+其次, 多重相关系数 $\rho_{1(X^{(2)})}$[见\hyperref[eq:7-48]{式(7-48)}]是当 $\mathbf{X}^{(1)}$ 只有一个元素 $X_1^{(1)}$ ($p=1$)时的一个特殊典型相关系数. 回忆
+\phantomsection\label{eq:10-17}
+\begin{equation}
+\rho_{1(X^{(2)})}=\max_b\mathrm{Corr}(X_1^{(1)},\mathbf{b}'\mathbf{X}^{(2)})=\rho_1^*,\qquad p=1
+\tag{10-17}
+\end{equation}
+当 $p>1$ 时, $\rho_1^*$ 比 $X_i^{(1)}$ 与 $\mathbf{X}^{(2)}$ 的多重相关系数之中的每一个都大, 或比 $X_i^{(2)}$ 与 $\mathbf{X}^{(1)}$ 的多重相关系数中的每一个都大.
+
+最后, 我们指出, 从结论 10.1 的证明知
+\phantomsection\label{eq:10-18}
+\begin{equation}
+\rho_{U_k(X^{(2)})}=\max_b\mathrm{Corr}(U_k,\mathbf{b}'\mathbf{X}^{(2)})=\mathrm{Corr}(U_k,V_k)=\rho_k^*
+\tag{10-18}
+\end{equation}
+\[
+k=1,2,\cdots,p
+\]
+类似的
+\phantomsection\label{eq:10-19}
+\begin{equation}
+\rho_{V_k(X^{(1)})}=\max_a\mathrm{Corr}(\mathbf{a}'\mathbf{X}^{(1)},V_k)=\mathrm{Corr}(U_k,V_k)=\rho_k^*
+\tag{10-19}
+\end{equation}
+\[
+k=1,2,\cdots,p
+\]
+上式说明, 典型相关系数亦是 $U_k$ 与 $\mathbf{X}^{(2)}$ 多重相关系数或是 $V_k$ 与 $\mathbf{X}^{(1)}$ 的多重相关系数.

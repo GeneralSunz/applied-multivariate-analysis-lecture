@@ -1,0 +1,86 @@
+% ---- pg-261 （书页 249） ----
+如果其公共轮廓是水平的, 即 $\mu_{11}=\mu_{12}=\cdots=\mu_{1p}$, 那么第 3 步的零假设可改写为
+\[
+H_{03}: \mathbf{C}\boldsymbol{\mu}=\mathbf{0}
+\]
+其中的 $\mathbf{C}$ 由\hyperref[eq:6-72]{式(6-72)}给出, 于是我们有如下检验:
+
+\begin{mvframe}
+\mvbold{两个总体轮廓重合时的水平轮廓检验}
+
+对两个正态总体, 若
+\phantomsection\label{eq:6-75}
+\begin{equation}
+(n_1+n_2)\bar{\mathbf{x}}'\mathbf{C}'[\mathbf{C}\mathbf{S}\mathbf{C}']^{-1}\mathbf{C}\bar{\mathbf{x}}>c^2 \tag{6-75}
+\end{equation}
+则在显著性水平 $\alpha$ 下拒绝假设
+\[
+H_{03}: \mathbf{C}\boldsymbol{\mu}=\mathbf{0}\ (\text{轮廓水平})
+\]
+其中, $\mathbf{S}$ 为基于所有 $n_1+n_2$ 个观测值的样本协方差阵, 且
+\[
+c^2=\frac{(n_1+n_2-1)(p-1)}{(n_1+n_2-p+1)}F_{p-1,n_1+n_2-p+1}(\alpha)
+\]
+\end{mvframe}
+
+\medskip
+\noindent\textbf{例 6.14}\quad （爱情与婚姻数据的轮廓分析）
+
+作为有关爱情与婚姻问题的一个较大研究项目的一部分, 社会学家哈特菲尔德调查了一些已婚成年人在他们婚姻方面的“贡献”与“结果”, 以及他们爱情的“热度”与“可结伴性”. 他请最近结婚的男性和女性回答下列问题, 并按下图所示的 8 级分制打分:
+
+1. 要是全面地考虑, 你如何描述自己对婚姻的“贡献”程度?
+
+2. 要是全面地考虑, 你如何描述自己婚姻的“结果”?
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=0.98]
+\draw (0,0)--(7,0);
+\foreach \x in {0,...,7} \draw (\x,0.12)--(\x,-0.12);
+\foreach \x/\n in {0/1,1/2,2/3,3/4,4/5,5/6,6/7,7/8} \node[below,font=\small] at (\x,-0.22) {\n};
+\node[above,align=center,font=\small] at (0,0.18) {极端\\否定};
+\node[above,align=center,font=\small] at (1,0.18) {很否定};
+\node[above,align=center,font=\small] at (2,0.18) {中等程\\度否定};
+\node[above,align=center,font=\small] at (3,0.18) {轻微\\否定};
+\node[above,align=center,font=\small] at (4,0.18) {轻微\\肯定};
+\node[above,align=center,font=\small] at (5,0.18) {中等程\\度肯定};
+\node[above,align=center,font=\small] at (6,0.18) {很肯定};
+\node[above,align=center,font=\small] at (7,0.18) {极端\\肯定};
+\end{tikzpicture}
+\end{mvfigure}
+
+同时请调查对象按下列 5 级分制回答如下问题:
+
+3. 你感觉你伴侣的爱情“热度”如何?
+
+4. 你感觉你伴侣的爱情“可结伴”程度如何?
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=0.98]
+\draw (0,0)--(4,0);
+\foreach \x in {0,...,4} \draw (\x,0.12)--(\x,-0.12);
+\foreach \x/\n in {0/1,1/2,2/3,3/4,4/5} \node[below,font=\small] at (\x,-0.22) {\n};
+\node[above,font=\small] at (0,0.18) {没有};
+\node[above,font=\small] at (1,0.18) {很小};
+\node[above,font=\small] at (2,0.18) {有些};
+\node[above,font=\small] at (3,0.18) {很大};
+\node[above,font=\small] at (4,0.18) {非常大};
+\end{tikzpicture}
+\end{mvfigure}
+
+设
+\[
+\begin{aligned}
+x_1&=\text{对问题 1 的 8 级分制应答}\\
+x_2&=\text{对问题 2 的 8 级分制应答}\\
+x_3&=\text{对问题 3 的 5 级分制应答}\\
+x_4&=\text{对问题 4 的 5 级分制应答}
+\end{aligned}
+\]
+
+两个总体的定义如下:
+
+\noindent 总体 1 $=$ 已婚男性
+
+\noindent 总体 2 $=$ 已婚女性
+
+总体均值分别为已婚男性及女性对上述 $p=4$ 个问题回答的平均分, 假设这两个总体具有公共的协方差阵 $\boldsymbol{\Sigma}$, 我们感兴趣的是男性总体与女性总体的轮廓是否一致?

@@ -1,0 +1,55 @@
+% ---- pg-466 （书页 454） ----
+
+\[
+\frac{f_1(\mathbf{x}_0)}{f_2(\mathbf{x}_0)}=0.75>\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)=0.5
+\]
+我们发现 $\mathbf{x}_0\in R_1$, 因此将其分入 $\pi_1$.\hfill$\blacksquare$
+
+用不同于期望错分代价的准则也能导出“最优”分类方法. 例如, 可以不考虑错分代价, 通过选择 $R_1$ 和 $R_2$ 使总错分概率(TPM)
+\phantomsection\label{eq:11-8}
+\begin{equation}
+\begin{aligned}
+\mathrm{TPM}&=P(\text{错分 }\pi_1\text{ 的观测值或错分 }\pi_2\text{ 的观测值})\\
+&=P(\text{观测值来自 }\pi_1\text{, 但被错分入 }\pi_2)\\
+&\quad +P(\text{观测值来自 }\pi_2\text{, 但被错分入 }\pi_1)\\
+&=p_1\int_{R_2}f_1(\mathbf{x})\,\mathrm{d}\mathbf{x}+p_2\int_{R_1}f_2(\mathbf{x})\,\mathrm{d}\mathbf{x}
+\end{aligned}
+\tag{11-8}
+\end{equation}
+达到极小. 数学上, 这个问题等价于在错分代价相同的情况下使期望错分代价最小化. 因此, 这种情况下的最优区域由\hyperref[eq:11-7]{式(11-7)}中的(b)给出.
+
+我们也可以按最大“后验”概率 $P(\pi_i\mid\mathbf{x}_0)$ 将新观测值 $\mathbf{x}_0$ 分配给总体. 根据贝叶斯法则, 后验概率为:
+\phantomsection\label{eq:11-9}
+\begin{equation}
+\begin{aligned}
+P(\pi_1\mid\mathbf{x}_0)&=\frac{P(\pi_1\text{ 发生和我们观察到 }\mathbf{x}_0)}{P(\text{我们观察到 }\mathbf{x}_0)}\\
+&=\frac{P(\text{我们观察到 }\mathbf{x}_0\mid\pi_1)P(\pi_1)}{P(\text{我们观察到 }\mathbf{x}_0\mid\pi_1)P(\pi_1)+P(\text{我们观察到 }\mathbf{x}_0\mid\pi_2)P(\pi_2)}\\
+&=\frac{p_1f_1(\mathbf{x}_0)}{p_1f_1(\mathbf{x}_0)+p_2f_2(\mathbf{x}_0)}\\
+P(\pi_2\mid\mathbf{x}_0)&=1-P(\pi_1\mid\mathbf{x}_0)=\frac{p_2f_2(\mathbf{x}_0)}{p_1f_1(\mathbf{x}_0)+p_2f_2(\mathbf{x}_0)}
+\end{aligned}
+\tag{11-9}
+\end{equation}
+当 $P(\pi_1\mid\mathbf{x}_0)>P(\pi_2\mid\mathbf{x}_0)$ 时将观测值 $\mathbf{x}_0$ 分入 $\pi_1$, 这相当于采用\hyperref[eq:11-7]{式(11-7)}中的总错分概率的法则(b), 因为\hyperref[eq:11-9]{式(11-9)}中两式的分母相同. 但是, 在观测到 $\mathbf{x}_0$ 后再计算总体 $\pi_1$ 和 $\pi_2$ 的概率(因此名为后验概率), 这对识别不很明确的分配来说常常很有用.\hfill$\blacksquare$
+
+\section{两个多元正态总体的分类}  % 原书 11.3
+\phantomsection\label{sec:11.3}
+
+在统计实践中, 基于正态总体的分类方法居主导地位. 这是因为对范围广阔的总体模型来说, 这些分类方法简单而高效. 现在我们假定 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$ 为多元正态密度, 分别具有均值向量 $\boldsymbol{\mu}_1$, 协方差矩阵 $\boldsymbol{\Sigma}_1$ 和均值向量 $\boldsymbol{\mu}_2$, 协方差矩阵 $\boldsymbol{\Sigma}_2$.
+
+两个协方差矩阵相等的特殊情况导致特别简单的线性分类统计量.
+
+\mvsub{当 \texorpdfstring{$\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2=\boldsymbol{\Sigma}$}{Sigma1=Sigma2=Sigma} 时正态总体的分类}
+
+假定 $\mathbf{X}'=[X_1,X_2,\cdots,X_p]$ 对总体 $\pi_1$ 和 $\pi_2$ 的联合密度为
+\phantomsection\label{eq:11-10}
+\begin{equation}
+f_i(\mathbf{x})=\frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}\exp\left[-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_i)\right]\qquad \text{对 } i=1,2
+\tag{11-10}
+\end{equation}
+再假定总体参数 $\boldsymbol{\mu}_1$, $\boldsymbol{\mu}_2$ 和 $\boldsymbol{\Sigma}$ 皆已知. 此时在消去公因子 $(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}$ 后, \hyperref[eq:11-6]{式(11-6)}中的最小 ECM 区域变成:
+\[
+\begin{aligned}
+R_1:\ \exp&\left[-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_1)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_1)+\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_2)\right]\\
+&\geqslant\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)
+\end{aligned}
+\]

@@ -1,0 +1,55 @@
+% ---- pg-393 （书页 381） ----
+
+\begin{mvbox}
+共性方差估计值为
+\phantomsection\label{eq:9-17}
+\begin{equation}
+\tilde{h}_i^2=\tilde{l}_{i1}^2+\tilde{l}_{i2}^2+\cdots+\tilde{l}_{im}^2
+\tag{9-17}
+\end{equation}
+样本相关矩阵的主成分因子分析, 可用 $\mathbf{R}$ 取代 $\mathbf{S}$ 来得到.
+\end{mvbox}
+
+对主成分分解, 当因子数增加时, 一个已知因子的估计载荷并不变. 例如, $m=1$ 时 $\tilde{\mathbf{L}}=\left[\sqrt{\hat{\lambda}_1}\hat{\mathbf{e}}_1\right]$, $m=2$ 时 $\tilde{\mathbf{L}}=\left[\begin{array}{c:c}\sqrt{\hat{\lambda}_1}\hat{\mathbf{e}}_1&\sqrt{\hat{\lambda}_2}\hat{\mathbf{e}}_2\end{array}\right]$, 其中 $(\hat{\lambda}_1,\hat{\mathbf{e}}_1)$ 和 $(\hat{\lambda}_2,\hat{\mathbf{e}}_2)$ 是 $\mathbf{S}$(或 $\mathbf{R}$)的前两个特征值-特征向量对.
+
+由 $\tilde{\psi}_i$ 的定义, $\mathbf{S}$ 的对角元等于 $\tilde{\mathbf{L}}\tilde{\mathbf{L}}'+\tilde{\boldsymbol{\Psi}}$ 的对角元. 然而, $\mathbf{S}$ 的非对角元却通常不是由 $\tilde{\mathbf{L}}\tilde{\mathbf{L}}'+\tilde{\boldsymbol{\Psi}}$ 复制得到. 那么我们该怎样选择因子数 $m$?
+
+如果公共因子的数量不由预先的某种考虑来决定, 比如某理论或其他研究成果. 那么 $m$ 的选择就可基于估计的特征值, 以与选择主成分大致相同的方式进行. 考虑残差矩阵
+\phantomsection\label{eq:9-18}
+\begin{equation}
+\mathbf{S}-(\tilde{\mathbf{L}}\tilde{\mathbf{L}}'+\tilde{\boldsymbol{\Psi}})
+\tag{9-18}
+\end{equation}
+它是用主成分分解逼近 $\mathbf{S}$ 得到的. 对角元为 0, 并且若其他元也小时, 我们可以主观认为取 $m$ 个因子的模型是恰当的. 从分析角度看, 我们有(见练习 9.5)
+\phantomsection\label{eq:9-19}
+\begin{equation}
+\mathbf{S}-(\tilde{\mathbf{L}}\tilde{\mathbf{L}}'+\tilde{\boldsymbol{\Psi}})\ \text{的元素的平方和}\leqslant\hat{\lambda}_{m+1}^2+\cdots+\hat{\lambda}_p^2
+\tag{9-19}
+\end{equation}
+因而, 被略去的特征值的平方和较小时, 表明近似误差的平方和的值也较小.
+
+可以想象, 前几个因子对变量的样本方差的贡献应该大. 来自第一个公共因子的对样本方差 $s_{ii}$ 的贡献是 $\tilde{l}_{i1}^2$. 对样本总方差 $s_{11}+s_{22}+\cdots+s_{pp}=\mathrm{tr}(\mathbf{S})$ 的贡献则因特征向量 $\hat{\mathbf{e}}_1$ 有单位长度而为
+\[
+\tilde{l}_{11}^2+\tilde{l}_{21}^2+\cdots+\tilde{l}_{p1}^2=(\sqrt{\hat{\lambda}_1}\hat{\mathbf{e}}_1)'(\sqrt{\hat{\lambda}_1}\hat{\mathbf{e}}_1)=\hat{\lambda}_1
+\]
+一般的
+\phantomsection\label{eq:9-20}
+\begin{equation}
+\left\{\begin{array}{c}
+\text{样本总方差}\\
+\text{归因于第 } i \text{ 个}\\
+\text{因子的比例}
+\end{array}\right\}
+=\begin{cases}
+\dfrac{\hat{\lambda}_i}{s_{11}+s_{22}+\cdots+s_{pp}} & \text{对 } \mathbf{S} \text{ 的因子分析}\\[12pt]
+\dfrac{\hat{\lambda}_i}{p} & \text{对 } \mathbf{R} \text{ 的因子分析}
+\end{cases}
+\tag{9-20}
+\end{equation}
+在决定恰当的公共因子个数时, \hyperref[eq:9-20]{式(9-20)}中的标准经常可作一种有启发性的手段. 保留在模型中的公共因子个数一直增加, 直到已经被解释的样本总方差占有一个“适当的比例”为止.
+
+在其他的计算机程序包中经常遇到的另一个公认的标准是, 若对样本相关矩阵 $\mathbf{R}$ 作因子化, 则令 $m$ 等于 $\mathbf{R}$ 中大于 1 的特征值的个数, 或在样本协方差矩阵 $\mathbf{S}$ 作因子化时, 令 $m$ 等于 $\mathbf{S}$ 的正特征值的个数. 对这些经验规则不应不加区分地运用. 例如, 当遵照上述对 $\mathbf{S}$ 的规则时, 则由于大样本时 $\mathbf{S}$ 的所有特征值都是正的, 所以取 $m=p$. 最好的方法是保留少数几个而不是许多因子, 只要它们能对数据给出满意的阐述并对 $\mathbf{S}$ 或 $\mathbf{R}$ 得出满意的拟合.
+
+\noindent\textbf{例 9.3}\quad (顾客偏好数据的因子分析)
+
+在一项顾客偏好的调查中, 询问顾客对一件新产品几种品质的评分. 将顾客的回答列表并构造品质相关矩阵. 该相关矩阵表示如下:

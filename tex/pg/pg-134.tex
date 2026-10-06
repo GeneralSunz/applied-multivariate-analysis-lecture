@@ -1,0 +1,47 @@
+\[
+\mathbf{X}=\begin{bmatrix}X_2\\X_4\\X_1\\X_3\\X_5\end{bmatrix},\qquad
+\boldsymbol{\mu}=\begin{bmatrix}\mu_2\\\mu_4\\\mu_1\\\mu_3\\\mu_5\end{bmatrix},\qquad
+\boldsymbol{\Sigma}=\begin{bmatrix}\sigma_{22}&\sigma_{24}&\sigma_{12}&\sigma_{23}&\sigma_{25}\\\sigma_{24}&\sigma_{44}&\sigma_{14}&\sigma_{34}&\sigma_{45}\\\sigma_{12}&\sigma_{14}&\sigma_{11}&\sigma_{13}&\sigma_{15}\\\sigma_{23}&\sigma_{34}&\sigma_{13}&\sigma_{33}&\sigma_{35}\\\sigma_{25}&\sigma_{45}&\sigma_{15}&\sigma_{35}&\sigma_{55}\end{bmatrix}
+\]
+或
+\[
+\mathbf{X}=\begin{bmatrix}\underset{(2\times1)}{\mathbf{X}_1}\\[2ex]\underset{(3\times1)}{\mathbf{X}_2}\end{bmatrix},\qquad
+\boldsymbol{\mu}=\begin{bmatrix}\underset{(2\times1)}{\boldsymbol{\mu}_1}\\[2ex]\underset{(3\times1)}{\boldsymbol{\mu}_2}\end{bmatrix},\qquad
+\boldsymbol{\Sigma}=\begin{bmatrix}\underset{(2\times2)}{\boldsymbol{\Sigma}_{11}}&\underset{(2\times3)}{\boldsymbol{\Sigma}_{12}}\\[2ex]\underset{(3\times2)}{\boldsymbol{\Sigma}_{21}}&\underset{(3\times3)}{\boldsymbol{\Sigma}_{22}}\end{bmatrix}
+\]
+于是,从结论 4.4,对于
+\[
+\mathbf{X}_1=\begin{bmatrix}X_2\\X_4\end{bmatrix}
+\]
+我们有分布
+\[
+N_2(\boldsymbol{\mu}_1,\boldsymbol{\Sigma}_{11})=N_2\left(\begin{bmatrix}\mu_2\\\mu_4\end{bmatrix},\begin{bmatrix}\sigma_{22}&\sigma_{24}\\\sigma_{24}&\sigma_{44}\end{bmatrix}\right)
+\]
+从本例可清楚看出,对于任何子集正态分布可以通过仅仅从原来的 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 选择适当的均值和协方差来表示. 形式上的重新标号和划分的过程是多余的.\hfill$\blacksquare$
+
+现在我们能够指出,正态随机变量之间或正态随机变量的集合之间的零相关与统计独立是等价的.
+
+\mvthm{结论 4.5}{(a) 若 $\underset{(q_1\times1)}{\mathbf{X}_1}$ 和 $\underset{(q_2\times1)}{\mathbf{X}_2}$ 独立,则 $\operatorname{Cov}(\mathbf{X}_1,\mathbf{X}_2)=\mathbf{0}$,即一个 $q_1\times q_2$ 的零矩阵.
+
+(b) 若 $\begin{bmatrix}\mathbf{X}_1\\\mathbf{X}_2\end{bmatrix}$ 为 $N_{q_1+q_2}\left(\begin{bmatrix}\boldsymbol{\mu}_1\\\boldsymbol{\mu}_2\end{bmatrix},\begin{bmatrix}\boldsymbol{\Sigma}_{11}&\boldsymbol{\Sigma}_{12}\\\boldsymbol{\Sigma}_{21}&\boldsymbol{\Sigma}_{22}\end{bmatrix}\right)$,则当且仅当 $\boldsymbol{\Sigma}_{12}=\mathbf{0}$ 时,$\mathbf{X}_1$ 和 $\mathbf{X}_2$ 独立.
+
+(c) 若 $\mathbf{X}_1$ 和 $\mathbf{X}_2$ 独立且分别服从 $N_{q_1}(\boldsymbol{\mu}_1,\boldsymbol{\Sigma}_{11})$ 分布和 $N_{q_2}(\boldsymbol{\mu}_2,\boldsymbol{\Sigma}_{22})$ 分布,则 $\begin{bmatrix}\mathbf{X}_1\\\mathbf{X}_2\end{bmatrix}$ 为多元正态分布
+\[
+N_{q_1+q_2}\left(\begin{bmatrix}\boldsymbol{\mu}_1\\\boldsymbol{\mu}_2\end{bmatrix},\begin{bmatrix}\boldsymbol{\Sigma}_{11}&\mathbf{0}\\\mathbf{0}'&\boldsymbol{\Sigma}_{22}\end{bmatrix}\right)
+\]}
+
+\noindent\textbf{证明}\quad (当 $\boldsymbol{\Sigma}_{12}=\mathbf{0}$ 时,部分证明根据密度函数的因式分解,参见练习 4.14.)\hfill$\blacksquare$
+
+\noindent\textbf{例 4.6}\quad (对于正态变量,零协方差与独立性等价)
+
+设 $\underset{(3\times1)}{\mathbf{X}}$ 为 $N_3(\boldsymbol{\mu},\boldsymbol{\Sigma})$,其中
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}4&1&0\\1&3&0\\0&0&2\end{bmatrix}
+\]
+$X_1$ 和 $X_3$ 是否独立? $(X_1,X_2)$ 和 $X_3$ 是否独立?
+
+因为 $X_1$ 和 $X_2$ 的协方差 $\sigma_{12}=1$,它们不是独立的. 然而,$\mathbf{X}$ 和 $\boldsymbol{\Sigma}$ 划分为
+\[
+\mathbf{X}=\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix},\qquad
+\boldsymbol{\Sigma}=\begin{bmatrix}4&1&0\\1&3&0\\0&0&2\end{bmatrix}=\begin{bmatrix}\underset{(2\times2)}{\boldsymbol{\Sigma}_{11}}&\underset{(2\times1)}{\boldsymbol{\Sigma}_{12}}\\\underset{(1\times2)}{\boldsymbol{\Sigma}_{21}}&\underset{(1\times1)}{\boldsymbol{\Sigma}_{22}}\end{bmatrix}
+\]

@@ -1,0 +1,63 @@
+\[
+\begin{bmatrix}\mathbf{I}&-\mathbf{A}_{11}^{-1}\mathbf{A}_{12}\\[4pt]\mathbf{0}'&\mathbf{I}\end{bmatrix}
+=\begin{bmatrix}\mathbf{A}_{11}&\mathbf{0}\\[4pt]\mathbf{0}'&\mathbf{A}_{22}-\mathbf{A}_{21}\mathbf{A}_{11}^{-1}\mathbf{A}_{12}\end{bmatrix}
+\]
+
+4.12\quad 若 $\mathbf{A}$ 为对称矩阵, 证明
+\[
+\mathbf{A}^{-1}=\begin{bmatrix}\mathbf{I}&\mathbf{0}\\[4pt]-\mathbf{A}_{22}^{-1}\mathbf{A}_{21}&\mathbf{I}\end{bmatrix}
+\begin{bmatrix}(\mathbf{A}_{11}-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\mathbf{A}_{21})^{-1}&\mathbf{0}\\[4pt]\mathbf{0}'&\mathbf{A}_{22}^{-1}\end{bmatrix}
+\begin{bmatrix}\mathbf{I}&-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\\[4pt]\mathbf{0}'&\mathbf{I}\end{bmatrix}
+\]
+因此, $(\mathbf{A}_{11}-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\mathbf{A}_{21})^{-1}$ 是 $\mathbf{A}^{-1}$ 的左上角的块.
+
+提示: 用 $\begin{bmatrix}\mathbf{I}&-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\\[2pt]\mathbf{0}'&\mathbf{I}\end{bmatrix}^{-1}$ 左乘练习 4.11 提示中的表达式, 并用 $\begin{bmatrix}\mathbf{I}&\mathbf{0}\\[2pt]-\mathbf{A}_{22}^{-1}\mathbf{A}_{21}&\mathbf{I}\end{bmatrix}^{-1}$ 右乘该式, 最后对所得结果取逆.
+
+4.13\quad 若 $|\boldsymbol{\Sigma}|\ne 0$,
+
+(a) 检验 $|\boldsymbol{\Sigma}|=|\boldsymbol{\Sigma}_{22}|\,|\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}|$ (注意, $|\boldsymbol{\Sigma}|$ 可以表示成来自边缘分布和条件分布两部分的乘积).
+
+(b) 检验
+\begin{align*}
+(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
+&=\Bigl[\mathbf{x}_{1}-\boldsymbol{\mu}_{1}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})\Bigr]'\\
+&\quad\times(\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21})^{-1}\Bigl[\mathbf{x}_{1}-\boldsymbol{\mu}_{1}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})\Bigr]\\
+&\quad+(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})'\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})
+\end{align*}
+(于是, 联合密度指数可以写成对应于来自边缘分布和条件分布的两项贡献之和.)
+
+(c) 给定 (a) 和 (b) 的结果, 指出 $\mathbf{X}_{2}$ 的边缘分布和 $\mathbf{X}_{1}|\mathbf{X}_{2}=\mathbf{x}_{2}$ 下的条件分布.
+
+提示:
+
+(a) 应用练习 4.11.
+
+(b) 注意到练习 4.12, 我们可以将 $(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})$ 写做
+\[
+\begin{bmatrix}\mathbf{x}_{1}-\boldsymbol{\mu}_{1}\\[4pt]\mathbf{x}_{2}-\boldsymbol{\mu}_{2}\end{bmatrix}'
+\begin{bmatrix}\mathbf{I}&\mathbf{0}\\[4pt]-\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}&\mathbf{I}\end{bmatrix}
+\begin{bmatrix}(\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21})^{-1}&\mathbf{0}\\[4pt]\mathbf{0}'&\boldsymbol{\Sigma}_{22}^{-1}\end{bmatrix}
+\times\begin{bmatrix}\mathbf{I}&-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\\[4pt]\mathbf{0}'&\mathbf{I}\end{bmatrix}
+\begin{bmatrix}\mathbf{x}_{1}-\boldsymbol{\mu}_{1}\\[4pt]\mathbf{x}_{2}-\boldsymbol{\mu}_{2}\end{bmatrix}
+\]
+如果我们组合乘积, 使得
+\[
+\begin{bmatrix}\mathbf{I}&-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\\[4pt]\mathbf{0}'&\mathbf{I}\end{bmatrix}
+\begin{bmatrix}\mathbf{x}_{1}-\boldsymbol{\mu}_{1}\\[4pt]\mathbf{x}_{2}-\boldsymbol{\mu}_{2}\end{bmatrix}
+=\begin{bmatrix}\mathbf{x}_{1}-\boldsymbol{\mu}_{1}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})\\[4pt]\mathbf{x}_{2}-\boldsymbol{\mu}_{2}\end{bmatrix}
+\]
+便得所需结果.
+
+4.14\quad 若 $\mathbf{X}$ 的分布为 $N_{p}(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 且 $|\boldsymbol{\Sigma}|\ne 0$, 试证明若 $\boldsymbol{\Sigma}_{12}=\mathbf{0}_{(q\times(p-q))}$, 则联合密度可写成 $\mathbf{X}_{1\,(q\times 1)}$ 和 $\mathbf{X}_{2\,((p-q)\times 1)}$ 的两个边缘密度的乘积.
+
+提示: 用分块乘法证明 $\begin{bmatrix}\boldsymbol{\Sigma}_{11}^{-1}&\mathbf{0}\\[2pt]\mathbf{0}'&\boldsymbol{\Sigma}_{22}^{-1}\end{bmatrix}$ 为 $\boldsymbol{\Sigma}=\begin{bmatrix}\boldsymbol{\Sigma}_{11}&\mathbf{0}\\[2pt]\mathbf{0}'&\boldsymbol{\Sigma}_{22}\end{bmatrix}$ 的逆. 然后写出
+\begin{align*}
+(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
+&=\bigl[(\mathbf{x}_{1}-\boldsymbol{\mu}_{1})',(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})'\bigr]
+\begin{bmatrix}\boldsymbol{\Sigma}_{11}^{-1}&\mathbf{0}\\[4pt]\mathbf{0}'&\boldsymbol{\Sigma}_{22}^{-1}\end{bmatrix}
+\begin{bmatrix}\mathbf{x}_{1}-\boldsymbol{\mu}_{1}\\[4pt]\mathbf{x}_{2}-\boldsymbol{\mu}_{2}\end{bmatrix}\\
+&=(\mathbf{x}_{1}-\boldsymbol{\mu}_{1})'\boldsymbol{\Sigma}_{11}^{-1}(\mathbf{x}_{1}-\boldsymbol{\mu}_{1})+(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})'\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_{2}-\boldsymbol{\mu}_{2})
+\end{align*}
+由练习 4.10(a) 注意到 $|\boldsymbol{\Sigma}|=|\boldsymbol{\Sigma}_{11}|\,|\boldsymbol{\Sigma}_{22}|$, 便可分解为联合密度.
+
+4.15\quad 证明 $\sum\limits_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\bar{\mathbf{x}}-\boldsymbol{\mu})'$ 和 $\sum\limits_{j=1}^{n}(\bar{\mathbf{x}}-\boldsymbol{\mu})(\mathbf{x}_{j}-\bar{\mathbf{x}})'$ 二者皆为 $p\times p$ 的零矩阵, 此处

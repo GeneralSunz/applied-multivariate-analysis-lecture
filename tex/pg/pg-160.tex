@@ -1,0 +1,44 @@
+% ---- pg-160 （书页 148） ----
+
+\begin{mvframe}[向正态性接近的有用变换]
+\begin{tabular}{llr}
+原来的标度 & 变换后的标度 & \\
+1. 计数, $y$ & $\sqrt{y}$ & \\
+2. 比例, $\hat{p}$ & $\mathrm{logit}(\hat{p}) = \dfrac{1}{2}\log\left(\dfrac{\hat{p}}{1-\hat{p}}\right)$ & (4-33)\\
+3. 相关系数, $r$ & 费希尔 $z(r) = \dfrac{1}{2}\log\left(\dfrac{1+r}{1-r}\right)$ & \\
+\end{tabular}
+\end{mvframe}
+
+在许多情况中, 选择何种变换来改进对正态性的近似, 不是很明显. 对于这种情况, 令数据假设一个变换是方便的. 为此目的一个有效的变换类是幂变换.
+
+幂变换只对正变量定义. 然而, 这并不像看起来的那样有局限性, 因为如果某些值是负的, 可以把数据集中的每个观测值加上一个常数.
+
+设 $x$ 表示一个任意的观测值. 幂变换是用参数 $\lambda$ 来标记. 对于 $\lambda$ 来说, 一个给定值意味着一个具体的变换. 例如, 对 $x$ 采用 $\lambda = -1$, 由于 $x^{-1} = 1/x$, $\lambda$ 的这个选择相当于倒数变换. 我们可以按照 $x$ 的幂 $\lambda$ 的范围从负到正来描绘变换的类. 对于 $\lambda = 0$, 我们定义 $x^0 = \ln x$. 可能变换的系列为
+\[
+\underbrace{\cdots, x^{-1} = \frac{1}{x}, x^0 = \ln x, x^{1/4} = \sqrt[4]{x}, x^{1/2} = \sqrt{x}}_{x\text{ 的大值缩小}}, \qquad \underbrace{x^2, x^3, \cdots}_{x\text{ 的大值增加}}
+\]
+
+为了选择一个幂变换, 研究者察看边缘点图或直方图, 并判断是否有大值要“向里拉”或“向外推”以改进关于均值的对称性. 用上述的几个变换反复计算, 以达到改进的目的. 最后的选择总是应当通过 Q-Q 图或其他方法进行检查, 以弄清尝试性的正态假定是否令人满意.
+
+我们已讨论过的变换是基于数据进行的, 即只有数据形态本身影响对适当变换方法的选择. 我们没有考虑外部因素, 虽然实际使用何种变换方法, 要由数据和数据之外的因素(例如解释的简单性或容易性)所反映的综合信息来确定.
+
+有一种方便的分析方法可用于选择幂变换. 我们首先把注意力集中在一元情况.
+
+博克斯(Box)和考克斯(Cox)考虑有稍微修改的幂类变换(参见文献[3])
+\phantomsection\label{eq:4-34}
+\begin{equation}
+x^{(\lambda)} = \begin{cases} \dfrac{x^\lambda - 1}{\lambda} & \lambda \neq 0 \\[2ex] \ln x & \lambda = 0 \end{cases} \tag{4-34}
+\end{equation}
+它在 $x>0$ 时对 $\lambda$ 是连续的(参见文献[8]). 给定观测值 $x_1, x_2, \cdots, x_n$, 选择适当的幂 $\lambda$ 的博克斯-考克斯解就是使式
+\phantomsection\label{eq:4-35}
+\begin{equation}
+l(\lambda) = -\frac{n}{2}\ln\left[\frac{1}{n}\sum_{j=1}^{n}\left(x_j^{(\lambda)} - \overline{x^{(\lambda)}}\right)^2\right] + (\lambda - 1)\sum_{j=1}^{n}\ln x_j \tag{4-35}
+\end{equation}
+最大化的解.
+
+注意到 $x_j^{(\lambda)}$ 是由\hyperref[eq:4-34]{式(4-34)}定义, 且
+\phantomsection\label{eq:4-36}
+\begin{equation}
+\overline{x^{(\lambda)}} = \frac{1}{n}\sum_{j=1}^{n} x_j^{(\lambda)} = \frac{1}{n}\sum_{j=1}^{n}\left(\frac{x_j^\lambda - 1}{\lambda}\right) \tag{4-36}
+\end{equation}
+是变换后的观测值的算术平均值. \hyperref[eq:4-35]{式(4-35)}中的第一项, 在对总体均值和方差参数求最大值后, 除一个常数外, 是一个正态似然函数的对数.

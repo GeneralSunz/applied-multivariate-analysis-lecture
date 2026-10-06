@@ -1,0 +1,54 @@
+% ---- pg-398 （书页 386） ----
+
+\phantomsection\label{eq:9-32}
+\begin{equation}
+\left[\begin{array}{c}
+\text{归因于第 } j \text{ 个因子}\\
+\text{的(标准化)样本}\\
+\text{总方差所占的比例}
+\end{array}\right]
+=\frac{\hat{l}_{1j}^2+\hat{l}_{2j}^2+\cdots+\hat{l}_{pj}^2}{p}
+\tag{9-32}
+\end{equation}
+来评价因子的重要性. 为避免更繁复的记号, 就用先前使用的 $\hat{l}_{ij}$ 记 $\hat{\mathbf{L}}_Z$ 的元.
+
+\mvbold{评注}\quad 通常, 是将观测值标准化, 并且对样本相关矩阵 $\mathbf{R}$ 作因子分析. 将此样本相关矩阵 $\mathbf{R}$ 插入似然函数(9-25)中的 $[(n-1)/n]\mathbf{S}$, 并利用计算机得到 $\hat{\mathbf{L}}_Z$ 和 $\hat{\boldsymbol{\Psi}}_Z$ 的极大似然估计. 虽然似然函数(9-25)是对 $\mathbf{S}$ 适用不是对 $\mathbf{R}$, 出人意料的是, 这一做法与令 $\hat{\mathbf{L}}_Z=\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}_Z=\hat{\mathbf{V}}^{-1/2}\hat{\boldsymbol{\Psi}}\hat{\mathbf{V}}^{-1/2}$, 基于样本协方差矩阵 $\mathbf{S}$ 得到似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 是一样的. 这里 $\hat{\mathbf{V}}^{-1/2}$ 是一对角阵, 在主对角元上是样本标准差(以 $\sqrt{n}$ 为除数算得)的逆元.
+
+换一个办法, 已知从 $\mathbf{R}$ 得到的载荷估计 $\hat{\mathbf{L}}_Z$ 和特殊方差估计 $\hat{\boldsymbol{\Psi}}_Z$, 我们发现对协方差矩阵 $[(n-1)/n]\mathbf{S}$ 的一个因子分析, 作极大似然估计的结果是 $\hat{\mathbf{L}}=\hat{\mathbf{V}}^{1/2}\hat{\mathbf{L}}_Z$ 和 $\hat{\boldsymbol{\Psi}}=\hat{\mathbf{V}}^{1/2}\hat{\boldsymbol{\Psi}}_Z\hat{\mathbf{V}}^{1/2}$, 或是
+\[
+\hat{l}_{ij}=\hat{l}_{Z,ij}\sqrt{\hat{\sigma}_{ii}}\qquad\text{和}\qquad
+\hat{\psi}_i=\hat{\psi}_{Z,i}\hat{\sigma}_{ii}
+\]
+其中 $\hat{\sigma}_{ii}$ 是用除数 $n$ 算出的样本方差. 两个除数间的不同对于主成分分解来说可忽略不计. \hfill$\blacksquare$
+
+因子化 $\mathbf{S}$ 和因子化 $\mathbf{R}$ 之间的等价性, 显而易见在许多已出版的因子分析的讨论中已经被弄混了(见补充 9A).
+
+\noindent\textbf{例 9.5}\quad (利用极大似然法对股票价格数据的因子分析)
+
+假设 $m=2$ 的因子模型和利用极大似然法, 对例 8.5 和 9.4 中的股票价格数据再做因子分析. 估计的因子载荷、共性方差、特殊方差以及由各因子解释的(标准化)样本总方差所占的比例都列在\hyperref[tab:9.3]{表 9.3} 中. 由主成分法得到的 $m=2$ 因子解的相应数值(见例 9.4), 也已给出. 对应于 $\mathbf{R}$ 的极大似然因子化的共性方差形式为[见\hyperref[eq:9-31]{式(9-31)}] $\hat{h}_i^2=\hat{l}_{i1}^2+\hat{l}_{i2}^2$.
+
+所以, 例如对 $i=1$,
+\[
+\hat{h}_1^2=0.115^2+0.765^2=0.58
+\]
+
+\begin{mvtable}
+\phantomsection\label{tab:9.3}\mvtabcap{表 9.3}
+\begin{tabular}{lcccccc}
+\toprule
+\multirow{3}{*}{变量} & \multicolumn{3}{c}{极大似然估计} & \multicolumn{3}{c}{主\quad 成\quad 分}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+& \multicolumn{2}{c}{因子载荷估计} & \multirow{2}{*}{\makecell{特殊方差\\$\tilde{\psi}_i=1-\tilde{h}_i^2$}} & \multicolumn{2}{c}{因子载荷估计} & \multirow{2}{*}{\makecell{特殊方差\\$\hat{\psi}_i=1-\hat{h}_i^2$}}\\
+\cmidrule(lr){2-3}\cmidrule(lr){5-6}
+& $F_1$ & $F_2$ & & $F_1$ & $F_2$ & \\
+\midrule
+1. J. P. Morgan & 0.115 & 0.755 & 0.42 & 0.732 & $-0.437$ & 0.27\\
+2. Citibank & 0.322 & 0.788 & 0.27 & 0.831 & $-0.280$ & 0.23\\
+3. Wells Fargo & 0.182 & 0.652 & 0.54 & 0.726 & $-0.374$ & 0.33\\
+4. Royal Dutch Shell & 1.000 & $-0.000$ & 0.00 & 0.605 & 0.694 & 0.15\\
+5. ExxonMobil & 0.683 & $-0.032$ & 0.53 & 0.563 & 0.719 & 0.17\\
+\midrule
+\makecell[l]{所解释的(标准化)\\样本总方差的\\累积比例} & 0.323 & 0.647 & & 0.487 & 0.769 & \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

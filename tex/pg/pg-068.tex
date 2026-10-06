@@ -1,0 +1,55 @@
+% ---- pg-068 （书页 56） ----
+
+则易证(参见练习 2.23)
+
+\phantomsection\label{eq:2-36}
+\begin{equation}
+\bm{V}^{1/2}\bm{\rho}\bm{V}^{1/2}=\bm{\Sigma} \tag{2-36}
+\end{equation}
+
+与
+
+\phantomsection\label{eq:2-37}
+\begin{equation}
+\bm{\rho}=(\bm{V}^{1/2})^{-1}\bm{\Sigma}(\bm{V}^{1/2})^{-1} \tag{2-37}
+\end{equation}
+
+即 $\bm{\Sigma}$ 可由 $\bm{V}^{1/2}$ 和 $\bm{\rho}$ 得到,反之 $\bm{\rho}$ 可由 $\bm{\Sigma}$ 得到. 而且,用矩阵来表达这些关系式,就可以方便地在计算机上进行计算.
+
+\mvbold{例 2.14} （从协方差矩阵计算相关矩阵）
+
+设
+
+\[
+\bm{\Sigma}=\begin{bmatrix}4 & 1 & 2\\1 & 9 & -3\\2 & -3 & 25\end{bmatrix}=\begin{bmatrix}\sigma_{11} & \sigma_{12} & \sigma_{13}\\\sigma_{12} & \sigma_{22} & \sigma_{23}\\\sigma_{13} & \sigma_{23} & \sigma_{33}\end{bmatrix}
+\]
+
+求 $\bm{V}^{1/2}$ 和 $\bm{\rho}$.
+
+这里
+
+\[
+\bm{V}^{1/2}=\begin{bmatrix}\sqrt{\sigma_{11}} & 0 & 0\\0 & \sqrt{\sigma_{22}} & 0\\0 & 0 & \sqrt{\sigma_{33}}\end{bmatrix}=\begin{bmatrix}2 & 0 & 0\\0 & 3 & 0\\0 & 0 & 5\end{bmatrix}
+\]
+
+和
+
+\[
+(\bm{V}^{1/2})^{-1}=\begin{bmatrix}\dfrac{1}{2} & 0 & 0\\[2ex]0 & \dfrac{1}{3} & 0\\[2ex]0 & 0 & \dfrac{1}{5}\end{bmatrix}
+\]
+
+因此,从\hyperref[eq:2-37]{式(2-37)},相关阵 $\bm{\rho}$ 由下式给出
+
+\[
+(\bm{V}^{1/2})^{-1}\bm{\Sigma}(\bm{V}^{1/2})^{-1}=\begin{bmatrix}\dfrac{1}{2} & 0 & 0\\[2ex]0 & \dfrac{1}{3} & 0\\[2ex]0 & 0 & \dfrac{1}{5}\end{bmatrix}\begin{bmatrix}4 & 1 & 2\\1 & 9 & -3\\2 & -3 & 25\end{bmatrix}\begin{bmatrix}\dfrac{1}{2} & 0 & 0\\[2ex]0 & \dfrac{1}{3} & 0\\[2ex]0 & 0 & \dfrac{1}{5}\end{bmatrix}
+\]
+
+\[
+=\begin{bmatrix}1 & \dfrac{1}{6} & \dfrac{1}{5}\\[2ex]\dfrac{1}{6} & 1 & -\dfrac{1}{5}\\[2ex]\dfrac{1}{5} & -\dfrac{1}{5} & 1\end{bmatrix}
+\]
+
+\mvsub{分块协方差矩阵}
+
+通常,在单个试验中测得的特征会自然地分成两个或更多的类.例如,考虑表示消耗和收人的变量的测量结果或代表人的性格和身体特征的变量的测量结果.处理这些情况的一种方法就是,规定区分不同类别的特性是全体特性集合的子集.如果全体集合用 $p\times 1$ 维随机向量 $\bm{X}$ 表示,子集可以看做是 $\bm{X}$ 的分量并可用划分 $\bm{X}$ 的方法来分类.
+
+一般的说,可把含有 $p$ 个特征的 $p\times 1$ 维随机向量 $\bm{X}$ 划分成大小分别为 $q$ 和 $p-q$ 的两类.例如,可以写成

@@ -1,0 +1,39 @@
+% ---- pg-165 （书页 153） ----
+
+对于处于 $0 \leq \lambda_1 \leq 0.50$ 和 $0 \leq \lambda_2 \leq 0.50$ 范围内的 $\lambda_1, \lambda_2$, 我们计算 $l(\lambda_1, \lambda_2)$, 并作如\hyperref[fig:4.15]{图 4.15} 所示的轮廓线图. 我们看到最大值出现在 $(\hat{\lambda}_1, \hat{\lambda}_2) = (0.16, 0.16)$ 附近.
+
+\begin{mvfigure}
+\mvinc{pg-165}{0.292,0.172,0.714,0.406}
+\phantomsection\label{fig:4.15}\mvcap{图 4.15\quad 关于辐射量数据 $l(\lambda_1, \lambda_2)$ 的轮廓线图}
+\end{mvfigure}
+
+对这个二元情形“最好的”幂变换与考虑每个边缘分布所得到的幂变换没有显著差别. \hfill$\blacksquare$
+
+正如我们在例 4.17 中所看到的, 使得每个边缘分布近似正态大致地等价于直接地处理二元分布并使得它近似正态. 通常对边缘分布比对联合分布更容易选择适当的变换.
+
+如果数据中包含一些大的负值且具有单一的长尾, 应该应用更一般的变换(参见 Yeo 和 Johnson[14]).
+\[
+x^{(\lambda)} = \begin{cases} \{(x+1)^\lambda - 1\}/\lambda & x \geq 0, \lambda \neq 0 \\ \ln(x+1) & x \geq 0, \lambda = 0 \\ -\{(-x+1)^{2-\lambda} - 1\}/(2-\lambda) & x < 0, \lambda \neq 2 \\ -\ln(-x+1) & x < 0, \lambda = 2 \end{cases}
+\]
+
+\mvsub{练习}
+
+\noindent 4.1\quad 设一个二元正态分布有 $\mu_1 = 1, \mu_2 = 3, \sigma_{11} = 2, \sigma_{22} = 1$ 和 $\rho_{12} = -0.8$.
+
+\noindent (a) 写出二元正态密度.
+
+\noindent (b) 把平方统计距离的表达式 $(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})$ 写成 $x_1$ 和 $x_2$ 的二次函数.
+
+\noindent 4.2\quad 设一个二元正态总体有 $\mu_1 = 0, \mu_2 = 2, \sigma_{11} = 2, \sigma_{22} = 1$ 和 $\rho_{12} = 0.5$.
+
+\noindent (a) 写出二元正态密度.
+
+\noindent (b) 把广义平方距离的表达式 $(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})$ 写成 $x_1$ 和 $x_2$ 的函数.
+
+\noindent (c) 确定含 $50\%$ 概率的常密度轮廓线(并画出草图).
+
+\noindent 4.3\quad 设 $\mathbf{X}$ 服从 $\boldsymbol{\mu}' = [-3, 1, 4]$ 和
+\[
+\boldsymbol{\Sigma} = \begin{bmatrix} 1 & -2 & 0 \\ -2 & 5 & 0 \\ 0 & 0 & 2 \end{bmatrix}
+\]
+的 $N_3(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, 下列各对随机变量中哪几对相互独立? 请解释.

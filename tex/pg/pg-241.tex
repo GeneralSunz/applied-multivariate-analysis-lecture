@@ -1,0 +1,55 @@
+\begin{mvtable}
+\mvtabcap{比较一元总体均值的 ANOVA 表}
+\begin{tabular}{ccc}
+\toprule
+变差来源 & 平方和（SS） & 自由度（d.f.）\\
+\midrule
+处理 & $\mathrm{SS}_{\text{处理}}=\sum\limits_{l=1}^g n_l(\bar{x}_l-\bar{x})^2$ & $g-1$\\
+残差（误差） & $\mathrm{SS}_{\text{残差}}=\sum\limits_{l=1}^g\sum\limits_{j=1}^{n_l}(x_{lj}-\bar{x}_l)^2$ & $\sum\limits_{l=1}^g n_l-g$\\
+\midrule
+总和 & $\mathrm{SS}_{\text{总}}=\sum\limits_{l=1}^g\sum\limits_{j=1}^{n_l}(x_{lj}-\bar{x})^2$ & $\sum\limits_{l=1}^g n_l-1$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+若 $F=\dfrac{\mathrm{SS}_{\text{处理}}/(g-1)}{\mathrm{SS}_{\text{残差}}\big/\left(\sum\limits_{l=1}^g n_l-g\right)}>F_{g-1,\sum n_l-g}(\alpha)$，则在显著性水平 $\alpha$ 下拒绝 $H_0: \tau_1=\tau_2=\cdots=\tau_g=0$. 此处 $F_{g-1,\sum n_l-g}(\alpha)$ 为自由度为 $g-1$ 和 $\sum\limits_{l=1}^g n_l-g$ 的 $F$ 分布的 $100\alpha$ 百分位数. 这相当于在 $\mathrm{SS}_{\text{处理}}/\mathrm{SS}_{\text{残差}}$ 值很大或 $1+\mathrm{SS}_{\text{处理}}/\mathrm{SS}_{\text{残差}}$ 值很大时拒绝 $H_0$. 适合向多元情形推广的检验统计量为
+\phantomsection\label{eq:6-37}
+\begin{equation}
+\frac{1}{1+\mathrm{SS}_{\text{处理}}/\mathrm{SS}_{\text{残差}}}=\frac{\mathrm{SS}_{\text{残差}}}{\mathrm{SS}_{\text{残差}}+\mathrm{SS}_{\text{处理}}} \tag{6-37}
+\end{equation}
+当此值很小时，就拒绝 $H_0$.
+
+\noindent\textbf{例 6.8}\quad （一元 ANOVA 表及处理效应的 $F$ 检验）
+
+利用例 6.7 的信息，可得出如下 ANOVA 表：
+
+\begin{mvtable}
+\begin{tabular}{ccc}
+\toprule
+变差来源 & 平方和 & 自由度\\
+\midrule
+处理 & $\mathrm{SS}_{\text{处理}}=78$ & $g-1=3-1=2$\\
+残差 & $\mathrm{SS}_{\text{残差}}=10$ & $\sum\limits_{l=1}^g n_l-g=(3+2+3)-3=5$\\
+\midrule
+总和 & $\mathrm{SS}_{\text{总}}=88$ & $\sum\limits_{l=1}^g n_l-1=7$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+于是
+\[
+F=\frac{\mathrm{SS}_{\text{处理}}/(g-1)}{\mathrm{SS}_{\text{残差}}\big/\left(\sum n_l-g\right)}=\frac{78/2}{10/5}=19.5
+\]
+由于 $F=19.5>F_{2,5}(0.01)=13.27$，所以在 0.01 显著性水平下，我们拒绝 $H_0: \tau_1=\tau_2=\tau_3=0$（即无处理效应）. \hfill$\blacksquare$
+
+\mvsub{多元方差分析（MANOVA）}
+
+与一元情形的重新参数化类似，我们先建立 MANOVA 模型如下：
+
+\begin{mvframe}[比较 $g$ 个总体均值向量的 MANOVA 模型]
+\phantomsection\label{eq:6-38}
+\begin{equation}
+\mathbf{X}_{lj}=\boldsymbol{\mu}+\boldsymbol{\tau}_l+\mathbf{e}_{lj},\quad j=1,2,\cdots,n_l,\ l=1,2,\cdots,g \tag{6-38}
+\end{equation}
+此处 $\mathbf{e}_{lj}$ 为独立的 $N_p(\mathbf{0},\boldsymbol{\Sigma})$ 随机变量，参数向量 $\boldsymbol{\mu}$ 为总均值（水平），而 $\boldsymbol{\tau}_l$ 则代表第 $l$ 个处理效应，且满足 $\sum\limits_{l=1}^g n_l\boldsymbol{\tau}_l=\mathbf{0}$.
+\end{mvframe}

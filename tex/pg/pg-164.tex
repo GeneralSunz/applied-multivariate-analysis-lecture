@@ -1,0 +1,85 @@
+% ---- pg-164 （书页 152） ----
+
+\begin{mvtable}
+\phantomsection\label{tab:4.5}\mvtabcap{表 4.5\quad 辐射量数据(炉门打开)}
+\begin{tabular}{cc@{\hspace{2.2em}}cc@{\hspace{2.2em}}cc}
+\toprule
+炉号 & 辐射量 & 炉号 & 辐射量 & 炉号 & 辐射量 \\
+\midrule
+1 & 0.30 & 15 & 0.12 & 29 & 0.09 \\
+2 & 0.09 & 16 & 0.20 & 30 & 0.28 \\
+3 & 0.30 & 17 & 0.04 & 31 & 0.10 \\
+4 & 0.10 & 18 & 0.10 & 32 & 0.10 \\
+5 & 0.10 & 19 & 0.01 & 33 & 0.10 \\
+6 & 0.12 & 20 & 0.60 & 34 & 0.30 \\
+7 & 0.09 & 21 & 0.12 & 35 & 0.12 \\
+8 & 0.10 & 22 & 0.10 & 36 & 0.25 \\
+9 & 0.09 & 23 & 0.05 & 37 & 0.20 \\
+10 & 0.10 & 24 & 0.05 & 38 & 0.40 \\
+11 & 0.07 & 25 & 0.15 & 39 & 0.33 \\
+12 & 0.05 & 26 & 0.30 & 40 & 0.32 \\
+13 & 0.01 & 27 & 0.15 & 41 & 0.12 \\
+14 & 0.45 & 28 & 0.09 & 42 & 0.12 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+{\zihao{6}资料来源: 数据经 J. D. Cryer 许可使用.}
+
+依照例 4.16 中提出的方法, 对这些数据通过使\hyperref[eq:4-35]{式(4-35)}中的 $l(\lambda)$ 最大化来选择幂变换. 近似的使 $l(\lambda)$ 最大化的值是 $\hat{\lambda} = 0.30$. \hyperref[fig:4.14]{图 4.14} 给出炉门打开时的辐射性量数据在未变换的和已变换情况下的 Q-Q 图(这些数据, 如例 4.16 中那样, 实际上是通过取四次方根变换而来的). 从图形清楚地看到, 变换后的数据更接近正态, 虽然正态近似效果没有炉门关闭时的数据好.
+
+\begin{mvfigure}
+\begin{tikzpicture}[>=Latex]
+  \begin{scope}[x=0.80cm, y=5.6cm]
+    \draw[->] (-2.3,0) -- (3.4,0);
+    \draw[->] (0,0) -- (0,0.70);
+    \foreach \x/\l in {-2/-2.0,-1/-1.0,0/0.0,1/1.0,2/2.0,3/3.0}{%
+      \draw (\x,0) -- ++(0,-1.5mm);
+      \node[below=1.2mm,font=\scriptsize] at (\x,0) {\l};}
+    \foreach \y/\l in {0/0.0,0.15/0.15,0.30/0.30,0.45/0.45,0.60/0.60}{%
+      \draw (0,\y) -- ++(-1.5mm,0);
+      \node[left=1mm,font=\scriptsize] at (0,\y) {\l};}
+    \foreach \x/\y in {-1.35/0.05,-0.85/0.07,-0.55/0.09,-0.25/0.09,0.05/0.11,0.35/0.12,0.55/0.13,0.65/0.15,0.75/0.24,0.85/0.25,0.95/0.28,1.15/0.31,1.35/0.32,1.55/0.34,1.75/0.38,2.00/0.42,2.35/0.57}{%
+      \fill (\x,\y) circle (1.2pt);}
+    \node[font=\scriptsize] at (-1.58,0.035){2};
+    \node[font=\scriptsize] at (-0.85,0.038){3};
+    \node[font=\scriptsize] at (-0.52,0.055){5};
+    \node[font=\scriptsize] at (-0.20,0.055){9};
+    \node[font=\scriptsize] at (0.15,0.058){6};
+    \node[font=\scriptsize] at (0.46,0.058){2};
+    \node[font=\scriptsize] at (0.63,0.185){2};
+    \node[font=\scriptsize] at (1.10,0.268){4};
+    \node[below=1.2mm,font=\scriptsize] at (3.15,0){$q_{(j)}$};
+    \node[font=\scriptsize,rotate=90] at (-0.28,0.32){$x_{(j)}$};
+    \node[font=\scriptsize] at (0.5,-0.115){(a)};
+  \end{scope}
+  \begin{scope}[xshift=6.1cm, yshift=4.25cm, x=0.80cm, y=1.35cm]
+    \draw[->] (-2.3,-3.15) -- (3.4,-3.15);
+    \draw[->] (0,-3.15) -- (0,0.18);
+    \foreach \x/\l in {-2/-2.0,-1/-1.0,0/0.0,1/1.0,2/2.0,3/3.0}{%
+      \draw (\x,-3.15) -- ++(0,-1.5mm);
+      \node[below=1.2mm,font=\scriptsize] at (\x,-3.15) {\l};}
+    \foreach \y/\l in {0/0.00,-0.6/-0.60,-1.2/-1.20,-1.8/-1.80,-2.4/-2.40,-3.0/-3.00}{%
+      \draw (0,\y) -- ++(-1.5mm,0);
+      \node[left=1mm,font=\scriptsize] at (0,\y) {\l};}
+    \draw[thick] (-2.05,-2.68) -- (2.62,-0.42);
+    \foreach \x/\y in {-2.00/-2.62,-1.30/-2.18,-0.90/-1.95,-0.40/-1.90,0.20/-1.85,0.55/-1.75,0.85/-1.20,0.90/-1.05,1.10/-1.00,1.35/-0.80,1.60/-0.72,1.85/-0.65,2.50/-0.45}{%
+      \fill (\x,\y) circle (1.2pt);}
+    \node[font=\scriptsize] at (-1.88,-2.82){2};
+    \node[font=\scriptsize] at (-1.16,-2.28){3};
+    \node[font=\scriptsize] at (-0.58,-1.98){5};
+    \node[font=\scriptsize] at (-0.16,-1.98){9};
+    \node[font=\scriptsize] at (0.40,-1.95){6};
+    \node[font=\scriptsize] at (0.72,-1.88){2};
+    \node[font=\scriptsize] at (1.06,-1.10){4};
+    \node[below=1.2mm,font=\scriptsize] at (3.15,-3.15){$q_{(j)}$};
+    \node[font=\scriptsize,rotate=90] at (-0.28,-1.55){$x_{(j)}^{(1/4)}$};
+    \node[font=\scriptsize] at (0.5,-3.55){(b)};
+  \end{scope}
+\end{tikzpicture}
+\phantomsection\label{fig:4.14}\mvcap{图 4.14\quad (a) 未变换的和 (b) 变换后的辐射量数据(炉门打开)的 Q-Q 图}
+\mvcap{（图中整数表示处于同一位置的点的数目）}
+\end{mvfigure}
+
+让我们用 $x_{11}, x_{21}, \cdots, x_{n1}$ 表示炉门关闭时的数据, 用 $x_{12}, x_{22}, \cdots, x_{n2}$ 表示炉门打开时的数据. 对每个集合, 通过使\hyperref[eq:4-35]{式(4-35)}最大化来选择幂变换, 等价于在 $k = 1, 2$ 时使\hyperref[eq:4-38]{式(4-38)} $l_k(\lambda)$ 达到最大. 因此, 利用来自例 4.16 的结果和上述的结果, 我们有 $\hat{\lambda}_1 = 0.30$ 和 $\hat{\lambda}_2 = 0.30$. 这些幂是对于 $x_1$ 和 $x_2$ 的边缘分布而确定的.
+
+我们可以考虑 $x_1$ 和 $x_2$ 的联合分布并同时确定幂对 $(\lambda_1, \lambda_2)$, 使得这个联合分布近似二元正态. 我们必须使\hyperref[eq:4-40]{式(4-40)}中的 $l(\lambda_1, \lambda_2)$ 关于 $\lambda_1$ 和 $\lambda_2$ 两者达到最大.

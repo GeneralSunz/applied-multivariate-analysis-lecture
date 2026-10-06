@@ -1,0 +1,70 @@
+% ---- pg-397 （书页 385） ----
+
+\subsection{极大似然方法}
+
+如果可以假设公共因子 $\mathbf{F}$ 和特殊因子 $\boldsymbol{\varepsilon}$ 是正态分布的, 则可以得到因子载荷和特殊方差的极大似然估计. 当 $\mathbf{F}_j$ 和 $\boldsymbol{\varepsilon}_j$ 是联合正态时, 观测值 $\mathbf{X}_j-\boldsymbol{\mu}=\mathbf{L}\mathbf{F}_j+\boldsymbol{\varepsilon}_j$ 就是正态的, 并且由\hyperref[eq:4-16]{式(4-16)}, 似然函数是
+\phantomsection\label{eq:9-25}
+\begin{equation}
+\begin{aligned}
+L(\boldsymbol{\mu},\boldsymbol{\Sigma})&=(2\pi)^{-\frac{np}{2}}|\boldsymbol{\Sigma}|^{-\frac{n}{2}}e^{-(\frac{1}{2})\mathrm{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum\limits_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\right)\right]}\\
+&=(2\pi)^{-\frac{(n-1)p}{2}}|\boldsymbol{\Sigma}|^{-\frac{(n-1)}{2}}e^{-(\frac{1}{2})\mathrm{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum\limits_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right)\right]}\\
+&\quad\times(2\pi)^{-\frac{p}{2}}|\boldsymbol{\Sigma}|^{-\frac{1}{2}}e^{-(\frac{n}{2})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})}
+\end{aligned}
+\tag{9-25}
+\end{equation}
+它通过 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ 依赖于 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$. 因为正交变换而使 $\mathbf{L}$ 的多重选择成为可能, 仍然不能很好地确定这个模型. 施加可方便计算的唯一性条件
+\phantomsection\label{eq:9-26}
+\begin{equation}
+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L}=\boldsymbol{\Delta}\ \text{为一个对角阵}
+\tag{9-26}
+\end{equation}
+使 $\mathbf{L}$ 得以很好地确定, 是可取的.
+
+将\hyperref[eq:9-25]{式(9-25)}数值最大化, 会得到极大似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$. 幸运的是, 现在已有有效的计算机程序, 能让人们相当容易地得到这些估计.
+
+\noindent\textbf{结论 9.1}\quad 令 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 是 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 的随机样本, 其中 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ 是对 $m$ 个公共因子模型(9-4)的协方差矩阵. 极大似然估计量 $\hat{\mathbf{L}},\hat{\boldsymbol{\Psi}}$ 和 $\hat{\boldsymbol{\mu}}=\bar{\mathbf{x}}$ 使\hyperref[eq:9-25]{式(9-25)}在 $\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}}$ 是对角阵的约束下取得最大化.
+
+共性方差的极大似然估计是
+\phantomsection\label{eq:9-27}
+\begin{equation}
+\hat{h}_i^2=\hat{l}_{i1}^2+\hat{l}_{i2}^2+\cdots+\hat{l}_{im}^2,\qquad i=1,2,\cdots,p
+\tag{9-27}
+\end{equation}
+故
+\phantomsection\label{eq:9-28}
+\begin{equation}
+\left[\begin{array}{c}
+\text{归因于第 } j \text{ 个因子}\\
+\text{的样本总方差}\\
+\text{所占的比例}
+\end{array}\right]
+=\frac{\hat{l}_{1j}^2+\hat{l}_{2j}^2+\cdots+\hat{l}_{pj}^2}{s_{11}+s_{22}+\cdots+s_{pp}}
+\tag{9-28}
+\end{equation}
+
+\noindent\textbf{证明}\quad 由于极大似然估计的不变性(见 4.3 节), $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 的函数, 用与 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 的相同的函数去估计. 特别的, 共性方差 $h_i^2=l_{i1}^2+l_{i2}^2+\cdots+l_{im}^2$ 有极大似然估计 $\hat{h}_i^2=\hat{l}_{i1}^2+\hat{l}_{i2}^2+\cdots+\hat{l}_{im}^2$. \hfill$\blacksquare$
+
+如果像在\hyperref[eq:8-10]{式(8-10)}中那样将变量标准化, 使得 $\mathbf{Z}=\mathbf{V}^{-1/2}(\mathbf{X}-\boldsymbol{\mu})$, 那么 $\mathbf{Z}$ 的协方差矩阵可表示为
+\phantomsection\label{eq:9-29}
+\begin{equation}
+\boldsymbol{\rho}=\mathbf{V}^{-1/2}\boldsymbol{\Sigma}\mathbf{V}^{-1/2}=(\mathbf{V}^{-1/2}\mathbf{L})(\mathbf{V}^{-1/2}\mathbf{L})'+\mathbf{V}^{-1/2}\boldsymbol{\Psi}\mathbf{V}^{-1/2}
+\tag{9-29}
+\end{equation}
+这样, $\boldsymbol{\rho}$ 有与\hyperref[eq:9-5]{式(9-5)}类似的因子化, 具有载荷矩阵 $\mathbf{L}_Z=\mathbf{V}^{-1/2}\mathbf{L}$ 及特殊方差矩阵 $\boldsymbol{\Psi}_Z=\mathbf{V}^{-1/2}\boldsymbol{\Psi}\mathbf{V}^{-1/2}$. 由于极大似然估计的不变性, $\boldsymbol{\rho}$ 的极大似然估计量是
+\phantomsection\label{eq:9-30}
+\begin{equation}
+\begin{aligned}
+\hat{\boldsymbol{\rho}}&=(\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}})(\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}})'+\hat{\mathbf{V}}^{-1/2}\hat{\boldsymbol{\Psi}}\hat{\mathbf{V}}^{-1/2}\\
+&=\hat{\mathbf{L}}_Z\hat{\mathbf{L}}_Z'+\hat{\boldsymbol{\Psi}}_Z
+\end{aligned}
+\tag{9-30}
+\end{equation}
+其中 $\hat{\mathbf{V}}^{-1/2}$ 和 $\hat{\mathbf{L}}$ 分别是 $\mathbf{V}^{-1/2}$ 和 $\mathbf{L}$ 的极大似然估计量(见补充 9A).
+
+作为因子化(9-30)的一个结果, 一旦极大似然分析与相关矩阵有关, 我们就称
+\phantomsection\label{eq:9-31}
+\begin{equation}
+\hat{h}_i^2=\hat{l}_{i1}^2+\hat{l}_{i2}^2+\cdots+\hat{l}_{im}^2,\qquad i=1,2,\cdots,p
+\tag{9-31}
+\end{equation}
+为共性方差的极大似然估计, 并且基于

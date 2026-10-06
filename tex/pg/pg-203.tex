@@ -1,0 +1,49 @@
+\mvsub{未来观测值的 $T^{2}$ 控制图}
+
+对每一个新的观测值 $\mathbf{x}$, 按时间顺序对 $T^{2}=\dfrac{n}{n+1}(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})$ 作图, 令 $\text{LCL}=0$, 并取 $\text{UCL}=\dfrac{(n-1)p}{(n-p)}F_{p,n-p}(0.05)$.
+
+落在控制上限上方的那些点表示其波动有潜在的特殊原因, 因而暗示我们应该对该控制过程进行检查, 以确定是否立即采取纠正措施. 其他过程的讨论参见文献 [9].
+
+\mvsub{基于子样本均值的控制图}
+
+假定来自控制过程的每一个观测值随机向量独立同分布, 且分布服从 $N_{p}(\mathbf{0},\boldsymbol{\Sigma})$. 当抽样方法指定选取的单元数 $m>1$ 时, 我们将采取与前的处理方法. 由第一个样本确定其样本均值 $\bar{\mathbf{X}}_{i}$ 和协方差阵 $\mathbf{S}_{i}$, 当总体为正态时, 这两个随机量彼此独立.
+
+对一般的子样本均值 $\bar{\mathbf{X}}_{i}$, $\bar{\mathbf{X}}_{i}-\bar{\mathbf{X}}$ 服从正态分布, 其均值为 $\mathbf{0}$, 且
+\[
+\operatorname{Cov}(\bar{\mathbf{X}}_{i}-\bar{\mathbf{X}})=\Bigl(1-\frac{1}{n}\Bigr)^{2}\operatorname{Cov}(\bar{\mathbf{X}}_{i})+\frac{n-1}{n^{2}}\operatorname{Cov}(\bar{\mathbf{X}}_{i})=\frac{(n-1)}{nm}\boldsymbol{\Sigma}
+\]
+其中
+\[
+\bar{\mathbf{X}}=\frac{1}{n}\sum_{i=1}^{n}\bar{\mathbf{X}}_{i}
+\]
+正如 6.4 节中将要说明的, 来自 $n$ 个子样本的样本协方差联合起来可给出其公共协方差阵 $\boldsymbol{\Sigma}$ 的一个估计量 (即第 6 章中的 $\mathbf{S}_{p}$), 其表达式为:
+\[
+\mathbf{S}=\frac{1}{n}(\mathbf{S}_{1}+\mathbf{S}_{2}+\cdots+\mathbf{S}_{n})
+\]
+这里 $(nm-n)\mathbf{S}$ 独立于每一个 $\bar{\mathbf{X}}_{i}$, 因而也独立于它们的均值 $\bar{\mathbf{X}}$, 而且 $(nm-n)\mathbf{S}$ 服从自由度为 $nm-n$ 的威沙特分布. 注意, 在任一给定的时期内, 我们可用收集到的数据本身来估计 $\boldsymbol{\Sigma}$. 这些估计量联合起来, 便形成一个自由度很大 $\boldsymbol{\Sigma}$ 的单个估计量. 于是
+\phantomsection\label{eq:5-35}
+\begin{equation}
+T_{i}^{2}=\frac{nm}{n-1}(\bar{\mathbf{X}}_{i}-\bar{\mathbf{X}})'\mathbf{S}^{-1}(\bar{\mathbf{X}}_{i}-\bar{\mathbf{X}})
+\tag{5-35}
+\end{equation}
+服从分布 $\dfrac{(nm-n)p}{(nm-n-p+1)}F_{p,nm-n-p+1}$.
+
+\medskip
+\noindent\mvbold{椭圆控制图}\quad 按照类似于前面讨论单独多元观测值的方式, 各对子样本均值的椭圆控制图为
+\phantomsection\label{eq:5-36}
+\begin{equation}
+(\bar{\mathbf{x}}_{i}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\bar{\mathbf{x}}_{i}-\bar{\mathbf{x}})\le\frac{(n-1)(m-1)2}{m(nm-n-1)}F_{2,nm-n-1}(0.05)
+\tag{5-36}
+\end{equation}
+此式右端常用 $\chi_{2}^{2}(0.05)/m$ 来近似替代.
+
+对那些落在控制椭圆外的点所对应的子样本应仔细检查, 以确定被测量的质量特征的行为是否有变化. 对这个问题的进一步讨论, 感兴趣的读者可参看文献 [10].
+
+\medskip
+\noindent\mvbold{$T^{2}$ 控制图}\quad 为构造有 $p$ 个特征的子样本的 $T^{2}$ 控制图, 需画出量 $T_{j}^{2}=m(\bar{\mathbf{X}}_{j}-\bar{\mathbf{X}})'\mathbf{S}^{-1}(\bar{\mathbf{X}}_{j}-\bar{\mathbf{X}})$ 的图, $j=1,2,\cdots,n$, 此处
+\[
+\text{UCL}=\frac{(n-1)(m-1)p}{(nm-n-p+1)}F_{p,nm-n-p+1}(0.05)
+\]
+当 $n$ 很大时 UCL 常可用 $\chi_{p}^{2}(0.05)$ 来近似.
+
+超过 UCL 的 $T_{j}^{2}$ 值对应于潜在的失控或存在特殊原因的波动, 应予检查 (见文献 [10]).

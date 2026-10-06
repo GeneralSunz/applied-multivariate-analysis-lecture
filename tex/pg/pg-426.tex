@@ -1,0 +1,49 @@
+% ---- pg-426 （书页 414） ----
+
+用未旋转的因子载荷估计, 得出下列各项的极大似然估计.
+(a) 特殊方差.
+(b) 共性方差.
+(c) 用各个因子解释的方差的比例.
+(d) 残差矩阵 $\mathbf{R}-\hat{\mathbf{L}}_z\hat{\mathbf{L}}_z'-\hat{\boldsymbol{\Psi}}_z$.
+
+\noindent 9.11\quad 参见练习 9.10 用未旋转和旋转的因子载荷估计, 计算最大方差准则的值. 对结果进行评论.
+
+\noindent 9.12\quad 海龟测量值(见例 8.4)的对数的协方差矩阵为
+\[
+\mathbf{S}=10^{-3}\begin{bmatrix}11.072& & \\ 8.019&6.417& \\ 8.160&6.005&6.773\end{bmatrix}
+\]
+对一个 $m=1$ 的模型所作的极大似然因子载荷估计如下:
+
+\begin{mvtable}
+\small
+\begin{tabular}{l|c}
+\toprule
+变\quad 量 & 因子载荷估计 $F_1$\\
+\midrule
+1. $\ln$(长度) & 0.102\ 2\\
+2. $\ln$(宽度) & 0.075\ 2\\
+3. $\ln$(高度) & 0.076\ 5\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+利用因子载荷估计, 得出以下各项的极大似然估计.
+(a) 特殊方差.
+(b) 共性方差.
+(c) 可用因子解释的方差的比例.
+(d) 残差矩阵 $\mathbf{S}_n-\hat{\mathbf{L}}\hat{\mathbf{L}}'-\hat{\boldsymbol{\Psi}}$.
+提示: 用 $\mathbf{S}_n$ 换 $\mathbf{S}$.
+
+\noindent 9.13\quad 参见练习 9.12. 计算\hyperref[eq:9-39]{式(9-39)}中的检验统计量. 有 $H_0:\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ (取 $m=1$), $H_1:\boldsymbol{\Sigma}$ 无约束. 指出对此假设的检验, 在此例中为什么不能实现[见\hyperref[eq:9-40]{式(9-40)}].
+
+\noindent 9.14\quad 极大似然因子载荷估计在\hyperref[eq:9A-6]{式(9A-6)}中由
+\[
+\hat{\mathbf{L}}=\hat{\boldsymbol{\Psi}}^{1/2}\tilde{\mathbf{E}}\hat{\boldsymbol{\Delta}}^{1/2}
+\]
+给出. 对此选择验证
+\[
+\hat{\mathbf{L}}\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}}=\hat{\boldsymbol{\Delta}}
+\]
+其中 $\hat{\boldsymbol{\Delta}}=\tilde{\boldsymbol{\Lambda}}-\mathbf{I}$ 是对角阵.
+
+\noindent 9.15\quad 赫希切(Hirschley)和威克恩(Wichern)[7]调查对利润的会计测量和市场价值测量间的一致性、决定因素和用途. 他们研究的一部分是进行利润会计测量和经济利润市场估计的因子分析. 1977 年样本公司的会计历史、会计重置及市场价值测量的相关系数矩阵如下:

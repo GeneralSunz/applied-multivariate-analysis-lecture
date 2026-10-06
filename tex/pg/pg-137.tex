@@ -1,0 +1,31 @@
+椭球面的概率含量有关，另一个性质是讨论另一种线性组合形式的分布。
+
+对于从一元正态总体中抽取的样本，$\chi^2$ 分布确定样本方差 $s^2=s_{11}$ 的变化值。在多元情况中它也起基本的作用。
+
+\mvthm{结论 4.7}{设 $X$ 分布为 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$，且 $|\boldsymbol{\Sigma}|>0$，则}
+
+（a）$(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})$ 的分布为 $\chi_p^2$，其中 $\chi_p^2$ 表示自由度为 $p$ 的卡方分布。
+
+（b）$N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布，给定属于椭球 $\{\mathbf{x}:(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\leqslant\chi_p^2(\alpha)\}$ 的概率为 $1-\alpha$，其中 $\chi_p^2(\alpha)$ 表示 $\chi_p^2$ 分布的上 $(100\alpha)$ 百分位数。
+
+\noindent\textbf{证明}\quad 已知 $\chi_p^2$ 定义为 $Z_1^2+Z_2^2+\cdots+Z_p^2$ 这一总和的分布，其中 $Z_1,Z_2,\cdots,Z_p$ 是独立的 $N(0,1)$ 随机变量。接下来，由谱分解[参见\hyperref[eq:2-16]{式(2-16)}和\hyperref[eq:2-21]{式(2-21)}]利用 $A=\boldsymbol{\Sigma}$，并参见结论 4.1，$\boldsymbol{\Sigma}^{-1}=\sum\limits_{i=1}^{p}\frac{1}{\lambda_i}\mathbf{e}_i\mathbf{e}_i'$，其中 $\boldsymbol{\Sigma}\mathbf{e}_i=\lambda_i\mathbf{e}_i$，因此，$\boldsymbol{\Sigma}^{-1}\mathbf{e}_i=(1/\lambda_i)\mathbf{e}_i$。从而，$(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})=\sum\limits_{i=1}^{p}(1/\lambda_i)(\mathbf{X}-\boldsymbol{\mu})'\mathbf{e}_i\mathbf{e}_i'(\mathbf{X}-\boldsymbol{\mu})=\sum\limits_{i=1}^{p}(1/\lambda_i)(\mathbf{e}_i'(\mathbf{X}-\boldsymbol{\mu}))^2=\sum\limits_{i=1}^{p}[(1/\sqrt{\lambda_i})\mathbf{e}_i'(\mathbf{X}-\boldsymbol{\mu})]^2=\sum\limits_{i=1}^{p}Z_i^2$。现在，$Z=A(\mathbf{X}-\boldsymbol{\mu})$，其中
+
+\[
+Z_{(p\times1)}=\begin{bmatrix}Z_1\\Z_2\\\vdots\\Z_p\end{bmatrix},\qquad
+A_{(p\times p)}=\begin{bmatrix}\frac{1}{\sqrt{\lambda_1}}\mathbf{e}_1'\\\frac{1}{\sqrt{\lambda_2}}\mathbf{e}_2'\\\vdots\\\frac{1}{\sqrt{\lambda_p}}\mathbf{e}_p'\end{bmatrix}
+\]
+
+并且 $\mathbf{X}-\boldsymbol{\mu}$ 的分布为 $N_p(\mathbf{0},\boldsymbol{\Sigma})$。所以，由结论 4.3，$Z=A(\mathbf{X}-\boldsymbol{\mu})$ 的分布为 $N_p(\mathbf{0},A\boldsymbol{\Sigma}A')$。其中
+
+\begin{align*}
+A_{(p\times p)}\boldsymbol{\Sigma}_{(p\times p)}A'_{(p\times p)}&=\begin{bmatrix}\frac{1}{\sqrt{\lambda_1}}\mathbf{e}_1'\\\frac{1}{\sqrt{\lambda_2}}\mathbf{e}_2'\\\vdots\\\frac{1}{\sqrt{\lambda_p}}\mathbf{e}_p'\end{bmatrix}\left[\sum_{i=1}^{p}\lambda_i\mathbf{e}_i\mathbf{e}_i'\right]\begin{bmatrix}\frac{1}{\sqrt{\lambda_1}}\mathbf{e}_1 & \frac{1}{\sqrt{\lambda_2}}\mathbf{e}_2 & \cdots & \frac{1}{\sqrt{\lambda_p}}\mathbf{e}_p\end{bmatrix}\\
+&=\begin{bmatrix}\sqrt{\lambda_1}\mathbf{e}_1'\\\sqrt{\lambda_2}\mathbf{e}_2'\\\vdots\\\sqrt{\lambda_p}\mathbf{e}_p'\end{bmatrix}\begin{bmatrix}\frac{1}{\sqrt{\lambda_1}}\mathbf{e}_1 & \frac{1}{\sqrt{\lambda_2}}\mathbf{e}_2 & \cdots & \frac{1}{\sqrt{\lambda_p}}\mathbf{e}_p\end{bmatrix}=I
+\end{align*}
+
+由结论 4.5，$Z_1,Z_2,\cdots,Z_p$ 是独立标准正态变量，并得出结论 $(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})$ 为 $\chi_p^2$ 分布。
+
+对于(b)，注意 $P[(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})\leqslant c^2]$ 是由 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 密度所给定的属于椭球 $(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})\leqslant c^2$ 下的概率。而由(a)，$P[(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})\leqslant\chi_p^2(\alpha)]=1-\alpha$，(b)成立。\hfill$\blacksquare$
+
+\mvsub{评注}\quad （统计距离的解释）
+
+结论 4.7 给出了统计距离平方的一个解释。当 $X$ 分布为 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$，

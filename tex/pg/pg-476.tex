@@ -1,0 +1,77 @@
+% ---- pg-476 （书页 464） ----
+
+但 $Y$ 为正态随机变量的线性组合, 因此 $Y$ 的概率密度 $f_1(y)$ 和 $f_2(y)$ 服从一元正态分布(见结论 4.2), 其均值和方差分别为
+\[
+\begin{aligned}
+\mu_{1Y}&=\mathbf{a}'\boldsymbol{\mu}_1=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_1\\
+\mu_{2Y}&=\mathbf{a}'\boldsymbol{\mu}_2=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_2\\
+\sigma_Y^2&=\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)=\Delta^2
+\end{aligned}
+\]
+现在,
+\[
+\mathrm{TPM}=\frac{1}{2}P(\text{将 }\pi_1\text{ 观测值错分入 }\pi_2)+\frac{1}{2}P(\text{将 }\pi_2\text{ 观测值错分入 }\pi_1)
+\]
+但是,
+\[
+\begin{aligned}
+P[\text{将 }\pi_1\text{ 观测值错分入 }\pi_2]&=P(2\mid1)\\
+&=P\left[Y<\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\right]\\
+&=P\left(\frac{Y-\mu_{1Y}}{\sigma_Y}<\frac{\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_1}{\Delta}\right)\\
+&=P\left(Z<-\frac{1}{2}\frac{\Delta^2}{\Delta}\right)=\Phi\left(-\frac{\Delta}{2}\right)
+\end{aligned}
+\]
+其中 $\Phi(\cdot)$ 为标准正态分布的累积分布函数. 类似地,
+\[
+\begin{aligned}
+P[\text{将 }\pi_2\text{ 观测值错分入 }\pi_1]&=P(1\mid2)=P\left[Y\geqslant\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\right]\\
+&=P\left(Z\geqslant\frac{\Delta}{2}\right)=1-\Phi\left(\frac{\Delta}{2}\right)=\Phi\left(-\frac{\Delta}{2}\right)
+\end{aligned}
+\]
+这些错分概率示于\hyperref[fig:11.7]{图 11.7}. 最优失误率为
+\phantomsection\label{eq:11-31}
+\begin{equation}
+\mathrm{OER}=\text{最小 TPM}=\frac{1}{2}\Phi\left(-\frac{\Delta}{2}\right)+\frac{1}{2}\Phi\left(-\frac{\Delta}{2}\right)=\Phi\left(-\frac{\Delta}{2}\right)
+\tag{11-31}
+\end{equation}
+比方说, 若 $\Delta^2=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)=2.56$, 则 $\Delta=\sqrt{2.56}=1.6$. 利用附录中的表 1, 我们得到
+\[
+\text{最小 TPM}=\Phi\left(-\frac{1.6}{2}\right)=\Phi(-0.8)=0.211\,9
+\]
+
+\begin{mvfigure}
+\begin{tikzpicture}[xscale=0.72,yscale=1.15]
+  % 斜线阴影: f_1 在阈值左侧的面积 (P(2|1))
+  \fill[pattern=north east lines,pattern color=black]
+    (4.80,0) -- plot[domain=4.80:6.00,smooth,variable=\x]
+      (\x,{exp(-((\x-8.0)*(\x-8.0))/(2*1.5*1.5))}) -- (6.00,0) -- cycle;
+  % 点状阴影: f_2 在阈值右侧的面积 (P(1|2))
+  \fill[pattern=dots,pattern color=black]
+    (6.00,0) -- plot[domain=6.00:7.20,smooth,variable=\x]
+      (\x,{exp(-((\x-4.0)*(\x-4.0))/(2*1.5*1.5))}) -- (7.20,0) -- cycle;
+  \draw[domain=1.6:10.4,smooth,variable=\x] plot (\x,{exp(-((\x-4.0)*(\x-4.0))/(2*1.5*1.5))});
+  \draw[domain=3.6:12.4,smooth,variable=\x] plot (\x,{exp(-((\x-8.0)*(\x-8.0))/(2*1.5*1.5))});
+  \draw[->] (0,0) -- (13.2,0) node[below right]{$y$};
+  \draw (6.00,0) -- (6.00,0.78);
+  \node at (3.0,1.32) {$f_2(y)=N(\mu_{2Y},\ \Delta^2)$};
+  \node at (10.6,1.32) {$f_1(y)=N(\mu_{1Y},\ \Delta^2)$};
+  \node (p21) at (4.05,0.60) {$P(2\mid1)$};
+  \draw (p21) -- (5.25,0.26);
+  \node (p12) at (8.05,0.60) {$P(1\mid2)$};
+  \draw (p12) -- (6.75,0.26);
+  \draw[<->] (4.00,-0.30) -- (6.00,-0.30);
+  \draw (4.00,-0.30) -- (4.00,-0.46);
+  \draw (6.00,-0.30) -- (6.00,-0.46);
+  \node[below] at (5.00,-0.46) {$\dfrac{\Delta^2}{2}$};
+  \draw[<->] (6.00,-0.30) -- (8.00,-0.30);
+  \draw (8.00,-0.30) -- (8.00,-0.46);
+  \node[below] at (7.00,-0.46) {$\dfrac{\Delta^2}{2}$};
+  \node[below] at (4.00,-0.70) {$\mu_{2Y}$};
+  \node[below] at (8.60,-0.70) {$\mu_{1Y}$};
+\end{tikzpicture}
+\phantomsection\label{fig:11.7}\mvcap{图 11.7\quad 基于 $Y$ 的错分概率}
+\end{mvfigure}
+
+这个最优分类法则会错误地将大约 $21\%$ 的对象从一个总体分配到另一个总体.\hfill$\blacksquare$
+
+例 11.5 说明当总体密度函数已知时, 如何计算最优失误率. 如果某些总体参数需要用样

@@ -1,0 +1,49 @@
+本均值点 $\bar{\mathbf{x}}'=(\bar{x}_{1},\bar{x}_{2},\cdots,\bar{x}_{p})$ 的散布范围. 考虑在\hyperref[eq:2-19]{式(2-19)} 下面的评注中所给出的距离的测度, $\bar{\mathbf{x}}$ 起不变的点的作用, $\mathbf{S}^{-1}$ 起 $\mathbf{A}$ 的作用. 作出选择后, 距 $\bar{\mathbf{x}}$ 为常数距离 $c$ 的点的坐标 $\mathbf{x}'=[x_{1},x_{2},\cdots,x_{p}]$ 满足
+\phantomsection\label{eq:3-16}
+\begin{equation}
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})=c^{2}
+\tag{3-16}
+\end{equation}
+(当 $p=1$ 时, $(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})=(x_{1}-\bar{x}_{1})^{2}/s_{11}$ 是从 $\bar{x}_{1}$ 到 $x_{1}$ 的单位标准差的距离平方.)
+
+\hyperref[eq:3-16]{式(3-16)} 定义一个中心在 $\bar{\mathbf{x}}$ 的超椭球 (如果 $p=2$, 则为椭圆). 可以利用积分计算证明这个超椭球的体积与 $|\mathbf{S}|$ 有关, 具体的,
+\phantomsection\label{eq:3-17}
+\begin{equation}
+\{\mathbf{x}:(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\le c^{2}\}\ \text{的体积}=k_{p}|\mathbf{S}|^{1/2}c^{p}
+\tag{3-17}
+\end{equation}
+或
+\[
+(\text{椭球的体积})^{2}=(\text{常数})\times(\text{广义样本方差})
+\]
+其中常数 $k_{p}$ 很难计算.\footnote{{\footnotesize 对那些好奇的人, 我们给出 $k_{p}=2\pi^{p/2}/p\Gamma(p/2)$, 其中 $\Gamma(z)$ 是在 $z$ 处的伽马函数值.}} 一个大的体积对应于一个大的广义方差.
+
+虽然广义方差有一些直观合意的几何解释, 作为样本协方差矩阵 $\mathbf{S}$ 的一个描述性概括量, 它有一个基本缺点, 如下例所示.
+
+\medskip
+\noindent\textbf{例 3.8}\quad (解释广义方差)
+
+\hyperref[fig:3.7]{图 3.7} 给出三个相关模式很不同的散布图. 全部三个数据集有 $\bar{\mathbf{x}}'=[1,2]$ 且协方差矩阵是
+\[
+\mathbf{S}=\begin{bmatrix}5&4\\4&5\end{bmatrix},\ r=0.8\qquad
+\mathbf{S}=\begin{bmatrix}3&0\\0&3\end{bmatrix},\ r=0\qquad
+\mathbf{S}=\begin{bmatrix}5&-4\\-4&5\end{bmatrix},\ r=-0.8
+\]
+
+\begin{mvfigure}
+\mvinc{pg-109}{0.215,0.496,0.805,0.613}
+\phantomsection\label{fig:3.7}\mvcap{图 3.7\quad 三个不同定向的散布图}
+\end{mvfigure}
+
+每个协方差矩阵 $\mathbf{S}$ 含有关于变量分量的可变性的信息, 还含有计算相关系数所需的信息. 在这个意义上, $\mathbf{S}$ 刻画了散布图的定向和大小.
+
+从 $\mathbf{S}$ 计算出的特征值和特征向量可更进一步描述散布图中的模型. 对于
+\[
+\mathbf{S}=\begin{bmatrix}5&4\\4&5\end{bmatrix},\ \text{特征值满足}\quad 0=(\lambda-5)^{2}-4^{2}=(\lambda-9)(\lambda-1)
+\]
+确定特征值-特征向量对 $\lambda_{1}=9,\mathbf{e}_{1}'=[1/\sqrt{2},1/\sqrt{2}]$ 和 $\lambda_{2}=1,\mathbf{e}_{2}'=[1/\sqrt{2},-1/\sqrt{2}]$.
+
+对于所有三种情况, 中心是 $\bar{\mathbf{x}}'=[1,2]$ 的均值中心椭圆是
+\[
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\le c^{2}
+\]

@@ -1,0 +1,57 @@
+% ---- pg-504 （书页 492） ----
+
+\[
+\sum_{j=1}^{2}(\hat{y}_j-\bar{y}_{2j})^2=(1.87-2.37)^2+(0.60-0.49)^2=0.26
+\]
+\[
+\sum_{j=1}^{2}(\hat{y}_j-\bar{y}_{3j})^2=(1.87+0.99)^2+(0.60-0.22)^2=8.32
+\]
+由于当 $k=2$ 时得到 $\sum\limits_{j=1}^{2}(\hat{y}_j-\bar{y}_{kj})^2$ 的最小值, 我们将 $\mathbf{x}_0$ 分配到总体 $\pi_2$. \hyperref[fig:11.14]{图 11.14} 是用分类量 $\hat{y}_i(i=1,2,3)$ 解释这种情况的示意图.\hfill$\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=1.25,font=\small]
+\draw[->] (-1.75,0)--(3.95,0);
+\draw[->] (0,-1.95)--(0,2.75);
+\foreach \x in {-1,1,2,3}{\draw (\x,0)--(\x,-0.12) node[below]{$\x$};}
+\foreach \y in {-1,1,2}{\draw (0,\y)--(-0.12,\y) node[left]{$\y$};}
+\node[right] at (3.98,-0.02) {$\hat{y}_1$};
+\node[left] at (-0.15,2.72) {$\hat{y}_2$};
+\draw (1.79,0.62) .. controls (1.95,1.18) and (2.32,1.12) .. (2.43,0.41);
+\node at (2.55,0.98) {最小距离};
+\fill (-0.9,0.27) circle (1.4pt);
+\node[right] at (-0.8,0.27) {$\bar{y}_3$};
+\fill (1.79,0.62) circle (1.4pt);
+\node[above left] at (1.76,0.68) {$\hat{y}$};
+\fill (2.43,0.41) circle (1.4pt);
+\node[right] at (2.53,0.41) {$\bar{y}_2$};
+\fill (1.13,-1.23) circle (1.4pt);
+\node[right] at (1.23,-1.23) {$\bar{y}_1$};
+\end{tikzpicture}
+\phantomsection\label{fig:11.14}\mvcap{图 11.14\quad 分类平面上的点 $\hat{y}'=[\hat{y}_1,\hat{y}_2]$, $\bar{y}_1'=[\bar{y}_{11},\bar{y}_{12}]$, $\bar{y}_2'=[\bar{y}_{21},\bar{y}_{22}]$ 和 $\bar{y}_3'=[\bar{y}_{31},\bar{y}_{32}]$}
+\end{mvfigure}
+
+\noindent\mvbold{评注}\quad 当两个线性判别函数被用于分类时, 观测值被指派给基于二维判别空间中欧氏距离的总体.
+
+到目前为止, 我们尚未说明为什么前几个判别量比后几个更重要. 判别量的相对重要性由它们对分离总体的数值度量的贡献来确定. 考虑分离度量
+\phantomsection\label{eq:11-68}
+\begin{equation}
+\Delta_S^2=\sum_{i=1}^{g}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})
+\tag{11-68}
+\end{equation}
+其中
+\[
+\bar{\boldsymbol{\mu}}=\frac{1}{g}\sum_{i=1}^{g}\boldsymbol{\mu}_i
+\]
+且 $(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})$ 为第 $i$ 个总体的均值 $\boldsymbol{\mu}_i$ 到中心 $\bar{\boldsymbol{\mu}}$ 的平方统计距离. 可以证明(见练习 11.22), $\Delta_S^2=\lambda_1+\lambda_2+\cdots+\lambda_p$(此处 $\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_s$)为 $\boldsymbol{\Sigma}^{-1}\mathbf{B}$(或 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}\boldsymbol{\Sigma}^{-1/2}$)的非零特征值, 而 $\lambda_{s+1},\cdots,\lambda_p$ 则为零特征值.
+
+由 $\Delta_S^2$ 给出的分离度可以用判别量均值来重新表示. 第一个判别量 $Y_1=\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\mathbf{X}$ 有均值 $\mu_{iY_1}=\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\mu}_i$, 且从 $\mu_{iY_1}$ 到中心值 $\bar{\mu}_{Y_1}=\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\bar{\boldsymbol{\mu}}$ 的平方距离为 $\lambda_1$(见练习 11.22). 由于 $\Delta_S^2$ 也可表示为
+\[
+\begin{aligned}
+\Delta_S^2&=\lambda_1+\lambda_2+\cdots+\lambda_p\\
+&=\sum_{i=1}^{g}(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)'(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)\\
+&=\sum_{i=1}^{g}(\mu_{iY_1}-\bar{\mu}_{Y_1})^2+\sum_{i=1}^{g}(\mu_{iY_2}-\bar{\mu}_{Y_2})^2+\cdots+\sum_{i=1}^{g}(\mu_{iY_p}-\bar{\mu}_{Y_p})^2
+\end{aligned}
+\]
+可以得出, 第一判别量对分离度量 $\Delta_S^2$ 有最大贡献 $\lambda_1$. 一般来说, 第 $r$ 个判别量 $Y_r=\mathbf{e}_r'\boldsymbol{\Sigma}^{-1/2}\mathbf{X}$ 对 $\Delta_S^2$ 的贡献为 $\lambda_r$. 若其余 $s-r$ 个非零特征值之和 $\lambda_{r+1}+\lambda_{r+2}+\cdots+\lambda_s$ 与前 $r$ 个非零特征值之和 $\lambda_1+\lambda_2+\cdots+\lambda_r$ 相比很小, 则后 $s-r$ 个判别量 $Y_{r+1},Y_{r+2},\cdots,Y_s$ 可以忽略, 而不会显著地影响分离总量. \footnote{关于进一步的最优降维性质见文献[18].}
+
+对分类法则(11-67)的有效性目前所知不多. 由计算机生成的抽样实验提供了某些启示. 拉亨布鲁克(见文献[21])总结了一些特定情况下分类法则的表现. 为得出\hyperref[eq:11-65]{式(11-65)}中的总

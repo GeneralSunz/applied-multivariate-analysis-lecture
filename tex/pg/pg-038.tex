@@ -1,0 +1,68 @@
+% ---- pg-038 （书页 26） ----
+
+原始坐标 $(x_1, x_2)$ 与旋转后所得坐标 $(\tilde{x}_1, \tilde{x}_2)$ 之间的关系如下
+\[
+\tilde{x}_1 = x_1\cos(\theta) + x_2\sin(\theta)
+\]
+\phantomsection\label{eq:1-18}
+\begin{equation}
+\tilde{x}_2 = -x_1\sin(\theta) + x_2\cos(\theta) \tag{1-18}
+\end{equation}
+根据\hyperref[eq:1-18]{式(1-18)} 给出的关系式，我们可以替换\hyperref[eq:1-17]{式(1-17)} 中的 $\tilde{x}_1$ 和 $\tilde{x}_2$，用原来的坐标来表示
+距离.
+
+经过一些简单的代数变换，从 $P=(\tilde{x}_1, \tilde{x}_2)$ 到原点 $O=(0, 0)$ 的距离可以用 $P$ 的原始坐标
+$x_1$ 和 $x_2$ 表示为
+\phantomsection\label{eq:1-19}
+\begin{equation}
+d(O, P) = \sqrt{a_{11}x_1^2 + 2a_{12}x_1x_2 + a_{22}x_2^2} \tag{1-19}
+\end{equation}
+其中 $a$ 为使得 $x_1$ 和 $x_2$ 取所有可能值时，距离都为非负的数. 这里，$a_{11}, a_{12}$ 和 $a_{22}$ 由角 $\theta$ 决定，
+且 $s_{11}, s_{12}$ 和 $s_{22}$ 是由原始数据计算出来的. \footnote{具体地，
+\[
+a_{11} = \frac{\cos^2(\theta)}{\cos^2(\theta)s_{11} + 2\sin(\theta)\cos(\theta)s_{12} + \sin^2(\theta)s_{22}} + \frac{\sin^2(\theta)}{\cos^2(\theta)s_{22} - 2\sin(\theta)\cos(\theta)s_{12} + \sin^2(\theta)s_{11}}
+\]
+\[
+a_{22} = \frac{\sin^2(\theta)}{\cos^2(\theta)s_{11} + 2\sin(\theta)\cos(\theta)s_{12} + \sin^2(\theta)s_{22}} + \frac{\cos^2(\theta)}{\cos^2(\theta)s_{22} - 2\sin(\theta)\cos(\theta)s_{12} + \sin^2(\theta)s_{11}}
+\]
+\[
+a_{12} = \frac{\cos(\theta)\sin(\theta)}{\cos^2(\theta)s_{11} + 2\sin(\theta)\cos(\theta)s_{12} + \sin^2(\theta)s_{22}} - \frac{\sin(\theta)\cos(\theta)}{\cos^2(\theta)s_{22} - 2\sin(\theta)\cos(\theta)s_{12} + \sin^2(\theta)s_{11}}
+\]} 此处 $a_{11}, a_{12}$ 和 $a_{22}$
+的特定形式并不重要的. 重要的是非零相关系数 $r_{12}$ 所需要的交叉乘积项 $2a_{12}x_1x_2$ 的出现.
+
+比较\hyperref[eq:1-13]{式(1-13)} 与\hyperref[eq:1-19]{式(1-19)}，\hyperref[eq:1-13]{式(1-13)} 可看做是\hyperref[eq:1-19]{式(1-19)} 在 $a_{11} = 1/s_{11}, a_{22} = 1/s_{22}$ 且 $a_{12} = 0$
+时的特殊情况.
+
+一般的，在变量相关的情况下，从固定点 $Q=(y_1, y_2)$ 到点 $P=(x_1, x_2)$ 的统计距离的一般
+形式为
+\phantomsection\label{eq:1-20}
+\begin{equation}
+d(P, Q) = \sqrt{a_{11}(x_1 - y_1)^2 + 2a_{12}(x_1 - y_1)(x_2 - y_2) + a_{22}(x_2 - y_2)^2} \tag{1-20}
+\end{equation}
+且当 $a_{11}, a_{12}$ 及 $a_{22}$ 为已知时，距离总是可计算出来的. 此外，所有与 $Q$ 的距离平方为常数 $c^2$ 的
+点 $P=(x_1, x_2)$ 的坐标满足
+\phantomsection\label{eq:1-21}
+\begin{equation}
+a_{11}(x_1 - y_1)^2 + 2a_{12}(x_1 - y_1)(x_2 - y_2) + a_{22}(x_2 - y_2)^2 = c^2 \tag{1-21}
+\end{equation}
+
+\begin{mvfigure}
+\mvinc{pg-038}{0.121,0.532,0.432,0.690}
+\phantomsection\label{fig:1.24}\mvcap{图 1.24\quad 到点 $Q$ 为常数距离的点的椭圆}
+\end{mvfigure}
+
+按照定义，这是一个中心在 $Q$ 的椭圆方程. 方程的
+图形如\hyperref[fig:1.24]{图 1.24} 所示，长轴与短轴被标出来了，它
+们分别平行于 $\tilde{x}_1$ 轴与 $\tilde{x}_2$ 轴. 由于选择了脚注中的
+$a_{11}, a_{12}$ 及 $a_{22}$，$\tilde{x}_1$ 和 $\tilde{x}_2$ 轴相对于 $x_1$ 和 $x_2$ 轴成 $\theta$ 角.
+
+\hyperref[eq:1-19]{式(1-19)} 及\hyperref[eq:1-20]{式(1-20)} 的距离公式可直接推广
+到 $p$ 维空间. 设 $P=(x_1, x_2, \cdots, x_p)$ 为一点，其坐
+标表示一组相关且服从内在可变性的变量. $O=$
+$(0, 0, \cdots, 0)$ 表示原点，$Q=(y_1, y_2, \cdots, y_p)$ 为一指
+定的固定点，则 $P$ 到 $O$ 和 $P$ 到 $Q$ 的距离具有一般
+形式
+\phantomsection\label{eq:1-22}
+\begin{equation}
+d(O, P) = \sqrt{a_{11}x_1^2 + a_{22}x_2^2 + \cdots + a_{pp}x_p^2 + 2a_{12}x_1x_2 + 2a_{13}x_1x_3 + \cdots + 2a_{p-1,p}x_{p-1}x_p} \tag{1-22}
+\end{equation}

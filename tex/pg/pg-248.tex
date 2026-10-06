@@ -1,0 +1,60 @@
+% ---- pg-248 （书页 236） ----
+
+\[
+\hat{\boldsymbol{\tau}}_1=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}})=\begin{bmatrix}-0.070\\-0.039\\-0.020\\-0.020\end{bmatrix},\quad
+\hat{\boldsymbol{\tau}}_3=(\bar{\mathbf{x}}_3-\bar{\mathbf{x}})=\begin{bmatrix}0.137\\0.002\\0.023\\0.003\end{bmatrix}
+\]
+\[
+\mathbf{W}=\begin{bmatrix}182.962&&&\\4.408&8.200&&\\1.695&0.633&1.484&\\9.581&2.428&0.394&6.538\end{bmatrix}
+\]
+
+因此
+\[
+\hat{\tau}_{13}-\hat{\tau}_{33}=-0.020-0.023=-0.043
+\]
+因为
+\[
+n=271+138+107=516\text{，所以}
+\]
+\[
+\sqrt{\left(\frac{1}{n_1}+\frac{1}{n_3}\right)\frac{w_{33}}{n-g}}
+=\sqrt{\left(\frac{1}{271}+\frac{1}{107}\right)\times\frac{1.484}{516-3}}=0.006\,14
+\]
+
+又因 $p=4$ 和 $g=3$，故对 $95\%$ 的联合置信区间要求用 $t_{513}[0.05/(4\times3\times2)]\doteq2.87$（见附录表 1）．于是 $95\%$ 联合置信区间为
+\[
+\begin{aligned}
+\tau_{13}-\tau_{33}\ \text{属于}\ &\hat{\tau}_{13}-\hat{\tau}_{33}\pm t_{513}(0.002\,08)\sqrt{\left(\frac{1}{n_1}+\frac{1}{n_3}\right)\frac{w_{33}}{n-g}}\\
+&=-0.043\pm2.87\times0.006\,14\\
+&=-0.043\pm0.018,\ \text{即}\ (-0.061,-0.025)
+\end{aligned}
+\]
+
+因此，政府所有的疗养所其设备操作与维护的平均人工费用人均每天要比私营疗养所高出 $0.025$ 到 $0.061$ 小时．以同样 $95\%$ 的置信度我们可以说：
+\[
+\tau_{13}-\tau_{23}\ \text{属于区间}\ (-0.058,-0.026)
+\]
+\[
+\tau_{23}-\tau_{33}\ \text{属于区间}\ (-0.021,0.019)
+\]
+
+因此这项费用在非营利组织办的疗养所与私营疗养所之间有差异，但在非营利组织疗养所与政府疗养所则无差别．\hfill$\blacksquare$
+
+\section{协方差矩阵相等性的检验}
+\phantomsection\label{sec:6.6}
+
+当比较两维或者更多维均值向量时，其中的一个假设是两个可能不同的总体有相同的协方差矩阵（在第 11 章讨论判别和聚类时这个假设将再次出现）．当比较均值向量时，在计算样本间的融合协方差矩阵之前检验各总体协方差矩阵是否相等是值得的．一个常用的协方差矩阵相等性检验是博克斯（Box）的 $M$ 检验（参见文献[8]，[9]）．
+
+对于 $g$ 个总体，考虑零假设
+\phantomsection\label{eq:6-47}
+\begin{equation}
+H_0:\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2=\cdots=\boldsymbol{\Sigma}_g=\boldsymbol{\Sigma} \tag{6-47}
+\end{equation}
+其中 $\boldsymbol{\Sigma}_l$ 是第 $l$ 个总体的协方差矩阵，$l=1,2,\cdots,g$，并且 $\boldsymbol{\Sigma}$ 是假定的公共协方差矩阵．备择假设是至少有两个协方差矩阵不等．
+
+在多元正态总体的假设下，\hyperref[eq:6-47]{式(6-47)}的一个似然比统计量由\hyperref[eq:6-48]{式(6-48)}给出（参见文献[1]）．
+\phantomsection\label{eq:6-48}
+\begin{equation}
+\Lambda=\prod_{l}\left(\frac{|\mathbf{S}_l|}{|\mathbf{S}_p|}\right)^{(n_l-1)/2} \tag{6-48}
+\end{equation}
+这里，$n_l$ 是第 $l$ 组的样本容量，$\mathbf{S}_l$ 是第 $l$ 组的样本协方差矩阵，$\mathbf{S}_p$ 是融合的样本协方差矩阵，由下式给出，

@@ -1,0 +1,54 @@
+% ---- pg-470 （书页 458） ----
+
+假定查得另一个妇女的两个变量值为 $x_1=-0.210$ 和 $x_2=-0.044$, 这个妇女应被分入 $\pi_1$(正常组)还是 $\pi_2$(必然携带组)?
+
+利用\hyperref[eq:11-18]{式(11-18)}, 并设有相同的代价和相同的先验概率(故 $\ln 1=0$), 就有
+\[
+\begin{aligned}
+&\text{分配 } \mathbf{x}_0 \text{ 到 } \pi_1, \text{若 } \hat{y}_0=\hat{\mathbf{a}}'\mathbf{x}_0\geqslant\hat{m}=-4.61\\[4pt]
+&\text{分配 } \mathbf{x}_0 \text{ 到 } \pi_2, \text{若 } \hat{y}_0=\hat{\mathbf{a}}'\mathbf{x}_0<\hat{m}=-4.61
+\end{aligned}
+\]
+这里 $\mathbf{x}_0'=(-0.210,-0.044)$. 由于
+\[
+\hat{y}_0=\hat{\mathbf{a}}'\mathbf{x}_0=[37.61\quad -28.92]\begin{bmatrix}-0.210\\-0.044\end{bmatrix}=-6.62<-4.61
+\]
+因此将她分入 $\pi_2$, 即这位妇女是 A 型血友病基因的必然携带者. 这个新的观测点在\hyperref[fig:11.4]{图 11.4} 中用一个星号表示. 从图上可以看到, 这个点落在 $\pi_2$ 的 $50\%$ 轮廓线内, 而大体位于 $\pi_1$ 的 $95\%$ 轮廓线上. 这样, 分类就不是很明确.
+
+现在假定组成员的先验概率已知. 例如, 假定产生上述测量值 $x_1$ 和 $x_2$ 的血液来自一个血友病患者的外甥, 这时她的基因具有 A 型血友病缺陷的机会为 0.25. 因此 $\pi_1$ 的先验概率为 $p_1=0.75$, 而 $\pi_2$ 的先验概率为 $p_2=0.25$. 假定错分代价相同, 即 $c(1\mid2)=c(2\mid1)$, 并使用分类统计量
+\[
+\hat{w}=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}_0-\frac{1}{2}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)
+\]
+或 $\hat{w}=\hat{\mathbf{a}}'\mathbf{x}_0-\hat{m}$, 其中 $\mathbf{x}_0'=[-0.210,-0.044]$, $\hat{m}=-4.61$, 以及 $\hat{\mathbf{a}}'\mathbf{x}_0=-6.62$, 我们有
+\[
+\hat{w}=-6.62-(-4.61)=-2.01
+\]
+应用\hyperref[eq:11-18]{式(11-18)}, 得到
+\[
+\hat{w}=-2.01<\ln\left[\frac{p_2}{p_1}\right]=\ln\left[\frac{0.25}{0.75}\right]=-1.10
+\]
+因此我们将此妇女分入 $\pi_2$(必然携带者).\hfill$\blacksquare$
+
+\mvsub{刻度变换}
+
+系数向量 $\hat{\mathbf{a}}=\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$ 只是在相差一个常数因子的意义上唯一, 因此对 $c\neq0$, 任一向量 $c\hat{\mathbf{a}}$ 均可成为判别系数.
+
+向量 $\hat{\mathbf{a}}$ 经常被“刻度变换”或“规范化”, 以便于解释其元素. 两种最常用的规范化方法为:
+
+1. 令
+\phantomsection\label{eq:11-21}
+\begin{equation}
+\hat{\mathbf{a}}^*=\frac{\hat{\mathbf{a}}}{\sqrt{\hat{\mathbf{a}}'\hat{\mathbf{a}}}}
+\tag{11-21}
+\end{equation}
+因此 $\hat{\mathbf{a}}^*$ 具有单位长度.
+
+2. 令
+\phantomsection\label{eq:11-22}
+\begin{equation}
+\hat{\mathbf{a}}^*=\frac{\hat{\mathbf{a}}}{\hat{a}_1}
+\tag{11-22}
+\end{equation}
+因此新的系数向量 $\hat{\mathbf{a}}^*$ 的第一个元素为 1.
+
+在以上两种场合, $\hat{\mathbf{a}}^*$ 均具有形式 $c\hat{\mathbf{a}}$. 对规范化(1)有 $c=(\hat{\mathbf{a}}'\hat{\mathbf{a}})^{-1/2}$, 而对(2)有 $c=\hat{a}_1^{-1}$.

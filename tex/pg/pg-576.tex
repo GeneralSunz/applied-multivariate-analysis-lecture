@@ -1,0 +1,65 @@
+% ---- pg-576 （书页 564） ----
+
+最小化\hyperref[eq:12-39]{式(12-39)}右端的“迹”恰好是在结论 12.1 的证明中的第一个最小化问题. 由\hyperref[eq:12-34]{式(12-34)}, $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 有奇异值分解
+\phantomsection\label{eq:12-40}
+\begin{equation}
+\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}=\sum_{k=1}^{J}\tilde{\lambda}_k\tilde{\mathbf{u}}_k\tilde{\mathbf{v}}_k'
+\tag{12-40}
+\end{equation}
+最佳秩 $K$ 逼近可用此展开式的前 $K$ 项表示. 由\hyperref[eq:12-39]{式(12-39)}, 由于 $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 可用 $\mathbf{D}_r^{-1/2}\mathbf{P}^*\mathbf{D}_c^{-1/2}$ 逼近, 对\hyperref[eq:12-40]{式(12-40)}左乘 $\mathbf{D}_r^{-1/2}$, 右乘 $\mathbf{D}_c^{1/2}$, 得到广义奇异值分解
+\phantomsection\label{eq:12-41}
+\begin{equation}
+\mathbf{D}_r^{-1}\mathbf{P}=\sum_{k=1}^{J}\tilde{\lambda}_k\mathbf{D}_r^{-1/2}\tilde{\mathbf{u}}_k
+(\mathbf{D}_c^{-1/2}\tilde{\mathbf{v}}_k)'
+\tag{12-41}
+\end{equation}
+其中, 根据\hyperref[eq:12-36]{式(12-36)}, $(\tilde{\mathbf{u}}_1,\tilde{\mathbf{v}}_1)=(\mathbf{D}_r^{1/2}\mathbf{1}_I,\mathbf{D}_c^{1/2}\mathbf{1}_J)$ 为关联于奇异值 $\tilde{\lambda}_1=1$ 的奇异向量. 由于 $\mathbf{D}_r^{-1/2}(\mathbf{D}_r^{1/2}\mathbf{1}_I)=\mathbf{1}_I$ 且 $(\mathbf{D}_c^{1/2}\mathbf{1}_J)'\mathbf{D}_c^{-1/2}=\mathbf{c}'$, 在\hyperref[eq:12-41]{式(12-41)}中, 第一项为 $\mathbf{1}_I\mathbf{c}'$.
+
+因此, 基于 $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 的奇异值和奇异向量, 行轮廓 $\mathbf{D}_r^{-1}\mathbf{P}$ 的秩 $K(<J)$ 逼近为
+\phantomsection\label{eq:12-42}
+\begin{equation}
+\mathbf{P}^*\doteq\mathbf{1}_I\mathbf{c}'+\sum_{k=2}^{K}\tilde{\lambda}_k\mathbf{D}_r^{-1/2}\tilde{\mathbf{u}}_k
+(\mathbf{D}_c^{-1/2}\tilde{\mathbf{v}}_k)'
+\tag{12-42}
+\end{equation}
+基于 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的奇异值和奇异向量 $\lambda_k$, $\mathbf{u}_k$ 和 $\mathbf{v}_k$, 我们有
+\[
+\mathbf{P}^*-\mathbf{1}_I\mathbf{c}'\doteq\sum_{k=1}^{K-1}\lambda_k\mathbf{D}_r^{-1/2}\mathbf{u}_k
+(\mathbf{D}_c^{-1/2}\mathbf{v}_k)'
+\]
+(对\hyperref[tab:12.8]{表 12.8} 中的考古数据的行轮廓分析结果显示在\hyperref[fig:12.21]{图 12.21} 中.)
+
+\mvsub{惯性}
+
+总惯性是数据总变差的度量, 定义为加权平方和
+\phantomsection\label{eq:12-43}
+\begin{equation}
+\operatorname{tr}\left\{\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}
+\left[\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}\right]'\right\}
+=\sum_{i}\sum_{j}\frac{(p_{ij}-r_ic_j)^2}{r_ic_j}=\sum_{k=1}^{J-1}\lambda_k^2
+\tag{12-43}
+\end{equation}
+其中 $\lambda_k$ 为 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的奇异值(见结论 12.1 的证明).\textsuperscript{①}
+
+对于中心化的矩阵 $\mathbf{P}-\mathbf{r}\mathbf{c}'$, 最佳秩 $K(<J)$ 逼近($K$ 维解)具有惯性 $\sum_{k=1}^{K}\lambda_k^2$. 剩余惯性等于剩余奇异值的平方和 $\sum_{k=K+1}^{J-1}\lambda_k^2$. 在布点时, 第 $k$ 维的坐标以平方根惯性 $\lambda_k$ 为尺度, 如\hyperref[fig:12.22]{图 12.22} 所示(译者注: 此句是根据译者理解的意译, 原文的直译难以理解).
+
+\mvsub{二维空间中的解释}
+
+由于惯性是数据总变差的度量, 对于大的 $(\lambda_1^2+\lambda_2^2)\big/\sum_{k=1}^{J-1}\lambda_k^2$, 我们如何解释? 从几何的意义上, 我们可以说: 中心化的数据可以用平面上的点来表示. 并且, 在秩 1 解(独立模型)之外, 这个最佳逼近平面解释了几平所有的变差. 从代数的意义上, 我们说秩 2 逼近
+\[
+\mathbf{P}-\mathbf{r}\mathbf{c}'\doteq\lambda_1\mathbf{u}_1\mathbf{v}_1'+\lambda_2\mathbf{u}_2\mathbf{v}_2'
+\]
+是很好的逼近, 或者说
+\[
+\mathbf{P}\doteq\mathbf{r}\mathbf{c}'+\lambda_1\mathbf{u}_1\mathbf{v}_1'+\lambda_2\mathbf{u}_2\mathbf{v}_2'
+\]
+
+\vspace{6pt}
+\noindent\rule{\linewidth}{0.4pt}
+\par\vspace{2pt}
+{\zihao{6}①\quad 总惯性与二维列联表的卡方度量
+$\chi^2=\sum\limits_{i,j}\frac{(O_{ij}-E_{ij})^2}{E_{ij}}$ 有关. 这里 $O_{ij}=x_{ij}$ 为观测的频数,
+$E_{ij}$ 为期望频数. 在我们的讨论中, 若行变量独立(不相关)于列变量, 则 $E_{ij}=nr_ic_j$, 因此
+\[
+\text{总惯性}=\sum_{i=1}^{I}\sum_{j=1}^{J}\frac{(p_{ij}-r_ic_j)^2}{r_ic_j}=\frac{1}{n}\chi^2
+\]}

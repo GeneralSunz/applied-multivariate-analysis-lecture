@@ -1,0 +1,43 @@
+% ---- pg-306 （书页 294） ----
+
+显著的. 也就是说, 男性和女性顾客对同样的服务不会打出相同的分数.
+
+在方差分析场合, 当设计不平衡(交叉分类表每格中响应值的数目不同)时, 不同预测变量及它们的交互作用对响应所造成的变差(平方和)通常不能分解成相互独立的量. 在这种情况下, 要评估预测变量对响应的相对影响, 就必须对包含这些项和不包含这些项的模型分别进行拟合, 并计算额外的平方和并构造适当的 $F$ 比统计量, 进行 $F$ 检验. \hfill$\blacksquare$
+
+\section{由估计的回归函数作推断}
+\phantomsection\label{sec:7.5}
+
+一旦某个研究者对拟合的回归模型感到满意, 就可用来它解决两个预测问题. 设 $\mathbf{z}_0=[1,z_{01},\cdots,z_{0r}]'$ 为选定的预测变量值. 则 $\mathbf{z}_0$ 和 $\hat{\boldsymbol{\beta}}$ 可用来: (1) 估计在 $\mathbf{z}_0$ 点的回归函数 $\beta_0+\beta_1z_{01}+\cdots+\beta_rz_{0r}$; (2) 估计响应 $Y$ 在 $\mathbf{z}_0$ 点的值. (译者注: 在(2)的情况下, 我们通常不说``估计'', 而说``预测''.)
+
+\subsection{\texorpdfstring{估计回归函数在 $\mathbf{z}_0$ 点的值}{估计回归函数在 z0 点的值}}
+
+设 $Y_0$ 为在 $\mathbf{z}_0=[1,z_{01},\cdots,z_{0r}]'$ 点的响应值. 根据模型(7-3), $Y_0$ 的期望值为
+\phantomsection\label{eq:7-15}
+\begin{equation}
+E(Y_0\mid\mathbf{z}_0)=\beta_0+\beta_1z_{01}+\cdots+\beta_rz_{0r}=\mathbf{z}_0'\boldsymbol{\beta} \tag{7-15}
+\end{equation}
+它的最小二乘估计为 $\mathbf{z}_0'\hat{\boldsymbol{\beta}}$.
+
+\mvthm{结论 7.7}{对线性回归模型(7-3), $\mathbf{z}_0'\hat{\boldsymbol{\beta}}$ 为 $E(Y_0\mid\mathbf{z}_0)$ 的线性无偏估计量, 且具有最小方差 $\operatorname{Var}(\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\sigma^2$. 若误差 $\boldsymbol{\epsilon}$ 服从正态分布, 则 $E(Y_0\mid\mathbf{z}_0)=\mathbf{z}_0'\boldsymbol{\beta}$ 的 $100(1-\alpha)\%$ 置信区间为}
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}\pm t_{n-r-1}\left(\frac{\alpha}{2}\right)\sqrt{\left(\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)s^2}
+\]
+其中 $t_{n-r-1}(\alpha/2)$ 为自由度 $n-r-1$ 的 $t$ 分布的上 $100(\alpha/2)$ 百分位数.
+
+\noindent\textbf{证明}\quad 对固定的 $\mathbf{z}_0$, $\mathbf{z}_0'\boldsymbol{\beta}$ 恰为诸 $\beta_i$ 的一个线性组合, 故可利用结论 7.3. 又, $\operatorname{Var}(\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\mathbf{z}_0'\operatorname{Cov}(\hat{\boldsymbol{\beta}})\mathbf{z}_0=\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\sigma^2$, 因由结论 7.2 有 $\operatorname{Cov}(\hat{\boldsymbol{\beta}})=\sigma^2(\mathbf{Z}'\mathbf{Z})^{-1}$. 在进一步假定 $\boldsymbol{\epsilon}$ 服从正态分布的前提下, 结论 7.4 断言 $\hat{\boldsymbol{\beta}}$ 服从 $N_{r+1}(\boldsymbol{\beta},\sigma^2(\mathbf{Z}'\mathbf{Z})^{-1})$ 分布, 且与 $s^2/\sigma^2$ 相互独立, 后者服从 $\chi^2_{n-r-1}/(n-r-1)$ 分布. 因此, 线性组合 $\mathbf{z}_0'\hat{\boldsymbol{\beta}}$ 服从分布 $N(\mathbf{z}_0'\boldsymbol{\beta},\sigma^2\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0)$, 且
+\[
+\frac{(\mathbf{z}_0'\hat{\boldsymbol{\beta}}-\mathbf{z}_0'\boldsymbol{\beta})\Big/\sqrt{\sigma^2\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}}{\sqrt{s^2\Big/\sigma^2}}=\frac{\mathbf{z}_0'\hat{\boldsymbol{\beta}}-\mathbf{z}_0'\boldsymbol{\beta}}{\sqrt{s^2\left(\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)}}
+\]
+服从 $t_{n-r-1}$ 分布. 由此得出置信区间. \hfill$\blacksquare$
+
+\subsection{\texorpdfstring{预测 $\mathbf{z}_0$ 点的新观测值}{预测 z0 点的新观测值}}
+
+在点 $\mathbf{z}_0=[1,z_{01},\cdots,z_{0r}]'$ 预测一个新的响应观测值 $Y_0$, 比估计其期望值有更大的不确定性. 根据回归模型(7-3),
+\[
+Y_0=\mathbf{z}_0'\boldsymbol{\beta}+\epsilon_0
+\]
+或
+\[
+\text{(新响应 }Y_0\text{)}=\text{(}Y_0\text{ 在 }\mathbf{z}_0\text{ 的期望值)}+\text{(新误差)}
+\]
+其中 $\epsilon_0$ 服从 $N(0,\sigma^2)$ 分布, 且与 $\boldsymbol{\epsilon}=[\epsilon_1,\cdots,\epsilon_n]'$ 相互独立. 因此 $\epsilon_0$ 与 $\hat{\boldsymbol{\beta}}$ 和 $s^2$ 也独立. 误差 $\boldsymbol{\epsilon}$ 通过响应 $\mathbf{Y}$ 影响估计量 $\hat{\boldsymbol{\beta}}$ 和 $s^2$, 但 $\epsilon_0$ 不影响.

@@ -1,0 +1,48 @@
+% ---- pg-521 （书页 509） ----
+
+$\boldsymbol{\Sigma}^{1/2}\boldsymbol{\Sigma}^{-1/2}=\mathbf{I}=\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{1/2}$ 和 $\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{-1/2}=\boldsymbol{\Sigma}^{-1}$. 然后, 令
+\[
+\mathbf{u}=\boldsymbol{\Sigma}^{1/2}\mathbf{a}
+\]
+故 $\mathbf{u}'\mathbf{u}=\mathbf{a}'\boldsymbol{\Sigma}^{1/2}\boldsymbol{\Sigma}^{1/2}\mathbf{a}=\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}$, 且 $\mathbf{u}'\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{u}=\mathbf{a}'\boldsymbol{\Sigma}^{1/2}\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{1/2}\mathbf{a}=\mathbf{a}'\mathbf{B}_\mu\mathbf{a}$. 因此, 上述最大化问题简化为使
+\[
+\frac{\mathbf{u}'\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{u}}{\mathbf{u}'\mathbf{u}}
+\]
+对 $\mathbf{u}$ 最大化的问题. 由\hyperref[eq:2-51]{式(2-51)}知这个比值的最大值为 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$ 的最大特征值 $\lambda_1$. 当 $\mathbf{u}=\mathbf{e}_1$(对应 $\lambda_1$ 的标准化特征向量)时出现此最大值. 由于 $\mathbf{e}_1=\mathbf{u}=\boldsymbol{\Sigma}^{1/2}\mathbf{a}_1$ 或 $\mathbf{a}_1=\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_1$, $\mathrm{Var}(\mathbf{a}_1'\mathbf{X})=\mathbf{a}_1'\boldsymbol{\Sigma}\mathbf{a}_1=\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_1=\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{1/2}\boldsymbol{\Sigma}^{1/2}\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_1=\mathbf{e}_1'\mathbf{e}_1=1$. 由\hyperref[eq:2-52]{式(2-52)}知, 当 $\mathbf{u}=\mathbf{e}_2$(对应于 $\lambda_2$ 的标准化特征向量)时, $\mathbf{u}\perp\mathbf{e}_1$ 使上述比值最大化. 对这个选择我们有 $\mathbf{a}_2=\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_2$ 和 $\mathrm{Cov}(\mathbf{a}_2'\mathbf{X},\mathbf{a}_1'\mathbf{X})=\mathbf{a}_2'\boldsymbol{\Sigma}\mathbf{a}_1=\mathbf{e}_2'\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_1=\mathbf{e}_2'\mathbf{e}_1=0$(因 $\mathbf{e}_2\perp\mathbf{e}_1$). 类似的, $\mathrm{Var}(\mathbf{a}_2'\mathbf{X})=\mathbf{a}_2'\boldsymbol{\Sigma}\mathbf{a}_2=\mathbf{e}_2'\mathbf{e}_2=1$. 对其余判别量可继续按这种方式进行处理. 注意, 若 $\lambda$ 和 $\mathbf{e}$ 为 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$ 的特征值和相应的特征向量, 则有
+\[
+\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{e}=\lambda\mathbf{e}
+\]
+将两边同时左乘 $\boldsymbol{\Sigma}^{-1/2}$, 得到
+\[
+\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{e}=\lambda\boldsymbol{\Sigma}^{-1/2}\mathbf{e}\ \text{或}\ \boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu(\boldsymbol{\Sigma}^{-1/2}\mathbf{e})=\lambda(\boldsymbol{\Sigma}^{-1/2}\mathbf{e}).
+\]
+这样 $\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu$ 与 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$ 有相同特征值, 但对应的特征向量与 $\boldsymbol{\Sigma}^{-1/2}\mathbf{e}=\mathbf{a}$ 成比例.
+
+\noindent 11.22\quad 证明 $\Delta_S^2=\lambda_1+\lambda_2+\cdots+\lambda_p=\lambda_1+\lambda_2+\cdots+\lambda_s$, 其中 $\lambda_1,\lambda_2,\cdots,\lambda_s$ 为 $\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu$(或 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$)的非零特征值, $\Delta_S^2$ 由\hyperref[eq:11-68]{式(11-68)}给出. 再证明: 当只用前 $r$ 个判别量 $Y_1,Y_2,\cdots,Y_r$ 时, 所得到的分离量为 $\lambda_1+\lambda_2+\cdots+\lambda_r$.
+
+提示: 设 $\mathbf{P}$ 为正交矩阵, 其第 $i$ 行 $\mathbf{e}_i'$ 为 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$ 的对应于第 $i$ 个最大特征值的特征向量, $i=1,2,\cdots,p$. 考虑
+\[
+\mathbf{Y}_{(p\times 1)}=\begin{bmatrix}Y_1\\\vdots\\Y_s\\\vdots\\Y_p\end{bmatrix}=\begin{bmatrix}\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\mathbf{X}\\\vdots\\\mathbf{e}_s'\boldsymbol{\Sigma}^{-1/2}\mathbf{X}\\\vdots\\\mathbf{e}_p'\boldsymbol{\Sigma}^{-1/2}\mathbf{X}\end{bmatrix}=\mathbf{P}\boldsymbol{\Sigma}^{-1/2}\mathbf{X}
+\]
+现在有 $\boldsymbol{\mu}_{iY}=E(\mathbf{Y}\mid \pi_i)=\mathbf{P}\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\mu}_i$ 和 $\bar{\boldsymbol{\mu}}_Y=\mathbf{P}\boldsymbol{\Sigma}^{-1/2}\bar{\boldsymbol{\mu}}$, 故
+\[
+\begin{aligned}
+(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)'(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)&=(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\boldsymbol{\Sigma}^{-1/2}\mathbf{P}'\mathbf{P}\boldsymbol{\Sigma}^{-1/2}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})\\
+&=(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})
+\end{aligned}
+\]
+因此 $\Delta_S^2=\sum_{i=1}^{g}(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)'(\boldsymbol{\mu}_{iY}-\boldsymbol{\mu}_Y)$. 利用 $Y_1$ 我们有
+\[
+\begin{aligned}
+\sum_{i=1}^{g}(\mu_{iY_1}-\bar{\mu}_{Y_1})^2&=\sum_{i=1}^{g}\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_1\\
+&=\mathbf{e}_1'\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_1=\lambda_1
+\end{aligned}
+\]
+因为 $\mathbf{e}_1$ 有特征值 $\lambda_1$. 类似的, 用 $Y_2$ 可得
+\[
+\sum_{i=1}^{g}(\mu_{iY_2}-\bar{\mu}_{Y_2})^2=\mathbf{e}_2'\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_2=\lambda_2
+\]
+以及用 $Y_p$ 可得
+\[
+\sum_{i=1}^{g}(\mu_{iY_p}-\bar{\mu}_{Y_p})^2=\mathbf{e}_p'\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_p=\lambda_p
+\]

@@ -1,0 +1,66 @@
+% ---- pg-584 （书页 572） ----
+
+\[
+-2\max_{\mathbf{Q}}\sum_{j=1}^{n}\mathbf{x}_{j}'\mathbf{Q}\mathbf{y}_{j}=-2(\lambda_{1}+\lambda_{2}+\cdots+\lambda_{p})
+\]
+最后, 我们证实 $\mathbf{Q}\mathbf{Q}'=\mathbf{V}\mathbf{U}'\mathbf{U}\mathbf{V}'=\mathbf{V}\mathbf{I}_{p}\mathbf{V}'=\mathbf{I}_{p}$, 因此 $\mathbf{Q}$ 是 $p\times p$ 正交阵.
+
+\noindent\textbf{例 12.21}\quad (大学数据的普罗克鲁斯特斯分析)
+
+用度量和非度量多维标度变换对例 12.16 中所给的大学数据进行分析后得出两个点结构. 这两个点结构看上去很接近. 对两种标度变换方法各有一个二维坐标系. 最初, 平方距离之和为
+\[
+\sum_{j=1}^{25}(\mathbf{x}_{j}-\mathbf{y}_{j})'(\mathbf{x}_{j}-\mathbf{y}_{j})=3.862
+\]
+计算机计算给出
+\[
+\mathbf{U}=\begin{bmatrix}-0.999\,0&0.044\,8\\0.044\,8&0.999\,0\end{bmatrix},\qquad
+\mathbf{V}=\begin{bmatrix}-1.000\,0&0.007\,6\\0.007\,6&1.000\,0\end{bmatrix},\qquad
+\boldsymbol{\Lambda}=\begin{bmatrix}114.943\,9&0.000\\0.000&21.367\,3\end{bmatrix}
+\]
+根据结论 12.2, 为最好地“对齐”这两个解, 我们对非度量标度变换解乘以正交矩阵
+\[
+\hat{\mathbf{Q}}=\sum_{i=1}^{2}\mathbf{v}_{i}\mathbf{u}_{i}'=\mathbf{V}\mathbf{U}'=\begin{bmatrix}0.999\,3&-0.037\,2\\0.037\,2&0.999\,3\end{bmatrix}
+\]
+这个变换大致相当于将非度量解沿顺时针方向旋转大约 2 度. 经过旋转后, 平方距离之和由 3.862 减少到普罗克鲁斯特斯拟合量度
+\[
+PR^{2}=\sum_{j=1}^{25}\mathbf{x}_{j}'\mathbf{x}_{j}+\sum_{j=1}^{25}\mathbf{y}_{j}'\mathbf{y}_{j}-2\sum_{i=1}^{2}\lambda_{i}=3.673
+\]
+\hfill$\blacksquare$
+
+\noindent\textbf{例 12.22}\quad (森林数据的普罗克鲁斯特斯分析及附加定位)
+
+在威斯康星州南部的 10 处高地收集了 8 种树的数据. 这些数据列于\hyperref[tab:12.10]{表 12.10} 中.
+
+\begin{mvtable}
+\phantomsection\label{tab:12.10}\mvtabcap{表 12.10\quad 威斯康星森林数据}
+\begin{tabular}{l|cccccccccc}
+\toprule
+树种 & \multicolumn{10}{c}{场\quad 所}\\
+\cmidrule(lr){2-11}
+ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\midrule
+针橡 & 9 & 8 & 3 & 5 & 6 & 0 & 5 & 0 & 0 & 0\\
+黑橡 & 8 & 9 & 8 & 7 & 0 & 0 & 0 & 0 & 0 & 0\\
+白橡 & 5 & 4 & 9 & 9 & 7 & 7 & 4 & 6 & 0 & 2\\
+红橡 & 3 & 4 & 0 & 6 & 9 & 8 & 7 & 6 & 4 & 3\\
+美国榆 & 2 & 2 & 4 & 5 & 6 & 0 & 5 & 0 & 2 & 5\\
+菩提 & 0 & 0 & 0 & 0 & 2 & 7 & 6 & 6 & 7 & 6\\
+铁树 & 0 & 0 & 0 & 0 & 0 & 0 & 7 & 4 & 6 & 5\\
+糖枫 & 0 & 0 & 0 & 0 & 0 & 5 & 4 & 8 & 8 & 9\\
+\bottomrule
+\end{tabular}
+
+资料来源: 见文献[24].
+\end{mvtable}
+
+度量多维标度变换法（或主坐标法）和非度量标度变换法的解分别示于\hyperref[fig:12.26]{图 12.26} 和图 12.27.
+
+利用\hyperref[fig:12.26]{图 12.26} 和图 12.27 中各点的坐标, 我们得到两个点结构的初始平方距离和为
+\[
+\sum_{j=1}^{10}(\mathbf{x}_{j}-\mathbf{y}_{j})'(\mathbf{x}_{j}-\mathbf{y}_{j})=8.547
+\]
+计算机计算给出
+\[
+\mathbf{U}=\begin{bmatrix}-0.983\,3&-0.182\,1\\-0.182\,1&0.983\,3\end{bmatrix},\qquad
+\mathbf{V}=\begin{bmatrix}-1.000\,0&-0.000\,1\\-0.000\,1&1.000\,0\end{bmatrix},
+\]

@@ -1,0 +1,42 @@
+注意到以下关系, \hyperref[eq:6-40]{式(6-40)}就得到验证:
+\[
+\begin{bmatrix}88&-11\\-11&72\end{bmatrix}
+=\begin{bmatrix}78&-12\\-12&48\end{bmatrix}
++\begin{bmatrix}10&1\\1&24\end{bmatrix}
+\]
+
+由\hyperref[eq:6-42]{式(6-42)}可得
+\[
+\Lambda^*=\frac{|W|}{|B+W|}
+=\frac{\begin{vmatrix}10&1\\1&24\end{vmatrix}}{\begin{vmatrix}88&-11\\-11&72\end{vmatrix}}
+=\frac{10\times24-1^2}{88\times72-(-11)^2}=\frac{239}{6\,215}=0.038\,5
+\]
+
+因为 $p=2,g=3$, 所以\hyperref[tab:6.3]{表 6.3} 暗示有一个假设为 $H_0:\boldsymbol{\tau}_1=\boldsymbol{\tau}_2=\boldsymbol{\tau}_3=\mathbf{0}$ 和 $H_1$: 至少有一个 $\boldsymbol{\tau}_i\neq\mathbf{0}$ 的精确检验(假定存在正态性和各组协方差阵相等的条件). 为完成检验, 我们将检验统计量
+\[
+\left(\frac{1-\sqrt{\Lambda^*}}{\sqrt{\Lambda^*}}\right)\left(\frac{\sum n_i-g-1}{g-1}\right)
+=\left(\frac{1-\sqrt{0.038\,5}}{\sqrt{0.038\,5}}\right)\times\left(\frac{8-3-1}{3-1}\right)=8.19
+\]
+与自由度为 $\nu_1=2(g-1)=4$ 及 $\nu_2=2\left(\sum n_i-g-1\right)=8$ 的 $F$ 分布的百分位数进行比较. 由于 $8.19>F_{4,8}(0.01)=7.01$, 故在 $\alpha=0.01$ 的显著性水平下拒绝 $H_0$, 即认为各种处理之间存在差异.
+
+当变量数目 $p$ 很大时, 通常不用 MANOVA 表, 这时一种常见的做法是用计算机打印出矩阵 $B$ 和 $W$, 这就可能出现特别大的矩阵元素. 此外, 为了判断正态性是否成立和离群值是否存在, 应利用第 4 章 4.6 和 4.7 两节的讨论考察残差向量 $\hat{\mathbf{e}}_{ij}=\mathbf{x}_{ij}-\bar{\mathbf{x}}_i$.
+
+\noindent\textbf{例 6.10}\quad (威斯康星州小型疗养所数据的多元分析)
+
+威斯康星州卫生和社会服务部为了支付该州小型疗养所提供服务的费用, 根据诸如护理等级、平均工资率和该州的平均工资率等因素设计出一组公式, 用来计算每一项设备的费用率.
+
+小型疗养所可按其所有制(私营、非营利组织和政府经营)以及设备等级证书(技术型设备, 中等设备, 或两者的结合)来分类.
+
+最近一项研究的目的是调查所有制或设备等级证书(或两者)对费用的影响. 为分析的需要选取了四项费用(按每位患者每天计算, 以每位患者每天的小时数来衡量): $X_1=$ 护理人工费用, $X_2=$ 膳食服务人工费用, $X_3=$ 设备操作及维护人工费用, $X_4=$ 房产管理与洗衣人工费用. 对这 $p=4$ 个费用变量中的每一个以及对每一种所有制各取 $n=516$ 个观测值. 下面是这 $g=3$ 组汇总统计数字.
+
+\begin{mvtable}
+\begin{tabular}{ccc}
+\toprule
+组别 & 观测值数 & 样本均值向量\\
+\midrule
+$l=1$(私营) & $n_1=271$ & \multirow{3}{*}{$\bar{\mathbf{x}}_1=\begin{bmatrix}2.066\\0.480\\0.082\\0.360\end{bmatrix}$;\quad $\bar{\mathbf{x}}_2=\begin{bmatrix}2.167\\0.596\\0.124\\0.418\end{bmatrix}$;\quad $\bar{\mathbf{x}}_3=\begin{bmatrix}2.273\\0.521\\0.125\\0.383\end{bmatrix}$}\\[26pt]
+$l=2$(非营利组织) & $n_2=138$ & \\[6pt]
+$l=3$(政府经营) & $\begin{array}{c}n_3=107\\ \sum\limits_{i=1}^{3}n_i=516\end{array}$ & \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

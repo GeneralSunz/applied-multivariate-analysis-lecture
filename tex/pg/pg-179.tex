@@ -1,0 +1,56 @@
+\phantomsection\label{eq:5-13}
+\begin{equation}
+\Lambda=\left(\frac{|\hat{\boldsymbol{\Sigma}}|}{|\hat{\boldsymbol{\Sigma}}_0|}\right)^{n/2}=\left(\frac{\left|\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right|}{\left|\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'\right|}\right)^{n/2}<c_\alpha \tag{5-13}
+\end{equation}
+
+时, 假设 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$, $H_1: \boldsymbol{\mu}\neq\boldsymbol{\mu}_0$ 的似然比检验拒绝 $H_0$, 这里 $c_\alpha$ 为 $\Lambda$ 分布的 $100\alpha$ 百分位数(注意, 似然比检验统计量为广义方差比的某次幂). 幸好 $T^2$ 与 $\Lambda$ 之间存在下面的联系, 因此在检验时我们不需知道 $\Lambda$ 的分布.
+
+\mvthm{结论 5.1}{设 $X_1,X_2,\cdots,X_n$ 为取自正态总体 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 的一个随机样本. 此时由于 $\Lambda^{2/n}=\left(1+\frac{T^2}{n-1}\right)^{-1}$, \hyperref[eq:5-7]{式(5-7)}中根据 $T^2$ 进行的检验等价于 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$, $H_1: \boldsymbol{\mu}\neq\boldsymbol{\mu}_0$ 的似然比检验.}
+
+\noindent\textbf{证明}\quad 令 $(p+1)\times(p+1)$ 矩阵 $\mathbf{A}$ 为
+\[
+\mathbf{A}=\begin{bmatrix}\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})' & \sqrt{n}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)\\[2pt] \hdashline[2pt/2pt] \sqrt{n}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)' & -1\end{bmatrix}=\begin{bmatrix}\mathbf{A}_{11} & \mathbf{A}_{12}\\[2pt] \hdashline[2pt/2pt] \mathbf{A}_{21} & \mathbf{A}_{22}\end{bmatrix}
+\]
+
+由练习 4.11 知 $|\mathbf{A}|=|\mathbf{A}_{22}||\mathbf{A}_{11}-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\mathbf{A}_{21}|=|\mathbf{A}_{11}||\mathbf{A}_{22}-\mathbf{A}_{21}\mathbf{A}_{11}^{-1}\mathbf{A}_{12}|$, 从而有
+\[
+\begin{aligned}
+&(-1)\left|\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'\right|\\
+&=\left|\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right|\left|-1-n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right)^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)\right|
+\end{aligned}
+\]
+
+根据\hyperref[eq:4-14]{式(4-14)},
+\[
+\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}+\bar{\mathbf{x}}-\boldsymbol{\mu}_0)(\mathbf{x}_j-\bar{\mathbf{x}}+\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'
+\]
+\[
+=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'
+\]
+
+所以前述等式可写为
+\[
+(-1)\left|\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'\right|=\left|\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right|(-1)\left(1+\frac{T^2}{n-1}\right)
+\]
+
+或
+\[
+|n\hat{\boldsymbol{\Sigma}}_0|=|n\hat{\boldsymbol{\Sigma}}|\left(1+\frac{T^2}{n-1}\right)
+\]
+
+于是
+\phantomsection\label{eq:5-14}
+\begin{equation}
+\Lambda^{2/n}=\frac{|\hat{\boldsymbol{\Sigma}}|}{|\hat{\boldsymbol{\Sigma}}_0|}=\left(1+\frac{T^2}{n-1}\right)^{-1} \tag{5-14}
+\end{equation}
+
+对小的 $\Lambda^{2/n}$ 值(或等价地对大的 $T^2$ 值), 假设 $H_0$ 将被拒绝. $T^2$ 的临界值由\hyperref[eq:5-6]{式(5-6)}确定.\hfill$\blacksquare$
+
+顺便提一句, \hyperref[eq:5-14]{式(5-14)}表明了 $T^2$ 可从两个行列式算得, 这样就避免了 $\mathbf{S}^{-1}$ 的计算. 解\hyperref[eq:5-14]{式(5-14)}, 可得
+\phantomsection\label{eq:5-15}
+\begin{equation}
+\begin{aligned}
+T^2&=\frac{(n-1)|\hat{\boldsymbol{\Sigma}}_0|}{|\hat{\boldsymbol{\Sigma}}|}-(n-1)\\
+&=\frac{(n-1)\left|\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'\right|}{\left|\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right|}-(n-1)
+\end{aligned} \tag{5-15}
+\end{equation}

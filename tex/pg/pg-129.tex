@@ -1,0 +1,26 @@
+\hyperref[eq:4-6]{式(4-6)}中的表达方法有点不便使用,而\hyperref[eq:4-4]{式(4-4)}中简洁通用的形式在许多方面提供信息更多. 另一方面,\hyperref[eq:4-6]{式(4-6)}中的表达方法对于讨论正态分布的某些性质是有用的. 例如,若随机向量 $X_1$ 和 $X_2$ 不相关,则 $\rho_{12}=0$,联合密度可以写作每个都如\hyperref[eq:4-1]{式(4-1)}所示的两个一元正态密度之积,即 $f(x_1,x_2)=f(x_1)f(x_2)$ 且 $X_1$ 和 $X_2$ 独立[参见\hyperref[eq:2-28]{式(2-28)}]. 该结论在一般情况下是正确的(参见结论 4.5).
+
+$\sigma_{11}=\sigma_{22}$ 的两个二元正态分布如\hyperref[fig:4.2]{图 4.2} 所示. 在\hyperref[fig:4.2]{图 4.2}(a)中,$X_1$ 和 $X_2$ 是独立的($\rho_{12}=0$). 在\hyperref[fig:4.2]{图 4.2}(b)中,$\rho_{12}=0.75$. 注意,(b)中由于相关性的存在,促使概率沿一直线集中.
+
+\begin{mvfigure}
+\mvinc{pg-129}{0.194,0.345,0.829,0.526}
+\phantomsection\label{fig:4.2}\mvcap{图 4.2\quad 两个二元正态分布\\
+(a) $\sigma_{11}=\sigma_{22}$ 且 $\rho_{12}=0$; (b) $\sigma_{11}=\sigma_{22}$ 且 $\rho_{12}=0.75$}
+\end{mvfigure}
+
+考虑一个 $p$ 维正态变量的密度,从\hyperref[eq:4-4]{式(4-4)}很清楚,对于密度产生一个常高的 $\mathbf{x}$ 值的路线为椭球面. 即在距离 $(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})$ 的平方为常数的表面上多元正态密度是常数. 这些路线被称为轮廓线.
+
+\begin{center}
+常数概率密度轮廓线 $=\{$ 满足 $(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})=c^{2}$ 的所有 $\mathbf{x}\}$\\
+$=$ 中心在 $\boldsymbol{\mu}$ 的椭球的表面
+\end{center}
+
+常数密度的每个椭球面的轴在 $\boldsymbol{\Sigma}^{-1}$ 的特征向量的方向上,而且它们的长度是与 $\boldsymbol{\Sigma}^{-1}$ 的特征值的平方根的倒数成比例的. 幸运的是,当确定轴时,我们可以避免计算 $\boldsymbol{\Sigma}^{-1}$,因为这些椭球也是由 $\boldsymbol{\Sigma}$ 的特征值和特征向量所决定的. 为了以后参考方便,我们正式地陈述相应内容.
+
+\mvthm{结论 4.1}{若 $\boldsymbol{\Sigma}$ 是正定的,于是 $\boldsymbol{\Sigma}^{-1}$ 存在,则
+\[
+\boldsymbol{\Sigma}\mathbf{e}=\lambda\mathbf{e}\quad\text{意味着}\quad \boldsymbol{\Sigma}^{-1}\mathbf{e}=\left(\frac{1}{\lambda}\right)\mathbf{e}
+\]
+所以 $(\lambda,\mathbf{e})$ 是 $\boldsymbol{\Sigma}$ 的一个特征值-特征向量对,对应于 $\boldsymbol{\Sigma}^{-1}$ 的特征值-特征向量对为 $(1/\lambda,\mathbf{e})$. 且 $\boldsymbol{\Sigma}^{-1}$ 也是正定的.}
+
+\noindent\textbf{证明}\quad 对于 $\boldsymbol{\Sigma}$ 正定及一个特征向量 $\mathbf{e}\neq0$,我们有 $0<\mathbf{e}'\boldsymbol{\Sigma}\mathbf{e}=\mathbf{e}'(\boldsymbol{\Sigma}\mathbf{e})=\mathbf{e}'(\lambda\mathbf{e})=\lambda\mathbf{e}'\mathbf{e}=\lambda$. 而且 $\mathbf{e}=\boldsymbol{\Sigma}^{-1}(\boldsymbol{\Sigma}\mathbf{e})=\boldsymbol{\Sigma}^{-1}(\lambda\mathbf{e})$,或 $\mathbf{e}=\lambda\boldsymbol{\Sigma}^{-1}\mathbf{e}$,且用 $\lambda>0$ 除,得到 $\boldsymbol{\Sigma}^{-1}\mathbf{e}=(1/\lambda)\mathbf{e}$. 于是,$(1/\lambda,\mathbf{e})$ 是 $\boldsymbol{\Sigma}^{-1}$ 的一对特征值-特征向量. 又,对任何 $p\times1$ 的 $\mathbf{x}$,因为每项 $\lambda_i^{-1}(\mathbf{x}'\mathbf{e}_i)^{2}$ 是非负的,由\hyperref[eq:2-21]{式(2-21)},有

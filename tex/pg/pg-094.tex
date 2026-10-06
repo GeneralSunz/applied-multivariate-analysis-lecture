@@ -1,0 +1,44 @@
+\noindent 2.29\quad 考虑任意随机向量 $\mathbf{X}'=[X_{1},X_{2},X_{3},X_{4},X_{5}]$ 和均值向量 $\boldsymbol{\mu}'=[\mu_{1},\mu_{2},\mu_{3},\mu_{4},\mu_{5}]$. 划分 $\mathbf{X}$ 为
+\[
+\mathbf{X}=\begin{bmatrix}\mathbf{X}^{(1)}\\\mathbf{X}^{(2)}\end{bmatrix}
+\]
+其中
+\[
+\mathbf{X}^{(1)}=\begin{bmatrix}X_{1}\\X_{2}\end{bmatrix}\quad\text{和}\quad
+\mathbf{X}^{(2)}=\begin{bmatrix}X_{3}\\X_{4}\\X_{5}\end{bmatrix}
+\]
+设 $\boldsymbol{\Sigma}$ 是 $\mathbf{X}$ 的协方差矩阵, 一般元素为 $\sigma_{ik}$. 划分 $\boldsymbol{\Sigma}$ 为 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 的协方差矩阵, 以及 $\mathbf{X}^{(1)}$ 的一个元素和 $\mathbf{X}^{(2)}$ 的一个元素的协方差矩阵.
+
+\medskip
+\noindent 2.30\quad 给出随机向量 $\mathbf{X}'=[X_{1},X_{2},X_{3},X_{4}]$, 均值向量 $\boldsymbol{\mu}_{\mathbf{X}}'=[4,3,2,1]$ 以及方差-协方差矩阵
+\[
+\boldsymbol{\Sigma}_{\mathbf{X}}=\begin{bmatrix}3&0&2&2\\0&1&1&0\\2&1&9&-2\\2&0&-2&4\end{bmatrix}
+\]
+$\mathbf{X}$ 划分为
+\[
+\mathbf{X}=\begin{bmatrix}X_{1}\\X_{2}\\\hdashline X_{3}\\\hdashline X_{4}\end{bmatrix}
+=\begin{bmatrix}\mathbf{X}^{(1)}\\\mathbf{X}^{(2)}\end{bmatrix}
+\]
+令
+\[
+\mathbf{A}=\begin{bmatrix}1&2\end{bmatrix}\quad\text{和}\quad
+\mathbf{B}=\begin{bmatrix}1&-2\\2&-1\end{bmatrix}
+\]
+考虑 $\mathbf{A}\mathbf{X}^{(1)}$ 和 $\mathbf{B}\mathbf{X}^{(2)}$ 的线性组合, 求
+\begin{tabbing}
+\hspace*{6em}\=(a)\quad \= $E(\mathbf{X}^{(1)})$ \hspace{3em} \=(f)\quad \= $E(\mathbf{B}\mathbf{X}^{(2)})$\\[2pt]
+\>(b)\> $E(\mathbf{A}\mathbf{X}^{(1)})$ \>(g)\> $\operatorname{Cov}(\mathbf{X}^{(2)})$\\[2pt]
+\>(c)\> $\operatorname{Cov}(\mathbf{X}^{(1)})$ \>(h)\> $\operatorname{Cov}(\mathbf{B}\mathbf{X}^{(2)})$\\[2pt]
+\>(d)\> $\operatorname{Cov}(\mathbf{A}\mathbf{X}^{(1)})$ \>(i)\> $\operatorname{Cov}(\mathbf{X}^{(1)},\mathbf{X}^{(2)})$\\[2pt]
+\>(e)\> $E(\mathbf{X}^{(2)})$ \>(j)\> $\operatorname{Cov}(\mathbf{A}\mathbf{X}^{(1)},\mathbf{B}\mathbf{X}^{(2)})$
+\end{tabbing}
+
+\medskip
+\noindent 2.31\quad 重复练习 2.30, 但 $\mathbf{A}$ 和 $\mathbf{B}$ 变换为
+\[
+\mathbf{A}=\begin{bmatrix}1&-1\end{bmatrix}\quad\text{和}\quad
+\mathbf{B}=\begin{bmatrix}2&-1\\0&1\end{bmatrix}
+\]
+
+\medskip
+\noindent 2.32\quad 给定随机向量 $\mathbf{X}'=[X_{1},X_{2},\cdots,X_{6}]$, 均值向量 $\boldsymbol{\mu}_{\mathbf{X}}'=[2,4,-1,3,0]$ 及方差-协方差

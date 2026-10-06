@@ -1,0 +1,54 @@
+\[
+P\left[\chi_p^2\le(1-\varphi)(1+\varphi)^{-1}\chi_p^2(0.05)\right]
+\]
+\hyperref[tab:5.10]{表 5.10} 显示了覆盖概率与系数 $\varphi$ 及变量个数 $p$ 之间的关系.
+
+\begin{mvtable}
+\phantomsection\label{tab:5.10}\mvtabcap{表 5.10\quad 名义水平为 95\% 的置信椭球的覆盖概率}
+\begin{tabular}{ccccc}
+\toprule
+$p$ & \multicolumn{4}{c}{$\varphi$}\\
+\cmidrule(lr){2-5}
+& $-0.25$ & $0$ & $0.25$ & $0.5$\\
+\midrule
+1 & 0.989 & 0.950 & 0.871 & 0.742\\
+2 & 0.993 & 0.950 & 0.834 & 0.632\\
+5 & 0.998 & 0.950 & 0.751 & 0.405\\
+10 & 0.999 & 0.950 & 0.641 & 0.193\\
+15 & 1.000 & 0.950 & 0.548 & 0.090\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+\hyperref[tab:5.10]{表 5.10} 的数据表明, 即使对双变量的情形, 覆盖概率也可能降得很低(低到 0.632).
+独立性假设十分重要, 但当观测值实际上不独立时, 根据独立性假设得出的结论很可能将人引入歧途.
+
+\section*{补充 5A\quad 作为 $p$ 维椭球投影的联合置信区间与置信椭圆}
+\phantomsection\label{sec:5.9}
+
+作为本节的开始, 我们先介绍一个椭球到直线投影的一般结论.
+
+\mvthm{结论 5A.1}{} 设常数 $c>0$ 和正定 $p\times p$ 矩阵 $\mathbf{A}$ 确定椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$. 对给定向向量 $\mathbf{u}\ne\mathbf{0}$. 且椭球中任意一点 $\mathbf{z}$, 椭球 $\{\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$ 在 $\mathbf{u}$ 上的投影为 $c\dfrac{\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}}{\mathbf{u}'\mathbf{u}}\mathbf{u}$, 其由 $\mathbf{0}$ 沿 $\mathbf{u}$ 方向的长度为 $c\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}/\mathbf{u}'\mathbf{u}}$. 当 $\mathbf{u}$ 为单位向量时, 投影的长度为 $c\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}$ 个单位, 故 $|\mathbf{z}'\mathbf{u}|\le c\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}$, 在 $-\mathbf{u}$ 方向的投影长度与此相同.
+
+\mvbold{证明}\quad 由定义 2A.12, 任一向量 $\mathbf{z}$ 在 $\mathbf{u}$ 上的投影为 $(\mathbf{z}'\mathbf{u})\mathbf{u}/\mathbf{u}'\mathbf{u}$, 其长度平方为 $(\mathbf{z}'\mathbf{u})^2/\mathbf{u}'\mathbf{u}$. 我们想使这个投影对椭球 $\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2$ 中的所有 $\mathbf{z}$ 达到极大. 由推广的柯西-施瓦茨不等\hyperref[eq:2-49]{式(2-49)}知 $(\mathbf{b}'\mathbf{d})^2\le(\mathbf{b}'\mathbf{B}\mathbf{d})(\mathbf{d}'\mathbf{B}^{-1}\mathbf{d})$, 等号在 $\mathbf{b}=\mathbf{B}^{-1}\mathbf{d}$ 时成立. 令 $\mathbf{b}=\mathbf{z}$, $\mathbf{d}=\mathbf{u}$ 和 $\mathbf{B}=\mathbf{A}^{-1}$, 我们有
+
+对所有 $\mathbf{z}$: $\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2$
+\[
+(\mathbf{u}'\mathbf{u})(\text{投影的长度})^2=(\mathbf{z}'\mathbf{u})^2\le(\mathbf{z}'\mathbf{A}^{-1}\mathbf{z})(\mathbf{u}'\mathbf{A}\mathbf{u})\le c^2\mathbf{u}'\mathbf{A}\mathbf{u}
+\]
+当 $\mathbf{z}=c\mathbf{A}\mathbf{u}/\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}$ 时等号成立, 此时上式给出投影最大值. 就是说, $\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}=c^2\mathbf{u}'\mathbf{A}\mathbf{u}/\mathbf{u}'\mathbf{A}\mathbf{u}=c^2$ 对这个 $\mathbf{z}$ 来说提供最长的投影. 因此, 椭球在 $\mathbf{u}$ 上的投影为 $c\dfrac{\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}}{\mathbf{u}'\mathbf{u}}\mathbf{u}$, 其长度为 $c\dfrac{\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}}{\mathbf{u}'\mathbf{u}}$. 对单位向量 $\mathbf{e}_u=\mathbf{u}/\sqrt{\mathbf{u}'\mathbf{u}}$, 投影沿 $\mathbf{u}$ 方向伸长 $c\sqrt{\mathbf{e}_u'\mathbf{A}\mathbf{e}_u}=\dfrac{c}{\sqrt{\mathbf{u}'\mathbf{u}}}\sqrt{\mathbf{u}'\mathbf{A}\mathbf{u}}$ 个单位, 在 $-\mathbf{u}$ 方向上伸长的长度也一样. \hfill$\blacksquare$
+
+\mvthm{结论 5A.2}{} 假定椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$ 给定, 且 $\mathbf{U}=[\mathbf{u}_1:\mathbf{u}_2]$ 为任一秩为 2 的矩阵. 此时, 该椭球中的 $\mathbf{z}$ 对所有 $\mathbf{U}$ 均蕴含了落在基于 $(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}$ 与 $c^2$ 的椭球中的 $\mathbf{U}'\mathbf{z}$, 即
+\[
+\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2 \quad\text{蕴含了}\quad
+(\mathbf{U}'\mathbf{z})'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}(\mathbf{U}'\mathbf{z})\le c^2\ (\text{对所有}\ \mathbf{U})
+\]
+
+\mvbold{证明}\quad 先建立一基本不等式.
+
+设 $\mathbf{P}=\mathbf{A}^{-1}\mathbf{U}(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}\mathbf{U}'\mathbf{A}^{1/2}$, 其中 $\mathbf{A}=\mathbf{A}^{1/2}\mathbf{A}^{1/2}$, 注意到 $\mathbf{P}=\mathbf{P}'$ 和 $\mathbf{P}^2=\mathbf{P}$, 有 $(\mathbf{I}-\mathbf{P})\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf{0}$. 再利用 $\mathbf{A}^{-1}=\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}$, 就可写出
+\[
+\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}=(\mathbf{A}^{-1/2}\mathbf{z})'(\mathbf{A}^{-1/2}\mathbf{z})
+\quad\text{和}\quad
+\mathbf{A}^{-1/2}\mathbf{z}=\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z}+(\mathbf{I}-\mathbf{P})\mathbf{A}^{-1/2}\mathbf{z}
+\]

@@ -1,0 +1,107 @@
+% ---- pg-293 （书页 281） ----
+
+也是随机变量), 其行为由一组关于分布的假定来表征.
+
+具体地说, 单个响应的线性回归模型取如下形式:
+\[
+Y = \beta_0+\beta_1 z_1+\cdots+\beta_r z_r+\epsilon
+\]
+\[
+(\text{响应})=[\text{均值}(\text{依赖于 } z_1,\cdots,z_r)]+(\text{误差})
+\]
+线性一词指均值为未知参数 $\beta_0,\beta_1,\cdots,\beta_r$ 的线性函数, 预测变量在模型中不一定是一阶项.
+
+如将模型用 $Y$ 的 $n$ 个观测值和与之相联系的诸 $z_i$ 值来表示时, 则整个模型变为
+\phantomsection\label{eq:7-1}
+\begin{equation}
+\begin{aligned}
+Y_1 &= \beta_0+\beta_1 z_{11}+\beta_2 z_{12}+\cdots+\beta_r z_{1r}+\epsilon_1\\
+Y_2 &= \beta_0+\beta_1 z_{21}+\beta_2 z_{22}+\cdots+\beta_r z_{2r}+\epsilon_2\\
+&\quad\vdots\\
+Y_n &= \beta_0+\beta_1 z_{n1}+\beta_2 z_{n2}+\cdots+\beta_r z_{nr}+\epsilon_n
+\end{aligned}
+\tag{7-1}
+\end{equation}
+其中误差项假定具有以下性质:
+\phantomsection\label{eq:7-2}
+\begin{equation}
+\begin{array}{ll}
+1. & E(\epsilon_j)=0;\\
+2. & \text{Var}(\epsilon_j)=\sigma^2\ (\text{常数});\\
+3. & \text{Cov}(\epsilon_j,\epsilon_k)=0,\ j\neq k.
+\end{array}
+\tag{7-2}
+\end{equation}
+用矩阵形式表示, \hyperref[eq:7-1]{式(7-1)} 变成
+\[
+\begin{bmatrix}Y_1\\Y_2\\\vdots\\Y_n\end{bmatrix}
+=
+\begin{bmatrix}
+1&z_{11}&z_{12}&\cdots&z_{1r}\\
+1&z_{21}&z_{22}&\cdots&z_{2r}\\
+\vdots&\vdots&\vdots&&\vdots\\
+1&z_{n1}&z_{n2}&\cdots&z_{nr}
+\end{bmatrix}
+\begin{bmatrix}\beta_0\\\beta_1\\\vdots\\\beta_r\end{bmatrix}
++
+\begin{bmatrix}\epsilon_1\\\epsilon_2\\\vdots\\\epsilon_n\end{bmatrix}
+\]
+或
+\[
+\underset{(n\times 1)}{\mathbf{Y}}
+=
+\underset{(n\times(r+1))}{\mathbf{Z}}\;
+\underset{((r+1)\times 1)}{\boldsymbol{\beta}}
++
+\underset{(n\times 1)}{\boldsymbol{\epsilon}}
+\]
+而\hyperref[eq:7-2]{式(7-2)} 中的假定可表示为:
+\[
+\begin{array}{ll}
+1. & E(\boldsymbol{\epsilon})=\mathbf{0};\\
+2. & \text{Cov}(\boldsymbol{\epsilon})=E(\boldsymbol{\epsilon}\boldsymbol{\epsilon}')=\sigma^2\mathbf{I}.
+\end{array}
+\]
+注意设计矩阵 $\mathbf{Z}$ 的第一列为常数项 $\beta_0$ 的系数. 习惯上引入一个人工变量 $z_{j0}=1$, 使得
+\[
+\beta_0+\beta_1 z_{j1}+\cdots+\beta_r z_{jr}=\beta_0 z_{j0}+\beta_1 z_{j1}+\cdots+\beta_r z_{jr}
+\]
+$\mathbf{Z}$ 的每一列由相应预测变量的 $n$ 个值组成, 而 $\mathbf{Z}$ 的第 $j$ 行则包含第 $j$ 次试验中所有预测变量的值.
+
+\begin{mvframe}[经典线性回归模型]
+\[
+\underset{(n\times 1)}{\mathbf{Y}}
+=
+\underset{(n\times(r+1))}{\mathbf{Z}}\;
+\underset{((r+1)\times 1)}{\boldsymbol{\beta}}
++
+\underset{(n\times 1)}{\boldsymbol{\epsilon}},
+\]
+\phantomsection\label{eq:7-3}
+\begin{equation}
+E(\boldsymbol{\epsilon})=\underset{(n\times 1)}{\mathbf{0}},\qquad
+\text{Cov}(\boldsymbol{\epsilon})=\underset{(n\times n)}{\sigma^2\mathbf{I}},
+\tag{7-3}
+\end{equation}
+\end{mvframe}
+
+其中 $\boldsymbol{\beta}$ 和 $\sigma^2$ 为未知参数, 设计矩阵 $\mathbf{Z}$ 的第 $j$ 行为 $[z_{j0},z_{j1},\cdots,z_{jr}]$.
+
+虽然\hyperref[eq:7-2]{式(7-2)} 中关于误差项的假定很宽松, 但稍后我们将增添一个正态性假定, 以便能构造置信区间和进行假设检验.
+
+下面提供一些有关线性回归模型的例子.
+
+\medskip
+\noindent\textbf{例 7.1}\quad (拟合直线回归模型)
+
+用数据
+
+\begin{mvtable}
+\begin{tabular}{c|ccccc}
+\hline
+$z_1$&0&1&2&3&4\\
+\hline
+$y$&1&4&3&8&9\\
+\hline
+\end{tabular}
+\end{mvtable}

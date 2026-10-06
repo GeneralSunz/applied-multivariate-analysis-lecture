@@ -1,0 +1,67 @@
+% ---- pg-296 （书页 284） ----
+
+$\mathbf{y}'[\mathbf{I}-\mathbf{H}]\mathbf{y}=\mathbf{y}'\mathbf{y}-\mathbf{y}'\mathbf{Z}\hat{\boldsymbol{\beta}}$. 为验证 $\hat{\boldsymbol{\beta}}$ 为最小二乘估计, 我们有
+\[
+\mathbf{y}-\mathbf{Z}\mathbf{b}=\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}}+\mathbf{Z}\hat{\boldsymbol{\beta}}-\mathbf{Z}\mathbf{b}=\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}}+\mathbf{Z}(\hat{\boldsymbol{\beta}}-\mathbf{b})
+\]
+故
+\[
+\begin{aligned}
+S(\mathbf{b})&=(\mathbf{y}-\mathbf{Z}\mathbf{b})'(\mathbf{y}-\mathbf{Z}\mathbf{b})\\
+&=(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})+(\hat{\boldsymbol{\beta}}-\mathbf{b})'\mathbf{Z}'\mathbf{Z}(\hat{\boldsymbol{\beta}}-\mathbf{b})\\
+&\qquad +2(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'\mathbf{Z}(\hat{\boldsymbol{\beta}}-\mathbf{b})\\
+&=(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})+(\hat{\boldsymbol{\beta}}-\mathbf{b})'\mathbf{Z}'\mathbf{Z}(\hat{\boldsymbol{\beta}}-\mathbf{b})
+\end{aligned}
+\]
+因为 $(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'\mathbf{Z}=\hat{\boldsymbol{\epsilon}}'\mathbf{Z}=\mathbf{0}'$. 上式右端的第一项不依赖于 $\mathbf{b}$, 第二项为 $\mathbf{Z}(\hat{\boldsymbol{\beta}}-\mathbf{b})$ 的平方长度. 由于 $\mathbf{Z}$ 是满秩的, 若 $\hat{\boldsymbol{\beta}}\neq\mathbf{b}$, 则 $\mathbf{Z}(\hat{\boldsymbol{\beta}}-\mathbf{b})\neq\mathbf{0}$. 可见平方和的最小值在 $\mathbf{b}=\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}$ 时达到, 而且是唯一的. 注意 $(\mathbf{Z}'\mathbf{Z})^{-1}$ 存在, 因为 $\mathbf{Z}'\mathbf{Z}$ 有秩 $r+1\leq n$. (若 $\mathbf{Z}'\mathbf{Z}$ 不满秩, 则对某个 $\mathbf{a}\neq\mathbf{0}$ 有 $\mathbf{Z}'\mathbf{Z}\mathbf{a}\neq\mathbf{0}$, 这样 $\mathbf{a}'\mathbf{Z}'\mathbf{Z}\mathbf{a}=\mathbf{0}$, 或 $\mathbf{Z}\mathbf{a}=\mathbf{0}$. 这与 $\mathbf{Z}$ 有满秩 $r+1$ 的前提相矛盾.) \hfill$\blacksquare$
+
+结论 7.1 证明了最小二乘估计 $\hat{\boldsymbol{\beta}}$ 和残差 $\hat{\boldsymbol{\epsilon}}$ 可通过样本矩阵运算由设计矩阵 $\mathbf{Z}$ 和响应向量 $\mathbf{y}$ 得出.
+
+\medskip
+\noindent\textbf{例 7.3}\quad (计算最小二乘估计、残差及残差平方和)
+
+计算模型
+\[
+Y_j=\beta_0+\beta_1 z_{j1}+\epsilon_j
+\]
+对数据
+
+\begin{mvtable}
+\begin{tabular}{c|ccccc}
+\hline
+$z_1$&0&1&2&3&4\\
+\hline
+$y$&1&4&3&8&9\\
+\hline
+\end{tabular}
+\end{mvtable}
+
+拟合的最小二乘估计 $\hat{\boldsymbol{\beta}}$、残差 $\hat{\boldsymbol{\epsilon}}$ 及残差平方和. 我们有
+\[
+\overset{\mathbf{Z}'}{\begin{bmatrix}1&1&1&1&1\\0&1&2&3&4\end{bmatrix}}
+\quad
+\overset{\mathbf{y}}{\begin{bmatrix}1\\4\\3\\8\\9\end{bmatrix}}
+\quad
+\overset{\mathbf{Z}'\mathbf{Z}}{\begin{bmatrix}5&10\\10&30\end{bmatrix}}
+\quad
+\overset{(\mathbf{Z}'\mathbf{Z})^{-1}}{\begin{bmatrix}0.6&-0.2\\-0.2&0.1\end{bmatrix}}
+\quad
+\overset{\mathbf{Z}'\mathbf{y}}{\begin{bmatrix}25\\70\end{bmatrix}}
+\]
+因此,
+\[
+\hat{\boldsymbol{\beta}}=\begin{bmatrix}\hat{\beta}_0\\\hat{\beta}_1\end{bmatrix}
+=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}
+=\begin{bmatrix}0.6&-0.2\\-0.2&0.1\end{bmatrix}\begin{bmatrix}25\\70\end{bmatrix}
+=\begin{bmatrix}1\\2\end{bmatrix}
+\]
+于是拟合的方程为
+\[
+\hat{y}=1+2z_1
+\]
+拟合值(预测值)向量为
+\[
+\hat{\mathbf{y}}=\mathbf{Z}\hat{\boldsymbol{\beta}}
+=\begin{bmatrix}1&0\\1&1\\1&2\\1&3\\1&4\end{bmatrix}\begin{bmatrix}1\\2\end{bmatrix}
+=\begin{bmatrix}1\\3\\5\\7\\9\end{bmatrix}
+\]

@@ -1,0 +1,94 @@
+% ---- pg-064 （书页 52） ----
+
+\begin{mvtable}
+\begin{tabular}{lccc}
+\toprule
+$x_1$ & $-1$ & $0$ & $1$ \\
+\midrule
+$p_1(x_1)$ & $0.3$ & $0.3$ & $0.4$ \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+则
+\[
+E(X_1)=\sum_{\text{一切 }x_1}x_1p_1(x_1)=(-1)\times0.3+0\times0.3+1\times0.4=0.1
+\]
+
+类似地，设离散型随机变量 $X_2$ 有概率函数
+
+\begin{mvtable}
+\begin{tabular}{lcc}
+\toprule
+$x_2$ & $0$ & $1$ \\
+\midrule
+$p_2(x_2)$ & $0.8$ & $0.2$ \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+则
+\[
+E(X_2)=\sum_{\text{一切 }x_2}x_2p_2(x_2)=0\times0.8+1\times0.2=0.2
+\]
+
+因此
+\[
+E(\bm{X})=
+\begin{bmatrix}
+E(X_1)\\
+E(X_2)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.1\\
+0.2
+\end{bmatrix}
+\]
+
+直接由随机矩阵期望值的定义以及期望的性质 $E(X_i+Y_i)=E(X_i)+E(Y_i)$ 和 $E(cX_i)=cE(X_i)$，可得到关于矩阵的和的期望与乘积的期望的两个结论.设 $\bm{X}$ 和 $\bm{Y}$ 是同维的随机矩阵，并令 $\bm{A}$ 和 $\bm{B}$ 是常数的可相乘矩阵，则(参见练习 2.40)
+
+\begin{mvframe}
+\phantomsection\label{eq:2-24}
+\begin{equation}
+\begin{aligned}
+E(\bm{X}+\bm{Y})&=E(\bm{X})+E(\bm{Y})\\
+E(\bm{A}\bm{X}\bm{B})&=\bm{A}E(\bm{X})\bm{B}
+\end{aligned}
+\tag{2-24}
+\end{equation}
+\end{mvframe}
+
+\section{均值向量和协方差矩阵}  % 原书 2.6
+\phantomsection\label{sec:2.6}
+
+设 $\bm{X}=[X_1,X_2,\cdots,X_p]$ 是 $p\times1$ 随机向量，则 $\bm{X}$ 的每个元素都是一个有着自己的边缘概率函数的随机变量(参考例 2.12).边缘均值 $\mu_i$ 和方差 $\sigma_i^2$ 分别定义为 $\mu_i=E(X_i)$ 和 $\sigma_i^2=E(X_i-\mu_i)^2,i=1,2,\cdots,p$.具体地说，
+
+\[
+\mu_i=
+\begin{cases}
+\displaystyle\int_{-\infty}^{\infty}x_if_i(x_i)\,\mathrm{d}x_i & \text{若 } X_i \text{ 是概率密度函数为 } f_i(x_i) \text{ 的连续型随机变量}\\[2ex]
+\displaystyle\sum_{\text{一切 }x_i}x_ip_i(x_i) & \text{若 } X_i \text{ 是概率函数为 } p_i(x_i) \text{ 的离散型随机变量}
+\end{cases}
+\]
+
+\[
+\sigma_i^2=
+\begin{cases}
+\displaystyle\int_{-\infty}^{\infty}(x_i-\mu_i)^2f_i(x_i)\,\mathrm{d}x_i & \text{若 } X_i \text{ 是概率密度函数为 } f_i(x_i) \text{ 的连续型随机变量}\\[2ex]
+\displaystyle\sum_{\text{一切 }x_i}(x_i-\mu_i)^2p_i(x_i) & \text{若 } X_i \text{ 是概率函数为 } p_i(x_i) \text{ 的离散型随机变量}
+\end{cases}
+\]
+
+\phantomsection\label{eq:2-25}
+\begin{equation}
+\tag{2-25}
+\end{equation}
+
+在以后的各节中，采用记号 $\sigma_{ii}$ 而不是更传统的 $\sigma_i^2$ 来表示边缘方差，较为方便.因此，我们将使用这一记号.
+
+任何一对随机变量 $X_i$ 和 $X_k$ 的特性，可用它们的联合概率函数来描述.它们之间的线性联系的程度可用协方差来表示.
+
+\[
+\sigma_{ik}=E(X_i-\mu_i)(X_k-\mu_k)
+\]

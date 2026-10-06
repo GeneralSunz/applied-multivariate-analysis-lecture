@@ -1,0 +1,68 @@
+% ---- pg-339 （书页 327） ----
+
+其中秩$(\mathbf{Z})=r+1$, 意味着秩$(\mathbf{Z}_1)=q+1$, 秩$(\mathbf{Z}_2)=r-q$. 若事先确定的参数 $\boldsymbol{\beta}_{(2)}$ 为所关心的参数, 证明 $\boldsymbol{\beta}_{(2)}$ 的 $100(1-\alpha)\%$ 置信域为
+\[
+\begin{aligned}
+&(\hat{\boldsymbol{\beta}}_{(2)}-\boldsymbol{\beta}_{(2)})'[\mathbf{Z}_2'\mathbf{Z}_2-\mathbf{Z}_2'\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{Z}_2](\hat{\boldsymbol{\beta}}_{(2)}-\boldsymbol{\beta}_{(2)})\\
+&\qquad\leqslant s^2(r-q)F_{r-q,n-r-1}(\alpha)
+\end{aligned}
+\]
+提示: 在练习 4.12 中, 将 1 和 2 交换, 有
+\[
+\mathbf{C}^{22}=[\mathbf{Z}_2'\mathbf{Z}_2-\mathbf{Z}_2'\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{Z}_2]^{-1},
+\]
+其中 $(\mathbf{Z}'\mathbf{Z})^{-1}=\begin{bmatrix}\mathbf{C}^{11}&\mathbf{C}^{12}\\ \mathbf{C}^{21}&\mathbf{C}^{22}\end{bmatrix}$. 两边同时乘以 $(\mathbf{C}^{22})^{-1/2}$, 并证明 $(\mathbf{C}^{22})^{-1/2}(\hat{\boldsymbol{\beta}}_{(2)}-\boldsymbol{\beta}_{(2)})/\sigma^2$ 为 $N(\mathbf{0},\mathbf{I})$, 故
+\[
+(\hat{\boldsymbol{\beta}}_{(2)}-\boldsymbol{\beta}_{(2)})'(\mathbf{C}^{22})^{-1}(\hat{\boldsymbol{\beta}}_{(2)}-\boldsymbol{\beta}_{(2)})\quad\text{为}\quad\sigma^2\chi_{r-q}^2
+\]
+
+\medskip
+\noindent 7.8\quad 回顾“帽子阵”的定义为 $\mathbf{H}=\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$, 其对角元记为 $h_{jj}$.
+
+\noindent (a) 证明 $\mathbf{H}$ 为一个幂等阵[见结论 7.1 和\hyperref[eq:7-6]{式(7-6)}.]
+
+\noindent (b) 证明 $0<h_{jj}<1$, $j=1,2,\cdots,n$, 且 $\sum_{j=1}^{n}h_{jj}=r+1$, 其中 $r$ 为回归模型中自变量的个数(事实上, $(1/n)\leqslant h_{jj}<1$).
+
+\noindent (c) 对一个自变量 $z$ 的简单线性回归模型, 验证杠杆率 $h_{jj}$ 的计算式为
+\[
+h_{jj}=\frac{1}{n}+\frac{(z_j-\bar{z})^2}{\sum_{j=1}^{n}(z_j-\bar{z})^2}
+\]
+
+\medskip
+\noindent 7.9\quad 考虑下面关于一个预测变量 $z_1$ 及两个响应变量 $y_1$ 和 $y_2$ 的数据:
+
+\begin{mvtable}
+\begin{tabular}{r|ccccc}
+\hline
+$z_1$&$-2$&$-1$&0&1&2\\
+\hline
+$y_1$&5&3&4&2&1\\
+\hline
+$y_2$&$-3$&$-1$&$-1$&2&3\\
+\hline
+\end{tabular}
+\end{mvtable}
+
+对直线回归模型
+\[
+\begin{aligned}
+Y_{j1}&=\beta_{01}+\beta_{11}z_{j1}+\epsilon_{j1}\\
+Y_{j2}&=\beta_{02}+\beta_{12}z_{j1}+\epsilon_{j2},\qquad j=1,2,3,4,5
+\end{aligned}
+\]
+求参数的最小二乘估计值. 计算拟合值矩阵 $\hat{\mathbf{Y}}=[\hat{\mathbf{y}}_1\ \vdots\ \hat{\mathbf{y}}_2]$ 和残差阵 $\hat{\boldsymbol{\epsilon}}=[\hat{\boldsymbol{\epsilon}}_1\ \vdots\ \hat{\boldsymbol{\epsilon}}_2]$. 验证平方与交叉乘积之和的分解式
+\[
+\mathbf{Y}'\mathbf{Y}=\hat{\mathbf{Y}}'\hat{\mathbf{Y}}+\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}
+\]
+
+\medskip
+\noindent 7.10\quad 用练习 7.9 中的结果计算下列的内容:
+
+\noindent (a) 对平均响应 $E(Y_{01})=\beta_{01}+\beta_{11}z_{01}$, 在 $z_{01}=0.5$ 时计算 95\% 置信区间.
+
+\noindent (b) 对响应 $Y_{01}$ 在 $Z_{01}=0.5$ 时计算 95\% 的预测区间.
+
+\noindent (c) 对响应 $Y_{01}$ 和 $Y_{02}$ 在 $z_{01}=0.5$ 时计算 95\% 的联合预测域.
+
+\medskip
+\noindent 7.11\quad （多元多重回归的广义最小二乘估计.）设 $\mathbf{A}$ 为正定阵, 故 $d_j^2(\mathbf{B})=(\mathbf{y}_j-\mathbf{B}'\mathbf{z}_j)'\mathbf{A}(\mathbf{y}_j-\mathbf{B}'\mathbf{z}_j)$ 为观测 $\mathbf{y}_j$ 对它的回归 $\mathbf{B}'\mathbf{z}_j$ 的平方统计距离. 证明: 对任意正定的 $\mathbf{A}$($\mathbf{A}$ 包括 $\boldsymbol{\Sigma}^{-1}$ 和 $\mathbf{I}$), $\mathbf{B}=\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}$ 使平方统计距离之和 $\sum_{j=1}^{n}d_j^2(\mathbf{B})$ 达到极小.

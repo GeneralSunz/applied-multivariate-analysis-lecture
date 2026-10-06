@@ -1,0 +1,68 @@
+% ---- pg-493 （书页 481） ----
+
+对所有 $i=1,2,\cdots,g$.
+
+将 $-\ln(p_k/p_i)=\ln(p_i/p_k)$ 加到上述不等式的两边, 就得到最小总错分概率(TPM)分类法则的另一种形式. 这样我们有
+
+若
+\phantomsection\label{eq:11-55}
+\begin{equation}
+(\boldsymbol{\mu}_k-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_k-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_k+\boldsymbol{\mu}_i)\ge\ln\left(\frac{p_i}{p_k}\right)
+\tag{11-55}
+\end{equation}
+则将 $\mathbf{x}$ 分入 $\pi_k$, 对所有 $i=1,2,\cdots,g$.
+
+记\hyperref[eq:11-55]{式(11-55)}左端为 $d_{ki}(\mathbf{x})$. 于是\hyperref[eq:11-55]{式(11-55)}中的条件定义了被(超)平面所分离的分类域 $R_1,R_2,\cdots,R_g$. 这是由于 $d_{ki}(\mathbf{x})$ 为 $\mathbf{x}$ 诸分量的线性组合之故. 例如, 当 $g=3$ 时, 分类域 $R_1$ 由满足下面条件的 $\mathbf{x}$ 构成:
+\[
+R_1: d_{1i}(\mathbf{x})\ge\ln\left(\frac{p_i}{p_1}\right)\qquad \text{对 } i=2,3
+\]
+也就是说, $R_1$ 中的 $\mathbf{x}$ 既要满足
+\[
+d_{12}(\mathbf{x})=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\ge\ln\left(\frac{p_2}{p_1}\right)
+\]
+同时又要满足
+\[
+d_{13}(\mathbf{x})=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_3)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_3)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_3)\ge\ln\left(\frac{p_3}{p_1}\right)
+\]
+假定 $\boldsymbol{\mu}_1$, $\boldsymbol{\mu}_2$ 和 $\boldsymbol{\mu}_3$ 不在一条直线上, 方程 $d_{12}(\mathbf{x})=\ln(p_2/p_1)$ 和 $d_{13}(\mathbf{x})=\ln(p_3/p_1)$ 就定义两个相交的超平面, 它刻画 $p$ 维变量空间中的 $R_1$. 若 $p_2$ 大于 $p_1$, 则 $\ln(p_2/p_1)$ 这一项将使这个平面更靠近 $\boldsymbol{\mu}_1$(离 $\boldsymbol{\mu}_2$ 较远). 二变量情形下的区域 $R_1$, $R_2$ 和 $R_3$ 示于\hyperref[fig:11.10]{图 11.10}. 对更多变量的情况, 要是我们画出含三个均值向量的平面, 那么所得出的图像是一样的.
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=0.75]
+\draw[->] (0,0) -- (9.4,0) node[below right,font=\small]{$x_1$};
+\draw[->] (0,0) -- (0,8.8) node[left,font=\small]{$x_2$};
+\foreach \vy in {2,4,6,8}{%
+  \draw (\vy,0) -- (\vy,-0.18) node[below,font=\small]{\vy};
+  \draw (0,\vy) -- (-0.18,\vy) node[left,font=\small]{\vy};}
+\draw (0.2,5.2) -- (2.9,2.7) -- (5.3,5.5);
+\draw (2.9,2.7) -- (2.1,0);
+\draw[rotate around={-20:(3.4,4.8)}] (3.4,4.8) ellipse (0.62 and 1.05);
+\draw[rotate around={-20:(5.3,2.9)}] (5.3,2.9) ellipse (0.62 and 1.25);
+\draw[rotate around={-20:(1.1,2.0)}] (1.1,2.0) ellipse (0.66 and 1.25);
+\fill (3.4,4.8) circle (1.6pt);
+\fill (5.3,2.9) circle (1.6pt);
+\fill (1.1,2.0) circle (1.6pt);
+\node[font=\small] at (2.2,5.4) {$R_1$};
+\node[font=\small] at (6.9,2.3) {$R_2$};
+\node[font=\small] at (0.7,3.5) {$R_3$};
+\end{tikzpicture}
+\phantomsection\label{fig:11.10}\mvcap{图 11.10\quad 线性最小 TPM 法则的分类域 $R_1$, $R_2$ 和 $R_3$($p_1=1/4$, $p_2=1/2$, $p_3=1/4$)}
+\end{mvfigure}
+
+通过用 $\bar{\mathbf{x}}_i$ 代替 $\boldsymbol{\mu}_i$ 和用 $\mathbf{S}_{\mathrm{p}}$ 代替 $\boldsymbol{\Sigma}$, 可以得到\hyperref[eq:11-55]{式(11-55)}的样本形式. 当 $\sum_{i=1}^{g}(n_i-1)\ge p$ 时 $\mathbf{S}_{\mathrm{p}}^{-1}$ 存在, 这时\hyperref[eq:11-55]{式(11-55)}的样本形式为:
+
+若
+\phantomsection\label{eq:11-56}
+\begin{equation}
+\begin{aligned}
+\hat{d}_{ki}(\mathbf{x})&=(\bar{\mathbf{x}}_k-\bar{\mathbf{x}}_i)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}-\frac{1}{2}(\bar{\mathbf{x}}_k-\bar{\mathbf{x}}_i)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_k+\bar{\mathbf{x}}_i)\\
+&\ge\ln\left(\frac{p_i}{p_k}\right)\qquad i\ne k
+\end{aligned}
+\tag{11-56}
+\end{equation}
+则将 $\mathbf{x}$ 分到 $\pi_i$.
+
+给定 $\bar{\mathbf{x}}_i$ 和 $\mathbf{S}_{\mathrm{p}}$, 则 $\hat{d}_{ki}(\mathbf{x})$ 为 $\mathbf{x}$ 诸分量的线性函数. 因此, 由\hyperref[eq:11-56]{式(11-56)}所定义的分类域, 或等价地说由\hyperref[eq:11-52]{式(11-52)}所定义的分类域, 也是以如\hyperref[fig:11.10]{图 11.10} 所示超平面为边界.
+
+同\hyperref[eq:11-52]{式(11-52)}中的样本线性判别法则一样, 如果先验概率难以估计, 通常就将它们取成等概率. 在这种情况下, 对所有 $p_i$, $p_k$($i\ne k$)都有 $\ln(p_i/p_k)=0$.
+
+由于用了总体参数的估计值, 样本分类法则(11-48)和(11-52)不再是最优的. 但是它们的

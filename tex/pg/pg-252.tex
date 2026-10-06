@@ -1,0 +1,57 @@
+\noindent\hfill{\zihao{6}续表}\par
+\begin{mvtable}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+变差来源 & 平方和 (SS) & 自由度 (d.f.)\\
+\midrule
+交互效应 & $SS_{交互}=\sum\limits_{l=1}^{g}\sum\limits_{k=1}^{b} n(\bar{x}_{lk}-\bar{x}_{l\cdot}-\bar{x}_{\cdot k}+\bar{x})^2$ & $(g-1)(b-1)$\\[10pt]
+残差(误差) & $SS_{残差}=\sum\limits_{l=1}^{g}\sum\limits_{k=1}^{b}\sum\limits_{r=1}^{n}(x_{lkr}-\bar{x}_{lk})^2$ & $gb(n-1)$\\[10pt]
+总和(修正的) & $SS_{总}=\sum\limits_{l=1}^{g}\sum\limits_{k=1}^{b}\sum\limits_{r=1}^{n}(x_{lkr}-\bar{x})^2$ & $gbn-1$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+均方 $SS_{因子1}/(g-1)$, $SS_{因子2}/(b-1)$ 和 $SS_{交互}/(g-1)(b-1)$ 分别与均方 $SS_{残差}/[gb(n-1)]$ 形成的 $F$ 比,可分别用于检验因子 1 的效应、因子 2 的效应,以及它们之间的交互效应(参见文献[11]中关于双因子一元方差分析的讨论).
+
+\mvsub{具有交互效应的双因子多元固定效应模型}
+
+用类比方法,我们可以对由 $p$ 个分量组成的响应向量给出双因子固定效应模型如下:
+\phantomsection\label{eq:6-59}
+\begin{equation}
+\begin{gathered}
+\mathbf{X}_{lkr} = \boldsymbol{\mu} + \boldsymbol{\tau}_l + \boldsymbol{\beta}_k + \boldsymbol{\gamma}_{lk} + \mathbf{e}_{lkr}\\
+l=1,2,\cdots,g\\
+k=1,2,\cdots,b\\
+r=1,2,\cdots,n
+\end{gathered}
+\tag{6-59}
+\end{equation}
+
+其中 $\sum\limits_{l=1}^{g}\boldsymbol{\tau}_l = \sum\limits_{k=1}^{b}\boldsymbol{\beta}_k = \sum\limits_{l=1}^{g}\sum\limits_{k=1}^{b}\boldsymbol{\gamma}_{lk} = \mathbf{0}$. 所有向量的阶数均为 $p\times 1$,且 $\mathbf{e}_{lkr}$ 为独立 $N_p(\mathbf{0},\boldsymbol{\Sigma})$ 随机向量.于是,响应由在因子 1 和因子 2 的每一种可能的水平组合下重复 $n$ 次的 $p$ 个测量值组成.
+
+根据\hyperref[eq:6-56]{式(6-56)},可将观测向量 $\mathbf{x}_{lkr}$ 分解为
+\phantomsection\label{eq:6-60}
+\begin{equation}
+\mathbf{x}_{lkr} = \bar{\mathbf{x}} + (\bar{\mathbf{x}}_{l\cdot}-\bar{\mathbf{x}}) + (\bar{\mathbf{x}}_{\cdot k}-\bar{\mathbf{x}}) + (\bar{\mathbf{x}}_{lk}-\bar{\mathbf{x}}_{l\cdot}-\bar{\mathbf{x}}_{\cdot k}+\bar{\mathbf{x}}) + (\mathbf{x}_{lkr}-\bar{\mathbf{x}}_{lk}) \tag{6-60}
+\end{equation}
+
+其中, $\bar{\mathbf{x}}$ 为观测向量的总平均, $\bar{\mathbf{x}}_{l\cdot}$ 为在因子 1 的第 $l$ 个水平下观测向量的平均, $\bar{\mathbf{x}}_{\cdot k}$ 为在因子 2 的第 $k$ 个水平下观测向量的平均, $\bar{\mathbf{x}}_{lk}$ 为在因子 1 的第 $l$ 个水平下、因子 2 的第 $k$ 个水平下观测向量的平均.
+
+直接推广\hyperref[eq:6-57]{式(6-57)}及\hyperref[eq:6-58]{式(6-58)},可得平方和与交叉乘积和以及自由度的如下分解:
+\phantomsection\label{eq:6-61}
+\begin{equation}
+\begin{aligned}
+\sum_{l=1}^{g}\sum_{k=1}^{b}\sum_{r=1}^{n}(\mathbf{x}_{lkr}-\bar{\mathbf{x}})(\mathbf{x}_{lkr}-\bar{\mathbf{x}})'
+&= \sum_{l=1}^{g} bn(\bar{\mathbf{x}}_{l\cdot}-\bar{\mathbf{x}})(\bar{\mathbf{x}}_{l\cdot}-\bar{\mathbf{x}})' \\
+&\quad + \sum_{k=1}^{b} gn(\bar{\mathbf{x}}_{\cdot k}-\bar{\mathbf{x}})(\bar{\mathbf{x}}_{\cdot k}-\bar{\mathbf{x}})' \\
+&\quad + \sum_{l=1}^{g}\sum_{k=1}^{b} n(\bar{\mathbf{x}}_{lk}-\bar{\mathbf{x}}_{l\cdot}-\bar{\mathbf{x}}_{\cdot k}+\bar{\mathbf{x}})(\bar{\mathbf{x}}_{lk}-\bar{\mathbf{x}}_{l\cdot}-\bar{\mathbf{x}}_{\cdot k}+\bar{\mathbf{x}})' \\
+&\quad + \sum_{l=1}^{g}\sum_{k=1}^{b}\sum_{r=1}^{n}(\mathbf{x}_{lkr}-\bar{\mathbf{x}}_{lk})(\mathbf{x}_{lkr}-\bar{\mathbf{x}}_{lk})'
+\end{aligned}
+\tag{6-61}
+\end{equation}
+\phantomsection\label{eq:6-62}
+\begin{equation}
+gbn-1 = (g-1)+(b-1)+(g-1)(b-1)+gb(n-1) \tag{6-62}
+\end{equation}
+
+我们再次看到,从一元分析到多元分析的推广只不过是简单地将诸如 $(\bar{x}_{l\cdot}-\bar{x})^2$ 这样的

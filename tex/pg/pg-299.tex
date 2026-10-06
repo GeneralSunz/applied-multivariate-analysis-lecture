@@ -1,0 +1,54 @@
+% ---- pg-299 （书页 287） ----
+
+\mvsub{经典最小二乘估计量的抽样性质}
+
+最小二乘估计量 $\hat{\boldsymbol{\beta}}$ 与残差 $\hat{\boldsymbol{\epsilon}}$ 的抽样性质在下述结论中详加讨论.
+
+\mvthm{结论 7.2}{在一般线性回归模型 (7-3) 下, 参数的最小二乘估计量 $\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}$ 满足}
+\[
+E(\hat{\boldsymbol{\beta}})=\boldsymbol{\beta}\qquad\text{和}\qquad \text{Cov}(\hat{\boldsymbol{\beta}})=\sigma^2(\mathbf{Z}'\mathbf{Z})^{-1}
+\]
+残差向量 $\hat{\boldsymbol{\epsilon}}$ 有性质
+\[
+E(\hat{\boldsymbol{\epsilon}})=\mathbf{0}\qquad\text{和}\qquad
+\text{Cov}(\hat{\boldsymbol{\epsilon}})=\sigma^2(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')=\sigma^2[\mathbf{I}-\mathbf{H}]
+\]
+还有 $E(\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}})=(n-r-1)\sigma^2$, 故可定义
+\[
+s^2=\frac{\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}}{n-(r+1)}
+=\frac{\mathbf{Y}'[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Y}}{n-r-1}
+=\frac{\mathbf{Y}'[\mathbf{I}-\mathbf{H}]\mathbf{Y}}{n-r-1}
+\]
+我们有
+\[
+E(s^2)=\sigma^2
+\]
+此外, $\hat{\boldsymbol{\beta}}$ 与 $\hat{\boldsymbol{\epsilon}}$ 不相关. \hfill$\blacksquare$
+
+证明\quad (见网页: www.prenhall.com/statistics)
+
+最小二乘估计量 $\hat{\boldsymbol{\beta}}$ 具有最小方差, 这一性质最初是由高斯(Gauss)确定的. 下一个结论涉及线性参数函数 $\mathbf{c}'\boldsymbol{\beta}=c_0\beta_0+c_1\beta_1+\cdots+c_r\beta_r$(对任意 $\mathbf{c}$) 的 ``最佳'' 估计量问题.
+
+\mvthm{结论 7.3}{(高斯\footnote{{\footnotesize 晚于高斯很久, 马尔可夫(Markov)证明了一个不够一般的结论, 这使许多著者误用他的名字来命名这个定理.}}最小二乘定理)\quad 设 $\mathbf{Y}=\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon}$, 其中 $E(\boldsymbol{\epsilon})=\mathbf{0}$, $\text{Cov}(\boldsymbol{\epsilon})=\sigma^2\mathbf{I}$, 且 $\mathbf{Z}$ 有满秩 $r+1$. 对任意 $r+1$ 维常向量 $\mathbf{c}$, 对于线性函数 $\mathbf{c}'\boldsymbol{\beta}$, 在所有形如}
+\[
+\mathbf{a}'\mathbf{Y}=a_1 Y_1+a_2 Y_2+\cdots+a_n Y_n
+\]
+的线性无偏估计量中, 估计量
+\[
+\mathbf{c}'\hat{\boldsymbol{\beta}}=c_0\hat{\beta}_0+c_1\hat{\beta}_1+\cdots+c_r\hat{\beta}_r
+\]
+的方差最小.
+
+证明\quad 对任意给定的 $\mathbf{c}$, 设 $\mathbf{a}'\mathbf{Y}$ 为 $\mathbf{c}'\boldsymbol{\beta}$ 的一个线性无偏估计量. 此时 $E(\mathbf{a}'\mathbf{Y})=\mathbf{c}'\boldsymbol{\beta}$, 对任何 $\boldsymbol{\beta}$ 值均成立. 又由假定知 $E(\mathbf{a}'\mathbf{Y})=E(\mathbf{a}'\mathbf{Z}\boldsymbol{\beta}+\mathbf{a}'\boldsymbol{\epsilon})=\mathbf{a}'\mathbf{Z}\boldsymbol{\beta}$, 因此, 对任意 $\boldsymbol{\beta}$ 有 $\mathbf{a}'\mathbf{Z}\boldsymbol{\beta}=\mathbf{c}'\boldsymbol{\beta}$, 这意味着 $\mathbf{c}'=\mathbf{a}'\mathbf{Z}$.
+
+现在 $\mathbf{c}'\hat{\boldsymbol{\beta}}=\mathbf{c}'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}=\mathbf{a}^{*'}\mathbf{Y}$, 其中 $\mathbf{a}^*=\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{c}$. 又由结论 7.2 知 $E(\hat{\boldsymbol{\beta}})=\boldsymbol{\beta}$, 故 $\mathbf{c}'\hat{\boldsymbol{\beta}}=\mathbf{a}^{*'}\mathbf{Y}$ 为 $\mathbf{c}'\boldsymbol{\beta}$ 的无偏估计量. 这样, 对任意满足无偏性要求 $\mathbf{c}'=\mathbf{a}'\mathbf{Z}$ 的 $\mathbf{a}$, 因为 $(\mathbf{a}-\mathbf{a}^*)'\mathbf{a}^*=(\mathbf{a}-\mathbf{a}^*)'\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{c}=\mathbf{0}$, 故
+\[
+\begin{aligned}
+\text{Var}(\mathbf{a}'\mathbf{Y})&=\text{Var}(\mathbf{a}'\mathbf{Z}\boldsymbol{\beta}+\mathbf{a}'\boldsymbol{\epsilon})=\text{Var}(\mathbf{a}'\boldsymbol{\epsilon})=\mathbf{a}'\mathbf{I}\sigma^2\mathbf{a}\\
+&=\sigma^2(\mathbf{a}-\mathbf{a}^*+\mathbf{a}^*)'(\mathbf{a}-\mathbf{a}^*+\mathbf{a}^*)\\
+&=\sigma^2[(\mathbf{a}-\mathbf{a}^*)'(\mathbf{a}-\mathbf{a}^*)+\mathbf{a}^{*'}\mathbf{a}^*]
+\end{aligned}
+\]
+由于 $\mathbf{a}^*$ 是固定的, 且除非 $\mathbf{a}=\mathbf{a}^*$ 有 $(\mathbf{a}-\mathbf{a}^*)'(\mathbf{a}-\mathbf{a}^*)>0$, $\text{Var}(\mathbf{a}'\mathbf{Y})$ 在 $\mathbf{a}=\mathbf{a}^*$ 时达到最小. \hfill$\blacksquare$
+
+这个有力的结果说明, 对任何有意义的参数线性函数 $\mathbf{c}'\boldsymbol{\beta}$, 最优估计是用 $\hat{\boldsymbol{\beta}}$ 代替 $\boldsymbol{\beta}$. 用统计术语来说, 估计量 $\mathbf{c}'\hat{\boldsymbol{\beta}}$ 称为 $\mathbf{c}'\boldsymbol{\beta}$ 的最佳线性无偏估计量(BLUE).

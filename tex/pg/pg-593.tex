@@ -1,0 +1,80 @@
+% ---- pg-593 （书页 581） ----
+
+{\small
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{ccccc}\text{JPMorgan}&\text{Citibank}&\text{Wells Fargo}&\text{Royal Dutch Shell}&\text{ExxonMobil}\end{array}\\[4pt]
+\begin{array}{r}\text{JPMorgan}\\\text{Citibank}\\\text{Wells Fargo}\\\text{Royal Dutch Shell}\\\text{ExxonMobil}\end{array} &
+\left[\begin{array}{ccccc}
+1&&&&\\
+0.63&1&&&\\
+0.51&0.57&1&&\\
+0.12&0.32&0.18&1&\\
+0.16&0.21&0.15&0.68&1
+\end{array}\right]
+\end{array}
+\]
+}
+
+将样本相关系数用作相似性度量, 利用练习 12.5 中的三种方法将五种股票聚类. 画出树图并比较所得结果.
+
+\noindent 12.8\quad 利用例 12.3 中的距离数据, 用平均连接分层方法对项目进行聚类. 画出树图. 将结果与例 12.3 和 12.5 中的结果进行比较.
+
+\noindent 12.9\quad 一本书中词汇的“丰富性”可以通过统计用过一次的词、用过两次的词等来描述. 根据这些统计数字, 一个语言学家给出了《旧约全书》耶利米哀歌的各章之间的距离如下:
+
+\[
+\begin{array}{c@{\quad}r@{\;}c}
+ & \multicolumn{2}{c}{\text{耶利米哀歌, 章}}\\[4pt]
+ & \begin{array}{ccccc}1&2&3&4&5\end{array}\\[4pt]
+\text{耶利米哀歌, 章} & \begin{array}{r}1\\2\\3\\4\\5\end{array} &
+\left[\begin{array}{ccccc}
+0&&&&\\
+0.76&0&&&\\
+2.97&0.80&0&&\\
+4.88&4.17&0.21&0&\\
+3.86&1.92&1.51&0.51&0
+\end{array}\right]
+\end{array}
+\]
+
+我们用讨论过的三种连接分层聚类方法对耶利米哀歌各章进行聚类. 画树图并比较结果.
+
+\noindent 12.10\quad 用沃德方法对四个项目聚类. 这些项目在变量 $X$ 上的测量值列于下表.
+
+\begin{mvtable}
+\setlength{\tabcolsep}{8pt}%
+\begin{tabular}{c|c}
+\toprule
+\textbf{项 目} & \textbf{测 量 值} \\
+\midrule
+1 & 2 \\
+2 & 1 \\
+3 & 5 \\
+4 & 8 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+\noindent (a) 起初, 每个项目为一个聚类, 因而我们有类 $\{1\},\{2\},\{3\},\{4\}$. 证明 ESS$=0$.
+
+\noindent (b) 若我们联合聚类 $\{1\}$ 和 $\{2\}$, 则新聚类 $\{12\}$ 有
+\[
+\mathrm{ESS}_1=\sum(x_j-\bar{x})^2=(2-1.5)^2+(1-1.5)^2=0.5
+\]
+于是与分组 $\{12\},\{3\},\{4\}$ 相联系的 ESS 为 ESS$=0.5+0+0=0.5$. ESS 的增量(信息损失)为 $0.5-0=0.5$. 对步骤 2 中的所有可能性确定 ESS 的增量, 并将结果填入下表.
+
+\begin{mvtable}
+\setlength{\tabcolsep}{10pt}%
+\begin{tabular}{ccc|c}
+\toprule
+\multicolumn{3}{c|}{\textbf{聚 类}} & \textbf{ESS 的增量} \\
+\midrule
+$\{12\}$ & $\{3\}$ & $\{4\}$ & 0.5 \\
+$\{13\}$ & $\{2\}$ & $\{4\}$ & \\
+$\{14\}$ & $\{2\}$ & $\{3\}$ & \\
+$\{1\}$ & $\{23\}$ & $\{4\}$ & \\
+$\{1\}$ & $\{24\}$ & $\{3\}$ & \\
+$\{1\}$ & $\{2\}$ & $\{34\}$ & \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

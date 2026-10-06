@@ -1,0 +1,59 @@
+% ---- pg-183 ----
+\[
+\frac{2\sqrt{\hat{\lambda}_{1}}\sqrt{\frac{p(n-1)}{n(n-p)}F_{p,n-p}(\alpha)}}{2\sqrt{\hat{\lambda}_{2}}\sqrt{\frac{p(n-1)}{n(n-p)}F_{p,n-p}(\alpha)}}=\sqrt{\frac{\hat{\lambda}_{1}}{\hat{\lambda}_{2}}}=\frac{0.161}{0.045}=3.6
+\]
+
+即长轴的长度为短轴的 3.6 倍.\hfill$\blacksquare$
+
+\mvsub{联合置信表示}
+
+在置信域 $n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})\le c^{2}$ ($c$ 为常数) 给出有关 $\boldsymbol{\mu}$ 的似真值的联合信息的正确评估的同时, 其结论往往已包含了单个均值分量的置信表示. 在此过程中, 我们承认了下列看法, 即所有的各置信表示形式均应以一特定的概率同时成立. 我们引入所谓的联合置信区间, 就是为了保证以一特定的概率避免任一置信表示发生错误. 我们通过考虑与基于 $T^{2}$ 统计量的联合置信域密切相关的联合置信表示来开始我们的讨论.
+
+设 $\mathbf{X}$ 服从 $N_{p}(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布, 考虑线性组合
+\[
+Z=a_{1}X_{1}+a_{2}X_{2}+\cdots+a_{p}X_{p}=\mathbf{a}'\mathbf{X}
+\]
+
+由\hyperref[eq:2-43]{式(2-43)}知
+\[
+\mu_{Z}=E(Z)=\mathbf{a}'\boldsymbol{\mu}, \qquad \sigma_{Z}^{2}=\operatorname{Var}(Z)=\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}
+\]
+
+因此, 由结论 4.2 知, $Z$ 服从 $N(\mathbf{a}'\boldsymbol{\mu},\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a})$ 分布. 如果 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 为来自总体 $N_{p}(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 的一随机样本, 则相应的 $Z$ 的样本可通过取线性组合产生. 因此,
+\[
+Z_{j}=a_{1}X_{j1}+a_{2}X_{j2}+\cdots+a_{p}X_{jp}=\mathbf{a}'\mathbf{X}_{j}, \qquad j=1,2,\cdots,n
+\]
+
+由\hyperref[eq:3-36]{式(3-36)}, 观察值 $z_{1},z_{2},\cdots,z_{n}$ 的样本均值和样本方差分别为
+\[
+\bar{z}=\mathbf{a}'\bar{\mathbf{x}} \ \text{ 和 }\ s_{z}^{2}=\mathbf{a}'\mathbf{S}\mathbf{a}
+\]
+
+这里 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 分别为 $\mathbf{X}_{j}$ 的样本均值向量和协方差矩阵.
+
+通过对各种不同的 $\mathbf{a}$ 考虑 $\mathbf{a}'\boldsymbol{\mu}$ 的置信区间, 便可得出所要的联合置信区间, 其过程如下:
+
+当 $\mathbf{a}$ 固定且 $\sigma_{Z}^{2}$ 未知时, $\mu_{Z}=\mathbf{a}'\boldsymbol{\mu}$ 的 $100(1-\alpha)\%$ 置信区间根据 $t$ 统计量
+\phantomsection\label{eq:5-20}
+\begin{equation}
+t=\frac{\bar{z}-\mu_{Z}}{s_{z}/\sqrt{n}}=\frac{\sqrt{n}(\mathbf{a}'\bar{\mathbf{x}}-\mathbf{a}'\boldsymbol{\mu})}{\sqrt{\mathbf{a}'\mathbf{S}\mathbf{a}}} \tag{5-20}
+\end{equation}
+
+得出, 故置信区间为
+\[
+\bar{z}-t_{n-1}(\alpha/2)\frac{s_{z}}{\sqrt{n}}\le \mu_{Z}\le \bar{z}+t_{n-1}(\alpha/2)\frac{s_{z}}{\sqrt{n}}
+\]
+
+即
+\phantomsection\label{eq:5-21}
+\begin{equation}
+\mathbf{a}'\bar{\mathbf{x}}-t_{n-1}(\alpha/2)\sqrt{\frac{\mathbf{a}'\mathbf{S}\mathbf{a}}{n}}\le \mathbf{a}'\boldsymbol{\mu}\le \mathbf{a}'\bar{\mathbf{x}}+t_{n-1}(\alpha/2)\sqrt{\frac{\mathbf{a}'\mathbf{S}\mathbf{a}}{n}} \tag{5-21}
+\end{equation}
+
+其中 $t_{n-1}(\alpha/2)$ 为自由度为 $n-1$ 的 $t$ 分布的 $100(\alpha/2)$ 百分位数.
+
+不等\hyperref[eq:5-21]{式(5-21)}可以理解成均值向量 $\boldsymbol{\mu}$ 的分量的置信表示形式, 例如对 $\mathbf{a}'=[1,0,\cdots,0]$, $\mathbf{a}'\boldsymbol{\mu}=\mu_{1}$, 因而\hyperref[eq:5-21]{式(5-21)}就是某个正态总体均值通常的置信区间(注意, 此时 $\mathbf{a}'\mathbf{S}\mathbf{a}=s_{11}$). 显然, 通过选择不同的系数向量 $\mathbf{a}$, 便可得到 $\boldsymbol{\mu}$ 的分量的若干个置信系数均为 $1-\alpha$ 的置信区间, 但此时的置信度就不再是 $1-\alpha$ 了.
+
+直观地看, 我们总期望把由所有 $\mathbf{a}$ 的选择所生成的置信区间同某个“总”置信系数 $1-\alpha$ 联系在一起, 不过代价是要放弃大的联合置信系数的便利性, 即对一特定的 $\mathbf{a}$, 它们的区间长度要比\hyperref[eq:5-21]{式(5-21)}的大.
+
+给定一个数据集 $\mathbf{x}_{1},\mathbf{x}_{2},\cdots,\mathbf{x}_{n}$ 和特定的 $\mathbf{a}$, \hyperref[eq:5-21]{式(5-21)}的置信区间是满足

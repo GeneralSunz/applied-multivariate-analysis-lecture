@@ -1,0 +1,75 @@
+% ---- pg-335 （书页 323） ----
+
+化. 扩充的模型有更好的预测能力, 而且现在可用来对给定的预测变量值预测天然气的输送量. 我们这里不准备进一步讨论预测问题, 因为这样做所涉及的一些思想已超出本书范围(见文献[8]). \hfill$\blacksquare$
+
+\medskip
+\noindent\textbf{显示板 7.3}\quad 用 PROC ARIMA 程序对例 7.16 作 SAS 分析
+
+\begin{mvbox}
+{\ttfamily\small
+data a;\hfill\textbf{\rmfamily PROGRAM COMMANDS}\\
+infile 'T7-4.dat';\\
+time = \_n\_;\\
+input obsend dhd dhdlag wind xweekend;\\
+\par\vspace{8pt}
+proc arima data = a;\\
+identify var = obsend ncrosscor = (\\
+\hspace*{2em}dhd dhdlag wind xweekend);\\
+estimate p = (1 7) method = ml input = (\\
+\hspace*{2em}dhd dhdlag wind xweekend) plot;\\
+estimate p = (1 7) noconstant method = ml input = (\\
+\hspace*{2em}dhd dhdlag wind xweekend) plot;
+\par}
+\end{mvbox}
+
+\begin{mvbox}
+{\ttfamily\small
+ARIMA Procedure\par
+\vspace{10pt}
+Maximum Likelihood Estimation\hfill\textbf{\rmfamily OUTPUT}\par
+\vspace{10pt}
+{\centering
+\begin{tabular}{lrrrrll}
+Parameter & Estimate & \makecell{Approx.\\Std Error} & T Ratio & Lag & Variable & Shift\\
+MU & 2.129 57 & 13.123 40 & 0.16 & 0 & OBSEND & 0\\
+AR1, 1 & 0.470 08 & 0.117 79 & 3.99 & 1 & OBSEND & 0\\
+AR1, 2 & 0.239 86 & 0.115 28 & 2.08 & 7 & OBSEND & 0\\
+NUM1 & 5.809 76 & 0.240 47 & 24.16 & 0 & DHD & 0\\
+NUM2 & 1.426 32 & 0.249 32 & 5.72 & 0 & DHDLAG & 0\\
+NUM3 & 1.207 40 & 0.446 81 & 2.70 & 0 & WIND & 0\\
+NUM4 & -10.108 90 & 6.034 45 & -1.68 & 0 & XWEEKEND & 0\\
+\end{tabular}\par}
+\vspace{10pt}
+{\centering
+\begin{tabular}{lll}
+Constant Estimate & $=$ & 0.617 700 69\\
+Variance Estimate & $=$ & 228.894 028\\
+Std Error Estimate & $=$ & 15.129 244 1\\
+AIC & $=$ & 528.49 032 1\\
+SBC & $=$ & 543.49 226 4\\
+Number of Residuals & $=$ & 63\\
+\end{tabular}\par}
+\vspace{12pt}
+Autocorrelation Check of Residuals\par
+\vspace{8pt}
+{\centering
+\begin{tabular}{llllrrrrrr}
+To & Chi & & & \multicolumn{6}{c}{Autocorrelations}\\
+Lag & Square & DF & Prob & & & & & &\\
+6 & 6.04 & 4 & 0.196 & 0.079 & 0.012 & 0.022 & 0.192 & -0.127 & 0.161\\
+12 & 10.27 & 10 & 0.417 & 0.144 & -0.067 & -0.111 & -0.056 & -0.056 & -0.108\\
+18 & 15.92 & 16 & 0.458 & 0.013 & 0.106 & -0.137 & -0.170 & -0.079 & 0.018\\
+24 & 23.44 & 22 & 0.377 & 0.018 & 0.004 & 0.250 & -0.080 & -0.069 & -0.051\\
+\end{tabular}\par}
+\vspace{12pt}
+Autocorrelation Plot of Residuals\par
+\vspace{8pt}
+{\centering
+\begin{tabular}{llll}
+Lag & Covariance & Correlation & -1 9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9 1\\
+0 & 228.894 & 1.000 00 & |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |********************|\\
+1 & 18.194 945 & 0.079 49 & |\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ \ |**\ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+2 & 2.763 255 & 0.012 07 & |\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ \ |\ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+\end{tabular}\par}
+\par}
+\end{mvbox}

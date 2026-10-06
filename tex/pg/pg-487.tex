@@ -1,0 +1,69 @@
+% ---- pg-487 （书页 475） ----
+
+二次得分 $d_i^Q(\mathbf{x})$ 由广义方差 $|\boldsymbol{\Sigma}_i|$、先验概率 $p_i$ 和 $\mathbf{x}$ 到总体均值 $\boldsymbol{\mu}_i$ 的距离平方所组成. 不过注意, 对不同的总体, 必须使用不同的距离函数(等距离椭球的取向和大小均不同).
+
+用这些判别得分我们发现, \hyperref[eq:11-44]{式(11-44)}中的分类法则可重新陈述如下:
+
+\begin{mvframe}[正态总体和不同 $\boldsymbol{\Sigma}_i$ 情形下的最小总错分概率法则(TPM)]
+若二次判别得分
+\phantomsection\label{eq:11-46}
+\begin{equation}
+d_k^Q(\mathbf{x})=\max\{d_1^Q(\mathbf{x}), d_2^Q(\mathbf{x}), \cdots, d_g^Q(\mathbf{x})\}
+\tag{11-46}
+\end{equation}
+则将 $\mathbf{x}$ 分入 $\pi_k$. 此处 $d_i^Q(\mathbf{x})$ 由\hyperref[eq:11-45]{式(11-45)}给出.
+\end{mvframe}
+
+实践中 $\boldsymbol{\mu}_i$ 和 $\boldsymbol{\Sigma}_i$ 皆属未知, 但常可获得一组已经正确分类的训练样本, 因此可以用样本均值 $\bar{\mathbf{x}}_i$ 来估计总体均值 $\boldsymbol{\mu}_i$, 以及用样本协方差矩阵 $\mathbf{S}_i$ 来估计总体协方差矩阵 $\boldsymbol{\Sigma}_i$. 此时二次判别得分 $d_i^Q(\mathbf{x})$ 的估计量为
+\phantomsection\label{eq:11-47}
+\begin{equation}
+\hat{d}_i^Q(\mathbf{x})=-\frac{1}{2}\ln|\mathbf{S}_i|-\frac{1}{2}(\mathbf{x}-\bar{\mathbf{x}}_i)'\mathbf{S}_i^{-1}(\mathbf{x}-\bar{\mathbf{x}}_i)+\ln p_i,\qquad i=1,2,\cdots,g
+\tag{11-47}
+\end{equation}
+于是基于样本的分类法则如下:
+
+\begin{mvframe}[估计的最小 TPM 法则(对 $\boldsymbol{\Sigma}_i$ 不同的多个正态总体)]
+若二次判别得分
+\phantomsection\label{eq:11-48}
+\begin{equation}
+\hat{d}_k^Q(\mathbf{x})=\max\{\hat{d}_1^Q(\mathbf{x}), \hat{d}_2^Q(\mathbf{x}), \cdots, \hat{d}_g^Q(\mathbf{x})\}
+\tag{11-48}
+\end{equation}
+则将 $\mathbf{x}$ 分入 $\pi_k$, 此处 $\hat{d}_i^Q(\mathbf{x})$ 由\hyperref[eq:11-47]{式(11-47)}给出.
+\end{mvframe}
+
+如果总体协方差矩阵相同, 上述判别法则有可能简化. 当 $\boldsymbol{\Sigma}_i=\boldsymbol{\Sigma}$, $i=1,2,\cdots,g$, \hyperref[eq:11-45]{式(11-45)}中的判别得分变成
+\[
+d_i^Q(\mathbf{x})=-\frac{1}{2}\ln|\boldsymbol{\Sigma}|-\frac{1}{2}\mathbf{x}'\boldsymbol{\Sigma}^{-1}\mathbf{x}+\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_i+\ln p_i
+\]
+此式右端的前两项对所有 $d_1^Q(\mathbf{x}),\cdots,d_g^Q(\mathbf{x})$ 都相同, 对分配目的来说可以略去. 剩余诸项由常数项 $c_i=\ln p_i-\frac{1}{2}\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_i$ 和 $\mathbf{x}$ 诸分量的一个线性组合组成.
+
+下一步, 定义线性判别得分
+\phantomsection\label{eq:11-49}
+\begin{equation}
+d_i(\mathbf{x})=\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_i+\ln p_i,\qquad i=1,2,\cdots,g
+\tag{11-49}
+\end{equation}
+根据 $\boldsymbol{\Sigma}$ 的联合估计量
+\phantomsection\label{eq:11-50}
+\begin{equation}
+\mathbf{S}_{\mathrm{p}}=\frac{1}{n_1+n_2+\cdots+n_g-g}((n_1-1)\mathbf{S}_1+(n_2-1)\mathbf{S}_2+\cdots+(n_g-1)\mathbf{S}_g)
+\tag{11-50}
+\end{equation}
+可得到线性得分 $d_i(\mathbf{x})$ 的估计量
+\phantomsection\label{eq:11-51}
+\begin{equation}
+\hat{d}_i(\mathbf{x})=\mathbf{x}'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_i-\frac{1}{2}\bar{\mathbf{x}}_i'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_i+\ln p_i,\qquad i=1,2,\cdots,g
+\tag{11-51}
+\end{equation}
+因此我们有如下法则:
+
+\begin{mvframe}[估计的最小 TPM 法则(对协方差矩阵相同的正态总体)]
+若线性判别得分
+\phantomsection\label{eq:11-52}
+\begin{equation}
+\hat{d}_k(\mathbf{x})=\max\{\hat{d}_1(\mathbf{x}), \hat{d}_2(\mathbf{x}), \cdots, \hat{d}_g(\mathbf{x})\}
+\tag{11-52}
+\end{equation}
+则将 $\mathbf{x}$ 分入 $\pi_k$, 此处 $\hat{d}_i(\mathbf{x})$ 由\hyperref[eq:11-51]{式(11-51)}给出.
+\end{mvframe}

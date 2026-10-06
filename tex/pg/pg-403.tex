@@ -1,0 +1,47 @@
+% ---- pg-403 （书页 391） ----
+
+\noindent\textbf{例 9.7}\quad (两个公共因子的检验)
+
+例 9.5 提供过对股票数据的两因子极大似然分析. 那里残差矩阵表明两因子解可能是充分的. 在水平 $\alpha=0.05$ 下, 检验假设 $H_1$: $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$, 取 $m=2$.
+
+\hyperref[eq:9-39]{式(9-39)}中的检验统计量基于广义方差比
+\[
+\frac{|\hat{\boldsymbol{\Sigma}}|}{|\mathbf{S}_n|}=\frac{|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|}{|\mathbf{S}_n|}
+\]
+令 $\hat{\mathbf{V}}^{-1/2}$ 是对角阵, 使 $\hat{\mathbf{V}}^{-1/2}\mathbf{S}_n\hat{\mathbf{V}}^{-1/2}=\mathbf{R}$. 由行列式性质(见结论 2A.11), 知
+\[
+|\hat{\mathbf{V}}^{-1/2}|\,|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|\,|\hat{\mathbf{V}}^{-1/2}|=|\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}}\hat{\mathbf{L}}'\hat{\mathbf{V}}^{-1/2}+\hat{\mathbf{V}}^{-1/2}\hat{\boldsymbol{\Psi}}\hat{\mathbf{V}}^{-1/2}|
+\]
+和
+\[
+|\hat{\mathbf{V}}^{-1/2}|\,|\mathbf{S}_n|\,|\hat{\mathbf{V}}^{-1/2}|=|\hat{\mathbf{V}}^{-1/2}\mathbf{S}_n\hat{\mathbf{V}}^{-1/2}|
+\]
+因而, 由\hyperref[eq:9-30]{式(9-30)}得到
+\phantomsection\label{eq:9-41}
+\begin{equation}
+\begin{aligned}
+\frac{|\hat{\boldsymbol{\Sigma}}|}{|\mathbf{S}_n|}
+&=\frac{|\hat{\mathbf{V}}^{-1/2}|\,|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|\,|\hat{\mathbf{V}}^{-1/2}|}{|\hat{\mathbf{V}}^{-1/2}|\,|\mathbf{S}_n|\,|\hat{\mathbf{V}}^{-1/2}|}\\
+&=\frac{|\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}}\hat{\mathbf{L}}'\hat{\mathbf{V}}^{-1/2}+\hat{\mathbf{V}}^{-1/2}\hat{\boldsymbol{\Psi}}\hat{\mathbf{V}}^{-1/2}|}{|\hat{\mathbf{V}}^{-1/2}\mathbf{S}_n\hat{\mathbf{V}}^{-1/2}|}\\
+&=\frac{|\hat{\mathbf{L}}_z\hat{\mathbf{L}}_z'+\hat{\boldsymbol{\Psi}}_z|}{|\mathbf{R}|}
+\end{aligned}
+\tag{9-41}
+\end{equation}
+从例 9.5, 我们确定
+\[
+\frac{|\hat{\mathbf{L}}_z\hat{\mathbf{L}}_z'+\hat{\boldsymbol{\Psi}}_z|}{|\mathbf{R}|}
+=\frac{\left|\begin{smallmatrix}1.000& & & & \\0.632&1.000& & & \\0.513&0.572&1.000& & \\0.115&0.322&0.182&1.000& \\0.103&0.246&0.146&0.683&1.000\end{smallmatrix}\right|}
+{\left|\begin{smallmatrix}1.000& & & & \\0.632&1.000& & & \\0.510&0.574&1.000& & \\0.115&0.322&0.182&1.000& \\0.154&0.213&0.146&0.683&1.000\end{smallmatrix}\right|}
+=\frac{0.178\,98}{0.175\,19}=1.021\ 6
+\]
+
+利用巴特利特修正, 我们计算\hyperref[eq:9-39]{式(9-39)}中检验统计量的值:
+\[
+\begin{aligned}
+&[n-1-(2p+4m+5)/6]\ln\frac{|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|}{|\mathbf{S}_n|}\\
+&\quad=\left[103-1-\frac{(10+8+5)}{6}\right]\ln(1.021\ 6)=2.10
+\end{aligned}
+\]
+既然 $\frac{1}{2}[(p-m)^2-p-m]=\frac{1}{2}[(5-2)^2-5-2]=1$, 没超过 5\% 的临界值 $\chi_1^2(0.05)=3.84$, 我们不能拒绝 $H_0$. 我们的结论为: 数据与两因子模型的假定不矛盾. 事实上, 所观测的显著性水平, 或者 $P$ 值 $P[\chi_1^2>2.10]\doteq0.15$, 意味着在任何合理的水平上都不会拒绝 $H_0$. \hfill$\blacksquare$
+
+当极大似然估计 $\hat{l}_{ij}$, $\hat{\psi}_i$ 已经从样本协方差矩阵 $\mathbf{S}$ 中确定下来时, 对这些估计的大样本方

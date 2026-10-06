@@ -1,0 +1,73 @@
+% ---- pg-407 （书页 395） ----
+
+与因子 1 最密切, 虽然它有某些特征用因子 2 表示. 我们可称因子 1 为食物因子而因子 2 为爱好因子.
+
+\begin{mvtable}
+\begin{tabular}{lccccc}
+\toprule
+\multirow{2}{*}{变\hspace{1.5em}量} & \multicolumn{2}{c}{因子载荷估计} & \multicolumn{2}{c}{旋转因子载荷估计} & \multirow{2}{*}{共性方差 $\hat{h}_i^2$}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+& $F_1$ & $F_2$ & $F_1^*$ & $F_2^*$ & \\
+\midrule
+1.\ 爱好 & 0.56 & 0.82 & 0.02 & \textbf{0.99} & 0.98\\
+2.\ 价格合适 & 0.78 & $-0.52$ & \textbf{0.94} & $-0.01$ & 0.88\\
+3.\ 调味品 & 0.65 & 0.75 & 0.13 & \textbf{0.98} & 0.98\\
+4.\ 适于快餐 & 0.94 & $-0.10$ & \textbf{0.84} & 0.43 & 0.89\\
+5.\ 提供充沛精力 & 0.80 & $-0.54$ & \textbf{0.97} & $-0.02$ & 0.93\\
+\midrule
+所解释的(标准化)样本总方差的累积比例 & 0.571 & 0.932 & 0.507 & 0.932 & \\
+\bottomrule
+\end{tabular}
+\phantomsection\label{tab:9.7}\mvtabcap{表 9.7}
+\end{mvtable}
+
+变量的因子载荷, 以及原因子轴和(最大方差)旋转后因子轴, 示于\hyperref[fig:9.2]{图 9.2} 中. \hfill$\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=3.4cm,y=3.4cm,>=stealth]
+\draw[->] (0,-0.75) -- (0,1.05) node[left,font=\small] {$F_2$};
+\draw[->] (0,0) -- (1.35,0) node[below right=-2pt,font=\small] {$F_1$};
+\node[left,font=\small,inner sep=2pt] at (-0.03,0) {0};
+\foreach \y in {0.5,-0.5}{
+  \draw (0,\y) -- (-0.035,\y);
+  \node[left,font=\small,inner sep=2pt] at (-0.05,\y) {\y};}
+\foreach \x/\lab in {0.5/0.5,1.0/1.0}{
+  \draw (\x,0) -- (\x,0.032);
+  \node[below,font=\small,inner sep=2pt] at (\x,-0.02) {\lab};}
+% 旋转后的因子轴
+\draw[dashed,->] (0,0) -- (0.55,0.82) node[above right=-2pt,font=\small] {$F_2^*$};
+\draw[dashed,->] (0,0) -- (1.25,-0.84) node[below right=-2pt,font=\small] {$F_1^*$};
+% 变量的因子载荷
+\fill (0.56,0.82) circle (1.8pt);
+\node[right,font=\small,inner sep=2.5pt] at (0.56,0.82) {1};
+\fill (0.65,0.75) circle (1.8pt);
+\node[right,font=\small,inner sep=2.5pt] at (0.65,0.75) {3};
+\fill (0.94,-0.10) circle (1.8pt);
+\node[below,font=\small,inner sep=2.5pt] at (0.94,-0.10) {4};
+\fill (0.78,-0.52) circle (1.8pt);
+\node[left,font=\small,inner sep=2.5pt] at (0.78,-0.52) {2};
+\fill (0.80,-0.54) circle (1.8pt);
+\node[below,font=\small,inner sep=2.5pt] at (0.80,-0.54) {5};
+\end{tikzpicture}
+\phantomsection\label{fig:9.2}\mvcap{图 9.2\quad 假设的营销数据的因子旋转}
+\end{mvfigure}
+
+\begin{mvframe}[显示板 9.1\quad 利用 PROC FACTOR 对例 9.9 的 SAS 分析]
+\begin{tabular}{@{}p{0.62\linewidth}@{\hspace{1em}}p{0.28\linewidth}@{}}
+{\ttfamily title 'Factor Analysis';\newline
+data consumer(type = corr);\newline
+\_type\_ = 'CORR';\newline
+input \_name\_ \$ taste money flavor snack energy;\newline
+cards;\newline
+taste\hspace{2.0em}1.00\hspace{1.6em}.\hspace{1.6em}.\hspace{1.6em}.\hspace{1.6em}.\newline
+money\hspace{1.6em}.02\hspace{1.4em}1.00\hspace{1.6em}.\hspace{1.6em}.\hspace{1.6em}.\newline
+flavor\hspace{1.2em}.96\hspace{1.4em}.13\hspace{1.3em}1.00\hspace{1.6em}.\hspace{1.6em}.\newline
+snack\hspace{1.0em}.42\hspace{1.4em}.71\hspace{1.2em}.50\hspace{1.3em}1.00\hspace{1.6em}.\newline
+energy\hspace{0.6em}.01\hspace{1.4em}.85\hspace{1.2em}.11\hspace{1.2em}.79\hspace{1.2em}1.00\newline
+;\newline
+proc factor res data=consumer\newline
+\hspace{1.5em}method=prin nfact=2rotate=varimax preplot plot;\newline
+\hspace{1.5em}var taste money flavor snack energy;}
+& \raisebox{-4em}{\Huge\}} \mvbold{PROGRAM COMMANDS}
+\end{tabular}
+\end{mvframe}

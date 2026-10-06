@@ -1,0 +1,71 @@
+% ---- pg-347 （书页 335） ----
+
+\phantomsection\label{eq:8-2}
+\begin{equation}
+\mvfit{$\displaystyle
+\mathrm{Var}(Y_i)=\mathbf{a}_i'\boldsymbol{\Sigma}\mathbf{a}_i \qquad i=1,2,\cdots,p
+$} \tag{8-2}
+\end{equation}
+\phantomsection\label{eq:8-3}
+\begin{equation}
+\mvfit{$\displaystyle
+\mathrm{Cov}(Y_i,Y_k)=\mathbf{a}_i'\boldsymbol{\Sigma}\mathbf{a}_k \qquad i,k=1,2,\cdots,p
+$} \tag{8-3}
+\end{equation}
+主成分是那些不相关的线性组合 $Y_1,Y_2,\cdots,Y_p$, 它们能使在\hyperref[eq:8-2]{式(8-2)}中的方差尽可能地大.
+
+第一主成分是有最大方差的线性组合, 也即它使 $\mathrm{Var}(Y_1)=\mathbf{a}_1'\boldsymbol{\Sigma}\mathbf{a}_1$ 最大化. 显然, $\mathrm{Var}(Y_1)=\mathbf{a}_1'\boldsymbol{\Sigma}\mathbf{a}_1$ 会因为任何 $\mathbf{a}_1$ 乘以某个常数而增大. 为消除这种不确定性, 一个方便的办法是只关注有单位长度的系数向量. 我们因此定义
+
+第一主成分 $=$ 线性组合 $\mathbf{a}_1'\mathbf{X}$, 在 $\mathbf{a}_1'\mathbf{a}_1=1$ 时, 它使 $\mathrm{Var}(\mathbf{a}_1'\mathbf{X})$ 最大;
+
+第二主成分 $=$ 线性组合 $\mathbf{a}_2'\mathbf{X}$, 在 $\mathbf{a}_2'\mathbf{a}_2=1$ 和 $\mathrm{Cov}(\mathbf{a}_1'\mathbf{X},\mathbf{a}_2'\mathbf{X})=0$ 时, 它使 $\mathrm{Var}(\mathbf{a}_2'\mathbf{X})$ 最大
+
+在第 $i$ 步:
+
+第 $i$ 个主成分 $=$ 线性组合 $\mathbf{a}_i'\mathbf{X}$, 在 $\mathbf{a}_i'\mathbf{a}_i=1$ 和 $\mathrm{Cov}(\mathbf{a}_i'\mathbf{X},\mathbf{a}_k'\mathbf{X})=0$ $(k<i)$ 时, 它使 $\mathrm{Var}(\mathbf{a}_i'\mathbf{X})$ 最大.
+
+\mvthm{结论 8.1}{设 $\boldsymbol{\Sigma}$ 是随机向量 $\mathbf{X}'=[X_1,X_2,\cdots,X_p]$ 的协方差矩阵. 它有特征值-特征向量对 $(\lambda_1,\mathbf{e}_1),(\lambda_2,\mathbf{e}_2),\cdots,(\lambda_p,\mathbf{e}_p)$, 其中 $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_p\geqslant 0$. 则第 $i$ 个主成分由}
+\phantomsection\label{eq:8-4}
+\begin{equation}
+\mvfit{$\displaystyle
+Y_i=\mathbf{e}_i'\mathbf{X}=e_{i1}X_1+e_{i2}X_2+\cdots+e_{ip}X_p,\qquad i=1,2,\cdots,p
+$} \tag{8-4}
+\end{equation}
+给出. 此时,
+\phantomsection\label{eq:8-5}
+\begin{equation}
+\mvfit{$\displaystyle
+\begin{aligned}
+\mathrm{Var}(Y_i)&=\mathbf{e}_i'\boldsymbol{\Sigma}\mathbf{e}_i=\lambda_i,\qquad i=1,2,\cdots,p\\
+\mathrm{Cov}(Y_i,Y_k)&=\mathbf{e}_i'\boldsymbol{\Sigma}\mathbf{e}_k=0,\qquad i\neq k
+\end{aligned}
+$} \tag{8-5}
+\end{equation}
+如有某些 $\lambda_i$ 相等, 那么对应的系数向量 $\mathbf{e}$ 的选取从而 $Y_i$ 的选取, 就都不是唯一的.
+
+\noindent\textbf{证明}\quad 从\hyperref[eq:2-51]{式(2-51)}, 取 $\mathbf{B}=\boldsymbol{\Sigma}$, 我们知道
+\[
+\max_{\mathbf{a}\neq\mathbf{0}}\frac{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}{\mathbf{a}'\mathbf{a}}=\lambda_1\qquad(\text{当 }\mathbf{a}=\mathbf{e}_1\text{ 时达到最大值})
+\]
+但是既然特征向量已规范化了, $\mathbf{e}_1'\mathbf{e}_1=1$, 这样,
+\[
+\max_{\mathbf{a}\neq\mathbf{0}}\frac{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}{\mathbf{a}'\mathbf{a}}=\lambda_1=\frac{\mathbf{e}_1'\boldsymbol{\Sigma}\mathbf{e}_1}{\mathbf{e}_1'\mathbf{e}_1}=\mathbf{e}_1'\boldsymbol{\Sigma}\mathbf{e}_1=\mathrm{Var}(Y_1)
+\]
+类似的, 利用\hyperref[eq:2-52]{式(2-52)}, 我们得到
+\[
+\max_{\mathbf{a}\perp\mathbf{e}_1,\cdots,\mathbf{e}_k}\frac{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}{\mathbf{a}'\mathbf{a}}=\lambda_{k+1}\qquad k=1,2,\cdots,p-1
+\]
+对于选取 $\mathbf{a}=\mathbf{e}_{k+1}$ 使 $\mathbf{e}_{k+1}'\mathbf{e}_i=0$, $i=1,2,\cdots,k$ 和 $k=1,2,\cdots,p-1$,
+\[
+\mathbf{e}_{k+1}'\boldsymbol{\Sigma}\mathbf{e}_{k+1}/\mathbf{e}_{k+1}'\mathbf{e}_{k+1}=\mathbf{e}_{k+1}'\boldsymbol{\Sigma}\mathbf{e}_{k+1}=\mathrm{Var}(Y_{k+1})
+\]
+但 $\mathbf{e}_{k+1}'(\boldsymbol{\Sigma}\mathbf{e}_{k+1})=\lambda_{k+1}\mathbf{e}_{k+1}'\mathbf{e}_{k+1}=\lambda_{k+1}$, 故 $\mathrm{Var}(Y_{k+1})=\lambda_{k+1}$. 还需要证明 $\mathbf{e}_i$ 与 $\mathbf{e}_k$ 垂直(也即 $\mathbf{e}_i'\mathbf{e}_k=0, i\neq k$)将给出 $\mathrm{Cov}(Y_i,Y_k)=0$. 现在, 如果 $\boldsymbol{\Sigma}$ 的特征值 $\lambda_1,\lambda_2,\cdots,\lambda_p$ 全都不同, 则 $\boldsymbol{\Sigma}$ 的特征向量是相互正交的, 而如 $\boldsymbol{\Sigma}$ 的特征值不是全不相同, 则对应共同特征值的特征向量可以选为正交的. 因此, 对于任意特征向量 $\mathbf{e}_i$ 和 $\mathbf{e}_k$, $\mathbf{e}_i'\mathbf{e}_k=0$, $i\neq k$. 既然 $\boldsymbol{\Sigma}\mathbf{e}_k=\lambda_k\mathbf{e}_k$, 用 $\mathbf{e}_i'$ 去乘, 便得到对于任意的 $i\neq k$, 有
+\[
+\mathrm{Cov}(Y_i,Y_k)=\mathbf{e}_i'\boldsymbol{\Sigma}\mathbf{e}_k=\mathbf{e}_i'\lambda_k\mathbf{e}_k=\lambda_k\mathbf{e}_i'\mathbf{e}_k=0 \hfill\blacksquare
+\]
+
+证毕.
+
+由结论 8.1 可知, 主成分都是不相关的, 而且它们的方差等于 $\boldsymbol{\Sigma}$ 的特征值.
+
+\mvthm{结论 8.2}{设随机向量 $\mathbf{X}'=[X_1,X_2,\cdots,X_p]$ 有协方差矩阵 $\boldsymbol{\Sigma}$, 其特征值-特征向量对 $(\lambda_1,\mathbf{e}_1),(\lambda_2,\mathbf{e}_2),\cdots,(\lambda_p,\mathbf{e}_p)$, 其中 $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_p\geqslant 0$. 设 $Y_1=\mathbf{e}_1'\mathbf{X}, Y_2=\mathbf{e}_2'\mathbf{X},\cdots,Y_p=\mathbf{e}_p'\mathbf{X}$ 是主成分. 则}

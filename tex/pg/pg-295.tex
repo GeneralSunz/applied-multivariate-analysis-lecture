@@ -1,0 +1,54 @@
+% ---- pg-295 （书页 283） ----
+
+如同在例 7.2 中那样, 通过构造适当的拟变量, 可将整个方差分析纳入多重线性回归的框架.
+
+\section{最小二乘估计}
+\phantomsection\label{sec:7.3}
+
+回归分析的目标之一是得出一个方程, 使研究者可根据给定的预测变量值来预测响应变量值. 这就需要将模型 (7-3) 同数据 $\mathbf{y}$ 及相应的已知值 $1,z_1,\cdots,z_r$ ``拟合''. 也就是说, 我们必须确定与数据相符的回归系数 $\boldsymbol{\beta}$ 和误差方差 $\sigma^2$ 的值.
+
+设 $\mathbf{b}$ 为 $\boldsymbol{\beta}$ 的一个尝试值, 考虑响应变量的观测值 $y_j$ 与在 $\boldsymbol{\beta}=\mathbf{b}$ 时的期望值 $b_0+b_1 z_{j1}+\cdots+b_r z_{jr}$ 之差 $y_j-b_0-b_1 z_{j1}-\cdots-b_r z_{jr}$. 一般这个差值不会是零, 因为响应值会以误差项的那些假定所表征的方式围绕其期望值波动. 最小二乘法选择这样的 $\mathbf{b}$, 使上述差值的平方和达到极小:
+\phantomsection\label{eq:7-4}
+\begin{equation}
+\begin{aligned}
+S(\mathbf{b})&=\sum_{j=1}^{n}(y_j-b_0-b_1 z_{j1}-\cdots-b_r z_{jr})^2\\
+&=(\mathbf{y}-\mathbf{Z}\mathbf{b})'(\mathbf{y}-\mathbf{Z}\mathbf{b})
+\end{aligned}
+\tag{7-4}
+\end{equation}
+由最小二乘准则选定的参数 $\mathbf{b}$ 称为 $\boldsymbol{\beta}$ 的最小二乘估计. 今后将记最小二乘估计为 $\hat{\boldsymbol{\beta}}$, 以强调它是 $\boldsymbol{\beta}$ 的估计值.
+
+系统 $\hat{\boldsymbol{\beta}}$ 在下述意义下与数据相容: 由 $\hat{\boldsymbol{\beta}}$ 得出的响应均值的估计值(拟合值) $\hat{\beta}_0+\hat{\beta}_1 z_{j1}+\cdots+\hat{\beta}_r z_{jr}$ 与观测值 $y_j$ 之差的平方和已达到最小. 偏差
+\phantomsection\label{eq:7-5}
+\begin{equation}
+\hat{\epsilon}_j=y_j-\hat{\beta}_0-\hat{\beta}_1 z_{j1}-\cdots-\hat{\beta}_r z_{jr},\qquad j=1,2,\cdots,n
+\tag{7-5}
+\end{equation}
+称为残差. 残差向量 $\hat{\boldsymbol{\epsilon}}=\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}}$ 中包含关于另一未知参数 $\sigma^2$ 的信息(见结论 7.2).
+
+\mvthm{结论 7.1}{设 $\mathbf{Z}$ 有满秩 $r+1\leq n$\footnote{{\footnotesize 若 $\mathbf{Z}$ 不是满秩矩阵, 则可用 $(\mathbf{Z}'\mathbf{Z})^-$ 来代替 $(\mathbf{Z}'\mathbf{Z})^{-1}$, 其中 $(\mathbf{Z}'\mathbf{Z})^-$ 为 $(\mathbf{Z}'\mathbf{Z})$ 的广义逆(见练习 7.6).}}, \hyperref[eq:7-3]{式(7-3)} 中的 $\boldsymbol{\beta}$ 的最小二乘估计为}
+\[
+\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}
+\]
+设 $\hat{\mathbf{y}}=\mathbf{Z}\hat{\boldsymbol{\beta}}=\mathbf{H}\mathbf{y}$ 为 $\mathbf{y}$ 的拟合值, 其中 $\mathbf{H}=\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$ 称为 ``帽子'' 矩阵, 此时残差
+\[
+\hat{\boldsymbol{\epsilon}}=\mathbf{y}-\hat{\mathbf{y}}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{y}=(\mathbf{I}-\mathbf{H})\mathbf{y}
+\]
+满足 $\mathbf{Z}'\hat{\boldsymbol{\epsilon}}=\mathbf{0}$, 及 $\hat{\mathbf{y}}'\hat{\boldsymbol{\epsilon}}=\mathbf{0}$. 另外,
+\begin{equation}
+\begin{aligned}
+\text{残差平方和}&=\sum_{j=1}^{n}(y_j-\hat{\beta}_0-\hat{\beta}_1 z_{j1}-\cdots-\hat{\beta}_r z_{jr})^2=\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}\\
+&=\mathbf{y}'[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{y}=\mathbf{y}'\mathbf{y}-\mathbf{y}'\mathbf{Z}\hat{\boldsymbol{\beta}}
+\end{aligned}
+\end{equation}
+证明\quad 设 $\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}$, 则 $\hat{\boldsymbol{\epsilon}}=\mathbf{y}-\hat{\mathbf{y}}=\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{y}$. 矩阵 $[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']=[\mathbf{I}-\mathbf{H}]$ 满足:
+\phantomsection\label{eq:7-6}
+\begin{equation}
+\begin{array}{ll}
+1. & [\mathbf{I}-\mathbf{H}]'=[\mathbf{I}-\mathbf{H}](\text{对称性});\\
+2. & [\mathbf{I}-\mathbf{H}][\mathbf{I}-\mathbf{H}]=\mathbf{I}-2\mathbf{H}+\mathbf{H}^2=\mathbf{I}-2\mathbf{H}+\mathbf{H}=\mathbf{I}-\mathbf{H}(\text{幂等性});\\
+3. & \mathbf{Z}'[\mathbf{I}-\mathbf{H}]=\mathbf{Z}'-\mathbf{Z}'=\mathbf{0}.
+\end{array}
+\tag{7-6}
+\end{equation}
+因此, $\mathbf{Z}'\hat{\boldsymbol{\epsilon}}=\mathbf{Z}'(\mathbf{y}-\hat{\mathbf{y}})=\mathbf{Z}'[\mathbf{I}-\mathbf{H}]\mathbf{y}=\mathbf{0}$, 故 $\hat{\mathbf{y}}'\hat{\boldsymbol{\epsilon}}=\hat{\boldsymbol{\beta}}'\mathbf{Z}'\hat{\boldsymbol{\epsilon}}=\mathbf{0}$. 此外, $\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}=\mathbf{y}'[\mathbf{I}-\mathbf{H}][\mathbf{I}-\mathbf{H}]\mathbf{y}=$

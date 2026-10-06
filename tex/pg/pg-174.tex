@@ -1,0 +1,51 @@
+% ---- pg-174 （书页 162） ----
+
+有 $\mu$ 的其他值与数据相吻合呢? 回答是肯定的. 事实上, 总是存在正态总体均值的一个似真值集合. 从众所周知的检验假设 $H_0: \mu = \mu_0$, $H_1: \mu \neq \mu_0$ 的接受域与 $\mu$ 的置信区间之间的对应关系, 我们有
+
+\{在显著性水平 $\alpha$ 下, $H_0: \mu = \mu_0$ 未被拒绝\} 或
+\[
+\left|\frac{\bar{x} - \mu_0}{s/\sqrt{n}}\right| \leq t_{n-1}(\alpha/2)
+\]
+等价于
+
+\{$\mu_0$ 落在 $100(1-\alpha)\%$ 置信区间 $\bar{x} \pm t_{n-1}(\alpha/2)\dfrac{s}{\sqrt{n}}$ 内\} 或
+\phantomsection\label{eq:5-3}
+\begin{equation}
+\bar{x} - t_{n-1}(\alpha/2)\frac{s}{\sqrt{n}} \leq \mu_0 \leq \bar{x} + t_{n-1}(\alpha/2)\frac{s}{\sqrt{n}} \tag{5-3}
+\end{equation}
+因此, 在水平 $\alpha$ 下, 没有被假设 $H_0: \mu = \mu_0$ 的检验拒绝的所有值 $\mu_0$ 构成了这个置信区间.
+
+在样本尚未选出之前, \hyperref[eq:5-3]{式(5-3)}中的 $100(1-\alpha)\%$ 置信区间是一个随机区间, 因为该区间的两个端点依赖于随机变量 $\bar{X}$ 和 $s$, 该区间包含 $\mu$ 的概率为 $1-\alpha$; 在大量这样的独立区间中, 大约有 $100(1-\alpha)\%$ 的区间包含 $\mu$.
+
+现在我们考虑对一给定的 $p \times 1$ 向量 $\boldsymbol{\mu}$, 判断它是否为多元正态分布均值的似真值的假设检验问题. 我们将采用对方所讨论的一元问题作类比推广的方法来处理这个问题.
+
+\hyperref[eq:5-1]{式(5-1)}中平方距离的多元情形的一个自然推广形式是
+\phantomsection\label{eq:5-4}
+\begin{equation}
+T^2 = (\bar{\mathbf{X}} - \boldsymbol{\mu}_0)'\left(\frac{1}{n}\mathbf{S}\right)^{-1}(\bar{\mathbf{X}} - \boldsymbol{\mu}_0) = n(\bar{\mathbf{X}} - \boldsymbol{\mu}_0)'\mathbf{S}^{-1}(\bar{\mathbf{X}} - \boldsymbol{\mu}_0) \tag{5-4}
+\end{equation}
+其中
+\[
+\bar{\mathbf{X}} = \frac{1}{n}\sum_{j=1}^{n}\mathbf{X}_j, \quad \mathbf{S} = \frac{1}{n-1}\sum_{j=1}^{n}(\mathbf{X}_j - \bar{\mathbf{X}})(\mathbf{X}_j - \bar{\mathbf{X}})', \quad \text{且 } \boldsymbol{\mu}_0 = \begin{bmatrix} \mu_{10} \\ \mu_{20} \\ \vdots \\ \mu_{p0} \end{bmatrix}
+\]
+
+统计量 $T^2$ 的分布最早是由多元分析的先驱者霍特林(Hotelling)得出的, 为纪念这位先驱者, 我们通常称该统计量为霍特林 $T^2$ 统计量. \hyperref[eq:5-4]{式(5-4)}中的 $(1/n)\mathbf{S}$ 为 $\bar{\mathbf{X}}$ 的协方差矩阵的估计量(见结论 3.1).
+
+如果观察到的统计距离 $T^2$ 太大, 也就是说, $\bar{\mathbf{x}}$ 与 $\boldsymbol{\mu}_0$ 距离太远, 那么我们就拒绝假设 $H_0: \mu = \mu_0$. 需要指出的是, 在检验该假设时, 我们并不需要特殊的 $T^2$ 百分位数表, 这是因为
+\phantomsection\label{eq:5-5}
+\begin{equation}
+T^2 \text{ 与 } \frac{(n-1)p}{(n-p)}F_{p, n-p} \text{ 同分布} \tag{5-5}
+\end{equation}
+其中 $F_{p, n-p}$ 为服从自由度为 $p$ 和 $n-p$ 的 $F$ 分布随机变量.
+
+概括起来, 我们有如下结论:
+
+\begin{mvbox}
+设 $X_1, X_2, \cdots, X_n$ 为从总体 $N_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ 中抽取的一随机样本. 记 $\bar{\mathbf{X}} = \dfrac{1}{n}\sum\limits_{j=1}^{n}\mathbf{X}_j$, $\mathbf{S} = \dfrac{1}{(n-1)}\sum\limits_{j=1}^{n}(\mathbf{X}_j - \bar{\mathbf{X}})(\mathbf{X}_j - \bar{\mathbf{X}})'$, 那么
+\phantomsection\label{eq:5-6}
+\begin{align}
+\alpha &= P\left[T^2 > \frac{(n-1)p}{(n-p)}F_{p, n-p}(\alpha)\right] \nonumber \\
+&= P\left[n(\bar{\mathbf{X}} - \boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{X}} - \boldsymbol{\mu}) > \frac{(n-1)p}{(n-p)}F_{p, n-p}(\alpha)\right] \tag{5-6}
+\end{align}
+对所有 $\boldsymbol{\mu}$ 与 $\boldsymbol{\Sigma}$ 成立, 这里 $F_{p, n-p}(\alpha)$ 为 $F_{p, n-p}$ 分布的上 $100\alpha$ 百分位数.
+\end{mvbox}

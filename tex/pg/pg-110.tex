@@ -1,0 +1,32 @@
+为了如 2.3 节中用 $\mathbf{A}=\mathbf{S}^{-1}$ 来描述这个椭圆, 我们注意到如果 $(\lambda,\mathbf{e})$ 是 $\mathbf{S}$ 的一个特征值-特征向量对, 则 $(\lambda^{-1},\mathbf{e})$ 是 $\mathbf{S}^{-1}$ 的一个特征值-特征向量对. 也就是说, 如果 $\mathbf{S}\mathbf{e}=\lambda\mathbf{e}$, 则用 $\mathbf{S}^{-1}$ 左乘, 得出 $\mathbf{S}^{-1}\mathbf{S}\mathbf{e}=\lambda\mathbf{S}^{-1}\mathbf{e}$ 或 $\mathbf{S}^{-1}\mathbf{e}=\lambda^{-1}\mathbf{e}$. 因此, 利用 $\mathbf{S}$ 的特征值, 我们知道从 $\bar{\mathbf{x}}$ 沿 $\mathbf{e}$ 的方向椭圆延伸为 $c\sqrt{\lambda_{i}}$.
+
+当 $p=2$ 维时, 选取 $c^{2}=5.99$ 产生一个椭圆, 它包含着大约 $95\%$ 的观测结果. 向量 $3\sqrt{5.99}\,\mathbf{e}_{1}$ 和 $\sqrt{5.99}\,\mathbf{e}_{2}$ 如\hyperref[fig:3.8]{图 3.8}(a) 所示. 注意方向是怎样成为椭圆的自然轴, 并注意观察每个方向上这些换算过的特征向量的长度与模型的大小相差不大.
+
+\begin{mvfigure}
+\mvinc{pg-110}{0.192,0.274,0.804,0.398}
+\phantomsection\label{fig:3.8}\mvcap{图 3.8\quad 图 3.7 中散布图的 $95\%$ 均值中心椭圆的轴}
+\end{mvfigure}
+
+接下来, 对于
+\[
+\mathbf{S}=\begin{bmatrix}3&0\\0&3\end{bmatrix},\ \text{特征值满足}\quad 0=(\lambda-3)^{2}
+\]
+我们任意地选择特征向量为 $\lambda_{1}=3,\mathbf{e}_{1}'=[1,0]$ 和 $\lambda_{2}=3,\mathbf{e}_{2}'=[0,1]$, 向量 $\sqrt{3}\times\sqrt{5.99}\,\mathbf{e}_{1}$ 和 $\sqrt{3}\times\sqrt{5.99}\,\mathbf{e}_{2}$ 如\hyperref[fig:3.8]{图 3.8}(b) 所示.
+
+最后, 对于
+\[
+\mathbf{S}=\begin{bmatrix}5&-4\\-4&5\end{bmatrix},\ \text{特征值满足}\quad 0=(\lambda-5)^{2}-(-4)^{2}=(\lambda-9)(\lambda-1)
+\]
+我们确定特征值-特征向量对 $\lambda_{1}=9,\mathbf{e}_{1}'=[1/\sqrt{2},-1/\sqrt{2}]$ 和 $\lambda_{2}=1,\mathbf{e}_{2}'=[1/\sqrt{2},1/\sqrt{2}]$. 换算特征向量 $3\sqrt{5.99}\,\mathbf{e}_{1}$ 和 $\sqrt{5.99}\,\mathbf{e}_{2}$ 如\hyperref[fig:3.8]{图 3.8}(c) 所示.
+
+在二维中, 经常可以用眼睛看出均值中心椭圆的轴. 然而, 对于不能直观地检验的高维数据特征向量方法也有效.
+
+注意: 这里广义方差 $|\mathbf{S}|$ 对所有三个模型给出同一值 $|\mathbf{S}|=9$. 但广义方差不包含有关图形定向的任何信息. 当进行比较的两个或更多个样本 (模型) 有几乎相同的定向时, 广义方差更容易解释.
+
+注意到我们的三个散布图覆盖了大约相同的区域. 由于所有的 $|\mathbf{S}|=9$, 因此概括变化性的椭圆
+\[
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\le c^{2}
+\]
+恰好有相同的区域 [参见\hyperref[eq:3-17]{式(3-17)}].
+
+正如\hyperref[fig:3.8]{图 3.8} 所表明的, 不能由 $|\mathbf{S}|$ 发现不同的相关结构. 对于 $p>2$ 的情况, 甚至可能更加模糊.\hfill$\blacksquare$

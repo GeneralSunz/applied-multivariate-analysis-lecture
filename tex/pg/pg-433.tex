@@ -1,0 +1,82 @@
+% ---- pg-433 （书页 421） ----
+
+有均值向量
+\phantomsection\label{eq:10-3}
+\begin{equation}
+\boldsymbol{\mu}_{((p+q)\times 1)}=E(\mathbf{X})=\left[\begin{array}{c}
+E(\mathbf{X}^{(1)})\\
+\hdashline
+E(\mathbf{X}^{(2)})
+\end{array}\right]=\left[\begin{array}{c}
+\boldsymbol{\mu}^{(1)}\\
+\hdashline
+\boldsymbol{\mu}^{(2)}
+\end{array}\right]
+\tag{10-3}
+\end{equation}
+和协方差矩阵
+\phantomsection\label{eq:10-4}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\Sigma}_{((p+q)\times(p+q))}&=E(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})'\\
+&=\left[\begin{array}{c:c}
+E(\mathbf{X}^{(1)}-\boldsymbol{\mu}^{(1)})(\mathbf{X}^{(1)}-\boldsymbol{\mu}^{(1)})' & E(\mathbf{X}^{(1)}-\boldsymbol{\mu}^{(1)})(\mathbf{X}^{(2)}-\boldsymbol{\mu}^{(2)})'\\
+\hdashline
+E(\mathbf{X}^{(2)}-\boldsymbol{\mu}^{(2)})(\mathbf{X}^{(1)}-\boldsymbol{\mu}^{(1)})' & E(\mathbf{X}^{(2)}-\boldsymbol{\mu}^{(2)})(\mathbf{X}^{(2)}-\boldsymbol{\mu}^{(2)})'
+\end{array}\right]\\
+&=\left[\begin{array}{c:c}
+\boldsymbol{\Sigma}_{11\,(p\times p)} & \boldsymbol{\Sigma}_{12\,(p\times q)}\\
+\hdashline
+\boldsymbol{\Sigma}_{21\,(q\times p)} & \boldsymbol{\Sigma}_{22\,(q\times q)}
+\end{array}\right]
+\end{aligned}
+\tag{10-4}
+\end{equation}
+来自不同组——一个从 $\mathbf{X}^{(1)}$, 一个从 $\mathbf{X}^{(2)}$——的变量配对之间的协方差包含于 $\boldsymbol{\Sigma}_{12}$ 中, 或等价地包含于 $\boldsymbol{\Sigma}_{21}$ 中. 也就是说, $\boldsymbol{\Sigma}_{12}$ 中的 $pq$ 个元素度量这两组之间的联系. 当 $p$ 和 $q$ 较大时, 整体地解释 $\boldsymbol{\Sigma}_{12}$ 中的元素基本上是没有希望的. 而且, 为达到预测和比较的目的, 变量的线性组合常常是我们感兴趣的和有用的. 典型相关分析的主要任务是, 用 $\boldsymbol{\Sigma}_{12}$ 中几个经过仔细挑选的协方差(或相关系数)而不是它的全部 $pq$ 个协方差来综合 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 间的联系.
+
+线性组合提供了对一组变量简单扼要的度量. 对系数向量 $\mathbf{a}$ 和 $\mathbf{b}$ 的某些配对, 设
+\phantomsection\label{eq:10-5}
+\begin{equation}
+\begin{aligned}
+U&=\mathbf{a}'\mathbf{X}^{(1)}\\
+V&=\mathbf{b}'\mathbf{X}^{(2)}
+\end{aligned}
+\tag{10-5}
+\end{equation}
+则利用\hyperref[eq:10-5]{式(10-5)}和\hyperref[eq:2-45]{式(2-45)}, 得到
+\phantomsection\label{eq:10-6}
+\begin{equation}
+\begin{aligned}
+\mathrm{Var}(U)&=\mathbf{a}'\mathrm{Cov}(\mathbf{X}^{(1)})\mathbf{a}=\mathbf{a}'\boldsymbol{\Sigma}_{11}\mathbf{a}\\
+\mathrm{Var}(V)&=\mathbf{b}'\mathrm{Cov}(\mathbf{X}^{(2)})\mathbf{b}=\mathbf{b}'\boldsymbol{\Sigma}_{22}\mathbf{b}\\
+\mathrm{Cov}(U,V)&=\mathbf{a}'\mathrm{Cov}(\mathbf{X}^{(1)},\mathbf{X}^{(2)})\mathbf{b}=\mathbf{a}'\boldsymbol{\Sigma}_{12}\mathbf{b}
+\end{aligned}
+\tag{10-6}
+\end{equation}
+我们将寻找系数向量 $\mathbf{a}$ 和 $\mathbf{b}$, 使
+\phantomsection\label{eq:10-7}
+\begin{equation}
+\mathrm{Corr}(U,V)=\frac{\mathbf{a}'\boldsymbol{\Sigma}_{12}\mathbf{b}}{\sqrt{\mathbf{a}'\boldsymbol{\Sigma}_{11}\mathbf{a}}\ \sqrt{\mathbf{b}'\boldsymbol{\Sigma}_{22}\mathbf{b}}}
+\tag{10-7}
+\end{equation}
+尽可能的大.
+
+我们作如下定义:
+
+第一对典型变量, 或第一典型变量配对是具有单位方差的线性组合 $U_1$ 和 $V_1$ 的配对, 它使对应的相关系数(10-7)最大化.
+
+第二对典型变量, 或第二典型变量配对是具有单位方差的线性组合 $U_2$ 和 $V_2$ 的配对, 且在与第一对典型变量不相关的所有配对中, 其对应的相关系数(10-7)为最大.
+
+在第 $k$ 步中:
+
+第 $k$ 对典型变量, 或第 $k$ 典型变量配对是具有单位方差的线性组合 $U_k$ 和 $V_k$ 的配对, 且在与 $k-1$ 个典型变量配对都不相关的所有配对中, 其相关系数(10-7)为最大.
+
+第 $k$ 对典型变量之间的相关系数称为第 $k$ 典型相关系数.
+
+以下结论为得到典型变量及它们的相关系数提供了必要的细节.
+
+\noindent\textbf{结论 10.1}\quad 假设 $p\le q$, 随机向量 $\mathbf{X}^{(1)}_{(p\times 1)}$ 和 $\mathbf{X}^{(2)}_{(q\times 1)}$ 有
+\[
+\mathrm{Cov}(\mathbf{X}^{(1)})=\boldsymbol{\Sigma}_{11\,(p\times p)},\quad \mathrm{Cov}(\mathbf{X}^{(2)})=\boldsymbol{\Sigma}_{22\,(q\times q)}\quad \text{及}\quad \mathrm{Cov}(\mathbf{X}^{(1)},\mathbf{X}^{(2)})=\boldsymbol{\Sigma}_{12\,(p\times q)}
+\]
+其中 $\boldsymbol{\Sigma}$ 是满秩的. 对系数向量 $\mathbf{a}_{(p\times 1)}$ 和 $\mathbf{b}_{(q\times 1)}$, 构成线性组合 $U=\mathbf{a}'\mathbf{X}^{(1)}$ 和 $V=\mathbf{b}'\mathbf{X}^{(2)}$. 则由线性组

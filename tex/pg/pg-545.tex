@@ -1,0 +1,95 @@
+% ---- pg-545 （书页 533） ----
+
+\[
+\begin{aligned}
+d_{(135)2}&=\min\{d_{(35)2},d_{12}\}=\min\{7,9\}=7\\
+d_{(135)4}&=\min\{d_{(35)4},d_{14}\}=\min\{8,6\}=6
+\end{aligned}
+\]
+我们得到下一个聚类水平的距离矩阵为
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{ccc}(135)&2&4\end{array}\\[2pt]
+\begin{array}{r}(135)\\2\\4\end{array} &
+\left[\begin{array}{ccc}
+0&&\\
+7&0&\\
+6&\tikz{\node[draw,ellipse,inner sep=1pt]{5};}&0
+\end{array}\right]
+\end{array}
+\]
+各对聚类之间的最小最近邻近点距离为 $d_{42}=5$, 于是我们将对象 4 和 2 合并, 得到聚类(24).
+
+现在我们有两个不同的聚类(135)和(24). 它们的最邻近点距离(即唯一的距离)为
+\[
+d_{(135)(24)}=\min\{d_{(135)2},d_{(135)4}\}=\min\{7,6\}=6
+\]
+最终的距离阵变成
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{cc}(135)&(24)\end{array}\\[2pt]
+\begin{array}{r}(135)\\(24)\end{array} &
+\left[\begin{array}{cc}
+0&\\
+\tikz{\node[draw,ellipse,inner sep=1pt]{6};}&0
+\end{array}\right]
+\end{array}
+\]
+于是将聚类(135)和(24)合并, 形成一个包含全部五个对象的聚类(12345), 此时最近邻近点距离为 6.
+
+图解上述分层聚类过程的树图示于\hyperref[fig:12.3]{图 12.3}. 此图清楚说明了分组与分组发生时的距离水平.\hfill$\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=1.0cm,y=0.42cm,every node/.style={font=\small}]
+% 坐标轴
+\draw (-0.5,0) -- (-0.5,6.5);
+\foreach \ty in {0,1,2,3,4,5,6} { \draw (-0.5,\ty) -- (-0.62,\ty); }
+\foreach \ty/\tl in {0/0, 2/2, 4/4, 6/6} { \node[left] at (-0.66,\ty) {\tl}; }
+\node[rotate=90] at (-1.30,3) {距离};
+\draw (-0.5,0) -- (4.45,0);
+% 叶结点
+\foreach \lx/\lab in {0/1, 1/3, 2/5, 3/2, 4/4} {
+  \node[circle,fill,inner sep=1.4pt] at (\lx,0) {};
+  \node[below] at (\lx,-0.30) {\lab};
+}
+\node at (2,-1.20) {对象};
+% 树
+\draw (1,0) -- (1,2); \draw (2,0) -- (2,2); \draw (1,2) -- (2,2);
+\draw (1.5,2) -- (1.5,3);
+\draw (0,0) -- (0,3); \draw (0,3) -- (1.5,3);
+\draw (0.75,3) -- (0.75,6);
+\draw (3,0) -- (3,5); \draw (4,0) -- (4,5); \draw (3,5) -- (4,5);
+\draw (3.5,5) -- (3.5,6);
+\draw (0.75,6) -- (3.5,6);
+\end{tikzpicture}
+\phantomsection\label{fig:12.3}\mvcap{图 12.3\quad 五个对象之间距离的单连接树图}
+\end{mvfigure}
+
+在典型的分层聚类应用中, 人们感兴趣的主要是中间结果, 即将对象分为中等数目的聚类.
+
+\noindent\textbf{例 12.4}\quad (11 种语言的单连接聚类)
+
+考虑\hyperref[tab:12.3]{表 12.3} 中的和谐矩阵, 它代表 11 种语言中前 10 个数字词之间的接近程度. 为构造距离矩阵, 我们将和谐性(两种语言的 10 个数字的首字母相同的频数)从完全一致的数 10(每种语言自身的固有频数)中减去, 得到的距离阵为
+
+\begin{mvtable}
+\footnotesize
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{ccccccccccc}\mathrm{E}&\mathrm{N}&\mathrm{Da}&\mathrm{Du}&\mathrm{G}&\mathrm{Fr}&\mathrm{Sp}&\mathrm{I}&\mathrm{P}&\mathrm{H}&\mathrm{Fi}\end{array}\\[2pt]
+\begin{array}{r}\mathrm{E}\\\mathrm{N}\\\mathrm{Da}\\\mathrm{Du}\\\mathrm{G}\\\mathrm{Fr}\\\mathrm{Sp}\\\mathrm{I}\\\mathrm{P}\\\mathrm{H}\\\mathrm{Fi}\end{array} &
+\left[\begin{array}{ccccccccccc}
+0&&&&&&&&&&\\
+2&0&&&&&&&&&\\
+2&\tikz{\node[draw,ellipse,inner sep=1pt]{1};}&0&&&&&&&&\\
+7&5&6&0&&&&&&&\\
+6&4&5&5&0&&&&&&\\
+6&6&6&9&7&0&&&&&\\
+6&6&5&9&7&2&0&&&&\\
+6&6&5&9&7&\tikz{\node[draw,ellipse,inner sep=1pt]{1};}&\tikz{\node[draw,ellipse,inner sep=1pt]{1};}&0&&&\\
+7&7&6&10&8&5&3&4&0&&\\
+9&8&8&8&9&10&10&10&10&0&\\
+9&9&9&9&9&9&9&9&9&8&0
+\end{array}\right]
+\end{array}
+\]
+\end{mvtable}

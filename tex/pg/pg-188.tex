@@ -1,0 +1,37 @@
+% ---- pg-188 ----
+\begin{mvfigure}
+\mvinc{pg-188}{0.237,0.122,0.761,0.393}
+\phantomsection\label{fig:5.3}\mvcap{图 5.3\quad 各对均值的 95\% 置信椭圆及联合 $T^{2}$ 区间——大学考试数据}
+\end{mvfigure}
+\hfill$\blacksquare$
+
+\mvsub{联合置信区间与单一置信区间的比较}
+
+构造置信区间的另一种方法是每次只考虑一个分量 $\mu_{i}$, 正如当 $\mathbf{a}'=[0,\cdots,0,a_{i},0,\cdots,0]$ (此处 $a_{i}=1$) 时\hyperref[eq:5-21]{式(5-21)}所暗示的那样. 这种方法不必考虑 $p$ 维变量的协方差矩阵的结构, 就可得到置信区间
+\phantomsection\label{eq:5-27}
+\begin{equation}
+\begin{aligned}
+\bar{x}_{1}-t_{n-1}\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{11}}{n}}\ &\le\ \mu_{1}\ \le\ \bar{x}_{1}+t_{n-1}\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{11}}{n}}\\
+\bar{x}_{2}-t_{n-1}\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{22}}{n}}\ &\le\ \mu_{2}\ \le\ \bar{x}_{2}+t_{n-1}\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{22}}{n}}\\
+&\qquad\qquad\vdots\qquad\qquad\qquad\vdots\\
+\bar{x}_{p}-t_{n-1}\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{pp}}{n}}\ &\le\ \mu_{p}\ \le\ \bar{x}_{p}+t_{n-1}\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{pp}}{n}}
+\end{aligned} \tag{5-27}
+\end{equation}
+
+虽然在抽样之前第 $i$ 个区间包含 $\mu_{i}$ 的概率为 $1-\alpha$, 但一般而言, 对其他区间包含各自的 $\mu_{i}$ 的概率并不能断言什么. 正如我们在前面指出的, 这个概率并非 $1-\alpha$.
+
+为了更清楚地说明这个问题, 考虑观测值服从正态分布且
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}\sigma_{11}&0&\cdots&0\\0&\sigma_{22}&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\sigma_{pp}\end{bmatrix}
+\]
+的特殊情形. 由于第一个变量的观测值与第二个变量的观测值相互独立, 故可应用独立事件的乘法法则, 因而在样本被抽取之前有
+\[
+\begin{aligned}
+P[\text{式(5-27) 中的所有 }t\text{ 区间包含各自的 }\mu_{i}]&=(1-\alpha)(1-\alpha)\cdots(1-\alpha)\\
+&=(1-\alpha)^{p}
+\end{aligned}
+\]
+
+若 $1-\alpha=0.95$ 且 $p=6$, 则此概率为 $0.95^{6}=0.74$.
+
+为保证所有均值分量的置信表示同时成立的概率为 $1-\alpha$, 其各自的置信区间要比其 $t$ 区

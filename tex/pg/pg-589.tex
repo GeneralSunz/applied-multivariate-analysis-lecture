@@ -1,0 +1,97 @@
+% ---- pg-589 （书页 577） ----
+
+变量的函数, 使得我们可以将任一新的申请人归入两个范畴: 低或高.
+
+我们将使用在 11.7 节和 11.8 节中讨论的三种方法来开发分类程序. 这三种方法是: 逻辑斯蒂回归、分类树和神经网络. 对此三种方法的一个简要评估使我们可以比较这三种方法用于验证数据时的性能. 我们按照前面描述的一般数据挖掘程序, 用 SAS Enterprise Miner 软件完成此数据挖掘练习.
+
+在整个信用数据集中, 70\% 的申请人为信用风险低, 30\% 为信用风险高. 原始数据分为两个子集: 训练集和验证集. 大约 60\% 的数据(581 个案例)归入训练集, 40\% 左右的数据归入验证集(419 个案例). 在分组时用随机抽样方法以保证在训练集和验证集中都大致有 70\% 低风险申请人和 30\% 高风险申请人. 下表是申请人信用分析的刻画.
+
+\begin{mvtable}
+\setlength{\tabcolsep}{16pt}%
+\begin{tabular}{lccc}
+\toprule
+& \textbf{信用数据} & \textbf{训练数据} & \textbf{验证数据} \\
+\midrule
+好的 & 700 & 401 & 299 \\
+坏的 & 300 & 180 & 120 \\
+\cmidrule{2-4}
+总数 & 1000 & 581 & 419 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+\hyperref[fig:12.30]{图 12.30} 显示 Enterprise Miner 软件屏幕上的流程图. 图中的图标表示在数据挖掘过程中的行动. 例如, SAMPS10. DMAGESCR 包含数据; Data Partition 允许将数据划分为训练集、验证集和检验集; Transform Variables 允许对变量作变换; Regression, Tree 和 Neutral Network 三个图标可分别打开以开发各自的模型; Assessment 允许对每个模型作评估, 使用的方法有预测功效、提升、收益或损失等, 并可以对所有模型作比较.
+
+\begin{mvfigure}
+\begin{tikzpicture}[font=\zihao{6},every node/.style={inner sep=1pt}]
+\tikzset{blk/.style={draw,minimum width=0.9cm,minimum height=0.7cm}}
+% ---- 数据表图标 ----
+\node[blk] (A) at (-6.0,0.0) {\tikz{\draw (0,0) rectangle (0.55,0.42);
+  \foreach \y in {0.14,0.28} \draw (0,\y)--(0.55,\y);
+  \foreach \x in {0.14,0.28,0.42} \draw (\x,0)--(\x,0.42);}};
+\node[blk] (B) at (-4.2,0.35) {\tikz{\foreach \x in {0,0.14,0.28,0.42}
+  \draw (\x,0.02) rectangle (\x+0.11,0.4); \draw (0,0.21)--(0.53,0.21);}};
+\node[blk] (C) at (-2.4,0.0) {\tikz{\node at (0.28,0.21) {$f(x)$};}};
+\node[blk] (D) at (-0.8,2.35) {\tikz{\draw (0,0)--(0,0.42)--(0.55,0.42);
+  \draw (0.08,0.06)--(0.5,0.34);
+  \fill (0.16,0.12) circle (0.022); \fill (0.32,0.22) circle (0.022); \fill (0.46,0.31) circle (0.022);}};
+\node[blk] (E) at (-0.8,0.0) {\tikz{\fill (0.28,0.36) circle (0.03);
+  \fill (0.08,0.06) circle (0.03); \fill (0.28,0.06) circle (0.03); \fill (0.48,0.06) circle (0.03);
+  \draw (0.28,0.36)--(0.08,0.06); \draw (0.28,0.36)--(0.28,0.06); \draw (0.28,0.36)--(0.48,0.06);}};
+\node[blk] (F) at (-0.8,-1.95) {\tikz{\foreach \y in {0.06,0.21,0.36} \fill (0.06,\y) circle (0.03);
+  \fill (0.46,0.21) circle (0.03);
+  \foreach \y in {0.06,0.21,0.36} \draw (0.06,\y)--(0.46,0.21);}};
+\node[blk] (G) at (1.5,0.0) {\tikz{\draw (0.05,0.05) rectangle (0.42,0.4);
+  \foreach \y in {0.14,0.24,0.34} \draw (0.1,\y)--(0.37,\y);
+  \draw (0.38,0.3) circle (0.09); \draw (0.45,0.23)--(0.53,0.15);}};
+\node[blk] (H) at (3.7,-0.1) {\tikz{\node at (0.28,0.21) {\$};}};
+\node[blk] (I) at (5.9,-0.1) {\tikz{\draw (0.05,0.05) rectangle (0.18,0.2);
+  \draw (0.2,0.05) rectangle (0.33,0.35); \draw (0.35,0.05) rectangle (0.48,0.28);
+  \draw (0.02,0.05)--(0.51,0.05);}};
+\node[blk] (J) at (3.7,-2.0) {\tikz{\draw (0,0) rectangle (0.55,0.42);
+  \foreach \y in {0.14,0.28} \draw (0,\y)--(0.55,\y);
+  \foreach \x in {0.14,0.28,0.42} \draw (\x,0)--(\x,0.42);}};
+% ---- 标签 ----
+\node[below=1pt,align=center] at (A.south) {SAMPS10.\\DMAGESCR};
+\node[below=1pt,align=center] at (B.south) {Data\\Partition};
+\node[below=1pt,align=center] at (C.south) {Transform\\Variables};
+\node[below=1pt,align=center] at (D.south) {Regression};
+\node[below=1pt,align=center] at (E.south) {Tree};
+\node[below=1pt,align=center] at (F.south) {Neural\\Network};
+\node[below=1pt,align=center] at (G.south) {Assessment};
+\node[below=1pt,align=center] at (H.south) {Score!\\{}[Apply]};
+\node[below=1pt,align=center] at (I.south) {Distribution\\Explorer};
+\node[below=1pt,align=center] at (J.south) {SAMPS10.\\DMAGESCR};
+% ---- 箭头 ----
+\draw[-{Stealth}] (A.east) -- (B.west);
+\draw[-{Stealth}] (B.east) -- (C.west);
+\draw[-{Stealth}] (C.north east) -- (D.south west);
+\draw[-{Stealth}] (C.east) -- (E.west);
+\draw[-{Stealth}] (C.south east) -- (F.north west);
+\draw[-{Stealth}] (D.south east) -- (G.north west);
+\draw[-{Stealth}] (E.east) -- (G.west);
+\draw[-{Stealth}] (F.north east) -- (G.south west);
+\draw[-{Stealth}] (G.east) -- (H.west);
+\draw[-{Stealth}] (H.east) -- (I.west);
+\draw[-{Stealth}] (J.north) -- (H.south);
+\end{tikzpicture}
+\phantomsection\label{fig:12.30}\mvcap{图 12.30\quad 流程图}
+\end{mvfigure}
+
+最佳模型(及训练数据参数)可用于对新的申请人评分, 无须信用指派(SAMPS10. DMAGESCR). 在 Distribution Explorer 中, 得分结果可用各种方式表示.
+
+对于本案例, 先验概率设置为数据比例, 即 $P(\text{低})=0.7,P(\text{高})=0.3$. 成本矩阵起初规定如下:
+
+\begin{mvtable}
+\setlength{\tabcolsep}{14pt}%
+\begin{tabular}{cc|cc}
+\toprule
+\multicolumn{2}{c|}{} & \multicolumn{2}{c}{预测(决策)} \\
+\cmidrule(lr){3-4}
+\multicolumn{2}{c|}{} & 低(接受) & 高(拒绝) \\
+\midrule
+\multirow{2}{*}{实际} & 低 & 0 & 1 美元 \\
+& 高 & 5 美元 & 0 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

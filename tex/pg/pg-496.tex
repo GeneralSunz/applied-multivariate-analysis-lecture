@@ -1,0 +1,54 @@
+% ---- pg-496 （书页 484） ----
+
+费希尔判别分析的最初目的是分离总体. 然而它也可用于分类, 因而我们将指出这种应用. 不必假定 $g$ 个总体服从多元正态分布. 然而我们确实要假定 $p\times p$ 总体协方差矩阵皆相同且满秩. \footnote{如果协方差阵不满秩, 可令 $\mathbf{P}=[\mathbf{e}_1,\cdots,\mathbf{e}_q]$ 为 $\boldsymbol{\Sigma}$ 的特征向量, 对应非零特征值 $[\lambda_1,\cdots,\lambda_q]$. 然后用 $\mathbf{P}'\mathbf{X}$ 代替 $\mathbf{X}$. $\mathbf{P}'\mathbf{X}$ 有满秩协方差矩阵 $\mathbf{P}'\boldsymbol{\Sigma}\mathbf{P}$.}也就是说, $\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2=\cdots=\boldsymbol{\Sigma}_g=\boldsymbol{\Sigma}$.
+
+设 $\boldsymbol{\mu}$ 为联合总体的均值向量, $\mathbf{B}_\mu$ 为组间交叉乘积和, 即
+\phantomsection\label{eq:11-58}
+\begin{equation}
+\mathbf{B}_\mu=\sum_{i=1}^{g}(\boldsymbol{\mu}_i-\boldsymbol{\mu})(\boldsymbol{\mu}_i-\boldsymbol{\mu})'\qquad \text{其中}\ \bar{\boldsymbol{\mu}}=\frac{1}{g}\sum_{i=1}^{g}\boldsymbol{\mu}_i
+\tag{11-58}
+\end{equation}
+
+考虑线性组合
+\[
+Y=\mathbf{a}'\mathbf{X}
+\]
+它有期望值
+\[
+E(Y)=\mathbf{a}'E(\mathbf{X}\mid \pi_i)=\mathbf{a}'\boldsymbol{\mu}_i\qquad \text{对每个总体}\ \pi_i
+\]
+和方差
+\[
+\mathrm{Var}(Y)=\mathbf{a}'\mathrm{Cov}(\mathbf{X})\mathbf{a}=\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}\qquad \text{对所有总体}
+\]
+因此, 期望值 $\mu_{iY}=\mathbf{a}'\boldsymbol{\mu}_i$ 随总体(从中选出 $\mathbf{X}$)的改变而改变. 我们先定义总均值
+\[
+\begin{aligned}
+\bar{\mu}_Y&=\frac{1}{g}\sum_{i=1}^{g}\mu_{iY}=\frac{1}{g}\sum_{i=1}^{g}\mathbf{a}'\boldsymbol{\mu}_i=\mathbf{a}'\left(\frac{1}{g}\sum_{i=1}^{g}\boldsymbol{\mu}_i\right)\\
+&=\mathbf{a}'\boldsymbol{\mu}
+\end{aligned}
+\]
+再构造比值
+\[
+\begin{aligned}
+\frac{(\text{从} Y \text{的各总体到总均值的距离平方和})}{(Y\text{的方差})}&=\frac{\sum\limits_{i=1}^{g}(\mu_{iY}-\bar{\mu}_Y)^2}{\sigma_Y^2}=\frac{\sum\limits_{i=1}^{g}(\mathbf{a}'\boldsymbol{\mu}_i-\mathbf{a}'\bar{\boldsymbol{\mu}})^2}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}\\
+&=\frac{\mathbf{a}'\left(\sum\limits_{i=1}^{g}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\right)\mathbf{a}}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}
+\end{aligned}
+\]
+或
+\phantomsection\label{eq:11-59}
+\begin{equation}
+\frac{\sum\limits_{i=1}^{g}(\mu_{iY}-\bar{\mu}_Y)^2}{\sigma_Y^2}=\frac{\mathbf{a}'\mathbf{B}_\mu\mathbf{a}}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}
+\tag{11-59}
+\end{equation}
+\hyperref[eq:11-59]{式(11-59)}中的比值所度量的是 $Y$ 值相对其组内变差的组间变差. 于是我们可以选择 $\mathbf{a}$ 来使这个比值达到最大.
+
+通常 $\boldsymbol{\Sigma}$ 和 $\boldsymbol{\mu}_i$ 是得不到的, 但我们有一个由正确分类的观测值组成的训练集. 设这个训练集由来自总体 $\pi_i(i=1,2,\cdots,g)$ 一个容量为 $n_i$ 的随机样本组成. 记 $\pi_i$ 的 $n_i\times p$ 数据阵为 $\mathbf{X}_i$, 其第 $j$ 行为 $\mathbf{x}_{ij}'$. 先构造样本均值向量
+\[
+\bar{\mathbf{x}}_i=\frac{1}{n_i}\sum_{j=1}^{n_i}\mathbf{x}_{ij}
+\]
+及样本协方差阵 $\mathbf{S}_i, i=1,2,\cdots,g$, 然后构造“总平均”向量
+\[
+\bar{\mathbf{x}}=\frac{1}{g}\sum_{i=1}^{g}\bar{\mathbf{x}}_i
+\]
+这是对训练集中所有样本观测值取平均后得出的 $p\times 1$ 向量.

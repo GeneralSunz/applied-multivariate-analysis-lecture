@@ -1,0 +1,54 @@
+标量用相应的矩阵 $(\bar{\mathbf{x}}_{l\cdot\cdot}-\bar{\mathbf{x}})(\bar{\mathbf{x}}_{l\cdot\cdot}-\bar{\mathbf{x}})'$ 替代而已.
+
+下面是 MANOVA 表:
+
+\begin{mvtable}
+\mvtabcap{比较因子效应及其交互效应的多元方差分析表}
+{\small
+\begin{tabular}{lcc}
+\toprule
+变差来源 & 平方和与交叉乘积和矩阵(SSP) & 自由度(d.f.)\\
+\midrule
+因子 1 & $\mathrm{SSP}_{\text{因子1}}=\sum_{l=1}^{g}bn(\bar{\mathbf{x}}_{l\cdot\cdot}-\bar{\mathbf{x}})(\bar{\mathbf{x}}_{l\cdot\cdot}-\bar{\mathbf{x}})'$ & $g-1$\\
+因子 2 & $\mathrm{SSP}_{\text{因子2}}=\sum_{k=1}^{b}gn(\bar{\mathbf{x}}_{\cdot k\cdot}-\bar{\mathbf{x}})(\bar{\mathbf{x}}_{\cdot k\cdot}-\bar{\mathbf{x}})'$ & $b-1$\\
+交互效应 & $\mathrm{SSP}_{\text{交互}}=\sum_{l=1}^{g}\sum_{k=1}^{b}n(\bar{\mathbf{x}}_{lk\cdot}-\bar{\mathbf{x}}_{l\cdot\cdot}-\bar{\mathbf{x}}_{\cdot k\cdot}+\bar{\mathbf{x}})(\bar{\mathbf{x}}_{lk\cdot}-\bar{\mathbf{x}}_{l\cdot\cdot}-\bar{\mathbf{x}}_{\cdot k\cdot}+\bar{\mathbf{x}})'$ & $(g-1)(b-1)$\\
+残差(误差) & $\mathrm{SSP}_{\text{误差}}=\sum_{l=1}^{g}\sum_{k=1}^{b}\sum_{r=1}^{n}(\mathbf{x}_{lkr}-\bar{\mathbf{x}}_{lk\cdot})(\mathbf{x}_{lkr}-\bar{\mathbf{x}}_{lk\cdot})'$ & $gb(n-1)$\\
+总和(修正的) & $\mathrm{SSP}_{\text{总}}=\sum_{l=1}^{g}\sum_{k=1}^{b}\sum_{r=1}^{n}(\mathbf{x}_{lkr}-\bar{\mathbf{x}})(\mathbf{x}_{lkr}-\bar{\mathbf{x}})'$ & $gbn-1$\\
+\bottomrule
+\end{tabular}
+}
+\end{mvtable}
+
+检验(似然比检验)\footnote{似然检验法要求 $p\leqslant gb(n-1)$,故 $\mathrm{SSP}_{\text{误差}}$ 为正定阵(概率为 1).}.假设
+\phantomsection\label{eq:6-63}
+\begin{equation}
+\begin{aligned}
+H_0&:\ \boldsymbol{\gamma}_{l1}=\boldsymbol{\gamma}_{l2}=\cdots=\boldsymbol{\gamma}_{lk}=\mathbf{0}\quad(\text{无交互效应})\\
+H_1&:\ \text{至少有一个}\ \boldsymbol{\gamma}_{lk}\neq\mathbf{0}
+\end{aligned}
+\tag{6-63}
+\end{equation}
+的检验统计量为
+\phantomsection\label{eq:6-64}
+\begin{equation}
+\Lambda^{*}=\frac{|\mathrm{SSP}_{\text{误差}}|}{|\mathrm{SSP}_{\text{交互}}+\mathrm{SSP}_{\text{误差}}|}
+\tag{6-64}
+\end{equation}
+若 $\Lambda^{*}$ 较小,则拒绝 $H_0$. 对于大样本情形,上面的威尔克斯 $\Lambda$ 统计量的数值可以用 $\chi^{2}$ 分布的百分位数作其近似值. 利用巴特利特乘子(见文献[6])使这种近似获得改进后,若
+\phantomsection\label{eq:6-65}
+\begin{equation}
+-\left[gb(n-1)-\frac{p+1-(g-1)(b-1)}{2}\right]\ln\Lambda^{*}>\chi_{(g-1)(b-1)p}^{2}(\alpha)
+\tag{6-65}
+\end{equation}
+则在显著性水平 $\alpha$ 下拒绝 $H_0:\boldsymbol{\gamma}_{l1}=\boldsymbol{\gamma}_{l2}=\cdots=\boldsymbol{\gamma}_{lk}=\mathbf{0}$. 这里 $\Lambda^{*}$ 由\hyperref[eq:6-64]{式(6-64)}给出,而 $\chi_{(g-1)(b-1)p}^{2}(\alpha)$ 为自由度为 $(g-1)(b-1)p$ 的 $\chi^{2}$ 分布的上 $100\alpha$ 百分位数.
+
+通常人们总是先检验交互效应,再检验因子的主效应. 如果交互效应存在,那么它们的主效应就缺乏清晰的解释. 但从实用角度来看,再作进一步的多元检验是不明智的. 此时,可以对每个响应分别作双因子一元方差分析,以考察交互效应在哪些响应中出现. 倘若因子 1 和因子 2 的效应存在,那么,无交互效应的那些响应可解释为因子 1 与 2 的效应和. 若用处理样本均值代替期望值,我们总可以像\hyperref[fig:6.3]{图 6.3} 那样,画出交互效应的图形,这种图最好地反映了主效应和交互效应的大小关系.
+
+在多元模型中,我们用如下的方法检验因子 1 和因子 2 的主效应. 首先考虑假设
+\[
+H_0:\ \boldsymbol{\tau}_1=\boldsymbol{\tau}_2=\cdots=\boldsymbol{\tau}_g=\mathbf{0}
+\]
+\[
+H_1:\ \text{至少有一个}\ \boldsymbol{\tau}_l\neq\mathbf{0}
+\]
+这些假设分别表示无因子 1 效应及有因子 1 效应. 当

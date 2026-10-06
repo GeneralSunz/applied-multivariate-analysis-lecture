@@ -1,0 +1,48 @@
+% ---- pg-578 （书页 566） ----
+
+\mvsub{构造双重信息图}
+
+双重信息图的构造由样本主成分开始.
+
+根据结论 8A.1, 数据阵 $\mathbf{X}$ 的最佳二维近似用前两个主成分的样本值来逼近第 $j$ 个观测值 $\mathbf{x}_j$. 具体说就是
+\phantomsection\label{eq:12-44}
+\begin{equation}
+\mathbf{x}_j\doteq\bar{\mathbf{x}}+\hat{y}_{j1}\hat{\mathbf{e}}_1+\hat{y}_{j2}\hat{\mathbf{e}}_2
+\tag{12-44}
+\end{equation}
+其中 $\hat{\mathbf{e}}_1$ 和 $\hat{\mathbf{e}}_2$ 为 $\mathbf{S}$ 或 $\mathbf{X}_c'\mathbf{X}_c=(n-1)\mathbf{S}$ 的前两个特征向量. 这里 $\mathbf{X}_c$ 为修正的数据阵, 其行为 $(\mathbf{x}_j-\bar{\mathbf{x}})'$. 这两个特征向量确定一个平面, 第 $j$ 个抽样单元(行)在该平面上的坐标为一对主成分值 $(\hat{y}_{j1},\hat{y}_{j2})$.
+
+为了将关于变量的信息也包括到这个平面图中, 我们考虑一对特征向量 $(\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2)$. 这两个特征向量是前两个样本主成分的系数向量. 因此, 矩阵 $\hat{\mathbf{E}}=[\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2]$ 的每一行确定一个变量在图中的位置, 而系数的大小(变量的坐标)则给出相应变量在主成分中的权值. 变量在图中的位置用一个向量来指示. 通常, 统计计算机程序会给出一个乘子, 将所有向量的长度作适当调整并像抽样单元那样标绘在同一坐标系上. 同某个变量比较接近的那些单元很可能在那个变量上有较大的值. 为解释一个新点 $\mathbf{x}_0$, 我们在图中对它的主成分 $\hat{\mathbf{E}}'(\mathbf{x}_0-\bar{\mathbf{x}})$ 作出标绘.
+
+一种直接得出双重信息图的方法是从奇异值分解开始(见结论 2A.15). 首先将 $n\times p$ 均值修正矩阵 $\mathbf{X}_c$ 表示为
+\phantomsection\label{eq:12-45}
+\begin{equation}
+\underset{n\times p}{\mathbf{X}_c}=\underset{(n\times p)}{\mathbf{U}}
+\underset{(p\times p)}{\boldsymbol{\Delta}}\underset{(p\times p)}{\mathbf{V}'}
+\tag{12-45}
+\end{equation}
+其中 $\boldsymbol{\Delta}$ 为对角 $(\lambda_1,\lambda_2,\cdots,\lambda_p)$, 且 $\mathbf{V}$ 为一个正交阵, 其列向量为 $\mathbf{X}_c'\mathbf{X}_c=(n-1)\mathbf{S}$ 的特征向量. 也就是说, $\mathbf{V}=\hat{\mathbf{E}}=[\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\cdots,\hat{\mathbf{e}}_p]$. 将\hyperref[eq:12-45]{式(12-45)}的右端乘以 $\hat{\mathbf{E}}$, 我们有
+\phantomsection\label{eq:12-46}
+\begin{equation}
+\mathbf{X}_c\hat{\mathbf{E}}=\mathbf{U}\boldsymbol{\Delta}
+\tag{12-46}
+\end{equation}
+此等式左端矩阵的第 $j$ 行
+\[
+\left[(\mathbf{x}_j-\bar{\mathbf{x}})'\hat{\mathbf{e}}_1,(\mathbf{x}_j-\bar{\mathbf{x}})'\hat{\mathbf{e}}_2,\cdots,
+(\mathbf{x}_j-\bar{\mathbf{x}})'\hat{\mathbf{e}}_p\right]=[\hat{y}_{j1},\hat{y}_{j2},\cdots,\hat{y}_{jp}]
+\]
+恰好是第 $j$ 个单元的主成分值. 也就是说, $\mathbf{U}\boldsymbol{\Delta}$ 包含所有的主成分值, 而 $\mathbf{V}=\hat{\mathbf{E}}$ 则包含定义主成分的那些系数.
+
+$\mathbf{X}_c$ 的最佳二维近似可以用 $\boldsymbol{\Delta}^*=\text{对角}(\lambda_1,\lambda_2,0,\cdots,0)$ 代替 $\boldsymbol{\Delta}$ 得到. 这个结果称为埃卡尔特-扬(Eckart-Young)定理. 证明在结论 8A.1 中. 于是(最佳二维)近似为
+\phantomsection\label{eq:12-47}
+\begin{equation}
+\mathbf{X}_c\doteq\mathbf{U}\boldsymbol{\Delta}^*\mathbf{V}'
+=[\hat{\mathbf{y}}_1,\hat{\mathbf{y}}_2]\begin{bmatrix}\hat{\mathbf{e}}_1'\\ \hat{\mathbf{e}}_2'\end{bmatrix}
+\tag{12-47}
+\end{equation}
+其中 $\hat{\mathbf{y}}_1$ 和 $\hat{\mathbf{y}}_2$ 分别为前两个主成分的值的 $n\times 1$ 向量.
+
+在双重信息图中, 数据矩阵的每一行(或项目)用一个点表示, 其位置由两个主成分的一对值决定. 数据矩阵的第 $i$ 列(或变量)用一个从原点引出指向该点的箭头表示, 箭头端点的坐标为 $(e_{1i},e_{2i})$——\hyperref[eq:12-47]{式(12-47)}右端第二个矩阵 $[\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2]'$ 第 $i$ 列中的元素. 这个尺度与主成分的尺度也许不相匹配, 所以引进一个任意乘子, 以同一个量将所有向量进行调整.
+
+双重信息图的思想(即同时将抽样单元和变量表示在一个图中)可推广到正则相关分析和多维标度变换, 甚至可推广到更复杂的非线性方法(见文献[12]).

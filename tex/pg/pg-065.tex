@@ -1,0 +1,90 @@
+% ---- pg-065 （书页 53） ----
+
+\[
+=
+\begin{cases}
+\displaystyle\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}(x_i-\mu_i)(x_k-\mu_k)f_{ik}(x_i,x_k)\,\mathrm{d}x_i\,\mathrm{d}x_k & \text{若 } X_i,X_k \text{ 是联合密度函数为}\\
+& f_{ik}(x_i,x_k) \text{ 的连续型随机变量}\\[1ex]
+\displaystyle\sum_{\text{一切 }x_i}\sum_{\text{一切 }x_k}(x_i-\mu_i)(x_k-\mu_k)p_{ik}(x_i,x_k) & \text{若 } X_i,X_k \text{ 是联合概率函数为}\\
+& p_{ik}(x_i,x_k) \text{ 的离散型随机变量}
+\end{cases}
+\]
+
+\phantomsection\label{eq:2-26}
+\begin{equation}
+\tag{2-26}
+\end{equation}
+
+其中 $\mu_i$ 和 $\mu_k(i,k=1,2,\cdots,p)$ 是边缘均值.当 $i=k$ 时，协方差变成边缘方差.
+
+更一般的，$p$ 个随机变量 $X_1,X_2,\cdots,X_p$ 的集体特性或等价地，随机向量 $\bm{X}=[X_1,X_2,\cdots,X_p]'$ 的特性是通过联合概率密度函数 $f(x_1,x_2,\cdots,x_p)=f(x)$ 来描述.正如在本书中已经指出的，$f(x)$ 通常是多元正态密度函数(参见第 4 章).
+
+如果联合概率 $P[X_i\leqslant x_i \text{ 和 } X_k\leqslant x_k]$，对一切 $x_i,x_k$，都能写成对应边缘概率之积，即
+
+\phantomsection\label{eq:2-27}
+\begin{equation}
+P[X_i\leqslant x_i \quad \text{和} \quad X_k\leqslant x_k]=P[X_i\leqslant x_i]P[X_k\leqslant x_k] \tag{2-27}
+\end{equation}
+
+则称 $X_i$ 和 $X_k$ 是统计独立的.当 $X_i$ 与 $X_k$ 是联合密度为 $f_{ik}(x_i,x_k)$、边缘密度为 $f_i(x_i)$ 和 $f_k(x_k)$ 的连续型随机变量时，对各对 $(x_i,x_k)$，独立条件变为
+
+\[
+f_{ik}(x_i,x_k)=f_i(x_i)f_k(x_k)
+\]
+
+对于 $p$ 个连续型随机变量 $X_1,X_2,\cdots,X_p$，如果对所有 $p$ 元数组 $(x_1,x_2,\cdots,x_p)$，它们的联合密度函数能分解成
+
+\phantomsection\label{eq:2-28}
+\begin{equation}
+f_{12\cdots p}(x_1,x_2,\cdots,x_p)=f_1(x_1)f_2(x_2)\cdots f_p(x_p) \tag{2-28}
+\end{equation}
+
+则称它们是相互统计独立的.
+
+统计独立对于协方差有着重要意义.\hyperref[eq:2-28]{式(2-28)}中的因式分解意味着 $\operatorname{Cov}(X_i,X_k)=0$.因此，
+
+\phantomsection\label{eq:2-29}
+\begin{mvframe}
+若 $X_i$ 与 $X_k$ 独立，则 $\operatorname{Cov}(X_i,X_k)=0$ \hfill (2-29)
+\end{mvframe}
+
+\hyperref[eq:2-29]{式(2-29)}的逆命题并非普遍成立.在有些情况下，$\operatorname{Cov}(X_i,X_k)=0$，而 $X_i$ 与 $X_k$ 却不独立(见文献[5]).
+
+$p\times1$ 随机向量 $\bm{X}$ 的均值和协方差可以用矩阵形式表示.每个元素的期望值构成均值向量 $\bm{\mu}=E(\bm{X})$，$p$ 个方差 $\sigma_i$ 和 $p(p-1)/2$ 个不同的协方差 $\sigma_{ik}(i<k)$ 构成对称的方差-协方差矩阵 $\bm{\Sigma}=E(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})'$.具体地，
+
+\phantomsection\label{eq:2-30}
+\begin{equation}
+E(\bm{X})=
+\begin{bmatrix}
+E(X_1)\\
+E(X_2)\\
+\vdots\\
+E(X_p)
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mu_1\\
+\mu_2\\
+\vdots\\
+\mu_p
+\end{bmatrix}
+=\bm{\mu} \tag{2-30}
+\end{equation}
+
+和
+
+\[
+\begin{aligned}
+\bm{\Sigma}&=E(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})'\\
+&=E
+\begin{bmatrix}
+X_1-\mu_1\\
+X_2-\mu_2\\
+\vdots\\
+X_p-\mu_p
+\end{bmatrix}
+\begin{bmatrix}
+X_1-\mu_1,X_2-\mu_2,\cdots,X_p-\mu_p
+\end{bmatrix}
+\end{aligned}
+\]

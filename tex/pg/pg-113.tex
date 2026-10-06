@@ -1,0 +1,53 @@
+% ---- pg-113 （书页 101） ----
+
+所得到的协方差矩阵是
+\[
+\mathbf{S}=\begin{bmatrix}2.5&0&2.5\\0&2.5&2.5\\2.5&2.5&5.0\end{bmatrix}
+\]
+
+此时, 我们证明广义方差为零即
+\[
+|\mathbf{S}|=2.5^{2}\times5+0+0-2.5^{3}-2.5^{3}-0=0
+\]
+
+一般的, 如果数据矩阵 $\mathbf{X}$ 的三列满足线性约束 $a_{1}x_{j1}+a_{2}x_{j2}+a_{3}x_{j3}=c$ 对所有 $j$ 为常数, 则 $a_{1}\bar{x}_{1}+a_{2}\bar{x}_{2}+a_{3}\bar{x}_{3}=c$, 因此, 对所有 $j$, 有
+\[
+a_{1}(x_{j1}-\bar{x}_{1})+a_{2}(x_{j2}-\bar{x}_{2})+a_{3}(x_{j3}-\bar{x}_{3})=0
+\]
+即
+\[
+(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}=\mathbf{0}
+\]
+且被均值修正的数据矩阵的列是线性相关的. 于是, 把与第一、二个有线性关系的第三个变量包括进来, 导致广义方差为零. 只要当被均值修正的数据矩阵的列线性相关,
+\[
+(n-1)\mathbf{S}\mathbf{a}=(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}=(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')\mathbf{0}=\mathbf{0}
+\]
+且 $\mathbf{S}\mathbf{a}=\mathbf{0}$ 确定了 $\mathbf{S}$ 的列的线性相关性. 因此 $|\mathbf{S}|=0$.
+
+因为 $\mathbf{S}\mathbf{a}=\mathbf{0}=0\mathbf{a}$, 可见, $\mathbf{a}$ 是 $\mathbf{S}$ 的一个与特征值零相对应的换算过的特征向量. 这导致一个重要的诊断方法: 如果我们没意识到任一多余变量是其余变量的线性组合, 我们可以通过计算 $\mathbf{S}$ 的特征向量并辨别出与零特征值相对应的那一个, 找到它们. 即如果我们没意识到此例中的相关性, 由于
+\[
+\mathbf{S}\mathbf{a}=\begin{bmatrix}2.5&0&2.5\\0&2.5&2.5\\2.5&2.5&5.0\end{bmatrix}\begin{bmatrix}1\\1\\-1\end{bmatrix}=\begin{bmatrix}0\\0\\0\end{bmatrix}=0\begin{bmatrix}1\\1\\-1\end{bmatrix}
+\]
+计算机计算会找到一个与特征向量 $\mathbf{a}'=[1,1,-1]$ 相应的特征值.
+
+系数揭示了对所有 $j$ 有
+\[
+1(x_{j1}-\bar{x}_{1})+1(x_{j2}-\bar{x}_{2})+(-1)(x_{j3}-\bar{x}_{3})=0
+\]
+而且, 对所有 $n$ 个单位元前两个变量的和减第三个变量后是一常数 $c$. 这里第三个变量实际上是前两个变量之和, 所以原始数据矩阵的列满足 $c=0$ 时的一个线性约束. 因为 $c=0$ 这一特殊情况, 该约束确定了数据矩阵的列是线性相关这一事实.
+
+我们对上述例子中讨论的广义方差为零的情况, 可以总结出重要的等价条件. 无论何时, 只要非零向量 $\mathbf{a}$ 满足下列三个条件之一, 它就满足所有三个条件:
+
+\begin{mvtable}
+\begin{tabular}{@{}p{0.30\linewidth}@{}p{0.33\linewidth}@{}p{0.35\linewidth}@{}}
+$\underbrace{(1)\ \mathbf{S}\mathbf{a}=\mathbf{0}}_{\substack{\text{\footnotesize $a$ 是与特征值零}\\\text{\footnotesize 对应的 $\mathbf{S}$ 的一个换}\\\text{\footnotesize 算过的特征向量.}}}$
+&
+$\underbrace{(2)\ \mathbf{a}'(\mathbf{x}_{j}-\bar{\mathbf{x}})=\mathbf{0},\ \text{对所有 } j}_{\substack{\text{\footnotesize 利用 $a$, 被均值修正的数据}\\\text{\footnotesize 的线性组合为零.}}}$
+&
+$\underbrace{(3)\ \mathbf{a}'\mathbf{x}_{j}=c,\ \text{对所有 } j\quad(c=\mathbf{a}'\bar{\mathbf{x}})}_{\substack{\text{\footnotesize 利用 $a$, 原始数据的}\\\text{\footnotesize 线性组合是常数.}}}$
+\end{tabular}
+\end{mvtable}
+
+我们已证明, 若满足条件(3)——即若一个变量的值可以用其余变量来表示——则由于 $\mathbf{S}$ 有一个零特征值, 所以广义方差为零. 另一方面, 若条件(1)成立, 则特征向量 $\mathbf{a}$ 对被均值修正的数据的线性相关性给出了系数.
+
+在任何统计分析中, $|\mathbf{S}|=0$ 就数学计算而论, 意味着某些变量的测量结果应从研究中除去. 所得的对应数据矩阵将化为一个满秩的协方差矩阵, 广义方差不为零. 在退化的情况下哪

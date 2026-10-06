@@ -1,0 +1,88 @@
+% ---- pg-323 （书页 311） ----
+
+\noindent\textbf{例 7.10}\quad (对二元响应构造置信椭圆和预测椭圆)
+
+对例 7.6 中讨论的计算机需求问题测量了第二个响应变量. 响应变量 $Y_2$ 为硬盘容量, 与该例中 $z_1$ 和 $z_2$ 值相对应的观测值为
+\[
+\mathbf{y}_2=[301.8,396.1,328.2,307.4,362.4,369.5,229.1]'
+\]
+对具有组态 $\mathbf{z}_0=[1,130,7.5]'$ 的场所, 求 $\boldsymbol{\beta}'\mathbf{z}_0$ 的 95\% 置信椭圆和 $\mathbf{Y}_0=[Y_{01},Y_{02}]'$ 的 95\% 预测椭圆.
+
+计算机计算提供拟合方程
+\[
+\hat{y}_2=14.14+2.25z_1+5.67z_2
+\]
+及 $s=1.812$. 于是 $\hat{\boldsymbol{\beta}}_{(2)}=[14.14,2.25,5.67]'$. 由例 7.6
+\[
+\hat{\boldsymbol{\beta}}_{(1)}=[8.42,1.08,42]',\quad
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(1)}=151.97\qquad\text{及}\qquad
+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0=0.347\ 25
+\]
+我们发现
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(2)}=14.14+2.25\times130+5.67\times7.5=349.17
+\]
+及
+\[
+\begin{aligned}
+n\hat{\boldsymbol{\Sigma}}&=
+\begin{bmatrix}
+(\mathbf{y}_{(1)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(1)})'(\mathbf{y}_{(1)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(1)})&
+(\mathbf{y}_{(1)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(1)})'(\mathbf{y}_{(2)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(2)})\\[4pt]
+(\mathbf{y}_{(2)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(2)})'(\mathbf{y}_{(1)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(1)})&
+(\mathbf{y}_{(2)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(2)})'(\mathbf{y}_{(2)}-\mathbf{Z}\hat{\boldsymbol{\beta}}_{(2)})
+\end{bmatrix}\\
+&=\begin{bmatrix}5.80&5.30\\5.30&13.13\end{bmatrix}
+\end{aligned}
+\]
+由于
+\[
+\hat{\boldsymbol{\beta}}'\mathbf{z}_0=
+\left[\begin{array}{c}\hat{\boldsymbol{\beta}}_{(1)}'\\ \hdashline \hat{\boldsymbol{\beta}}_{(2)}'\end{array}\right]\mathbf{z}_0
+=\left[\begin{array}{c}\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(1)}\\ \hdashline \mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(2)}\end{array}\right]
+=\begin{bmatrix}151.97\\349.17\end{bmatrix}
+\]
+$n=7$, $r=2$ 及 $m=2$, 由\hyperref[eq:7-40]{式(7-40)}, $\boldsymbol{\beta}'\mathbf{z}_0=\begin{bmatrix}\mathbf{z}_0'\boldsymbol{\beta}_{(1)}\\\mathbf{z}_0'\boldsymbol{\beta}_{(2)}\end{bmatrix}$ 的 95\% 置信椭圆为
+\[
+\begin{aligned}
+&[\mathbf{z}_0'\boldsymbol{\beta}_{(1)}-151.97,\mathbf{z}_0'\boldsymbol{\beta}_{(2)}-349.17](4)
+\begin{bmatrix}5.80&5.30\\5.30&13.13\end{bmatrix}^{-1}
+\begin{bmatrix}\mathbf{z}_0'\boldsymbol{\beta}_{(1)}-151.97\\\mathbf{z}_0'\boldsymbol{\beta}_{(2)}-349.17\end{bmatrix}\\
+&\quad\leqslant(0.347\ 25)\left[\left(\frac{2\times4}{3}\right)F_{2,3}(0.05)\right]
+\end{aligned}
+\]
+其中 $F_{2,3}(0.05)=9.55$. 这个椭圆的中心是(151.97, 349.17). 它的方向及长短轴的长度可以由 $n\hat{\boldsymbol{\Sigma}}$ 的特征值和特征向量来确定.
+
+将\hyperref[eq:7-40]{式(7-40)}与\hyperref[eq:7-42]{式(7-42)}相比较, 我们发现, 计算预测椭圆与计算置信椭圆的唯一差别是用 $1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0=1.347\ 25$ 来代替 $\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0=0.347\ 25$. 这样, $\mathbf{Y}_0=[Y_{01},Y_{02}]'$ 的 95\% 预测椭圆也以$(151.97,349.17)$为中心, 但大于置信椭圆. 这两个椭圆均示于\hyperref[fig:7.5]{图 7.5}.
+
+对给定的 $\mathbf{z}_0$, 决定某一特定场所计算机需求的正是预测椭圆. \hfill$\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=1.0]
+\draw[->] (0.3,0) -- (6.9,0) node[below right] {响应1};
+\draw[->] (0.3,0) -- (0.3,4.7) node[above,rotate=90,anchor=east] {响应2};
+% 坐标轴断裂符号
+\draw (1.0,0) -- (1.15,0.14) -- (1.3,0) -- (1.45,0.14) -- (1.6,0);
+\draw (0.3,1.0) -- (0.44,1.15) -- (0.3,1.3) -- (0.44,1.45) -- (0.3,1.6);
+% 刻度
+\node[below,font=\scriptsize] at (0.3,-0.08) {0};
+\foreach \x/\lab in {2.2/120,3.2/140,4.2/160,5.2/180}{
+  \draw (\x,0) -- (\x,-0.1);
+  \node[below,font=\scriptsize] at (\x,-0.1) {\lab};}
+\foreach \y/\lab in {2.0/340,3.4/360}{
+  \draw (0.3,\y) -- (0.18,\y);
+  \node[left,font=\scriptsize] at (0.18,\y) {\lab};}
+% 置信椭圆与预测椭圆
+\begin{scope}[rotate around={-20:(3.80,2.64)}]
+  \draw (3.80,2.64) ellipse (0.575 and 0.91);
+  \draw (3.80,2.64) ellipse (0.29 and 0.46);
+  \draw (3.80,1.73) -- (3.80,3.55);
+\end{scope}
+\fill (3.80,2.64) circle (1.6pt);
+\draw (4.38,3.42) -- (5.25,3.90);
+\node[font=\small,anchor=west] at (5.25,3.90) {预测椭圆};
+\draw (4.18,2.32) -- (5.25,2.05);
+\node[font=\small,anchor=west] at (5.25,2.05) {置信椭圆};
+\end{tikzpicture}
+\phantomsection\label{fig:7.5}\mvcap{图 7.5\quad 有两个响应的计算机数据的 95\% 置信椭圆和预测椭圆}
+\end{mvfigure}

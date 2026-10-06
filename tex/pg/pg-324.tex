@@ -1,0 +1,87 @@
+% ---- pg-324 （书页 312） ----
+
+\section{线性回归的概念}
+\phantomsection\label{sec:7.11}
+
+经典线性回归模型考虑单个因变量 $Y$ 与一组预测变量 $z_1,z_2,\cdots,z_r$ 之间的联系. 我们前面所考虑的回归模型将 $Y$ 作为随机变量来处理, 其均值依赖于诸 $z_i$ 的固定值. 这个均值被假定为\mvbold{回归系数} $\beta_0,\beta_1,\cdots,\beta_r$ 的线性函数.
+
+线性回归模型也可以从不同假定中产生. 设变量 $Y,Z_1,Z_2,\cdots,Z_r$ 都是随机变量, 因而有一个未必是正态的联合分布, 其均值向量为 $\underset{(r+1)\times1}{\boldsymbol{\mu}}$, 协方差矩阵为 $\underset{(r+1)\times(r+1)}{\boldsymbol{\Sigma}}$. 将 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 分块, 便可有
+\[
+\boldsymbol{\mu}=\left[\begin{array}{c}
+\underset{(1\times1)}{\mu_Y}\\
+\hdashline
+\underset{(r\times1)}{\boldsymbol{\mu}_Z}
+\end{array}\right]
+\qquad\text{和}\qquad
+\boldsymbol{\Sigma}=\left[\begin{array}{c:c}
+\underset{(1\times1)}{\sigma_{YY}}&\underset{(1\times r)}{\boldsymbol{\sigma}_{ZY}'}\\
+\hdashline
+\underset{(r\times1)}{\boldsymbol{\sigma}_{ZY}}&\underset{(r\times r)}{\boldsymbol{\Sigma}_{ZZ}}
+\end{array}\right]
+\]
+其中
+\phantomsection\label{eq:7-44}
+\begin{equation}
+\boldsymbol{\sigma}_{ZY}=[\sigma_{YZ_1},\sigma_{YZ_2},\cdots,\sigma_{YZ_r}]'
+\tag{7-44}
+\end{equation}
+$\boldsymbol{\Sigma}_{ZZ}$ 可取得满秩.\footnote{{\footnotesize 若 $\boldsymbol{\Sigma}_{ZZ}$ 不满秩, 则有一个变量, 比如说 $Z_k$, 可表为其余 $\mathbf{Z}_i$ 的线性组合, 因而这个变量在构造线性回归函数 $\mathbf{Z}'\boldsymbol{\beta}$ 时是多余的. 也就是说, $\mathbf{Z}$ 可以用其分量的一个子集代替, 其协方差阵满秩, 且与 $\boldsymbol{\Sigma}_{ZZ}$ 的秩相同.}}考虑对 $Y$ 的预测问题, 采用
+\phantomsection\label{eq:7-45}
+\begin{equation}
+\text{线性预测量}=b_0+b_1Z_1+\cdots+b_rZ_r=b_0+\mathbf{b}'\mathbf{Z}
+\tag{7-45}
+\end{equation}
+对形如\hyperref[eq:7-45]{式(7-45)}的给定预测量, $Y$ 的预测误差为
+\phantomsection\label{eq:7-46}
+\begin{equation}
+\text{预测误差}=Y-b_0-b_1Z_1-\cdots-b_rZ_r=Y-b_0-\mathbf{b}'\mathbf{Z}
+\tag{7-46}
+\end{equation}
+由于这个误差是随机的, 常选择 $b_0$ 和 $\mathbf{b}$, 使
+\phantomsection\label{eq:7-47}
+\begin{equation}
+\text{均方误差}=E(Y-b_0-\mathbf{b}'\mathbf{Z})^2
+\tag{7-47}
+\end{equation}
+达到极小. 现在均方误差仅通过参数 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 依赖于 $Y$ 和 $\mathbf{Z}$ 的联合分布, 因而有可能将“最优”线性预测量用这些参数表示出来.
+
+\mvthm{结论 7.12}{在响应 $Y$ 的所有线性预测量中, 系数为}
+\[
+\boldsymbol{\beta}=\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY},\qquad
+\beta_0=\mu_Y-\boldsymbol{\beta}'\boldsymbol{\mu}_Z
+\]
+的线性预测量 $\beta_0+\boldsymbol{\beta}'\mathbf{Z}$ 的均方误差最小. 这一均方误差为
+\[
+E(Y-\beta_0-\boldsymbol{\beta}'\mathbf{Z})^2
+=E\left(Y-\mu_Y-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)\right)^2
+=\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}
+\]
+此外, $\beta_0+\boldsymbol{\beta}'\mathbf{Z}=\mu_Y+\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)$ 是与 $Y$ 有最大相关系数的线性预测量, 即有
+\[
+\begin{aligned}
+\operatorname{Corr}(Y,\beta_0+\boldsymbol{\beta}'\mathbf{Z})
+&=\max_{b_0,\mathbf{b}}\operatorname{Corr}(Y,b_0+\mathbf{b}'\mathbf{Z})\\
+&=\sqrt{\frac{\boldsymbol{\beta}'\boldsymbol{\Sigma}_{ZZ}\boldsymbol{\beta}}{\sigma_{YY}}}
+=\sqrt{\frac{\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}}{\sigma_{YY}}}
+\end{aligned}
+\]
+
+\medskip
+\noindent\textbf{证明}\quad 先写出恒等式 $b_0+\mathbf{b}'\mathbf{Z}=b_0+\mathbf{b}'\mathbf{Z}+(\mu_Y-\mathbf{b}'\boldsymbol{\mu}_Z)-(\mu_Y-\mathbf{b}'\boldsymbol{\mu}_Z)$, 我们有
+\[
+\begin{aligned}
+E(Y-b_0-\mathbf{b}'\mathbf{Z})^2
+&=E\left[Y-\mu_Y-(\mathbf{b}'\mathbf{Z}-\mathbf{b}'\boldsymbol{\mu}_Z)+(\mu_Y-b_0-\mathbf{b}'\boldsymbol{\mu}_Z)\right]^2\\
+&=E(Y-\mu_Y)^2+E\left(\mathbf{b}'(\mathbf{Z}-\boldsymbol{\mu}_Z)\right)^2+(\mu_Y-b_0-\mathbf{b}'\boldsymbol{\mu}_Z)^2\\
+&\quad-2E\left[\mathbf{b}'(\mathbf{Z}-\boldsymbol{\mu}_Z)(Y-\mu_Y)\right]\\
+&=\sigma_{YY}+\mathbf{b}'\boldsymbol{\Sigma}_{ZZ}\mathbf{b}+(\mu_Y-b_0-\mathbf{b}'\boldsymbol{\mu}_Z)^2-2\mathbf{b}'\boldsymbol{\sigma}_{ZY}
+\end{aligned}
+\]
+加减 $\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}$, 得到
+\[
+\begin{aligned}
+E(Y-b_0-\mathbf{b}'\mathbf{Z})^2
+&=\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}+(\mu_Y-b_0-\mathbf{b}'\boldsymbol{\mu}_Z)^2\\
+&\quad+\left(\mathbf{b}-\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}\right)'\boldsymbol{\Sigma}_{ZZ}\left(\mathbf{b}-\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}\right)
+\end{aligned}
+\]

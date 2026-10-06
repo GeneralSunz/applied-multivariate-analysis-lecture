@@ -1,0 +1,76 @@
+% ---- pg-392 （书页 380） ----
+
+\phantomsection\label{eq:9-13}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\Sigma}&\doteq\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}\\
+&=\left[\begin{array}{c:c:c:c}
+\sqrt{\lambda_1}\mathbf{e}_1&\sqrt{\lambda_2}\mathbf{e}_2&\cdots&\sqrt{\lambda_m}\mathbf{e}_m
+\end{array}\right]
+\left[\begin{array}{c}
+\sqrt{\lambda_1}\mathbf{e}_1'\\ \hdashline
+\sqrt{\lambda_2}\mathbf{e}_2'\\ \hdashline
+\vdots\\ \hdashline
+\sqrt{\lambda_m}\mathbf{e}_m'
+\end{array}\right]
++\begin{bmatrix}
+\psi_1&0&\cdots&0\\
+0&\psi_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&\psi_p
+\end{bmatrix}
+\end{aligned}
+\tag{9-13}
+\end{equation}
+其中 $\psi_i=\sigma_{ii}-\sum\limits_{j=1}^{m}l_{ij}^2,\quad i=1,2,\cdots,p$.
+
+为将此法用到数据集 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$, 习惯上是先减去样本均值 $\bar{\mathbf{x}}$ 将观测中心化. 中心化后的观测值
+\phantomsection\label{eq:9-14}
+\begin{equation}
+\mathbf{x}_j-\bar{\mathbf{x}}=\begin{bmatrix}x_{j1}\\x_{j2}\\\vdots\\x_{jp}\end{bmatrix}
+-\begin{bmatrix}\bar{x}_1\\\bar{x}_2\\\vdots\\\bar{x}_p\end{bmatrix}
+=\begin{bmatrix}x_{j1}-\bar{x}_1\\x_{j2}-\bar{x}_2\\\vdots\\x_{jp}-\bar{x}_p\end{bmatrix}
+\qquad j=1,2,\cdots,n
+\tag{9-14}
+\end{equation}
+有与原观测值一样的样本协方差阵 $\mathbf{S}$.
+
+在变量的单位不是同量纲的情形下, 通常可合适采用标准化变量
+\[
+\mathbf{z}_j=\begin{bmatrix}
+\dfrac{(x_{j1}-\bar{x}_1)}{\sqrt{s_{11}}}\\[8pt]
+\dfrac{(x_{j2}-\bar{x}_2)}{\sqrt{s_{22}}}\\[8pt]
+\vdots\\[8pt]
+\dfrac{(x_{jp}-\bar{x}_p)}{\sqrt{s_{pp}}}
+\end{bmatrix}
+\qquad j=1,2,\cdots,n
+\]
+其样本协方差矩阵是观测值 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 的样本相关矩阵 $\mathbf{R}$. 大方差变量会不适当地影响因子载荷的确定, 标准化可避免这一问题.
+
+当把\hyperref[eq:9-13]{式(9-13)}用到样本协方差矩阵 $\mathbf{S}$ 或样本相关矩阵 $\mathbf{R}$ 时, 它作为主成分分解是已知的. 此名称来自于这一事实: 因子载荷是前几个样本主成分的变换一定比例的系数(见第 8 章).
+
+\begin{mvbox}
+\begin{center}
+\textbf{因子模型的主成分分解}
+\end{center}
+样本协方差 $\mathbf{S}$ 的主成分因子分析是以它的特征值-特征向量对 $(\hat{\lambda}_1,\hat{\mathbf{e}}_1),(\hat{\lambda}_2,\hat{\mathbf{e}}_2),\cdots,(\hat{\lambda}_p,\hat{\mathbf{e}}_p)$ 来说明的, 这里 $\hat{\lambda}_1\geqslant\hat{\lambda}_2\geqslant\cdots\geqslant\hat{\lambda}_p$. 令 $m<p$ 是公共因子的个数, 则所估计的因子载荷矩阵 $\{\tilde{l}_{ij}\}$ 由
+\phantomsection\label{eq:9-15}
+\begin{equation}
+\tilde{\mathbf{L}}=\left[\begin{array}{c:c:c:c}
+\sqrt{\hat{\lambda}_1}\hat{\mathbf{e}}_1&\sqrt{\hat{\lambda}_2}\hat{\mathbf{e}}_2&\cdots&\sqrt{\hat{\lambda}_m}\hat{\mathbf{e}}_m
+\end{array}\right]
+\tag{9-15}
+\end{equation}
+给出. 所估计的特殊方差由矩阵 $\mathbf{S}-\tilde{\mathbf{L}}\tilde{\mathbf{L}}'$ 的对角元提供, 故
+\phantomsection\label{eq:9-16}
+\begin{equation}
+\tilde{\boldsymbol{\Psi}}=\begin{bmatrix}
+\tilde{\psi}_1&0&\cdots&0\\
+0&\tilde{\psi}_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&\tilde{\psi}_p
+\end{bmatrix},\quad\text{且}\quad
+\tilde{\psi}_i=s_{ii}-\sum_{j=1}^{m}\tilde{l}_{ij}^2
+\tag{9-16}
+\end{equation}
+\end{mvbox}

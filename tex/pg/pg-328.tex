@@ -1,0 +1,98 @@
+% ---- pg-328 （书页 316） ----
+
+其中
+\[
+\boldsymbol{\mu}=\left[\begin{array}{c}
+\underset{(m\times1)}{\boldsymbol{\mu}_Y}\\
+\hdashline
+\underset{(r\times1)}{\boldsymbol{\mu}_Z}
+\end{array}\right]
+\qquad\text{及}\qquad
+\boldsymbol{\Sigma}=\left[\begin{array}{c:c}
+\underset{(m\times m)}{\boldsymbol{\Sigma}_{YY}}&\underset{(m\times r)}{\boldsymbol{\Sigma}_{YZ}}\\
+\hdashline
+\underset{(r\times m)}{\boldsymbol{\Sigma}_{ZY}}&\underset{(r\times r)}{\boldsymbol{\Sigma}_{ZZ}}
+\end{array}\right]
+\]
+由结论 4.6, 当预测变量的值 $z_1,z_2,\cdots,z_r$ 给定时, $[Y_1,Y_2,\cdots,Y_m]'$ 的条件期望为
+\phantomsection\label{eq:7-53}
+\begin{equation}
+E[\mathbf{Y}\mid z_1,z_2,\cdots,z_r]
+=\boldsymbol{\mu}_Y+\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z)
+\tag{7-53}
+\end{equation}
+该条件期望称为向量 $\mathbf{Y}$ 对 $\mathbf{Z}$ 的多元回归. 它由 $m$ 个一元回归构成. 例如, 条件均值向量的第一个分量为 $\mu_{Y_1}+\boldsymbol{\Sigma}_{Y_1Z}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z)=E(Y_1\mid z_1,z_2,\cdots,z_r)$, 它使预测 $Y_1$ 的均方误差最小化. $m\times r$ 矩阵 $\boldsymbol{\beta}=\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}$ 称为回归系数阵.
+
+预测向量的误差
+\[
+\mathbf{Y}-\boldsymbol{\mu}_Y-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)
+\]
+有平方与交叉乘积期望阵
+\phantomsection\label{eq:7-54}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\Sigma}_{YY\cdot Z}
+&=E\left[\mathbf{Y}-\boldsymbol{\mu}_Y-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)\right]
+\left[\mathbf{Y}-\boldsymbol{\mu}_Y-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)\right]'\\
+&=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\boldsymbol{\Sigma}_{YZ})'
+-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZY}
++\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\boldsymbol{\Sigma}_{YZ})'\\
+&=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZY}
+\end{aligned}
+\tag{7-54}
+\end{equation}
+由于 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 一般是未知的, 它们必须用一个随机样本来估计, 以构造多元线性预测量并确定期望预测误差.
+
+\mvthm{结论 7.14}{设 $\mathbf{Y}$ 和 $\mathbf{Z}$ 的分布为 $N_{m+r}(\boldsymbol{\mu},\boldsymbol{\Sigma})$, 此时 $\mathbf{Y}$ 对 $\mathbf{Z}$ 的回归为}
+\[
+\beta_0+\boldsymbol{\beta}\mathbf{z}
+=\boldsymbol{\mu}_Y-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\mu}_Z
++\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\mathbf{z}
+=\boldsymbol{\mu}_Y+\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z)
+\]
+误差的平方与交叉乘积期望矩阵为
+\[
+E(\mathbf{Y}-\beta_0-\boldsymbol{\beta}\mathbf{Z})(\mathbf{Y}-\beta_0-\boldsymbol{\beta}\mathbf{Z})'
+=\boldsymbol{\Sigma}_{YY\cdot Z}
+=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZY}
+\]
+建立在一个容量为 $n$ 的随机样本基础上的回归函数的极大似然估计量为
+\[
+\hat{\beta}_0+\hat{\boldsymbol{\beta}}\mathbf{z}=\bar{\mathbf{Y}}+\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}(\mathbf{z}-\bar{\mathbf{Z}})
+\]
+而 $\boldsymbol{\Sigma}_{YY\cdot Z}$ 的极大似然估计量则为
+\[
+\hat{\boldsymbol{\Sigma}}_{YY\cdot Z}
+=\left(\frac{n-1}{n}\right)\left(\mathbf{S}_{YY}-\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}\mathbf{S}_{ZY}\right)
+\]
+
+\medskip
+\noindent\textbf{证明}\quad 回归函数和预测误差的协方差矩阵由结论 4.6 得到. 利用关系式
+\[
+\beta_0=\boldsymbol{\mu}_Y-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\mu}_Z,\qquad
+\boldsymbol{\beta}=\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}
+\]
+\[
+\beta_0+\boldsymbol{\beta}\mathbf{z}=\boldsymbol{\mu}_Y+\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z)
+\]
+\[
+\boldsymbol{\Sigma}_{YY\cdot Z}=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZY}
+=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\beta}\boldsymbol{\Sigma}_{ZZ}\boldsymbol{\beta}'
+\]
+可由不变性[见\hyperref[eq:4-20]{式(4-20)}]得到上述量的极大似然估计量, 只需进行下列替代即可:
+\[
+\hat{\boldsymbol{\mu}}=\left[\begin{array}{c}\bar{\mathbf{Y}}\\ \hdashline \bar{\mathbf{Z}}\end{array}\right];
+\qquad
+\hat{\boldsymbol{\Sigma}}=\left[\begin{array}{c:c}\hat{\boldsymbol{\Sigma}}_{YY}&\hat{\boldsymbol{\Sigma}}_{YZ}\\ \hdashline \hat{\boldsymbol{\Sigma}}_{ZY}&\hat{\boldsymbol{\Sigma}}_{ZZ}\end{array}\right]
+=\left(\frac{n-1}{n}\right)\mathbf{S}
+=\left(\frac{n-1}{n}\right)\left[\begin{array}{c:c}\mathbf{S}_{YY}&\mathbf{S}_{YZ}\\ \hdashline \mathbf{S}_{ZY}&\mathbf{S}_{ZZ}\end{array}\right]
+\]
+\hfill$\blacksquare$
+
+可以证明, $\boldsymbol{\Sigma}_{YY\cdot Z}$ 的无偏估计量为
+\phantomsection\label{eq:7-55}
+\begin{equation}
+\left(\frac{n-1}{n-r-1}\right)\left(\mathbf{S}_{YY}-\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}\mathbf{S}_{ZY}\right)
+=\frac{1}{n-r-1}\sum_{j=1}^{n}(\mathbf{Y}_j-\hat{\beta}_0-\hat{\boldsymbol{\beta}}\mathbf{Z}_j)(\mathbf{Y}_j-\hat{\beta}_0-\hat{\boldsymbol{\beta}}\mathbf{Z}_j)'
+\tag{7-55}
+\end{equation}

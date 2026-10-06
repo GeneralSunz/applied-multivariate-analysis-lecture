@@ -1,0 +1,56 @@
+区间的宽度).
+
+练习 5.15, 5.16 和 5.17 需要用到下面的知识:
+
+人们感兴趣的总体特征通常全部或部分地表现为一些属性, 这时总体中的每一个体可用它所具有的属性来描述. 为方便起见, 通常将属性按它们的存在与否进行数量化编码. 若以变量 $X$ 代表某一特定属性, 我们便可通过如下定义来区别此种属性的有无:
+\[
+X=\begin{cases}
+1 & \text{该属性存在}\\
+0 & \text{该属性不存在}
+\end{cases}
+\]
+用这种方式, 我们就能给性质特征指定数值.
+
+当属性用 0—1 变量进行数量化编码时, 来自我们感兴趣总体的随机样本将导致两种不同计数, 每一种代表具有不同特征的样本项目数. 如果样本计数很大, 不难将产生联合置信表示方法改写为适合包括比例在内的情形.
+
+考虑这样一种情形: 一个具有某种特定属性组合的个体可归入 $q+1$ 个互斥完备类之一, 相应的概率分别为 $p_1,p_2,\cdots,p_q,p_{q+1}$. 因为这些类别包含了所有各种可能性, 所以 $p_{q+1}=1-(p_1+p_2+\cdots+p_q)$. 来自第 $k$ 类的个体对应一个 $[(q+1)\times1]$ 向量 $[0,\cdots,0,1,0,\cdots,0]'$, 其中 1 出现在第 $k$ 个位置.
+
+我们知道, 来自由 $q+1$ 个互斥完备类中的个体组成的总体的样本观测值, 其概率分布为多项分布, 并有如下结构:
+
+\begin{center}
+\begin{tabular}{lccccccc}
+\toprule
+类别: & 1 & 2 & $\cdots$ & $k$ & $\cdots$ & $q$ & $q+1$\\
+\midrule
+结果: &
+$\begin{bmatrix}1\\0\\0\\\vdots\\0\\\vdots\\0\end{bmatrix}$ &
+$\begin{bmatrix}0\\1\\0\\\vdots\\0\\\vdots\\0\end{bmatrix}$ &
+$\cdots$ &
+$\begin{bmatrix}0\\0\\\vdots\\1\\0\\\vdots\\0\end{bmatrix}$ &
+$\cdots$ &
+$\begin{bmatrix}0\\0\\\vdots\\0\\1\\\vdots\\0\end{bmatrix}$ &
+$\begin{bmatrix}0\\0\\\vdots\\0\\\vdots\\1\end{bmatrix}$\\
+\midrule
+概率(比例): & $p_1$ & $p_2$ & $\cdots$ & $p_k$ & $\cdots$ & $p_q$ & $p_{q+1}=1-\sum\limits_{i=1}^{q}p_i$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+设 $\mathbf{X}_j$, $j=1,2,\cdots,n$ 为来自多项分布总体的一个容量为 $n$ 的随机样本. 若样本观测值(个体)来自第 $k$ 类, 则 $\mathbf{X}_j$ 的第 $k$ 个分量 $X_{jk}=1$, 否则为 0.
+
+随机样本 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 可变换成一个样本比例向量, 该向量就前面数据的性质而论是一样本均值向量, 故
+\[
+\hat{\mathbf{p}}=\begin{bmatrix}\hat{p}_1\\\hat{p}_2\\\vdots\\\hat{p}_{q+1}\end{bmatrix}
+=\frac{1}{n}\sum_{j=1}^{n}\mathbf{X}_j, \quad
+E(\hat{\mathbf{p}})=\mathbf{p}=\begin{bmatrix}p_1\\p_2\\\vdots\\p_{q+1}\end{bmatrix}
+\]
+及
+\[
+\mathrm{Cov}(\hat{\mathbf{p}})=\frac{1}{n}\mathrm{Cov}(\mathbf{X}_j)=\frac{1}{n}\boldsymbol{\Sigma}
+=\frac{1}{n}\begin{bmatrix}
+\sigma_{11}&\sigma_{12}&\cdots&\sigma_{1,q+1}\\
+\sigma_{21}&\sigma_{22}&\cdots&\sigma_{2,q+1}\\
+\vdots&\vdots&&\vdots\\
+\sigma_{q+1,1}&\sigma_{q+1,2}&\cdots&\sigma_{q+1,q+1}
+\end{bmatrix}
+\]

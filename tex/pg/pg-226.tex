@@ -1,0 +1,48 @@
+% ---- pg-226 （书页 214） ----
+一系列相继时段内，每一主体或每一实验单元每次只接受一种处理. 第 $j$ 个观测为
+\[
+\mathbf{X}_j=\begin{bmatrix}X_{j1}\\X_{j2}\\\vdots\\X_{jq}\end{bmatrix},\qquad j=1,2,\cdots,n
+\]
+此处 $X_{ji}$ 代表对第 $j$ 个单元施加第 $i$ 种处理后的响应. 重复测量设计得名于这样的事实，即对每一单元都将施加所有的处理.
+
+出于比较的目的，我们考虑 $\boldsymbol{\mu}=E(\mathbf{X}_j)$ 的分量的对比. 它们是：
+\[
+\begin{bmatrix}\mu_1-\mu_2\\\mu_1-\mu_3\\\vdots\\\mu_1-\mu_q\end{bmatrix}
+=\begin{bmatrix}1&-1&0&\cdots&0\\1&0&-1&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots\\1&0&0&\cdots&-1\end{bmatrix}
+\begin{bmatrix}\mu_1\\\mu_2\\\vdots\\\mu_q\end{bmatrix}
+=\mathbf{C}_1\boldsymbol{\mu}
+\]
+或
+\[
+\begin{bmatrix}\mu_2-\mu_1\\\mu_3-\mu_2\\\vdots\\\mu_q-\mu_{q-1}\end{bmatrix}
+=\begin{bmatrix}-1&1&0&\cdots&0&0\\0&-1&1&\cdots&0&0\\\vdots&\vdots&\vdots&&\vdots&\vdots\\0&0&0&\cdots&-1&1\end{bmatrix}
+\begin{bmatrix}\mu_1\\\mu_2\\\vdots\\\mu_q\end{bmatrix}
+=\mathbf{C}_2\boldsymbol{\mu}
+\]
+由于 $\mathbf{C}_1$ 与 $\mathbf{C}_2$ 的 $q-1$ 行线性独立，且每行均为对比向量，故 $\mathbf{C}_1,\mathbf{C}_2$ 均称为对比矩阵. 在这里，实验设计的目的是消除单元间变差对处理比较所产生的诸多影响. 当然，实验者应使向每一单元提供处理的顺序随机化.
+
+当处理均值相等时，$\mathbf{C}_1\boldsymbol{\mu}=\mathbf{C}_2\boldsymbol{\mu}=\mathbf{0}$，一般说，诸处理之间无差异（处理均值相等）的假设为：对任一对比矩阵 $\mathbf{C}$，$\mathbf{C}\boldsymbol{\mu}=\mathbf{0}$.
+
+因此，根据观测值中的对比向量 $\mathbf{C}\mathbf{x}$，我们有均值 $\mathbf{C}\bar{\mathbf{x}}$ 及协方差阵 $\mathbf{C}\mathbf{S}\mathbf{C}'$，且可用 $T^2$ 统计量
+\[
+T^2=n(\mathbf{C}\bar{\mathbf{x}})'(\mathbf{C}\mathbf{S}\mathbf{C}')^{-1}\mathbf{C}\bar{\mathbf{x}}
+\]
+来检验 $\mathbf{C}\boldsymbol{\mu}=\mathbf{0}$.
+
+\begin{mvframe}[重复测量设计中各种处理的等效性检验]
+考虑总体 $N_q(\boldsymbol{\mu},\boldsymbol{\Sigma})$. 设 $\mathbf{C}$ 为对比矩阵，若
+\phantomsection\label{eq:6-16}
+\begin{equation}
+T^2=n(\mathbf{C}\bar{\mathbf{x}})'(\mathbf{C}\mathbf{S}\mathbf{C}')^{-1}\mathbf{C}\bar{\mathbf{x}}>\frac{(n-1)(q-1)}{(n-q+1)}F_{q-1,n-q+1}(\alpha) \tag{6-16}
+\end{equation}
+则在显著性水平 $\alpha$ 下拒绝 $H_0: \mathbf{C}\boldsymbol{\mu}=\mathbf{0}$（即处理均值相等）而接受 $H_1: \mathbf{C}\boldsymbol{\mu}\neq\mathbf{0}$.
+
+此处 $F_{q-1,n-q+1}(\alpha)$ 为自由度为 $q-1$ 和 $n-q+1$ 的 $F$ 分布的上 $100\alpha$ 百分位数，且样本均值向量及样本协方差矩阵分别为
+\[
+\bar{\mathbf{x}}=\frac{1}{n}\sum_{j=1}^n\mathbf{x}_j\qquad 和\qquad \mathbf{S}=\frac{1}{n-1}\sum_{j=1}^n(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'
+\]
+\end{mvframe}
+
+可以证明，$T^2$ 不依赖于 $\mathbf{C}$ 的选择.\footnote{任一对对比矩阵 $\mathbf{C}_1,\mathbf{C}_2$ 都有关系式 $\mathbf{C}_1=\mathbf{B}\mathbf{C}_2$，$\mathbf{B}$ 为非奇异阵. 这是因为对每一 $\mathbf{C}$，其线性独立行的最大可能行数为 $q-1$，且全都与向量 $\mathbf{1}$ 正交，故 $(\mathbf{B}\mathbf{C}_2)'(\mathbf{B}\mathbf{C}_2\mathbf{S}\mathbf{C}_2'\mathbf{B}')^{-1}(\mathbf{B}\mathbf{C}_2)=\mathbf{C}_2'\mathbf{B}'(\mathbf{B}')^{-1}(\mathbf{C}_2\mathbf{S}\mathbf{C}_2')^{-1}\mathbf{B}^{-1}\mathbf{B}\mathbf{C}_2=\mathbf{C}_2'(\mathbf{C}_2\mathbf{S}\mathbf{C}_2')^{-1}\mathbf{C}_2$. 因此用 $\mathbf{C}_2$ 或 $\mathbf{C}_1=\mathbf{B}\mathbf{C}_2$ 算出的 $T^2$ 值相等.}
+
+设 $\boldsymbol{\mu}$ 为正态总体的均值向量，则对比向量 $\mathbf{C}\boldsymbol{\mu}$ 的 $100(1-\alpha)\%$ 置信区域为满足

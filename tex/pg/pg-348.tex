@@ -1,0 +1,57 @@
+% ---- pg-348 （书页 336） ----
+
+\[
+\sigma_{11}+\sigma_{22}+\cdots+\sigma_{pp}=\sum_{i=1}^{p}\mathrm{Var}(X_i)=\lambda_1+\lambda_2+\cdots+\lambda_p=\sum_{i=1}^{p}\mathrm{Var}(Y_i)
+\]
+
+\noindent\textbf{证明}\quad 由定义 2A.28, $\sigma_{11}+\sigma_{22}+\cdots+\sigma_{pp}=\mathrm{tr}(\boldsymbol{\Sigma})$. 由\hyperref[eq:2-20]{式(2-20)}, 取 $\boldsymbol{A}=\boldsymbol{\Sigma}$, 我们可写 $\boldsymbol{\Sigma}=\boldsymbol{P}\boldsymbol{\Lambda}\boldsymbol{P}'$, 其中 $\boldsymbol{\Lambda}$ 是特征值的对角矩阵, 而 $\boldsymbol{P}=[\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_p]$, 故有 $\boldsymbol{P}'\boldsymbol{P}=\boldsymbol{P}\boldsymbol{P}'=\boldsymbol{I}$. 利用结论 2A.12(c), 我们有
+\[
+\mathrm{tr}(\boldsymbol{\Sigma})=\mathrm{tr}(\boldsymbol{P}\boldsymbol{\Lambda}\boldsymbol{P}')=\mathrm{tr}(\boldsymbol{\Lambda}\boldsymbol{P}'\boldsymbol{P})=\mathrm{tr}(\boldsymbol{\Lambda})=\lambda_1+\lambda_2+\cdots+\lambda_p
+\]
+于是
+\[
+\sum_{i=1}^{p}\mathrm{Var}(X_i)=\mathrm{tr}(\boldsymbol{\Sigma})=\mathrm{tr}(\boldsymbol{\Lambda})=\sum_{i=1}^{p}\mathrm{Var}(Y_i) \hfill\blacksquare
+\]
+
+结论 8.2 说明
+\phantomsection\label{eq:8-6}
+\begin{equation}
+\begin{aligned}
+\text{总体总方差}&=\sigma_{11}+\sigma_{22}+\cdots+\sigma_{pp}\\
+&=\lambda_1+\lambda_2+\cdots+\lambda_p
+\end{aligned}
+\tag{8-6}
+\end{equation}
+从而总方差中属于第 $k$ 个主成分(被第 $k$ 个主成分所解释)的比例为
+\phantomsection\label{eq:8-7}
+\begin{equation}
+\left(\begin{array}{c}
+\text{总方差中属于}\\
+\text{第 }k\text{ 个主成分}\\
+\text{的比例}
+\end{array}\right)=\frac{\lambda_k}{\lambda_1+\lambda_2+\cdots+\lambda_p},\qquad k=1,2,\cdots,p
+\tag{8-7}
+\end{equation}
+如果总方差的相当大的部分(例如 $80\%$ 到 $90\%$)归因于第一个、前两个或前三个成分, 而 $p$ 较大, 那么这些成分就可以“取代”原来的 $p$ 个变量, 而且信息损失不多.
+
+系数向量 $\mathbf{e}_i'=[e_{i1},\cdots,e_{ik},\cdots,e_{ip}]$ 的每一个分量也值得注意. $e_{ik}$ 的大小量度第 $k$ 个变量对第 $i$ 个主成分的重要程度, 而不管其他变量如何. 特别地, $e_{ik}$ 与 $Y_i$ 和 $X_k$ 之间的相关系数成比例.
+
+\mvthm{结论 8.3}{如果 $Y_1=\mathbf{e}_1'\mathbf{X}, Y_2=\mathbf{e}_2'\mathbf{X},\cdots,Y_p=\mathbf{e}_p'\mathbf{X}$ 是从协方差矩阵 $\boldsymbol{\Sigma}$ 所得到的主成分, 则}
+\phantomsection\label{eq:8-8}
+\begin{equation}
+\rho_{Y_i,X_k}=\frac{e_{ik}\sqrt{\lambda_i}}{\sqrt{\sigma_{kk}}}\qquad i,k=1,2,\cdots,p
+\tag{8-8}
+\end{equation}
+是成分 $Y_i$ 和变量 $X_k$ 之间的相关系数, 此处 $(\lambda_1,\mathbf{e}_1),(\lambda_2,\mathbf{e}_2),\cdots,(\lambda_p,\mathbf{e}_p)$ 是 $\boldsymbol{\Sigma}$ 的特征值-特征向量对.
+
+\noindent\textbf{证明}\quad 设 $\mathbf{a}_k'=[0,\cdots,0,1,0,\cdots,0]$, 则由\hyperref[eq:2-45]{式(2-45)}有 $X_k=\mathbf{a}_k'\mathbf{X}$ 和 $\mathrm{Cov}(X_k,Y_i)=\mathrm{Cov}(\mathbf{a}_k'\mathbf{X},\mathbf{e}_i'\mathbf{X})=\mathbf{a}_k'\boldsymbol{\Sigma}\mathbf{e}_i$. 既然 $\boldsymbol{\Sigma}\mathbf{e}_i=\lambda_i\mathbf{e}_i$, $\mathrm{Cov}(X_k,Y_i)=\mathbf{a}_k'\lambda_i\mathbf{e}_i=\lambda_i e_{ik}$. 则由 $\mathrm{Var}(Y_i)=\lambda_i$[见\hyperref[eq:8-5]{式(8-5)}]和 $\mathrm{Var}(X_k)=\sigma_{kk}$ 得出
+\[
+\rho_{Y_i,X_k}=\frac{\mathrm{Cov}(Y_i,X_k)}{\sqrt{\mathrm{Var}(Y_i)}\sqrt{\mathrm{Var}(X_k)}}=\frac{\lambda_i e_{ik}}{\sqrt{\lambda_i}\sqrt{\sigma_{kk}}}=\frac{e_{ik}\sqrt{\lambda_i}}{\sqrt{\sigma_{kk}}}\qquad i,k=1,2,\cdots,p \hfill\blacksquare
+\]
+虽然变量和主成分之间的相关系数有助于解释这些成分, 但它们只量度单个 $X$ 对成分 $Y$ 的单变量的贡献. 这也就是说, 在其他那些 $X$ 存在时, 它们并不表明该 $X$ 对成分 $Y$ 的重要程度. 因为这个理由, 某些统计学家(例如, 见 Rencher[16])推荐, 用于解释主成分时只用成分系数 $e_{ik}$ 而不用相关系数. 虽说作为变量对已知成分的重要性的测度, 系数和相关可能导出不同的重要性等级, 但是我们的经验表明, 这种等级的差别常常不是大到很明显. 在实践中, 有较大(按绝对值)系数的变量, 趋向于有较大的相关, 故这两个重要性的测度(前者为多变量, 后者为单变量)经常给出相似的结果. 我们建议既考察系数又考察相关, 这有助于解释主成分.
+
+下面是一个虚构的例子, 用来说明结论 8.1、8.2 和 8.3.
+
+\noindent\textbf{例 8.1}\quad (计算总体主成分)
+
+设随机变量 $X_1$、$X_2$ 和 $X_3$ 有协方差矩阵

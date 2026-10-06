@@ -1,0 +1,71 @@
+% ---- pg-513 （书页 501） ----
+
+象不具有该特性时 $X$ 取值 0. 于是这个变量在通常的判别和分类方法中就被作为一个被测量的变量来处理.
+
+除了逻辑斯蒂回归, 当同时有连续变量和性质变量时, 分类问题几乎没有什么理论. 计算机模拟实验(见文献[22])表明, 费希尔的线性判别函数可能表现很差, 也可能表现得令人满意. 这取决于性质变量与连续变量之间的相关性. 正如克扎诺夫斯基(Krzanowski, 见文献[22])所指出的: “在一个总体中呈弱相关而在另一个总体中呈强相关, 或者两个总体之间的相关系数的符号改变, 这些都可能对费希尔线性判别函数不利的条件.” 这是一个麻烦的领域, 需要进一步研究.
+
+\mvsub{分类树}
+
+有人提出一种与本章前几节所介绍的方法完全不同的新的分类方法(见文献[5]). 这是一种计算机集成度高的方法, 因而只是到了现在才被广泛采用. 这个新方法称为\mvbold{分类与回归树}(CART), 与聚类技术有密切关系(见第 12 章).
+
+起初, 所有对象被视为一个组. 根据某个变量的“高”值与“低”值, 将这个组分为两个子组. 然后再根据另一个变量分别将这两个子组再进行分组. 分离过程不断进行, 直到到达一个适当的停止点为止. 分离变量的值可以是有序类别, 也可以是无序类别. 正是这一特点使 CART 方法具有一般性.
+
+例如, 假定人群被分类为
+\[
+\begin{aligned}
+\pi_1&:\ \text{有心脏病发作倾向者}\\
+\pi_2&:\ \text{无心脏病发作倾向者}
+\end{aligned}
+\]
+分类变量为年龄、体重和运动量. 在这种情况下, CART 方法可用\hyperref[fig:11.17]{图 11.17} 中的树状图来表示. 树的分枝实际上对应样本空间中的分割. 区域 $R_1$ 的定义是年龄超过 45 岁, 超重, 且不经常锻炼的人群, 可用于将一个人分类为 $\pi_1$, 即有心脏病发作倾向者. CART 方法将尝试首先根据年龄, 或体重, 或运动量来进行分类.
+
+\hyperref[fig:11.18]{图 11.18} 给出了用 CART 方法对鸢尾数据(见\hyperref[tab:11.5]{表 11.5})中变量 $X_3=$“花瓣长度”与 $X_4=$“花瓣宽度”的分类树. 图中指示了二项分裂法则. 例如, 第一次分裂出现在花瓣长度 $=2.45$. 花瓣长度 $\le 2.45$ 的构成第一组, 花瓣长度 $>2.45$ 的构成第二组.
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=0.82,every node/.style={font=\zihao{6}}]
+\node[draw,ellipse] (a) at (0,0) {超过45岁};
+\node[draw,ellipse] (b) at (-2.0,-1.5) {超重};
+\node[draw,rectangle] (c) at (1.7,-1.5) {$\pi_2$};
+\node[draw,ellipse] (d) at (-3.3,-3.0) {经常锻炼};
+\node[draw,rectangle] (e) at (-1.2,-3.0) {$\pi_2$};
+\node[draw,rectangle] (f) at (-4.5,-4.5) {$\pi_2$};
+\node[draw,rectangle] (g) at (-2.1,-4.5) {$\pi_1$};
+\draw (a)--(b);
+\draw (a)--(c);
+\draw (b)--(d);
+\draw (b)--(e);
+\draw (d)--(f);
+\draw (d)--(g);
+\node at (-1.35,-0.62) {是};
+\node at (0.75,-0.62) {否};
+\node at (-2.95,-2.12) {是};
+\node at (-1.72,-2.12) {否};
+\node at (-4.30,-3.62) {是};
+\node at (-2.88,-3.62) {否};
+\node[anchor=west] at (-4.5,-5.7) {$\pi_1$: 有心脏病发作倾向者};
+\node[anchor=west] at (-4.5,-6.4) {$\pi_2$: 无心脏病发作倾向者};
+\end{tikzpicture}
+\phantomsection\label{fig:11.17}\mvcap{图 11.17\quad 分类树}
+\end{mvfigure}
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=0.78,every node/.style={font=\zihao{6}}]
+\node[diamond,draw,aspect=2.6,align=center] (n1) at (0,0) {Node 1\\PetLength\\N=150};
+\node[draw,rectangle,align=center] (t1) at (-3.2,-2.4) {Terminal\\Node 1\\N=50};
+\node[diamond,draw,aspect=2.6,align=center] (n2) at (2.6,-2.4) {Node 2\\PetWidth\\N=100};
+\node[diamond,draw,aspect=2.6,align=center] (n3) at (0.5,-4.8) {Node 3\\PetLength\\N=54};
+\node[draw,rectangle,align=center] (t4) at (4.4,-4.8) {Terminal\\Node 4\\N=46};
+\node[draw,rectangle,align=center] (t2) at (-1.3,-7.2) {Terminal\\Node 2\\N=48};
+\node[draw,rectangle,align=center] (t3) at (2.3,-7.2) {Terminal\\Node 3\\N=6};
+\draw (n1.south west)--(t1.north);
+\draw (n1.south east)--(n2.north);
+\draw (n2.south west)--(n3.north);
+\draw (n2.south east)--(t4.north);
+\draw (n3.south west)--(t2.north);
+\draw (n3.south east)--(t3.north);
+\node at (0,1.15) {$\le 2.45$};
+\node at (2.15,-1.25) {$\le 1.75$};
+\node at (-0.55,-3.75) {$\le 4.95$};
+\end{tikzpicture}
+\phantomsection\label{fig:11.18}\mvcap{图 11.18\quad 鸢尾数据的分类树}
+\end{mvfigure}

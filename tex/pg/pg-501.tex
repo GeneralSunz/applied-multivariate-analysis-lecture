@@ -1,0 +1,57 @@
+% ---- pg-501 （书页 489） ----
+
+在理想情况下, 应该对标准化的判别函数系数进行考察, 以估计一个变量在存在其他变量情形下的重要性(见文献[29]). 相关系数只指示每个变量如何通过自身来区分各总体, 而忽略其他变量的贡献. 不幸的是, 在本例中是得不到标准化判别系数的.
+
+一般来说, 还应该对前几个判别量中的其他各对变量作标绘图. 此外, 可以对每项运动制作其判别量的判别得分散布图. 在多元正态性假定下, 以判别均值向量 $\bar{y}$ 为中心的单位椭圆(圆)应包含比例约为
+\[
+P[(\mathbf{Y}-\boldsymbol{\mu}_Y)'(\mathbf{Y}-\boldsymbol{\mu}_Y)\le 1]=P[\chi_2^2\le 1]=0.39
+\]
+的判别空间上的点.\hfill$\blacksquare$
+
+\section{用费希尔判别量将对象进行分类}
+\phantomsection\label{sec:11.7}
+
+推导费希尔判别量的目的, 是得出一个能将总体最大限度地分开的低维数据表示. 虽然这些判别量是出于分离的考虑而导出的, 它们也为分类法则提供了依据. 我们先利用总体判别量 $\mathbf{a}_k'\mathbf{X}$ 来解释二者之间的联系.
+
+令
+\phantomsection\label{eq:11-64}
+\begin{equation}
+Y_k=\mathbf{a}_k'\mathbf{X}=\text{第}\ k\ \text{个判别量},\qquad k\le s
+\tag{11-64}
+\end{equation}
+我们得出结论: 对总体 $\pi_i$,
+\[
+\mathbf{Y}=\begin{bmatrix}Y_1\\Y_2\\\vdots\\Y_s\end{bmatrix}
+\qquad\text{有均值向量}\qquad
+\boldsymbol{\mu}_{iY}=\begin{bmatrix}\mu_{iY_1}\\\vdots\\\mu_{iY_s}\end{bmatrix}=\begin{bmatrix}\mathbf{a}_1'\boldsymbol{\mu}_i\\\vdots\\\mathbf{a}_s'\boldsymbol{\mu}_i\end{bmatrix}
+\]
+而对所有总体则有协方差矩阵 $\mathbf{I}$(见练习 11.21).
+
+由于 $\mathbf{Y}$ 的各分量均有单位方差和零协方差, 所以 $\mathbf{Y}=\mathbf{y}$ 到 $\boldsymbol{\mu}_{iY}$ 的适当的平方距离为
+\[
+(\mathbf{y}-\boldsymbol{\mu}_{iY})'(\mathbf{y}-\boldsymbol{\mu}_{iY})=\sum_{j=1}^{s}(y_j-\mu_{iY_j})^2
+\]
+一个合理的分类法则是: 若 $\mathbf{y}$ 到 $\boldsymbol{\mu}_{kY}$ 的平方距离小于 $\mathbf{y}$ 到其他 $\boldsymbol{\mu}_{iY}(i\ne k)$ 的平方距离, 则将 $\mathbf{y}$ 指派给 $\pi_k$.
+
+若只用 $r$ 个判别量来进行分类, 则相应法则为: 若
+\phantomsection\label{eq:11-65}
+\begin{equation}
+\begin{aligned}
+\sum_{j=1}^{r}(y_j-\mu_{kY_j})^2&=\sum_{j=1}^{r}[\mathbf{a}_j'(\mathbf{x}-\boldsymbol{\mu}_k)]^2\\
+&\le\sum_{j=1}^{r}[\mathbf{a}_j'(\mathbf{x}-\boldsymbol{\mu}_i)]^2\qquad \text{对所有}\ i\ne k
+\end{aligned}
+\tag{11-65}
+\end{equation}
+则将 $\mathbf{x}$ 分到 $\pi_k$.
+
+在将这种分类方法与 11.5 节中所讨论的分类方法相联系之前, 我们先进一步探讨对判别量个数的限制. 由练习 11.21 知
+\[
+s=\text{判别量个数}=\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu\ \text{或}\ \boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}\ \text{的非零特征值的个数}
+\]
+由于 $\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu$ 为 $p\times p$, 故 $s\le p$. 进一步, $g$ 个向量
+\phantomsection\label{eq:11-66}
+\begin{equation}
+\boldsymbol{\mu}_1-\bar{\boldsymbol{\mu}},\boldsymbol{\mu}_2-\bar{\boldsymbol{\mu}},\cdots,\boldsymbol{\mu}_g-\bar{\boldsymbol{\mu}}
+\tag{11-66}
+\end{equation}
+满足 $(\boldsymbol{\mu}_1-\bar{\boldsymbol{\mu}})+(\boldsymbol{\mu}_2-\bar{\boldsymbol{\mu}})+\cdots+(\boldsymbol{\mu}_g-\bar{\boldsymbol{\mu}})=g\bar{\boldsymbol{\mu}}-g\bar{\boldsymbol{\mu}}=\mathbf{0}$. 也就是说, 第一个差值 $\boldsymbol{\mu}_1-\bar{\boldsymbol{\mu}}$ 可以表示为后 $g-1$ 个差值的线性组合. \hyperref[eq:11-66]{式(11-66)}中的 $g$ 个向量的线性组合决定一个超平面, 其维数 $q\le g-1$. 取任一向量 $\mathbf{e}$ 垂直于每一个 $\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}}$, 因而也垂直于这个超平面, 可以得到

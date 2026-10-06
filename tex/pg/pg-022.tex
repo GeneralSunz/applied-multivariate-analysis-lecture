@@ -1,0 +1,71 @@
+% ---- pg-022 （书页 10） ----
+
+的公司,但从每个雇员所创利润看是很“典型的”.时代华纳公司在雇员人数方面是很“典型的”,而在人均创利润上则相当的少(负值).
+
+由 $x_1$ 和 $x_2$ 的值算出的样本相关系数是
+
+\[
+r_{12} = \begin{cases}
+-0.39 & \text{对所有 16 个公司}\\
+-0.56 & \text{对除邓白氏公司之外的所有公司}\\
+-0.39 & \text{对除时代华纳公司之外的所有公司}\\
+-0.50 & \text{对除邓白氏公司和时代华纳公司}\\
+      & \text{之外的所有公司}
+\end{cases}
+\]
+
+显然异常的观测值对于样本相关系数有着相当大的影响.\hfill$\blacksquare$
+
+\mvbold{例 1.4}\quad（棒球数据的散布图）
+
+1978 年 7 月 17 日,《体育画报》上一篇关于体育界工资的文章,为 $x_1 = $ 美国东部联盟棒球队为球员发放的工资总额提供了一些数据.
+
+我们增加了 $x_2 = $ 1977 年的胜负比的数据.数据由\hyperref[tab:1.1]{表 1.1} 给出.
+
+\begin{mvtable}
+\begin{tabular}{lcc}
+\toprule
+队 & $x_1 = $ 运动员工资 & $x_2 = $ 胜负比 \\
+\midrule
+Philadelphia Phillies & 3 497 900 & 0.623 \\
+Pittsburgh Pirates & 2 485 475 & 0.593 \\
+St. Louis Cardinals & 1 782 875 & 0.512 \\
+Chicago Cubs & 1 725 450 & 0.500 \\
+Montreal Expos & 1 645 575 & 0.463 \\
+New York Mets & 1 469 800 & 0.395 \\
+\bottomrule
+\end{tabular}
+\phantomsection\label{tab:1.1}\mvtabcap{表 1.1\quad 关于美国东部联盟棒球队 1977 年工资和胜负比}
+\end{mvtable}
+
+\hyperref[fig:1.4]{图 1.4} 的散布图支持了一种看法: 冠军是可以买来的.当然,这种因果关系是无法证实的,因为实验不包括随机的工资总额的分配.因此,统计量无法回答这个问题: 如果 Mets 队有 400 万美元来支付运动员的薪水,是否就会赢?
+
+\begin{mvfigure}
+% 纵横比按原书实测校正：x 轴 167.6 px/单位、y 轴 417.5 px/单位
+% （取 x=1.45cm/单位 → y = 1.45×417.5/167.6 = 3.61cm/单位；旧值 3.9cm 比原图高约 8%）
+\begin{tikzpicture}[x=1.45cm,y=3.61cm,>=stealth]
+\draw[->] (0,0) -- (4.6,0) node[below right=-1pt] {$x_1$};
+\draw[->] (0,0) -- (0,1.03) node[above] {$x_2$};
+\node[below,inner sep=1.5pt,font=\small] at (0,-0.018) {0};
+\foreach \t in {1,2,3,4}{
+  \draw (\t,0) -- (\t,-0.018);
+  \node[below,inner sep=1.5pt,font=\small] at (\t,-0.018) {\t.0};
+}
+\foreach \t/\l in {0.4/0.400,0.8/0.800}{
+  \draw (0,\t) -- (-0.10,\t);
+  \node[left,inner sep=1.5pt,font=\small] at (-0.10,\t) {\l};
+}
+\foreach \x/\y in {1.4698/0.395,1.6456/0.463,1.7255/0.500,1.7829/0.512,2.4855/0.593,3.4979/0.623}{
+  \fill (\x,\y) circle (1.5pt);
+}
+\node[below,font=\small] at (2.3,-0.13) {运动员工资(百万美元)};
+\node[rotate=90,font=\small] at (-0.82,0.4) {胜负比};
+\end{tikzpicture}
+\phantomsection\label{fig:1.4}\mvcap{图 1.4\quad 从表 1.1 得到的工资和胜负比}
+\end{mvfigure}
+
+为了构造散布图,例如\hyperref[fig:1.4]{图 1.4},我们把\hyperref[tab:1.1]{表 1.1} 中的 6 对观测值看做是二维空间中 6 个点的坐标.此图让我们直观地检查相对于工资总额和胜负比的分组方法.\hfill$\blacksquare$
+
+\mvbold{例 1.5}\quad（关于纸张强度观测结果的多重散布图）
+
+纸是由几英尺宽的连续薄片制成的.由于纸中纤维的方向性,沿着机器造纸的方向测量的纸的强度,不同于沿着与机器造纸方向交叉或成直角的方向测量的结果.\hyperref[tab:1.2]{表 1.2} 列出了下%

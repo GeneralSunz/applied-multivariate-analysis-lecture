@@ -1,0 +1,61 @@
+\[
+\mathbf{S}=\begin{bmatrix}5&4\\4&5\end{bmatrix},\quad
+\mathbf{S}=\begin{bmatrix}5&-4\\-4&5\end{bmatrix},\quad
+\mathbf{S}=\begin{bmatrix}3&0\\0&3\end{bmatrix}
+\]
+(注意这些矩阵有同样的广义方差 $|\mathbf{S}|$)
+
+\noindent 3.8\quad 已知
+\[
+\mathbf{S}=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}
+\quad\text{和}\quad
+\mathbf{S}=\begin{bmatrix}
+1&-\dfrac{1}{2}&-\dfrac{1}{2}\\[2mm]
+-\dfrac{1}{2}&1&-\dfrac{1}{2}\\[2mm]
+-\dfrac{1}{2}&-\dfrac{1}{2}&1
+\end{bmatrix}
+\]
+
+(a)\ 对每个 $\mathbf{S}$ 计算总样本方差并比较结果.
+
+(b)\ 对每个 $\mathbf{S}$ 计算广义样本方差并比较结果.
+
+找出若 (a) 和 (b) 之间存在差异, 试评论.
+
+\noindent 3.9\quad 下面的数据矩阵包含了考试的分数, 其中 $x_1=$ 第一次考试的分数, $x_2=$ 第二次考试的分数和 $x_3=$ 两次考试的总分:
+\[
+\mathbf{X}=\begin{bmatrix}
+12&17&29\\
+18&20&38\\
+14&16&30\\
+20&18&38\\
+16&19&35
+\end{bmatrix}
+\]
+
+(a)\ 求出被均值修正的数据矩阵, 并证明它的列是线性相关的. 确定一个向量 $a'=[a_1,a_2,a_3]$, 建立线性相关性.
+
+(b)\ 求得样本协方差矩阵 $\mathbf{S}$, 并证明广义方差是零, 再证明 $\mathbf{S}a=0$, 所以 $a$ 可以更改比例成为对应于零特征值的特征向量.
+
+(c)\ 证明数据矩阵的第三列是前两列的和, 即证明存在有 $a_1=1$, $a_2=1$, $a_3=-1$ 的线性相关关系.
+
+\noindent 3.10\quad 当广义方差是零时, 被均值修正的数据矩阵 $\mathbf{X}=\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}'$ 的列是线性相关的, 而数据矩阵本身的列未必线性相关. 已知数据
+\[
+\mathbf{X}=\begin{bmatrix}
+3&1&0\\
+6&4&6\\
+4&2&2\\
+7&0&3\\
+5&3&4
+\end{bmatrix}
+\]
+
+(a)\ 求出被均值修正的数据矩阵, 并证明列是线性相关的. 确定一个向量 $a'=[a_1,a_2,a_3]$, 建立该相关性.
+
+(b)\ 求出样本协方差矩阵 $\mathbf{S}$, 并证明广义方差是零.
+
+(c)\ 证明数据矩阵的列在这种情况下不是线性无关的.
+
+\noindent 3.11\quad 利用例 3.7 中所得到的样本协方差, 证明\hyperref[eq:3-29]{式(3-29)}和\hyperref[eq:3-30]{式(3-30)}, 即证明 $\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}$ 和 $\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}=\mathbf{S}$.
+
+\noindent 3.12\quad 证明 $|\mathbf{S}|=(s_{11}s_{22}\cdots s_{pp})|\mathbf{R}|$.

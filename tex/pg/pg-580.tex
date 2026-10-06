@@ -1,0 +1,29 @@
+% ---- pg-580 （书页 568） ----
+
+\begin{mvfigure}
+\mvinc{pg-580}{0.228,0.118,0.815,0.515}
+\phantomsection\label{fig:12.24}\mvcap{图 12.24\quad 大学数据的双重信息图}
+\end{mvfigure}
+
+\noindent$\bullet$\quad 主成分的两个轴是隐藏的.
+
+\noindent$\bullet$\quad 每个变量有一个轴, 并有尺度.
+
+作为原始的双重信息图, 第 $i$ 个项目的位置由前两个主成分的对应值确定:
+\[
+(\hat{y}_{1i},\hat{y}_{2i})=\left((\mathbf{x}_i-\bar{\mathbf{x}})'\hat{\mathbf{e}}_1,
+(\mathbf{x}_i-\bar{\mathbf{x}})'\hat{\mathbf{e}}_2\right)
+\]
+其中 $\hat{\mathbf{e}}_1$ 和 $\hat{\mathbf{e}}_2$ 为 $\mathbf{S}$ 的前两个特征向量. 主成分的尺度在图上没有表示.
+
+此外, 原始的双重信息图中表示变量的箭头用两个方向的刻度轴代替. 如同在用箭头表示的情况时一样, 第 $i$ 个变量的轴由 $\hat{\mathbf{E}}=[\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2]$ 的第 $i$ 行确定.
+
+为进一步解释, 我们首先令 $\mathbf{u}_i$ 代表第 $i$ 元素为 1, 其他元素为 0 的向量. 任一 $p\times 1$ 向量 $\mathbf{x}$ 可表示为
+\[
+\mathbf{x}=\sum_{i=1}^{p}x_i\mathbf{u}_i
+\]
+并且由定义 2A.12, $\mathbf{x}$ 到前两个特征向量生成的空间上的投影有系数向量
+\[
+\hat{\mathbf{E}}'\mathbf{x}=\sum_{i=1}^{p}x_i(\hat{\mathbf{E}}'\mathbf{u}_i)
+\]
+因此第 $i$ 个变量对上述向量和的贡献为 $x_i(\hat{\mathbf{E}}'\mathbf{u}_i)=x_i(e_{i1},e_{i2})'$. $\hat{\mathbf{E}}$ 的第 $i$ 行的元素 $e_{i1}$ 和 $e_{i2}$ 决定第 $i$ 个变量的轴的方向.

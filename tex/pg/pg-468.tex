@@ -1,0 +1,54 @@
+% ---- pg-468 （书页 456） ----
+
+便是 $\boldsymbol{\Sigma}$ 的一个无偏估计.
+
+在\hyperref[eq:11-12]{式(11-12)}中, 用 $\bar{\mathbf{x}}_1$ 代替 $\boldsymbol{\mu}_1$, $\bar{\mathbf{x}}_2$ 代替 $\boldsymbol{\mu}_2$, $\mathbf{S}_{\mathrm{p}}$ 代替 $\boldsymbol{\Sigma}$, 就得到“样本”分类法则:
+
+\begin{mvframe}[两个正态总体的估计的最小 ECM 法则]
+若
+\phantomsection\label{eq:11-18}
+\begin{equation}
+(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}_0-\frac{1}{2}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)\geqslant\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]
+\tag{11-18}
+\end{equation}
+则分配 $\mathbf{x}_0$ 到 $\pi_1$, 否则分配 $\mathbf{x}_0$ 到 $\pi_2$.
+\end{mvframe}
+
+若在\hyperref[eq:11-18]{式(11-18)}中
+\[
+\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)=1
+\]
+则 $\ln(1)=0$, 因此两个正态总体的估计的最小 ECM 法则等价于将在 $\mathbf{x}_0$ 点得出的标量
+\phantomsection\label{eq:11-19}
+\begin{equation}
+\hat{y}=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}=\hat{\mathbf{a}}'\mathbf{x}
+\tag{11-19}
+\end{equation}
+与数字
+\phantomsection\label{eq:11-20}
+\begin{equation}
+\begin{aligned}
+\hat{m}&=\frac{1}{2}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)\\
+&=\frac{1}{2}(\hat{y}_1+\hat{y}_2)
+\end{aligned}
+\tag{11-20}
+\end{equation}
+作比较, 其中
+\[
+\begin{aligned}
+\hat{y}_1&=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_1=\hat{\mathbf{a}}'\bar{\mathbf{x}}_1\\
+\hat{y}_2&=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_2=\hat{\mathbf{a}}'\bar{\mathbf{x}}_2
+\end{aligned}
+\]
+
+也就是说, 两正态总体的估计的最小 ECM 法则等价于建立两个单变量总体 $y_1, y_2$ 为来自总体 $\pi_1$ 和 $\pi_2$ 的观测值的适当线性组合, 然后根据 $\hat{y}_0=\hat{\mathbf{a}}'\mathbf{x}_0$ 落在 $\hat{y}_1$ 和 $\hat{y}_2$ 的连线中点 $\hat{m}$ 的右侧还是左侧来决定将新的观测值 $\mathbf{x}_0$ 分到 $\pi_1$ 还是 $\pi_2$.
+
+一旦总体未知参数用其估计值代替, 就无法保证所得出的法则在具体应用中能使 ECM 最小化. 这是因为\hyperref[eq:11-12]{式(11-12)}中的最优法则是在假定多元正态密度 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$ 完全已知的前提下导出的, 而\hyperref[eq:11-18]{式(11-18)}只是最优法则的一个估计. 然而, 如果样本容量大, 就有理由期望这个估计有良好表现.\footnote{当样本容量增加时, $\bar{x}_1$, $\bar{x}_2$ 和 $\mathbf{S}_{\mathrm{p}}$ 以接近于 1 的概率变得分别与 $\boldsymbol{\mu}_1$, $\boldsymbol{\mu}_2$ 和 $\boldsymbol{\Sigma}$ 无法区分[见\hyperref[eq:4-26]{式(4-26)}和\hyperref[eq:4-27]{式(4-27)}].}
+
+归纳起来, 如果数据表现为多元正态分布\footnote{至少对每个变量来说, 其观测值的边际频数分布的正态性是可以检验的. 此项工作对来自两个总体的样本都要做. 经常需要将某些变量作适当的变换, 以使它们更“像正态变量”(见 4.6 节和 4.8 节).}, 则对每一个新的观测值, $\mathbf{x}_0$ 可以计算\hyperref[eq:11-18]{式(11-18)}左端的分类统计量. 这些观测值可通过比较这个统计量的值与 $\ln[(c(1\mid2)/c(2\mid1))(p_2/p_1)]$ 的值来分类.
+
+\noindent\textbf{例 11.3}\quad (两正态总体有共同$\boldsymbol{\Sigma}$与相同代价情况下的分类)
+
+本例的材料来自一项有关查明带 A 型血友病基因者的研究(见文献[4], 同时参见练习 11.32).
+
+为构造一个查明带 A 型血友病基因者的方法, 研究人员分析了两组女性的血样, 并记录

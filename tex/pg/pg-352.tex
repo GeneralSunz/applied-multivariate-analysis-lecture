@@ -1,0 +1,48 @@
+% ---- pg-352 （书页 340） ----
+
+\[
+\begin{aligned}
+\rho:\quad Y_1&=0.707Z_1+0.707Z_2=0.707\left(\frac{X_1-\mu_1}{1}\right)+0.707\left(\frac{X_2-\mu_2}{10}\right)\\
+&=0.707(X_1-\mu_1)+0.070\ 7(X_2-\mu_2)\\
+Y_2&=0.707Z_1-0.707Z_2=0.707\left(\frac{X_1-\mu_1}{1}\right)-0.707\left(\frac{X_2-\mu_2}{10}\right)\\
+&=0.707(X_1-\mu_1)-0.070\ 7(X_2-\mu_2)
+\end{aligned}
+\]
+由于 $X_2$ 的方差大, 它完全控制了由 $\boldsymbol{\Sigma}$ 确定的第一主成分. 而且, 第一主成分解释的总体总方差的比例为
+\[
+\frac{\lambda_1}{\lambda_1+\lambda_2}=\frac{100.16}{101}=0.992
+\]
+然而, 当变量 $X_1$ 和 $X_2$ 标准化后, 所得变量对由 $\boldsymbol{\rho}$ 确定的主成分的贡献却相同. 利用结论 8.4, 我们得到
+\[
+\rho_{Y_1,Z_1}=e_{11}\sqrt{\lambda_1}=0.707\times\sqrt{1.4}=0.837
+\]
+及
+\[
+\rho_{Y_1,Z_2}=e_{12}\sqrt{\lambda_1}=0.707\times\sqrt{1.4}=0.837
+\]
+在这种情况下, 第一主成分解释(标准化)总体总方差的比例为
+\[
+\frac{\lambda_1}{p}=\frac{1.4}{2}=0.7
+\]
+最让人吃惊的是, 我们看到变量对于第一主成分的相对重要性受到标准化的极大影响. 当由 $\boldsymbol{\rho}$ 确定的第一主成分用 $X_1$ 和 $X_2$ 表示时, 权数的相对大小 $0.707$ 及 $0.070\ 7$, 却与由 $\boldsymbol{\Sigma}$ 确定的主成分中的那些变量所得到的权数的相对大小 $0.040$ 及 $0.999$, 正好相反. \hfill$\blacksquare$
+
+上例表明由 $\boldsymbol{\Sigma}$ 导出主成分与由 $\boldsymbol{\rho}$ 导出的主成分是不同的, 而且, 一组主成分也不是另外一组主成分的简单函数. 这说明, 标准化不是无关紧要的.
+
+如果在极其不同的范围内测量变量, 或是测量单位不是同量纲的, 那么变量可能应该标准化. 例如, $X_1$ 代表年销售额, 在 10 000 美元到 350 000 美元之间, 而 $X_2$ 是比值(年净收入)/(总资产), 它落在 0.01 到 0.60 之间. 那么这时总方差会几乎全部归因于销售额. 此种情况下, 我们会得到单一的(重要的)主成分, 且 $X_1$ 权数很大. 相反, 如果两个变量都标准化, 它们的大小将在同一层次上, $X_2$(或 $Z_2$)将在主成分结构上起较大的作用. 这个性质, 在例 8.2 看到过.
+
+\mvsub{有特殊结构的协方差矩阵的主成分}
+
+存在某些模式的协方差和相关矩阵, 它们的主成分能够表示成简单的形式. 设 $\boldsymbol{\Sigma}$ 是对角矩阵
+\phantomsection\label{eq:8-13}
+\begin{equation}
+\boldsymbol{\Sigma}=\begin{bmatrix}\sigma_{11}&0&\cdots&0\\0&\sigma_{22}&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\sigma_{pp}\end{bmatrix}
+\tag{8-13}
+\end{equation}
+令 $\mathbf{e}_i'=[0,\cdots,0,1,0,\cdots,0]$, 第 $i$ 个位置上为 1. 我们看到
+\[
+\begin{bmatrix}\sigma_{11}&0&\cdots&0\\0&\sigma_{22}&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\sigma_{pp}\end{bmatrix}
+\begin{bmatrix}0\\\vdots\\0\\1\\0\\\vdots\\0\end{bmatrix}=
+\begin{bmatrix}0\\\vdots\\0\\1\sigma_{ii}\\0\\\vdots\\0\end{bmatrix}
+\qquad\text{或}\qquad
+\boldsymbol{\Sigma}\mathbf{e}_i=\sigma_{ii}\mathbf{e}_i
+\]

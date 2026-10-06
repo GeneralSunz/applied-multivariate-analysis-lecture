@@ -1,0 +1,49 @@
+% ---- pg-039 （书页 27） ----
+
+和
+
+\phantomsection\label{eq:1-23}
+\begin{equation}
+\begin{aligned}
+d(P, Q) &= [a_{11}(x_1 - y_1)^2 + a_{22}(x_2 - y_2)^2 + \cdots + a_{pp}(x_p - y_p)^2 + 2a_{12}(x_1 - y_1)(x_2 - y_2) \\
+&\quad + 2a_{13}(x_1 - y_1)(x_3 - y_3) + \cdots + 2a_{p-1,p}(x_{p-1} - y_{p-1})(x_p - y_p)]^{1/2}
+\end{aligned} \tag{1-23}
+\end{equation}
+其中 $a$ 为使得距离总为非负的数. \footnote{式 (1-22) 和\hyperref[eq:1-23]{式(1-23)} 中的距离平方的代数表达式被称为二次型，具体被称为正定二次型. 用矩阵以简单形式表示这些二次型是可能的，我们将在 2.3 节中讲述.}
+
+我们注意到\hyperref[eq:1-22]{式(1-22)} 及\hyperref[eq:1-23]{式(1-23)} 中的距离完全由系数（权数）$a_{ik}, i = 1, 2, \cdots, p, k = 1, 2, \cdots, p$，决定. 这些系数可在一矩形阵列中表示出来
+\phantomsection\label{eq:1-24}
+\begin{equation}
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1p} \\
+a_{12} & a_{22} & \cdots & a_{2p} \\
+\vdots & \vdots & & \vdots \\
+a_{1p} & a_{2p} & \cdots & a_{pp}
+\end{bmatrix} \tag{1-24}
+\end{equation}
+其中系数 $a_{ik} (i \neq k)$ 出现了两次，这是因为它们在距离公式中被乘了 2. 因此，这个阵列中的元素确定距离函数. $a_{ik}$ 不能是任意数值，它们必须使得计算出的每一对点的距离都为非负的数（参见练习 1.10）\footnote{式(1-22)和\hyperref[eq:1-23]{式(1-23)}中的距离平方的代数表达式被称为二次型，具体被称为正定二次型. 用矩阵以一简单形式表示这些二次型是可能的，我们将在 2.3 节中讲述.}.
+
+由\hyperref[eq:1-22]{式(1-22)} 和\hyperref[eq:1-23]{式(1-23)} 计算出的定常数距离的轮廓线是一超椭球面，当 $p = 3$ 时，超椭球面像一个橄榄球；超过三维时，其形象化是不可能的.
+
+\begin{mvfigure}
+\mvinc{pg-039}{0.510,0.448,0.870,0.615}
+\phantomsection\label{fig:1.25}\mvcap{图 1.25\quad 相对于点 $P$ 和原点的一组点}
+\end{mvfigure}
+
+\hyperref[fig:1.25]{图 1.25} 启发性地说明了需要考虑统计距离而不是欧几里德距离. \hyperref[fig:1.25]{图 1.25} 描述了重心（样本均值）在点 $Q$ 的一组点. 考虑从点 $Q$ 到点 $P$ 和到原点 $O$ 的欧几里德距离. $Q$ 到 $P$ 的欧几里德距离大于 $Q$ 到 $O$ 的欧几里德距离. 然而，$P$ 点比原点显得更像是属于这一组点内的点. 如果我们考虑到这一组点的可变性，并用\hyperref[eq:1-20]{式(1-20)} 的统计距离来度量距离，则 $Q$ 距离 $P$ 比距离 $O$ 要近. 这个结果看来合理地给出了散布的本质.
+
+还有一些其他的距离的度量方法（参见练习 1.12）. 有时，考虑不涉及圆或椭圆的距离是有益的. $P$ 和 $Q$ 两点之间的任何距离度量 $d(P, Q)$ 如果满足下面的性质，都是有效的，其中 $R$ 是任一个其他中间点：
+\phantomsection\label{eq:1-25}
+\begin{equation}
+\begin{aligned}
+&d(P, Q) = d(Q, P) \\
+&d(P, Q) > 0, \text{若 } P \neq Q \\
+&d(P, Q) = 0, \text{若 } P = Q \\
+&d(P, Q) \leqslant d(P, R) + d(R, Q) \quad \text{（三角不等式）}
+\end{aligned} \tag{1-25}
+\end{equation}
+
+\section{最终评注}  % 原书 1.6
+\phantomsection\label{sec:1.6}
+
+我们试图推动多元分析的研究，并为您提供一些组织、概括及展示数据的基本而重要的

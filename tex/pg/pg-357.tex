@@ -1,0 +1,71 @@
+% ---- pg-357 （书页 345） ----
+
+值从大到小排列, 崖底碎石图就是 $\hat{\lambda}_i$ 对序号 $i$(即特征值的大小对特征值的号码)的 $(i,\hat{\lambda}_i)$ 的图. 为确定主成分的合适个数, 我们在该图上找拐弯处(弯曲处). 选取一个拐弯点对应的序号, 此序号后的特征值全部较小且彼此大小差不多. 这样选出的号码数作为主成分的个数. \hyperref[fig:8.2]{图 8.2} 表示有 6 个主成分的崖底碎石图.
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=1.0]
+\draw[->] (0,0) -- (7.0,0);
+\draw[->] (0,0) -- (0,3.9);
+% 纵轴刻度
+\foreach \y/\l in {1.0/1.0,2.0/2.0,3.0/3.0}{
+  \draw (0,\y) -- (-0.1,\y);
+  \node[left,font=\small] at (-0.1,\y) {\l};}
+\node[left,font=\small] at (-0.1,0) {0};
+% 横轴刻度
+\foreach \x in {1,2,3,4,5,6}{
+  \draw (\x,0) -- (\x,-0.1);
+  \node[below,font=\small] at (\x,-0.1) {\x};}
+\node[below,font=\small] at (3.5,-0.5) {$i$};
+\node[left,font=\small,rotate=90] at (-0.75,2.0) {$\hat{\lambda}_i$};
+% 折线
+\draw (1,3.35) -- (2,1.33) -- (3,0.53) -- (4,0.35) -- (5,0.22) -- (6,0.10);
+\foreach \x/\y in {1/3.35,2/1.33,3/0.53,4/0.35,5/0.22,6/0.10}{
+  \fill (\x,\y) circle (1.8pt);}
+\end{tikzpicture}
+\phantomsection\label{fig:8.2}\mvcap{图 8.2\quad 崖底碎石图}
+\end{mvfigure}
+
+\hyperref[fig:8.2]{图 8.2} 中在 $i=3$ 处拐弯. 也就是说, 此后的特征值全都比较小且彼此大小差不多. 在这种情况下, 没有其他证据也看得出, 两个(也许三个)样本主成分有效地综合了样本总方差.
+
+\noindent\textbf{例 8.4}\quad (用一个样本主成分综合样本变异性)
+
+为研究海龟的大小和形状间的关系, 朱利科叶尔(Jolicoeur)和莫西曼(Mosimann)测量了龟甲的长、宽和高(参见文献[11]), 他们的数据见练习 6.18 \hyperref[tab:6.9]{表 6.9} 中, 建议对数据取对数分析(朱利科叶尔[10]建议在研究大小和形状关系时一般采用对数变换), 并作主成分分析.
+
+24 只雄海龟龟甲大小的自然对数, 样本均值向量为 $\bar{\mathbf{x}}'=[4.725,4.478,3.703]$, 协方差阵为
+\[
+\mathbf{S}=10^{-3}\begin{bmatrix}
+11.072&8.019&8.160\\
+8.019&6.417&6.005\\
+8.160&6.005&6.773
+\end{bmatrix}
+\]
+主成分分析(见显示板 8.1 的 SAS 统计软件包的输出)得到下列数据:
+
+\begin{mvtable}
+\begin{center}\mvbold{主成分系数(括号内为相关系数)}\end{center}
+\begin{tabular}{lccc}
+\toprule
+变量 & $\hat{\mathbf{e}}_1(r_{\hat{y}_1,x_k})$ & $\hat{\mathbf{e}}_2$ & $\hat{\mathbf{e}}_3$\\
+\midrule
+$\ln$(长) & $0.683(0.99)$ & $-0.159$ & $-0.713$\\
+$\ln$(宽) & $0.510(0.97)$ & $-0.594$ & $0.622$\\
+$\ln$(高) & $0.523(0.97)$ & $0.788$ & $0.324$\\
+\midrule
+方差($\hat{\lambda}_i$): & $23.30\times10^{-3}$ & $0.60\times10^{-3}$ & $0.36\times10^{-3}$\\
+占总方差的累积百分比 & $96.1$ & $98.5$ & $100$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+\begin{mvframe}[显示板 8.1(利用 PROC PRINCOMP 对例 8.4 的 SAS 分析)]
+\begin{tabular}{@{}p{0.62\linewidth}@{\hspace{1em}}p{0.3\linewidth}@{}}
+{\ttfamily title 'Principal Component Analysis';\newline
+data turtle;\newline
+infile 'E8-4.dat';\newline
+input length width height;\newline
+x1 = log(length); x2 = log(width); x3 = log(height);\newline
+proc princomp cov data = turtle out = result;\newline
+var x1 x2 x3;}
+& \raisebox{-1.4em}{\Huge\}} \mvbold{PROGRAM COMMANDS}
+\end{tabular}
+\end{mvframe}

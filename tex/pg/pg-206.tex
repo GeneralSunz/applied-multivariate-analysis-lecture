@@ -1,0 +1,83 @@
+\[
+\hat{\sigma}_{12}=\frac{(6-6)\times(0-1)+(7-6)\times(2-1)+(5-6)\times(1-1)+(6-6)\times(1-1)}{4}=\frac{1}{4}
+\]
+\[
+\hat{\sigma}_{23}=\frac{3}{4},\quad \hat{\sigma}_{13}=1
+\]
+预测步骤的内容是利用初始估计 $\hat{\boldsymbol{\mu}}$ 与 $\hat{\boldsymbol{\Sigma}}$ 预测缺损值对充分统计量 $\mathbf{T}_{1}$ 与 $\mathbf{T}_{2}$ 的贡献 [见\hyperref[eq:5-38]{式(5-38)} 及\hyperref[eq:5-39]{式(5-39)}].
+
+由于 $\mathbf{x}_{1}$ 的第一个分量缺损, 我们把 $\hat{\boldsymbol{\mu}}$ 与 $\hat{\boldsymbol{\Sigma}}$ 两个矩阵分块, 写成
+\[
+\hat{\boldsymbol{\mu}}=\begin{bmatrix}\hat{\mu}_{1}\\\hat{\mu}_{2}\\\hat{\mu}_{3}\end{bmatrix}
+=\left[\begin{array}{c}
+\hat{\boldsymbol{\mu}}^{(1)}\\\hdashline
+\hat{\boldsymbol{\mu}}^{(2)}
+\end{array}\right],
+\quad
+\hat{\boldsymbol{\Sigma}}=\left[\begin{array}{cc:c}
+\hat{\sigma}_{11}&\hat{\sigma}_{12}&\hat{\sigma}_{13}\\
+\hat{\sigma}_{12}&\hat{\sigma}_{22}&\hat{\sigma}_{23}\\\hdashline
+\hat{\sigma}_{13}&\hat{\sigma}_{23}&\hat{\sigma}_{33}
+\end{array}\right]
+=\left[\begin{array}{c:c}
+\hat{\boldsymbol{\Sigma}}_{11}&\hat{\boldsymbol{\Sigma}}_{12}\\\hdashline
+\hat{\boldsymbol{\Sigma}}_{21}&\hat{\boldsymbol{\Sigma}}_{22}
+\end{array}\right]
+\]
+然后作如下预测:
+\[
+\hat{x}_{11}=\hat{\mu}_{1}+\hat{\boldsymbol{\Sigma}}_{12}\hat{\boldsymbol{\Sigma}}_{22}^{-1}
+\begin{bmatrix}x_{12}-\hat{\mu}_{2}\\x_{13}-\hat{\mu}_{3}\end{bmatrix}
+=6+\begin{bmatrix}\dfrac{1}{4},&1\end{bmatrix}
+\begin{bmatrix}\dfrac{1}{2}&\dfrac{3}{4}\\[2mm]\dfrac{3}{4}&\dfrac{5}{2}\end{bmatrix}^{-1}
+\begin{bmatrix}0-1\\3-4\end{bmatrix}=5.73
+\]
+\[
+\widetilde{x_{11}^{2}}=\hat{\sigma}_{11}-\hat{\boldsymbol{\Sigma}}_{12}\hat{\boldsymbol{\Sigma}}_{22}^{-1}\hat{\boldsymbol{\Sigma}}_{21}+\hat{x}_{11}^{2}
+=\frac{1}{2}-\begin{bmatrix}\dfrac{1}{4},&1\end{bmatrix}
+\begin{bmatrix}\dfrac{1}{2}&\dfrac{3}{4}\\[2mm]\dfrac{3}{4}&\dfrac{5}{2}\end{bmatrix}^{-1}
+\begin{bmatrix}\dfrac{1}{4}\\[2mm]1\end{bmatrix}+5.73^{2}=32.99
+\]
+\[
+\widetilde{x_{11}[x_{12},x_{13}]}=\hat{x}_{11}[x_{12},x_{13}]=5.73\times[0,3]=[0,17.18]
+\]
+对 $\mathbf{x}_{4}$ 的两个缺损分量, 我们将 $\boldsymbol{\mu}$ 与 $\boldsymbol{\Sigma}$ 分块成如下形式:
+\[
+\boldsymbol{\mu}=\begin{bmatrix}\mu_{1}\\\mu_{2}\\\mu_{3}\end{bmatrix}
+=\left[\begin{array}{c}
+\boldsymbol{\mu}^{(1)}\\\hdashline
+\boldsymbol{\mu}^{(2)}
+\end{array}\right],
+\quad
+\boldsymbol{\Sigma}=\left[\begin{array}{cc:c}
+\sigma_{11}&\sigma_{12}&\sigma_{13}\\
+\sigma_{12}&\sigma_{22}&\sigma_{23}\\\hdashline
+\sigma_{13}&\sigma_{23}&\sigma_{33}
+\end{array}\right]
+=\left[\begin{array}{c:c}
+\boldsymbol{\Sigma}_{11}&\boldsymbol{\Sigma}_{12}\\\hdashline
+\boldsymbol{\Sigma}_{21}&\boldsymbol{\Sigma}_{22}
+\end{array}\right]
+\]
+然后预测缺损值对 $\mathbf{T}_{1}$ 的贡献为
+\begin{align*}
+\begin{bmatrix}\hat{x}_{41}\\\hat{x}_{42}\end{bmatrix}
+&=E\left(\begin{bmatrix}X_{41}\\X_{42}\end{bmatrix}\mid x_{43}=5;\boldsymbol{\mu},\boldsymbol{\Sigma}\right)
+=\begin{bmatrix}\mu_{1}\\\mu_{2}\end{bmatrix}+\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(x_{43}-\mu_{3})\\
+&=\begin{bmatrix}6\\1\end{bmatrix}+\begin{bmatrix}\dfrac{1}{4}\\[2mm]\dfrac{3}{4}\end{bmatrix}
+\left(\frac{5}{2}\right)^{-1}(5-4)=\begin{bmatrix}6.4\\1.3\end{bmatrix}
+\end{align*}
+另外从\hyperref[eq:5-39]{式(5-39)} 得出缺损值对 $\mathbf{T}_{2}$ 的贡献为
+\begin{align*}
+\begin{bmatrix}
+\widetilde{x_{41}^{2}}&\widetilde{x_{41}x_{42}}\\[1mm]
+\widetilde{x_{41}x_{42}}&\widetilde{x_{42}^{2}}
+\end{bmatrix}
+&=E\left(\begin{bmatrix}X_{41}^{2}&X_{41}X_{42}\\X_{41}X_{42}&X_{42}^{2}\end{bmatrix}\mid x_{43}=5;\boldsymbol{\mu},\boldsymbol{\Sigma}\right)\\
+&=\begin{bmatrix}\dfrac{1}{2}&\dfrac{1}{4}\\[2mm]\dfrac{1}{4}&\dfrac{1}{2}\end{bmatrix}
+-\begin{bmatrix}\dfrac{1}{4}\\[2mm]\dfrac{3}{4}\end{bmatrix}
+\left(\frac{5}{2}\right)^{-1}
+\begin{bmatrix}\dfrac{1}{4}&\dfrac{3}{4}\end{bmatrix}
++\begin{bmatrix}6.4\\1.3\end{bmatrix}\begin{bmatrix}6.4&1.3\end{bmatrix}\\
+&=\begin{bmatrix}41.06&8.27\\8.27&1.97\end{bmatrix}
+\end{align*}

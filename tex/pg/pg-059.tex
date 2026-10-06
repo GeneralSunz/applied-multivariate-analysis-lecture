@@ -1,0 +1,51 @@
+% ---- pg-059 （书页 47） ----
+\mvbold{例 2.9} （检验特征值和特征向量）
+
+设
+
+\[
+\bm{A} = \begin{bmatrix} 1 & -5 \\ -5 & 1 \end{bmatrix}
+\]
+
+则,因为
+
+\[
+\begin{bmatrix} 1 & -5 \\ -5 & 1 \end{bmatrix}\begin{bmatrix} \dfrac{1}{\sqrt{2}} \\[2mm] -\dfrac{1}{\sqrt{2}} \end{bmatrix} = 6\begin{bmatrix} \dfrac{1}{\sqrt{2}} \\[2mm] -\dfrac{1}{\sqrt{2}} \end{bmatrix}
+\]
+
+所以 $\lambda_1 = 6$ 是一个特征值,且
+
+\[
+\bm{e}_1 = \begin{bmatrix} \dfrac{1}{\sqrt{2}} \\[2mm] -\dfrac{1}{\sqrt{2}} \end{bmatrix}
+\]
+
+是 $\lambda_1$ 对应的标准化特征向量.可以证明还有一对特征值-特征向量是 $\lambda_2 = -4$, $\bm{e}_2' = [1/\sqrt{2}, 1/\sqrt{2}]$.
+
+在补充 2A 中,给出了计算 $\lambda$ 和 $\bm{e}$ 的一种方法.当方阵维数大于 2 或 3 时,通常要依靠计算机计算.可以做几个实例计算来理解该方法,这是有好处的.
+
+\section{正定矩阵}  % 原书 2.3
+\phantomsection\label{sec:2.3}
+
+研究多元数据中的变量及其相互关系时,通常以距离和数据多元正态分布假设为基础.距离的平方(见第 1 章)和多元正态密度可以用称为二次型(见第 4 章)的矩阵乘积来表示.因此,毫不奇怪,在多元分析中二次型起着重要作用.在本节中,我们考虑总是非负的二次型及相关联的正定矩阵.
+
+涉及二次型和对称矩阵的许多结论,在多数情况下,可直接由对称阵的称为谱分解的展开式得出.一个 $k \times k$ 对称阵 $\bm{A}$ 的谱分解由\hyperref[eq:2-16]{式(2-16)}给出.\footnote{式(2-16)的证明超出本书范围.有兴趣的读者可以在第 8 章的文献[6]找到证明方法.}
+
+\phantomsection\label{eq:2-16}
+\begin{equation}
+\begin{array}{llclclclclcl}
+\bm{A} & = & \lambda_1 & \bm{e}_1 & \bm{e}_1' & +\ \lambda_2 & \bm{e}_2 & \bm{e}_2' & +\ \cdots & +\ \lambda_k & \bm{e}_k & \bm{e}_k' \\
+(k \times k) & & & (k \times 1) & (1 \times k) & & (k \times 1) & (1 \times k) & & & (k \times 1) & (1 \times k)
+\end{array} \tag{2-16}
+\end{equation}
+
+其中 $\lambda_1, \lambda_2, \cdots, \lambda_k$ 是 $\bm{A}$ 的特征值,$\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_k$ 是相对应的标准化特征向量(参考补充 2A 中 2A.14 结论).因此有 $\bm{e}_i'\bm{e}_i = 1, i = 1, 2, \cdots, k$,且对 $i \neq j$, $\bm{e}_i'\bm{e}_j = 0$.
+
+\mvbold{例 2.10} （矩阵的谱分解）
+
+考虑对称矩阵
+
+\[
+\bm{A} = \begin{bmatrix} 13 & -4 & 2 \\ -4 & 13 & -2 \\ 2 & -2 & 10 \end{bmatrix}
+\]
+
+从特征方程 $|\bm{A} - \lambda\bm{I}| = 0$ 得到的特征值是 $\lambda_1 = 9$, $\lambda_2 = 9$ 和 $\lambda_3 = 18$(定义 2A.30).对应的特征向量 $\bm{e}_1$, $\bm{e}_2$ 和 $\bm{e}_3$ 是方程 $\bm{A}\bm{e}_i = \lambda_i\bm{e}_i$ $(i = 1, 2, 3)$ 的(标准化)解.因此,由 $\bm{A}\bm{e}_1 = \lambda\bm{e}_1$ 有

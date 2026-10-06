@@ -1,0 +1,55 @@
+当 $n$ 充分大时, 中心极限定理给出 $\hat{\mathbf{p}}$ 的近似抽样分布, 即有
+\[
+\sqrt{n}(\hat{\mathbf{p}}-\mathbf{p})\ \text{近似服从分布}\ N(\mathbf{0},\boldsymbol{\Sigma})
+\]
+其中 $\boldsymbol{\Sigma}$ 的元素为 $\sigma_{kk}=p_k(1-p_k)$, $\sigma_{ik}=-p_ip_k$. 当 $\sigma_{kk}$ 用 $\hat{\sigma}_{kk}=\hat{p}_k(1-\hat{p}_k)$ 来估计, $\sigma_{ik}$ 用 $\hat{\sigma}_{ik}=-\hat{p}_i\hat{p}_k$, $i\ne k$ 来估计时, 正态近似仍有效.
+
+由于每一个体属于且仅属于某一类, 故 $X_{q+1,j}=1-(X_{1j}+X_{2j}+\cdots+X_{qj})$, 从而 $\hat{p}_{q+1}=1-(\hat{p}_1+\hat{p}_2+\cdots+\hat{p}_q)$ 且 $\boldsymbol{\Sigma}$ 的秩为 $q$. 尽管此时 $\boldsymbol{\Sigma}$ 的逆阵不存在, 但我们仍可构造所有线性组合 $\mathbf{a}'\mathbf{p}$ 的 $100(1-\alpha)\%$ 联合置信区间.
+
+\mvthm{结论}{} 设 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 为来自具有 $q+1$ 类的多项分布总体, $P[X_{jk}=1]=p_k$, $k=1,2,\cdots,q+1$, $j=1,2,\cdots,n$, 假如 $n-q$ 充分大, 那么, 对所有线性组合 $\mathbf{a}'\mathbf{p}=a_1p_1+a_2p_2+\cdots+a_{q+1}p_{q+1}$, 其近似的 $100(1-\alpha)\%$ 联合置信区间为
+\[
+\mathbf{a}'\hat{\mathbf{p}}\pm\sqrt{\chi_q^2(\alpha)}\sqrt{\frac{\mathbf{a}'\hat{\boldsymbol{\Sigma}}\mathbf{a}}{n}}
+\]
+其中 $\hat{\mathbf{p}}=(1/n)\sum\limits_{j=1}^{n}\mathbf{X}_j$, 且 $\hat{\boldsymbol{\Sigma}}=(\hat{\sigma}_{ik})$ 是一个 $(q+1)\times(q+1)$ 矩阵, 满足 $\hat{\sigma}_{kk}=\hat{p}_k(1-\hat{p}_k)$ 与 $\hat{\sigma}_{ik}=-\hat{p}_i\hat{p}_k$, $i\ne k$, 而 $\chi_q^2(\alpha)$ 则为自由度为 $q$ 的 $\chi^2$ 分布的上 $100\alpha$ 百分位数. \hfill$\blacksquare$
+
+在此结论中, 要求 $n-q$ 充分大可理解为对每一类有 $n\hat{p}_k\ge20$.
+
+在这里, 我们仅略微涉及分析分类数据的可能性问题, 对这个问题的完整讨论, 读者可从文献[1]与文献[4]中得到.
+
+\noindent 5.15\quad 设 $X_{ji}$ 和 $X_{jk}$ 分别为 $\mathbf{X}_j$ 的第 $i$ 个分量与第 $k$ 个分量.
+
+(a)\ 证明 $\mu_k=E(X_{jk})=p_k$, $\sigma_{kk}=\mathrm{Var}(X_{jk})=p_k(1-p_k)$, $k=1,2,\cdots,p$.
+
+(b)\ 证明 $\sigma_{ik}=\mathrm{Cov}(X_{ji},X_{jk})=-p_ip_k$, $i\ne k$. 并说明此协方差为何必为负值.
+
+\noindent 5.16\quad 作为一个大型市场营销研究项目的一部分, 谢尔伍德银行的一名顾问想知道把银行存款作为主要储蓄手段的储户的比例. 此外, 他还想知道这家银行的三个主要竞争对手(银行 B, C 和 D)的上述储户的比例. 在一项调查中, 每个被调查者回答了下面的问题:
+
+哪家银行是您的主要储蓄银行?
+
+回答
+
+\begin{center}
+\mvfit{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+谢尔伍德银行 & 银行 B & 银行 C & 银行 D & 其他银行 & 没有存款\\
+\hline
+\end{tabular}
+}
+\end{center}
+
+当被问及主要的储蓄银行时, 被调查的 $n=355$ 名有储蓄账户者的回答统计如下(没有存款的在存户比较中被忽略, 故总共只有 5 类):
+
+\begin{center}
+\mvfit{%
+\begin{tabular}{lccccc}
+\toprule
+银行(分类) & 谢尔伍德银行 & 银行 B & 银行 C & 银行 D & 其他银行\\
+\midrule
+考察人数 & 105 & 119 & 56 & 25 & 50\ \ 总人数 $n=355$\\
+总体比例 & $p_1$ & $p_2$ & $p_3$ & $p_4$ & $p_5=1-(p_1+p_2+p_3+p_4)$\\
+样本比例 & $\hat{p}_1=\dfrac{105}{355}=0.30$ & $\hat{p}_2=0.33$ & $\hat{p}_3=0.16$ & $\hat{p}_4=0.07$ & $\hat{p}_5=0.14$\\
+\bottomrule
+\end{tabular}
+}
+\end{center}

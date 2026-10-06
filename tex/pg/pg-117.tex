@@ -1,0 +1,40 @@
+% ---- pg-117 （书页 105） ----
+
+从例 3.7,
+\[
+\mathbf{S}=\begin{bmatrix}252.04&-68.43\\-68.43&123.67\end{bmatrix}
+\]
+且
+
+总样本方差 $=s_{11}+s_{22}=252.04+123.67=375.71$
+
+从例 3.9,
+\[
+\mathbf{S}=\begin{bmatrix}3&-\dfrac{3}{2}&0\\[3pt]-\dfrac{3}{2}&1&\dfrac{1}{2}\\[3pt]0&\dfrac{1}{2}&1\end{bmatrix}
+\]
+且
+
+总样本方差 $=s_{11}+s_{22}+s_{33}=3+1+1=5$\hfill$\blacksquare$
+
+从几何上看, 总样本方差是 $p$ 个偏差向量 $\mathbf{d}_{1}=(\mathbf{y}_{1}-\bar{x}_{1}\mathbf{1}),\cdots,\mathbf{d}_{p}=(\mathbf{y}_{p}-\bar{x}_{p}\mathbf{1})$ 的长度平方之和除以 $n-1$. 总样本方差准则不涉及剩余向量的方向性(相关关系结构). 例如, 它对\hyperref[fig:3.6]{图 3.6}(a)和(b)中剩余向量的两个集合都给定相同的值.
+
+\section{作为矩阵运算的样本均值、协方差与相关系数}  % 原书 3.5
+\phantomsection\label{sec:3.5}
+
+我们已提出了数据矩阵 $\mathbf{X}$ 的几何解释, 并导出了描述性统计量 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$. 而且利用矩阵运算, 把对 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 的计算从代数上与 $\mathbf{X}$ 直接联系起来是可能的. 简明地描述 $\bar{\mathbf{x}}$, $\mathbf{S}$ 以及整个数据 $\mathbf{X}$ 之间关系的表达式, 很容易在电子计算机上编程. 我们有 $\bar{x}_{i}=(x_{1i}\cdot1+x_{2i}\cdot1+\cdots+x_{ni}\cdot1)/n=\mathbf{y}'_{i}\mathbf{1}/n$. 因此
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}\bar{x}_{1}\\\bar{x}_{2}\\\vdots\\\bar{x}_{p}\end{bmatrix}=\begin{bmatrix}\dfrac{\mathbf{y}'_{1}\mathbf{1}}{n}\\\dfrac{\mathbf{y}'_{2}\mathbf{1}}{n}\\\vdots\\\dfrac{\mathbf{y}'_{p}\mathbf{1}}{n}\end{bmatrix}=\frac{1}{n}\begin{bmatrix}x_{11}&x_{12}&\cdots&x_{1n}\\x_{21}&x_{22}&\cdots&x_{2n}\\\vdots&\vdots&\ddots&\vdots\\x_{p1}&x_{p2}&\cdots&x_{pn}\end{bmatrix}\begin{bmatrix}1\\1\\\vdots\\1\end{bmatrix}
+\]
+或
+\phantomsection\label{eq:3-24}
+\begin{equation}
+\bar{\mathbf{x}}=\frac{1}{n}\mathbf{X}'\mathbf{1} \tag{3-24}
+\end{equation}
+即 $\bar{\mathbf{x}}$ 是由转置数据矩阵右乘向量 $\mathbf{1}$ 后, 再乘常数 $1/n$ 而得到的.
+
+接下来, 我们通过转置\hyperref[eq:3-24]{式(3-24)}的两侧并用 $\mathbf{1}$ 左乘, 建立一个 $n\times p$ 均值矩阵, 即
+\phantomsection\label{eq:3-25}
+\begin{equation}
+\mathbf{1}\bar{\mathbf{x}}'=\frac{1}{n}\mathbf{1}\mathbf{1}'\mathbf{X}=\begin{bmatrix}\bar{x}_{1}&\bar{x}_{2}&\cdots&\bar{x}_{p}\\\bar{x}_{1}&\bar{x}_{2}&\cdots&\bar{x}_{p}\\\vdots&\vdots&\ddots&\vdots\\\bar{x}_{1}&\bar{x}_{2}&\cdots&\bar{x}_{p}\end{bmatrix} \tag{3-25}
+\end{equation}
+从 $\mathbf{X}$ 减去这一结果, 产生 $n\times p$ 偏差(剩余)矩阵

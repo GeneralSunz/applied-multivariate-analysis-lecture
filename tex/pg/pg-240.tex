@@ -1,0 +1,43 @@
+\[
+\sum_{j=1}^{n_l}(x_{lj}-\bar{x})^2=n_l(\bar{x}_l-\bar{x})^2+\sum_{j=1}^{n_l}(x_{lj}-\bar{x}_l)^2
+\]
+然后，两边再对 $l$ 求和，可得
+\phantomsection\label{eq:6-35}
+\begin{equation}
+\mvfit{$\displaystyle
+\sum_{l=1}^g\sum_{j=1}^{n_l}(x_{lj}-\bar{x})^2=\sum_{l=1}^g n_l(\bar{x}_l-\bar{x})^2+\sum_{l=1}^g\sum_{j=1}^{n_l}(x_{lj}-\bar{x}_l)^2
+$} \tag{6-35}
+\end{equation}
+\[
+\mathrm{SS}_{\text{总}}=\mathrm{SS}_{\text{组间}}+\mathrm{SS}_{\text{组内}}
+\]
+\[
+(\text{总（修正的）平方和})=(\text{组间平方和})+(\text{组内平方和})
+\]
+即
+\phantomsection\label{eq:6-36}
+\begin{equation}
+\mvfit{$\displaystyle
+\sum_{l=1}^g\sum_{j=1}^{n_l}x_{lj}^2=(n_1+n_2+\cdots+n_g)\bar{x}^2+\sum_{l=1}^g n_l(\bar{x}_l-\bar{x})^2+\sum_{l=1}^g\sum_{j=1}^{n_l}(x_{lj}-\bar{x}_l)^2
+$} \tag{6-36}
+\end{equation}
+\[
+(\mathrm{SS}_{\text{观测}})=(\mathrm{SS}_{\text{均值}})+(\mathrm{SS}_{\text{处理}})+(\mathrm{SS}_{\text{残差}})
+\]
+
+在\hyperref[eq:6-36]{式(6-36)}的推导过程中，我们实际上已证明了均值向量、处理效应向量及残差向量是相互正交的. 也就是说，对任意的观测值向量 $\mathbf{y}'=[x_{11},\cdots,x_{1n_1},x_{21},\cdots,x_{2n_2},\cdots,x_{gn_g}]$，这些数组视作向量的都是正交的. 因此只要利用 $\mathrm{SS}_{\text{残差}}=\mathrm{SS}_{\text{观测}}-\mathrm{SS}_{\text{均值}}-\mathrm{SS}_{\text{处理}}$，不用计算单个残差便得到 $\mathrm{SS}_{\text{残差}}$. 但这种方法并不经济，因为由单个残差构成的残差图实际上可为模型中的假定提供检验.
+
+包含在分解\hyperref[eq:6-34]{式(6-34)}中的数组的向量表示具有能提供自由度的几何解释. 对任一观测值集，令 $\mathbf{y}'=[x_{11},\cdots,x_{1n_1},x_{21},\cdots,x_{2n_2},\cdots,x_{gn_g}]$. 观测值向量 $\mathbf{y}$ 可以在 $n=n_1+n_2+\cdots+n_g$ 维空间的任何地方，均值向量 $\bar{x}\mathbf{1}=[\bar{x},\cdots,\bar{x}]'$ 必定处在 $\mathbf{1}$ 的等角线上，而处理效应向量
+\[
+(\bar{x}_1-\bar{x})\left.\begin{bmatrix}1\\\vdots\\1\\0\\\vdots\\0\\0\\\vdots\\0\end{bmatrix}\right\}n_1
++(\bar{x}_2-\bar{x})\left.\begin{bmatrix}0\\\vdots\\0\\1\\\vdots\\1\\0\\\vdots\\0\end{bmatrix}\right\}n_2
++\cdots+(\bar{x}_g-\bar{x})\left.\begin{bmatrix}0\\\vdots\\0\\0\\\vdots\\0\\1\\\vdots\\1\end{bmatrix}\right\}n_g
+\]
+\[
+=(\bar{x}_1-\bar{x})\mathbf{u}_1+(\bar{x}_2-\bar{x})\mathbf{u}_2+\cdots+(\bar{x}_g-\bar{x})\mathbf{u}_g
+\]
+则位于 $g$ 个向量 $\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_g$ 的线性组合所张成的超平面中. 又因 $\mathbf{1}=\mathbf{u}_1+\mathbf{u}_2+\cdots+\mathbf{u}_g$，故均值向量也位于这个超平面中，而且总与处理效应向量垂直（见练习 6.10）. 因此，均值向量可在 1 维空间中变化，而处理效应向量则在一个 $g-1$ 维空间中变化. 残差向量 $\hat{\mathbf{e}}=\mathbf{y}-(\bar{x}\mathbf{1})-[(\bar{x}_1-\bar{x})\mathbf{u}_1+\cdots+(\bar{x}_g-\bar{x})\mathbf{u}_g]$ 与均值向量及处理效应向量均垂直，所以只能在与它们的超平面垂直的 $n-(g-1)-1=n-g$ 维子空间中变化.
+
+概括地说，$\mathrm{SS}_{\text{组间}}$、$\mathrm{SS}_{\text{处理}}$ 和 $\mathrm{SS}_{\text{残差}}$ 的自由度分别为 $1,g-1$ 和 $n-g=(n_1+n_2+\cdots+n_g)-g$. 总自由度为 $n=n_1+n_2+\cdots+n_g$. 另外，根据一元分布理论，我们发现这些自由度正是各平方和所对应的 $\chi^2$ 分布的自由度.
+
+平方和的计算以及相应的自由度可方便地用 ANOVA 表来表示.

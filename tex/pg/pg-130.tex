@@ -1,0 +1,45 @@
+\[
+\mathbf{x}'\boldsymbol{\Sigma}^{-1}\mathbf{x}=\mathbf{x}'\left(\sum_{i=1}^{p}\left(\frac{1}{\lambda_i}\right)\mathbf{e}_i\mathbf{e}_i'\right)\mathbf{x}
+=\sum_{i=1}^{p}\left(\frac{1}{\lambda_i}\right)(\mathbf{x}'\mathbf{e}_i)^{2}\geqslant 0
+\]
+而且,对所有 $i$,仅当 $\mathbf{x}=\mathbf{0}$ 时,$\mathbf{x}'\mathbf{e}_i=0$. 因此,$\mathbf{x}\neq\mathbf{0}$ 意味着 $\sum_{i=1}^{p}(1/\lambda_i)(\mathbf{x}'\mathbf{e}_i)^{2}>0$,由此得出 $\boldsymbol{\Sigma}^{-1}$ 是正定的.\hfill$\blacksquare$
+
+这些概念可总结如下:
+
+\begin{mvbox}
+对 $p$ 维正态分布,常数密度的轮廓线是由 $\mathbf{x}$ 所确定的椭球面,满足
+\phantomsection\label{eq:4-7}
+\begin{equation}
+(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})=c^{2}
+\tag{4-7}
+\end{equation}
+这些椭球面的中心在 $\boldsymbol{\mu}$ 且轴为 $\pm c\sqrt{\lambda_i}\mathbf{e}_i$,其中 $\boldsymbol{\Sigma}\mathbf{e}_i=\lambda_i\mathbf{e}_i$,对 $i=1,2,\cdots,p$.
+\end{mvbox}
+
+对 $\sigma_{11}=\sigma_{22}$ 的二元正态分布,下例求出常数密度的轮廓线.
+
+\noindent\textbf{例 4.2}\quad (二元正态密度的轮廓线)
+
+对二元正态分布,当 $\sigma_{11}=\sigma_{22}$ 时,我们将得到常数概率密度轮廓线的轴. 从\hyperref[eq:4-7]{式(4-7)},这些轴由 $\boldsymbol{\Sigma}$ 的特征值和特征向量给出. 这里 $|\boldsymbol{\Sigma}-\lambda\mathbf{I}|=0$ 变为
+\begin{align*}
+0&=\begin{vmatrix}\sigma_{11}-\lambda&\sigma_{12}\\\sigma_{12}&\sigma_{11}-\lambda\end{vmatrix}=(\sigma_{11}-\lambda)^{2}-\sigma_{12}^{2}\\
+&=(\lambda-\sigma_{11}-\sigma_{12})(\lambda-\sigma_{11}+\sigma_{12})
+\end{align*}
+因此,特征值是 $\lambda_1=\sigma_{11}+\sigma_{12}$ 和 $\lambda_2=\sigma_{11}-\sigma_{12}$. 特征向量 $\mathbf{e}_1$ 是由
+\[
+\begin{bmatrix}\sigma_{11}&\sigma_{12}\\\sigma_{12}&\sigma_{11}\end{bmatrix}\begin{bmatrix}e_1\\e_2\end{bmatrix}=(\sigma_{11}+\sigma_{12})\begin{bmatrix}e_1\\e_2\end{bmatrix}
+\]
+或
+\begin{align*}
+\sigma_{11}e_1+\sigma_{12}e_2&=(\sigma_{11}+\sigma_{12})e_1\\
+\sigma_{12}e_1+\sigma_{11}e_2&=(\sigma_{11}+\sigma_{12})e_2
+\end{align*}
+确定的. 这些等式意味着 $e_1=e_2$. 在标准化之后,第一对特征值-特征向量为
+\[
+\lambda_1=\sigma_{11}+\sigma_{12},\qquad \mathbf{e}_1=\begin{bmatrix}\dfrac{1}{\sqrt{2}}\\[2ex]\dfrac{1}{\sqrt{2}}\end{bmatrix}
+\]
+同样的,$\lambda_2=\sigma_{11}-\sigma_{12}$ 得出特征向量 $\mathbf{e}_2'=[1/\sqrt{2},-1/\sqrt{2}]$.
+
+当协方差 $\sigma_{12}$(或相关系数 $\rho_{12}$)为正时,$\lambda_1=\sigma_{11}+\sigma_{12}$ 是最大特征值,它对应的特征向量 $\mathbf{e}_1'=[1/\sqrt{2},1/\sqrt{2}]$ 位于通过点 $\boldsymbol{\mu}'=[\mu_1,\mu_2]$ 的 $45^\circ$ 线上. 这对于协方差(相关系数)的任何正值都是正确的. 由于常数密度椭圆的轴是由 $\pm c\sqrt{\lambda_1}\mathbf{e}_1$ 和 $\pm c\sqrt{\lambda_2}\mathbf{e}_2$(参见\hyperref[eq:4-7]{式(4-7)})给出,且每个特征向量为单位长度,长轴将对应最大的特征值. 对于正相关正态随机变量,则常数密度椭圆的长轴是在通过 $\boldsymbol{\mu}$ 点的 $45^\circ$ 线上(参见\hyperref[fig:4.3]{图 4.3}). 当协方差(相关系数)是负值时,$\lambda_2=\sigma_{11}-\sigma_{12}$ 是最大的特征值,且常数密度椭圆的长轴在与过 $\boldsymbol{\mu}$ 点的 $45^\circ$ 线相垂直的线上(这些结论仅对 $\sigma_{11}=\sigma_{22}$ 是正确的).
+
+总之,对于 $\sigma_{11}=\sigma_{22}$ 的二元正态分布,常数密度椭圆的轴由下式确定

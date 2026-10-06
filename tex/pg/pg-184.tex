@@ -1,0 +1,54 @@
+% ---- pg-184 ----
+\[
+|t|=\left|\frac{\sqrt{n}(\mathbf{a}'\bar{\mathbf{x}}-\mathbf{a}'\boldsymbol{\mu})}{\sqrt{\mathbf{a}'\mathbf{S}\mathbf{a}}}\right|\le t_{n-1}(\alpha/2)
+\]
+
+的 $\mathbf{a}'\boldsymbol{\mu}$ 值的集合, 或者说是满足
+\phantomsection\label{eq:5-22}
+\begin{equation}
+t^{2}=\frac{n(\mathbf{a}'\bar{\mathbf{x}}-\mathbf{a}'\boldsymbol{\mu})^{2}}{\mathbf{a}'\mathbf{S}\mathbf{a}}=\frac{n(\mathbf{a}'(\bar{\mathbf{x}}-\boldsymbol{\mu}))^{2}}{\mathbf{a}'\mathbf{S}\mathbf{a}}\le t_{n-1}^{2}(\alpha/2) \tag{5-22}
+\end{equation}
+
+的 $\mathbf{a}'\boldsymbol{\mu}$ 值的集合. 让 $\mathbf{a}$ 变化, 我们可以通过使 $t^{2}$ 相对较小的 $\mathbf{a}'\boldsymbol{\mu}$ 值的集合来确定联合置信域. 在通过对 $\mathbf{a}$ 的许多选择来得到相应的置信域表示时, 将\hyperref[eq:5-22]{式(5-22)}中的常数 $t_{n-1}^{2}(\alpha/2)$ 以较大的 $c^{2}$ 值代替似乎是合理的.
+
+现考虑满足 $t^{2}\le c^{2}$ 的 $\mathbf{a}$ 值, 我们的目标自然是要求最大值
+\[
+\max_{\mathbf{a}} t^{2}=\max_{\mathbf{a}}\frac{n(\mathbf{a}'(\bar{\mathbf{x}}-\boldsymbol{\mu}))^{2}}{\mathbf{a}'\mathbf{S}\mathbf{a}}
+\]
+
+在最大化引理(2-50)中, 令 $\mathbf{x}=\mathbf{a}, d=(\bar{\mathbf{x}}-\boldsymbol{\mu})$, 及 $\mathbf{B}=\mathbf{S}$, 就有
+\phantomsection\label{eq:5-23}
+\begin{equation}
+\max_{\mathbf{a}}\frac{n(\mathbf{a}'(\bar{\mathbf{x}}-\boldsymbol{\mu}))^{2}}{\mathbf{a}'\mathbf{S}\mathbf{a}}=n\left[\max_{\mathbf{a}}\frac{(\mathbf{a}'(\bar{\mathbf{x}}-\boldsymbol{\mu}))^{2}}{\mathbf{a}'\mathbf{S}\mathbf{a}}\right]=n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})=T^{2} \tag{5-23}
+\end{equation}
+
+最大值在 $\mathbf{a}$ 与 $\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})$ 成比例时达到.
+
+\mvthm{结论 5.3}{设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 为来自总体 $N_{p}(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 的随机样本, 且 $\boldsymbol{\Sigma}$ 为正定阵, 则对所有 $\mathbf{a}$, 区间
+\[
+\left(\mathbf{a}'\bar{\mathbf{X}}-\sqrt{\frac{p(n-1)}{n(n-p)}F_{p,n-p}(\alpha)\mathbf{a}'\mathbf{S}\mathbf{a}},\ \mathbf{a}'\bar{\mathbf{X}}+\sqrt{\frac{p(n-1)}{n(n-p)}F_{p,n-p}(\alpha)\mathbf{a}'\mathbf{S}\mathbf{a}}\right)
+\]
+以概率 $1-\alpha$ 包含 $\mathbf{a}'\boldsymbol{\mu}$.}
+
+证明\quad 由\hyperref[eq:5-23]{式(5-23)}, $T^{2}=n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})\le c^{2}$ 意味着对所有 $\mathbf{a}$ 有 $\dfrac{n(\mathbf{a}'\bar{\mathbf{x}}-\mathbf{a}'\boldsymbol{\mu})^{2}}{\mathbf{a}'\mathbf{S}\mathbf{a}}\le c^{2}$, 即对所有 $\mathbf{a}$ 有
+\[
+\mathbf{a}'\bar{\mathbf{x}}-c\sqrt{\frac{\mathbf{a}'\mathbf{S}\mathbf{a}}{n}}\le \mathbf{a}'\boldsymbol{\mu}\le \mathbf{a}'\bar{\mathbf{x}}+c\sqrt{\frac{\mathbf{a}'\mathbf{S}\mathbf{a}}{n}}
+\]
+
+取 $c^{2}=p(n-1)F_{p,n-p}(\alpha)/(n-p)$ [见\hyperref[eq:5-6]{式(5-6)}], 故对所有 $\mathbf{a}$, 结论中的区间以概率 $1-\alpha=P[T^{2}\le c^{2}]$ 包含 $\mathbf{a}'\boldsymbol{\mu}$.\hfill$\blacksquare$
+
+由于置信概率由 $T^{2}$ 分布确定, 因此为方便起见, 今后我们称结论 5.3 的联合置信区间为 $T^{2}$ 区间. 在 $T^{2}$ 区间中依次选取 $\mathbf{a}'=[1,0,\cdots,0], \mathbf{a}'=[0,1,\cdots,0], \cdots, \mathbf{a}'=[0,0,\cdots,1]$. 我们便得出下列诸式以置信系数 $1-\alpha$ 同时成立的结论:
+\phantomsection\label{eq:5-24}
+\begin{equation}
+\begin{aligned}
+\bar{x}_{1}-\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{11}}{n}}\ &\le\ \mu_{1}\ \le\ \bar{x}_{1}+\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{11}}{n}}\\
+\bar{x}_{2}-\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{22}}{n}}\ &\le\ \mu_{2}\ \le\ \bar{x}_{2}+\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{22}}{n}}\\
+&\qquad\qquad\qquad\vdots\qquad\qquad\qquad\qquad\vdots\\
+\bar{x}_{p}-\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{pp}}{n}}\ &\le\ \mu_{p}\ \le\ \bar{x}_{p}+\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{pp}}{n}}
+\end{aligned} \tag{5-24}
+\end{equation}
+
+注意, 若取 $\mathbf{a}'=[0,\cdots,0,a_{i},0,\cdots,0,a_{k},0,\cdots,0]$, $a_{i}=1$ 且 $a_{k}=-1$, 则可得到差值 $\mu_{i}-\mu_{k}$ 的置信系数为 $1-\alpha$ 的置信区间, 此时 $\mathbf{a}'\mathbf{S}\mathbf{a}=s_{ii}-2s_{ik}+s_{kk}$, 故其置信区间为
+\[
+\bar{x}_{i}-\bar{x}_{k}-\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{ii}-2s_{ik}+s_{kk}}{n}}\le \mu_{i}-\mu_{k}
+\]

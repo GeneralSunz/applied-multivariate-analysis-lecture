@@ -1,0 +1,115 @@
+% ---- pg-591 （书页 579） ----
+
+\begin{mvfigure}
+\begin{minipage}[t]{0.47\linewidth}\centering
+\begin{tikzpicture}[x=0.55cm,y=9cm,font=\zihao{6}]
+% ---- 边框与网格 ----
+\draw (1,1.0) rectangle (10,1.4);
+\foreach \x in {1,2,...,10} \draw[gray!55,very thin] (\x,1.0) -- (\x,1.4);
+\foreach \y in {1.1,1.2,1.3} \draw[gray!55,very thin] (1,\y) -- (10,\y);
+% ---- 基准 ----
+\draw[line width=3.2pt,gray!55] (1,1.008) -- (10,1.008);
+% ---- 回归 ----
+\draw[line width=3.2pt,gray!55] (1,1.33) -- (2,1.33) -- (3,1.29) -- (4,1.26) -- (5,1.23) -- (6,1.20) -- (7,1.16) -- (8,1.12) -- (9,1.08) -- (10,1.02);
+\draw[line width=0.4pt] (1,1.33) -- (2,1.33) -- (3,1.29) -- (4,1.26) -- (5,1.23) -- (6,1.20) -- (7,1.16) -- (8,1.12) -- (9,1.08) -- (10,1.02);
+% ---- 刻度 ----
+\node[left,inner sep=1.5pt] at (1,1.0) {1};
+\node[left,inner sep=1.5pt] at (1,1.1) {1.1};
+\node[left,inner sep=1.5pt] at (1,1.2) {1.2};
+\node[left,inner sep=1.5pt] at (1,1.3) {1.3};
+\node[left,inner sep=1.5pt] at (1,1.4) {1.4};
+\foreach \x/\l in {1/10,2/20,3/30,4/40,5/50,6/60,7/70,8/80,9/90,10/100}
+  \node[below,inner sep=1.5pt] at (\x,1.0) {\l};
+\node[below=11pt,inner sep=0pt] at (5.5,1.0) {百分位数};
+\node[rotate=90,inner sep=0pt] at (0.35,1.2) {提升值};
+\end{tikzpicture}
+
+\par\vspace{8pt}
+\begin{tikzpicture}[font=\zihao{6}]
+\draw (0,0) rectangle (4.9,0.78);
+\node[fill=white,inner sep=1.5pt,anchor=west] at (0.18,0.78) {工具名称};
+\fill[gray!55] (0.40,0.24) rectangle (0.68,0.50); \draw (0.40,0.24) rectangle (0.68,0.50);
+\node[right,inner sep=3pt] at (0.68,0.37) {基准};
+\fill[gray!55] (2.55,0.24) rectangle (2.83,0.50); \draw (2.55,0.24) rectangle (2.83,0.50);
+\node[right,inner sep=3pt] at (2.83,0.37) {回归};
+\end{tikzpicture}
+\phantomsection\label{fig:12.31}\mvcap{图 12.31\quad 逻辑斯蒂回归的累计提升图}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\linewidth}\centering
+\begin{tikzpicture}[x=0.55cm,y=9cm,font=\zihao{6}]
+% ---- 边框与网格 ----
+\draw (1,1.0) rectangle (10,1.4);
+\foreach \x in {1,2,...,10} \draw[gray!55,very thin] (\x,1.0) -- (\x,1.4);
+\foreach \y in {1.1,1.2,1.3} \draw[gray!55,very thin] (1,\y) -- (10,\y);
+% ---- 基准 ----
+\draw[line width=3.2pt,gray!55] (1,1.008) -- (10,1.008);
+% ---- 神经网络 ----
+\draw[line width=3.2pt,gray!55] (1,1.365) -- (2,1.345) -- (3,1.305) -- (4,1.285) -- (5,1.255) -- (6,1.220) -- (7,1.180) -- (8,1.135) -- (9,1.080) -- (10,1.025);
+\draw[line width=0.4pt] (1,1.365) -- (2,1.345) -- (3,1.305) -- (4,1.285) -- (5,1.255) -- (6,1.220) -- (7,1.180) -- (8,1.135) -- (9,1.080) -- (10,1.025);
+% ---- 回归 ----
+\draw[line width=3.2pt,gray!55] (1,1.325) -- (2,1.325) -- (3,1.290) -- (4,1.260) -- (5,1.235) -- (6,1.205) -- (7,1.170) -- (8,1.125) -- (9,1.070) -- (10,1.020);
+\draw[line width=0.4pt] (1,1.325) -- (2,1.325) -- (3,1.290) -- (4,1.260) -- (5,1.235) -- (6,1.205) -- (7,1.170) -- (8,1.125) -- (9,1.070) -- (10,1.020);
+% ---- 分类树 ----
+\draw[line width=0.5pt] (1,1.325) -- (2,1.325) -- (3,1.275) -- (4,1.215) -- (5,1.150) -- (6,1.100) -- (7,1.065) -- (8,1.040) -- (9,1.020) -- (10,1.005);
+\draw[line width=0.5pt] (1,1.285) -- (2,1.285) -- (3,1.278) -- (4,1.245) -- (5,1.215) -- (6,1.170) -- (7,1.125) -- (8,1.075) -- (9,1.030) -- (10,1.005);
+% ---- 刻度 ----
+\node[left,inner sep=1.5pt] at (1,1.0) {1};
+\node[left,inner sep=1.5pt] at (1,1.1) {1.1};
+\node[left,inner sep=1.5pt] at (1,1.2) {1.2};
+\node[left,inner sep=1.5pt] at (1,1.3) {1.3};
+\node[left,inner sep=1.5pt] at (1,1.4) {1.4};
+\foreach \x/\l in {1/10,2/20,3/30,4/40,5/50,6/60,7/70,8/80,9/90,10/100}
+  \node[below,inner sep=1.5pt] at (\x,1.0) {\l};
+\node[below=11pt,inner sep=0pt] at (5.5,1.0) {百分位数};
+\node[rotate=90,inner sep=0pt] at (0.35,1.2) {提升值};
+\end{tikzpicture}
+
+\par\vspace{8pt}
+\begin{tikzpicture}[font=\zihao{6}]
+\draw (0,0) rectangle (6.6,0.78);
+\node[fill=white,inner sep=1.5pt,anchor=west] at (0.18,0.78) {工具名称};
+\fill[gray!55] (0.35,0.24) rectangle (0.63,0.50); \draw (0.35,0.24) rectangle (0.63,0.50);
+\node[right,inner sep=3pt] at (0.63,0.37) {基准};
+\fill[gray!75] (1.75,0.24) rectangle (2.03,0.50); \draw (1.75,0.24) rectangle (2.03,0.50);
+\node[right,inner sep=3pt] at (2.03,0.37) {神经网络};
+\draw[fill=white] (3.75,0.24) rectangle (4.03,0.50);
+\node[right,inner sep=3pt] at (4.03,0.37) {分类树};
+\fill[gray!55] (5.25,0.24) rectangle (5.53,0.50); \draw (5.25,0.24) rectangle (5.53,0.50);
+\node[right,inner sep=3pt] at (5.53,0.37) {回归};
+\end{tikzpicture}
+\phantomsection\label{fig:12.32}\mvcap{图 12.32\quad 三种工具的累计提升图}
+\end{minipage}
+\end{mvfigure}
+
+从\hyperref[fig:12.32]{图 12.32} 中我们可看到神经网络与逻辑斯蒂回归有非常相似的预测功效, 并且比分类数好(在此案例中). 分类树方法的效果优于随机指派. 如果建模和评模到此为止, 则此时应选择一个模型(比如说神经网络), 给新的申请人集(无信用风险指派)打分并分为“低”(接受)或“高”(拒绝).
+
+在\hyperref[fig:12.30]{图 12.30} 的决策流程图中, SAMPS10. DMAGESCR 文件包含 75 个新申请人的数据. 用神经网络, 对这些新申请人打分得到了期望成本. 在这 75 个新申请人中, 有 33 个分类为低信用风险(有负期望成本).\hfill$\blacksquare$
+
+数据挖掘的程序和软件还在改进, 难以预测未来的发展方向究竟如何. 具有代表性的发展方向是将数据挖掘功能嵌入数据库中, 如 SQL Server 2005.
+
+\mvsub{练习}
+
+\noindent 12.1\quad \hyperref[tab:12.11]{表 12.11} 列出一些与最近的几位美国总统相联系的特征.
+
+\noindent (a) 引进适当的二值变量, 对各对总统计算\hyperref[tab:12.1]{表 12.1} 中的相似性系数 1.
+
+提示: 可以将出生地定义为南方和非南方.
+
+\noindent (b) 按 (a) 中的方式继续计算\hyperref[tab:12.1]{表 12.1} 中的相似性系数 2 和 3. 通过将每个系数的 15 个相似性数据排序的方式来验证这三种系数的单调性关系.
+
+\begin{mvtable}
+\phantomsection\label{tab:12.11}\mvtabcap{表 12.11}
+\setlength{\tabcolsep}{9pt}%
+\begin{tabular}{lccccc}
+\toprule
+\textbf{总统} & \textbf{出生地} & \textbf{第一任为选出?} & \textbf{党派} & \textbf{有无议会经历?} & \textbf{曾否任副总统?} \\
+\midrule
+1. 里根 & 中西部 & 是 & 共和党 & 无 & 无 \\
+2. 卡特 & 南方 & 是 & 民主党 & 无 & 无 \\
+3. 福特 & 中西部 & 否 & 共和党 & 有 & 有 \\
+4. 尼克松 & 西部 & 是 & 共和党 & 有 & 有 \\
+5. 约翰逊 & 南方 & 否 & 民主党 & 有 & 有 \\
+6. 肯尼迪 & 东部 & 是 & 民主党 & 有 & 无 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

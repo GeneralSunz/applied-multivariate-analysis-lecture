@@ -1,0 +1,87 @@
+% ---- pg-340 （书页 328） ----
+
+\noindent 7.12\quad 给定 $Y,Z_1$ 和 $Z_2$ 的均值向量和协方差阵
+\[
+\boldsymbol{\mu}=\left[\begin{array}{c}
+\mu_Y\\ \hdashline
+\boldsymbol{\mu}_{\mathbf{Z}}
+\end{array}\right]
+=\left[\begin{array}{c}
+4\\ \hdashline
+3\\
+-2
+\end{array}\right]
+\qquad
+\boldsymbol{\Sigma}=\left[\begin{array}{c:c}
+\sigma_{YY}&\boldsymbol{\sigma}_{\mathbf{Z}Y}'\\ \hdashline
+\boldsymbol{\sigma}_{\mathbf{Z}Y}&\boldsymbol{\Sigma}_{\mathbf{Z}\mathbf{Z}}
+\end{array}\right]
+=\left[\begin{array}{c:cc}
+9&3&1\\ \hdashline
+3&2&1\\
+1&1&1
+\end{array}\right]
+\]
+确定下列诸量:
+
+\noindent (a) $Y$ 的最佳线性预测量 $\beta_0+\beta_1Z_1+\beta_2Z_2$.
+
+\noindent (b) 该最佳线性预测量的均方误差.
+
+\noindent (c) 总体多重相关系数.
+
+\noindent (d) 偏相关系数 $\rho_{YZ_1\cdot Z_2}$.
+
+\medskip
+\noindent 7.13\quad 例 5.5 中大学生考试成绩的样本均值和样本协方差阵为
+\[
+\bar{\mathbf{z}}=\begin{bmatrix}\bar{z}_1\\ \bar{z}_2\\ \bar{z}_3\end{bmatrix}
+=\begin{bmatrix}527.74\\ 54.69\\ 25.13\end{bmatrix},
+\qquad
+\mathbf{S}=\begin{bmatrix}5\,691.34&&\\ 600.51&126.05&\\ 217.25&23.37&23.11\end{bmatrix}
+\]
+假定存在联合正态性.
+
+\noindent (a) 对于由 $Z_2$ 和 $Z_3$ 预测 $Z_1$ 的参数, 求其极大似然估计值.
+
+\noindent (b) 计算估计的多重相关系数 $R_{Z_1(Z_2,Z_3)}$.
+
+\noindent (c) 计算估计的偏相关系数 $R_{Z_1Z_2\cdot Z_3}$.
+
+\medskip
+\noindent 7.14\quad 对 25 名组合投资管理人员的经营水平进行了评估. 设 $Y$ 代表某一期内的回报率; $Z_1$ 为管理人员对风险的态度, 由“非常保守”到“非常冒险”的五级制量度; $Z_2$ 为从事投资业年限. 观测到的各对变量之间的相关系数为
+\[
+\mathbf{R}=\begin{array}{c}
+\begin{matrix}\hspace{0.4em}Y&\hspace{1.4em}Z_1&\hspace{1.4em}Z_2\end{matrix}\\[-4pt]
+\begin{bmatrix}1.0&-0.35&0.82\\ -0.35&1.0&-0.60\\ 0.82&-0.60&1.0\end{bmatrix}
+\end{array}
+\]
+
+\noindent (a) 解释样本相关系数 $r_{YZ_1}=-0.35$ 及 $r_{YZ_2}=-0.82$.
+
+\noindent (b) 计算偏相关系数 $r_{YZ_1\cdot Z_2}$ 并作出解释, 将它与 (a) 中 $r_{YZ_1}$ 的解释作比较.
+
+\medskip
+\noindent\textbf{下面的练习需要使用计算机.}
+
+\noindent 7.15\quad 利用\hyperref[tab:7.1]{表 7.1} 中的房地产数据及例 7.4 中的线性回归模型,
+
+\noindent (a) 验证例 7.4 中的结果.
+
+\noindent (b) 分析残差, 检查模型的合适性(见 7.6 节).
+
+\noindent (c) 当总居住面积 $z_1=17$ 和评估价值 $z_2=46$ 时求销售价 $(Y_0)$ 的 95\% 预测区间.
+
+\noindent (d) 对假设 $H_0:\beta_2=0$, 作显著性水平 $\alpha=0.05$ 的似然比检验. 原来的模型是否需要修改? 请讨论.
+
+\medskip
+\noindent 7.16\quad 对\hyperref[tab:7.1]{表 7.1} 中房地产数据可能的线性回归模型计算相应的 $C_p$ 图.
+
+\medskip
+\noindent 7.17\quad 考虑练习 1.4 中的《福布斯》数据.
+
+\noindent (a) 对这组数据拟合线性回归模型, 用利润作因变量, 而销售额和资产总额作为自变量.
+
+\noindent (b) 分析残差, 检查模型的合适性. 计算与各数据点相联系的杠杆率. 在这些公司中, 是否有一个(或多个)在自变量集合的数据点中表现为离群值?
+
+\noindent (c) 在销售额为 1\,000 亿美元及资产总额为 5\,000 亿美元时, 求利润的 95\% 预测区间.

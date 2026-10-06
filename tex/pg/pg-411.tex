@@ -1,0 +1,46 @@
+% ---- pg-411 （书页 399） ----
+
+\subsection*{斜交旋转}
+
+正交旋转适合于公共因子假定是相互独立的因子模型. 除正交旋转外, 许多研究社会科学的人也考虑斜交(非正交)旋转. 后者常常是在人们仔细观察因子载荷估计之后而建议采用的, 并且不遵循我们先前的假定的模型. 不过, 在因子分析中, 斜交旋转经常是有用的助手.
+
+如果我们把 $m$ 个公共因子看作坐标轴, 有 $m$ 个坐标 $(\hat{l}_{i1},\hat{l}_{i2},\cdots,\hat{l}_{im})$ 的点代表在\mvbold{因子空间}中第 $i$ 个变量的位置. 假定把变量分成没有重叠的簇, 旋转到一个简单结构的正交旋转, 就与坐标轴的刚性旋转是对应的, 它使得这些坐标轴在旋转之后尽可能近地通过这些簇. 而旋转到简单结构的斜交旋转, 则对应于一个非刚性的旋转坐标系, 使得旋转后的坐标轴不再垂直, 但(近似地)通过这些簇. 斜交旋转寻求用最少数量的因子——最好是单一因子——去表达各个变量. 有些资料(例如见文献[6]或[10])讨论斜交旋转, 本书将不再多述.
+
+\section{因子得分}
+\phantomsection\label{sec:9.5}
+
+因子分析中, 感兴趣的通常是因子模型的参数. 然而, 公共因子的估计值, 称为\mvbold{因子得分}, 也是我们需要的. 这些量可作为随后分析的输入值, 也常常用于寻找特征.
+
+因子得分不是在通常意义下对未知参数的估计, 相反的, 它们是对不能观测的随机因子向量 $\mathbf{F}_j$ 的值的估计, $j=1,2,\cdots,n$. 也即, 因子得分
+\[
+\hat{f}_j=\text{由 } \mathbf{F}_j(\text{第 } j \text{ 种情况})\text{ 达到的 } f_j \text{ 的估计值}
+\]
+由于不能观测的量 $\mathbf{f}_j$ 和 $\boldsymbol{\varepsilon}_j$ 在数目上超过被观测的量 $\mathbf{x}_j$, 因此想要作出估计是复杂的. 为克服这一困难, 对估计因子值问题, 一些颇具启发性且又合理的方法已经取得进展. 我们描述其中的两个方法.
+
+两种因子得分方法都有两个共同的要素:
+
+\noindent 1.\quad 它们把估计的因子载荷 $\hat{l}_{ij}$ 和特殊方差 $\hat{\psi}_i$ 当作真值处理.
+
+\noindent 2.\quad 它们涉及原始数据的线性变换, 可能是作中心化或标准化.
+
+通常, 不用原始的载荷估计而是用旋转后的载荷估计来计算因子得分. 本节所给的计算公式, 在旋转载荷代替未旋转载荷时, 是不变的. 所以, 我们将在它们之间不作区分.
+
+\subsection*{加权最小二乘法}
+
+首先假设对于因子模型
+\[
+\underset{(p\times 1)}{\mathbf{X}-\boldsymbol{\mu}}=\underset{(p\times m)}{\mathbf{L}}\ \underset{(m\times 1)}{\mathbf{F}}+\underset{(p\times 1)}{\boldsymbol{\varepsilon}}
+\]
+均值向量 $\boldsymbol{\mu}$, 因子载荷阵 $\mathbf{L}$ 以及特殊方差阵 $\boldsymbol{\Psi}$ 都是已知的. 进而认为特殊因子 $\boldsymbol{\varepsilon}'=[\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_p]$ 是误差. 既然 $\mathrm{Var}(\varepsilon_i)=\psi_i$, $(i=1,2,\cdots,p)$ 不必彼此相等, 巴特利特(见文献[3])已建议用加权最小二乘估计公共因子的值.
+
+用误差的方差的倒数作权系数, 其误差平方的加权和是
+\phantomsection\label{eq:9-47}
+\begin{equation}
+\sum_{i=1}^{p}\frac{\varepsilon_i^2}{\psi_i}=\boldsymbol{\varepsilon}'\boldsymbol{\Psi}^{-1}\boldsymbol{\varepsilon}=(\mathbf{x}-\boldsymbol{\mu}-\mathbf{L}\mathbf{f})'\boldsymbol{\Psi}^{-1}(\mathbf{x}-\boldsymbol{\mu}-\mathbf{L}\mathbf{f}) \tag{9-47}
+\end{equation}
+巴特利特建议, 选 $\mathbf{f}$ 的估计值 $\hat{\mathbf{f}}$ 以使\hyperref[eq:9-47]{式(9-47)}最小化. 解(见练习 7.3)为
+\phantomsection\label{eq:9-48}
+\begin{equation}
+\hat{\mathbf{f}}=(\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})^{-1}\mathbf{L}'\boldsymbol{\Psi}^{-1}(\mathbf{x}-\boldsymbol{\mu}) \tag{9-48}
+\end{equation}
+在\hyperref[eq:9-48]{式(9-48)}的推动下, 我们取估计值 $\hat{\mathbf{L}}$, $\hat{\boldsymbol{\Psi}}$ 和 $\hat{\boldsymbol{\mu}}=\bar{\mathbf{x}}$ 作为真值, 并且得到对第 $j$ 种情形的因子得

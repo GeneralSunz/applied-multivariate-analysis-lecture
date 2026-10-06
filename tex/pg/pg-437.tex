@@ -1,0 +1,64 @@
+% ---- pg-437 （书页 425） ----
+
+零均值和单位方差, 典型系数就没有测量值单位, 而且它们必须要用标准化变量来阐述.
+
+结论 10.1 给出了典型变量和典型相关系数的技术性定义. 在这一节里, 我们集中于解释这些量.
+
+\mvsub{确认典型变量}
+
+尽管典型变量是人为定义的, 它们却可常常利用题材变量来“确认”. 很多时候, 计算典型变量和原始变量的相关系数帮助了这种确认. 但是, 这些相关系数的解释是必须加以小心的. 它们没有指出原始变量是如何共同为典型分析作出贡献, 在这个意义上, 典型变量仅仅提供单一变量的信息(可参见文献[11]). 正因如此, 许多研究人员宁愿直接从标准化的系数(10-8)来评价原始变量的贡献.
+
+令 $\mathbf{A}_{(p\times p)}=[\mathbf{a}_1,\mathbf{a}_2,\cdots,\mathbf{a}_p]'$ 和 $\mathbf{B}_{(q\times q)}=[\mathbf{b}_1,\mathbf{b}_2,\cdots,\mathbf{b}_q]'$, 则典型变量的向量为
+\phantomsection\label{eq:10-12}
+\begin{equation}
+\mathbf{U}_{(p\times 1)}=\mathbf{A}\mathbf{X}^{(1)};\qquad \mathbf{V}_{(q\times 1)}=\mathbf{B}\mathbf{X}^{(2)}
+\tag{10-12}
+\end{equation}
+这里我们的主要兴趣在 $\mathbf{V}$ 中的前 $p$ 个典型变量. 接着, 有
+\phantomsection\label{eq:10-13}
+\begin{equation}
+\mathrm{Cov}(\mathbf{U},\mathbf{X}^{(1)})=\mathrm{Cov}(\mathbf{A}\mathbf{X}^{(1)},\mathbf{X}^{(1)})=\mathbf{A}\boldsymbol{\Sigma}_{11}
+\tag{10-13}
+\end{equation}
+因为 $\mathrm{Var}(U_i)=1$, 所以 $\mathrm{Corr}(U_i,X_k^{(1)})$ 是由 $\mathrm{Cov}(U_i,X_k^{(1)})$ 除以 $\sqrt{\mathrm{Var}(X_k^{(1)})}=\sigma_{kk}^{1/2}$ 得到的. 等价的, $\mathrm{Corr}(U_i,X_k^{(1)})=\mathrm{Cov}(U_i,\sigma_{kk}^{-1/2}X_k^{(1)})$. 引入记号 $\mathbf{V}_{11}^{-1/2}$, 它是对角元素为 $\sigma_{kk}^{-1/2}$ 的 $(p\times p)$ 对角阵. 用矩阵表示, 我们有
+\[
+\boldsymbol{\rho}_{U,X^{(1)}\,(p\times p)}=\mathrm{Corr}(\mathbf{U},\mathbf{X}^{(1)})=\mathrm{Cov}(\mathbf{U},\mathbf{V}_{11}^{-1/2}\mathbf{X}^{(1)})=\mathrm{Cov}(\mathbf{A}\mathbf{X}^{(1)},\mathbf{V}_{11}^{-1/2}\mathbf{X}^{(1)})=\mathbf{A}\boldsymbol{\Sigma}_{11}\mathbf{V}_{11}^{-1/2}
+\]
+对 $(\mathbf{U},\mathbf{X}^{(2)}),(\mathbf{V},\mathbf{X}^{(2)})$ 和 $(\mathbf{V},\mathbf{X}^{(1)})$, 类似的计算得到
+\phantomsection\label{eq:10-14}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\rho}_{U,X^{(1)}\,(p\times p)}&=\mathbf{A}\boldsymbol{\Sigma}_{11}\mathbf{V}_{11}^{-1/2}; &\qquad \boldsymbol{\rho}_{V,X^{(2)}\,(q\times q)}&=\mathbf{B}\boldsymbol{\Sigma}_{22}\mathbf{V}_{22}^{-1/2}\\
+\boldsymbol{\rho}_{U,X^{(2)}\,(p\times q)}&=\mathbf{A}\boldsymbol{\Sigma}_{12}\mathbf{V}_{22}^{-1/2}; &\qquad \boldsymbol{\rho}_{V,X^{(1)}\,(q\times p)}&=\mathbf{B}\boldsymbol{\Sigma}_{21}\mathbf{V}_{11}^{-1/2}
+\end{aligned}
+\tag{10-14}
+\end{equation}
+其中 $\mathbf{V}_{22}^{-1/2}$ 是第 $i$ 个对角元为 $\sqrt{\mathrm{Var}(X_i^{(2)})}$ 的 $(q\times q)$ 对角阵.
+
+有时, 从标准化变量得到的典型变量可以通过计算其相关系数来说明. 于是,
+\phantomsection\label{eq:10-15}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\rho}_{U,Z^{(1)}}&=\mathbf{A}_z\boldsymbol{\rho}_{11}; &\qquad \boldsymbol{\rho}_{V,Z^{(2)}}&=\mathbf{B}_z\boldsymbol{\rho}_{22}\\
+\boldsymbol{\rho}_{U,Z^{(2)}}&=\mathbf{A}_z\boldsymbol{\rho}_{12}; &\qquad \boldsymbol{\rho}_{V,Z^{(1)}}&=\mathbf{B}_z\boldsymbol{\rho}_{21}
+\end{aligned}
+\tag{10-15}
+\end{equation}
+其中 $\mathbf{A}_z{}_{(p\times p)}$ 和 $\mathbf{B}_z{}_{(q\times q)}$ 是矩阵, 它们的行分别包含 $\mathbf{Z}^{(1)}$ 和 $\mathbf{Z}^{(2)}$ 组的典型系数. \hyperref[eq:10-15]{式(10-15)}列出矩阵的相关系数与出现在\hyperref[eq:10-14]{式(10-14)}中的相关系数有相同的数值, 即 $\boldsymbol{\rho}_{U,X^{(1)}}=\boldsymbol{\rho}_{U,Z^{(1)}}$, 等等. 这是因为, 例如, $\boldsymbol{\rho}_{U,X^{(1)}}=\mathbf{A}\boldsymbol{\Sigma}_{11}\mathbf{V}_{11}^{-1/2}=\mathbf{A}\mathbf{V}_{11}^{1/2}\mathbf{V}_{11}^{-1/2}\boldsymbol{\Sigma}_{11}\mathbf{V}_{11}^{-1/2}=\mathbf{A}_z\boldsymbol{\rho}_{11}=\boldsymbol{\rho}_{U,Z^{(1)}}$. 相关系数不受标准化的影响.
+
+\noindent\textbf{例 10.2}\quad (计算典型变量和其成分变量间的相关系数)
+
+假设情况同例 10.1, 计算第一对典型变量和它们的成分变量之间的相关系数.
+
+例 10.1 中的变量已是标准的, 故\hyperref[eq:10-15]{式(10-15)}适用. 对标准化变量, 有
+\[
+\boldsymbol{\rho}_{11}=\begin{bmatrix}1.0 & 0.4\\ 0.4 & 1.0\end{bmatrix};\qquad \boldsymbol{\rho}_{22}=\begin{bmatrix}1.0 & 0.2\\ 0.2 & 1.0\end{bmatrix}
+\]
+和
+\[
+\boldsymbol{\rho}_{12}=\begin{bmatrix}0.5 & 0.6\\ 0.3 & 0.4\end{bmatrix}
+\]
+当 $\qquad p=1$,
+\[
+\mathbf{A}_z=[0.86,0.28],\qquad \mathbf{B}_z=[0.54,0.74]
+\]

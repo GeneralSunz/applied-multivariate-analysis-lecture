@@ -1,0 +1,56 @@
+合. 置信域是通过样本数据来确定的, 我们暂且用 $R(\mathbf{X})$ 来表示, 这里 $\mathbf{X}=[X_1,X_2,\cdots,X_p]'$ 为数据矩阵.
+
+若在样本被抽取之前有
+\phantomsection\label{eq:5-17}
+\begin{equation}
+\mvfit{$\displaystyle
+P[R(\mathbf{X})\text{ 包含真值 }\boldsymbol{\theta}]=1-\alpha
+$} \tag{5-17}
+\end{equation}
+则称区域 $R(\mathbf{X})$ 为 $\boldsymbol{\theta}$ 的 $100(1-\alpha)\%$ 置信域, 其中的概率是在参数 $\boldsymbol{\theta}$ 的未知真值处计算的.
+
+对 $p$ 维正态总体, 其均值 $\boldsymbol{\mu}$ 的置信域可由\hyperref[eq:5-6]{式(5-6)}获得. 在样本被抽取之前, 对任意未知的 $\boldsymbol{\mu}$ 与 $\boldsymbol{\Sigma}$, 有
+\[
+P\left[n(\bar{\mathbf{X}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})\leqslant\frac{(n-1)p}{(n-p)}F_{p,n-p}(\alpha)\right]=1-\alpha
+\]
+
+换句话说, 假如距离以 $n\mathbf{S}^{-1}$ 的形式给出, 那么 $\bar{\mathbf{X}}$ 与 $\boldsymbol{\mu}$ 的距离以概率 $1-\alpha$ 落在 $[(n-1)pF_{p,n-p}(\alpha)/(n-p)]^{1/2}$ 内. 对某一特定样本, 可以算出其 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$, 而其置信域 $R(\mathbf{X})$ 由满足下列不等式的所有参数 $\boldsymbol{\mu}$ 所确定: $n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})\leqslant(n-1)pF_{p,n-p}(\alpha)/(n-p)$. 在此情形下, 置信域为一中心在 $\bar{\mathbf{x}}$ 的椭球, 这个椭球就是 $\boldsymbol{\mu}$ 的 $100(1-\alpha)\%$ 置信域.
+
+\begin{mvbox}
+$p$ 维正态分布均值 $\boldsymbol{\mu}$ 的 $100(1-\alpha)\%$ 置信域是一椭球, 它由满足下式的 $\boldsymbol{\mu}$ 的集合所构成:
+\phantomsection\label{eq:5-18}
+\begin{equation}
+\mvfit{$\displaystyle
+n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})\leqslant\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)
+$} \tag{5-18}
+\end{equation}
+这里 $\bar{\mathbf{x}}=\frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_j$, $\mathbf{S}=\frac{1}{(n-1)}\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'$ 而 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 为样本观测值.
+\end{mvbox}
+
+为确定是否任何 $\boldsymbol{\mu}_0$ 都落在该置信域内(即 $\boldsymbol{\mu}_0$ 为 $\boldsymbol{\mu}$ 的一个似真值), 我们需要计算广义平方距离 $n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)$, 并把它与 $[p(n-1)/(n-p)]F_{p,n-p}(\alpha)$ 作比较. 若该广义平方距离大于 $[p(n-1)/(n-p)]F_{p,n-p}(\alpha)$, 则 $\boldsymbol{\mu}_0$ 不落在该置信域中. 由于这种情况与检验 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$, $H_1: \boldsymbol{\mu}\neq\boldsymbol{\mu}_0$ 相类似[见\hyperref[eq:5-7]{式(5-7)}], 由此推知置信域\hyperref[eq:5-18]{式(5-18)}由所有使 $T^2$ 检验在显著性水平 $\alpha$ 之下不拒绝 $H_0$ 的那些 $\boldsymbol{\mu}_0$ 所组成.
+
+对 $p\geqslant 4$ 的情形, 虽然我们画不出 $\boldsymbol{\mu}$ 的联合置信域的图形, 但可计算出其置信椭球的主轴及其相对长度. 它们可由 $\mathbf{S}$ 的特征根 $\lambda_i$ 与特征向量 $\mathbf{e}_i$ 确定. 与\hyperref[eq:4-7]{式(4-7)}一样, 我们可以通过沿特征向量 $\mathbf{e}_i$ 移动 $\sqrt{\lambda_i c}/\sqrt{n}=\sqrt{\lambda_i}\sqrt{p(n-1)F_{p,n-p}(\alpha)/n(n-p)}$ 个单位来确定椭球
+\[
+n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})\leqslant c^2=\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)
+\]
+主轴的方向和长度. 若以 $\bar{\mathbf{x}}$ 为中心, 则该置信椭球的主轴为
+\phantomsection\label{eq:5-19}
+\begin{equation}
+\mvfit{$\displaystyle
+\pm\sqrt{\lambda_i}\sqrt{\frac{p(n-1)}{n(n-p)}F_{p,n-p}(\alpha)}\,\mathbf{e}_i,\text{ 其中 }\mathbf{S}\mathbf{e}_i=\lambda_i\mathbf{e}_i, i=1,2,\cdots,p
+$} \tag{5-19}
+\end{equation}
+
+各种 $\lambda_i$ 的比值将帮助我们识别沿每对主轴的相对延伸长度.
+
+\noindent\textbf{例 5.3}\quad ($\boldsymbol{\mu}$ 的置信椭球的构造)
+
+我们沿用例 4.10 和例 4.17 的有关微波炉辐射的数据. 设
+\[
+x_1=\sqrt[4]{\text{炉门关闭时辐射的测量值}}
+\]
+\[
+x_2=\sqrt[4]{\text{炉门打开时辐射的测量值}}
+\]
+
+对于 $n=42$ 对经上述变换后的数据, 我们算得

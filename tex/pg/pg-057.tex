@@ -1,0 +1,112 @@
+% ---- pg-057 （书页 45） ----
+
+乘积 $\bm{b}'\bm{c}$ 是一个 $1\times 1$ 向量或一个数,在这里等于 $-13$.
+\[
+\bm{b}\bm{c}' =
+\begin{bmatrix}
+7 \\
+-3 \\
+6
+\end{bmatrix}
+\begin{bmatrix}
+5 & 8 & -4
+\end{bmatrix}
+=
+\begin{bmatrix}
+35 & 56 & -28 \\
+-15 & -24 & 12 \\
+30 & 48 & -24
+\end{bmatrix}
+\]
+
+乘积 $\bm{b}\bm{c}'$ 是一矩阵,其行数等于 $\bm{b}$ 的维数,列数等于 $\bm{c}$ 的维数.这个积与 $\bm{b}'\bm{c}$ 不同,$\bm{b}'\bm{c}$ 是一个数.
+
+\[
+\bm{d}'\bm{A}\bm{b} =
+\begin{bmatrix}
+2 & 9
+\end{bmatrix}
+\begin{bmatrix}
+1 & -2 & 3 \\
+2 & 4 & -1
+\end{bmatrix}
+\begin{bmatrix}
+7 \\
+-3 \\
+6
+\end{bmatrix}
+=
+\begin{bmatrix}
+26
+\end{bmatrix}
+\]
+
+乘积 $\bm{d}'\bm{A}\bm{b}$ 是一个 $1\times 1$ 向量或一个数,在这里等于 26.\hfill$\blacksquare$
+
+方阵在统计方法的开发中将具有特殊的重要性.对一个方阵,如果 $\bm{A}=\bm{A}'$ 或对所有 $i$ 和 $j$,$a_{ij}=a_{ji}$,则称此方阵为对称阵.
+
+\mvbold{例 2.7}\quad (对称阵)
+
+矩阵
+\[
+\begin{bmatrix}
+3 & 5 \\
+5 & -2
+\end{bmatrix}
+\]
+是对称阵; 矩阵
+\[
+\begin{bmatrix}
+3 & 6 \\
+4 & -2
+\end{bmatrix}
+\]
+则不是对称阵.\hfill$\blacksquare$
+
+当两个方阵 $\bm{A}$ 和 $\bm{B}$ 维数相同时,两个乘积 $\bm{A}\bm{B}$ 和 $\bm{B}\bm{A}$ 均有定义,尽管它们未必相等(见补充 2A).若以 $\bm{I}$ 表示主对角线上元素均为 1,其余元素均为 0 的方阵,则按照矩阵乘法的定义,$\bm{A}\bm{I}$ 的第 $(i,j)$ 个元素为 $a_{i1}\times 0+\cdots+a_{i,i-1}\times 0+a_{ii}\times 1+a_{i,i+1}\times 0+\cdots+a_{ik}\times 0=a_{ij}$,于是 $\bm{A}\bm{I}=\bm{A}$.类似有 $\bm{I}\bm{A}=\bm{A}$.因此,对任何 $\bm{A}$ 有
+\phantomsection\label{eq:2-11}
+\begin{equation}
+\underset{(k\times k)}{\bm{I}}\,\underset{(k\times k)}{\bm{A}} = \underset{(k\times k)}{\bm{A}}\,\underset{(k\times k)}{\bm{I}} = \underset{(k\times k)}{\bm{A}} \tag{2-11}
+\end{equation}
+
+矩阵 $\bm{I}$ 就像数字 1 在普通乘法中所起的作用一样 $(1\cdot a=a\cdot 1=a)$,因此称为单位矩阵.
+
+如果 $a\neq 0$,就存在一个倒数 $a^{-1}$,能使 $a^{-1}a=aa^{-1}=1$,这个基本的数量关系在矩阵代数中有如下推广: 如果存在矩阵 $\bm{B}$,使得
+\[
+\underset{(k\times k)}{\bm{B}}\,\underset{(k\times k)}{\bm{A}} = \underset{(k\times k)}{\bm{A}}\,\underset{(k\times k)}{\bm{B}} = \underset{(k\times k)}{\bm{I}}
+\]
+则称 $\bm{B}$ 为 $\bm{A}$ 的逆矩阵,并记作 $\bm{A}^{-1}$.
+
+存在逆矩阵的条件是: $\bm{A}$ 的 $k$ 个列 $\bm{a}_1,\bm{a}_2,\cdots,\bm{a}_k$ 线性无关.就是说,$\bm{A}^{-1}$ 的存在等价于
+\phantomsection\label{eq:2-12}
+\begin{equation}
+c_1\bm{a}_1 + c_2\bm{a}_2 + \cdots + c_k\bm{a}_k = \bm{0} \quad\text{仅当}\quad c_1 = \cdots = c_k = 0 \text{ 时} \tag{2-12}
+\end{equation}
+(见补充 2A 中结论 2A.9.)
+
+\mvbold{例 2.8}\quad (逆矩阵的存在性)
+
+对于
+\[
+\underset{(2\times 2)}{\bm{A}} =
+\begin{bmatrix}
+3 & 2 \\
+4 & 1
+\end{bmatrix}
+\]
+可以验证
+\[
+\begin{bmatrix}
+-0.2 & 0.4 \\
+0.8 & -0.6
+\end{bmatrix}
+\begin{bmatrix}
+3 & 2 \\
+4 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+(-0.2)\times 3 + \quad 0.4\times 4 & (-2)\times 2 + \quad 0.4\times 1 \\
+0.8\times 3+(-0.6)\times 4 & 0.8\times 2+(-0.6)\times 1
+\end{bmatrix}
+\]

@@ -1,0 +1,37 @@
+% ---- pg-118 （书页 106） ----
+
+\phantomsection\label{eq:3-26}
+\begin{equation}
+\mathbf{X}-\frac{1}{n}\mathbf{1}\mathbf{1}'\mathbf{X}=\begin{bmatrix}x_{11}-\bar{x}_{1}&x_{12}-\bar{x}_{2}&\cdots&x_{1p}-\bar{x}_{p}\\x_{21}-\bar{x}_{1}&x_{22}-\bar{x}_{2}&\cdots&x_{2p}-\bar{x}_{p}\\\vdots&\vdots&&\vdots\\x_{n1}-\bar{x}_{1}&x_{n2}-\bar{x}_{2}&\cdots&x_{np}-\bar{x}_{p}\end{bmatrix} \tag{3-26}
+\end{equation}
+现在, 代表平方和与交叉乘积之和的矩阵 $(n-1)\mathbf{S}$, 恰好是\hyperref[eq:3-26]{式(3-26)}矩阵的转置乘以它本身, 或
+\begin{align*}
+(n-1)\mathbf{S}&=\begin{bmatrix}x_{11}-\bar{x}_{1}&x_{21}-\bar{x}_{1}&\cdots&x_{n1}-\bar{x}_{1}\\x_{12}-\bar{x}_{2}&x_{22}-\bar{x}_{2}&\cdots&x_{n2}-\bar{x}_{2}\\\vdots&\vdots&\ddots&\vdots\\x_{1p}-\bar{x}_{p}&x_{2p}-\bar{x}_{p}&\cdots&x_{np}-\bar{x}_{p}\end{bmatrix}\\
+&\quad\times\begin{bmatrix}x_{11}-\bar{x}_{1}&x_{12}-\bar{x}_{2}&\cdots&x_{1p}-\bar{x}_{p}\\x_{21}-\bar{x}_{1}&x_{22}-\bar{x}_{2}&\cdots&x_{2p}-\bar{x}_{p}\\\vdots&\vdots&\ddots&\vdots\\x_{n1}-\bar{x}_{1}&x_{n2}-\bar{x}_{2}&\cdots&x_{np}-\bar{x}_{p}\end{bmatrix}\\
+&=\left(\mathbf{X}-\frac{1}{n}\mathbf{1}\mathbf{1}'\mathbf{X}\right)'\left(\mathbf{X}-\frac{1}{n}\mathbf{1}\mathbf{1}'\mathbf{X}\right)=\mathbf{X}'\left(\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}'\right)\mathbf{X}
+\end{align*}
+由于
+\[
+\left(\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}'\right)'\left(\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}'\right)=\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}'-\frac{1}{n}\mathbf{1}\mathbf{1}'+\frac{1}{n^{2}}\mathbf{1}\mathbf{1}'\mathbf{1}\mathbf{1}'=\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}'
+\]
+概括起来, 使 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 与数据集 $\mathbf{X}$ 相联系的矩阵表达式是
+\phantomsection\label{eq:3-27}
+\begin{equation}
+\begin{aligned}
+\bar{\mathbf{x}}&=\frac{1}{n}\mathbf{X}'\mathbf{1}\\
+\mathbf{S}&=\frac{1}{n-1}\mathbf{X}'\left(\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}'\right)\mathbf{X}
+\end{aligned} \tag{3-27}
+\end{equation}
+除了用 $1/n$ 代替作为第一因子的 $1/(n-1)$ 之外, 对 $\mathbf{S}_{n}$ 的结论是同样的.
+
+关系\hyperref[eq:3-27]{式(3-27)}清楚地指出, 对数据矩阵 $\mathbf{X}$ 的矩阵运算怎样推导出 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$.
+
+一旦 $\mathbf{S}$ 被计算出来, 它可以与样本相关矩阵 $\mathbf{R}$ 建立关系. 所得到的表示式, 也可以“颠倒”建立 $\mathbf{R}$ 与 $\mathbf{S}$ 的关系. 我们首先定义 $p\times p$ 样本标准偏差矩阵 $\mathbf{D}^{1/2}$, 并计算它的逆, $(\mathbf{D}^{1/2})^{-1}=\mathbf{D}^{-1/2}$. 设
+\phantomsection\label{eq:3-28}
+\begin{equation}
+\underset{(p\times p)}{\mathbf{D}^{1/2}}=\begin{bmatrix}\sqrt{s_{11}}&0&\cdots&0\\0&\sqrt{s_{22}}&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\sqrt{s_{pp}}\end{bmatrix} \tag{3-28}
+\end{equation}
+则
+\[
+\underset{(p\times p)}{\mathbf{D}^{-1/2}}=\begin{bmatrix}\dfrac{1}{\sqrt{s_{11}}}&0&\cdots&0\\0&\dfrac{1}{\sqrt{s_{22}}}&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\dfrac{1}{\sqrt{s_{pp}}}\end{bmatrix}
+\]

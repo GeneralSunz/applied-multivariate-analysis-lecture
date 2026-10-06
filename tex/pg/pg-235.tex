@@ -1,0 +1,47 @@
+根据结论 4.7，此距离平方近似服从 $\chi_p^2$ 分布. 当 $n_1,n_2$ 很大时，$\mathbf{S}_1$ 和 $\mathbf{S}_2$ 将分别以较大的概率接近 $\boldsymbol{\Sigma}_1$ 和 $\boldsymbol{\Sigma}_2$. 因此，用 $\mathbf{S}_1$ 与 $\mathbf{S}_2$ 分别替换 $\boldsymbol{\Sigma}_1$ 与 $\boldsymbol{\Sigma}_2$ 时近似成立.
+
+关于联合置信区间的结论可从结论 5A.1 得出. \hfill$\blacksquare$
+
+\mvbold{评注}\quad 若 $n_1=n_2=n$，则 $(n-1)/(n+n-2)=1/2$，从而
+\begin{align*}
+\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2&=\frac{1}{n}(\mathbf{S}_1+\mathbf{S}_2)=\frac{(n-1)\mathbf{S}_1+(n-1)\mathbf{S}_2}{n+n-2}\left(\frac{1}{n}+\frac{1}{n}\right)\\
+&=\mathbf{S}_p\left(\frac{1}{n}+\frac{1}{n}\right)
+\end{align*}
+
+故当两个样本的容量相等时，大样本方法和基于融合协方差阵的方法相同（见结论 6.2）. 在一维情形下众所周知：当 $n_1=n_2$ 时，方差不等的效应最小，而当 $n_1\ll n_2$（或 $n_2\ll n_1$）时，方差不等的效应最大.
+
+\noindent\textbf{例 6.5}\quad （推断均值差的大样本方法）
+
+我们用大样本方法来分析例 6.4 中的电力消费数据. 首先计算
+\[
+\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2=\frac{1}{45}\times\begin{bmatrix}13\,825.3&23\,823.4\\23\,823.4&73\,107.4\end{bmatrix}+\frac{1}{55}\times\begin{bmatrix}8\,632.0&19\,616.7\\19\,616.7&55\,964.5\end{bmatrix}=\begin{bmatrix}464.17&886.08\\886.08&2\,642.15\end{bmatrix}
+\]
+
+线性组合
+\[
+\mathbf{a}'(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)=\begin{bmatrix}1,0\end{bmatrix}\begin{bmatrix}\mu_{11}-\mu_{21}\\\mu_{12}-\mu_{22}\end{bmatrix}=\mu_{11}-\mu_{21}
+\]
+和
+\[
+\mathbf{a}'(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)=\begin{bmatrix}0,1\end{bmatrix}\begin{bmatrix}\mu_{11}-\mu_{21}\\\mu_{12}-\mu_{22}\end{bmatrix}=\mu_{12}-\mu_{22}
+\]
+的 95\% 联合置信区间为（见结论 6.4）：
+\begin{align*}
+\mu_{11}-\mu_{21}&: 74.4\pm\sqrt{5.99}\sqrt{464.17}\quad 即\quad (21.7,127.1)\\
+\mu_{12}-\mu_{22}&: 201.6\pm\sqrt{5.99}\sqrt{2\,642.15}\quad 即\quad (75.8,327.4)
+\end{align*}
+
+注意，这些区间与用融合方法处理所得的区间之间的差异是极其微小的. 检验 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$ 的 $T^2$ 检验统计量为
+\begin{align*}
+T^2&=\begin{bmatrix}\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2\end{bmatrix}'\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}\begin{bmatrix}\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2\end{bmatrix}\\
+&=\begin{bmatrix}204.4-130.0\\556.6-355.0\end{bmatrix}'\begin{bmatrix}464.17&886.08\\886.08&2\,642.15\end{bmatrix}^{-1}\begin{bmatrix}204.4-130.0\\556.6-355.0\end{bmatrix}\\
+&=\begin{bmatrix}74.4&201.6\end{bmatrix}\times 10^{-4}\times\begin{bmatrix}59.874&-20.080\\-20.080&10.519\end{bmatrix}\begin{bmatrix}74.4\\201.6\end{bmatrix}=15.66
+\end{align*}
+
+对 $\alpha=0.05$，临界值 $\chi_2^2(0.05)=5.99$. 故由于 $T^2=15.66>\chi_2^2(0.05)=5.99$，我们拒绝 $H_0$. 导致拒绝 $H_0$ 的最关键的线性组合其系数向量为
+\begin{align*}
+\hat{\mathbf{a}}&\propto\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)=(10^{-4})\begin{bmatrix}59.874&-20.080\\-20.080&10.519\end{bmatrix}\begin{bmatrix}74.4\\201.6\end{bmatrix}\\
+&=\begin{bmatrix}0.041\\0.063\end{bmatrix}
+\end{align*}
+
+有空调与无空调家庭的非高峰电力消费之差，比高峰电力消费之差对拒绝 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$

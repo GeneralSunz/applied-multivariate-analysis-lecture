@@ -1,0 +1,55 @@
+$n=3$ 个观测值是
+\begin{align*}
+b'\mathbf{x}_1&=2x_{11}+2x_{12}-x_{13}=2\times1+2\times2-5=1\\
+b'\mathbf{x}_2&=2x_{21}+2x_{22}-x_{23}=2\times4+2\times1-6=4\\
+b'\mathbf{x}_3&=2x_{31}+2x_{32}-x_{33}=2\times4+2\times0-4=4
+\end{align*}
+这些值的样本均值和方差分别是
+\[
+\text{样本均值}=\frac{1+4+4}{3}=3
+\]
+\[
+\text{样本方差}=\frac{(1-3)^2+(4-3)^2+(4-3)^2}{3-1}=3
+\]
+用同样的方法, $c'\mathbf{X}$ 的 $n=3$ 个观测值是
+\begin{align*}
+c'\mathbf{x}_1&=1x_{11}-1x_{12}+3x_{13}=1\times1-1\times2+3\times5=14\\
+c'\mathbf{x}_2&=1\times4-1\times1+3\times6=21\\
+c'\mathbf{x}_3&=1\times4-1\times0+3\times4=16
+\end{align*}
+及
+\[
+\text{样本均值}=\frac{14+21+16}{3}=17
+\]
+\[
+\text{样本方差}=\frac{(14-17)^2+(21-17)^2+(16-17)^2}{3-1}=13
+\]
+进而, 由观测结果对 $(b'\mathbf{x}_1,c'\mathbf{x}_1)$, $(b'\mathbf{x}_2,c'\mathbf{x}_2)$ 和 $(b'\mathbf{x}_3,c'\mathbf{x}_3)$, 计算得到的样本协方差是
+\[
+\text{样本协方差}=\frac{(1-3)\times(14-17)+(4-3)\times(21-17)+(4-3)\times(16-17)}{3-1}=\frac{9}{2}
+\]
+另一方面, 我们利用由原始数据矩阵 $\mathbf{X}$ 推导出来的样本均值向量 $\bar{\mathbf{x}}$ 和样本协方差矩阵 $\mathbf{S}$, 计算线性组合的样本均值、方差与协方差. 于是, 若所关心的仅仅是描述性统计量, 我们甚至不必去计算 $b'\mathbf{x}_j$ 和 $c'\mathbf{x}_j$ 的观测值.
+
+从例 3.9,
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}3\\1\\5\end{bmatrix}
+\quad\text{和}\quad
+\mathbf{S}=\begin{bmatrix}
+3&-\dfrac{3}{2}&0\\[2mm]
+-\dfrac{3}{2}&1&\dfrac{1}{2}\\[2mm]
+0&\dfrac{1}{2}&1
+\end{bmatrix}
+\]
+因此, 利用\hyperref[eq:3-36]{式(3-36)}, 对于导出的观测值我们求出两个样本均值为
+\[
+b'\mathbf{X}\ \text{的样本均值}=b'\bar{\mathbf{x}}=\begin{bmatrix}2&2&-1\end{bmatrix}
+\begin{bmatrix}3\\1\\5\end{bmatrix}=3 \quad(\text{校验})
+\]
+\[
+c'\mathbf{X}\ \text{的样本均值}=c'\bar{\mathbf{x}}=\begin{bmatrix}1&-1&3\end{bmatrix}
+\begin{bmatrix}3\\1\\5\end{bmatrix}=17 \quad(\text{校验})
+\]
+利用\hyperref[eq:3-36]{式(3-36)}, 还有
+\[
+b'\mathbf{X}\ \text{的样本方差}=b'\mathbf{S}b
+\]

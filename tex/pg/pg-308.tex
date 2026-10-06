@@ -1,0 +1,54 @@
+% ---- pg-308 （书页 296） ----
+
+计算机程序所提供的估计的回归方程为
+\[
+\hat{y}=8.42+1.08z_1+0.42z_2
+\]
+\[
+(\mathbf{Z}'\mathbf{Z})^{-1}=\begin{bmatrix}8.179\,69&&\\-0.064\,11&0.000\,52&\\0.088\,31&-0.001\,07&0.014\,40\end{bmatrix}
+\]
+及 $s=1.204$. 于是,
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}=8.42+1.08\times130+0.42\times7.5=151.97
+\]
+以及 $s\sqrt{\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}=1.204\times0.589\,28=0.71$, 我们有 $t_4(0.025)=2.776$, 故平均 CPU 时间的 95\% 置信区间为
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}\pm t_4(0.025)s\sqrt{\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}=151.97\pm2.776\times0.71
+\]
+或$(150.00,153.94)$.
+
+由于 $s\sqrt{1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}=1.204\times1.160\,71=1.40$, 在条件 $\mathbf{z}_0$ 下新设备的 CPU 时间的 95\% 预测区间为
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}\pm t_4(0.025)s\sqrt{1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}=151.97\pm2.776\times1.40
+\]
+或$(148.08,155.86)$. \hfill$\blacksquare$
+
+\section{模型检查及回归中的其他问题}
+\phantomsection\label{sec:7.6}
+
+\subsection{模型合适吗}
+
+假定模型是``正确''的, 就可利用估计的回归函数来作推断. 当然, 在估计的回归函数成为决策程序的固定组成部分之前, 必须检查模型的合适性.
+
+关于拟合不良的全部样本信息均包含在残差之中:
+\[
+\begin{aligned}
+\hat{\epsilon}_1&=y_1-\hat{\beta}_0-\hat{\beta}_1z_{11}-\cdots-\hat{\beta}_rz_{1r}\\
+\hat{\epsilon}_2&=y_2-\hat{\beta}_0-\hat{\beta}_1z_{21}-\cdots-\hat{\beta}_rz_{2r}\\
+&\;\;\vdots\\
+\hat{\epsilon}_n&=y_n-\hat{\beta}_0-\hat{\beta}_1z_{n1}-\cdots-\hat{\beta}_rz_{nr}
+\end{aligned}
+\]
+或
+\phantomsection\label{eq:7-16}
+\begin{equation}
+\hat{\boldsymbol{\epsilon}}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{y}=[\mathbf{I}-\mathbf{H}]\mathbf{y} \tag{7-16}
+\end{equation}
+若模型成立, 则每个 $\hat{\epsilon}_j$ 均为误差项 $\epsilon_j$ 的估计. 后者被假定服从正态分布, 均值为 0, 方差为 $\sigma^2$. 虽然残差 $\hat{\boldsymbol{\epsilon}}$ 有均值向量 $\mathbf{0}$, 其协方差阵 $\sigma^2[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']=\sigma^2[\mathbf{I}-\mathbf{H}]$ 却不是对角阵. 残差有不同的方差和非零相关系数. 幸运的是, 相关系数往往很小, 而且各个方差也接近于相等.
+
+由于残差 $\hat{\boldsymbol{\epsilon}}$ 有协方差阵 $\sigma^2[\mathbf{I}-\mathbf{H}]$, 如果 $\mathbf{H}$ 的诸对角元 $h_{jj}$(杠杆率)有很大的差别, 诸 $\epsilon_j$ 的方差就会有很大变化. 因此, 许多统计学家宁愿用学生化残差来作图形诊断. 用残差均方 $s^2$ 作为 $\sigma^2$ 的估计, 我们有
+\phantomsection\label{eq:7-17}
+\begin{equation}
+\widehat{\operatorname{Var}}(\hat{\epsilon}_j)=s^2(1-h_{jj}),\qquad j=1,2,\cdots,n \tag{7-17}
+\end{equation}
+而学生化残差为:

@@ -1,0 +1,42 @@
+% ---- pg-365 （书页 353） ----
+
+\phantomsection\label{eq:8-31}
+\begin{equation}
+\underset{(p\times 1)}{\hat{\boldsymbol{\epsilon}}_j}=\underset{(p\times 1)}{\mathbf{y}_j}-\underset{(p\times 1)}{\hat{\boldsymbol{\beta}}'\mathbf{z}_j}\qquad j=1,2,\cdots,n \tag{8-31}
+\end{equation}
+从残差协方差矩阵
+\phantomsection\label{eq:8-32}
+\begin{equation}
+\frac{1}{n-p}\sum_{j=1}^{n}(\hat{\boldsymbol{\epsilon}}_j-\bar{\hat{\boldsymbol{\epsilon}}}_j)(\hat{\boldsymbol{\epsilon}}_j-\bar{\hat{\boldsymbol{\epsilon}}}_j)' \tag{8-32}
+\end{equation}
+导出的主成分, 可以和从随机样本确定的主成分用同样方式仔细查看. 应该清楚, 线性回归分析产生的诸残差中存在线性依存关系, 所以最后的那些特征值, 在舍入误差范围内将是 0.
+
+\section{大样本推断}  % 原书 8.5
+\phantomsection\label{sec:8.5}
+
+我们已经看到, 协方差矩阵(相关矩阵)的特征值和特征向量是主成分分析的精髓. 特征向量决定最大变异性的方向, 而特征值说明方差. 当前几个特征值比余下的大得多时, 总方差的大部分在低于 $p$ 维空间里得到“解释”.
+
+实际上, 必须在从 $\mathbf{S}$ 或是从 $\mathbf{R}$ 中抽取的特征值-特征向量对 $(\hat{\lambda}_i,\hat{\mathbf{e}}_i)$ 的基础上, 去作出认定主成分近似特性的决定. 因为抽样的变异, 这些特征值和特征向量会与潜在总体的特征值和特征向量有差别. 推导 $\hat{\lambda}_i$ 和 $\hat{\mathbf{e}}_i$ 的抽样分布是困难的, 也超出了本书范围. 要是有兴趣, 可以在文献[1], [2]和[5]中找到对多元正态总体的某些推证. 我们将简单总结有关大样本的结论.
+
+\mvsub{$\lambda_i$ 和 $\mathbf{e}_i$ 的大样本性质}
+
+目前得到的涉及 $\hat{\lambda}_i$ 和 $\hat{\mathbf{e}}_i$ 的大样本置信区间的结论, 都假设观测值 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 是正态总体的随机样本, 还必须假设 $\boldsymbol{\Sigma}$ 的(未知的)特征值不同且皆为正, 故 $\lambda_1>\lambda_2>\cdots>\lambda_p>0$. 一个例外是当相等特征值的个数是已知的情况, 除非存在不强的理由相信 $\boldsymbol{\Sigma}$ 具有产生相等特征值的特殊结构, 否则我们采用的结论通常都是针对有不同特征值的情形. 即使违背了正态性假定, 用该方法得到的置信区间仍能为 $\lambda_i$ 和 $\mathbf{e}_i$ 的不确定性提供信息.
+
+安德森(Anderson, 见文献[2])和格什克(Girshick, 见文献[5])已经对 $\mathbf{S}$ 的特征值 $\hat{\boldsymbol{\lambda}}'=[\hat{\lambda}_1,\cdots,\hat{\lambda}_p]$ 和特征向量 $\hat{\mathbf{e}}_1,\cdots,\hat{\mathbf{e}}_p$, 建立了下列大样本分布理论:
+
+\begin{enumerate}[label=\arabic*.,leftmargin=2em,itemsep=2pt]
+\item 令 $\boldsymbol{\Lambda}$ 是 $\boldsymbol{\Sigma}$ 的特征值 $\lambda_1,\cdots,\lambda_p$ 的对角矩阵, 则 $\sqrt{n}(\hat{\boldsymbol{\lambda}}-\boldsymbol{\lambda})$ 近似服从分布 $N_p(\mathbf{0},2\boldsymbol{\Lambda}^2)$.
+\item 令
+\[
+\mathbf{E}_i=\lambda_i\sum_{\substack{k=1\\ k\neq i}}^{p}\frac{\lambda_k}{(\lambda_k-\lambda_i)^2}\mathbf{e}_k\mathbf{e}_k'
+\]
+则 $\sqrt{n}(\hat{\mathbf{e}}_i-\mathbf{e}_i)$ 近似服从分布 $N_p(\mathbf{0},\mathbf{E}_i)$.
+\item 各个 $\hat{\lambda}_i$ 与相应的 $\hat{\mathbf{e}}_i$ 的诸元独立分布.
+\end{enumerate}
+
+结论 1 表明, 对大的 $n$, $\hat{\lambda}_i$ 独立分布. 其次, 它有近似 $N(\lambda_i,2\lambda_i^2/n)$ 分布. 利用这一正态分布, 我们得到 $P[|\hat{\lambda}_i-\lambda_i|\leqslant z(\alpha/2)\lambda_i\sqrt{2/n}]=1-\alpha$. $\lambda_i$ 的一个大样本 $100(1-\alpha)\%$ 的置信区间就由
+\phantomsection\label{eq:8-33}
+\begin{equation}
+\frac{\hat{\lambda}_i}{(1+z(\alpha/2)\sqrt{2/n})}\leqslant\lambda_i\leqslant\frac{\hat{\lambda}_i}{(1-z(\alpha/2)\sqrt{2/n})} \tag{8-33}
+\end{equation}
+给出, 其中 $z(\alpha/2)$ 是标准正态分布的上 $100(\alpha/2)$ 百分位数. 用 $z(\alpha/2m)$ 代替 $z(\alpha/2)$, 就对 $m$

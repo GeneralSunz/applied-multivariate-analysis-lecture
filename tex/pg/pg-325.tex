@@ -1,0 +1,86 @@
+% ---- pg-325 （书页 313） ----
+
+均方误差在上式右端最后两项为零时达到极小, 这可通过先取 $\mathbf{b}=\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}=\boldsymbol{\beta}$, 然后取 $b_0=\mu_Y-(\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY})'\boldsymbol{\mu}_Z=\beta_0$ 来实现. 于是最小均方误差为 $\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}$.
+
+其次, 注意到 $\operatorname{Cov}(b_0+\mathbf{b}'\mathbf{Z},Y)=\operatorname{Cov}(\mathbf{b}'\mathbf{Z},Y)=\mathbf{b}'\boldsymbol{\sigma}_{ZY}$, 故对所有 $b_0$ 和 $\mathbf{b}$ 有
+\[
+[\operatorname{Corr}(b_0+\mathbf{b}'\mathbf{Z},Y)]^2
+=\frac{[\mathbf{b}'\boldsymbol{\sigma}_{ZY}]^2}{\sigma_{YY}(\mathbf{b}'\boldsymbol{\Sigma}_{ZZ}\mathbf{b})}
+\]
+应用推广的柯西-施瓦茨不等\hyperref[eq:2-49]{式(2-49)}, 并取 $\mathbf{B}=\boldsymbol{\Sigma}_{ZZ}$, 得到
+\[
+(\mathbf{b}'\boldsymbol{\sigma}_{ZY})^2\leqslant\mathbf{b}'\boldsymbol{\Sigma}_{ZZ}\mathbf{b}\,\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}
+\]
+或
+\[
+[\operatorname{Corr}(b_0+\mathbf{b}'\mathbf{Z},Y)]^2
+\leqslant\frac{\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}}{\sigma_{YY}}
+\]
+其中等号对 $\mathbf{b}=\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}=\boldsymbol{\beta}$ 成立. 最大相关的另一种表达式由 $\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}=\boldsymbol{\sigma}_{ZY}'\boldsymbol{\beta}=\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZZ}\boldsymbol{\beta}=\boldsymbol{\beta}'\boldsymbol{\Sigma}_{ZZ}\boldsymbol{\beta}$ 得到. \hfill$\blacksquare$
+
+$Y$ 与其最佳线性预测量之间的相关系数称为总体多重相关系数
+\phantomsection\label{eq:7-48}
+\begin{equation}
+\rho_{Y(\mathbf{Z})}=+\sqrt{\frac{\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}}{\sigma_{YY}}}
+\tag{7-48}
+\end{equation}
+总体多重相关系数的平方 $\rho_{Y(\mathbf{Z})}^2$ 称为总体决定系数. 注意, 与两个变量的相关系数不同, 多重相关系数为正的平方根, 故 $0\leqslant\rho_{Y(\mathbf{Z})}\leqslant1$.
+
+总体决定系数有一个重要解释. 根据结论 7.12, 用 $\beta_0+\boldsymbol{\beta}'\mathbf{Z}$ 预测 $Y$ 时的均方误差为
+\phantomsection\label{eq:7-49}
+\begin{equation}
+\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}
+=\sigma_{YY}-\sigma_{YY}\left(\frac{\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}}{\sigma_{YY}}\right)
+=\sigma_{YY}(1-\rho_{Y(\mathbf{Z})}^2)
+\tag{7-49}
+\end{equation}
+若 $\rho_{Y(\mathbf{Z})}^2=0$, 则 $\mathbf{Z}$ 没有预测 $Y$ 的能力. 另一个极端 $\rho_{Y(\mathbf{Z})}^2=1$ 意味着 $Y$ 可以无误差地被预测.
+
+\medskip
+\noindent\textbf{例 7.11}\quad (最佳线性预测量及其均方误差与多重相关系数的确定)
+
+给定 $Y$, $Z_1$ 和 $Z_2$ 的均值向量和协方差矩阵
+\[
+\boldsymbol{\mu}=\left[\begin{array}{c}
+\mu_Y\\
+\hdashline
+\boldsymbol{\mu}_Z
+\end{array}\right]
+=\begin{bmatrix}5\\2\\0\end{bmatrix}
+\qquad\text{和}\qquad
+\boldsymbol{\Sigma}=\left[\begin{array}{c:c}
+\sigma_{YY}&\boldsymbol{\sigma}_{ZY}'\\
+\hdashline
+\boldsymbol{\sigma}_{ZY}&\boldsymbol{\Sigma}_{ZZ}
+\end{array}\right]
+=\left[\begin{array}{c:cc}
+10&1&-1\\
+\hdashline
+1&7&3\\
+-1&3&2
+\end{array}\right]
+\]
+试确定(a)最佳线性预测量 $\beta_0+\beta_1Z_1+\beta_2Z_2$, (b)这个预测量的均方误差, (c)多重相关系数. 此外, 验证均方误差等于 $\sigma_{YY}(1-\rho_{Y(\mathbf{Z})}^2)$.
+
+首先,
+\[
+\boldsymbol{\beta}=\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}
+=\begin{bmatrix}7&3\\3&2\end{bmatrix}^{-1}\begin{bmatrix}1\\-1\end{bmatrix}
+=\begin{bmatrix}0.4&-0.6\\-0.6&1.4\end{bmatrix}\begin{bmatrix}1\\-1\end{bmatrix}
+=\begin{bmatrix}1\\-2\end{bmatrix}
+\]
+\[
+\beta_0=\mu_Y-\boldsymbol{\beta}'\boldsymbol{\mu}_Z=5-[1,-2]\begin{bmatrix}2\\0\end{bmatrix}=3
+\]
+故最佳线性预测量为 $\beta_0+\boldsymbol{\beta}'\mathbf{Z}=3+Z_1-2Z_2$. 均方误差为
+\[
+\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}
+=10-[1,-1]\begin{bmatrix}0.4&-0.6\\-0.6&1.4\end{bmatrix}\begin{bmatrix}1\\-1\end{bmatrix}
+=10-3=7
+\]
+多重相关系数为
+\[
+\rho_{Y(\mathbf{Z})}=\sqrt{\frac{\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}}{\sigma_{YY}}}
+=\sqrt{\frac{3}{10}}=0.548
+\]
+注意 $\sigma_{YY}(1-\rho_{Y(\mathbf{Z})}^2)=10\times(1-3/10)=7$ 等于均方误差. \hfill$\blacksquare$

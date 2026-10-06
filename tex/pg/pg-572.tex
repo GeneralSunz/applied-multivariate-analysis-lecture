@@ -1,0 +1,84 @@
+% ---- pg-572 （书页 560） ----
+
+\phantomsection\label{eq:12-29}
+\begin{equation}
+\begin{aligned}
+r_i&=\sum_{j=1}^{J}p_{ij}=\sum_{j=1}^{J}\frac{x_{ij}}{n},\quad i=1,\cdots,I,\ \text{或}\
+\mathbf{r}=\underset{(I\times J)}{\mathbf{P}}\underset{(J\times 1)}{\mathbf{1}_J}\\
+c_j&=\sum_{i=1}^{I}p_{ij}=\sum_{i=1}^{I}\frac{x_{ij}}{n},\quad j=1,\cdots,J,\ \text{或}\
+\mathbf{c}=\underset{(J\times I)}{\mathbf{P}'}\underset{(I\times 1)}{\mathbf{1}_I}
+\end{aligned}
+\tag{12-29}
+\end{equation}
+
+其中 $\mathbf{1}_J$ 和 $\mathbf{1}_I$ 分布为所有元素为 1 的 $J\times 1$ 向量和 $I\times 1$ 向量. 定义对角矩阵
+\phantomsection\label{eq:12-30}
+\begin{equation}
+\mathbf{D}_r=\operatorname{diag}(r_1,\cdots,r_I),\quad
+\mathbf{D}_c=\operatorname{diag}(c_1,\cdots,c_J)
+\tag{12-30}
+\end{equation}
+定义平方根矩阵
+\phantomsection\label{eq:12-31}
+\begin{equation}
+\begin{aligned}
+\mathbf{D}_r^{1/2}&=\operatorname{diag}(\sqrt{r_1},\cdots,\sqrt{r_I}),\quad
+\mathbf{D}_r^{-1/2}=\operatorname{diag}\left(\frac{1}{\sqrt{r_1}},\cdots,\frac{1}{\sqrt{r_I}}\right)\\
+\mathbf{D}_c^{1/2}&=\operatorname{diag}(\sqrt{c_1},\cdots,\sqrt{c_J}),\quad
+\mathbf{D}_c^{-1/2}=\operatorname{diag}\left(\frac{1}{\sqrt{c_1}},\cdots,\frac{1}{\sqrt{c_J}}\right)
+\end{aligned}
+\tag{12-31}
+\end{equation}
+
+对应分析可以公式化为选择 $\hat{\mathbf{P}}=\{\hat{p}_{ij}\}$, 最小化加权平方和:
+\phantomsection\label{eq:12-32}
+\begin{equation}
+\sum_{i=1}^{I}\sum_{j=1}^{J}\frac{(p_{ij}-\hat{p}_{ij})^2}{r_ic_j}
+=\operatorname{tr}\left\{(\mathbf{D}_r^{-1/2}(\mathbf{P}-\hat{\mathbf{P}})\mathbf{D}_c^{-1/2})
+(\mathbf{D}_r^{-1/2}(\mathbf{P}-\hat{\mathbf{P}})\mathbf{D}_c^{-1/2})'\right\}
+\tag{12-32}
+\end{equation}
+
+注意: $(p_{ij}-\hat{p}_{ij})^2/\sqrt{r_ic_j}$ 是 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\hat{\mathbf{P}})\mathbf{D}_c^{-1/2}$ 的 $(i,j)$ 元.
+
+如结论 12.1 所证明, 对任意的 $I\times J$ 对应矩阵 $\mathbf{P}$, 其最佳逼近 $\hat{\mathbf{P}}$ 都包含 $\mathbf{r}\mathbf{c}'$, 且 $\mathbf{P}$ 的秩为 1 的最佳逼近为 $\hat{\mathbf{P}}=\mathbf{r}\mathbf{c}'$.
+
+\mvthm{结论 12.1}{对任意的 $I\times J$ 对应矩阵 $\mathbf{P}$, 其最佳逼近 $\hat{\mathbf{P}}$ 都包含 $\mathbf{r}\mathbf{c}'$.}
+
+$\mathbf{P}$ 的降秩到 $s$ 的最佳逼近(最小化\hyperref[eq:12-32]{式(12-32)}中的平方和)可表示成
+\[
+\mathbf{P}\doteq\sum_{k=1}^{s}\tilde{\lambda}_k(\mathbf{D}_r^{1/2}\tilde{\mathbf{u}}_k)(\mathbf{D}_c^{1/2}\tilde{\mathbf{v}}_k)'
+=\mathbf{r}\mathbf{c}'+\sum_{k=2}^{s}\tilde{\lambda}_k(\mathbf{D}_r^{1/2}\tilde{\mathbf{u}}_k)(\mathbf{D}_c^{1/2}\tilde{\mathbf{v}}_k)'
+\]
+其中 $\tilde{\lambda}_k$ 为 $I\times J$ 矩阵 $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 的奇异值, $I\times 1$ 向量 $\tilde{\mathbf{u}}_k$ 和 $J\times 1$ 向量 $\tilde{\mathbf{v}}_k$ 为对应的奇异向量.
+
+\hyperref[eq:12-32]{式(12-32)}的最小值为 $\sum_{k=s+1}^{J}\tilde{\lambda}_k^2$.
+
+$\mathbf{P}-\mathbf{r}\mathbf{c}'$ 的降秩到 $K>1$ 的逼近为
+\phantomsection\label{eq:12-33}
+\begin{equation}
+\mathbf{P}-\mathbf{r}\mathbf{c}'\doteq\sum_{k=1}^{K}\lambda_k(\mathbf{D}_r^{1/2}\mathbf{u}_k)(\mathbf{D}_c^{1/2}\mathbf{v}_k)'
+\tag{12-33}
+\end{equation}
+其中 $\lambda_k$ 为 $I\times J$ 矩阵 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的奇异值, $I\times 1$ 向量 $\mathbf{u}_k$ 和 $J\times 1$ 向量 $\mathbf{v}_k$ 为对应的奇异向量.
+
+这里 $\lambda_k=\tilde{\lambda}_{k+1},\ \mathbf{u}_k=\tilde{\mathbf{u}}_{k+1},\ \mathbf{v}_k=\tilde{\mathbf{v}}_{k+1},\ k=1,\cdots,J-1$.
+
+\mvbold{证明}\quad 我们首先考虑对应矩阵 $\mathbf{P}$ 的标准化形式 $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$. $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 的奇异值分解为
+\phantomsection\label{eq:12-34}
+\begin{equation}
+\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}=\sum_{k=1}^{J}\tilde{\lambda}_k\tilde{\mathbf{u}}_k\tilde{\mathbf{v}}_k'
+\tag{12-34}
+\end{equation}
+其中
+\phantomsection\label{eq:12-35}
+\begin{equation}
+\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}\tilde{\mathbf{v}}_k=\tilde{\lambda}_k\tilde{\mathbf{u}}_k\qquad
+\tilde{\mathbf{u}}_k'\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}=\tilde{\lambda}_k\tilde{\mathbf{v}}_k'
+\tag{12-35}
+\end{equation}
+且
+\[
+\left|(\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2})(\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2})'
+-\tilde{\lambda}_k^2\mathbf{I}\right|=0,\quad k=1,\cdots,J
+\]

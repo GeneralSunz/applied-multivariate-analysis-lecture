@@ -1,0 +1,61 @@
+% ---- pg-486 （书页 474） ----
+
+\[
+\begin{aligned}
+k=1:\quad &p_2f_2(\mathbf{x}_0)c(1\mid 2)+p_3f_3(\mathbf{x}_0)c(1\mid 3)\\
+&\quad=0.60\times 0.85\times 500+0.35\times 2\times 100=325\\
+k=2:\quad &p_1f_1(\mathbf{x}_0)c(2\mid 1)+p_3f_3(\mathbf{x}_0)c(2\mid 3)\\
+&\quad=0.05\times 0.01\times 10+0.35\times 2\times 50=35.055\\
+k=3:\quad &p_1f_1(\mathbf{x}_0)c(3\mid 1)+p_2f_2(\mathbf{x}_0)c(3\mid 2)\\
+&\quad=0.05\times 0.01\times 50+0.60\times 0.85\times 200=102.025
+\end{aligned}
+\]
+由于 $k=2$ 时 $\sum_{\substack{i=1\\i\ne k}}^{3}p_if_i(\mathbf{x}_0)c(k\mid i)$ 最小, 我们将 $\mathbf{x}_0$ 分配到 $\pi_2$.
+
+假定所有错分代价相等, 我们按\hyperref[eq:11-40]{式(11-40)}来分配 $\mathbf{x}_0$. 这只需计算下列乘积:
+\[
+\begin{aligned}
+p_1f_1(\mathbf{x}_0)&=0.05\times 0.01=0.000\,5\\
+p_2f_2(\mathbf{x}_0)&=0.60\times 0.85=0.510\\
+p_3f_3(\mathbf{x}_0)&=0.35\times 2=0.700
+\end{aligned}
+\]
+由于 $p_3f_3(\mathbf{x}_0)=0.700\ge p_if_i(\mathbf{x}_0)$, $i=1,2$, 我们将 $\mathbf{x}_0$ 分到 $\pi_3$. 等价的, 计算后验概率[见\hyperref[eq:11-42]{式(11-42)}], 得到
+\[
+P(\pi_1\mid \mathbf{x}_0)=\frac{p_1f_1(\mathbf{x}_0)}{\sum_{i=1}^{3}p_if_i(\mathbf{x}_0)}=\frac{0.05\times 0.01}{0.05\times 0.01+0.60\times 0.85+0.35\times 2}=\frac{0.000\,5}{1.210\,5}=0.000\,4
+\]
+\[
+P(\pi_2\mid \mathbf{x}_0)=\frac{p_2f_2(\mathbf{x}_0)}{\sum_{i=1}^{3}p_if_i(\mathbf{x}_0)}=\frac{0.60\times 0.85}{1.210\,5}=\frac{0.510}{1.210\,5}=0.421
+\]
+\[
+P(\pi_3\mid \mathbf{x}_0)=\frac{p_3f_3(\mathbf{x}_0)}{\sum_{i=1}^{3}p_if_i(\mathbf{x}_0)}=\frac{0.35\times 2}{1.210\,5}=\frac{0.700}{1.210\,5}=0.578
+\]
+我们看到, $\mathbf{x}_0$ 应分入具有最大后验概率的总体 $\pi_3$. \hfill$\blacksquare$
+
+\subsection*{正态总体情形下的分类}
+
+最重要的特例是当
+\phantomsection\label{eq:11-43}
+\begin{equation}
+f_i(\mathbf{x})=\frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}_i|^{1/2}}\exp\left[-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}_i^{-1}(\mathbf{x}-\boldsymbol{\mu}_i)\right],\qquad i=1,2,\cdots,g
+\tag{11-43}
+\end{equation}
+为具有均值向量 $\boldsymbol{\mu}_i$ 和协方差矩阵 $\boldsymbol{\Sigma}_i$ 的正态密度函数的情形. 若进一步假定 $c(i\mid i)=0$, $c(k\mid i)=1$, $k\ne i$(或等价的, 所有错分代价相同), 则\hyperref[eq:11-41]{式(11-41)}变成:
+
+若
+\phantomsection\label{eq:11-44}
+\begin{equation}
+\begin{aligned}
+\ln p_kf_k(\mathbf{x})&=\ln p_k-\left(\frac{p}{2}\right)\ln(2\pi)-\frac{1}{2}\ln|\boldsymbol{\Sigma}_k|-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_k)'\boldsymbol{\Sigma}_k^{-1}(\mathbf{x}-\boldsymbol{\mu}_k)\\
+&=\max_i\ln p_if_i(\mathbf{x})
+\end{aligned}
+\tag{11-44}
+\end{equation}
+则将 $\mathbf{x}$ 分到 $\pi_k$.
+
+在\hyperref[eq:11-44]{式(11-44)}中, 常数 $(p/2)\ln(2\pi)$ 可以略去, 因为它对所有总体都相同. 因此我们将第 $i$ 个总体的二次判别得分定义为
+\phantomsection\label{eq:11-45}
+\begin{equation}
+d_i^Q(\mathbf{x})=-\frac{1}{2}\ln|\boldsymbol{\Sigma}_i|-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}_i^{-1}(\mathbf{x}-\boldsymbol{\mu}_i)+\ln p_i,\qquad i=1,2,\cdots,g
+\tag{11-45}
+\end{equation}

@@ -1,0 +1,54 @@
+故
+\[
+\mathbf{S}=\begin{bmatrix}4&-3\\-3&9\end{bmatrix}
+\]
+
+从而
+\[
+\mathbf{S}^{-1}=\frac{1}{4\times 9-(-3)\times(-3)}\begin{bmatrix}9&3\\3&4\end{bmatrix}=\begin{bmatrix}\frac{1}{3}&\frac{1}{9}\\[2pt]\frac{1}{9}&\frac{4}{27}\end{bmatrix}
+\]
+
+由\hyperref[eq:5-4]{式(5-4)}, 我们有
+\[
+T^2=3[8-9,6-5]\begin{bmatrix}\frac{1}{3}&\frac{1}{9}\\[2pt]\frac{1}{9}&\frac{4}{27}\end{bmatrix}\begin{bmatrix}8-9\\6-5\end{bmatrix}=3[-1,1]\begin{bmatrix}-\frac{2}{9}\\[2pt]\frac{1}{27}\end{bmatrix}=\frac{7}{9}
+\]
+
+在样本被选出之前, $T^2$ 的分布与随机变量 $\frac{(3-1)\times 2}{(3-2)}F_{2,3-1}=4F_{2,1}$ 的分布一致.\hfill$\blacksquare$
+
+下面的例子说明如何对假设 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$ 进行检验, 数据来源于威斯康星大学医学院对新诊断技术的一项研究工作.
+
+\noindent\textbf{例 5.2}\quad (用 $T^2$ 检验多元均值向量)
+
+对 20 名健康女性的汗液进行分析, 测出三个分量: $X_1=$ 排汗量, $X_2=$ 钠含量, $X_3=$ 钾含量. 数据列于\hyperref[tab:5.1]{表 5.1}.
+
+\begin{mvtable}
+\phantomsection\label{tab:5.1}\mvtabcap{表 5.1\quad 汗液数据}
+\begin{tabular}{cccc}
+\toprule
+试验者 & $X_1$(排汗量) & $X_2$(钠含量) & $X_3$(钾含量)\\
+\midrule
+1 & 3.7 & 48.5 & 9.3\\
+2 & 5.7 & 65.1 & 8.0\\
+3 & 3.8 & 47.2 & 10.9\\
+4 & 3.2 & 53.2 & 12.0\\
+5 & 3.1 & 55.5 & 9.7\\
+6 & 4.6 & 36.1 & 7.9\\
+7 & 2.4 & 24.8 & 14.0\\
+8 & 7.2 & 33.1 & 7.6\\
+9 & 6.7 & 47.4 & 8.5\\
+10 & 5.4 & 54.1 & 11.3\\
+11 & 3.9 & 36.9 & 12.7\\
+12 & 4.5 & 58.8 & 12.3\\
+13 & 3.5 & 27.8 & 9.8\\
+14 & 4.5 & 40.2 & 8.4\\
+15 & 1.5 & 13.5 & 10.1\\
+16 & 8.5 & 56.4 & 7.1\\
+17 & 4.5 & 71.6 & 8.2\\
+18 & 6.5 & 52.8 & 10.9\\
+19 & 4.1 & 44.1 & 11.2\\
+20 & 5.5 & 40.9 & 9.4\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+资料来源: 数据经 Gerald Bargman 博士许可使用.

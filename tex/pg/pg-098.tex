@@ -1,0 +1,45 @@
+\chapter{样本几何与随机抽样}
+\phantomsection\label{chap:3}
+
+\section{引言}
+\phantomsection\label{sec:3.1}
+
+用前一章中介绍的向量概念, 现在可以较深入地研究描述性统计量 $\bar{\mathbf{x}},\mathbf{S}_{n}$ 和 $\mathbf{R}$ 的几何解释; 在 3.2 节中我们的许多解释采用把 $\mathbf{X}$ 的列表示成 $p$ 个 $n$ 维向量的方法. 在 3.3 节中我们引入一个假设: 把观测结果组成一个随机样本. 简单地说, 随机抽样的意思是, (1) 不同项 (或试验) 的观测结果是互不相关的, (2) 所有 $p$ 个变量的联合分布对所有项保持相同. 最后, 正是随机样本的构造证明了距离的一个特殊的选择是正确的并且决定用几何形式表示 $n$ 维数据. 此外, 当数据可以作为一个随机样本处理时, 统计推断是建立在坚实的基础上的.
+
+返回到 3.4 节中的几何解释, 我们引入一个用来描述变化性的单一的称为广义方差. 方差的推广是构成多元均值比较不可缺少的部分. 在随后几节我们利用矩阵代数提供关于矩阵积与和的简明表达式, 以使我们能直接从数据矩阵 $\mathbf{X}$ 计算 $\bar{\mathbf{x}}$ 和 $\mathbf{S}_{n}$. 利用矩阵乘积的概念也清楚地刻画了 $\bar{\mathbf{x}},\mathbf{S}_{n}$ 以及变量的线性组合的均值和协方差之间的联系.
+
+\section{样本几何}
+\phantomsection\label{sec:3.2}
+
+单个的多元观测值是取自同一项目或试验的 $p$ 个不同变量的测量结果的聚集. 正如在第 1 章中, 若获得了 $n$ 个观测值, 把全部数据集放在一个 $n\times p$ 的阵列 (矩阵) 中:
+\[
+\mathbf{X}=\begin{bmatrix}
+x_{11}&x_{12}&\cdots&x_{1p}\\
+x_{21}&x_{22}&\cdots&x_{2p}\\
+\vdots&\vdots&&\vdots\\
+x_{n1}&x_{n2}&\cdots&x_{np}
+\end{bmatrix}
+\]
+$\mathbf{X}$ 的每一行表示一个多元观测值. 因为测量结果全体的集合通常是可以观察到的结果的一个具体实现, 我们说数据是来自 $p$ 个变量的“总体”的大小为 $n$ 的一个样本. 当样本由 $n$ 个测量结果组成时, 其中的每一个有 $p$ 个分量.
+
+如我们已经看到的, 数据可以用两种不同的方法划分. 对 $p$ 维散布图而言, $\mathbf{X}$ 的行表示 $p$ 维空间中的 $n$ 个点, 可以写为
+\phantomsection\label{eq:3-1}
+\begin{equation}
+\mathbf{X}=\begin{bmatrix}
+x_{11}&x_{12}&\cdots&x_{1p}\\
+x_{21}&x_{22}&\cdots&x_{2p}\\
+\vdots&\vdots&&\vdots\\
+x_{n1}&x_{n2}&\cdots&x_{np}
+\end{bmatrix}
+=\begin{bmatrix}
+\mathbf{x}_{1}'\\[2pt]
+\mathbf{x}_{2}'\\[2pt]
+\vdots\\[2pt]
+\mathbf{x}_{n}'
+\end{bmatrix}
+\begin{array}{l}
+\leftarrow\ \text{第一个 (多元) 观测值}\\\\
+\leftarrow\ \text{第}\ n\ \text{个 (多元) 观测值}
+\end{array}
+\tag{3-1}
+\end{equation}

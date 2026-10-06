@@ -1,0 +1,59 @@
+迹是它的对角线元素之和，迹的性质在定义 2A.28 和结论 2A.12 中已讨论过).
+
+\mvthm{结论 4.9}{设 $\mathbf{A}$ 为 $k\times k$ 对称矩阵且 $\mathbf{x}$ 为 $k\times1$ 向量，则}
+
+(a) $\mathbf{x}'\mathbf{A}\mathbf{x}=\operatorname{tr}(\mathbf{x}'\mathbf{A}\mathbf{x})=\operatorname{tr}(\mathbf{A}\mathbf{x}\mathbf{x}')$.
+
+(b) $\operatorname{tr}(\mathbf{A})=\sum\limits_{i=1}^{k}\lambda_i$，其中 $\lambda_i$ 是 $\mathbf{A}$ 的特征值.
+
+\noindent\textbf{证明}\quad 对于(a)，我们注意到 $\mathbf{x}'\mathbf{A}\mathbf{x}$ 是一个标量，所以 $\mathbf{x}'\mathbf{A}\mathbf{x}=\operatorname{tr}(\mathbf{x}'\mathbf{A}\mathbf{x})$. 在结论 2A.12 中曾指出，对任何两个分别为 $m\times k$ 和 $k\times m$ 的矩阵 $\mathbf{B}$ 和 $\mathbf{C}$，$\operatorname{tr}(\mathbf{B}\mathbf{C})=\operatorname{tr}(\mathbf{C}\mathbf{B})$. 这是因为 $\mathbf{B}\mathbf{C}$ 有 $\sum\limits_{j=1}^{k}b_{ij}c_{ji}$ 作为它的对角线上第 $i$ 个元素，所以 $\operatorname{tr}(\mathbf{B}\mathbf{C})=\sum\limits_{i=1}^{m}\left(\sum\limits_{j=1}^{k}b_{ij}c_{ji}\right)$. 类似的，$\mathbf{C}\mathbf{B}$ 的对角线上第 $j$ 个元素是 $\sum\limits_{i=1}^{m}c_{ji}b_{ij}$，所以 $\operatorname{tr}(\mathbf{C}\mathbf{B})=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{m}c_{ji}b_{ij}\right)=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{m}b_{ij}c_{ji}\right)=\operatorname{tr}(\mathbf{B}\mathbf{C})$. 设 $\mathbf{x}'$ 为 $m=1$ 的矩阵 $\mathbf{B}$，并设 $\mathbf{A}\mathbf{x}$ 起矩阵 $\mathbf{C}$ 的作用. 于是，$\operatorname{tr}(\mathbf{x}'(\mathbf{A}\mathbf{x}))=\operatorname{tr}((\mathbf{A}\mathbf{x})\mathbf{x}')$，从而得到结论.
+
+(b) 利用\hyperref[eq:2-20]{式(2-20)}的谱分解来证明，有 $\mathbf{A}=\mathbf{P}\boldsymbol{\Lambda}\mathbf{P}'$，其中 $\mathbf{P}\mathbf{P}'=\mathbf{I}$，$\boldsymbol{\Lambda}$ 是元素为 $\lambda_1,\lambda_2,\cdots,\lambda_k$ 的对角阵. 因此，$\operatorname{tr}(\mathbf{A})=\operatorname{tr}(\mathbf{P}'\boldsymbol{\Lambda}\mathbf{P})=\operatorname{tr}(\boldsymbol{\Lambda}\mathbf{P}\mathbf{P}')=\operatorname{tr}(\boldsymbol{\Lambda})=\lambda_1+\lambda_2+\cdots+\lambda_k$.\hfill$\blacksquare$
+
+现在，在\hyperref[eq:4-11]{式(4-11)}中，联合密度的指数可以简化. 由结论 4.9(a)，
+
+\phantomsection\label{eq:4-12}
+\begin{equation}
+\begin{aligned}
+(\mathbf{x}_j-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})
+&=\operatorname{tr}\left[(\mathbf{x}_j-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})\right]\\
+&=\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})(\mathbf{x}_j-\boldsymbol{\mu})'\right]
+\end{aligned}
+\tag{4-12}
+\end{equation}
+
+接下来
+
+\phantomsection\label{eq:4-13}
+\begin{equation}
+\begin{aligned}
+\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})
+&=\sum_{j=1}^{n}\operatorname{tr}\left[(\mathbf{x}_j-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})\right]\\
+&=\sum_{j=1}^{n}\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})(\mathbf{x}_j-\boldsymbol{\mu})'\right]\\
+&=\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu})(\mathbf{x}_j-\boldsymbol{\mu})'\right)\right]
+\end{aligned}
+\tag{4-13}
+\end{equation}
+
+因为依照结论 2A.12(b)，矩阵和的迹等于矩阵迹的和. 我们可以在 $\sum\limits_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu})(\mathbf{x}_j-\boldsymbol{\mu})'$ 中的每一项 $(\mathbf{x}_j-\boldsymbol{\mu})$ 里加上和减去 $\bar{\mathbf{x}}=(1/n)\sum\limits_{j=1}^{n}\mathbf{x}_j$，得
+
+\phantomsection\label{eq:4-14}
+\begin{equation}
+\begin{aligned}
+&\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}+\bar{\mathbf{x}}-\boldsymbol{\mu})(\mathbf{x}_j-\bar{\mathbf{x}}+\bar{\mathbf{x}}-\boldsymbol{\mu})'\\
+&\quad=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+\sum_{j=1}^{n}(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\\
+&\quad=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'
+\end{aligned}
+\tag{4-14}
+\end{equation}
+
+这是因为交叉乘积项 $\sum\limits_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\bar{\mathbf{x}}-\boldsymbol{\mu})'$ 与 $\sum\limits_{j=1}^{n}(\bar{\mathbf{x}}-\boldsymbol{\mu})(\mathbf{x}_j-\bar{\mathbf{x}})'$ 是两个零矩阵(参见练习 4.15). 因此，利用\hyperref[eq:4-13]{式(4-13)}和\hyperref[eq:4-14]{式(4-14)}，我们把多元正态总体的一个随机样本的联合密度写为
+
+\phantomsection\label{eq:4-15}
+\begin{equation}
+\begin{aligned}
+&\{\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n\text{ 的联合密度}\}=(2\pi)^{-np/2}|\boldsymbol{\Sigma}|^{-n/2}\\
+&\quad\times\exp\left\{-\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\right)\right]\Big/2\right\}
+\end{aligned}
+\tag{4-15}
+\end{equation}

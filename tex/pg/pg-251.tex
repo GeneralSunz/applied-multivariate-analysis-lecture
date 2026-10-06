@@ -1,0 +1,79 @@
+分别表示有交互效应和无交互效应时,期望响应作为因子水平的函数的图形.无交互效应意味着对一切 $l$ 与 $k$,有 $\gamma_{lk}=0$.
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=1.15cm,y=1.45cm,>=Stealth,font=\zihao{6}]
+  \draw[->] (0,0) -- (4.75,0);
+  \draw[->] (0,0) -- (0,2.15);
+  \node[below] at (2.3,-0.52) {因子2的水平};
+  \node[rotate=90] at (-0.30,1.05) {期望响应};
+  \foreach \x in {1,2,3,4}{%
+    \draw (\x,0) -- (\x,-0.07);
+    \node[below] at (\x,-0.09) {\x};}
+  \draw (1,0.70)--(2,1.50)--(3,0.70)--(4,1.65);
+  \draw (1,1.00)--(2,1.20)--(3,1.00)--(4,1.10);
+  \draw (1,0.40)--(2,1.00)--(3,0.35)--(4,0.80);
+  \node[anchor=west] at (4.05,1.80) {因子1的水平1};
+  \node[anchor=west] at (4.05,1.45) {因子1的水平3};
+  \node[anchor=west] at (4.05,1.10) {因子1的水平2};
+  \node at (2.3,-1.05) {(a)};
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=1.15cm,y=0.62cm,>=Stealth,font=\zihao{6}]
+  \draw[->] (0,0) -- (4.75,0);
+  \draw[->] (0,0) -- (0,4.55);
+  \node[below] at (2.3,-1.25) {因子2的水平};
+  \node[rotate=90] at (-0.30,2.25) {期望响应};
+  \foreach \x in {1,2,3,4}{%
+    \draw (\x,0) -- (\x,-0.16);
+    \node[below] at (\x,-0.20) {\x};}
+  \draw (1,2.60)--(2,3.40)--(3,2.60)--(4,4.00);
+  \draw (1,2.00)--(2,2.80)--(3,2.00)--(4,3.40);
+  \draw (1,1.40)--(2,2.20)--(3,1.40)--(4,2.80);
+  \node[anchor=west] at (4.05,4.25) {因子1的水平3};
+  \node[anchor=west] at (4.05,3.65) {因子1的水平1};
+  \node[anchor=west] at (4.05,3.05) {因子1的水平2};
+  \node at (2.3,-2.35) {(b)};
+\end{tikzpicture}
+\phantomsection\label{fig:6.3}\mvcap{图 6.3\quad 期望响应曲线：(a) 有交互效应；(b) 无交互效应}
+\end{mvfigure}
+
+类似于\hyperref[eq:6-55]{式(6-55)},每个观测值也可分解为
+\phantomsection\label{eq:6-56}
+\begin{equation}
+x_{lkr} = \bar{x} + (\bar{x}_{l\cdot}-\bar{x}) + (\bar{x}_{\cdot k}-\bar{x}) + (\bar{x}_{lk}-\bar{x}_{l\cdot}-\bar{x}_{\cdot k}+\bar{x}) + (x_{lkr}-\bar{x}_{lk}) \tag{6-56}
+\end{equation}
+
+其中 $\bar{x}$ 为总平均, $\bar{x}_{l\cdot}$ 为因子 1 的第 $l$ 个水平下观测值的平均, $\bar{x}_{\cdot k}$ 为因子 2 的第 $k$ 个水平下观测值的平均, $\bar{x}_{lk}$ 为因子 1 的第 $l$ 个水平、因子 2 的第 $k$ 个水平下观测值的平均.将 $(x_{lkr}-\bar{x})$ 取平方再求和,可得
+
+\phantomsection\label{eq:6-57}
+\begin{equation}
+\begin{aligned}
+\sum_{l=1}^{g}\sum_{k=1}^{b}\sum_{r=1}^{n}(x_{lkr}-\bar{x})^2
+&= \sum_{l=1}^{g} bn(\bar{x}_{l\cdot}-\bar{x})^2 + \sum_{k=1}^{b} gn(\bar{x}_{\cdot k}-\bar{x})^2 \\
+&\quad + \sum_{l=1}^{g}\sum_{k=1}^{b} n(\bar{x}_{lk}-\bar{x}_{l\cdot}-\bar{x}_{\cdot k}+\bar{x})^2 \\
+&\quad + \sum_{l=1}^{g}\sum_{k=1}^{b}\sum_{r=1}^{n}(x_{lkr}-\bar{x}_{lk})^2
+\end{aligned}
+\tag{6-57}
+\end{equation}
+
+或 \quad $SS_{总}=SS_{因子1}+SS_{因子2}+SS_{交互}+SS_{残差}$
+
+与\hyperref[eq:6-57]{式(6-57)}中各平方和相联系的相应自由度为:
+\phantomsection\label{eq:6-58}
+\begin{equation}
+gbn-1 = (g-1)+(b-1)+(g-1)(b-1)+gb(n-1) \tag{6-58}
+\end{equation}
+
+ANOVA 表有如下形式:
+
+\begin{mvtable}
+\mvtabcap{比较两因子效应及其交互效应的方差分析表}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+变差来源 & 平方和 (SS) & 自由度 (d.f.)\\
+\midrule
+因子 1 & $SS_{因子1}=\sum\limits_{l=1}^{g} bn(\bar{x}_{l\cdot}-\bar{x})^2$ & $g-1$\\[8pt]
+因子 2 & $SS_{因子2}=\sum\limits_{k=1}^{b} gn(\bar{x}_{\cdot k}-\bar{x})^2$ & $b-1$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

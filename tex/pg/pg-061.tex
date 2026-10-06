@@ -1,0 +1,98 @@
+% ---- pg-061 （书页 49） ----
+
+设 $k\times k$ 对称矩阵 $\bm{A}$ 对于一切 $\bm{x}'=[x_1,x_2,\cdots,x_k]$，满足
+
+\phantomsection\label{eq:2-17}
+\begin{equation}
+0\leqslant \bm{x}'\bm{A}\bm{x} \tag{2-17}
+\end{equation}
+
+则称 $\bm{A}$ 是非负定的.若仅当向量 $\bm{x}'=[0,0,\cdots,0]$ 时，\hyperref[eq:2-17]{式(2-17)}中等号才成立，则称 $\bm{A}$ 是正定的.换言之，如果对一切 $\bm{x}\neq \bm{0}$ 的向量，有
+
+\phantomsection\label{eq:2-18}
+\begin{equation}
+0<\bm{x}'\bm{A}\bm{x} \tag{2-18}
+\end{equation}
+
+则称 $\bm{A}$ 是正定的.因为 $\bm{x}'\bm{A}\bm{x}$ 中只含有平方项 $x_i^2$ 及乘积项 $x_ix_j$，故称为二次型.
+
+\mvbold{例 2.11} \quad (正定矩阵和二次型)
+
+证明以下二次型是正定的：
+
+\[
+3x_1^2+2x_2^2-2\sqrt{2}x_1x_2
+\]
+
+为了说明一般方法，首先写出二次型的矩阵表示形式
+
+\[
+[x_1 \quad x_2]
+\begin{bmatrix}
+3 & -\sqrt{2}\\
+-\sqrt{2} & 2
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix}
+=\bm{x}'\bm{A}\bm{x}
+\]
+
+由定义 2A.30，$\bm{A}$ 的特征值是方程 $|\bm{A}-\lambda \bm{I}|=0$ 或 $(3-\lambda)(2-\lambda)-2=0$ 的解.求解得，$\lambda_1=4$，$\lambda_2=1$.利用\hyperref[eq:2-16]{式(2-16)}的谱分解，有
+
+\[
+\underset{(2\times2)}{\bm{A}}=\underset{(2\times1)}{\lambda_1\bm{e}_1}\underset{(1\times2)}{\bm{e}_1'}+\underset{(2\times1)}{\lambda_2\bm{e}_2}\underset{(1\times2)}{\bm{e}_2'}
+\]
+\[
+=\underset{(2\times1)}{4\bm{e}_1}\underset{(1\times2)}{\bm{e}_1'}+\underset{(2\times1)}{\bm{e}_2}\underset{(1\times2)}{\bm{e}_2'}
+\]
+
+其中 $\bm{e}_1$ 和 $\bm{e}_2$ 是分别对应于特征值 $\lambda_1=4$ 和 $\lambda_2=1$ 的标准化的正交的特征向量.因为 $4$ 和 $1$ 是标量，用 $\bm{x}'$ 和 $\bm{x}$ 分别左乘和右乘 $\bm{A}$，其中 $\bm{x}'=[x_1,x_2]$ 是任一非零向量，得
+
+\[
+\underset{(1\times2)}{\bm{x}'}\underset{(2\times2)}{\bm{A}}\underset{(2\times1)}{\bm{x}}=\underset{(1\times2)}{4\bm{x}'}\underset{(2\times1)}{\bm{e}_1}\underset{(1\times2)}{\bm{e}_1'}\underset{(2\times1)}{\bm{x}}+\underset{(1\times2)}{\bm{x}'}\underset{(2\times1)}{\bm{e}_2}\underset{(1\times2)}{\bm{e}_2'}\underset{(2\times1)}{\bm{x}}
+\]
+\[
+=4y_1^2+y_2^2\geqslant 0
+\]
+
+其中
+
+\[
+y_1=\bm{x}'\bm{e}_1=\bm{e}_1'\bm{x} \qquad \text{和} \qquad y_2=\bm{x}'\bm{e}_2=\bm{e}_2'\bm{x}
+\]
+
+这表明，$y_1$ 和 $y_2$ 不全为零，因此，$\bm{x}'\bm{A}\bm{x}=4y_1^2+y_2^2>0$，即 $\bm{A}$ 是正定的.
+
+从 $y_1$ 和 $y_2$ 的定义，有
+
+\[
+\begin{bmatrix}
+y_1\\
+y_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+\bm{e}_1'\\
+\bm{e}_2'
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix}
+\]
+
+或
+
+\[
+\underset{(2\times1)}{\bm{y}}=\underset{(2\times2)}{\bm{E}}\underset{(2\times1)}{\bm{x}}
+\]
+
+现在 $\bm{E}$ 是正交阵，因而有逆矩阵 $\bm{E}'$.于是，$\bm{x}=\bm{E}'\bm{y}$.$\bm{x}$ 是非零向量，则 $\bm{0}\neq \bm{x}=\bm{E}'\bm{y}$ 意味着 $\bm{y}\neq \bm{0}$.
+
+运用谱分解，很容易证明，当且仅当 $\bm{A}$ 的所有特征值均大于零时，$k\times k$ 对称阵 $\bm{A}$ 是正定矩阵(参考练习 2.17).当且仅当 $\bm{A}$ 的所有特征值大于或等于零时，$\bm{A}$ 是非负定阵.
+
+现在假定向量 $\bm{x}$ 的 $p$ 个元素 $x_1,x_2,\cdots,x_p$ 被视为 $p$ 个随机变量 $X_1,X_2,\cdots,X_p$.正如第 1 章中指出的，可以把这些元素当做 $p$ 维空间中一个点的坐标；在这种情况下，点 $(x_1,x_2,\cdots,x_p)$ 到原点的“距离”应当利用单位标准偏差来表示.这样，我们可以解释观察结果中所固有的不确定性(变化性).具有相同的“不确定性”的点，可以看成与原点的距离相同.
+
+利用第 1 章中介绍的距离公式[参见\hyperref[eq:1-22]{式(1-22)}]，假定对所有的 $[x_1,x_2,\cdots,x_p]\neq[0,0,\cdots,0]$，有(距离)$^2>0$，则到原点的距离满足一般公式

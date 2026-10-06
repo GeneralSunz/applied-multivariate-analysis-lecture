@@ -1,0 +1,59 @@
+% ---- pg-233 （书页 221） ----
+因此，
+\[
+\begin{aligned}
+(1-\alpha)&=P[T^2\leqslant c^2]=P[t_a^2\leqslant c^2,\text{对一切 }\boldsymbol{a}]\\
+&=P\left[|\boldsymbol{a}'(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2)-\boldsymbol{a}'(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)|\leqslant c\sqrt{\boldsymbol{a}'\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\mathbf{S}_p\boldsymbol{a}},\text{对一切 }\boldsymbol{a}\right]
+\end{aligned}
+\]
+这里的 $c^2$ 根据结论 6.2 选出.\hfill$\blacksquare$
+
+\noindent\textbf{评注}\quad 对检验 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$ 来说，含系数向量 $\hat{\boldsymbol{a}}\propto\mathbf{S}_p^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$ 的线性组合 $\hat{\boldsymbol{a}}'(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$ 给出了最大总体差值的定量表示. 也就是说，当 $T^2$ 拒绝 $H_0$ 时，$\hat{\boldsymbol{a}}'(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$ 可能有非零均值. 由于题材和统计上的重要性，我们往往要对这个线性组合的诸分量作出解释.
+
+\noindent\textbf{例 6.4}\quad (计算均值分量之差的联合置信区间)
+
+考虑威斯康星州分别由有空调设备和无空调设备住宅房主构成的两个样本（数据经威斯康星大学统计实验室许可使用）. 样本容量分别为 $n_1=45$ 和 $n_2=55$. 考虑两个用电量测量值（千瓦时），一个是 7 月份用电高峰时的总用电量（$X_1$），另一个是 7 月份非高峰用电时间的用电量（$X_2$）. 其统计结果如下：
+\[
+\bar{\mathbf{x}}_1=\begin{bmatrix}204.4\\556.6\end{bmatrix},\qquad
+\mathbf{S}_1=\begin{bmatrix}13\,825.3&23\,823.4\\23\,823.4&73\,107.4\end{bmatrix},\qquad n_1=45
+\]
+\[
+\bar{\mathbf{x}}_2=\begin{bmatrix}130.0\\355.0\end{bmatrix},\qquad
+\mathbf{S}_2=\begin{bmatrix}8\,632.0&19\,616.7\\19\,616.7&55\,964.5\end{bmatrix},\qquad n_2=55
+\]
+（非高峰时间的耗电量高于高峰时间的耗电量的原因是，在一个月内非高峰用电时间比高峰用电时间长.）
+
+我们来求均值分量之差的 95\% 联合置信区间.
+
+尽管样本方差间存在某些差异，但为明确我们的目的，我们仍用融合的样本协方差阵，此处
+\[
+\mathbf{S}_\mathrm{p}=\frac{n_1-1}{n_1+n_2-2}\mathbf{S}_1+\frac{n_2-1}{n_1+n_2-2}\mathbf{S}_2=\begin{bmatrix}10\,963.7&21\,505.5\\21\,505.5&63\,661.3\end{bmatrix}
+\]
+且
+\[
+\begin{aligned}
+c^2&=\frac{(n_1+n_2-2)p}{n_1+n_2-p-1}F_{p,n_1+n_2-p-1}(\alpha)=\frac{98\times 2}{97}\times F_{2,97}(0.05)\\
+&=2.02\times 3.1=6.26
+\end{aligned}
+\]
+对 $\boldsymbol{\mu}_1'-\boldsymbol{\mu}_2'=[\mu_{11}-\mu_{21},\mu_{12}-\mu_{22}]$，其总体均值差的 95\% 联合置信区间为：
+\[
+\mu_{11}-\mu_{21}:\ (204.4-130.0)\pm\sqrt{6.26}\times\sqrt{\left(\frac{1}{45}+\frac{1}{55}\right)\times 10\,963.7}
+\]
+即
+\[
+21.7\leqslant\mu_{11}-\mu_{21}\leqslant 127.1
+\]
+\[
+\mu_{12}-\mu_{22}:\ (556.6-355.0)\pm\sqrt{6.26}\times\sqrt{\left(\frac{1}{45}+\frac{1}{55}\right)\times 63\,661.3}
+\]
+即
+\[
+74.7\leqslant\mu_{12}-\mu_{22}\leqslant 328.5
+\]
+于是我们得出结论：有空调设备与无空调设备的家庭的耗电量之间有显著差异，这种差异在用电高峰时间及非高峰时间均存在.
+
+$\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 的 95\% 置信椭圆可用其特征值和特征向量确定，其中特征值与特征向量分别为 $\lambda_1=71\,323.5$，$\mathbf{e}_1'=[0.336,0.942]$ 及 $\lambda_2=3\,301.5$，$\mathbf{e}_2'=[0.942,-0.336]$，由于
+\[
+\sqrt{\lambda_1}\sqrt{\left(\frac{1}{n_1}+\frac{1}{n_2}\right)c^2}=\sqrt{71\,323.5}\times\sqrt{\left(\frac{1}{45}+\frac{1}{55}\right)\times 6.26}=134.3
+\]

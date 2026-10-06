@@ -1,0 +1,59 @@
+% ---- pg-353 （书页 341） ----
+
+并得到结论, $(\sigma_{ii},\mathbf{e}_i)$ 是第 $i$ 个特征值-特征向量对. 由于线性组合 $\mathbf{e}_i'\mathbf{X}=X_i$, 此组主成分正是原来那组不相关随机变量.
+
+对如\hyperref[eq:8-13]{式(8-13)}所示的协方差矩阵, 抽取主成分时是什么东西也得不到的. 从另一方面看, 如果 $\mathbf{X}$ 服从正态分布 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$, 常数密度的轮廓线是椭球, 其轴已经沿着最大变差方向, 于是就没有必要去旋转坐标系了.
+
+对\hyperref[eq:8-13]{式(8-13)}中的 $\boldsymbol{\Sigma}$, 标准化基本上不改变上面这种情况. 在那种情况下, $\boldsymbol{\rho}=\boldsymbol{I}$, 一个 $p\times p$ 的单位矩阵. 易知, $\boldsymbol{\rho}\mathbf{e}_i=1\mathbf{e}_i$, 故特征值 1 有 $p$ 重且可方便地取这些特征向量为 $\mathbf{e}_i'=[0,\cdots,0,1,0,\cdots,0]$, $i=1,2,\cdots,p$. 于是, 由 $\boldsymbol{\rho}$ 确定的主成分也是原变量 $Z_1,Z_2,\cdots,Z_p$. 而且, 在特征值相等的情形下, 常数密度的多元正态椭球是球体.
+
+另一种模式的协方差矩阵常用于描述诸如生物大小等生态学变量中的对应关系. 这种矩阵的一般形式为
+\phantomsection\label{eq:8-14}
+\begin{equation}
+\boldsymbol{\Sigma}=\begin{bmatrix}
+\sigma^2&\rho\sigma^2&\cdots&\rho\sigma^2\\
+\rho\sigma^2&\sigma^2&\cdots&\rho\sigma^2\\
+\vdots&\vdots&\ddots&\vdots\\
+\rho\sigma^2&\rho\sigma^2&\cdots&\sigma^2
+\end{bmatrix}
+\tag{8-14}
+\end{equation}
+得到的相关矩阵为
+\phantomsection\label{eq:8-15}
+\begin{equation}
+\boldsymbol{\rho}=\begin{bmatrix}
+1&\rho&\cdots&\rho\\
+\rho&1&\cdots&\rho\\
+\vdots&\vdots&\ddots&\vdots\\
+\rho&\rho&\cdots&1
+\end{bmatrix}
+\tag{8-15}
+\end{equation}
+也是标准化变量的协方差矩阵. \hyperref[eq:8-15]{式(8-15)}中的矩阵意味着变量 $X_1,X_2,\cdots,X_p$ 是等相关的.
+
+不难证明(见练习 8.5), 相关矩阵(8-15)的 $p$ 个特征值可以分为两组. 当 $\rho$ 为正时, 最大特征值为
+\phantomsection\label{eq:8-16}
+\begin{equation}
+\lambda_1=1+(p-1)\rho
+\tag{8-16}
+\end{equation}
+相联系的特征向量为
+\phantomsection\label{eq:8-17}
+\begin{equation}
+\mathbf{e}_1'=\left[\frac{1}{\sqrt{p}},\frac{1}{\sqrt{p}},\cdots,\frac{1}{\sqrt{p}}\right]
+\tag{8-17}
+\end{equation}
+其余 $p-1$ 个特征值是
+\[
+\lambda_2=\lambda_3=\cdots=\lambda_p=1-\rho
+\]
+它们的特征向量可以选为
+\[
+\begin{aligned}
+\mathbf{e}_2'&=\left[\frac{1}{\sqrt{1\times2}},\frac{-1}{\sqrt{1\times2}},0,\cdots,0\right]\\
+\mathbf{e}_3'&=\left[\frac{1}{\sqrt{2\times3}},\frac{1}{\sqrt{2\times3}},\frac{-2}{\sqrt{2\times3}},0,\cdots,0\right]\\
+&\vdots\\
+\mathbf{e}_i'&=\left[\frac{1}{\sqrt{(i-1)i}},\cdots,\frac{1}{\sqrt{(i-1)i}},\frac{-(i-1)}{\sqrt{(i-1)i}},0,\cdots,0\right]\\
+&\vdots\\
+\mathbf{e}_p'&=\left[\frac{1}{\sqrt{(p-1)p}},\cdots,\frac{1}{\sqrt{(p-1)p}},\frac{-(p-1)}{\sqrt{(p-1)p}}\right]
+\end{aligned}
+\]

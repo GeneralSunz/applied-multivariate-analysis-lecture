@@ -1,0 +1,58 @@
+% ---- pg-330 （书页 318） ----
+
+得到预测方程
+\[
+\begin{aligned}
+\hat{y}_1&=\hat{\beta}_{01}+\hat{\beta}_{11}z_1+\cdots+\hat{\beta}_{r1}z_r\\
+\hat{y}_2&=\hat{\beta}_{02}+\hat{\beta}_{12}z_1+\cdots+\hat{\beta}_{r2}z_r\\
+&\qquad\vdots\\
+\hat{y}_m&=\hat{\beta}_{0m}+\hat{\beta}_{1m}z_1+\cdots+\hat{\beta}_{rm}z_r
+\end{aligned}
+\]
+
+我们提醒以下两点:
+1. 用同一组 $z_1,z_2,\cdots,z_r$ 值预测每个 $Y_i$.
+2. $\hat{\beta}_{ik}$ 为回归系数阵 $\boldsymbol{\beta}=\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}$ 的第 $(i,k)$ 个元素(对 $i,k\geqslant 1$).
+
+我们通过引进一个新的相关系数来结束本节对回归问题的讨论.
+
+\mvsub{偏相关系数}
+
+考虑利用最佳线性预测量预测 $Y_1$ 和 $Y_2$ 时所得出的一对误差
+\[
+\begin{aligned}
+Y_1-\mu_{Y_1}-\boldsymbol{\Sigma}_{Y_1Z}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)\\
+Y_2-\mu_{Y_2}-\boldsymbol{\Sigma}_{Y_2Z}\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{Z}-\boldsymbol{\mu}_Z)
+\end{aligned}
+\]
+它们的相关系数由误差协方差阵 $\boldsymbol{\Sigma}_{YY\cdot Z}=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZY}$ 决定. 这个相关系数所度量的是排除 $Z_1,Z_2,\cdots,Z_r$ 的影响后, $Y_1$ 与 $Y_2$ 之间的关联性.
+
+我们将排除 $Z_1,Z_2,\cdots,Z_r$ 的影响后 $Y_1$ 与 $Y_2$ 之间的偏相关系数定义为
+\phantomsection\label{eq:7-56}
+\begin{equation}
+\rho_{Y_1Y_2\cdot Z}=\frac{\sigma_{Y_1Y_2\cdot Z}}{\sqrt{\sigma_{Y_1Y_1\cdot Z}}\sqrt{\sigma_{Y_2Y_2\cdot Z}}} \tag{7-56}
+\end{equation}
+其中 $\sigma_{Y_1Y_2\cdot Z}$ 为矩阵 $\boldsymbol{\Sigma}_{YY\cdot Z}=\boldsymbol{\Sigma}_{YY}-\boldsymbol{\Sigma}_{YZ}\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\Sigma}_{ZY}$ 的第 $(i,k)$ 个元素. 相应的样本偏相关系数为
+\phantomsection\label{eq:7-57}
+\begin{equation}
+r_{Y_1Y_2\cdot Z}=\frac{s_{Y_1Y_2\cdot Z}}{\sqrt{s_{Y_1Y_1\cdot Z}}\sqrt{s_{Y_2Y_2\cdot Z}}} \tag{7-57}
+\end{equation}
+其中 $s_{Y_1Y_2\cdot Z}$ 为 $\mathbf{S}_{YY}-\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}\mathbf{S}_{ZY}$ 的 $(i,k)$ 个元素. 假定 $\mathbf{Y}$ 和 $\mathbf{Z}$ 有联合多元正态分布, 我们发现\hyperref[eq:7-57]{式(7-57)}中的样本偏相关系数是\hyperref[eq:7-56]{式(7-56)}中的偏相关系数的极大似然估计量.
+
+\noindent\textbf{例 7.14}\quad （偏相关系数的计算）
+
+由例 7.13 的计算机数据知
+\[
+\mathbf{S}_{YY}-\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}\mathbf{S}_{ZY}=\left[\begin{array}{cc}1.043&1.042\\1.042&2.572\end{array}\right]
+\]
+因此有
+\phantomsection\label{eq:7-58}
+\begin{equation}
+r_{Y_1Y_2\cdot Z}=\frac{s_{Y_1Y_2\cdot Z}}{\sqrt{s_{Y_1Y_1\cdot Z}}\sqrt{s_{Y_2Y_2\cdot Z}}}=\frac{1.042}{\sqrt{1.043}\times\sqrt{2.572}}=0.64 \tag{7-58}
+\end{equation}
+计算普通相关系数, 得 $r_{Y_1Y_2}=0.96$. 比较这两个相关系数, 我们发现在排除变量 $Z$ 对两个响应的影响后, $Y_1$ 与 $Y_2$ 之间的相关性被大幅削减. \hfill$\blacksquare$
+
+\section{比较回归模型的两种表达方式}  % 原书 7.9
+\phantomsection\label{sec:7.13}
+
+在 7.2 节和 7.7 节, 我们分别介绍了对一个和多个响应变量的多重回归模型. 在这些处理中, 预测变量在第 $j$ 次试验中有固定的值 $z_j$. 作为另一种选择, 我们可以如 7.8 节中那样, 从一组有联合正态分布的变量开始. 在给定一个变量子集的条件下预测另一个子集的值的过程导致求条件期望, 亦即多重回归模型. 这两种多重回归的方法是相互联系的. 为直接说明这种

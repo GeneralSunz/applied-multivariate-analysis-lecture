@@ -1,0 +1,70 @@
+% ---- pg-062 （书页 50） ----
+
+\[
+(\text{距离})^2=a_{11}x_1^2+a_{22}x_2^2+\cdots+a_{pp}x_p^2
+\]
+\[
+\hspace{4em}+2(a_{12}x_1x_2+a_{13}x_1x_3+\cdots+a_{p-1,p}x_{p-1}x_p)
+\]
+
+令 $a_{ij}=a_{ji},i\neq j,i=1,2,\cdots,p,j=1,2,\cdots,p$，有
+
+\[
+0<(\text{距离})^2=[x_1,x_2,\cdots,x_p]
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1p}\\
+a_{21} & a_{22} & \cdots & a_{2p}\\
+\vdots & \vdots & & \vdots\\
+a_{p1} & a_{p2} & \cdots & a_{pp}
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_p
+\end{bmatrix}
+\]
+
+或
+
+\phantomsection\label{eq:2-19}
+\begin{equation}
+0<(\text{距离})^2=\bm{x}'\bm{A}\bm{x},\text{对 } \bm{x}\neq \bm{0} \tag{2-19}
+\end{equation}
+
+从\hyperref[eq:2-19]{式(2-19)}可见，$p\times p$ 对称阵 $\bm{A}$ 是正定的.总之，距离是由一正定二次型 $\bm{x}'\bm{A}\bm{x}$ 所确定的.反过来，一个正定二次型可以解释为一个距离平方.
+
+\mvbold{评注} \quad 设点 $\bm{x}'=[x_1,x_2,\cdots,x_p]$ 到原点的距离平方由 $\bm{x}'\bm{A}\bm{x}$ 给出，其中 $\bm{A}$ 是 $p\times p$ 对称正定矩阵，则从 $\bm{x}$ 到任意一固定点 $\bm{\mu}'=[\mu_1,\mu_2,\cdots,\mu_p]$ 的距离平方由一般表达式 $(\bm{x}-\bm{\mu})'\bm{A}(\bm{x}-\bm{\mu})$ 给出.
+
+用一个正定二次型的平方根表示距离，使我们给出一个基于矩阵 $\bm{A}$ 的特征值和特征向量的几何解释.例如，设 $p=2$，则到原点的距离为常数 $c$ 的点 $\bm{x}'=[x_1,x_2]$，满足
+
+\[
+\bm{x}'\bm{A}\bm{x}=a_{11}x_1^2+a_{22}x_2^2+2a_{12}x_1x_2=c^2
+\]
+
+如例 2.11 中，按照谱分解
+
+\[
+\bm{A}=\lambda_1\bm{e}_1\bm{e}_1'+\lambda_2\bm{e}_2\bm{e}_2' \qquad \text{所以} \qquad \bm{x}'\bm{A}\bm{x}=\lambda_1(\bm{x}'\bm{e}_1)^2+\lambda_2(\bm{x}'\bm{e}_2)^2
+\]
+
+现在，令 $y_1=\bm{x}'\bm{e}_1,y_2=\bm{x}'\bm{e}_2,c^2=\lambda_1y_1^2+\lambda_2y_2^2$ 是一个椭圆，因为当 $\bm{A}$ 为正定时 $\lambda_1,\lambda_2>0$(参见练习 2.17).易证 $\bm{x}=c\lambda_1^{-1/2}\bm{e}_1$ 满足 $\bm{x}'\bm{A}\bm{x}=\lambda_1(c\lambda_1^{-1/2}\bm{e}_1')^2=c^2$.同样地，$\bm{x}=c\lambda_2^{-1/2}\bm{e}_2$ 给出了沿 $\bm{e}_2$ 方向的适当的距离.因此，距离为 $c$ 的点落在椭圆上，它的轴由 $\bm{A}$ 的特征向量给出，其长度与特征值的平方根的倒数成比例，比例常数就是 $c$.其位置如\hyperref[fig:2.6]{图 2.6} 所示.
+
+如果 $p>2$，到原点距离为常数 $c=\sqrt{\bm{x}'\bm{A}\bm{x}}$ 的点 $\bm{x}'=[x_1,x_2,\cdots,x_p]$ 落在超椭球 $c^2=\lambda_1(\bm{x}'\bm{e}_1)^2+\cdots+\lambda_p(\bm{x}'\bm{e}_p)^2$ 上，其轴由 $\bm{A}$ 的特征向量给出.沿 $\bm{e}_i$ 方向的半轴长等于 $c/\sqrt{\lambda_i},i=1,2,\cdots,p$，其中 $\lambda_1,\lambda_2,\cdots,\lambda_p$ 是 $\bm{A}$ 的特征值.
+
+\begin{mvfigure}
+\mvinc{pg-062}{0.570,0.522,0.852,0.666}
+\phantomsection\label{fig:2.6}\mvcap{图 2.6\quad 到原点距离为常数 $c$ 的点 $（p=2,1<\lambda_1<\lambda_2）$}
+\end{mvfigure}
+
+\section{平方根矩阵}  % 原书 2.4
+\phantomsection\label{sec:2.4}
+
+谱分解使我们可用方阵的特征值和特征向量来表示该方阵的逆，同时还带来一个有用的概念：平方根矩阵.
+
+设 $\bm{A}$ 是 $k\times k$ 正定矩阵，有谱分解 $\bm{A}=\sum\limits_{i=1}^{k}\lambda_i\bm{e}_i\bm{e}_i'$.设标准化特征向量是另一矩阵的列向量 $\bm{P}=[\bm{e}_1,\bm{e}_2,\cdots,\bm{e}_k]$.于是有
+
+\phantomsection\label{eq:2-20}
+\begin{equation}
+\underset{(k\times k)}{\bm{A}}=\sum_{i=1}^{k}\underset{(k\times1)}{\lambda_i\bm{e}_i}\underset{(1\times k)}{\bm{e}_i'}=\underset{(k\times k)}{\bm{P}}\underset{(k\times k)}{\bm{\Delta}}\underset{(k\times k)}{\bm{P}'} \tag{2-20}
+\end{equation}

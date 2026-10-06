@@ -1,0 +1,77 @@
+% ---- pg-067 （书页 55） ----
+
+\[
+=E\begin{bmatrix}
+(X_1-\mu_1)^2 & (X_1-\mu_1)(X_2-\mu_2)\\
+(X_2-\mu_2)(X_1-\mu_1) & (X_2-\mu_2)^2
+\end{bmatrix}
+\]
+
+\[
+=\begin{bmatrix}
+E(X_1-\mu_1)^2 & E(X_1-\mu_1)(X_2-\mu_2)\\
+E(X_2-\mu_2)(X_1-\mu_1) & E(X_2-\mu_2)^2
+\end{bmatrix}
+\]
+
+\[
+=\begin{bmatrix}\sigma_{11} & \sigma_{12}\\\sigma_{21} & \sigma_{22}\end{bmatrix}=\begin{bmatrix}0.69 & -0.08\\-0.08 & 0.16\end{bmatrix}
+\]
+
+我们注意到离散型随机变量的均值、方差和协方差的计算涉及累加(如例 2.12 和例 2.13),
+而对连续型随机变量类似的计算则涉及积分.
+
+因为 $\sigma_{ik}=E(X_i-\mu_i)(X_k-\mu_k)=\sigma_{ki}$,可以方便地把\hyperref[eq:2-31]{式(2-31)}中的矩阵写成
+
+\phantomsection\label{eq:2-32}
+\begin{equation}
+\bm{\Sigma}=E(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})'=\begin{bmatrix}
+\sigma_{11} & \sigma_{12} & \cdots & \sigma_{1p}\\
+\sigma_{12} & \sigma_{22} & \cdots & \sigma_{2p}\\
+\vdots & \vdots & & \vdots\\
+\sigma_{1p} & \sigma_{2p} & \cdots & \sigma_{pp}
+\end{bmatrix} \tag{2-32}
+\end{equation}
+
+$\bm{\mu}$ 和 $\bm{\Sigma}$ 可分别称为总体均值(向量)和总体方差-协方差矩阵(矩阵).
+
+多元正态分布在均值向量 $\bm{\mu}$ 和方差-协方差矩阵 $\bm{\Sigma}$ 给定的情况下是完全确定的(见第 4 章),因而这些量在许多多元方法中起着重要作用.
+
+把包含在方差 $\sigma_{ii}$ 中的信息,与包含在关联性度量,尤其正被称为总体相关系数 $\rho_{ik}$ 的关联性度量中的信息分离,常常能提供更多的信息. 相关系数 $\rho_{ik}$ 可用协方差 $\sigma_{ik}$ 和方差 $\sigma_{ii}$ 和 $\sigma_{kk}$ 定义为
+
+\phantomsection\label{eq:2-33}
+\begin{equation}
+\rho_{ik}=\frac{\sigma_{ik}}{\sqrt{\sigma_{ii}}\,\sqrt{\sigma_{kk}}} \tag{2-33}
+\end{equation}
+
+相关系数度量随机变量 $X_i$ 和 $X_k$ 之间线性联系的程度(可参见文献[5]).
+
+设总体相关矩阵是 $p\times p$ 对称阵
+
+\phantomsection\label{eq:2-34}
+\begin{equation}
+\bm{\rho}=\begin{bmatrix}
+\dfrac{\sigma_{11}}{\sqrt{\sigma_{11}}\,\sqrt{\sigma_{11}}} & \dfrac{\sigma_{12}}{\sqrt{\sigma_{11}}\,\sqrt{\sigma_{22}}} & \cdots & \dfrac{\sigma_{1p}}{\sqrt{\sigma_{11}}\,\sqrt{\sigma_{pp}}}\\[2ex]
+\dfrac{\sigma_{12}}{\sqrt{\sigma_{11}}\,\sqrt{\sigma_{22}}} & \dfrac{\sigma_{22}}{\sqrt{\sigma_{22}}\,\sqrt{\sigma_{22}}} & \cdots & \dfrac{\sigma_{2p}}{\sqrt{\sigma_{22}}\,\sqrt{\sigma_{pp}}}\\[2ex]
+\vdots & \vdots & & \vdots\\[1ex]
+\dfrac{\sigma_{1p}}{\sqrt{\sigma_{11}}\,\sqrt{\sigma_{pp}}} & \dfrac{\sigma_{2p}}{\sqrt{\sigma_{22}}\,\sqrt{\sigma_{pp}}} & \cdots & \dfrac{\sigma_{pp}}{\sqrt{\sigma_{pp}}\,\sqrt{\sigma_{pp}}}
+\end{bmatrix}
+=\begin{bmatrix}
+1 & \rho_{12} & \cdots & \rho_{1p}\\
+\rho_{12} & 1 & \cdots & \rho_{2p}\\
+\vdots & \vdots & & \vdots\\
+\rho_{1p} & \rho_{2p} & \cdots & 1
+\end{bmatrix} \tag{2-34}
+\end{equation}
+
+并设 $p\times p$ 标准差矩阵是
+
+\phantomsection\label{eq:2-35}
+\begin{equation}
+\bm{V}^{1/2}=\begin{bmatrix}
+\sqrt{\sigma_{11}} & 0 & \cdots & 0\\
+0 & \sqrt{\sigma_{22}} & \cdots & 0\\
+\vdots & \vdots & & \vdots\\
+0 & 0 & \cdots & \sqrt{\sigma_{pp}}
+\end{bmatrix} \tag{2-35}
+\end{equation}

@@ -1,0 +1,47 @@
+% ---- pg-313 （书页 301） ----
+
+为建立与经典线性回归模型相一致的符号体系, 以 $[\mathbf{z}_{j0},z_{j1},\cdots,z_{jr}]$ 代表第 $j$ 次试验中的预测变量值, 以 $\mathbf{Y}_j=[Y_{j1},Y_{j2},\cdots,Y_{jm}]'$ 代表响应, 以 $\boldsymbol{\epsilon}_j=[\epsilon_{j1},\epsilon_{j2},\cdots,\epsilon_{jm}]'$ 代表误差. 用矩阵表示时, 设计阵
+\[
+\underset{(n\times(r+1))}{\mathbf{Z}}=\begin{bmatrix}z_{10}&z_{11}&\cdots&z_{1r}\\z_{20}&z_{21}&\cdots&z_{2r}\\\vdots&\vdots&&\vdots\\z_{n0}&z_{n1}&\cdots&z_{nr}\end{bmatrix}
+\]
+与单响应回归模型的情况相同[见\hyperref[eq:7-3]{式(7-3)}]. 其他矩阵量皆有多元对应量. 令
+\[
+\underset{(n\times m)}{\mathbf{Y}}=\begin{bmatrix}Y_{11}&Y_{12}&\cdots&Y_{1m}\\Y_{21}&Y_{22}&\cdots&Y_{2m}\\\vdots&\vdots&&\vdots\\Y_{n1}&Y_{n2}&\cdots&Y_{nm}\end{bmatrix}=\left[\mathbf{Y}_{(1)}\;\vdots\;\mathbf{Y}_{(2)}\;\vdots\;\cdots\;\vdots\;\mathbf{Y}_{(m)}\right]
+\]
+\[
+\underset{((r+1)\times m)}{\boldsymbol{\beta}}=\begin{bmatrix}\beta_{01}&\beta_{02}&\cdots&\beta_{0m}\\\beta_{11}&\beta_{12}&\cdots&\beta_{1m}\\\vdots&\vdots&&\vdots\\\beta_{r1}&\beta_{r2}&\cdots&\beta_{rm}\end{bmatrix}=\left[\boldsymbol{\beta}_{(1)}\;\vdots\;\boldsymbol{\beta}_{(2)}\;\vdots\;\cdots\;\vdots\;\boldsymbol{\beta}_{(m)}\right]
+\]
+\[
+\underset{(n\times m)}{\boldsymbol{\epsilon}}=\begin{bmatrix}\epsilon_{11}&\epsilon_{12}&\cdots&\epsilon_{1m}\\\epsilon_{21}&\epsilon_{22}&\cdots&\epsilon_{2m}\\\vdots&\vdots&&\vdots\\\epsilon_{n1}&\epsilon_{n2}&\cdots&\epsilon_{nm}\end{bmatrix}=\left[\boldsymbol{\epsilon}_{(1)}\;\vdots\;\boldsymbol{\epsilon}_{(2)}\;\vdots\;\cdots\;\vdots\;\boldsymbol{\epsilon}_{(m)}\right]
+\]
+\[
+=\left[\begin{array}{c}\boldsymbol{\epsilon}_1'\\\hdashline\boldsymbol{\epsilon}_2'\\\hdashline\vdots\\\hdashline\boldsymbol{\epsilon}_n'\end{array}\right]
+\]
+
+\begin{mvbox}
+{\centering\textbf{多元线性回归模型}\par}
+\phantomsection\label{eq:7-23}
+\begin{equation}
+\underset{(n\times m)}{\mathbf{Y}}=\underset{(n\times(r+1))}{\mathbf{Z}}\quad\underset{((r+1)\times m)}{\boldsymbol{\beta}}+\underset{(n\times m)}{\boldsymbol{\epsilon}} \tag{7-23}
+\end{equation}
+其中 $E(\boldsymbol{\epsilon}_{(i)})=\mathbf{0}$, $\operatorname{Cov}(\boldsymbol{\epsilon}_{(i)},\boldsymbol{\epsilon}_{(k)})=\sigma_{ik}\mathbf{I}$ \quad $i,k=1,2,\cdots,m$.
+
+第 $j$ 次试验的 $m$ 个观测值有协方差阵 $\boldsymbol{\Sigma}=\{\sigma_{ik}\}$, 但来自不同试验的观测值不相关. 这里 $\boldsymbol{\beta}$ 和 $\sigma_{ik}$ 是未知参数, 设计阵 $\mathbf{Z}$ 的第 $j$ 行为 $[\mathbf{z}_{j0},z_{j1},\cdots,z_{jr}]$.
+\end{mvbox}
+
+简单地说, 第 $i$ 个响应 $\mathbf{Y}_{(i)}$ 服从线性回归模型
+\phantomsection\label{eq:7-24}
+\begin{equation}
+\mathbf{Y}_{(i)}=\mathbf{Z}\boldsymbol{\beta}_{(i)}+\boldsymbol{\epsilon}_{(i)},\qquad i=1,2,\cdots,m \tag{7-24}
+\end{equation}
+且 $\operatorname{Cov}(\boldsymbol{\epsilon}_{(i)})=\sigma_{ii}\mathbf{I}$. 但同一次试验中不同响应的误差可以相关.
+
+给定预测变量的值 $\mathbf{Z}$ 和结果变量 $\mathbf{Y}$, 我们只用第 $i$ 个响应的观测值 $\mathbf{Y}_{(i)}$ 来确定 $\boldsymbol{\beta}_{(i)}$ 的最小二乘估计. 为保持与单响应解一致, 我们取
+\phantomsection\label{eq:7-25}
+\begin{equation}
+\hat{\boldsymbol{\beta}}_{(i)}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}_{(i)} \tag{7-25}
+\end{equation}
+将这些单变量最小二乘估计放在一起, 我们有
+\[
+\hat{\boldsymbol{\beta}}=\left[\hat{\boldsymbol{\beta}}_{(1)}\;\vdots\;\hat{\boldsymbol{\beta}}_{(2)}\;\vdots\;\cdots\;\vdots\;\hat{\boldsymbol{\beta}}_{(m)}\right]=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\left[\mathbf{Y}_{(1)}\;\vdots\;\mathbf{Y}_{(2)}\;\vdots\;\cdots\;\vdots\;\mathbf{Y}_{(m)}\right]
+\]

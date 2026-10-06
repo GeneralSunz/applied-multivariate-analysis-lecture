@@ -1,0 +1,78 @@
+$$
+\left[\begin{array}{ccc}
+\begin{bmatrix}9\\3\end{bmatrix} & \begin{bmatrix}6\\2\end{bmatrix} & \begin{bmatrix}9\\7\end{bmatrix}\\[8pt]
+\begin{bmatrix}0\\4\end{bmatrix} & \begin{bmatrix}2\\0\end{bmatrix} & \\[8pt]
+\begin{bmatrix}3\\8\end{bmatrix} & \begin{bmatrix}1\\9\end{bmatrix} & \begin{bmatrix}2\\7\end{bmatrix}
+\end{array}\right]
+\qquad\text{其中}\qquad
+\bar{\mathbf{x}}_1=\begin{bmatrix}8\\4\end{bmatrix},\quad
+\bar{\mathbf{x}}_2=\begin{bmatrix}1\\2\end{bmatrix},\quad
+\bar{\mathbf{x}}_3=\begin{bmatrix}2\\8\end{bmatrix},\quad
+\bar{\mathbf{x}}=\begin{bmatrix}4\\5\end{bmatrix}
+$$
+
+在一元 ANOVA 的讨论中, 我们已将第一个变量的观测值表示成总均值、处理效应与残差之和, 我们发现:
+
+$$
+\begin{array}{cccc}
+\left[\begin{array}{ccc}9&6&9\\0&2&\\3&1&2\end{array}\right]
+&=\left[\begin{array}{ccc}4&4&4\\4&4&\\4&4&4\end{array}\right]
+&+\left[\begin{array}{ccc}4&4&4\\-3&-3&\\-2&-2&-2\end{array}\right]
+&+\left[\begin{array}{ccc}1&-2&1\\-1&1&\\1&-1&0\end{array}\right]\\[12pt]
+\text{(观测值)}&\text{(均值)}&\text{(处理效应)}&\text{(残差)}
+\end{array}
+$$
+
+且
+\[
+\mathrm{SS}_{\text{观测}}=\mathrm{SS}_{\text{均值}}+\mathrm{SS}_{\text{处理}}+\mathrm{SS}_{\text{残差}}
+\]
+\[
+216=128+78+10
+\]
+(修正后) 总和 $\mathrm{SS}=\mathrm{SS}_{\text{观测}}-\mathrm{SS}_{\text{均值}}=216-128=88$
+
+对第二个变量的观测值重复上述操作, 就有
+
+$$
+\begin{array}{cccc}
+\left[\begin{array}{ccc}3&2&7\\4&0&\\8&9&7\end{array}\right]
+&=\left[\begin{array}{ccc}5&5&5\\5&5&\\5&5&5\end{array}\right]
+&+\left[\begin{array}{ccc}-1&-1&-1\\-3&-3&\\3&3&3\end{array}\right]
+&+\left[\begin{array}{ccc}-1&-2&3\\2&-2&\\0&1&-1\end{array}\right]\\[12pt]
+\text{(观测值)}&\text{(均值)}&\text{(处理效应)}&\text{(残差)}
+\end{array}
+$$
+
+且
+\[
+\mathrm{SS}_{\text{观测}}=\mathrm{SS}_{\text{均值}}+\mathrm{SS}_{\text{处理}}+\mathrm{SS}_{\text{残差}}
+\]
+\[
+272=200+48+24
+\]
+(修正后) 总和 $\mathrm{SS}=\mathrm{SS}_{\text{观测}}-\mathrm{SS}_{\text{均值}}=272-200=72$
+
+为完整地给出 MANOVA 表, 还必须考虑它们的交叉乘积. 将两变量中的数据按行相乘, 可得交叉乘积的贡献:
+
+\noindent 均值交叉乘积: $4\times5+4\times5+\cdots+4\times5=8\times4\times5=160$
+
+\noindent 处理交叉乘积: $3\times4\times(-1)+2\times(-3)\times(-3)+3\times(-2)\times3=-12$
+
+\noindent 残差交叉乘积: $1\times(-1)+(-2)\times(-2)+1\times3+(-1)\times2+\cdots+0\times(-1)=1$
+
+\noindent 总交叉乘积: $9\times3+6\times2+9\times7+0\times4+\cdots+2\times7=149$
+
+(修正的) 总交叉乘积 $=$ 总交叉乘积 $-$ 均值交叉乘积 $=149-160=-11$, 于是, MANOVA 表具有如下形式:
+
+\begin{mvtable}
+\begin{tabular}{ccc}
+\toprule
+变差来源 & 平方和与交叉乘积和矩阵 & 自由度\\
+\midrule
+处理 & $\begin{bmatrix}78&-12\\-12&48\end{bmatrix}$ & $3-1=2$\\[10pt]
+残差 & $\begin{bmatrix}10&1\\1&24\end{bmatrix}$ & $3+2+3-3=5$\\[10pt]
+(修正后)总和 & $\begin{bmatrix}88&-11\\-11&72\end{bmatrix}$ & 7\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

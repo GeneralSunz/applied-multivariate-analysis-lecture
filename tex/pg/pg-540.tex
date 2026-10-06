@@ -1,0 +1,86 @@
+% ---- pg-540 （书页 528） ----
+
+\[
+X_3=\begin{cases}
+1, & \text{棕色眼睛}\\
+0, & \text{其他}
+\end{cases}
+\qquad
+X_4=\begin{cases}
+1, & \text{金色头发}\\
+0, & \text{其他}
+\end{cases}
+\]
+
+\[
+X_5=\begin{cases}
+1, & \text{右手优势}\\
+0, & \text{左手优势}
+\end{cases}
+\qquad
+X_6=\begin{cases}
+1, & \text{女性}\\
+0, & \text{男性}
+\end{cases}
+\]
+
+个人 1 和个人 2 在 $p=6$ 个二值变量上的得分为
+
+\begin{mvtable}
+\begin{tabular}{c|cccccc}
+\toprule
+个人 & $\mathbf{X}_1$ & $\mathbf{X}_2$ & $\mathbf{X}_3$ & $\mathbf{X}_4$ & $\mathbf{X}_5$ & $\mathbf{X}_6$\\
+\midrule
+1 & 0 & 0 & 0 & 1 & 1 & 1\\
+2 & 1 & 1 & 1 & 0 & 1 & 0\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+配对与错配的数目由下面的双向表给出.
+
+\begin{mvtable}
+\begin{tabular}{ll|cc|c}
+\toprule
+ & & \multicolumn{2}{c|}{个人 2} & \\
+\cmidrule(lr){3-4}
+ & & 1 & 0 & 合\quad 计\\
+\midrule
+个人 1 & 1 & 1 & 2 & 3\\
+ & 0 & 3 & 0 & 3\\
+\midrule
+合\quad 计 & & 4 & 2 & 6\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+用给出等权配对的相似系数 1, 得到
+\[
+\frac{a+d}{p}=\frac{1+0}{6}=\frac{1}{6}
+\]
+继续用相似系数 1, 便可得到其余各对个人之间的相似性数字, 这些数字列于下面的 $5\times 5$ 对称矩阵中.
+
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{ccccc}1&2&3&4&5\end{array}\\[2pt]
+\begin{array}{r}1\\2\\3\\4\\5\end{array} &
+\left[\begin{array}{ccccc}
+1&&&&\\
+\frac{1}{6}&1&&&\\
+\frac{4}{6}&\frac{3}{6}&1&&\\
+\frac{4}{6}&\frac{3}{6}&\frac{2}{6}&1&\\
+0&\tikz{\node[draw,ellipse,inner sep=1pt]{$\frac{5}{6}$};}&\frac{2}{6}&\frac{2}{6}&1
+\end{array}\right]
+\end{array}
+\]
+
+根据相似系数的大小, 可以断言第二人与第五人最相似, 而第一人与第五人最不相似. 其余各对处于这两个极端之间. 如果我们根据相似性数字将这五个人分成相对接近的两组, 则可得出(1 3 4)和(2 5).
+
+注意, $X_3=0$ 意味着眼球颜色不是棕色的, 故因此一个有蓝眼睛的人与一个有绿眼睛的人组成一个数 0—0 配对. 因此, 用相似性系数 1, 2 或 3 可能不合适, 因为这些系数对 1—1 配对和 0—0 配对赋予相等的权.\hfill$\blacksquare$
+
+我们描述了距离和相似性的构造. 由距离来构造相似性总是可能的. 例如, 我们可以令
+\phantomsection\label{eq:12-8}
+\begin{equation}
+\tilde{s}_{ik}=\frac{1}{1+d_{ik}}
+\tag{12-8}
+\end{equation}

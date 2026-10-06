@@ -1,0 +1,68 @@
+% ---- pg-016 ----
+\section{数据的组织}
+\phantomsection\label{sec:1.3}
+
+在本书中,我们将分析由几个变量或特征构成的测量值.这些测量值(通常称为\mvbold{数据})常常必须以不同方式排列和显示.例如,曲线图和列表方式是数据分析的重要手段.概括数字可定量地描绘数据的某些特征,对于任何描述都是必要的.
+
+现在我们介绍一些初步的概念,作为数据组织的第一步.
+
+\mvsub{阵列}
+
+每当一个研究者试图了解一个社会现象或自然现象时,他会选择 $p(p\geqslant 1)$ 个变量或事物的特征来进行记录,从而出现多元数据.对每个个别的项目、个体或实验单元,这些变量的值都被记录下来.
+
+我们将用记号 $x_{jk}$ 表示第 $k$ 个变量在第 $j$ 项上或第 $j$ 次试验中的观测值,即
+\[
+x_{jk} = \text{第 }k\text{ 个变量的第 }j\text{ 项测量值}
+\]
+
+因此,$p$ 个变量的 $n$ 个测量值可以表示如下:
+
+\[
+\begin{array}{ccccccc}
+ & \text{变量 }1 & \text{变量 }2 & \cdots & \text{变量 }k & \cdots & \text{变量 }p \\[2pt]
+\text{项目 }1: & x_{11} & x_{12} & \cdots & x_{1k} & \cdots & x_{1p} \\[2pt]
+\text{项目 }2: & x_{21} & x_{22} & \cdots & x_{2k} & \cdots & x_{2p} \\[2pt]
+\vdots & \vdots & \vdots & & \vdots & & \vdots \\[2pt]
+\text{项目 }j: & x_{j1} & x_{j2} & \cdots & x_{jk} & \cdots & x_{jp} \\[2pt]
+\vdots & \vdots & \vdots & & \vdots & & \vdots \\[2pt]
+\text{项目 }n: & x_{n1} & x_{n2} & \cdots & x_{nk} & \cdots & x_{np}
+\end{array}
+\]
+
+或者我们可用一个有 $n$ 行 $p$ 列的矩形阵列来表示这些数据,称为 $\bm{X}$
+
+\[
+\bm{X} =
+\begin{bmatrix}
+x_{11} & x_{12} & \cdots & x_{1k} & \cdots & x_{1p} \\
+x_{21} & x_{22} & \cdots & x_{2k} & \cdots & x_{2p} \\
+\vdots & \vdots & & \vdots & & \vdots \\
+x_{j1} & x_{j2} & \cdots & x_{jk} & \cdots & x_{jp} \\
+\vdots & \vdots & & \vdots & & \vdots \\
+x_{n1} & x_{n2} & \cdots & x_{nk} & \cdots & x_{np}
+\end{bmatrix}
+\]
+
+于是,阵列 $\bm{X}$ 包含了全部变量的所有观测值.
+
+\mvbold{例 1.1} (一个数据阵列)
+
+从一所大学的书店选出四张收据来了解书籍的销售情况.每张收据提供了售书数量及每笔买卖的总金额.用第一个变量表示总销售金额,第二个变量表示售出书的数量.然后我们可将收据上相关数据看做是这两个变量的四组测量值.假定数据如下所示:
+
+\[
+\begin{array}{l}
+\text{变量 }1(\text{销售金额}):\quad 42 \quad 52 \quad 48 \quad 58 \\[2pt]
+\text{变量 }2(\text{书的总数}):\quad 4 \quad 5 \quad 4 \quad 3
+\end{array}
+\]
+
+用我们刚才引入的记号,就有
+
+\[
+\begin{array}{llll}
+x_{11} = 42 & x_{21} = 52 & x_{31} = 48 & x_{41} = 58 \\[2pt]
+x_{12} = 4 & x_{22} = 5 & x_{32} = 4 & x_{42} = 3
+\end{array}
+\]
+
+而数据阵列 $\bm{X}$ 由 4 行 2 列组成,即

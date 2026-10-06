@@ -1,0 +1,56 @@
+\begin{mvfigure}
+\begin{tikzpicture}[x=0.78cm,y=0.44cm]
+  \draw[->] (0,0) -- (9.6,0) node[right,font=\small]{法定加班出勤时数};
+  \draw[->] (0,0) -- (0,9.6) node[above,font=\small]{特殊事件处理加班时数};
+  \foreach \x/\lab in {1.0/1\,500,3.0/2\,500,5.0/3\,500,7.0/4\,500,9.0/5\,500}
+    {\draw (\x,0) -- (\x,-0.2); \node[below,font=\scriptsize] at (\x,-0.3) {$\lab$};}
+  \foreach \y/\lab in {1.0/$-2\,000$,3.0/$0$,5.0/$1\,000$,7.0/$3\,000$,9.0/$5\,000$}
+    {\draw (0,\y) -- (-0.2,\y); \node[left,font=\scriptsize] at (-0.2,\y) {\lab};}
+  \draw (4.2,4.2) ellipse (3.4 and 3.3);
+  \foreach \x/\y in {3.774/4.200,3.218/2.875,2.340/2.957,3.250/3.758,3.938/2.868,3.240/2.398,4.342/3.603,6.062/2.523,4.356/4.034,3.476/3.136,3.270/7.326,7.434/3.658,4.456/3.945,4.012/2.344,4.648/2.807,4.032/3.223}
+    \fill (\x,\y) circle (1.6pt);
+  \draw[->] (3.27,7.326) -- (4.6,8.6);
+\end{tikzpicture}
+\phantomsection\label{fig:5.6}\mvcap{图 5.6\quad 法定加班出勤时数及特殊事件处理加班时数的 $99\%$ 椭圆质量控制图}
+\end{mvfigure}
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=0.52cm,y=0.42cm]
+  \draw[->] (0,0) -- (17,0) node[right,font=\small]{观测值序号};
+  \draw[->] (0,0) -- (0,10.2) node[above,font=\small]{$x_2$ 值};
+  \foreach \y in {0,1,2,3,4,5,6,7,8,9,10} \draw (0,\y) -- (-0.18,\y);
+  \node[left,font=\scriptsize] at (0,0) {$-3\,000$};
+  \node[left,font=\scriptsize] at (0,1) {$-2\,000$};
+  \node[left,font=\scriptsize] at (0,2) {$-1\,000$};
+  \node[left,font=\scriptsize] at (0,3) {$0$};
+  \node[left,font=\scriptsize] at (0,4) {$1\,000$};
+  \node[left,font=\scriptsize] at (0,5) {$2\,000$};
+  \node[left,font=\scriptsize] at (0,6) {$3\,000$};
+  \node[left,font=\scriptsize] at (0,7) {$4\,000$};
+  \node[left,font=\scriptsize] at (0,8) {$5\,000$};
+  \node[left,font=\scriptsize] at (0,9) {$6\,000$};
+  \draw[dashed] (0,8.027) -- (16.5,8.027) node[right,font=\scriptsize]{UCL=5\,027};
+  \draw[dashed] (0,0.929) -- (16.5,0.929) node[right,font=\scriptsize]{LCL=$-$2\,071};
+  \draw[dashed] (0,4.478) -- (16.5,4.478) node[right,font=\scriptsize]{$\bar{x}_2$=1\,478};
+  \draw (1,5.2)--(2,3.875)--(3,3.957)--(4,4.758)--(5,3.868)--(6,3.398)--(7,4.603)--(8,3.523)--(9,5.034)--(10,4.136)--(11,8.326)--(12,4.658)--(13,4.945)--(14,3.344)--(15,3.807)--(16,4.223);
+  \foreach \x/\y in {1/5.2,2/3.875,3/3.957,4/4.758,5/3.868,6/3.398,7/4.603,8/3.523,9/5.034,10/4.136,11/8.326,12/4.658,13/4.945,14/3.344,15/3.807,16/4.223}
+    \fill (\x,\y) circle (1.3pt);
+\end{tikzpicture}
+\phantomsection\label{fig:5.7}\mvcap{图 5.7\quad $x_2$=特殊事件处理加班时数的 $\bar{X}$ 控制图}
+\end{mvfigure}
+
+为控制下限.
+
+\hyperref[fig:5.7]{图 5.7} 中的特殊事件处理加班时间数据中,有一个点落在控制上限之外,这是不是由特殊原因引起的异常事件? 事实上,在这段时间里美国轰炸了某国首都,招致麦迪逊城学生的抗议,故大多数特殊事件处理加班时间均用在这 4 周之内. 虽然根据定义,这种加班处理时数仅当有特殊事件发生时才会出现,因而是不可预测的,但它仍有一定的稳定性.\hfill$\blacksquare$
+
+\mvbold{$T^{2}$ 控制图}\quad 一个 $T^{2}$ 控制图可用来处理大量的特征. 与椭圆控制图不同的是,它并不仅仅局限于两个变量. 此外,与散布图不同的是,它的点是按时间顺序画出的,这样我们从图上可以看到各种变化模式和趋势.
+
+对第 $j$ 个点计算 $T^{2}$ 统计量
+\phantomsection\label{eq:5-33}
+\begin{equation}
+T_j^{2}=(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}_j-\bar{\mathbf{x}})
+\tag{5-33}
+\end{equation}
+然后将 $T^{2}$ 值画在时间轴上. 控制下限为 0,而控制上限可定为 UCL$=\chi_p^{2}(0.05)$ 或 $\chi_p^{2}(0.01)$.
+
+在 $T^{2}$ 控制图中没有中心线. 值得注意的是,$T^{2}$ 统计量与 4.6 节中用于检验正态性的量 $d_j^{2}$ 相同.

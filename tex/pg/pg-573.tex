@@ -1,0 +1,63 @@
+% ---- pg-573 （书页 561） ----
+
+根据结论 2A.16, $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 的最佳降秩到 $s$ 的逼近 $\hat{\mathbf{B}}$ 为奇异值分解的前 $s$ 项的和. 对 $\mathbf{P}$ 的逼近为
+\[
+\hat{\mathbf{P}}=\mathbf{D}_r^{1/2}\hat{\mathbf{B}}\mathbf{D}_c^{1/2}
+=\sum_{k=1}^{s}\tilde{\lambda}_k(\mathbf{D}_r^{1/2}\tilde{\mathbf{u}}_k)(\mathbf{D}_c^{1/2}\tilde{\mathbf{v}}_k)'
+\]
+且根据结论 2A.16, 逼近的误差为 $\sum_{k=s+1}^{J}\tilde{\lambda}_k^2$.
+
+对任意的 $I\times J$ 对应矩阵 $\mathbf{P}$, $\mathbf{r}\mathbf{c}'$ 总是其降秩到 1 的最佳逼近. 这结论等价于行和列的独立性假定. 为证明此结论, 令 $\tilde{\mathbf{u}}_1=\mathbf{D}_r^{-1/2}\mathbf{1}_I$, $\tilde{\mathbf{v}}_1=\mathbf{D}_c^{-1/2}\mathbf{1}_J$. 我们验证 $\tilde{\mathbf{u}}_1$ 和 $\tilde{\mathbf{v}}_1$ 满足\hyperref[eq:12-35]{式(12-35)}.
+\[
+\begin{aligned}
+\tilde{\mathbf{u}}_1'(\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2})
+&=(\mathbf{D}_r^{1/2}\mathbf{1}_I)'(\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2})\\
+&=\mathbf{1}_I'\mathbf{P}\mathbf{D}_c^{-1/2}=\mathbf{c}'\mathbf{D}_c^{-1/2}\\
+&=[\sqrt{c_1},\cdots,\sqrt{c_J}]=(\mathbf{D}_c^{1/2}\mathbf{1}_J)'=\tilde{\mathbf{v}}_1'
+\end{aligned}
+\]
+并且
+\[
+\begin{aligned}
+(\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2})\tilde{\mathbf{v}}_1
+&=(\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2})(\mathbf{D}_c^{1/2}\mathbf{1}_J)\\
+&=\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{1}_J=\mathbf{D}_r^{-1/2}\mathbf{r}\\
+&=\begin{bmatrix}\sqrt{r_1}\\ \vdots\\ \sqrt{r_I}\end{bmatrix}
+=\mathbf{D}_r^{1/2}\mathbf{1}_I=\tilde{\mathbf{u}}_1
+\end{aligned}
+\]
+因此,
+\phantomsection\label{eq:12-36}
+\begin{equation}
+(\tilde{\mathbf{u}}_1,\tilde{\mathbf{v}}_1)=(\mathbf{D}_r^{1/2}\mathbf{1}_I,\mathbf{D}_c^{1/2}\mathbf{1}_J)
+\tag{12-36}
+\end{equation}
+为对应奇异值 $\tilde{\lambda}_1=1$ 的奇异向量. 对任意的对应矩阵 $\mathbf{P}$, 在任何展开中的公共项为
+\[
+\mathbf{D}_r^{1/2}\tilde{\mathbf{u}}_1\tilde{\mathbf{v}}_1'\mathbf{D}_c^{1/2}
+=\mathbf{D}_r\mathbf{1}_I\mathbf{1}_J'\mathbf{D}_c=\mathbf{r}\mathbf{c}'
+\]
+这样, 我们建立了一阶逼近, 而\hyperref[eq:12-34]{式(12-34)}总可表示为
+\[
+\mathbf{P}=\mathbf{r}\mathbf{c}'+\sum_{k=2}^{J}\tilde{\lambda}_k(\mathbf{D}_r^{1/2}\tilde{\mathbf{u}}_k)(\mathbf{D}_c^{1/2}\tilde{\mathbf{v}}_k)'
+\]
+由于有公共项, 问题可转到 $\mathbf{P}-\mathbf{r}\mathbf{c}'$ 及其标准化 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$. 由 $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 的奇异向量间的正交性, 我们有 $\tilde{\mathbf{u}}_k'(\mathbf{D}_r^{1/2}\mathbf{1}_I)=0$ 及 $\tilde{\mathbf{v}}_k'(\mathbf{D}_c^{1/2}\mathbf{1}_J)=0, k>1$. 因此,
+\[
+\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}
+=\sum_{k=2}^{J}\tilde{\lambda}_k\tilde{\mathbf{u}}_k\tilde{\mathbf{v}}_k'
+\]
+是以 $\mathbf{D}_r^{-1/2}\mathbf{P}\mathbf{D}_c^{-1/2}$ 的奇异值和奇异向量所表示的关于 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的奇异分解. 转化到 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 本身的奇异值和奇异向量 $\lambda_k$, $\mathbf{u}_k$ 和 $\mathbf{v}_k$, 只需将 $k$ 变到 $k-1$. 因此 $\lambda_k=\tilde{\lambda}_{k+1}$, $\mathbf{u}_k=\tilde{\mathbf{u}}_{k+1}$, $\mathbf{v}_k=\tilde{\mathbf{v}}_{k+1}$, $k=1,\cdots,J-1$.
+
+用 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的奇异分解得到 $\mathbf{P}-\mathbf{r}\mathbf{c}'$ 的展开
+\phantomsection\label{eq:12-37}
+\begin{equation}
+\mathbf{P}-\mathbf{r}\mathbf{c}'=\sum_{k=1}^{J-1}\lambda_k(\mathbf{D}_r^{1/2}\mathbf{u}_k)(\mathbf{D}_c^{1/2}\mathbf{v}_k)'
+\tag{12-37}
+\end{equation}
+由于 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的秩 $K$ 最佳逼近为 $\sum_{k=1}^{K}\tilde{\lambda}_k\tilde{\mathbf{u}}_k\tilde{\mathbf{v}}_k'$, 因此 $\mathbf{P}-\mathbf{r}\mathbf{c}'$ 的秩 $K$ 最佳逼近为
+\phantomsection\label{eq:12-38}
+\begin{equation}
+\mathbf{P}-\mathbf{r}\mathbf{c}'\doteq\sum_{k=1}^{K}\lambda_k(\mathbf{D}_r^{1/2}\mathbf{u}_k)(\mathbf{D}_c^{1/2}\mathbf{v}_k)'
+\tag{12-38}
+\end{equation}
+\hfill$\blacksquare$

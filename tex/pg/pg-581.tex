@@ -1,0 +1,20 @@
+% ---- pg-581 （书页 569） ----
+
+样本均值 $\bar{\mathbf{x}}=\sum_{i=1}^{p}\bar{x}_i\mathbf{u}_i$ 的投影向量
+\[
+\hat{\mathbf{E}}'\bar{\mathbf{x}}=\sum_{i=1}^{p}\bar{x}_i(\hat{\mathbf{E}}'\mathbf{u}_i)
+\]
+是双向信息图的原点. 每个 $\mathbf{x}$ 可表示为 $\mathbf{x}=\bar{\mathbf{x}}+(\mathbf{x}-\bar{\mathbf{x}})$, 因此其投影向量有两个分量
+\[
+\sum_{i=1}^{p}\bar{x}_i(\hat{\mathbf{E}}'\mathbf{u}_i)+\sum_{i=1}^{p}(x_i-\bar{x}_i)(\hat{\mathbf{E}}'\mathbf{u}_i)
+\]
+从原点出发, 将点沿方向 $w(e_{1i},e_{2i})'$ 布置, $w=0,\pm1,\pm2,\cdots$. 这样就对均值中心化的变量 $x_i-\bar{x}_i$ 提供了尺度. 如此, $x_i$ 的单位变化定义了双重信息图中的距离. 但是第 $i$ 个变量的原点对应于 $w=0$, 因为 $\sum_{i=1}^{p}\bar{x}_i(\hat{\mathbf{E}}'\mathbf{u}_i)$ 项被忽略了. 轴的标度需要作平移使得双重信息图的原点为 $\bar{x}_i$. 由于 $\bar{x}_i$ 通常不是整数(或其他好的数), 可以选择与其最接近的整数(或其他好的数)来表示, 同时刻度也适当地平移. 计算机软件能将这个有一定困难的任务简化.
+
+标注尺度使得我们可以将 $x_i(e_{1i},e_{2i})'$ 的位置可视地表示在双向信息图中. 标注尺度只是预测变量的值, 而不是变量的真实值, 因为所标注的尺度是基于二维逼近.
+
+\noindent\textbf{例 12.20}\quad (大学数据的另一种双重信息图)
+
+\begin{mvfigure}
+\mvinc{pg-581}{0.140,0.488,0.822,0.822}
+\phantomsection\label{fig:12.25}\mvcap{图 12.25\quad 大学数据的另一种双重信息图}
+\end{mvfigure}

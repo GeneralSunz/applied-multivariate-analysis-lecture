@@ -1,0 +1,62 @@
+% ---- pg-434 （书页 422） ----
+
+合(第一典型变量配对)
+\[
+U_1=\underbrace{e_1'\boldsymbol{\Sigma}_{11}^{-1/2}\mathbf{X}^{(1)}}_{\mathbf{a}_1'}\quad \text{和}\quad V_1=\underbrace{f_1'\boldsymbol{\Sigma}_{22}^{-1/2}\mathbf{X}^{(2)}}_{\mathbf{b}_1'}
+\]
+达到
+\[
+\max_{a,b}\mathrm{Corr}(U,V)=\rho_1^*
+\]
+第 $k$ 对典型变量, $k=2,3,\cdots,p$,
+\[
+U_k=e_k'\boldsymbol{\Sigma}_{11}^{-1/2}\mathbf{X}^{(1)},\qquad V_k=f_k'\boldsymbol{\Sigma}_{22}^{-1/2}\mathbf{X}^{(2)}
+\]
+使
+\[
+\mathrm{Corr}(U_k,V_k)=\rho_k^*
+\]
+在那些与前面 $1,2,\cdots,k-1$ 个典型变量无关的线性组合中最大化.
+
+这里 $\rho_1^{*2}\ge\rho_2^{*2}\ge\cdots\ge\rho_p^{*2}$ 是 $\boldsymbol{\Sigma}_{11}^{-1/2}\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1/2}$ 的特征值, 而 $e_1,e_2,\cdots,e_p$ 是相应的 $(p\times 1)$ 特征向量. ($\rho_1^{*2},\rho_2^{*2},\cdots,\rho_p^{*2}$ 亦是矩阵 $\boldsymbol{\Sigma}_{22}^{-1/2}\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1/2}$ 的 $p$ 个最大的特征值, 这个矩阵有对应的 $(q\times 1)$ 特征向量 $f_1,f_2,\cdots,f_p$. 每一个 $f_i$ 都是和 $\boldsymbol{\Sigma}_{22}^{-1/2}\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1/2}e_i$ 成比例的.)
+
+典型变量具有性质
+\[
+\begin{aligned}
+\mathrm{Var}(U_k)&=\mathrm{Var}(V_k)=1\\
+\mathrm{Cov}(U_k,U_l)&=\mathrm{Corr}(U_k,U_l)=0\quad k\ne l\\
+\mathrm{Cov}(V_k,V_l)&=\mathrm{Corr}(V_k,V_l)=0\quad k\ne l\\
+\mathrm{Cov}(U_k,V_l)&=\mathrm{Corr}(U_k,V_l)=0\quad k\ne l
+\end{aligned}
+\]
+其中, $k,l=1,2,\cdots,p$.
+
+\noindent\mvbold{证明}\quad (见网页: www.prenhall.com/statistics)\hfill$\blacksquare$
+
+如果把原来的变量用 $\mathbf{Z}^{(1)}=[Z_1^{(1)},Z_2^{(1)},\cdots,Z_p^{(1)}]'$ 和 $\mathbf{Z}^{(2)}=[Z_1^{(2)},Z_2^{(2)},\cdots,Z_q^{(2)}]'$ 来标准化, 从第一准则, 典型变量具有如下的形式
+\phantomsection\label{eq:10-8}
+\begin{equation}
+\begin{aligned}
+U_k&=\mathbf{a}_k'\mathbf{Z}^{(1)}=e_k'\boldsymbol{\rho}_{11}^{-1/2}\mathbf{Z}^{(1)}\\
+V_k&=\mathbf{b}_k'\mathbf{Z}^{(2)}=f_k'\boldsymbol{\rho}_{22}^{-1/2}\mathbf{Z}^{(2)}
+\end{aligned}
+\tag{10-8}
+\end{equation}
+这里, $\mathrm{Cov}(\mathbf{Z}^{(1)})=\boldsymbol{\rho}_{11}$, $\mathrm{Cov}(\mathbf{Z}^{(2)})=\boldsymbol{\rho}_{22}$, $\mathrm{Cov}(\mathbf{Z}^{(1)},\mathbf{Z}^{(2)})=\boldsymbol{\rho}_{12}=\boldsymbol{\rho}_{21}'$, $e_k$ 及 $f_k$ 分别为 $\boldsymbol{\rho}_{11}^{-1/2}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1/2}$ 及 $\boldsymbol{\rho}_{22}^{-1/2}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1/2}$ 的特征向量. 而典型相关系数 $\rho_k$ 满足
+\phantomsection\label{eq:10-9}
+\begin{equation}
+\mathrm{Corr}(U_k,V_k)=\rho_k^*,\qquad k=1,2,\cdots,p
+\tag{10-9}
+\end{equation}
+其中 $\rho_1^{*2}\ge\rho_2^{*2}\ge\cdots\ge\rho_p^{*2}$ 是矩阵 $\boldsymbol{\rho}_{11}^{-1/2}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1/2}$ (或等价的, 矩阵 $\boldsymbol{\rho}_{22}^{-1/2}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1/2}$) 的非零特征值.
+
+\noindent\mvbold{评注}\quad 注意
+\[
+\begin{aligned}
+\mathbf{a}_k'(\mathbf{X}^{(1)}-\boldsymbol{\mu}^{(1)})&=a_{k1}(X_1^{(1)}-\mu_1^{(1)})+a_{k2}(X_2^{(1)}-\mu_2^{(1)})\\
+&\quad+\cdots+a_{kp}(X_p^{(1)}-\mu_p^{(1)})\\
+&=a_{k1}\sqrt{\sigma_{11}}\ \frac{(X_1^{(1)}-\mu_1^{(1)})}{\sqrt{\sigma_{11}}}+a_{k2}\sqrt{\sigma_{22}}\ \frac{(X_2^{(1)}-\mu_2^{(1)})}{\sqrt{\sigma_{22}}}\\
+&\quad+\cdots+a_{kp}\sqrt{\sigma_{pp}}\ \frac{(X_p^{(1)}-\mu_p^{(1)})}{\sqrt{\sigma_{pp}}}
+\end{aligned}
+\]
+其中 $\mathrm{Var}(X_i^{(1)})=\sigma_{ii}, i=1,2,\cdots,p$. 因而, 标准化变量 $Z_i^{(1)}=(X_i^{(1)}-\mu_i^{(1)})/\sqrt{\sigma_{ii}}$ 的典型系数只与原变量 $X_i^{(1)}$ 的典型系数有关. 特别的, 若 $\mathbf{a}_k'$ 为第 $k$ 个典型变量 $U_k$ 的系数向量, 则 $\mathbf{a}_k'\mathbf{V}_{11}^{1/2}$ 是从标准化变量 $\mathbf{Z}^{(1)}$ 构造的第 $k$ 个典型变量的系数向量. 这里 $\mathbf{V}_{11}^{1/2}$ 是对角阵, 其第 $i$ 个对角元素为

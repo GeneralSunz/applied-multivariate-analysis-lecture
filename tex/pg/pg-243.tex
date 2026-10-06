@@ -1,0 +1,44 @@
+此表与一元情形下的 ANOVA 表形式完全相同, 只是 ANOVA 表中标量平方和在此处已被相应的向量分量的平方和所代替. 例如 $(\bar{x}_1-\bar{x})^2$ 被换成了 $(\bar{\mathbf{x}}_1-\bar{\mathbf{x}})(\bar{\mathbf{x}}_1-\bar{\mathbf{x}})'$. 各种自由度与一元几何对应, 因而也与某种包含威沙特密度在内的多元分布原理相对应(见文献[1]).
+
+假设 $H_0:\boldsymbol{\tau}_1=\boldsymbol{\tau}_2=\cdots=\boldsymbol{\tau}_g=\mathbf{0}$ 的一个检验涉及广义方差, 若广义方差比
+\phantomsection\label{eq:6-42}
+\begin{equation}
+\Lambda^*=\frac{|W|}{|B+W|}
+=\frac{\left|\sum\limits_{i=1}^{g}\sum\limits_{j=1}^{n_i}(\mathbf{x}_{ij}-\bar{\mathbf{x}}_i)(\mathbf{x}_{ij}-\bar{\mathbf{x}}_i)'\right|}
+{\left|\sum\limits_{i=1}^{g}\sum\limits_{j=1}^{n_i}(\mathbf{x}_{ij}-\bar{\mathbf{x}})(\mathbf{x}_{ij}-\bar{\mathbf{x}})'\right|}
+\tag{6-42}
+\end{equation}
+过小, 则拒绝 $H_0$. $\Lambda^*=|W|/|B+W|$ 这个量最早是由威尔克斯提出的(见文献[25]), 它与一元情形下假设“$H_0$: 无处理效应”的 $F$ 检验的等价形\hyperref[eq:6-33]{式(6-33)}相对应. 威尔克斯\footnote{威尔克斯 $\Lambda$ 统计量也可表示成 $W^{-1}B$ 的特征值的函数: $\Lambda^*=\prod\limits_{i=1}^{s}\left(\frac{1}{1+\lambda_i}\right)$, 其中 $s=\min(p,g-1)$ 为 $B$ 的秩. 其他用于检验若干个多元均值向量相等性的检验统计量, 如皮莱曼统计量、劳雷-霍尔特统计量及罗伊最大根统计量, 均可表示为 $W^{-1}B$ 的特征值的函数, 对大样本情形, 这些统计量基本上是等价的(详见后面的讨论).}$\Lambda$ 统计量的优点是使用方便, 而且与似然比准则密切相关. 对于\hyperref[tab:6.3]{表 6.3} 所列的一些特殊情形, 可导出 $\Lambda^*$ 的精确分布. 对于其他情形及大样本情形, 经巴特利特(见文献[4])修正的 $\Lambda^*$ 可用于检验 $H_0$.
+
+\begin{mvtable}
+\phantomsection\label{tab:6.3}\mvtabcap{表 6.3\quad 威尔克斯 $\Lambda^*=|W|/|B+W|$ 的分布}
+\begin{tabular}{ccc}
+\toprule
+变量数 & 组数 & 多元正态数据的抽样分布\\
+\midrule
+$p=1$ & $g\geqslant 2$ & $\left(\dfrac{\sum n_i-g}{g-1}\right)\left(\dfrac{1-\Lambda^*}{\Lambda^*}\right)\sim F_{g-1,\sum n_i-g}$\\[6pt]
+$p=2$ & $g\geqslant 2$ & $\left(\dfrac{\sum n_i-g-1}{g-1}\right)\left(\dfrac{1-\sqrt{\Lambda^*}}{\sqrt{\Lambda^*}}\right)\sim F_{2(g-1),2(\sum n_i-g-1)}$\\[6pt]
+$p\geqslant 1$ & $g=2$ & $\left(\dfrac{\sum n_i-p-1}{p}\right)\left(\dfrac{1-\Lambda^*}{\Lambda^*}\right)\sim F_{p,\sum n_i-p-1}$\\[6pt]
+$p\geqslant 1$ & $g=3$ & $\left(\dfrac{\sum n_i-p-2}{p}\right)\left(\dfrac{1-\sqrt{\Lambda^*}}{\sqrt{\Lambda^*}}\right)\sim F_{2p,2(\sum n_i-p-2)}$\\[6pt]
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+巴特利特(见文献[4])证明了, 若假设 $H_0$ 为真且 $\sum n_i=n$ 充分大, 则
+\phantomsection\label{eq:6-43}
+\begin{equation}
+-\left(n-1-\frac{(p+g)}{2}\right)\ln\Lambda^*
+=-\left(n-1-\frac{(p+g)}{2}\right)\ln\left(\frac{|W|}{|B+W|}\right)
+\tag{6-43}
+\end{equation}
+近似服从自由度为 $p(g-1)$ 的 $\chi^2$ 分布, 因此, 当 $\sum n_i=n$ 充分大时, 若
+\phantomsection\label{eq:6-44}
+\begin{equation}
+-\left(n-1-\frac{(p+g)}{2}\right)\ln\left(\frac{|W|}{|B+W|}\right)>\chi^2_{p(g-1)}(\alpha)
+\tag{6-44}
+\end{equation}
+我们就以显著性水平 $\alpha$ 拒绝 $H_0$, 其中的 $\chi^2_{p(g-1)}(\alpha)$ 为自由度是 $p(g-1)$ 的 $\chi^2$ 分布的上 $100\alpha$ 百分位数.
+
+\noindent\textbf{例 6.9}\quad (检验三个均值向量相等性的 MANOVA 表及威尔克斯 $\Lambda$ 统计量)
+
+假定在例 6.7 中再观测一个附加变量. 样本容量仍分别为 $n_1=3,n_2=2$ 和 $n_3=3$, 将各对观测值 $\mathbf{x}_{ij}$ 排列成行, 得到

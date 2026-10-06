@@ -1,0 +1,80 @@
+% ---- pg-326 （书页 314） ----
+
+可以证明(见练习 7.5)
+\phantomsection\label{eq:7-50}
+\begin{equation}
+1-\rho_{Y(\mathbf{Z})}^2=\frac{1}{\rho^{YY}}
+\tag{7-50}
+\end{equation}
+其中 $\rho^{YY}$ 为协方差阵 $\boldsymbol{\Sigma}$ 之逆 $\boldsymbol{\Sigma}^{-1}$ 的左上角元素.
+
+之所以将预测量限制为线性函数, 这与正态性假定紧密相关. 若取
+\[
+\left[\begin{array}{c}
+Y\\
+Z_1\\
+Z_2\\
+\vdots\\
+Z_r
+\end{array}\right]
+\quad\text{服从联合分布}\quad N_{r+1}(\boldsymbol{\mu},\boldsymbol{\Sigma})
+\]
+则给定 $z_1,z_2,\cdots,z_r$ 时 $Y$ 的条件分布(见结论 4.6)为
+\[
+N\left(\mu_Y+\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z),
+\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}\right)
+\]
+这一条件分布的期望就是结论 7.12 中的线性预测量:
+\phantomsection\label{eq:7-51}
+\begin{equation}
+\begin{aligned}
+E(Y\mid z_1,z_2,\cdots,z_r)&=\mu_Y+\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z)\\
+&=\beta_0+\boldsymbol{\beta}'\mathbf{z}
+\end{aligned}
+\tag{7-51}
+\end{equation}
+由此得出结论: 当总体为 $N_{r+1}(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 时, $E(Y\mid z_1,z_2,\cdots,z_r)$ 为 $Y$ 的最佳线性预测量. \hyperref[eq:7-51]{式(7-51)}中 $Y$ 的条件期望称为线性回归函数.
+
+当总体非正态时, 回归函数 $E(Y\mid z_1,z_2,\cdots,z_r)$ 未必具有线性形式. 但可以证明(见文献[22]), 不论其形式如何, $E(Y\mid z_1,z_2,\cdots,z_r)$ 皆以最小均方误差预测 $Y$. 幸运的是, 这一切在所有估计量中比较广泛的最优性在正态总体的特殊情况下为线性函数所具备.
+
+\mvthm{结论 7.13}{假定 $Y$ 和 $\mathbf{Z}$ 的联合分布为 $N_{r+1}(\boldsymbol{\mu},\boldsymbol{\Sigma})$. 令}
+\[
+\hat{\boldsymbol{\mu}}=\left[\begin{array}{c}\bar{Y}\\ \hdashline \bar{\mathbf{Z}}\end{array}\right]
+\qquad\text{和}\qquad
+\mathbf{S}=\left[\begin{array}{c:c}S_{YY}&\mathbf{s}_{ZY}'\\ \hdashline \mathbf{s}_{ZY}&\mathbf{S}_{ZZ}\end{array}\right]
+\]
+分别为来自这个总体的容量为 $n$ 的随机样本的均值向量和协方差矩阵. 此时线性预测量中系数的极大似然估计量为
+\[
+\hat{\boldsymbol{\beta}}=\mathbf{S}_{ZZ}^{-1}\mathbf{s}_{ZY},\qquad
+\hat{\beta}_0=\bar{Y}-\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}\bar{\mathbf{Z}}=\bar{Y}-\hat{\boldsymbol{\beta}}'\bar{\mathbf{Z}}
+\]
+因此, 线性回归函数的极大似然估计量为
+\[
+\hat{\beta}_0+\hat{\boldsymbol{\beta}}'\mathbf{z}
+=\bar{Y}+\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}(\mathbf{z}-\bar{\mathbf{Z}})
+\]
+而均方误差 $E\left[Y-\beta_0-\boldsymbol{\beta}'\mathbf{Z}\right]^2$ 的极大似然估计量为
+\[
+\hat{\sigma}_{YY\cdot Z}=\frac{n-1}{n}\left(s_{YY}-\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}\mathbf{s}_{ZY}\right)
+\]
+
+\medskip
+\noindent\textbf{证明}\quad 我们采用结论 4.11 和极大似然估计量的不变性(见\hyperref[eq:4-20]{式(4-20)}). 因为由结论 7.12 知
+\[
+\beta_0=\mu_Y-(\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY})'\boldsymbol{\mu}_Z,
+\]
+及
+\[
+\boldsymbol{\beta}=\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY},\qquad
+\beta_0+\boldsymbol{\beta}'\mathbf{z}=\mu_Y+\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}(\mathbf{z}-\boldsymbol{\mu}_Z)
+\]
+\[
+\text{均方误差}=\sigma_{YY\cdot Z}=\sigma_{YY}-\boldsymbol{\sigma}_{ZY}'\boldsymbol{\Sigma}_{ZZ}^{-1}\boldsymbol{\sigma}_{ZY}
+\]
+则结论可通过将极大似然估计量
+\[
+\hat{\boldsymbol{\mu}}=\left[\begin{array}{c}\bar{Y}\\ \hdashline \bar{\mathbf{Z}}\end{array}\right]
+\qquad\text{与}\qquad
+\hat{\boldsymbol{\Sigma}}=\left[\begin{array}{c:c}\hat{\sigma}_{YY}&\hat{\boldsymbol{\sigma}}_{ZY}'\\ \hdashline \hat{\boldsymbol{\sigma}}_{ZY}&\hat{\boldsymbol{\Sigma}}_{ZZ}\end{array}\right]
+=\left(\frac{n-1}{n}\right)\mathbf{S}
+\]

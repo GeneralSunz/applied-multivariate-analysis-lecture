@@ -1,0 +1,69 @@
+% ---- pg-575 （书页 563） ----
+
+\[
+\mathbf{v}_1=\begin{bmatrix}1/\sqrt{2}\\-1/\sqrt{2}\end{bmatrix}
+\]
+
+进一步
+\[
+\mathbf{A}\mathbf{A}'=
+\begin{bmatrix}0.1&-0.1\\-0.2&0.2\\0.1&-0.1\end{bmatrix}
+\begin{bmatrix}0.1&-0.2&0.1\\-0.1&0.2&-0.1\end{bmatrix}
+=\begin{bmatrix}0.02&-0.04&0.02\\-0.04&0.08&-0.04\\0.02&-0.04&0.02\end{bmatrix}
+\]
+计算机计算确认 $\lambda_1^2=0.12$, 因此 $\lambda_1=0.2\sqrt{3}$. 不难验证
+\[
+\mathbf{u}_1=\begin{bmatrix}1/\sqrt{6}\\-2/\sqrt{6}\\1/\sqrt{6}\end{bmatrix}
+\]
+由此得到 $\mathbf{P}-\mathbf{r}\mathbf{c}'$ 的单项展开
+\[
+\begin{aligned}
+&\lambda_1(\mathbf{D}_r^{1/2}\mathbf{u}_1)(\mathbf{D}_c^{1/2}\mathbf{v}_1)'\\
+&=\sqrt{0.12}
+\begin{bmatrix}0.6/\sqrt{2}&0&0\\0&0.8/\sqrt{2}&0\\0&0&1/\sqrt{2}\end{bmatrix}
+\begin{bmatrix}1/\sqrt{6}\\-2/\sqrt{6}\\1/\sqrt{6}\end{bmatrix}
+\begin{bmatrix}1/\sqrt{2}&-1/\sqrt{2}\end{bmatrix}
+\begin{bmatrix}1/\sqrt{2}&0\\0&1/\sqrt{2}\end{bmatrix}\\
+&=\sqrt{0.12}
+\begin{bmatrix}0.3/\sqrt{3}\\-0.8/\sqrt{3}\\0.5/\sqrt{3}\end{bmatrix}
+\begin{bmatrix}1/2&-1/2\end{bmatrix}
+=\begin{bmatrix}0.03&-0.03\\-0.08&0.08\\0.05&-0.05\end{bmatrix}
+\end{aligned}
+\]
+这里只有一对向量供布点:
+\[
+\lambda_1\mathbf{D}_r^{1/2}\mathbf{u}_1=\sqrt{0.12}
+\begin{bmatrix}0.6/\sqrt{2}&0&0\\0&0.8/\sqrt{2}&0\\0&0&1/\sqrt{2}\end{bmatrix}
+\begin{bmatrix}1/\sqrt{6}\\-2/\sqrt{6}\\1/\sqrt{6}\end{bmatrix}
+=\sqrt{0.12}\begin{bmatrix}0.3/\sqrt{3}\\-0.8/\sqrt{3}\\0.5/\sqrt{3}\end{bmatrix}
+\]
+\[
+\lambda_1\mathbf{D}_c^{1/2}\mathbf{v}_1=\sqrt{0.12}
+\begin{bmatrix}1/\sqrt{2}&0\\0&1/\sqrt{2}\end{bmatrix}
+\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\end{bmatrix}
+=\sqrt{0.12}\begin{bmatrix}1/2\\-1/2\end{bmatrix}
+\]
+\hfill$\blacksquare$
+
+还有第二种方法定义列联表分析. 遵循格里纳克(Greenacre, 见文献[13]), 我们称前述方法为矩阵逼近法, 而下面要介绍的方法为轮廓逼近法. 我们对(列联表的)行作轮廓逼近的解释. 当然, 对列也可以作相似的轮廓逼近.
+
+在代数的意义上, 行轮廓是矩阵 $\mathbf{D}_r^{-1}\mathbf{P}$ 的行. 因此列联表分析可定义为用低维空间中的点逼近行轮廓. 考虑用矩阵 $\mathbf{P}^*$ 逼近行轮廓. 用\hyperref[eq:12-31]{式(12-31)}中定义的平方根矩阵 $\mathbf{D}_r^{1/2}$ 和 $\mathbf{D}_c^{1/2}$, 我们有
+\[
+(\mathbf{D}_r^{-1}\mathbf{P}-\mathbf{P}^*)\mathbf{D}_c^{-1/2}
+=\mathbf{D}_r^{-1/2}(\mathbf{D}_r^{-1/2}\mathbf{P}-\mathbf{D}_r^{1/2}\mathbf{P}^*)\mathbf{D}_c^{-1/2}
+\]
+令 $p_{ij}^*=\hat{p}_{ij}/r_i$, 均方准则(12-32)可以写成
+\phantomsection\label{eq:12-39}
+\begin{equation}
+\begin{aligned}
+&\sum_{i=1}^{I}\sum_{j=1}^{J}\frac{(p_{ij}-\hat{p}_{ij})^2}{r_ic_j}\\
+&\quad=\sum_{i=1}^{I}\sum_{j=1}^{J}\frac{(p_{ij}/r_i-p_{ij}^*)^2}{c_j}\\
+&\quad=\operatorname{tr}\left\{\mathbf{D}_r^{1/2}\mathbf{D}_r^{1/2}(\mathbf{D}_r^{-1}\mathbf{P}-\mathbf{P}^*)
+\mathbf{D}_c^{-1/2}\mathbf{D}_c^{-1/2}(\mathbf{D}_r^{-1}\mathbf{P}-\mathbf{P}^*)'\right\}\\
+&\quad=\operatorname{tr}\left\{\mathbf{D}_r^{1/2}(\mathbf{D}_r^{-1/2}\mathbf{P}-\mathbf{D}_r^{-1/2}\mathbf{P}^*)
+\mathbf{D}_c^{-1/2}\mathbf{D}_c^{-1/2}(\mathbf{D}_r^{-1/2}\mathbf{P}-\mathbf{D}_r^{-1/2}\mathbf{P}^*)'\mathbf{D}_r^{-1/2}\right\}\\
+&\quad=\operatorname{tr}\left\{[(\mathbf{D}_r^{-1/2}\mathbf{P}-\mathbf{D}_r^{-1/2}\mathbf{P}^*)\mathbf{D}_c^{-1/2}]
+[(\mathbf{D}_r^{-1/2}\mathbf{P}-\mathbf{D}_r^{-1/2}\mathbf{P}^*)\mathbf{D}_c^{-1/2}]'\right\}
+\end{aligned}
+\tag{12-39}
+\end{equation}

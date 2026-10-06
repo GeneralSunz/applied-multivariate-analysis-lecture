@@ -1,0 +1,63 @@
+% ---- pg-088 （书页 76） ----
+
+\[
+Q(\bm{x}) = [x_1 \quad x_2]\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1^2 + 2x_1x_2 + x_2^2
+\]
+\[
+Q(\bm{x}) = [x_1 \quad x_2 \quad x_3]\begin{bmatrix} 1 & 3 & 0 \\ 3 & -1 & -2 \\ 0 & -2 & 2 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = x_1^2 + 6x_1x_2 - x_2^2 - 4x_2x_3 + 2x_3^2
+\]
+
+任何对称方阵可以由它的特征值和特征向量重构.这个特殊的表达式揭示了依据特征值的相对大小和特征向量的方向,每一个特征值-特征向量对的相对重要性.
+
+\mvbold{结论 2A.14}\quad （谱分解）设 $\bm{A}$ 是 $k \times k$ 对称矩阵,则 $\bm{A}$ 可用它的 $k$ 个特征值-特征向量对 $(\lambda_i, \bm{e}_i)$ 表示为
+
+\[
+\bm{A} = \sum_{i=1}^{k}\lambda_i\bm{e}_i\bm{e}_i' \qquad \blacksquare
+\]
+
+假如,设
+
+\[
+\bm{A} = \begin{bmatrix} 2.2 & 0.4 \\ 0.4 & 2.8 \end{bmatrix}
+\]
+
+则
+
+\[
+|\bm{A} - \lambda\bm{I}| = \lambda^2 - 5\lambda + 6.16 - 0.16 = (\lambda - 3)(\lambda - 2)
+\]
+
+因此 $\bm{A}$ 的特征值 $\lambda_1 = 3$ 和 $\lambda_2 = 2$.相应的特征向量分别为 $\bm{e}_1' = [1/\sqrt{5}, 2/\sqrt{5}]$ 和 $\bm{e}_2' = [2/\sqrt{5}, -1/\sqrt{5}]$.于是,
+
+\begin{equation*}
+\begin{aligned}
+\bm{A} &= \begin{bmatrix} 2.2 & 0.4 \\ 0.4 & 2.8 \end{bmatrix} = 3\begin{bmatrix} \dfrac{1}{\sqrt{5}} \\[2mm] \dfrac{2}{\sqrt{5}} \end{bmatrix}\begin{bmatrix} \dfrac{1}{\sqrt{5}} & \dfrac{2}{\sqrt{5}} \end{bmatrix} + 2\begin{bmatrix} \dfrac{2}{\sqrt{5}} \\[2mm] -\dfrac{1}{\sqrt{5}} \end{bmatrix}\begin{bmatrix} \dfrac{2}{\sqrt{5}} & -\dfrac{1}{\sqrt{5}} \end{bmatrix} \\
+&= \begin{bmatrix} 0.6 & 1.2 \\ 1.2 & 2.4 \end{bmatrix} + \begin{bmatrix} 1.6 & -0.8 \\ -0.8 & 0.4 \end{bmatrix}
+\end{aligned}
+\end{equation*}
+
+谱分解的思想可以推广到给出长方阵而不只是方阵的分解.若 $\bm{A}$ 是一个长方阵,则 $\bm{A}$ 的展开式中的向量分别是方阵 $\bm{A}\bm{A}'$ 和 $\bm{A}'\bm{A}$ 的特征向量.
+
+\mvbold{结论 2A.15}\quad （奇异值分解）设 $\bm{A}$ 是 $m \times k$ 的实数矩阵,则存在一个 $m \times m$ 正交阵 $\bm{U}$ 和一个 $k \times k$ 正交阵 $\bm{V}$ 使得
+
+\[
+\bm{A} = \bm{U}\bm{\Delta}\bm{V}'
+\]
+
+此处 $m \times k$ 矩阵 $\bm{\Delta}$ 中, $(i,i)$ 元素 $\lambda_i \geqslant 0$, $i = 1, 2, \cdots, \min(m,k)$,其他元素是零.正数 $\lambda_i$ 称为 $\bm{A}$ 的奇异值. \ $\blacksquare$
+
+奇异值分解也能表示为一个基于 $\bm{A}$ 的秩 $r$ 的矩阵展开式.具体地说,存在 $r$ 个正数 $\lambda_1, \lambda_2, \cdots, \lambda_r$, $r$ 个正交 $m \times 1$ 单位向量 $\bm{u}_1, \bm{u}_2, \cdots, \bm{u}_r$ 和 $r$ 个正交 $k \times 1$ 单位向量 $\bm{v}_1, \bm{v}_2, \cdots, \bm{v}_r$,使得
+
+\[
+\bm{A} = \sum_{i=1}^{r}\lambda_i\bm{u}_i\bm{v}_i' = \bm{U}_r\bm{\Delta}_r\bm{V}_r'
+\]
+
+其中 $\bm{U}_r = [\bm{u}_1, \bm{u}_2, \cdots, \bm{u}_r]$, $\bm{V}_r = [\bm{v}_1, \bm{v}_2, \cdots, \bm{v}_r]$,而 $\bm{\Delta}_r$ 是一个对角元素为 $\lambda_i$ 的 $r \times r$ 对角阵.
+
+这里 $\bm{A}\bm{A}'$ 有特征值-特征向量对 $(\lambda_i^2, \bm{u}_i)$,于是,
+
+\[
+\bm{A}\bm{A}'\bm{u}_i = \lambda_i^2\bm{u}_i
+\]
+
+且 $\lambda_1^2, \lambda_2^2, \cdots, \lambda_r^2 > 0 = \lambda_{r+1}^2, \lambda_{r+2}^2, \cdots, \lambda_m^2$(对 $m > k$).因而, $\bm{v}_i = \lambda_i^{-1}\bm{A}'\bm{u}_i$.换言之, $\bm{v}_i$ 是 $\bm{A}'\bm{A}$ 的对应于同一个非零特征值 $\lambda_i^2$ 的特征向量.

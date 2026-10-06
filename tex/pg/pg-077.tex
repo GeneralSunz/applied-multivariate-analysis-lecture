@@ -1,0 +1,75 @@
+% ---- pg-077 （书页 65） ----
+
+$\bm{x}$ 的长度 $= L_x = \sqrt{x_1^2 + x_2^2 + \cdots + x_m^2}$
+
+\mvbold{定义 2A.9} \quad 分别含 $m$ 个元素的两个向量 $\bm{x}$ 和 $\bm{y}$ 之间的夹角 $\theta$,定义为
+
+\[
+\cos(\theta) = \frac{(x_1 y_1 + x_2 y_2 + \cdots + x_m y_m)}{L_x L_y}
+\]
+
+其中 $L_x = \bm{x}$ 的长度,$L_y = \bm{y}$ 的长度,$x_1 ,x_2 ,\cdots ,x_m$ 是 $\bm{x}$ 的元素,$y_1 ,y_2 ,\cdots ,y_m$ 是 $\bm{y}$ 的元素.
+
+令
+
+\[
+\bm{x} = \begin{bmatrix} -1 \\ 5 \\ 2 \\ -2 \end{bmatrix}, \quad
+\bm{y} = \begin{bmatrix} 4 \\ -3 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+则 $\bm{x}$ 的长度、$\bm{y}$ 的长度及两向量之间夹角的余弦为
+
+$\bm{x}$ 的长度 $= \sqrt{(-1)^2 + 5^2 + 2^2 + (-2)^2} = \sqrt{34} = 5.83$
+
+$\bm{y}$ 的长度 $= \sqrt{4^2 + (-3)^2 + 0^2 + 1^2} = \sqrt{26} = 5.10$
+
+及
+
+\begin{align*}
+\cos(\theta) &= \frac{1}{L_x} \frac{1}{L_y} [x_1 y_1 + x_2 y_2 + x_3 y_3 + x_4 y_4] \\
+&= \frac{1}{\sqrt{34}} \times \frac{1}{\sqrt{26}} [(-1) \times 4 + 5 \times (-3) + 2 \times 0 + (-2) \times 1] \\
+&= \frac{1}{5.83 \times 5.10} \times (-21) = -0.706
+\end{align*}
+
+因此,$\theta = 135^\circ$.
+
+\mvbold{定义 2A.10} \quad 元素个数相同的两个向量 $\bm{x}$ 和 $\bm{y}$ 的内(或点)积定义为分量积之和:
+
+\[
+x_1 y_1 + x_2 y_2 + \cdots + x_m y_m
+\]
+
+我们用符号 $\bm{x}'\bm{y}$ 或 $\bm{y}'\bm{x}$ 表示这个内积.
+
+用符号 $\bm{x}'\bm{y}$,可以表示向量的长度以及两向量之间夹角的余弦,如:
+
+\[
+L_x = \bm{x} \text{ 的长度} = \sqrt{x_1^2 + x_2^2 + \cdots + x_m^2} = \sqrt{\bm{x}'\bm{x}}
+\]
+
+\[
+\cos(\theta) = \frac{\bm{x}'\bm{y}}{\sqrt{\bm{x}'\bm{x}} \, \sqrt{\bm{y}'\bm{y}}}
+\]
+
+\mvbold{定义 2A.11} \quad 当两个向量 $\bm{x}$ 和 $\bm{y}$ 之间的夹角 $\theta = 90^\circ$ 或 $270^\circ$ 时,就说 $\bm{x}$ 和 $\bm{y}$ 是垂直的.由于仅当 $\theta = 90^\circ$ 或 $270^\circ$ 时,$\cos(\theta) = 0$,这条件变为
+
+\[
+\text{若 } \bm{x}'\bm{y} = 0,\bm{x} \text{ 和 } \bm{y} \text{ 是垂直的}
+\]
+
+我们写做 $\bm{x} \perp \bm{y}$.
+
+\mvsub{基向量}
+
+\[
+\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
+\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix},
+\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
+\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+是互相垂直的,而且每个都为单位长度.对任意元素个数 $m$,同样的结构成立.
+
+\mvthm{结论 2A.2}{}
+
+(a) 当且仅当 $\bm{z} = \bm{0}$ 时,$\bm{z}$ 垂直于每个向量.

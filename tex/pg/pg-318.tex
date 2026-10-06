@@ -1,0 +1,72 @@
+% ---- pg-318 （书页 306） ----
+
+$E[\mathbf{U}'\mathbf{A}\mathbf{U}]=E[\operatorname{tr}(\mathbf{A}\mathbf{U}\mathbf{U}')]=\operatorname{tr}[\mathbf{A}E(\mathbf{U}\mathbf{U}')]$. 因此, 根据结论 7.1 的证明并利用结论 2A.12
+\[
+\begin{aligned}
+E(\hat{\boldsymbol{\epsilon}}_{(i)}'\hat{\boldsymbol{\epsilon}}_{(k)})
+&=E\left(\boldsymbol{\epsilon}_{(i)}'(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\boldsymbol{\epsilon}_{(k)}\right)
+=\operatorname{tr}\left[(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\sigma_{ik}\mathbf{I}\right]\\
+&=\sigma_{ik}\operatorname{tr}\left[(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\right]=\sigma_{ik}(n-r-1)
+\end{aligned}
+\]
+对 $\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}$ 的每个元素 $\hat{\boldsymbol{\epsilon}}_{(i)}'\hat{\boldsymbol{\epsilon}}_{(k)}$ 除以 $n-r-1$, 我们得到 $\boldsymbol{\Sigma}$ 的无偏估计量. 最后,
+\[
+\begin{aligned}
+\operatorname{Cov}(\hat{\boldsymbol{\beta}}_{(i)},\hat{\boldsymbol{\epsilon}}_{(k)})
+&=E\left[(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\boldsymbol{\epsilon}_{(i)}\boldsymbol{\epsilon}_{(k)}'(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\right]\\
+&=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'E(\boldsymbol{\epsilon}_{(i)}\boldsymbol{\epsilon}_{(k)}')(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\\
+&=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\sigma_{ik}\mathbf{I}(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\\
+&=\sigma_{ik}\left((\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'-(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\right)=\mathbf{0}
+\end{aligned}
+\]
+故 $\hat{\boldsymbol{\beta}}$ 中的每个元素与 $\hat{\boldsymbol{\epsilon}}$ 中的每个元素不相关. \hfill$\blacksquare$
+
+结论 7.9 中确定的均值向量和协方差阵能使我们得出最小二乘预测量的抽样性质.
+
+我们首先考虑当预测变量取值 $\mathbf{z}_0=[1,z_{01},\cdots,z_{0r}]'$ 时均值向量的估计问题. 第 $i$ 个响应变量的均值是 $\mathbf{z}_0'\boldsymbol{\beta}_{(i)}$, 可用 $\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}$(拟合回归关系的第 $i$ 个分量)来估计. 因此
+\phantomsection\label{eq:7-34}
+\begin{equation}
+\mvfit{$\displaystyle
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}
+=\left[\begin{array}{c:c:c:c}
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(1)}&\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(2)}&\cdots&\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(m)}
+\end{array}\right]
+$} \tag{7-34}
+\end{equation}
+为 $\mathbf{z}_0'\boldsymbol{\beta}$ 的无偏估计量, 因为对每个分量均有 $E(\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)})=\mathbf{z}_0'E(\hat{\boldsymbol{\beta}}_{(i)})=\mathbf{z}_0'\boldsymbol{\beta}_{(i)}$. 由 $\hat{\boldsymbol{\beta}}_{(i)}$ 和 $\hat{\boldsymbol{\beta}}_{(k)}$ 的协方差阵得到估计误差 $\mathbf{z}_0'\boldsymbol{\beta}_{(i)}-\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}$ 的协方差为
+\phantomsection\label{eq:7-35}
+\begin{equation}
+\mvfit{$\displaystyle
+\begin{aligned}
+E\left[\mathbf{z}_0'(\boldsymbol{\beta}_{(i)}-\hat{\boldsymbol{\beta}}_{(i)})(\boldsymbol{\beta}_{(k)}-\hat{\boldsymbol{\beta}}_{(k)})'\mathbf{z}_0\right]
+&=\mathbf{z}_0'\left(E(\boldsymbol{\beta}_{(i)}-\hat{\boldsymbol{\beta}}_{(i)})(\boldsymbol{\beta}_{(k)}-\hat{\boldsymbol{\beta}}_{(k)})'\right)\mathbf{z}_0\\
+&=\sigma_{ik}\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0
+\end{aligned}
+$} \tag{7-35}
+\end{equation}
+与此有关的问题是在 $\mathbf{z}_0$ 点预测新的观测值向量 $\mathbf{Y}_0=[Y_{01},Y_{02},\cdots,Y_{0m}]'$. 根据回归模型, $Y_{0i}=\mathbf{z}_0'\boldsymbol{\beta}_{(i)}+\epsilon_{0i}$, 其中“新”误差 $\boldsymbol{\epsilon}_0=[\epsilon_{01},\epsilon_{02},\cdots,\epsilon_{0m}]'$ 独立于误差 $\boldsymbol{\epsilon}$, 并满足 $E(\epsilon_{0i})=0$, 且 $E(\epsilon_{0i}\epsilon_{0k})=\sigma_{ik}$, 对 $\mathbf{Y}_0$ 的第 $i$ 个分量的预测误差为
+\[
+\begin{aligned}
+Y_{0i}-\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}
+&=Y_{0i}-\mathbf{z}_0'\boldsymbol{\beta}_{(i)}+\mathbf{z}_0'\boldsymbol{\beta}_{(i)}-\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}\\
+&=\epsilon_{0i}-\mathbf{z}_0'(\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})
+\end{aligned}
+\]
+故 $E(Y_{0i}-\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)})=E(\epsilon_{0i})-\mathbf{z}_0'E(\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})=0$, 说明 $\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}$ 为 $Y_{0i}$ 的无偏预测量. 预测误差具有协方差
+\phantomsection\label{eq:7-36}
+\begin{equation}
+\mvfit{$\displaystyle
+\begin{aligned}
+E(Y_{0i}-\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)})(Y_{0k}-\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(k)})
+&=E\left(\epsilon_{0i}-\mathbf{z}_0'(\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})\right)\left(\epsilon_{0k}-\mathbf{z}_0'(\hat{\boldsymbol{\beta}}_{(k)}-\boldsymbol{\beta}_{(k)})\right)\\
+&=E(\epsilon_{0i}\epsilon_{0k})+\mathbf{z}_0'E(\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})(\hat{\boldsymbol{\beta}}_{(k)}-\boldsymbol{\beta}_{(k)})'\mathbf{z}_0\\
+&\quad-\mathbf{z}_0'E\left((\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})\epsilon_{0k}\right)-E\left(\epsilon_{0i}(\hat{\boldsymbol{\beta}}_{(k)}-\boldsymbol{\beta}_{(k)})'\right)\mathbf{z}_0\\
+&=\sigma_{ik}\left(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)
+\end{aligned}
+$} \tag{7-36}
+\end{equation}
+注意 $E\left((\hat{\boldsymbol{\beta}}_{(i)}-\boldsymbol{\beta}_{(i)})\epsilon_{0k}\right)=\mathbf{0}$, 因为 $\hat{\boldsymbol{\beta}}_{(i)}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\boldsymbol{\epsilon}_{(i)}+\boldsymbol{\beta}_{(i)}$ 与 $\boldsymbol{\epsilon}_0$ 独立. 类似的结论对 $E\left(\epsilon_{0i}(\hat{\boldsymbol{\beta}}_{(k)}-\boldsymbol{\beta}_{(k)})'\right)$ 也成立.
+
+当误差 $\boldsymbol{\epsilon}$ 服从正态分布时, 可得出极大似然估计量及其分布.
+
+\mvthm{结论 7.10}{} 设\hyperref[eq:7-23]{式(7-23)}中的多元多重回归模型成立, 有满秩 $(\mathbf{Z})=r+1$, $n\geqslant(r+1)+m$,

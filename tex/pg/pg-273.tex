@@ -1,0 +1,57 @@
+% ---- pg-273 （书页 261） ----
+
+无重复的双因子 MANOVA 模型为
+\[
+\mathbf{X}_{lk}=\boldsymbol{\mu}+\boldsymbol{\tau}_l+\boldsymbol{\beta}_k+\mathbf{e}_{lk};\quad \sum_{l=1}^{g}\boldsymbol{\tau}_l=\sum_{k=1}^{b}\boldsymbol{\beta}_k=\mathbf{0}
+\]
+其中 $\mathbf{e}_{lk}$ 为独立的 $N_p(\mathbf{0},\boldsymbol{\Sigma})$ 随机向量.
+
+\noindent (a) 与例 6.9 类似, 将两变量中的每一个变量的观测值分解为
+\[
+x_{lk}=\bar{x}+(\bar{x}_{l\cdot}-\bar{x})+(\bar{x}_{\cdot k}-\bar{x})+(x_{lk}-\bar{x}_{l\cdot}+\bar{x}_{\cdot k}+\bar{x})
+\]
+对每一个响应, 这个分解会产生几个 $3\times 4$ 矩阵, 这里 $\bar{x}$ 为总平均, $\bar{x}_{l\cdot}$ 为因子 1 的第 $l$ 个水平下的平均值, 而 $\bar{x}_{\cdot k}$ 为因子 2 的第 $k$ 个水平下的平均.
+
+\noindent (b) 把 (a) 中矩阵的每一行看成一个串成的“长”向量, 并计算平方和
+\[
+\mathrm{SS}_{\text{总}}=\mathrm{SS}_{\text{平均}}+\mathrm{SS}_{\text{因子}1}+\mathrm{SS}_{\text{因子}2}+\mathrm{SS}_{\text{残差}}
+\]
+及交叉乘积和
+\[
+\mathrm{SCP}_{\text{总}}=\mathrm{SCP}_{\text{平均}}+\mathrm{SCP}_{\text{因子}1}+\mathrm{SCP}_{\text{因子}2}+\mathrm{SCP}_{\text{残差}}
+\]
+于是, 得到自由度分别为 $gb-1, g-1, b-1$ 及 $(g-1)(b-1)$ 的矩阵 $\mathrm{SSP}_{\text{总}}, \mathrm{SSP}_{\text{因子}1}, \mathrm{SSP}_{\text{因子}2}$ 及 $\mathrm{SSP}_{\text{残差}}$.
+
+\noindent (c) 把 (b) 中的计算概括在 MANOVA 表中.
+
+\noindent 提示: $n=1$ 时, 比较因子及因子间交互作用的双因子 MANOVA 表与我们的 MANOVA 表一致. 注意, 当 $n=1$ 时, 一般双因子 MANOVA 表中的 $\mathrm{SSP}_{\text{残差}}$ 为自由度为 0 的零矩阵. 故交互作用的平方与交叉乘积和矩阵就成了残差的平方与交叉乘积矩阵之和.
+
+\noindent (d) 给定 (c) 中的结果, 检验因子 1 和因子 2 的主效应(取 $\alpha=0.05$).
+
+\noindent 提示: 利用\hyperref[eq:6-67]{式(6-67)}和\hyperref[eq:6-69]{式(6-69)}的结论, 用 $(g-1)(b-1)$ 代替其中的 $gb(n-1)$.
+
+\noindent 注: 检验要求 $p\le(g-1)(b-1)$, 故 $\mathrm{SSP}_{\text{残差}}$ 为正定阵(概率为 1).
+
+\noindent 6.14\quad 重复练习 6.13 中的试验, 得到如下的数据:
+
+\begin{mvtable}
+\begin{tabular}{c|cccc}
+ & \multicolumn{4}{c}{因子 2}\\\midrule
+ & 水平 1 & 水平 2 & 水平 3 & 水平 4\\\midrule
+ & $\begin{bmatrix}14\\8\end{bmatrix}$ & $\begin{bmatrix}6\\2\end{bmatrix}$ & $\begin{bmatrix}8\\2\end{bmatrix}$ & $\begin{bmatrix}16\\-4\end{bmatrix}$\\[10pt]
+\multirow{3}{*}{因子 1} & $\begin{bmatrix}1\\6\end{bmatrix}$ & $\begin{bmatrix}5\\12\end{bmatrix}$ & $\begin{bmatrix}0\\15\end{bmatrix}$ & $\begin{bmatrix}2\\7\end{bmatrix}$\\[10pt]
+ & $\begin{bmatrix}3\\-2\end{bmatrix}$ & $\begin{bmatrix}-2\\7\end{bmatrix}$ & $\begin{bmatrix}-11\\1\end{bmatrix}$ & $\begin{bmatrix}-6\\6\end{bmatrix}$
+\end{tabular}
+\end{mvtable}
+
+\noindent (a) 利用这些数据, 将观测值向量中两个测量值分别分解成如下形式:
+\[
+x_{lk}=\bar{x}+(\bar{x}_{l\cdot}-\bar{x})+(\bar{x}_{\cdot k}-\bar{x})+(x_{lk}-\bar{x}_{l\cdot}-\bar{x}_{\cdot k}+\bar{x})
+\]
+其中, $\bar{x}$ 为总平均, $\bar{x}_{l\cdot}$ 为因子 1 的第 $l$ 个水平下的观测值平均, 而 $\bar{x}_{\cdot k}$ 为因子 2 的第 $k$ 个水平下的观测值平均.
+
+\noindent (b) 结合前面的数据和例 6.13 中的数据, 完成必要的计算, 构造出双因子 MANOVA 表.
+
+\noindent (c) 给定 (b) 的结论, 检验交互效应是否存在. 若不存在, 检验因子 1 和因子 2 的主效应. 采用似然比检验法(取 $\alpha=0.05$).
+
+\noindent (d) 若主效应存在, 而交互效应不存在, 试构造因子效应参数的分量差的 95\% 庞弗罗尼

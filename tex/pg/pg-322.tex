@@ -1,0 +1,78 @@
+% ---- pg-322 （书页 310） ----
+
+只有一个大特征值时最大. 罗伊检验的图和临界值的表皆可得到(见文献[21]和[17]). 威尔克斯 $\Lambda$、罗伊最大根和霍特林-劳雷迹检验在大样本情形下几乎是等价的.
+
+如果对这四个检验所报导出 $P$ 值有很大歧异, 则特征值和特征向量可能会提供解释. 在本书中, 我们提供威尔克斯 $\Lambda$ 统计量, 即似然比检验.
+
+\section{多元多重回归预测}
+\phantomsection\label{sec:7.10}
+
+假定模型 $\mathbf{Y}=\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon}$ 有正态误差 $\boldsymbol{\epsilon}$, 并经过拟合和适合性的检查. 如果模型适合, 就可用于预测目的.
+
+一个问题是对给定的预测变量值 $\mathbf{z}_0$ 预测平均响应. 对平均响应做推断可利用结论 7.10 中的分布理论. 根据这个结论, 我们有
+\[
+\hat{\boldsymbol{\beta}}'\mathbf{z}_0\ \text{服从}\ N_m(\boldsymbol{\beta}'\mathbf{z}_0,\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\boldsymbol{\Sigma})\ \text{分布}
+\]
+及
+\[
+n\hat{\boldsymbol{\Sigma}}\ \text{独立地服从}\ W_{n-r-1}(\boldsymbol{\Sigma})\ \text{分布}
+\]
+回归函数在 $\mathbf{z}_0$ 的值是 $\boldsymbol{\beta}'\mathbf{z}_0$. 因此, 根据 5.2 节中所讨论的 $T^2$ 统计量可以写出
+\phantomsection\label{eq:7-39}
+\begin{equation}
+T^2=\left[\frac{\hat{\boldsymbol{\beta}}'\mathbf{z}_0-\boldsymbol{\beta}'\mathbf{z}_0}{\sqrt{\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}}\right]'
+\left(\frac{n}{n-r-1}\hat{\boldsymbol{\Sigma}}\right)^{-1}
+\left[\frac{\hat{\boldsymbol{\beta}}'\mathbf{z}_0-\boldsymbol{\beta}'\mathbf{z}_0}{\sqrt{\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0}}\right]
+\tag{7-39}
+\end{equation}
+而 $\boldsymbol{\beta}'\mathbf{z}_0$ 的 $100(1-\alpha)\%$ 置信椭球为
+\phantomsection\label{eq:7-40}
+\begin{equation}
+\begin{aligned}
+&(\boldsymbol{\beta}'\mathbf{z}_0-\hat{\boldsymbol{\beta}}'\mathbf{z}_0)'\left(\frac{n}{n-r-1}\hat{\boldsymbol{\Sigma}}\right)^{-1}(\boldsymbol{\beta}'\mathbf{z}_0-\hat{\boldsymbol{\beta}}'\mathbf{z}_0)\\
+&\quad\leqslant\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\left[\left(\frac{m(n-r-1)}{n-r-m}\right)F_{m,n-r-m}(\alpha)\right]
+\end{aligned}
+\tag{7-40}
+\end{equation}
+其中 $F_{m,n-r-m}(\alpha)$ 为自由度为 $m$ 和 $n-r-m$ 的 $F$ 分布的上 $100\alpha$ 百分位数.
+
+对 $E(Y_i)=\mathbf{z}_0'\boldsymbol{\beta}_{(i)}$, $100(1-\alpha)\%$ 联合置信区间为
+\phantomsection\label{eq:7-41}
+\begin{equation}
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}\pm
+\sqrt{\left(\frac{m(n-r-1)}{n-r-m}\right)F_{m,n-r-m}(\alpha)}\;
+\sqrt{\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\left(\frac{n}{n-r-1}\hat{\sigma}_{ii}\right)},
+\tag{7-41}
+\end{equation}
+\[
+i=1,2,\cdots,m
+\]
+其中 $\hat{\boldsymbol{\beta}}_{(i)}$ 为 $\hat{\boldsymbol{\beta}}$ 的第 $i$ 列, $\hat{\sigma}_{ii}$ 为 $\hat{\boldsymbol{\Sigma}}$ 的第 $i$ 个对角元.
+
+第二个预测问题是在 $\mathbf{z}_0$ 点预测新的响应 $\mathbf{Y}_0=\boldsymbol{\beta}'\mathbf{z}_0+\boldsymbol{\epsilon}_0$. 这里 $\boldsymbol{\epsilon}_0$ 独立于 $\boldsymbol{\epsilon}$. 现在,
+\[
+\mathbf{Y}_0-\hat{\boldsymbol{\beta}}'\mathbf{z}_0=(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}})'\mathbf{z}_0+\boldsymbol{\epsilon}_0
+\qquad\text{服从分布}\qquad
+N_m(\mathbf{0},(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0)\boldsymbol{\Sigma})
+\]
+且独立于 $n\hat{\boldsymbol{\Sigma}}$, 故 $\mathbf{Y}_0$ 的 $100(1-\alpha)\%$ 预测椭球为
+\phantomsection\label{eq:7-42}
+\begin{equation}
+\begin{aligned}
+&(\mathbf{Y}_0-\hat{\boldsymbol{\beta}}'\mathbf{z}_0)'\left(\frac{n}{n-r-1}\hat{\boldsymbol{\Sigma}}\right)^{-1}(\mathbf{Y}_0-\hat{\boldsymbol{\beta}}'\mathbf{z}_0)\\
+&\quad\leqslant(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0)\left[\left(\frac{m(n-r-1)}{n-r-m}\right)F_{m,n-r-m}(\alpha)\right]
+\end{aligned}
+\tag{7-42}
+\end{equation}
+单个响应 $Y_{0i}$ 的 $100(1-\alpha)\%$ 联合预测区间为
+\phantomsection\label{eq:7-43}
+\begin{equation}
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}_{(i)}\pm
+\sqrt{\left(\frac{m(n-r-1)}{n-r-m}\right)F_{m,n-r-m}(\alpha)}\;
+\sqrt{(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0)\left(\frac{n}{n-r-1}\hat{\sigma}_{ii}\right)},
+\tag{7-43}
+\end{equation}
+\[
+i=1,2,\cdots,m
+\]
+其中 $\hat{\boldsymbol{\beta}}_{(i)}$, $\hat{\sigma}_{ii}$ 和 $F_{m,n-r-m}(\alpha)$ 与\hyperref[eq:7-41]{式(7-41)}中相应的量相同. 比较\hyperref[eq:7-41]{式(7-41)}和\hyperref[eq:7-43]{式(7-43)}, 我们看到响应变量实际值的预测区间要比期望值的预测区间宽. 附加的宽度反映了随机误差 $\epsilon_{0i}$ 的存在.

@@ -1,0 +1,55 @@
+% ---- pg-502 （书页 490） ----
+
+\[
+\mathbf{B}_\mu\mathbf{e}=\sum_{i=1}^{g}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})'\mathbf{e}=\sum_{i=1}^{g}(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})0=\mathbf{0}
+\]
+因此
+\[
+\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu\mathbf{e}=0\mathbf{e}
+\]
+共有 $p-q$ 个正交特征向量对应于零特征值. 这意味着有 $q$ 个或更少的非零特征值. 由于总有 $q\le g-1$, 非零特征值的个数 $s$ 必满足 $s\le\min(p,g-1)$.
+
+于是, 如果下列条件满足, 则用二维图进行判别不会损失信息.
+
+\begin{mvtable}
+\begin{tabular}{c|c|c}
+\toprule
+变量个数 & 总体个数 & 判别量的最大个数 \\
+\midrule
+任意 $p$ & $g=2$ & 1 \\
+任意 $p$ & $g=3$ & 2 \\
+$p=2$ & 任意 $g$ & 2 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+现在我们给出分类法则(11-65)与“正态理论”判别得分[见\hyperref[eq:11-49]{式(11-49)}]之间的重要关系:
+\[
+d_i(x)=\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}x-\frac{1}{2}\boldsymbol{\mu}_i'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_i+\ln p_i
+\]
+或等价的$\left(\text{上式两端各加同一个常数}-\frac{1}{2}x'\boldsymbol{\Sigma}^{-1}x\right)$,
+\[
+d_i(x)-\frac{1}{2}x'\boldsymbol{\Sigma}^{-1}x=-\frac{1}{2}(x-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}(x-\boldsymbol{\mu}_i)+\ln p_i
+\]
+\mvthm{结论 11.6}{设 $y_j=\mathbf{a}_j'\mathbf{x}$, 其中 $\mathbf{a}_j=\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_j$, $\mathbf{e}_j$ 为 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$ 的一个特征向量. 此时
+\[
+\begin{aligned}
+\sum_{j=1}^{p}(y_j-\mu_{iY_j})^2&=\sum_{j=1}^{p}[\mathbf{a}_j'(\mathbf{x}-\boldsymbol{\mu}_i)]^2=(x-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}(x-\boldsymbol{\mu}_i)\\
+&=-2d_i(x)+x'\boldsymbol{\Sigma}^{-1}x+2\ln p_i
+\end{aligned}
+\]
+若 $\lambda_1\ge\cdots\ge\lambda_s>0=\lambda_{s+1}=\cdots=\lambda_p$, $\sum\limits_{j=s+1}^{p}(y_j-\mu_{iY_j})^2$ 对所有总体 $\pi_i(i=1,2,\cdots,g)$ 均为常数. 因此只有前 $s$ 个判别量 $y_j$, 或者说只有 $\sum\limits_{j=1}^{s}(y_j-\mu_{iY_j})^2$ 对分类有贡献.
+
+还有, 若先验概率满足 $p_1=p_2=\cdots=p_g=1/g$, 则取 $r=s$ 时, 法则(11-65)等价于总体形式的最小 TPM 法则(11-52).}
+
+\noindent\mvbold{证明}\quad 平方距离$(x-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}(x-\boldsymbol{\mu}_i)=(x-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{-1/2}(x-\boldsymbol{\mu}_i)=(x-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1/2}\mathbf{E}\mathbf{E}'\boldsymbol{\Sigma}^{-1/2}(x-\boldsymbol{\mu}_i)$, 其中 $\mathbf{E}=[\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_p]$ 为正交矩阵, 其列由 $\boldsymbol{\Sigma}^{-1/2}\mathbf{B}_\mu\boldsymbol{\Sigma}^{-1/2}$ 的特征向量构成(见练习 11.21).
+
+因为 $\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_j=\mathbf{a}_j$ 或 $\mathbf{a}_j'=\mathbf{e}_j'\boldsymbol{\Sigma}^{-1/2}$, 所以
+\[
+\mathbf{E}'\boldsymbol{\Sigma}^{-1/2}(x-\boldsymbol{\mu}_i)=\begin{bmatrix}\mathbf{a}_1'(x-\boldsymbol{\mu}_i)\\\mathbf{a}_2'(x-\boldsymbol{\mu}_i)\\\vdots\\\mathbf{a}_p'(x-\boldsymbol{\mu}_i)\end{bmatrix}
+\]
+且
+\[
+(x-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1/2}\mathbf{E}\mathbf{E}'\boldsymbol{\Sigma}^{-1/2}(x-\boldsymbol{\mu}_i)=\sum_{j=1}^{p}[\mathbf{a}_j'(x-\boldsymbol{\mu}_i)]^2
+\]
+然后, 每个 $\mathbf{a}_j=\boldsymbol{\Sigma}^{-1/2}\mathbf{e}_j(j>s)$ 为 $\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu$ 的一个(未标准化的)特征向量, 对应零特征值. 正

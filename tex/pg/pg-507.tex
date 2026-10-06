@@ -1,0 +1,64 @@
+% ---- pg-507 （书页 495） ----
+
+逻辑斯蒂曲线中的 $\beta_1$ 决定 $p$ 随 $z$ 变化的速度, 但是其解释并不如简单线性回归模型那么容易, 因为模型无论对于 $z$ 或 $\beta_1$ 都不是线性的. 尽管如此, 对于机会比, 我们可以得到线性关系.
+
+综上所述, 逻辑斯蒂曲线可表为
+\[
+p(z)=\frac{\exp(\beta_0+\beta_1 z)}{1+\exp(\beta_0+\beta_1 z)}\qquad\text{或}\qquad p(z)=\frac{1}{1+\exp(-\beta_0-\beta_1 z)}
+\]
+
+\subsection{逻辑斯蒂回归分析}
+
+考虑具有多个预测变量的模型. 令 $(z_{j1},z_{j2},\cdots,z_{jr})$ 为 $r$ 个预测变量的第 $j$ 次观测. 如同在线性回归的正态理论中一样, 通常令第一项系数为 1 并记 $\mathbf{z}_j=[1,z_{j1},z_{j2},\cdots,z_{jr}]'$. 在给定 $\mathbf{z}_j$ 的条件下, 我们假定观测 $Y_j$ 有成功概率 $p(\mathbf{z}_j)$ 的伯努利分布, 即
+\[
+P(Y_j=y_j)=p^{y_j}(\mathbf{z}_j)[1-p(\mathbf{z}_j)]^{1-y_j}\qquad y_j=0,1
+\]
+因此
+\[
+E(Y_j)=p(\mathbf{z}_j)\qquad \mathrm{Var}(Y_j)=p(\mathbf{z}_j)[1-p(\mathbf{z}_j)]
+\]
+在逻辑斯蒂模型中, 机会比的自然对数遵循线性模型. 特别地, 假定模型
+\phantomsection\label{eq:11-72}
+\begin{equation}
+\ln\left(\frac{p(\mathbf{z}_j)}{1-p(\mathbf{z}_j)}\right)=\beta_0+\beta_1 z_{j1}+\cdots+\beta_r z_{jr}=\boldsymbol{\beta}'\mathbf{z}_j
+\tag{11-72}
+\end{equation}
+其中 $\boldsymbol{\beta}=(\beta_0,\beta_1,\cdots,\beta_r)'$.
+
+\quad\mvbold{极大似然估计}\quad 参数 $\boldsymbol{\beta}$ 可用极大似然法估计. 似然函数 $L$ 即在观测 $y_j, j=1,\cdots,n$ 的联合概率分布. 因此
+\phantomsection\label{eq:11-73}
+\begin{equation}
+\begin{aligned}
+L(\beta_0,\beta_1,\cdots,\beta_r)&=\prod_{j=1}^{n}p^{y_j}(\mathbf{z}_j)[1-p(\mathbf{z}_j)]^{1-y_j}\\
+&=\frac{\prod\limits_{j=1}^{n}\mathrm{e}^{y_j(\beta_0+\beta_1 z_{j1}+\cdots+\beta_r z_{jr})}}{\prod\limits_{j=1}^{n}(1+\mathrm{e}^{\beta_0+\beta_1 z_{j1}+\cdots+\beta_r z_{jr}})}
+\end{aligned}
+\tag{11-73}
+\end{equation}
+其中 $p(\mathbf{z}_j)$ 满足\hyperref[eq:11-72]{式(11-72)}.
+
+参数的极大似然估计不能表示成简单的封闭形式, 而是需要从一个初值开始, 通过数值迭代来得到似然函数的最大值. 技术上, 这种迭代程序称为迭代再加权最小二乘法(见文献[26]).
+
+我们用 $\hat{\boldsymbol{\beta}}$ 记极大似然估计的数值解.
+
+\quad\mvbold{参数的置信区间}\quad 当样本容量大时, $\hat{\boldsymbol{\beta}}$ 有渐近正态分布, 渐近均值为 $\boldsymbol{\beta}$, 渐近协方差矩阵为
+\phantomsection\label{eq:11-74}
+\begin{equation}
+\widehat{\mathrm{Cov}}(\hat{\boldsymbol{\beta}})\approx\left[\sum_{j=1}^{n}\hat{p}(\mathbf{z}_j)(1-\hat{p}(\mathbf{z}_j))\mathbf{z}_j\mathbf{z}_j'\right]^{-1}
+\tag{11-74}
+\end{equation}
+此矩阵的对角元的平方根分别为参数估计 $\hat{\beta}_0,\hat{\beta}_1,\cdots,\hat{\beta}_r$ 的标准差的估计, 即标准误差(SE). $\beta_k$ 的大样本 95\% 置信区间为
+\phantomsection\label{eq:11-75}
+\begin{equation}
+\hat{\beta}_k\pm 1.96\,\mathrm{SE}(\hat{\beta}_k)\qquad k=0,1,\cdots,r
+\tag{11-75}
+\end{equation}
+置信区间可用来检验每个单独的回归项在逻辑斯蒂模型中的显著性. 同样可以得到 $p(\mathbf{z}_j)$ 和 $\mathrm{logit}(p(\mathbf{z}_j))$ 的大样本置信区间. 详情见文献[17].
+
+\quad\mvbold{似然比检验}\quad 对于有 $r$ 个预测变量加一个常数项的模型, 记最大化的似然为
+\[
+L_{\max}=L(\hat{\beta}_0,\hat{\beta}_1,\cdots,\hat{\beta}_r)
+\]
+若零假设为 $H_0:\beta_k=0$, 通过数值计算得到缩小模型下的极大似然估计和似然的极大值
+\[
+L_{\max,\mathrm{Reduced}}=L(\hat{\beta}_0,\hat{\beta}_1,\cdots,\hat{\beta}_{k-1},0,\hat{\beta}_{k+1},\cdots,\hat{\beta}_r)
+\]

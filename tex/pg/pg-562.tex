@@ -1,0 +1,31 @@
+% ---- pg-562 （书页 550） ----
+
+\[
+p(k\mid \mathbf{x}_j) = \hat{p}_j f(\mathbf{x}_j\mid k)\Big/\sum_{i=1}^{K}\hat{p}_i f(\mathbf{x}_i\mid k)
+\]
+
+当程序收敛时, 第 $j$ 个观测(对象)被聚到具有最大条件概率的类 $k$(见文献[6]和[9]).
+
+\noindent\textbf{例 12.13}\quad (鸢尾数据基于模型的聚类)
+
+考虑\hyperref[tab:11.5]{表 11.5} 中的鸢尾数据. 用 MCLUST 中的 me 函数计算, 我们对 $p=4$ 维的正态混合模型进行拟合. 首先限制协方差矩阵为 $\boldsymbol{\Sigma}_k=\eta_k\mathbf{I}$, $k=1,2,3$.
+
+用 BIC 准则, 软件计算结果选择了 $K=3$ 个类, 类中心的估计分别为
+\[
+\boldsymbol{\mu}_1=\begin{bmatrix}5.01\\3.43\\1.46\\0.25\end{bmatrix}, \qquad
+\boldsymbol{\mu}_2=\begin{bmatrix}5.90\\2.75\\4.40\\1.43\end{bmatrix}, \qquad
+\boldsymbol{\mu}_3=\begin{bmatrix}6.85\\3.07\\5.73\\2.07\end{bmatrix}
+\]
+
+方差尺度因子的估计分别为 $\hat{\eta}_1=0.076$, $\hat{\eta}_2=0.163$ 和 $\hat{\eta}_3=0.163$. 估计的混合比例分别为 $\hat{p}_1=0.333\,3$, $\hat{p}_2=0.413\,3$ 和 $\hat{p}_3=0.253\,4$. 相应的 BIC$=-853.8$. \hyperref[fig:12.13]{图 12.13} 给出了逐对变量聚类散点图的阵列.
+
+\begin{mvfigure}
+\mvinc{pg-562}{0.131,0.409,0.856,0.729}
+\phantomsection\label{fig:12.13}\mvcap{图 12.13\quad 鸢尾数据分成 $K=3$ 类的多重散点图}
+\end{mvfigure}
+
+一旦得到了一个混合模型, 需要将新对象 $\mathbf{x}_j$ 归入某个类, $\mathbf{x}_j$ 在其中有最大的条件概率(见文献[9]).
+
+如果假定协方差结构 $\boldsymbol{\Sigma}_k=\eta_k\mathbf{I}$, 并且允许最多达 $K=7$ 个类, 则 BIC 会增大到 BIC$=-705.1$.
+
+最后, 在 BIC 准则下, 允许最多达 $K=9$ 个类, 并且使用几种不同的协方差结构, 得到的最佳选择是一个两类的混合模型, 其协方差是无约束的. 估计的混合概率为 $\hat{p}_1=0.333\,3$ 和 $\hat{p}_2=0.666\,7$. 估计的类中心为

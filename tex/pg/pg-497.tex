@@ -1,0 +1,56 @@
+% ---- pg-497 （书页 485） ----
+
+然后我们定义组间样本矩阵 $\mathbf{B}$:
+\phantomsection\label{eq:11-60}
+\begin{equation}
+\mathbf{B}=\sum_{i=1}^{g}(\bar{\mathbf{x}}_i-\bar{\mathbf{x}})(\bar{\mathbf{x}}_i-\bar{\mathbf{x}})'
+\tag{11-60}
+\end{equation}
+还有根据组内样本矩阵
+\phantomsection\label{eq:11-61}
+\begin{equation}
+\mathbf{W}=\sum_{i=1}^{g}(n_i-1)\mathbf{S}_i=\sum_{i=1}^{g}\sum_{j=1}^{n_i}(\mathbf{x}_{ij}-\bar{\mathbf{x}}_i)(\mathbf{x}_{ij}-\bar{\mathbf{x}}_i)'
+\tag{11-61}
+\end{equation}
+得出的 $\boldsymbol{\Sigma}$ 的估计. 因此, $\mathbf{W}/(n_1+n_2+\cdots+n_g-g)=\mathbf{S}_{\mathrm{p}}$ 就是 $\boldsymbol{\Sigma}$ 的估计. 在给出样本判别量之前我们注意, 由于 $\mathbf{W}$ 是常数 $(n_1+n_2+\cdots+n_g-g)$ 乘上 $\mathbf{S}_{\mathrm{p}}$, 因此同一个 $\hat{\mathbf{a}}$ 既使 $\hat{\mathbf{a}}'\mathbf{B}\hat{\mathbf{a}}/\hat{\mathbf{a}}'\mathbf{S}_{\mathrm{p}}\hat{\mathbf{a}}$ 最大化, 又使 $\hat{\mathbf{a}}'\mathbf{B}\hat{\mathbf{a}}/\hat{\mathbf{a}}'\mathbf{W}\hat{\mathbf{a}}$ 最大化. 不仅如此, 我们还可以将最优化的 $\hat{\mathbf{a}}$ 表示成更习惯的形式, 即用 $\mathbf{W}^{-1}\mathbf{B}$ 的特征向量 $\hat{\mathbf{e}}_i$ 来表示. 这是因为若 $\mathbf{W}^{-1}\mathbf{B}\hat{\mathbf{e}}=\hat{\lambda}\hat{\mathbf{e}}$, 则 $\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{B}\hat{\mathbf{e}}=\hat{\lambda}(n_1+n_2+\cdots+n_g-g)\hat{\mathbf{e}}$.
+
+\begin{mvframe}[费希尔的样本线性判别函数]
+设 $\hat{\lambda}_1>\hat{\lambda}_2>\cdots>\hat{\lambda}_s>0$ 为 $\mathbf{W}^{-1}\mathbf{B}$ 的 $s\le\min(g-1,p)$ 个非零特征值, $\hat{\mathbf{e}}_1,\cdots,\hat{\mathbf{e}}_s$ 为对应的特征向量(长度取为 $\hat{\mathbf{e}}_i'\mathbf{S}_{\mathrm{p}}\hat{\mathbf{e}}_i=1$). 此时能使下面的比值最大化的系数向量 $\hat{\mathbf{a}}$ 为 $\hat{\mathbf{a}}_1=\hat{\mathbf{e}}_1$:
+\phantomsection\label{eq:11-62}
+\begin{equation}
+\frac{\hat{\mathbf{a}}'\mathbf{B}\hat{\mathbf{a}}}{\hat{\mathbf{a}}'\mathbf{W}\hat{\mathbf{a}}}=\frac{\hat{\mathbf{a}}'\left(\sum\limits_{i=1}^{g}(\bar{\mathbf{x}}_i-\bar{\mathbf{x}})(\bar{\mathbf{x}}_i-\bar{\mathbf{x}})'\right)\hat{\mathbf{a}}}{\hat{\mathbf{a}}'\left[\sum\limits_{i=1}^{g}\sum\limits_{j=1}^{n_i}(\mathbf{x}_{ij}-\bar{\mathbf{x}}_i)(\mathbf{x}_{ij}-\bar{\mathbf{x}}_i)'\right]\hat{\mathbf{a}}}
+\tag{11-62}
+\end{equation}
+线性组合 $\hat{\mathbf{a}}_1'\mathbf{x}$ 称为样本第一判别量. 若选 $\hat{\mathbf{a}}_2=\hat{\mathbf{e}}_2$, 便得到样本第二判别量 $\hat{\mathbf{a}}_2'\mathbf{x}$, 如此继续, 我们可以得到样本第 $k$ 判别量 $\hat{\mathbf{a}}_k'\mathbf{x}=\hat{\mathbf{e}}_k'\mathbf{x}, k\le s$.
+\end{mvframe}
+
+练习 11.21 扼要地给出费希尔判别量的推导. 这些判别量对每个随机样本阵 $\mathbf{X}_i$ 都没有零协方差. 相反, 条件
+\phantomsection\label{eq:11-63}
+\begin{equation}
+\hat{\mathbf{a}}_i'\mathbf{S}_{\mathrm{p}}\hat{\mathbf{a}}_k=\begin{cases}1&\text{若}\ i=k\le s\\ 0&\text{其余情况}\end{cases}
+\tag{11-63}
+\end{equation}
+得到满足. 由于我们目前尝试着假定 $g$ 个总体的协方差阵相同, 所以采用 $\mathbf{S}_{\mathrm{p}}$ 是适宜的.
+
+\noindent\textbf{例 11.13}\quad (对三个总体计算费希尔样本判别量)
+
+考虑例 11.10 中取自 $g=3$ 个总体的 $p=2$ 个变量的观测值. 假定总体有相同的协方差矩阵 $\boldsymbol{\Sigma}$, 我们来求费希尔判别量, 数据为
+\[
+\pi_1(n_1=3)\qquad \pi_2(n_2=3)\qquad \pi_3(n_3=3)
+\]
+\[
+\mathbf{X}_1=\begin{bmatrix}-2&5\\0&3\\-1&1\end{bmatrix};\quad
+\mathbf{X}_2=\begin{bmatrix}0&6\\2&4\\1&2\end{bmatrix};\quad
+\mathbf{X}_3=\begin{bmatrix}1&-2\\0&0\\-1&-4\end{bmatrix}
+\]
+在例 11.10 中我们曾得出
+\[
+\bar{\mathbf{x}}_1=\begin{bmatrix}-1\\3\end{bmatrix};\quad
+\bar{\mathbf{x}}_2=\begin{bmatrix}1\\4\end{bmatrix};\quad
+\bar{\mathbf{x}}_3=\begin{bmatrix}0\\-2\end{bmatrix}
+\]
+故
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}0\\ \frac{5}{3}\end{bmatrix};\quad
+\mathbf{B}=\sum_{i=1}^{3}(\bar{\mathbf{x}}_i-\bar{\mathbf{x}})(\bar{\mathbf{x}}_i-\bar{\mathbf{x}})'=\begin{bmatrix}2&1\\1&\frac{62}{3}\end{bmatrix}
+\]

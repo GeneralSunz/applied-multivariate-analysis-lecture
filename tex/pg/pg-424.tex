@@ -1,0 +1,54 @@
+% ---- pg-424 （书页 412） ----
+
+(b) 计算 $\mathrm{Corr}(Z_i,F_1)$, $i=1,2,3$. 哪个变量会在公共因子的“命名”上有最大的权重? 为什么?
+
+\noindent 9.3\quad 练习 9.1 中的相关系数矩阵 $\boldsymbol{\rho}$ 的特征值和特征向量为
+\[
+\begin{aligned}
+\lambda_1&=1.96, & \mathbf{e}_1'&=[0.625,0.593,0.507]\\
+\lambda_2&=0.68, & \mathbf{e}_2'&=[-0.219,-0.491,0.843]\\
+\lambda_3&=0.36, & \mathbf{e}_3'&=[0.749,-0.638,-0.177]
+\end{aligned}
+\]
+
+(a) 假设 $m=1$ 的因子模型, 利用主成分解法计算载荷矩阵 $\mathbf{L}$ 及特别方差矩阵 $\boldsymbol{\Psi}$. 同练习 9.1 的结果作比较.
+(b) 用第一公共因子解释的总体总方差的比例是多少?
+
+\noindent 9.4\quad 已知练习 9.1 中的 $\boldsymbol{\rho}$ 和 $\boldsymbol{\Psi}$ 及 $m=1$ 的因子模型, 计算缩减相关系数矩阵 $\tilde{\boldsymbol{\rho}}=\boldsymbol{\rho}-\boldsymbol{\Psi}$ 及载荷矩阵 $\mathbf{L}$ 的主因子解. 这些结果是否与练习 9.1 相一致? 应该一致吗?
+
+\noindent 9.5\quad 证明不等\hyperref[eq:9-19]{式(9-19)}
+提示: 因为 $\mathbf{S}-\tilde{\mathbf{L}}\tilde{\mathbf{L}}'-\tilde{\boldsymbol{\Psi}}$ 在对角线上为 $\mathbf{0}$,
+\[
+(\mathbf{S}-\tilde{\mathbf{L}}\tilde{\mathbf{L}}'-\tilde{\boldsymbol{\Psi}}\ \text{元素的平方和})\leqslant(\mathbf{S}-\tilde{\mathbf{L}}\tilde{\mathbf{L}}'\ \text{元素的平方和})
+\]
+现在, $\mathbf{S}-\tilde{\mathbf{L}}\tilde{\mathbf{L}}'=\hat{\lambda}_{m+1}\hat{\mathbf{e}}_{m+1}\hat{\mathbf{e}}_{m+1}'+\cdots+\hat{\lambda}_p\hat{\mathbf{e}}_p\hat{\mathbf{e}}_p'=\hat{\mathbf{P}}_{(2)}\hat{\boldsymbol{\Lambda}}_{(2)}\hat{\mathbf{P}}_{(2)}'$, 其中 $\hat{\mathbf{P}}_{(2)}=[\hat{\mathbf{e}}_{m+1}\ \vdots\ \cdots\ \vdots\ \hat{\mathbf{e}}_p]$ 且 $\hat{\boldsymbol{\Lambda}}_{(2)}$ 是对角元为 $\hat{\lambda}_{m+1},\cdots,\hat{\lambda}_p$ 的对角阵.
+
+利用($\mathbf{A}$ 元素的平方和) $=\mathrm{tr}\mathbf{A}\mathbf{A}'$ 及 $\mathrm{tr}[\hat{\mathbf{P}}_{(2)}\hat{\boldsymbol{\Lambda}}_{(2)}\hat{\boldsymbol{\Lambda}}_{(2)}\hat{\mathbf{P}}_{(2)}']=\mathrm{tr}[\hat{\boldsymbol{\Lambda}}_{(2)}\hat{\boldsymbol{\Lambda}}_{(2)}]$.
+
+\noindent 9.6\quad 验证下列矩阵性质
+
+(a) $(\mathbf{I}+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})^{-1}\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L}=\mathbf{I}-(\mathbf{I}+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})^{-1}$
+提示: 两边左乘 $(\mathbf{I}+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})$.
+
+(b) $(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})^{-1}=\boldsymbol{\Psi}^{-1}-\boldsymbol{\Psi}^{-1}\mathbf{L}(\mathbf{I}+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})^{-1}\mathbf{L}'\boldsymbol{\Psi}^{-1}$
+提示: 两边右乘 $(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})$ 并利用(a).
+
+(c) $\mathbf{L}'(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})^{-1}=(\mathbf{I}+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})^{-1}\mathbf{L}'\boldsymbol{\Psi}^{-1}$
+提示: 将(b)两边右乘 $\mathbf{L}$, 利用(a), 并将两边取转置, 注意 $(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})^{-1}$, $\boldsymbol{\Psi}^{-1}$ 及 $(\mathbf{I}+\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L})^{-1}$ 为对称矩阵.
+
+\noindent 9.7\quad (因子模型参数化不必是唯一的.) 令因子模型 $p=2$ 和 $m=1$ 成立. 证明
+\[
+\sigma_{11}=l_{11}^2+\psi_1,\qquad \sigma_{12}=\sigma_{21}=l_{11}l_{21}
+\]
+\[
+\sigma_{22}=l_{21}^2+\psi_2
+\]
+以及对给定 $\sigma_{11},\sigma_{22}$ 和 $\sigma_{12}$, 对 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 存在无限多的选择.
+
+\noindent 9.8\quad (唯一但不真实的解: 海伍德情形.)
+
+对协方差矩阵为
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}1&0.4&0.9\\0.4&1&0.7\\0.9&0.7&1\end{bmatrix}
+\]
+的总体, 考虑 $m=1$ 的因子模型, 证明对满足 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ 的 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 有唯一的选择, 但 $\psi_3<0$, 因此这种选择是不可接受的.

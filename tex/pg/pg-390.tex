@@ -1,0 +1,70 @@
+% ---- pg-390 （书页 378） ----
+
+或
+\[
+\begin{array}{ccc}
+1=l_{11}^2+\psi_1 & 0.90=l_{11}l_{21} & 0.70=l_{11}l_{31}\\
+ & 1=l_{21}^2+\psi_2 & 0.40=l_{21}l_{31}\\
+ & & 1=l_{31}^2+\psi_3
+\end{array}
+\]
+方程组
+\[
+\begin{aligned}
+0.70&=l_{11}l_{31}\\
+0.40&=l_{21}l_{31}
+\end{aligned}
+\]
+推出
+\[
+l_{21}=\left(\frac{0.40}{0.70}\right)l_{11}
+\]
+将此结果代入方程
+\[
+0.90=l_{11}l_{21}
+\]
+得出 $l_{11}^2=1.575$, 或 $l_{11}=\pm1.255$. 既然 $\mathrm{Var}(F_1)=1$(由对称性)和 $\mathrm{Var}(X_1)=1$, 知 $l_{11}=\mathrm{Cov}(X_1,F_1)=\mathrm{Corr}(X_1,F_1)$. 但相关系数不能大于 1(按绝对值), 故由此知 $|l_{11}|=1.255$ 太大了. 此外, 等式
+\[
+1=l_{11}^2+\psi_1\qquad\text{或}\qquad \psi_1=1-l_{11}^2
+\]
+给出 $\psi_1=1-1.575=-0.575$. 它是不能令人满意的, 因为它对 $\mathrm{Var}(\varepsilon_1)=\psi_1$ 给了一个负值.
+
+这样, 对 $m=1$ 的本例, 得到方程 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ 的一个唯一数值解是可能的. 然而, 这个解并没反映系数的统计学解释, 故它不是一个真实解. \hfill$\blacksquare$
+
+当 $m>1$, 总存在某个内在的与因子模型有关的模棱两可的解释. 为弄清这一点, 令 $\mathbf{T}$ 是任一 $m\times m$ 正交矩阵, 故 $\mathbf{T}\mathbf{T}'=\mathbf{T}'\mathbf{T}=\mathbf{I}$. 那么表达\hyperref[eq:9-2]{式(9-2)}可写为
+\phantomsection\label{eq:9-7}
+\begin{equation}
+\mathbf{X}-\boldsymbol{\mu}=\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon}=\mathbf{L}\mathbf{T}\mathbf{T}'\mathbf{F}+\boldsymbol{\varepsilon}=\mathbf{L}^*\mathbf{F}^*+\boldsymbol{\varepsilon}
+\tag{9-7}
+\end{equation}
+其中
+\[
+\mathbf{L}^*=\mathbf{L}\mathbf{T}\quad\text{和}\quad \mathbf{F}^*=\mathbf{T}'\mathbf{F}
+\]
+由于
+\[
+E(\mathbf{F}^*)=\mathbf{T}'E(\mathbf{F})=\mathbf{0}
+\]
+及
+\[
+\mathrm{Cov}(\mathbf{F}^*)=\mathbf{T}'\mathrm{Cov}(\mathbf{F})\mathbf{T}=\mathbf{T}'\mathbf{T}=\underset{(m\times m)}{\mathbf{I}}
+\]
+因此基于 $\mathbf{X}$ 的观测值, 要将载荷 $\mathbf{L}$ 与载荷 $\mathbf{L}^*$ 区别开来是不可能的. 这就是说, 因子 $\mathbf{F}$ 和 $\mathbf{F}^*=\mathbf{T}'\mathbf{F}$ 有同样的统计性质, 即使载荷 $\mathbf{L}$ 一般与载荷 $\mathbf{L}^*$ 不同, 它们却都有相同的协方差矩阵 $\boldsymbol{\Sigma}$, 即
+\phantomsection\label{eq:9-8}
+\begin{equation}
+\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}=\mathbf{L}\mathbf{T}\mathbf{T}'\mathbf{L}'+\boldsymbol{\Psi}=(\mathbf{L}^*)(\mathbf{L}^*)'+\boldsymbol{\Psi}
+\tag{9-8}
+\end{equation}
+由于正交矩阵对应于 $\mathbf{X}$ 的坐标系的旋转(和反射), 这种模棱两可的解释, 给“因子旋转”提供了基本理论.
+
+\begin{mvbox}
+因子载荷 $\mathbf{L}$ 只由一个正交阵 $\mathbf{T}$ 决定. 这样, 载荷
+\phantomsection\label{eq:9-9}
+\begin{equation}
+\mathbf{L}^*=\mathbf{L}\mathbf{T}\qquad\text{和}\qquad \mathbf{L}
+\tag{9-9}
+\end{equation}
+都给出同一表示. 由 $\mathbf{L}\mathbf{L}'=(\mathbf{L}^*)(\mathbf{L}^*)'$ 对角元给出的共性方差, 也不因 $\mathbf{T}$ 的选取而改变.
+\end{mvbox}
+
+因子模型分析接下来设定条件, 使得可以唯一地估计 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$. 再对载荷矩阵作旋转(以一个正交矩阵相乘), 这里由某个“易于解释”的准则来决定这一旋转. 一旦得到载荷和特殊方差, 就确认了因子, 并且常常可构造出因子自身的估计值(称为因子得分).

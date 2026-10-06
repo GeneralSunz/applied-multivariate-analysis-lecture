@@ -1,0 +1,71 @@
+% ---- pg-538 （书页 526） ----
+
+\phantomsection\label{eq:12-4}
+\begin{equation}
+\text{坎贝拉度量:}\quad d(\mathbf{x},\mathbf{y})=\sum_{i=1}^{p}\frac{|x_i-y_i|}{(x_i+y_i)}
+\tag{12-4}
+\end{equation}
+
+\phantomsection\label{eq:12-5}
+\begin{equation}
+\text{捷卡诺夫斯基度量:}\quad d(\mathbf{x},\mathbf{y})=1-\frac{2\sum\limits_{i=1}^{p}\min(x_i,y_i)}{\sum\limits_{i=1}^{p}(x_i+y_i)}
+\tag{12-5}
+\end{equation}
+
+只要有可能, 我们就建议采用“真实”距离[即满足\hyperref[eq:1-25]{式(1-25)}中的距离性质的距离]来聚类对象. 另一方面, 大多数聚类算法将接受主观指定的距离数, 它们可能不满足, 比如说三角不等式.
+
+下面的例子说明怎样通过将距离矩阵的元素简单地进行重新组织就能完成初步分类.
+
+当项目不能由有意义的 $p$ 维度量来表示时, 常根据某些特征的存在与否将各项目对进行比较. 相似项目比不相似项目有更多的共同特征. 一个特征是否存在, 可以从数学上引进一个二值变量来表示, 当特征存在时令这个变量取值 1, 特征不存在时则令它取值 0. 举例说, 对于有 $p=5$ 个二值变量的情形, 两个项目 $i$ 与 $k$ 的“得分”可能出现如下组合:
+
+\begin{mvtable}
+\begin{tabular}{l|ccccc}
+\toprule
+ & \multicolumn{5}{c}{变\quad 量}\\
+\cmidrule(lr){2-6}
+ & 1 & 2 & 3 & 4 & 5\\
+\midrule
+项目 $i$ & 1 & 0 & 0 & 1 & 1\\
+项目 $k$ & 1 & 1 & 0 & 1 & 0\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+在这种情况下, 有两个 1—1 配对, 1 个 0—0 配对, 以及两个错配(0—1 和 1—0).
+
+设 $x_{ij}$ 为第 $j$ 个二值变量在第 $i$ 个项目上的得分(1 或 0), $x_{kj}$ 为第 $j$ 个变量在第 $k$ 个项目上的得分(同样是 1 或 0), $j=1,2,\cdots,p$. 因此
+\phantomsection\label{eq:12-6}
+\begin{equation}
+(x_{ij}-x_{kj})^2=\begin{cases}
+0 & \text{若 } x_{ij}=x_{kj}=1 \text{ 或 } x_{ij}=x_{kj}=0\\
+1 & \text{若 } x_{ij}\neq x_{kj}
+\end{cases}
+\tag{12-6}
+\end{equation}
+故欧氏距离平方 $\sum\limits_{j=1}^{p}(x_{ij}-x_{kj})^2$ 为错配的个数. 大距离对应有许多错配的情形, 也就是说与相异项目相对应. 对前面所举的例子, 项目 $i$ 与 $k$ 之间的距离平方为
+\[
+\begin{aligned}
+\sum_{j=1}^{p}(x_{ij}-x_{kj})^2&=(1-1)^2+(0-1)^2+(0-0)^2+(1-1)^2+(1-0)^2\\
+&=2
+\end{aligned}
+\]
+虽然基于\hyperref[eq:12-6]{式(12-6)}的距离可用来量度相似性, 它却为 1—1 配对与 0—0 配对提供相同的权. 然而在某些情形下, 1—1 配对是比 0—0 更强的相似性指标. 例如, 在人的分组中, 两个人都能阅读古希腊文同两人都没有这种能力相比是一种更强的相似性证据. 因此, 将 0—0 配对降权甚至完全不予考虑, 也许是一种合理的做法. 为允许对 1—1 配对和 0—0 配对有不同处理, 曾提出过几种定义相似性系数的方案.
+
+为了引进这些方案, 让我们将项目 $i$ 和 $k$ 的配对与错配的频数以列联表的形式列出:
+
+\phantomsection\label{eq:12-7}
+\begin{equation}
+\begin{array}{ll|cc|c}
+\hline
+ & & \multicolumn{2}{c|}{项目 $k$} & \\
+\cline{3-4}
+ & & 1 & 0 & 合\quad 计\\
+\hline
+项目 $i$ & 1 & $a$ & $b$ & $a+b$\\
+ & 0 & $c$ & $d$ & $c+d$\\
+\hline
+合\quad 计 & & $a+c$ & $b+d$ & $p=a+b+c+d$\\
+\hline
+\end{array}
+\tag{12-7}
+\end{equation}

@@ -1,0 +1,57 @@
+\phantomsection\label{eq:6-66}
+\begin{equation}
+\Lambda^{*}=\frac{|\mathrm{SSP}_{\text{残差}}|}{|\mathrm{SSP}_{\text{因子1}}+\mathrm{SSP}_{\text{残差}}|}
+\tag{6-66}
+\end{equation}
+具有较小值时,就接受 $H_1$. 利用巴特利特修正,$H_0$ 的似然比检验为:若
+\phantomsection\label{eq:6-67}
+\begin{equation}
+-\left[gb(n-1)-\frac{p+1-(g-1)}{2}\right]\ln\Lambda^{*}>\chi_{(g-1)p}^{2}(\alpha)
+\tag{6-67}
+\end{equation}
+则在显著性水平 $\alpha$ 下,拒绝 $H_0:\boldsymbol{\tau}_1=\boldsymbol{\tau}_2=\cdots=\boldsymbol{\tau}_g=\mathbf{0}$(即无因子 1 效应). 此处 $\Lambda^{*}$ 由\hyperref[eq:6-66]{式(6-66)}定义,而 $\chi_{(g-1)p}^{2}(\alpha)$ 则为自由度为 $(g-1)p$ 的 $\chi^{2}$ 分布的上 $100\alpha$ 百分位数.
+
+用类似方法可检验因子 2 的主效应,只要考虑假设
+\[
+H_0:\ \boldsymbol{\beta}_1=\boldsymbol{\beta}_2=\cdots=\boldsymbol{\beta}_b=\mathbf{0}
+\]
+\[
+H_1:\ \text{至少有一个}\ \boldsymbol{\beta}_k\neq\mathbf{0}
+\]
+即可. 当
+\phantomsection\label{eq:6-68}
+\begin{equation}
+\Lambda^{*}=\frac{|\mathrm{SSP}_{\text{残差}}|}{|\mathrm{SSP}_{\text{因子2}}+\mathrm{SSP}_{\text{残差}}|}
+\tag{6-68}
+\end{equation}
+取较小值时接受 $H_1$,对于大样本情形,仍可利用巴特利特修正:若
+\phantomsection\label{eq:6-69}
+\begin{equation}
+-\left[gb(n-1)-\frac{p+1-(b-1)}{2}\right]\ln\Lambda^{*}>\chi_{(b-1)p}^{2}(\alpha)
+\tag{6-69}
+\end{equation}
+则在显著性水平 $\alpha$ 下拒绝 $H_0:\boldsymbol{\beta}_1=\boldsymbol{\beta}_2=\cdots=\boldsymbol{\beta}_b=\mathbf{0}$(即无因子 2 效应). 这里的 $\Lambda^{*}$ 由\hyperref[eq:6-68]{式(6-68)}给出,$\chi_{(b-1)p}^{2}(\alpha)$ 为自由度为 $(b-1)p$ 的 $\chi^{2}$ 分布的上 $100\alpha$ 百分位数.
+
+供模型参数对比的联合置信区间能使我们认识因子效应的本质. 对双因子模型来说,可获得一些与结论 6.5 相容的结果. 当交互效应可以忽略时,可集中考虑因子 1 与因子 2 的主效应的对比. 庞弗罗尼方法分别适用于因子 1 效应的差值分量 $\boldsymbol{\tau}_l-\boldsymbol{\tau}_m$ 和因子 2 效应的差值分量 $\boldsymbol{\beta}_k-\boldsymbol{\beta}_r$.
+
+$\boldsymbol{\tau}_l-\boldsymbol{\tau}_m$ 的 $100(1-\alpha)\%$ 联合置信区间为:
+\phantomsection\label{eq:6-70}
+\begin{equation}
+\boldsymbol{\tau}_l-\boldsymbol{\tau}_m\ \text{属于}\ (\bar{x}_{i\cdot\cdot}-\bar{x}_{m\cdot\cdot})\pm t_{gb(n-1)}\left[\frac{\alpha}{pbg(g-1)}\right]\sqrt{\frac{E_{ii}}{v}\frac{2}{bn}}
+\tag{6-70}
+\end{equation}
+其中 $v=gb(n-1)$,$E_{ii}$ 为 $\mathbf{E}=\mathrm{SSP}_{\text{残差}}$ 的第 $i$ 个对角元素,$\bar{x}_{i\cdot\cdot}-\bar{x}_{m\cdot\cdot}$ 则为 $\bar{x}_i-\bar{x}_m$ 的第 $i$ 个分量.
+
+类似的,$\boldsymbol{\beta}_k-\boldsymbol{\beta}_r$ 的 $100(1-\alpha)\%$ 联合置信区间为:
+\phantomsection\label{eq:6-71}
+\begin{equation}
+\boldsymbol{\beta}_k-\boldsymbol{\beta}_r\ \text{属于}\ (\bar{x}_{\cdot k\cdot}-\bar{x}_{\cdot r\cdot})\pm t_{gb(n-1)}\left[\frac{\alpha}{pbg(b-1)}\right]\sqrt{\frac{E_{ii}}{v}\frac{2}{gn}}
+\tag{6-71}
+\end{equation}
+其中的 $v$ 及 $E_{ii}$ 刚才已经定义,而 $\bar{x}_{\cdot k\cdot}-\bar{x}_{\cdot r\cdot}$ 则为 $\bar{x}_k-\bar{x}_r$ 的第 $i$ 个分量.
+
+\mvbold{评注}\quad 前面我们讨论了重复观测的双因子多元模型. 也就是说,这种模型允许每个水平组合都有 $n$ 个观测值向量. 这就使我们能考察诸因子的“交互作用”. 如果对因子水平的每种组合只能获得一个观测值向量,那么双因子模型中就不允许有交互作用项 $\boldsymbol{\gamma}_{lk}$. 此时相应 MANOVA 表中作为总变差分量的就只有因子 1、因子 2 与残差三个变差来源(见练习 6.13).
+
+\noindent\textbf{例 6.13}\quad (塑料胶卷数据的双因子多元方差分析)
+
+有人用所谓调优运算法(见文献[9])考察了挤压塑料胶卷的最佳工艺条件. 在所进行的研究中,考虑两个因子: 拉速及添加剂数量. 每个因子各取两个水平,并在各因子水平下测量其三个响应指标: $X_1=$耐撕力, $X_2=$光泽度, $X_3=$不透明度. 对每种因子水平组合做 5 次重复观测,所得的测试数据列在\hyperref[tab:6.4]{表 6.4} 中.

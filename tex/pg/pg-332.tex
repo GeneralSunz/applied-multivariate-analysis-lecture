@@ -1,0 +1,49 @@
+% ---- pg-332 （书页 320） ----
+
+\phantomsection\label{eq:7-63}
+\begin{equation}
+\hat{\boldsymbol{\beta}}_{(i)}=\left[\begin{array}{c}\bar{y}_{(i)}\\\hdashline(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}\mathbf{Z}_{c2}'\mathbf{y}_{(i)}\end{array}\right],\quad i=1,2,\cdots,m \tag{7-63}
+\end{equation}
+
+有时, 为了得到更好的数值稳定性, 在模型中采用“标准化”的输入变量 $(z_{ji}-\bar{z}_i)\Big/\sqrt{\sum_{j=1}^{n}(z_{ji}-\bar{z}_i)^2}=(z_{ji}-\bar{z}_i)/\sqrt{(n-1)s_{z_iz_i}}$. 在这种场合, 回归模型的系数 $\beta_i$ 用 $\tilde{\beta}_i=\beta_i\sqrt{(n-1)s_{z_iz_i}}$ 代替, 其最小二乘估计为 $\hat{\tilde{\beta}}_i=\hat{\beta}_i\sqrt{(n-1)s_{z_iz_i}}$, $i=1,2,\cdots,r$. 这些关系对多元多重回归场合的每个响应变量也成立.
+
+\mvsub{两种表达方式的联系}
+
+当变量 $Y,Z_1,Z_2,\cdots,Z_r$ 服从联合正态分布时, 估计的 $Y$ 预测量(见结论 7.13)为
+\phantomsection\label{eq:7-64}
+\begin{equation}
+\hat{\beta}_0+\hat{\boldsymbol{\beta}}'\mathbf{z}=\bar{y}+\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}(\mathbf{z}-\bar{\mathbf{z}})=\hat{\mu}_Y+\hat{\boldsymbol{\sigma}}_{ZY}'\hat{\boldsymbol{\Sigma}}_{ZZ}^{-1}(\mathbf{z}-\hat{\boldsymbol{\mu}}_Z) \tag{7-64}
+\end{equation}
+这里, 估计方法自然地引出中心化的 $z_i$.
+
+回顾回归模型的均值修正形式, $Y$ 的最佳线性预测量[见\hyperref[eq:7-61]{式(7-61)}]为
+\[
+\hat{y}=\hat{\beta}_*+\hat{\boldsymbol{\beta}}_c'(\mathbf{z}-\bar{\mathbf{z}})
+\]
+其中 $\hat{\beta}_*=\bar{y}$, $\hat{\boldsymbol{\beta}}_c'=\mathbf{y}'\mathbf{Z}_{c2}(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}$. 比较\hyperref[eq:7-61]{式(7-61)}与\hyperref[eq:7-64]{式(7-64)}, 我们看到 $\hat{\beta}_*=\bar{y}=\hat{\beta}_0$ 和 $\hat{\boldsymbol{\beta}}_c=\hat{\boldsymbol{\beta}}$, 因为\footnote{{\footnotesize \hyperref[eq:7-65]{式(7-65)}可这样得出: 令 $\mathbf{y}=(\mathbf{y}-\bar{y}\mathbf{1})+\bar{y}\mathbf{1}$, 此时有
+\[
+\mathbf{y}'\mathbf{Z}_{c2}=(\mathbf{y}-\bar{y}\mathbf{1})'\mathbf{Z}_{c2}+\bar{y}\mathbf{1}'\mathbf{Z}_{c2}=(\mathbf{y}-\bar{y}\mathbf{1})'\mathbf{Z}_{c2}+\mathbf{0}'=(\mathbf{y}-\bar{y}\mathbf{1})'\mathbf{Z}_{c2}
+\]
+从而
+\[
+\mathbf{y}'\mathbf{Z}_{c2}(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}=(\mathbf{y}-\bar{y}\mathbf{1})'\mathbf{Z}_{c2}(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}=(n-1)\mathbf{s}_{ZY}'[(n-1)\mathbf{S}_{ZZ}]^{-1}=\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}
+\]}}
+\phantomsection\label{eq:7-65}
+\begin{equation}
+\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}=\mathbf{y}'\mathbf{Z}_{c2}(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1} \tag{7-65}
+\end{equation}
+因此, 正态理论的条件均值和经典回归模型方法产生同一个线性预测量.
+
+类似的讨论指出, 在这两种多元多重回归模型的方案中, 响应变量的最佳线性预测量是相同的.
+
+\noindent\textbf{例 7.15}\quad （两种方法产生相同的线性预测量）
+
+在例 7.6 中, 用经典线性回归模型对单响应计算机数据 $Y_1=$ CPU 时间进行了分析. 同一组数据在例 7.12 中重新进行了分析, 但假定变量 $Y_1$、$Z_1$ 和 $Z_2$ 服从联合正态分布, 所以 $Y_1$ 的最佳预测量为给定 $Z_1$ 和 $Z_2$ 时 $Y_1$ 的条件期望. 两种方法产生同一个预测量
+\[
+\hat{y}=8.42+1.08z_1+0.42z_2
+\]
+\hfill$\blacksquare$
+
+虽然线性预测问题的两种表述方式产生相同的预测量方程, 但它们在概念上却有相当大的差异. 对于\hyperref[eq:7-3]{式(7-3)}或\hyperref[eq:7-23]{式(7-23)}中的模型, 输入变量的值是由试验者设定的. 而对\hyperref[eq:7-51]{式(7-51)}或\hyperref[eq:7-53]{式(7-53)}的条件期望模型, 预测变量则为随机变量, 它们的值是与响应变量的值一起被观测的. 第二种方法的假定更严格, 在这个假定下得出的是所有可能的预测量中的最优预测量, 而不仅仅是线性预测量中的最优预测量.
+
+在结束本节时, 我们注意到多元回归的计算无论在哪种情况下均可以采用样本均值向量 $\bar{\mathbf{y}}$ 和 $\bar{\mathbf{z}}$ 及样本平方与交叉乘积之和:

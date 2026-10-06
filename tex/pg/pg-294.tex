@@ -1,0 +1,66 @@
+% ---- pg-294 （书页 282） ----
+
+\mvsub{拟合直线}
+
+\[
+\text{响应均值} = E(Y) = \beta_0+\beta_1 z_1
+\]
+
+在观测到响应 $\mathbf{Y}=[Y_1,Y_2,\cdots,Y_5]'$ 时, 误差 $\boldsymbol{\epsilon}=[\epsilon_1,\epsilon_2,\cdots,\epsilon_5]'$ 是随机的, 因此我们有
+\[
+\mathbf{Y}=\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon}
+\]
+其中
+\[
+\mathbf{Y}=\begin{bmatrix}Y_1\\Y_2\\\vdots\\Y_5\end{bmatrix},\quad
+\mathbf{Z}=\begin{bmatrix}1&z_{11}\\1&z_{21}\\\vdots&\vdots\\1&z_{51}\end{bmatrix},\quad
+\boldsymbol{\beta}=\begin{bmatrix}\beta_0\\\beta_1\end{bmatrix},\quad
+\boldsymbol{\epsilon}=\begin{bmatrix}\epsilon_1\\\epsilon_2\\\vdots\\\epsilon_5\end{bmatrix}
+\]
+对这个模型的数据包含在观测到的响应向量 $\mathbf{y}$ 和设计阵 $\mathbf{Z}$ 之中, 此处
+\[
+\mathbf{y}=\begin{bmatrix}1\\4\\3\\8\\9\end{bmatrix},\quad
+\mathbf{Z}=\begin{bmatrix}1&0\\1&1\\1&2\\1&3\\1&4\end{bmatrix}
+\]
+注意, 我们可以对响应均值引入一个二次项 $\beta_2 z_2$, 其中 $z_2=z_1^2$, 从而得到一个二次式. 这时, 对第 $j$ 次试验的线性回归模型为
+\[
+Y_j=\beta_0+\beta_1 z_{j1}+\beta_2 z_{j2}+\epsilon_j
+\]
+或
+\[
+Y_j=\beta_0+\beta_1 z_{j1}+\beta_2 z_{j1}^2+\epsilon_j
+\]
+
+\medskip
+\noindent\textbf{例 7.2}\quad (单因子 ANOVA 作为回归模型的设计阵)
+
+若线性回归模型被用于例 6.6 中的单因子 ANOVA 场合, 确定设计矩阵.
+
+我们定义三个虚拟变量来处理三个总体均值 $\mu_1=\mu+\tau_1$, $\mu_2=\mu+\tau_2$, 及 $\mu_3=\mu+\tau_3$. 令
+\[
+z_1=\begin{cases}1,&\text{若观测值来自总体 }1\\0,&\text{其他}\end{cases}
+\]
+\[
+z_2=\begin{cases}1,&\text{若观测值来自总体 }2\\0,&\text{其他}\end{cases}
+\]
+\[
+z_3=\begin{cases}1,&\text{若观测值来自总体 }3\\0,&\text{其他}\end{cases}
+\]
+并令 $\beta_0=\mu$, $\beta_1=\tau_1$, $\beta_2=\tau_2$, $\beta_3=\tau_3$. 此时
+\[
+Y_j=\beta_0+\beta_1 z_{j1}+\beta_2 z_{j2}+\beta_3 z_{j3}+\epsilon_j,\qquad j=1,2,\cdots,8
+\]
+这里, 我们将观测值按三个总体的顺序排列, 这样就得到观测到的响应向量和设计矩阵
+\[
+\underset{(8\times 1)}{\mathbf{Y}}=\begin{bmatrix}9\\6\\9\\0\\2\\3\\1\\2\end{bmatrix};\qquad
+\underset{(8\times 4)}{\mathbf{Z}}=\begin{bmatrix}
+1&1&0&0\\
+1&1&0&0\\
+1&1&0&0\\
+1&0&1&0\\
+1&0&1&0\\
+1&0&0&1\\
+1&0&0&1\\
+1&0&0&1
+\end{bmatrix}
+\]

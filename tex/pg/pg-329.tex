@@ -1,0 +1,50 @@
+% ---- pg-329 （书页 317） ----
+
+\noindent\textbf{例 7.13}\quad （双响应回归函数的极大似然估计）
+
+我们回到例 7.6 和例 7.10 的计算机数据. 对 $Y_1=$ CPU 时间, $Y_2=$ 硬盘 I/O 容量, $Z_1=$ 命令, $Z_2=$ 增删项目, 我们有
+\[
+\hat{\boldsymbol{\mu}}=\left[\begin{array}{c}\bar{\mathbf{y}}\\\hdashline \bar{\mathbf{z}}\end{array}\right]=\left[\begin{array}{c}150.44\\327.79\\\hdashline 130.24\\3.547\end{array}\right]
+\]
+
+及
+\[
+\mathbf{S}=\left[\begin{array}{c:c}\mathbf{S}_{YY}&\mathbf{S}_{YZ}\\\hdashline \mathbf{S}_{ZY}&\mathbf{S}_{ZZ}\end{array}\right]=\left[\begin{array}{cc:cc}
+467.913&1\,148.556&418.763&35.983\\
+1\,148.556&3\,072.491&1\,008.976&140.558\\\hdashline
+418.763&1\,008.976&377.200&28.034\\
+35.983&140.558&28.034&13.657
+\end{array}\right]
+\]
+
+假定正态性, 我们得到估计的回归函数为
+\[
+\begin{aligned}
+\hat{\boldsymbol{\beta}}_0+\hat{\boldsymbol{\beta}}\mathbf{z}&=\hat{\mathbf{y}}+\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}(\mathbf{z}-\bar{\mathbf{z}})\\
+&=\left[\begin{array}{c}150.44\\327.79\end{array}\right]+\left[\begin{array}{cc}418.763&35.983\\1\,008.976&140.558\end{array}\right]\\
+&\quad\times\left[\begin{array}{cc}0.003\,128&-0.006\,422\\-0.006\,422&0.086\,404\end{array}\right]\left[\begin{array}{c}z_1-130.24\\z_2-3.547\end{array}\right]\\
+&=\left[\begin{array}{c}150.44\\327.79\end{array}\right]+\left[\begin{array}{c}1.079(z_1-130.24)+0.420(z_2-3.547)\\2.254(z_1-130.24)+5.665(z_2-3.547)\end{array}\right]
+\end{aligned}
+\]
+这样, $Y_1$ 的最小均方误差预测量为
+\[
+150.44+1.079(z_1-130.24)+0.420(z_2-3.547)=8.42+1.08z_1+0.42z_2
+\]
+类似的, $Y_2$ 的最佳预测量为
+\[
+14.14+2.25z_1+5.67z_2
+\]
+误差的平方与交叉乘积期望矩阵 $\boldsymbol{\Sigma}_{YY\cdot Z}$ 的极大似然估计值为
+\[
+\begin{aligned}
+&\left(\frac{n-1}{n}\right)\left(\mathbf{S}_{YY}-\mathbf{S}_{YZ}\mathbf{S}_{ZZ}^{-1}\mathbf{S}_{ZY}\right)\\
+&=\left(\frac{6}{7}\right)\left(\left[\begin{array}{cc}467.913&1\,148.536\\1\,148.536&3\,072.491\end{array}\right]\right.\\
+&\quad-\left[\begin{array}{cc}418.763&35.983\\1\,008.976&140.558\end{array}\right]\left[\begin{array}{cc}0.003\,128&-0.006\,422\\-0.006\,422&0.086\,404\end{array}\right]\left.\left[\begin{array}{cc}418.763&1\,008.976\\35.983&140.558\end{array}\right]\right)\\
+&=\left(\frac{6}{7}\right)\left[\begin{array}{cc}1.043&1.042\\1.042&2.572\end{array}\right]=\left[\begin{array}{cc}0.894&0.893\\0.893&2.205\end{array}\right]
+\end{aligned}
+\]
+第一个估计的回归函数 $8.42+1.08z_1+0.42z_2$ 及与之相联系的均方误差 $0.894$ 与例 7.12 中单响应情形下的结果相同. 类似地, 第二个估计的回归函数 $14.14+2.25z_1+5.67z_2$, 与例 7.10 中所给的结果一致.
+
+我们看到, 用这组数据预测 $Y_1$ 时, 其误差比预测 $Y_2$ 时的误差小. 正的协方差 $0.893$ 指出, 对 CPU 时间的过度预测(不足预测)易伴随有硬盘容量过度预测(不足预测). \hfill$\blacksquare$
+
+\mvsub{评论}\quad 结论 7.14 认为, 对整个变量集合 $Y_1,Y_2,\cdots,Y_m,Z_1,Z_2,\cdots,Z_r$ 的联合正态性假定

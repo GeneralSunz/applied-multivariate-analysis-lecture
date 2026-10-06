@@ -1,0 +1,253 @@
+% =====================================================================
+%  实用多元统计分析（第6版） LaTeX 重排工程 —— 公共导言区
+%  依据原书扫描件测量：开本 180mm x 260mm，版心宽约 140mm（每行约38字），
+%  正文字号 五号(10.5pt)，行距约 14.6pt。
+% =====================================================================
+
+% ---------- 页面与版心 ----------
+\usepackage[
+  a4paper,
+  left=30mm, right=30mm,          % 左右相等 -> 版心水平居中
+  top=25mm, bottom=25mm,          % 上下相等
+  headheight=14pt, headsep=7mm, footskip=10mm
+]{geometry}
+
+% ---------- 数学 ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+% ---------- 图形 ----------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,calc,positioning,patterns,decorations.pathreplacing,shapes.geometric,plotmarks}
+
+% ---------- 表格 ----------
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{dcolumn}
+
+
+% ---------- 其它 ----------
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage[font=small,labelformat=empty]{caption}
+\usepackage{ragged2e}
+
+% ---------- 分块矩阵虚线分隔 ----------
+% 关键：arydshln 必须在 amsmath/mathtools/array 全部加载之后再载入，
+% 否则 \hdashline 在矩阵环境内会被吞掉、渲染为实线。实测有效。
+\usepackage{arydshln}
+\setlength{\dashlinedash}{2.4pt}
+\setlength{\dashlinegap}{2.4pt}
+
+% ---------- 超链接（低调，避免彩色框） ----------
+\usepackage[unicode,colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black,bookmarksnumbered=true,bookmarksopen=true]{hyperref}
+% bookmark 重写 PDF 书签后端，避免标题中的数学（如 $\boldsymbol{\mu}_0$）
+% 触发 hyperref 的 "Illegal parameter number in definition of \Hy@tempa"
+\usepackage{bookmark}
+
+% ---------- 让罗马数字/带圈数字用中文字体渲染（版权页 Ⅰ ① 等） ----------
+\xeCJKDeclareCharClass{CJK}{"2160 -> "217F, "2460 -> "24FF, "3000 -> "303F, "FF00 -> "FFEF}
+
+% ---------- 章号用阿拉伯数字（第1章、1.1、1.2 …） ----------
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+
+% ---------- 章首页版式（仿原书：英文装饰带 + 右侧"第 X 章" + 居中大标题） ----------
+\usepackage{titlesec}
+% 原书章首页：一条通栏浅灰装饰带，带内左侧为斜体英文书名（反白），
+% 右侧为「第 □ 章」；带下居中为章标题大号黑体。
+\newcommand{\mvchapterband}[1]{%
+  \normalfont
+  \noindent
+  \begin{center}
+  \begin{tikzpicture}[baseline=(b.base)]
+    \node[fill=black!45, inner xsep=6pt, inner ysep=3.2pt,
+          anchor=base] (b)
+      {\rmfamily\itshape\zihao{5}\color{white}Applied Multivariate Statistical Analysis};
+  \end{tikzpicture}%
+  \hspace{10pt}{\heiti\zihao{2}第\,#1\,章}%
+  \end{center}%
+  \par\vspace{2pt}%
+  \noindent\rule{\linewidth}{1.1pt}%
+  \par\vspace{18pt}%
+}
+\titleformat{\chapter}[display]
+  {\normalfont\heiti\zihao{2}}
+  {}
+  {0pt}
+  {\mvchapterband{\thechapter}\centering}
+  [\vspace{10pt}]
+\titlespacing*{\chapter}{0pt}{-6pt}{26pt}
+% 章首页不排页眉
+\assignpagestyle{\chapter}{plain}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\zihao{6}\thepage}%
+}
+
+% ---------- 节标题样式：黑体 ----------
+% 注意：这里必须用 ragged2e 的 \RaggedRight，**不能用** LaTeX 自带的 \raggedright。
+% 后者会把 \parindent 置 0，并泄漏到标题后的第一段，导致"节标题下第一段不提行、
+% 与后面段落不对齐"（titlesec 的 format 不是完全分组的）。
+\ctexset{
+  section/format  = \heiti\zihao{4}\RaggedRight,
+  subsection/format = \heiti\zihao{5}\RaggedRight,
+  subsubsection/format = \heiti\zihao{5}\RaggedRight,
+  section/afterindent  = true,
+  subsection/afterindent = true,
+}
+
+% 正文默认字体：宋体；行距按实测 14.6pt
+% 1.16 -> 1.08：压缩行距以消除"一页空格太多"（页数由 681 进一步下降）。
+\renewcommand{\baselinestretch}{1.15}
+
+% ---------- 压缩各类垂直间距（解决"公式/方框环境超距"） ----------
+% 行间公式上下留白（LaTeX 默认 10pt plus2 minus5，中文正文里显得很空）
+\setlength{\abovedisplayskip}{4pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{4pt plus 2pt minus 2pt}
+\setlength{\abovedisplayshortskip}{2pt plus 1pt}
+\setlength{\belowdisplayshortskip}{2pt plus 1pt}
+% 多行公式环境（align/gather）的额外行距
+\setlength{\jot}{1pt}
+% 浮动体与图表间距
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+% 段落间距（本书正文无段间距，靠首行缩进区分，这里清零避免额外空隙）
+\setlength{\parskip}{0pt plus 0.5pt}
+% 表格行高：全局压到 0.92 倍（数据表行高由 \arraystretch 与字号共同决定）。
+% 背景：原书扫描页版心高约 215mm（正文末行在页高 0.90 处），本重排版版心高
+% 200mm（bottom=30mm，末行 0.885），每页比原书少约 1 行；再叠加"统计表不可
+% 分页"，凡是比剩余空间略高的表都会整块后移，在原页留下大片空白。
+% 实测：0.92 使不可分页大表降低约 8% 高度，全书由 645 页降到 629 页，
+% 底部空白 >30% 的页由 62 降到 51（配合 longtable 改造后进一步降到 39）。
+\renewcommand{\arraystretch}{0.92}
+% 列表环境收紧
+\setlist[enumerate,itemize]{topsep=2pt,parsep=0pt,partopsep=0pt,itemsep=1pt}
+% 节标题前后留白收紧
+\titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{5pt}
+\titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 2pt}{4pt}
+
+% 应急伸缩：中文正文夹长行内公式时，TeX 往往找不到合宜断点而溢出右边距
+% （实测 91 处 Overfull \hbox，最大 140pt ≈ 49mm，会明显跑出版心）。
+% 给 3em 的应急伸缩，让 TeX 宁可把行内空格拉松也不溢出。
+\setlength{\emergencystretch}{3em}
+
+% ---------- 页眉页脚（仿原书：偶数页左侧"页码 书名"，奇数页右侧"章名 页码"） ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[C]{\zihao{6}实用多元统计分析}
+\fancyfoot[C]{\zihao{6}\thepage}
+% 章首页（plain）：不排页眉，页码居中于页脚（与原书章首页一致）
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\zihao{6}\thepage}%
+}
+
+% ---------- 图形与表格的自定义命令 ----------
+% 图片统一宽度
+\newcommand{\mvimgw}{0.86\linewidth}
+
+% 图题：黑体小五，居中
+% \nopagebreak[4]：强调"图题必须与图/表同页"。
+% 否则不可分页的大表格放不下时会整块移到下页，把图题/表题单独留在原页底部
+% （实测 pdf p324 出现"显示板 6.1（续）"孤立行 + 大半页空白）。
+\newcommand{\mvcap}[1]{\nopagebreak[4]\par\vspace{2pt}{\centering\zihao{6}\heiti #1\par}}
+
+% 表题
+\newcommand{\mvtabcap}[1]{\par\vspace{2pt}{\centering\zihao{6}\heiti #1\par}\nopagebreak[4]}
+
+% 图环境：居中放置图片
+% 注意：必须用 \centering（\par 收尾）而非 center 环境。
+% center 环境是一个 trivlist，内部内容成为**不可分页的整体块**；
+% 表格/图上方的正文无法与表分离，一旦放不下就整块跳到下一页，
+% 造成原页大面积空白（实测 pdf p53/p60 曾整页空白）。
+% \centering 保持段落式分页，允许表与表题在页内正常流动。
+\newenvironment{mvfigure}
+  {\par\vspace{3pt}\centering}
+  {\par\vspace{3pt}}
+
+% 表环境
+\newenvironment{mvtable}
+  {\par\vspace{3pt}\centering}
+  {\par\vspace{3pt}}
+
+% 占位：由后处理脚本替换为真实裁剪图
+\newcommand{\mvinc}[2]{\includegraphics[width=\mvimgw]{figs/#1}}
+
+% ---------- 超宽表格自适应 ----------
+% 原书中若干统计表（F 分布表、SAS 输出、宽数据表）宽于本重排版的版心。
+% \mvfit 只在**自然宽度超过 \linewidth 时**等比缩放到版心宽，绝不放大，
+% 从而避免内容溢出版心（实测曾有表溢出 256pt ≈ 90mm）。
+\newcommand{\mvfit}[1]{%
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{#1}%
+}
+
+% ---------- 原书正文中的小标题 / 例 / 定理等，一律按原样黑体排印 ----------
+% 无编号小标题（如"数据缩减或简化"）
+\newcommand{\mvsub}[1]{\par\vspace{5pt}{\noindent\heiti #1\par}\vspace{2pt}}
+% 行内加粗小标题（如"例 1.1"、"(a) 离群值清晰"）
+\newcommand{\mvbold}[1]{{\heiti #1}}
+% 原书定理/推论等
+\newcommand{\mvthm}[2]{\par\vspace{4pt}{\noindent\heiti #1}\quad #2\par}
+
+% 结论框（原书用细线方框圈起结论；tcolorbox 实现，跨页安全）
+% 方框：收紧内侧留白与"前后跳距"（tcolorbox 默认 before/after skip 为 \medskipamount，
+% 在中文正文里会造成明显的"方框环境超距"）。
+\newenvironment{mvbox}
+  {\par\vspace{2pt}\begin{tcolorbox}[colback=white,colframe=black!55,boxrule=0.5pt,
+     arc=0pt,left=4pt,right=4pt,top=2pt,bottom=2pt,
+     boxsep=2pt,before skip=3pt,after skip=3pt]}
+  {\end{tcolorbox}\vspace{2pt}\par}
+
+% 带标题的方框（如"平方根矩阵"定义框）；标题可选
+\newenvironment{mvframe}[1][]
+  {\par\vspace{2pt}\begin{tcolorbox}[colback=white,colframe=black!55,boxrule=0.5pt,
+     arc=0pt,left=4pt,right=4pt,top=2pt,bottom=2pt,
+     boxsep=2pt,before skip=3pt,after skip=3pt,title={#1}]}
+  {\end{tcolorbox}\vspace{2pt}\par}
+
+% 页码编号：正文用阿拉伯数字
+\newcommand{\bodypagenumbering}{\pagenumbering{arabic}}
+
+% ---------- 段落对齐兜底复位 ----------
+% 症状：全书正文被"意外居中"（每行左右参差、段首无缩进）。
+% 成因：某个 \centering 没有放进分组，泄漏到后续全文。
+% \mvnomalign 把它复位为正常两端对齐；在 \mainmatter 之后调用一次作兜底。
+\newcommand{\mvnomalign}{%
+  \leftskip=0pt \rightskip=0pt \parfillskip=0pt plus 1fil\relax}
+
+% ---------- 脚注：防止被挤到下一页 ----------
+% 症状：某页正文引用了脚注，脚注文字却跑到下一页，与引用脱节。
+% 对策：
+%   1) \raggedbottom —— 允许页面"排不满"，不再拉伸硬撑，给脚注留位置；
+%   2) 收紧脚注区留白（\skip\footins = 正文与脚注的分隔距离；
+%      \footnotesep = 脚注之间的间距），让脚注更容易塞进当前页；
+%   3) 脚注字号压到 6 号，进一步降低高度；
+%   4) \interfootnotelinepenalty 取较低值：必要时允许在页内折行，
+%      而不是把整条脚注搬到下一页。
+\raggedbottom
+% 脚注编号：原书页末注用的是带圈数字 ①②③，这里让 \footnote 也生成同样形式，
+% 使"转成真脚注"后编号外观与原书一致。
+\renewcommand{\thefootnote}{\textcircled{\arabic{footnote}}}
+\setlength{\skip\footins}{8pt plus 2pt minus 2pt}
+\setlength{\footnotesep}{4pt}
+\interfootnotelinepenalty=100
+\renewcommand{\footnotesize}{\zihao{6}}

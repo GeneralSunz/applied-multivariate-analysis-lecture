@@ -1,0 +1,53 @@
+需要检验假设 $H_0: \boldsymbol{\mu}'=[4,50,10]$, $H_1: \boldsymbol{\mu}'\neq[4,50,10]$, 显著性水平为 $\alpha=0.10$.
+
+由计算机算得
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}4.640\\45.400\\9.965\end{bmatrix},\qquad \mathbf{S}=\begin{bmatrix}2.879&10.010&-1.810\\10.010&199.788&-5.640\\-1.810&-5.640&3.628\end{bmatrix}
+\]
+
+和
+\[
+\mathbf{S}^{-1}=\begin{bmatrix}0.586&-0.022&0.258\\-0.022&0.006&-0.002\\0.258&-0.002&0.402\end{bmatrix}
+\]
+
+于是有
+\begin{align*}
+T^2&=20[4.640-4,45.400-50,9.965-10]\begin{bmatrix}0.586&-0.022&0.258\\-0.022&0.006&-0.002\\0.258&-0.002&0.402\end{bmatrix}\begin{bmatrix}4.640-4\\45.400-50\\9.965-10\end{bmatrix}\\
+&=20[0.640,-4.600,-0.035]\begin{bmatrix}0.467\\-0.042\\0.160\end{bmatrix}=9.74
+\end{align*}
+
+将观察值 $T^2=9.74$ 与临界值
+\[
+\frac{(n-1)p}{n-p}F_{p,n-p}(0.10)=\frac{19\times 3}{17}\times F_{3,17}(0.10)=3.353\times 2.44=8.18
+\]
+比较, 发现 $T^2=9.74>8.18$, 所以我们在 10\% 显著性水平下拒绝 $H_0$.
+
+我们注意到, 如果均值向量的一个或多个分量, 或者这些分量的某种线性组合与假设值 $[4.50,50]$ 相差很大, 则 $H_0$ 将被拒绝. 此时, 我们不知道哪几个假设值可能得不到数据的支持.
+
+由于我们假定汗液数据服从多元正态分布, 所以由 $X_1$, $X_2$ 和 $X_3$ 的边缘分布构造的那些 Q-Q 图全都接近一条直线. 此外, 各对观测值的散点图都呈椭圆形, 因而, 正态性假定在此处是合理的(见练习 5.4).\hfill$\blacksquare$
+
+$T^2$ 统计量的一个特点, 就是对下列形式的 $\mathbf{X}$ 度量单位的改变具有不变性:
+\phantomsection\label{eq:5-9}
+\begin{equation}
+\underset{(p\times 1)}{\mathbf{Y}}=\underset{(p\times p)}{\mathbf{C}}\underset{(p\times 1)}{\mathbf{X}}+\underset{(p\times 1)}{\mathbf{d}},\quad \mathbf{C}\text{ 为非奇异矩阵} \tag{5-9}
+\end{equation}
+
+当我们先从第 $i$ 个变量减去常数 $b_i$ 得 $X_i-b_i$, 再乘以常数 $a_i>0$ 得到 $a_i(X_i-b_i)$ 时, 就产生出上述观测值变换, 然后再用任一非奇异矩阵左乘先中心化再按比例增减后的诸量 $a_i(X_i-b_i)$, 便得出\hyperref[eq:5-9]{式(5-9)}. 由 $X_i$ 到 $a_i(X_i-b_i)$ 这种变换的一个例子, 就是从华氏温度到摄氏温度的换算公式.
+
+给定观测值 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 及变换\hyperref[eq:5-9]{式(5-9)}, 从结论 3.6 立即推得
+\[
+\bar{\mathbf{y}}=\mathbf{C}\bar{\mathbf{x}}+\mathbf{d}\qquad\text{及}\qquad \mathbf{S}_y=\frac{1}{n-1}\sum_{i=1}^{n}(\mathbf{y}_i-\bar{\mathbf{y}})(\mathbf{y}_i-\bar{\mathbf{y}})'=\mathbf{C}\mathbf{S}\mathbf{C}'
+\]
+
+而且, 由\hyperref[eq:2-24]{式(2-24)}及\hyperref[eq:2-45]{式(2-45)}有
+\[
+\boldsymbol{\mu}_Y=E(\mathbf{Y})=E(\mathbf{C}\mathbf{X}+\mathbf{d})=E(\mathbf{C}\mathbf{X})+E(\mathbf{d})=\mathbf{C}\boldsymbol{\mu}+\mathbf{d}
+\]
+
+因此, 从 $\mathbf{y}$ 与假设值 $\boldsymbol{\mu}_{Y,0}=\mathbf{C}\boldsymbol{\mu}_0+\mathbf{d}$ 算出的 $T^2$ 为
+\begin{align*}
+T^2&=n(\mathbf{y}-\boldsymbol{\mu}_{Y,0})'\mathbf{S}_y^{-1}(\mathbf{y}-\boldsymbol{\mu}_{Y,0})\\
+&=n(\mathbf{C}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0))'(\mathbf{C}\mathbf{S}\mathbf{C}')^{-1}(\mathbf{C}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0))\\
+&=n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'\mathbf{C}'(\mathbf{C}\mathbf{S}\mathbf{C}')^{-1}\mathbf{C}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)\\
+&=n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'\mathbf{C}'(\mathbf{C}')^{-1}\mathbf{S}^{-1}\mathbf{C}^{-1}\mathbf{C}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)=n(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu}_0)
+\end{align*}

@@ -1,0 +1,55 @@
+其中 $\bar{x}$ 为 $\mu$ 的估计，$\hat{\tau}_l=(\bar{x}_l-\bar{x})$ 为 $\tau_l$ 的估计而 $(x_{lj}-\bar{x}_l)$ 为误差 $e_{lj}$ 的估计.
+
+\noindent\textbf{例 6.7}\quad （一元 ANOVA 的平方和分解）
+
+考虑如下独立样本
+
+总体 1：$9,6,9$\\
+总体 2：$0,2$\\
+总体 3：$3,1,2$
+
+由于，比如说 $x_{31}=(3+1+2)/3=2$ 和 $\bar{x}=(9+6+9+0+2+3+1+2)/8=4$，我们有
+\begin{align*}
+3&=x_{31}=\bar{x}+(\bar{x}_3-\bar{x})+(x_{31}-\bar{x}_3)\\
+&=4+(2-4)+(3-2)\\
+&=4+(-2)+1
+\end{align*}
+对每个观测值作上述的分解，便得
+\[
+\begin{bmatrix}9&6&9\\0&2&\\3&1&2\end{bmatrix}=\begin{bmatrix}4&4&4\\4&4&\\4&4&4\end{bmatrix}+\begin{bmatrix}4&4&4\\-3&-3&\\-2&-2&-2\end{bmatrix}+\begin{bmatrix}1&-2&1\\-1&1&\\-1&-1&0\end{bmatrix}
+\]
+\[
+\text{观测值}\qquad\text{均值}\qquad\text{处理效应}\qquad\text{残差}
+\]
+\[
+(x_{lj})\qquad(\bar{x})\qquad(\bar{x}_l-\bar{x})\qquad(x_{lj}-\bar{x}_l)
+\]
+通过评估处理效应的贡献是否比残差的贡献大，就能回答均值的相等性问题.（$\tau_l$ 的估计 $\hat{\tau}_l=\bar{x}_l-\bar{x}$ 总满足 $\sum\limits_{l=1}^g n_l\hat{\tau}_l=0$，在假设 $H_0$ 下，每一个 $\hat{\tau}_l$ 均为 0 的估计.）若处理的贡献很大，应拒绝 $H_0$. 对上述 4 个矩阵，分别求出其所有元素的平方和（SS）. 对这些观测值，我们构造一个向量 $\mathbf{y}'=[9,6,9,0,2,3,1,2]$，其平方和为
+\[
+\mathrm{SS}_{\text{观测}}=9^2+6^2+9^2+0^2+2^2+3^2+1^2+2^2=216
+\]
+类似地，有
+\[
+\mathrm{SS}_{\text{均值}}=4^2+4^2+4^2+4^2+4^2+4^2+4^2+4^2=8\times 4^2=128
+\]
+\begin{align*}
+\mathrm{SS}_{\text{处理}}&=4^2+4^2+4^2+(-3)^2+(-3)^2+(-2)^2+(-2)^2+(-2)^2\\
+&=3\times 4^2+2\times(-3)^2+3\times(-2)^2=78
+\end{align*}
+以及残差平方和
+\[
+\mathrm{SS}_{\text{残差}}=1^2+(-2)^2+1^2+(-1)^2+1^2+1^2+(-1)^2+0^2=10
+\]
+这些平方和满足与\hyperref[eq:6-34]{式(6-34)}一样的分解式，故
+\[
+\mathrm{SS}_{\text{观测}}=\mathrm{SS}_{\text{均值}}+\mathrm{SS}_{\text{处理}}+\mathrm{SS}_{\text{残差}}
+\]
+即 $216=128+78+10$. 总平方和的这种分解把样本中的总变差分解成来自总均值、处理和残差三部分，方差分析就是要进行 $\mathrm{SS}_{\text{处理}}$ 与 $\mathrm{SS}_{\text{残差}}$ 的大小比较. 假如 $H_0$ 为真，那么由 $\mathrm{SS}_{\text{处理}}$ 与 $\mathrm{SS}_{\text{残差}}$ 算出的变差应近似相等. \hfill$\blacksquare$
+
+在例 6.7 中用数字说明的平方和分解方法是非常基本的，现在来推导这种分解的代数式.
+
+从\hyperref[eq:6-34]{式(6-34)}两边减去 $\bar{x}$，然后取平方，得
+\[
+(x_{lj}-\bar{x})^2=(\bar{x}_l-\bar{x})^2+(x_{lj}-\bar{x}_l)^2+2(\bar{x}_l-\bar{x})(x_{lj}-\bar{x}_l)
+\]
+两边对 $j$ 求和，注意到 $\sum\limits_{j=1}^{n_l}(x_{lj}-\bar{x}_l)=0$，就有

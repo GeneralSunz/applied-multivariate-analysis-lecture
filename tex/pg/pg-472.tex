@@ -1,0 +1,51 @@
+% ---- pg-472 （书页 460） ----
+
+\noindent\textbf{例 11.4}\quad (血友病数据的费希尔线性判别)
+
+例 11.3 中介绍了关于检查 A 型血友病基因携带者的研究. 我们记得, 在同等代价和同等先验概率下, 线性判别函数为
+\[
+\hat{y}=\hat{\mathbf{a}}'\mathbf{x}=[\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2]'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}=37.61x_1-28.92x_2
+\]
+该线性判别函数就是费希尔线性函数, 它最大限度地分离两个总体, 因而样本中的最大分离度为
+\[
+\begin{aligned}
+D^2&=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)\\
+&=[0.241\,8,\ -0.065\,2]\begin{bmatrix}131.158&-90.423\\-90.423&108.147\end{bmatrix}\begin{bmatrix}0.241\,8\\-0.065\,2\end{bmatrix}\\
+&=10.98
+\end{aligned}
+\]
+费希尔对分离问题的解法也可以用于对新的观测值作分类.
+
+\begin{mvframe}[基于费希尔判别函数的分类法则\textsuperscript{\textcircled{1}}]
+若
+\phantomsection\label{eq:11-25}
+\begin{equation}
+\begin{aligned}
+\hat{y}_0&=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}_0\\
+&\geqslant\hat{m}=\frac{1}{2}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)
+\end{aligned}
+\tag{11-25}
+\end{equation}
+或
+\[
+\hat{y}_0-\hat{m}\geqslant0
+\]
+将 $\mathbf{x}_0$ 分到 $\pi_1$. 若
+\[
+\hat{y}_0<\hat{m}
+\]
+或
+\[
+\hat{y}_0-\hat{m}<0
+\]
+将 $\mathbf{x}_0$ 分到 $\pi_2$.
+\end{mvframe}
+
+\noindent{\footnotesize \textcircled{1}\quad 我们必须有 $(n_1+n_2-2)\geqslant p$, 否则 $\mathbf{S}_{\mathrm{p}}$ 为奇异阵, 因而通常的逆矩阵 $\mathbf{S}_{\mathrm{p}}^{-1}$ 不存在.}
+
+\hyperref[fig:11.5]{图 11.5} 是 $p=2$ 时对方法(11-23)的示意性说明. 图中所有的点均投影到沿 $\hat{\mathbf{a}}$ 方向的一条直线上, 而这个方向在不断变化, 直到两个样本被最大限度地分开为止.
+
+\begin{mvfigure}
+\mvinc{pg-472}{0.251,0.643,0.736,0.846}
+\phantomsection\label{fig:11.5}\mvcap{图 11.5\quad 费希尔方法对两个总体的图形表示($p=2$)}
+\end{mvfigure}

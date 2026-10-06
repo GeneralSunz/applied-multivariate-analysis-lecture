@@ -1,0 +1,66 @@
+\begin{mvfigure}
+\centering
+\begin{tikzpicture}[scale=0.60]
+\draw[->] (-0.4,0)--(13.6,0) node[right,font=\small]{$\mu_{1}$};
+\draw[->] (0,-0.4)--(0,13.2) node[above,font=\small]{$\mu_{2}$};
+% x 刻度
+\foreach \v/\l in {0/0.500,1.6/0.516,2.1/0.521,5.2/0.552,10.4/0.604,10.7/0.607,11.2/0.612}
+  \draw (\v,0.15)--(\v,-0.15) node[below,font=\tiny]{\l};
+% y 刻度
+\foreach \v/\l in {0/0.54,1.5/0.555,2.0/0.560,4.0/0.58,8.0/0.62,10.0/0.640,10.6/0.646,11.1/0.651,12/0.66}
+  \draw (0.15,\v)--(-0.15,\v) node[left,font=\tiny]{\l};
+% T² 边界（点线）
+\draw[dotted] (1.6,2.0) rectangle (10.7,11.1);
+% 庞弗罗尼边界（虚线）
+\draw[dashed] (2.1,1.5) rectangle (10.4,10.6);
+% 置信椭圆
+\begin{scope}[shift={(6.15,6.5)},rotate=33]
+\draw[thick] (0,0) ellipse (4.55 and 3.25);
+\end{scope}
+% 图例
+\draw[dotted] (11.6,8.4)--(12.2,8.4);
+\node[right,font=\scriptsize] at (12.2,8.4){$T^{2}$};
+\draw[dashed] (11.6,7.3)--(12.2,7.3);
+\node[right,font=\scriptsize] at (12.2,7.3){庞弗罗尼};
+\end{tikzpicture}
+\phantomsection\label{fig:5.4}\mvcap{图 5.4\quad 均值分量的 $95\%$ $T^{2}$ 区间与 $95\%$ 庞弗罗尼置信区间——微波炉辐射数据}
+\end{mvfigure}
+\hfill$\blacksquare$
+
+线性组合 $\mathbf{a}'\boldsymbol{\mu}$ 的庞弗罗尼区间与 $T^{2}$ 区间均有形式 (回忆结论 5.3)
+\[
+\mathbf{a}'\bar{\mathbf{X}}\pm\text{临界值}\cdot\sqrt{\frac{\mathbf{a}'\mathbf{S}\mathbf{a}}{n}}
+\]
+因此, 对 $a_{i}=a/m$, 有
+\phantomsection\label{eq:5-30}
+\begin{equation}
+\frac{\text{庞弗罗尼区间宽度}}{T^{2}\ \text{区间宽度}}=\frac{t_{n-1}(a/2m)}{\sqrt{\dfrac{p(n-1)}{n-p}F_{p,n-p}(a)}}
+\tag{5-30}
+\end{equation}
+这个比值与随机量 $\bar{\mathbf{X}}$ 与 $\mathbf{S}$ 无关. 正如我们前面指出的, 对特定的 $\mathbf{a}'\boldsymbol{\mu}$, 当 $m$ 小时, 庞弗罗尼区间总要窄些. \hyperref[tab:5.4]{表 5.4} 对某些 $n$ 与 $p$ 值列出了其宽度要窄多少.
+
+\begin{mvtable}
+\phantomsection\label{tab:5.4}\mvtabcap{表 5.4\quad (庞弗罗尼区间宽度)/($T^{2}$ 区间宽度)}
+\centering
+$1-a=0.95,a_{i}=0.05/m$\\[4pt]
+\begin{tabular}{cccc}
+\toprule
+\multirow{2}{*}{$n$} & \multicolumn{3}{c}{$m=p$}\\
+\cmidrule(lr){2-4}
+ & $2$ & $4$ & $10$\\
+\midrule
+$15$  & $0.88$ & $0.69$ & $0.29$\\
+$25$  & $0.90$ & $0.75$ & $0.48$\\
+$50$  & $0.91$ & $0.78$ & $0.58$\\
+$100$ & $0.91$ & $0.80$ & $0.62$\\
+$\infty$ & $0.91$ & $0.81$ & $0.66$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+当 $m=p$ 时, 由\hyperref[tab:5.4]{表 5.4} 可知, 庞弗罗尼方法得到的置信区间要更窄些. 正因此法容易应用且能给出推断所需的较窄置信区间, 今后我们将经常根据庞弗罗尼方法使用联合 $t$ 区间.
+
+\section{总体均值向量的大样本推断}
+\phantomsection\label{sec:5.5}
+
+当样本容量很大时, 我们不需要总体的正态性假定就可以构造 $\boldsymbol{\mu}$ 的假设检验及置信域. 正如练习 5.15, 5.16 和 5.17 所指出的, 对大的 $n$, 即使总体分布是离散型分布, 我们也能够对总体均值作出推断. 事实上, 对正态性的严重偏离可通过大样本来克服. 此时, 假设检验与联合置信表示都近似地具有名义上的置信水平.

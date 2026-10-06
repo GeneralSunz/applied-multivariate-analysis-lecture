@@ -1,0 +1,53 @@
+% ---- pg-490 （书页 478） ----
+
+\begin{mvfigure}
+\mvinc{pg-490}{0.212,0.110,0.789,0.383}
+\phantomsection\label{fig:11.9}\mvcap{图 11.9\quad 商学院研究生院申请者的散布图($x_1=$GPA, $x_2=$GMAT)}
+\end{mvfigure}
+
+\[
+\begin{array}{ccc}
+n_1=31 & n_2=28 & n_3=26\\[6pt]
+\bar{\mathbf{x}}_1=\begin{bmatrix}3.40\\561.23\end{bmatrix} &
+\bar{\mathbf{x}}_2=\begin{bmatrix}2.48\\447.07\end{bmatrix} &
+\bar{\mathbf{x}}_3=\begin{bmatrix}2.99\\446.23\end{bmatrix}
+\end{array}
+\]
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}2.97\\488.45\end{bmatrix},\qquad
+\mathbf{S}_{\mathrm{p}}=\begin{bmatrix}0.036\,1&-2.018\,8\\-2.018\,8&3\,655.901\,1\end{bmatrix}
+\]
+
+假定一名新申请者的 GPA 成绩 $x_1=3.21$ 和 GMAT 成绩 $x_2=497$. 让我们用先验概率相等条件下的法则(11-54)对这名申请者进行分类.
+
+因为 $\mathbf{x}_0'=[3.21,497]'$, 样本距离为
+\[
+\begin{aligned}
+D_1^2(\mathbf{x}_0)&=(\mathbf{x}_0-\bar{\mathbf{x}}_1)'\mathbf{S}_{\mathrm{p}}^{-1}(\mathbf{x}_0-\bar{\mathbf{x}}_1)\\
+&=[3.21-3.40,\ 497-561.23]\begin{bmatrix}28.609\,6&0.015\,8\\0.015\,8&0.000\,3\end{bmatrix}\begin{bmatrix}3.21-3.40\\497-561.23\end{bmatrix}\\
+&=2.58
+\end{aligned}
+\]
+\[
+D_2^2(\mathbf{x}_0)=(\mathbf{x}_0-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\mathbf{x}_0-\bar{\mathbf{x}}_2)=17.10
+\]
+\[
+D_3^2(\mathbf{x}_0)=(\mathbf{x}_0-\bar{\mathbf{x}}_3)'\mathbf{S}_{\mathrm{p}}^{-1}(\mathbf{x}_0-\bar{\mathbf{x}}_3)=2.47
+\]
+因为从 $\mathbf{x}_0'=[3.21,497]$ 到组平均值 $\bar{\mathbf{x}}_3$ 的距离 $D_3(\mathbf{x}_0)$ 最小, 我们将这名申请者分入边缘总体 $\pi_3$. \hfill$\blacksquare$
+
+\noindent\textbf{显示板 11.1}\quad 使用 SAS 的判别程序(PROC DISCRIM)对录取数据所作的分析
+
+\begin{mvframe}
+\begin{tabular}{@{}p{0.62\linewidth}@{\hspace{1em}}p{0.3\linewidth}@{}}
+{\ttfamily title 'Discriminant Analysis';\newline
+data gpa;\newline
+infile 'T11-6.dat';\newline
+input gpa gmat admit \$;\newline
+proc discrim data = gpa\newline
+method = normal pool = yes manova wcov pcov listerr crosslisterr;\newline
+priors 'admit' = .333\,3 'notadmit' = .333\,3 'border' = .333\,3;\newline
+class admit; var gpa gmat;}
+& \raisebox{-1.4em}{\Huge\}} \mvbold{PROGRAM COMMANDS}
+\end{tabular}
+\end{mvframe}

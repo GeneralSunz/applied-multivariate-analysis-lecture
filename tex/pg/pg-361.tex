@@ -1,0 +1,65 @@
+% ---- pg-361 （书页 349） ----
+
+\phantomsection\label{eq:8-27}
+\begin{equation}
+\bar{\mathbf{z}}=\frac{1}{n}(\mathbf{1}'\mathbf{Z})'=\frac{1}{n}\mathbf{Z}'\mathbf{1}
+=\frac{1}{n}\begin{bmatrix}
+\sum\limits_{j=1}^{n}\dfrac{x_{j1}-\bar{x}_1}{\sqrt{s_{11}}}\\[12pt]
+\sum\limits_{j=1}^{n}\dfrac{x_{j2}-\bar{x}_2}{\sqrt{s_{22}}}\\[12pt]
+\vdots\\[4pt]
+\sum\limits_{j=1}^{n}\dfrac{x_{jp}-\bar{x}_p}{\sqrt{s_{pp}}}
+\end{bmatrix}=\mathbf{0} \tag{8-27}
+\end{equation}
+和样本协方差矩阵[见\hyperref[eq:3-27]{式(3-27)}]
+\phantomsection\label{eq:8-28}
+\begin{equation}
+\begin{aligned}
+\mathbf{S}_z&=\frac{1}{n-1}\left(\mathbf{Z}-\frac{1}{n}\mathbf{1}\mathbf{1}'\mathbf{Z}\right)'\left(\mathbf{Z}-\frac{1}{n}\mathbf{1}\mathbf{1}'\mathbf{Z}\right)\\[6pt]
+&=\frac{1}{n-1}(\mathbf{Z}-\mathbf{1}\bar{\mathbf{z}}')'(\mathbf{Z}-\mathbf{1}\bar{\mathbf{z}}')\\[6pt]
+&=\frac{1}{n-1}\mathbf{Z}'\mathbf{Z}\\[6pt]
+&=\frac{1}{n-1}\begin{bmatrix}
+\dfrac{(n-1)s_{11}}{s_{11}}&\dfrac{(n-1)s_{12}}{\sqrt{s_{11}}\sqrt{s_{22}}}&\cdots&\dfrac{(n-1)s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}}\\[12pt]
+\dfrac{(n-1)s_{12}}{\sqrt{s_{11}}\sqrt{s_{22}}}&\dfrac{(n-1)s_{22}}{s_{22}}&\cdots&\dfrac{(n-1)s_{2p}}{\sqrt{s_{22}}\sqrt{s_{pp}}}\\[12pt]
+\vdots&\vdots&\ddots&\vdots\\[4pt]
+\dfrac{(n-1)s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}}&\dfrac{(n-1)s_{2p}}{\sqrt{s_{22}}\sqrt{s_{pp}}}&\cdots&\dfrac{(n-1)s_{pp}}{s_{pp}}
+\end{bmatrix}=\mathbf{R}
+\end{aligned}
+\tag{8-28}
+\end{equation}
+标准化观测值的样本主成分由\hyperref[eq:8-20]{式(8-20)}给出, 但要用矩阵 $\mathbf{R}$ 取代 $\mathbf{S}$. 由于观测值已经由上述构造完成“中心化”, 因此不必将主成分写成形如\hyperref[eq:8-21]{式(8-21)}的形式.
+
+\begin{mvbox}
+若 $\mathbf{z}_1,\mathbf{z}_2,\cdots,\mathbf{z}_n$ 是协方差矩阵为 $\mathbf{R}$ 的标准化观测值, 则第 $i$ 个样本主成分是
+\[
+\hat{y}_i=\hat{\mathbf{e}}_i'\mathbf{z}=\hat{e}_{i1}z_1+\hat{e}_{i2}z_2+\cdots+\hat{e}_{ip}z_p,\qquad i=1,2,\cdots,p
+\]
+其中 $(\hat{\lambda}_i,\hat{\mathbf{e}}_i)$ 是 $\mathbf{R}$ 的第 $i$ 个特征值-特征向量对, 且 $\hat{\lambda}_1\geqslant\hat{\lambda}_2\geqslant\cdots\geqslant\hat{\lambda}_p\geqslant 0$. 另有
+\phantomsection\label{eq:8-29}
+\begin{equation}
+\begin{aligned}
+\text{样本方差}(\hat{y}_i)&=\hat{\lambda}_i & i&=1,2,\cdots,p\\
+\text{样本协方差}(\hat{y}_i,\hat{y}_k)&=0 & i&\neq k
+\end{aligned}
+\tag{8-29}
+\end{equation}
+此外,
+\[
+(\text{标准化})\text{样本总方差}=\mathrm{tr}(\mathbf{R})=p=\hat{\lambda}_1+\hat{\lambda}_2+\cdots+\hat{\lambda}_p
+\]
+且
+\[
+r_{\hat{y}_i,z_k}=\hat{e}_{ik}\sqrt{\hat{\lambda}_i},\qquad i,k=1,2,\cdots,p
+\]
+\end{mvbox}
+
+利用\hyperref[eq:8-29]{式(8-29)}, 我们看到, 由第 $i$ 个样本主成分解释的样本总方差的比例是
+\phantomsection\label{eq:8-30}
+\begin{equation}
+\left\{\begin{array}{l}
+\text{第 } i \text{ 个样本主成分}\\
+\text{解释的(标准化)}\\
+\text{样本方差所占的比例}
+\end{array}\right\}
+=\frac{\hat{\lambda}_i}{p}\qquad i=1,2,\cdots,p \tag{8-30}
+\end{equation}
+一个经验方法是只保留那些方差大于 1 的成分, 或者等价的, 只保留那些单独能解释至少 $1/p$

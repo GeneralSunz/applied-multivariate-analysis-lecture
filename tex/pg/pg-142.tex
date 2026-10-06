@@ -1,0 +1,60 @@
+把观测值 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 代入到联合密度得出似然函数。用 $L(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 表示这个函数，以强调它是（未知）总体参数 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的函数。因此，当向量 $\mathbf{x}$ 含有实际观测到的具体数值时，我们有
+
+\phantomsection\label{eq:4-16}
+\begin{equation}
+L(\boldsymbol{\mu},\boldsymbol{\Sigma})=\frac{1}{(2\pi)^{np/2}|\boldsymbol{\Sigma}|^{n/2}}e^{-\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\right)\right]/2}
+\tag{4-16}
+\end{equation}
+
+在本书后面的章节中，将可以方便地用不同形式表示似然函数(4-16)中的指数。特别地，我们利用恒等式
+
+\phantomsection\label{eq:4-17}
+\begin{equation}
+\begin{aligned}
+&\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'+n(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\right)\right]\\
+&\quad=\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right)\right]+n\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})(\bar{\mathbf{x}}-\boldsymbol{\mu})'\right]\\
+&\quad=\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right)\right]+n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})
+\end{aligned}
+\tag{4-17}
+\end{equation}
+
+\mvsub{$\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计}
+
+下面的结论可让我们得到 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计。
+
+\mvthm{结论 4.10}{已知一个 $p\times p$ 对称正定矩阵 $\boldsymbol{B}$ 和一个标量 $b>0$，对所有正定矩阵 $\boldsymbol{\Sigma}_{(p\times p)}$，有
+\[
+\frac{1}{|\boldsymbol{\Sigma}|^b}e^{-\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\boldsymbol{B})/2}\leqslant\frac{1}{|\boldsymbol{B}|^b}(2b)^{pb}e^{-pb}
+\]
+仅当 $\boldsymbol{\Sigma}=(1/2b)\boldsymbol{B}$，等式成立。}
+
+\noindent\textbf{证明}\quad 设 $\boldsymbol{B}^{1/2}$ 是对称矩阵 $\boldsymbol{B}$ 的平方根[参见\hyperref[eq:2-22]{式(2-22)}]，因此，$\boldsymbol{B}^{1/2}\boldsymbol{B}^{1/2}=\boldsymbol{B}$，$\boldsymbol{B}^{1/2}\boldsymbol{B}^{-1/2}=I$，$\boldsymbol{B}^{-1/2}\boldsymbol{B}^{-1/2}=\boldsymbol{B}^{-1}$。于是 $\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\boldsymbol{B})=\operatorname{tr}[(\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2})\boldsymbol{B}^{1/2}]=\operatorname{tr}[\boldsymbol{B}^{1/2}(\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2})]$。令 $\eta$ 是 $\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2}$ 的特征值。因为若 $\boldsymbol{B}^{-1/2}\mathbf{y}\neq0$ 或等价地 $\mathbf{y}\neq0$，有 $\mathbf{y}'\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2}\mathbf{y}=(\boldsymbol{B}^{1/2}\mathbf{y})'\boldsymbol{\Sigma}^{-1}(\boldsymbol{B}^{1/2}\mathbf{y})>0$，所以这个矩阵是正定的。于是，由练习 2.17 可知 $\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2}$ 的特征值 $\eta_i$ 为正。结论 4.9(b)给出
+
+\[
+\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\boldsymbol{B})=\operatorname{tr}(\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2})=\sum_{i=1}^{p}\eta_i
+\]
+
+并且由练习 2.12 有 $|\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2}|=\prod\limits_{i=1}^{p}\eta_i$。从结论 2A.11 中行列式的性质，我们有
+
+\begin{align*}
+|\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2}|&=|\boldsymbol{B}^{1/2}|\cdot|\boldsymbol{\Sigma}^{-1}|\cdot|\boldsymbol{B}^{1/2}|=|\boldsymbol{\Sigma}^{-1}||\boldsymbol{B}^{1/2}||\boldsymbol{B}^{1/2}|\\
+&=|\boldsymbol{\Sigma}^{-1}||\boldsymbol{B}|=\frac{1}{|\boldsymbol{\Sigma}|}|\boldsymbol{B}|
+\end{align*}
+
+或
+
+\[
+\frac{1}{|\boldsymbol{\Sigma}|}=\frac{|\boldsymbol{B}^{1/2}\boldsymbol{\Sigma}^{-1}\boldsymbol{B}^{1/2}|}{|\boldsymbol{B}|}=\frac{\prod\limits_{i=1}^{p}\eta_i}{|\boldsymbol{B}|}
+\]
+
+合并对迹与行列式的结论，得出
+
+\[
+\frac{1}{|\boldsymbol{\Sigma}|^b}e^{-\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\boldsymbol{B})/2}=\frac{\left(\prod\limits_{i=1}^{p}\eta_i\right)^b}{|\boldsymbol{B}|^b}e^{-\sum\limits_{i=1}^{p}\eta_i/2}=\frac{1}{|\boldsymbol{B}|^b}\prod_{i=1}^{p}\eta_i^be^{-\eta_i/2}
+\]
+
+但是，函数 $\eta^be^{-\eta/2}$ 相对于 $\eta$ 有一个出现在 $\eta=2b$ 处的最大值 $(2b)^be^{-b}$。对每个 $i$，选择 $\eta_i=2b$，可以给出
+
+\[
+\frac{1}{|\boldsymbol{\Sigma}|^b}e^{-\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\boldsymbol{B})/2}\leqslant\frac{1}{|\boldsymbol{B}|^b}(2b)^{pb}e^{-pb}
+\]

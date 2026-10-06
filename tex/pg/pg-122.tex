@@ -1,0 +1,76 @@
+\[
+=\begin{bmatrix}2&2&-1\end{bmatrix}
+\begin{bmatrix}
+3&-\dfrac{3}{2}&0\\[2mm]
+-\dfrac{3}{2}&1&\dfrac{1}{2}\\[2mm]
+0&\dfrac{1}{2}&1
+\end{bmatrix}
+\begin{bmatrix}2\\2\\-1\end{bmatrix}
+\]
+\[
+=\begin{bmatrix}2&2&-1\end{bmatrix}
+\begin{bmatrix}3\\[1mm]-\dfrac{3}{2}\\[1mm]0\end{bmatrix}
+=3 \quad(\text{校验})
+\]
+\[
+c'\mathbf{X}\ \text{的样本方差}=c'\mathbf{S}c
+\]
+\[
+=\begin{bmatrix}1&-1&3\end{bmatrix}
+\begin{bmatrix}
+3&-\dfrac{3}{2}&0\\[2mm]
+-\dfrac{3}{2}&1&\dfrac{1}{2}\\[2mm]
+0&\dfrac{1}{2}&1
+\end{bmatrix}
+\begin{bmatrix}1\\-1\\3\end{bmatrix}
+\]
+\[
+=\begin{bmatrix}1&-1&3\end{bmatrix}
+\begin{bmatrix}\dfrac{9}{2}\\[2mm]-1\\[2mm]\dfrac{5}{2}\end{bmatrix}
+=13 \quad(\text{校验})
+\]
+\[
+b'\mathbf{X}\ \text{和}\ c'\mathbf{X}\ \text{的样本协方差}=b'\mathbf{S}c
+\]
+\[
+=\begin{bmatrix}2&2&-1\end{bmatrix}
+\begin{bmatrix}
+3&-\dfrac{3}{2}&0\\[2mm]
+-\dfrac{3}{2}&1&\dfrac{1}{2}\\[2mm]
+0&\dfrac{1}{2}&1
+\end{bmatrix}
+\begin{bmatrix}1\\-1\\3\end{bmatrix}
+\]
+\[
+=\begin{bmatrix}2&2&-1\end{bmatrix}
+\begin{bmatrix}\dfrac{9}{2}\\[2mm]-1\\[2mm]\dfrac{5}{2}\end{bmatrix}
+=\frac{9}{2} \quad(\text{校验})
+\]
+正如已指出的, 这些最后结果与用线性组合的观测结果直接计算对应的样本量的结果逐个校验无误. \hfill$\blacksquare$
+
+结论 3.5 中的样本均值与协方差关系式适合于任意个数的线性组合. 考虑 $q$ 个线性组合
+\phantomsection\label{eq:3-37}
+\begin{equation}
+a_{i1}X_1+a_{i2}X_2+\cdots+a_{ip}X_p, \quad i=1,2,\cdots,q \tag{3-37}
+\end{equation}
+用矩阵记号可以表示为
+\phantomsection\label{eq:3-38}
+\begin{equation}
+\begin{bmatrix}
+a_{11}X_1+a_{12}X_2+\cdots+a_{1p}X_p\\
+a_{21}X_1+a_{22}X_2+\cdots+a_{2p}X_p\\
+\vdots\\
+a_{q1}X_1+a_{q2}X_2+\cdots+a_{qp}X_p
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}&a_{12}&\cdots&a_{1p}\\
+a_{21}&a_{22}&\cdots&a_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{q1}&a_{q2}&\cdots&a_{qp}
+\end{bmatrix}
+\begin{bmatrix}
+X_1\\X_2\\\vdots\\X_p
+\end{bmatrix}
+=\mathbf{A}\mathbf{X} \tag{3-38}
+\end{equation}

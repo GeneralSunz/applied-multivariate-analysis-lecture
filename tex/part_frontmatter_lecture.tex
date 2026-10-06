@@ -1,0 +1,263 @@
+% ===== pg-001 .. pg-012 （前置部分：封面、扉页、版权页、译者序、原序、致谢、目录） =====
+
+% ---------- 前置部分专用版式 ----------
+\newcommand{\fmhead}[3]{%
+  \thispagestyle{empty}%
+  \markboth{#1}{#1}%
+  \par\noindent
+  \begin{tikzpicture}[baseline=(bb.base)]
+    \node[anchor=west,inner sep=1pt] (aa) {\heiti\zihao{1} #1};
+    \node[anchor=west,inner sep=4pt,fill=black!9,rounded corners=1.5pt,right=3pt of aa] (bb)
+      {\begin{tabular}{@{}l@{}}{\heiti\zihao{5} #2}\\[1.5pt]{\rmfamily\itshape\zihao{6} #3}\end{tabular}};
+  \end{tikzpicture}%
+  \par\vspace{16pt}%
+}
+\newcommand{\tocch}[2]{\par\vspace{7pt}\noindent{\heiti\zihao{4} #1}\dotfill\ {\heiti #2}\par\vspace{1pt}}
+\newcommand{\tocsec}[2]{\par\noindent\hspace{2.4em}#1\dotfill\ #2\par}
+\newcommand{\tocraw}[2]{\par\noindent\hspace{2.4em}#1\dotfill\ #2\par}
+
+% =========================================================
+% ---- pg-001 （封面） ----
+% =========================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figs/cover.png}
+\end{titlepage}
+
+% =========================================================
+% ---- pg-003 （扉页） ----
+% =========================================================
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2.6cm}
+
+{\setlength{\fboxsep}{6pt}%
+ \colorbox{black!55}{\color{white}\heiti\zihao{1} 实用多元统计分析}}\\[10pt]
+
+{\setlength{\fboxsep}{3pt}%
+ \colorbox{black!55}{\color{white}\heiti\zihao{4} 第 6 版}}
+
+\vspace{14pt}
+
+{\zihao{5}\heiti
+\begin{tabular}{@{}r@{}l@{}}
+\multirow{2}{*}{（美）} & 理查德·A. 约翰逊（Richard A. Johnson）\\
+                        & 迪安·W. 威克恩（Dean W. Wichern）
+\end{tabular}\hspace{0.5em}著}
+
+\vspace{2.2cm}
+
+{\zihao{4} 陆璇\quad 叶俊\quad 译}
+
+\vfill
+
+{\heiti\zihao{3} 清华大学出版社}\\[4pt]
+{\zihao{5} 北\quad 京}
+
+\end{center}
+
+% =========================================================
+% ---- pg-004 （版权页） ----
+% =========================================================
+\clearpage
+\thispagestyle{empty}
+{\zihao{6}
+\noindent 北京市版权局著作权合同登记号\quad 图字：01-2007-5699
+
+\vspace{8pt}
+\noindent Authorized translation from the English language edition, entitled APPLIED MULTIVARIATE
+STATISTICAL ANALYSIS, 6\textsuperscript{th} Edition, 0131877151 by RICHARD A. JOHNSON and DEAN W.
+WICHERN, published by Pearson Education, Inc., publishing as Prentice Hall, copyright \copyright\ 2007.
+
+\vspace{5pt}
+\noindent All Rights Reserved. No part of this book may be reproduced or transmitted in any form or by any
+means, electronic or mechanical, including photocopying, recording or by any information storage retrieval
+system, without permission from Pearson Education, Inc. CHINESE SIMPLIFIED language edition
+published by TSINGHUA UNIVERSITY PRESS Copyright \copyright\ 2008.
+
+\vspace{5pt}
+\noindent 本书中文简体翻译版由培生教育出版集团授权给清华大学出版社出版发行.未经许可,不得以任何方式复制或抄袭本书的任何部分.
+
+\vspace{3pt}
+\noindent 本书封面贴有培生教育出版集团防伪标签,无标签者不得销售.
+
+\noindent 版权所有,侵权必究.侵权举报电话：010-62782989\quad 13701121933
+
+\vspace{8pt}
+\noindent{\heiti\zihao{5} 图书在版编目（CIP）数据}
+
+\vspace{3pt}
+\noindent 实用多元统计分析：第 6 版/（美）约翰逊（Johnson, R. A.）,（美）威克恩（Wichern, D. W.）著；
+陆璇,叶俊译.—北京：清华大学出版社,2008.11\\
+（工商管理优秀教材译丛·管理学系列）\\
+书名原文：Applied Multivariate Statistical Analysis, 6e\\
+ISBN 978-7-302-18343-3
+
+\vspace{3pt}
+\noindent Ⅰ. 实…\quad Ⅱ. ①约… ②威… ③陆… ④叶…\quad Ⅲ. 多元分析：统计分析—高等学校—教材\quad Ⅳ. O212.4
+
+\vspace{3pt}
+\noindent 中国版本图书馆 CIP 数据核字（2008）第 119261 号
+
+\vspace{8pt}
+\noindent 责任编辑：江\quad 娅\\
+责任校对：王凤芝\\
+责任印制：孟凡玉\\
+出版发行：清华大学出版社\\
+\hspace{4em}地\quad 址：北京清华大学学研大厦 A 座\\
+\hspace{4em}http://www.tup.com.cn\\
+\hspace{4em}邮\quad 编：100084\\
+\hspace{4em}社\quad 总\quad 机：010-62770175\\
+\hspace{4em}邮\quad 购：010-62786544\\
+\hspace{4em}投稿与读者服务：010-62776969, c-service@tup.tsinghua.edu.cn\\
+\hspace{4em}质\quad 量\quad 反\quad 馈：010-62772015, zhiliang@tup.tsinghua.edu.cn\\
+印\quad 刷\quad 者：北京市清华园胶印厂\\
+装\quad 订\quad 者：北京鑫海金澳胶印有限公司\\
+经\quad\quad\quad 销：全国新华书店\\
+开\quad\quad\quad 本：185$\times$260\quad 印\quad 张：38\quad 插\quad 页：2\quad 字\quad 数：897 千字\\
+版\quad\quad\quad 次：2008 年 11 月第 1 版\quad 印\quad 次：2008 年 11 月第 1 次印刷\\
+印\quad\quad\quad 数：1\~{}4000\\
+定\quad\quad\quad 价：68.00 元
+
+\vspace{8pt}
+\noindent\rule{\linewidth}{0.4pt}
+
+\vspace{3pt}
+\noindent 本书如存在文字不清、漏印、缺页、倒页、脱页等印装质量问题,请与清华大学出版社出版部联系调换.联系电话：（010）62770177 转 3103\quad 产品编号：026794-01
+}
+
+% =========================================================
+% ---- pg-005 （译者序，罗马页码 I 起） ----
+% =========================================================
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+\fmhead{译者序}{实用多元统计分析}{Applied Multivariate Statistical Analysis}
+
+\noindent 多元统计分析是统计学中内容十分丰富、应用范围极为广泛的一个分支.在自然科学和社会科学的许多学科中,研究者都有可能需要分析处理有多个变量的数据的问题.从表面上看起来杂乱无章的数据中发现和提炼出规律性的结论,不仅需要对所研究的专业领域有很好的训练,而且需要掌握必要的统计分析工具.对实际领域中的研究者和高等院校的研究生来说,要学习掌握多元统计分析的各种模型和方法,手头有一本好的、有长久价值的参考书是非常必要的.这样一本书应该满足以下条件：首先,它应该是"浅入深出"的,也就是说,既可供初学者入门,又能使有较深基础的人受益.其次,它应该是既侧重于应用,又兼顾必要的推理论证,使学习者既能学到"如何"做,而且在一定程度上了解"为什么"这样做.最后,它应该是内涵丰富、全面的,不仅要基本包括各种在实际中常用的多元统计分析方法,而且还要对现代统计学的最新思想和进展有所介绍、交代.
+
+\noindent 我们认为 R. A. 约翰逊（R. A. Johnson）和 D. W. 威克恩（D. W. Wichern）合著的《实用多元统计分析》（第 6 版）（Applied Multivariate Statistical Analysis, 6\textsuperscript{th} Ed）就是这样一本有长久价值的多元统计分析参考书.本书的内容十分丰富,涵盖了多元统计分析的各种有广泛应用的、经典和现代的模型和方法.为便于学习者对方法的理解,本书对各种方法的计算过程介绍得很详细,从简单的数据出发,将计算过程一步一步、不厌其烦地展开,使学习者对计算方法获得感性认识.在此基础上,对实际数据用计算机软件进行分析,并给出输入方法的说明和输出结果的解释,使得学习者能够掌握统计软件的操作步骤,并读懂输出结果的含义.书中有大量来自实际问题的案例,通过对这些案例的分析,学习者可以学到如何将实际问题转化为恰当的统计问题,进而选择恰当的模型与方法来分析.
+
+\noindent 由清华大学出版社出版的本书第 4 版的中文译本（2000 年）在我国拥有广泛的读者群,并且已经被选为许多高校本科或研究生相关课程的教科书.作为第 4 版的中文译者,我们又有幸翻译了本书的第 6 版.第 6 版对第 4 版有所修改与补充,在作者原序中已经作了较为具体的说明.我们在这里再强调一下第 6 版新增加的两个内容.首先是在第 11 章中增加了逻辑斯蒂回归（Logistic regression）.平行于经典的线性回归,逻辑斯蒂回归处理对二值响应变量的预测（分类）问题.其次是在第 12 章中增加了一节补充材料,介绍近年来非常热门并得到广泛应用的数据分析领域——数据挖掘（data mining）,以及多元统计分析方法在数据挖掘中的应用.
+
+\noindent 本书由叶俊翻译第 1 章至第 6 章,由陆璇翻译第 7 章至第 12 章并统稿；研究生冯汉杰、向红旭、廖新国和郑灿亮也参与了翻译工作.由于我们的水平有限,因此在翻译中难免有错误或不要之处.希望各位专家和读者发现问题后及时告知我们,以便以后有机会时予以更正.
+
+\vspace{10pt}
+\begin{flushright}
+译\quad 者\\
+2008 年 7 月于清华园
+\end{flushright}
+
+% =========================================================
+% ---- pg-006 （原序） ----
+% =========================================================
+\clearpage
+\fmhead{原序}{实用多元统计分析}{Applied Multivariate Statistical Analysis}
+
+\mvsub{读者对象}
+
+\noindent 本书最初来自我们为威斯康星大学麦迪逊分校统计系和商学院开设的"实用多元分析"课程的讲稿.《实用多元统计分析》第 6 版的内容,介绍了描述和分析多元数据的统计方法.尽管数据分析在一个变量时就很有趣,但当涉及几个变量时,它才真正变得具有吸引力和富于挑战性.生物学、物理学和社会科学诸领域中的研究人员经常收集几个变量的测量结果,而现代计算机程序包则能轻易地提供复杂统计分析的数值结果.本书试图为读者提供一些必要的支持性知识,使他们能对统计分析结果作出适当的解释,能选择恰当的分析方法并了解这些方法的优点和缺点.我们希望,本书内容能满足实验科学家们的需要,在广泛多样的研究课题领域内,成为一本对多元观测结果进行统计分析的人门书.
+
+\mvsub{水平}
+
+\noindent 我们的目标是在这样的水平上介绍多元分析的概念和方法：使那些已学过两门或更多门统计学课程的读者能毫无困难地理解这些内容.本书侧重讨论多元方法的应用,因而我们尽可能地使数学有趣味.书中避免使用微积分,另一方面,矩阵及矩阵变换的概念却十分重要.我们假定读者不熟悉矩阵代数.所以当矩阵自然地出现在讨论中时,我们会先对它进行介绍,然后告诉你它如何简化了多元模型及方法的叙述.
+
+\noindent 本书第 2 章介绍了矩阵代数,对矩阵代数应用于多元分析时的一些重要结论作了强调.第 2 章的补充部分为那些很少或从未接触过这一学科的人提供了一个矩阵代数结论汇总.补充材料不仅使本书在内容上实现自给自足,而且被用来完成各种论证.这些论证在初次阅读时可以跳过.我们希望通过这种方式使本书能为更多的读者所接受.
+
+\noindent 为了吸引从事实际工作和理论工作的广大读者学习多元分析,我们不得不在某种程度上牺牲本书内容难度的一致性；有些章节的难度要比其余部分大些.特别在第 7 章中,我们概括了有关回归问题的大量材料,而结论表述又相当简略,因而初次阅读时会感到很困难.希望教师们在选择适合学生的章节时设法弥补这种不平衡性,必要时可降低要求.
+
+\mvsub{组织和方法}
+
+\noindent 第 5 章至第 12 章讨论多元分析的方法论"工具".这几章是本书的核心,不过要是没有第 1 至第 4 章的大量导论性材料,这些内容是无法理解的.即使对矩阵代数具备良好知识或愿意接受数学结论的读者,也应至少精读第 3 章的样本几何和第 4 章的多元正态分布.
+
+\noindent 在涉及方法论的各章中,我们的做法是使讨论直截了当而有条不紊地进行.典型的情况是,我们从总体模型的表述开始,对相应的样本结果作出描述,然后用例子对每件事情作出解释.例子分两类：一类比较简单,其中的计算可用手算轻易完成；另一类则依赖实际数据和计算机软件.这些情况提供了一种机会,使我们能够：（1）重复做过的分析,（2）完成练习所要
+
+% =========================================================
+% ---- pg-007 （原序续） ----
+% =========================================================
+\clearpage
+\noindent 求的分析,或（3）用我们未曾用过或未曾提出过的另一种方法来分析数据.
+
+\noindent 将叙述方法论的各章（5 至 12 章）分成三部分,就能使教师们在将材料剪辑成适合自己需要的课程方面具有某种可塑性.兹将一学期（两个季度）课程的可能安排图示如下：
+
+\begin{mvfigure}
+\begin{tikzpicture}[
+  every node/.style={font=\zihao{6},align=center},
+  box/.style={draw,thick,inner sep=4pt,minimum height=9mm},
+  arr/.style={-{Latex[length=2mm]},thick}
+]
+\node[box,minimum width=34mm] (a) at (0,0) {预备知识\\1~4 章};
+\node[box,minimum width=34mm] (b) at (-2.6,-1.9) {关于均值的推断\\5~7 章};
+\node[box,minimum width=34mm] (c) at ( 2.6,-1.9) {分类和分组\\11~12 章};
+\node[box,minimum width=34mm] (d) at (-2.6,-3.8) {协方差结构的分析\\8~10 章};
+\node[box,minimum width=34mm] (e) at ( 2.6,-3.8) {协方差结构的分析\\8~10 章};
+\draw[arr] (a.south) -- ++(0,-0.35) -| (b.north);
+\draw[arr] (a.south) -- ++(0,-0.35) -| (c.north);
+\draw[arr] (b.south) -- (d.north);
+\draw[arr] (c.south) -- (e.north);
+\end{tikzpicture}
+\end{mvfigure}
+
+\noindent 每个教师无疑都会放弃某几章中的某几节内容,以形成比上述两种选择更宽广的课题选择.
+
+\noindent 对于大多数学生,我们建议他们迅速通过最初 4 章（主要是第 1 章,2.1 节,2.2 节,2.3 节,2.5 节,2.6 节和 3.6 节,以及第 4 章中"评估正态性假定"那一节）,然后便选择方法论课题.例如,人们也许会讨论均值向量、主成分、因子分析、判别分析和聚类等的比较.这些讨论可以以包含在这几章中的那些"设计出来的"例子为特色.教师可依靠图表和文字说明来讲授相应的理论推导.如果学生们的数学水平较高而且程度均衡,本书大部分内容可在一学期内成功地授完.
+
+\noindent 我们发现个别数据分析方案有助于将来自方法论各章的材料组成一个整体.所以我们对多元方差分析、回归分析、因子分析、典型相关、判别分析等内容进行相当完善的论述是有益的,尽管这些内容在讲课时也许不会专门提到.
+
+\mvsub{第 6 版的内容更动}
+
+\noindent{\heiti 新材料}\quad 本书前几版的读者会注意到第 6 版有以下几个改动.
+
+\begin{itemize}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item 12 个新的数据集,主要有：各国男子和女子的径赛记录,心理评分,汽车车身装置测量结果,手机故障,纸浆和纸张的性能测试,马里家庭农场数据,股票收益率以及布拉索斯河的水蛇数据.
+\item 添加了 37 道新习题和修正了 20 道原来的习题,而且其中很多新习题都是基于新的数据集.
+\item 添加了 4 个基于新数据的习题并修正了 15 个习题.
+\item 6 个新添的或扩充的节
+\end{itemize}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=2.6em,itemsep=1pt,topsep=2pt]
+\item 6.6 节的协方差矩阵相等性的检验
+\item 11.7 节的逻辑斯蒂（Logistic）回归和分类
+\item 12.5 节的基于统计模型的聚类
+\item 扩充了 6.3 节,新增了"样本量不大时,对正态总体的 $T^2$ 分布的逼近"
+\item 扩充了 7.6 节和 7.7 节,新增了赤池（Akaike）信息准则
+\item 将以前关于两组别的判别式分析的 11.3 节和 11.5 节合并成 11.3 一节
+\end{enumerate}
+
+\noindent{\heiti 网址}\quad 为了突出多变量分析的方法,我们删除了结论 7.2,7.4,7.10 和 10.1 冗长的证明,但是将证明放在了以下网站：www.prenhall.com/statistics,点击"Multivariate Statistics",然
+
+% =========================================================
+% ---- pg-008 （原序续 + 致谢） ----
+% =========================================================
+\clearpage
+\noindent 后点击本书可获得这些证明.此外,本书所用的所有数据集的 ASCII 文件可以在该网站下载.
+
+\noindent{\heiti 教师使用手册}\quad 我们在网站 www.prenhall.com/statistics 上提供了教师使用手册.如果想知道更多与本书相关的资料或更多感兴趣的主题等信息,读者可以访问 Prentice Hall 的网站：www.prenhall.com.
+
+\mvsub{致谢}
+
+\noindent 首先感谢我的同事们,他们贡献了自己的数据作为本书的例题和练习,完善了本书的应用.在本书的修订过程中,很多人给了我很大帮助,也非常感谢他们,他们是 Minnesota 大学的 Christopher Bingham,Michigan 大学的 Steve Coad,Florida 大学的 Richard Kiltie,George Mason 大学的 Sam Kotz,Michigan 州立大学的 Him Koul,Drexel 大学的 Bruce McCullough,Virginia 大学的 Shyamal Peddada,Illinois 大学 Chicago 分校的 K. Sivakumar,Virginia 理工大学的 Eric Smith 以及 Illinois 大学 Urbana-Champaign 分校的 Stanley Wasserman.我们还要感谢过去 35 年来参加多元分析课程学习的同学们,他们的反馈意见很有意义,他们的评论和建议对本书的成稿有很大帮助.此外,特别感谢 Wai Kwong Cheang,Shanghong Guan,Jialiang Li 和 Zhiguo Xiao,他们对本书许多例题的计算给予了很大帮助.
+
+\noindent 我们还应该感谢 Dianne Hall 帮忙完成了教师使用手册,Steve Verrill 帮助完成了很多计算,感谢 Alison Pollack 完成了切尔诺夫（Chernoff）脸的编程工作.感谢 Cliff Gilman 在第 12 章中讨论多维标度例子中提供的帮助.Jacquelayn Forer 负责了本书的大部分打字工作,在此我们感谢她的专业与耐心.最后,感谢 Petra Recter,Debbie Ryan,Michael Bell,Linda Behrens,Joanne Wendelken 以及 Prentice Hall 的相关工作人员对本项目的支持.
+
+\vspace{12pt}
+\begin{flushright}
+R. A. Johnson\\
+rich@stat.wisc.edu\\
+D. W. Wichern\\
+d-wichern@tamu.edu
+\end{flushright}
+
+% =========================================================
+
+\clearpage
+\tableofcontents
+\clearpage
+
+% 注：封底（pg-002）原在此处，会在正文之前渲染，且该处的 \centering
+% 未加分组、会泄漏到全书正文，导致整本正文被居中。
+% 现已移至 main.tex 的 \input{book_body} 之后，并放入分组内。
+

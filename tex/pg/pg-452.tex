@@ -1,0 +1,40 @@
+% ---- pg-452 （书页 440） ----
+
+巴特利特(见文献[2])已论证, \hyperref[eq:10-40]{式(10-40)}中的第 $k$ 个假设可以利用似然比准则加以检验. 特别地, 在显著性水平 $\alpha$ 上拒绝 $H_0^{(k)}$, 若
+\phantomsection\label{eq:10-41}
+\begin{equation}
+-\left(n-1-\frac{1}{2}(p+q+1)\right)\ln\prod_{i=k+1}^{p}(1-\hat{\rho}_i^{*2})>\chi^2_{(p-k)(q-k)}(\alpha)
+\tag{10-41}
+\end{equation}
+其中 $\chi^2_{(p-k)(q-k)}(\alpha)$ 是自由度为 $(p-k)(q-k)$ 的 $\chi^2$ 分布的上 $100\alpha$ 百分位数. 我们指出, \hyperref[eq:10-41]{式(10-41)}中的检验统计量, 在前 $k$ 个样本典型相关系数已从总判别
+\[
+\Lambda^{2/n}=\prod_{i=1}^{p}(1-\hat{\rho}_i^{*2})
+\]
+中剔除之后, 包含“残差” $\prod\limits_{i=k+1}^{p}(1-\hat{\rho}_i^{*2})$.
+
+如果序列 $H_0,H_0^{(1)},H_0^{(2)}$ 等中的成员, 一次检验一个直到对某个 $k$ 值 $H_0^{(k)}$ 未被拒绝, 则总的显著性水平就不是 $\alpha$ 了. 事实上, 显著性水平已难于确定. 这种方法的另一个缺点, 就是它会得出一个零假设为真的结论, 仅仅因为零假设未被拒绝.
+
+总而言之, 结论 10.3 中总的显著性的检验对多元正态数据是有用的. \hyperref[eq:10-41]{式(10-41)}中的序贯检验应该谨慎地加以解释, 并且也许最好将此序贯检验视为对选取重要典型变量个数的一个粗略的指导方法.
+
+\noindent\textbf{例 10.8}\quad (对职业满意度数据检验其典型相关系数的显著性)
+
+检验在例 10.5 中由职业特性-职业满意度数据展示的典型相关系数的显著性.
+
+所有感兴趣的统计学检验都总结在上一页的表中. 由例 10.5, $n=784$, $p=5$, $q=7$, $\hat{\rho}_1^*=0.55$, $\hat{\rho}_2^*=0.23$, $\hat{\rho}_3^*=0.12$, $\hat{\rho}_4^*=0.08$ 及 $\hat{\rho}_5^*=0.05$.
+
+假设为多元正态数据, 我们发现前两个典型相关系数 $\hat{\rho}_1^*$ 和 $\hat{\rho}_2^*$ 是非零的, 尽管在这个很大的样本中, 与零的微小偏差仍然在统计上是显著的. 从实际角度看, 第二(以及子序列)样本典型相关系数可被忽略, 因为 (1)它们的重要性不大并且 (2)对应的典型变量只代表了变量组 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 中很少部分的样本变差.\hfill$\blacksquare$
+
+与样本典型相关系数和样本典型变量系数相联系的分布理论, 是极度复杂的(除 $p=1$ 且 $q=1$ 的情况外), 甚至在 $\boldsymbol{\Sigma}_{12}=\mathbf{0}$ 的情况下也如此. 对分布理论感兴趣的读者可参阅克什萨戈(见文献[8]).
+
+{\large\bfseries 练习}
+
+\noindent 10.1\quad 考虑例 10.3 给出的协方差矩阵
+\[
+\mathrm{Cov}\left[\begin{array}{c}\mathbf{X}_1^{(1)}\\ \mathbf{X}_2^{(1)}\\ \hdashline \mathbf{X}_1^{(2)}\\ \mathbf{X}_2^{(2)}\end{array}\right]=\left[\begin{array}{c:c}\boldsymbol{\Sigma}_{11}&\boldsymbol{\Sigma}_{12}\\ \hdashline \boldsymbol{\Sigma}_{21}&\boldsymbol{\Sigma}_{22}\end{array}\right]=\left[\begin{array}{cc:cc}100&0&0&0\\0&1&0.95&0\\ \hdashline 0&0.95&1&0\\0&0&0&100\end{array}\right]
+\]
+验证第一对典型变量为 $U_1=X_2^{(1)},V_1=X_1^{(2)}$, 且它们的典型相关系数 $\rho_1^*=0.95$.
+
+\noindent 10.2\quad $(2\times1)$ 随机向量 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 的联合均值向量和联合协方差矩阵为
+\[
+\boldsymbol{\mu}=\left[\begin{array}{c}\boldsymbol{\mu}^{(1)}\\ \hdashline \boldsymbol{\mu}^{(2)}\end{array}\right]=\left[\begin{array}{c}-3\\2\\ \hdashline 0\\1\end{array}\right]
+\]

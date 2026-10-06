@@ -1,0 +1,63 @@
+行向量 $\mathbf{x}_{j}'$ 表示第 $j$ 个观测值, 它表示第 $j$ 个点的坐标.
+
+在 $p$ 维空间中, $n$ 个点的散布图提供出这些点的位置和变化性方面的信息. 如果把这些点当做实心球, 由\hyperref[eq:1-8]{式(1-8)} 所给出的样本均值向量 $\bar{\mathbf{x}}$ 是平衡中心. 在一个以上方向上出现的变化性, 用样本方差-协方差矩阵 $\mathbf{S}_{n}$ 来量化. 变化性的单一数值量度由样本方差-协方差矩阵的行列式给出. 当 $p$ 大于 3 时, 实际上不能用图形显示这个散布图. 不过, 把数据看成 $p$ 维的 $n$ 个点所能提供的信息, 是不能从代数表达方法中轻易得到的. 此外, 对于 $p=2$ 或 $p=3$ 时阐明的概念对其他情况仍然是有效的.
+
+\medskip
+\noindent\textbf{例 3.1}\quad (计算均值向量)
+
+从数据矩阵计算均值向量 $\bar{\mathbf{x}}$.
+\[
+\mathbf{X}=\begin{bmatrix}4&1\\-1&3\\3&5\end{bmatrix}
+\]
+在 $p=2$ 空间画 $n=3$ 个数据点的散布图, 在所得图上定位 $\bar{\mathbf{x}}$.
+
+第一个点 $\mathbf{x}_{1}$ 坐标为 $\mathbf{x}_{1}'=[4,1]$, 类似的, 其余两点是 $\mathbf{x}_{2}'=[-1,3]$ 和 $\mathbf{x}_{3}'=[3,5]$. 最后,
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}\dfrac{4-1+3}{3}\\[8pt]\dfrac{1+3+5}{3}\end{bmatrix}=\begin{bmatrix}2\\3\end{bmatrix}
+\]
+
+\hyperref[fig:3.1]{图 3.1} 表明 $\bar{\mathbf{x}}$ 是散布图的平衡点 (重心).\hfill$\blacksquare$
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.72]
+\draw[->] (-2.2,0)--(5.6,0) node[right]{$x_{1}$};
+\draw[->] (0,-2.2)--(0,6.2) node[above]{$x_{2}$};
+\foreach \x in {-2,-1,1,2,3,4,5} \draw (\x,0.08)--(\x,-0.08) node[below,font=\scriptsize]{\x};
+\foreach \y in {-2,-1,1,2,3,4,5,6} \draw (0.08,\y)--(-0.08,\y) node[left,font=\scriptsize]{\y};
+\fill (-1,3) circle (2.6pt); \node[right,font=\small] at (-1,3) {$\mathbf{x}_{2}$};
+\fill (4,1) circle (2.6pt); \node[right,font=\small] at (4,1) {$\mathbf{x}_{1}$};
+\fill (3,5) circle (2.6pt); \node[right,font=\small] at (3,5) {$\mathbf{x}_{3}$};
+\draw[line width=0.9pt] (2,3) circle (4.5pt);
+\draw[line width=0.9pt] (2,3) circle (1.6pt);
+\node[right,font=\small] at (2.35,3.05) {$\bar{\mathbf{x}}$};
+\draw[dashed] (2,3)--(2,0);
+\draw[dashed] (2,3)--(0,3);
+\end{tikzpicture}
+\phantomsection\label{fig:3.1}\mvcap{图 3.1\quad 在 $p=2$ 维空间中 $n=3$ 个点的数据矩阵 $\mathbf{X}$ 的散布图}
+\end{figure}
+
+另一种几何表示法是通过把数据看做 $n$ 维空间中的 $p$ 个向量来构造的. 这里, 选取数据矩阵的列的元素作为向量的坐标. 令
+\phantomsection\label{eq:3-2}
+\begin{equation}
+\mathbf{X}=\begin{bmatrix}
+x_{11}&x_{12}&\cdots&x_{1p}\\
+x_{21}&x_{22}&\cdots&x_{2p}\\
+\vdots&\vdots&&\vdots\\
+x_{n1}&x_{n2}&\cdots&x_{np}
+\end{bmatrix}
+=\begin{bmatrix}\mathbf{y}_{1}\,\vdots\,\mathbf{y}_{2}\,\vdots\,\cdots\,\vdots\,\mathbf{y}_{p}\end{bmatrix}
+\tag{3-2}
+\end{equation}
+则第一个点的坐标 $\mathbf{y}_{1}'=[x_{11},x_{21},\cdots,x_{n1}]$ 是第一个变量的 $n$ 个测量结果. 一般的, 第 $i$ 个点的坐标 $\mathbf{y}_{i}'=[x_{1i},x_{2i},\cdots,x_{ni}]$ 是由第 $i$ 个变量的所有 $n$ 个测量值所确定. 在这一几何表示中, $\mathbf{y}_{1},\mathbf{y}_{2},\cdots,\mathbf{y}_{p}$ 是作为向量而不是作为 $p$ 维散布图的点来描述的. 我们马上将利用第 2 章中讨论的向量代数来运用这些量.
+
+\medskip
+\noindent\textbf{例 3.2}\quad (把数据当做 $n$ 维的 $p$ 个向量)
+
+将如下数据作为 $n=3$ 维空间中的 $p=2$ 个向量来作图:
+\[
+\mathbf{X}=\begin{bmatrix}4&1\\-1&3\\3&5\end{bmatrix}
+\]
+这里, $\mathbf{y}_{1}'=[4,-1,3]$ 和 $\mathbf{y}_{2}'=[1,3,5]$. 这些向量如图 3.2 所示.\hfill$\blacksquare$
+
+在多元分析中, 我们将遇到许多代数表达式可以与长度、角度以及体积等几何概念联系起来. 这是很重要的, 因为通常几何表示能促进和加深理解.

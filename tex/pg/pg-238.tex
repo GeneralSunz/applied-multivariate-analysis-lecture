@@ -1,0 +1,68 @@
+\section{多个多元总体均值向量的比较（单因子多元方差分析）}  % 原书 6.4
+\phantomsection\label{sec:6.4}
+
+我们常常需要对两个以上的总体进行比较. 设从 $g$ 个总体分别抽取的随机样本为
+\phantomsection\label{eq:6-31}
+\begin{equation}
+\begin{array}{l}
+\text{总体 } 1\text{：}\quad \mathbf{X}_{11},\mathbf{X}_{12},\cdots,\mathbf{X}_{1n_1}\\
+\text{总体 } 2\text{：}\quad \mathbf{X}_{21},\mathbf{X}_{22},\cdots,\mathbf{X}_{2n_2}\\
+\qquad\vdots\qquad\qquad\vdots\\
+\text{总体 } g\text{：}\quad \mathbf{X}_{g1},\mathbf{X}_{g2},\cdots,\mathbf{X}_{gn_g}
+\end{array}
+\tag{6-31}
+\end{equation}
+多元方差分析首先被用来研究这些总体的均值向量是否相等，若不等，那么哪些分量有显著差异.
+
+\mvsub{单因子多元方差分析的数据结构假设}
+
+1. 设 $\mathbf{X}_{l1},\mathbf{X}_{l2},\cdots,\mathbf{X}_{ln_l}$ 为来自均值为 $\boldsymbol{\mu}_l$ 的总体的一容量为 $n_l$ 的随机样本，$l=1,2,\cdots,g$. 来自不同总体的样本相互独立.
+
+2. 所有总体均具有公共的协方差矩阵 $\boldsymbol{\Sigma}$.
+
+3. 每个总体均为多元正态总体.
+
+当所有样本容量 $n_l$ 均充分大时，根据中心极限定理（结论 4.13），可将条件 3 放宽.
+
+在开始讨论多元方差分析之前，回顾一下一元方差分析（ANOVA）是有益的.
+
+\mvsub{一元方差分析概述}
+
+在一元情形下的假设为：$X_{l1},X_{l2},\cdots,X_{ln_l}$ 为来自总体 $N(\mu_l,\sigma^2)$，$l=1,2,\cdots,g$ 的随机样本，而且来自不同总体的样本相互独立. 虽然关于均值相等的零假设可陈述为 $\mu_1=\mu_2=\cdots=\mu_g$，但我们习惯于将 $\mu_l$ 表示成总均值分量 $\mu$ 与某个归因于特定总体的分量之和，例如，$\mu_l=\mu+(\mu_l-\mu)$ 或 $\mu_l=\mu+\tau_l$，其中 $\tau_l=\mu_l-\mu$.
+
+不同总体通常对应于不同的实验条件，因此，研究与第 $l$ 个总体（处理）相联系的偏差 $\tau_l$ 是合适的.
+
+重新参数化
+\phantomsection\label{eq:6-32}
+\begin{equation}
+\begin{array}{c@{\ }c@{\ }c@{\ }c@{\ }c}
+\mu_l & = & \mu & + & \tau_l\\[2pt]
+(\text{第 } l \text{ 个总体} & & (\text{总均} & & (\text{第 } l \text{ 个总体（处理）}\\
+\text{均值}) & & \text{值}) & & \text{的效应})
+\end{array}
+\tag{6-32}
+\end{equation}
+导致均值相等性假设的另一种表述：
+\[
+H_0: \tau_1=\tau_2=\cdots=\tau_g=0
+\]
+而服从分布 $N(\mu+\tau_l,\sigma^2)$ 的响应 $X_{lj}$ 则可表示成如下形式：
+\phantomsection\label{eq:6-33}
+\begin{equation}
+\begin{array}{c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+X_{lj} & = & \mu & + & \tau_l & + & e_{lj}\\
+& & (\text{总均值}) & & (\text{处理效应}) & & (\text{随机误差})
+\end{array}
+\tag{6-33}
+\end{equation}
+其中 $e_{lj}$ 为独立同分布随机变量，其分布为 $N(0,\sigma^2)$. 为了唯一地确定模型参数及它们的最小二乘估计值，通常需附加约束条件 $\sum\limits_{l=1}^g n_l\tau_l=0$.
+
+受分解\hyperref[eq:6-33]{式(6-33)}的启发，方差分析可在对观测值进行类似分解的基础上进行：
+\phantomsection\label{eq:6-34}
+\begin{equation}
+\begin{array}{c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+x_{lj} & = & \bar{x} & + & (\bar{x}_l-\bar{x}) & + & (x_{lj}-\bar{x}_l)\\
+(\text{观测值}) & & (\text{样本总均值}) & & (\text{处理效应的估计}) & & (\text{残差})
+\end{array}
+\tag{6-34}
+\end{equation}

@@ -1,0 +1,70 @@
+% ---- pg-078 （书页 66） ----
+
+(b) 如果 $\bm{z}$ 垂直于每个向量 $\bm{x}_1 ,\bm{x}_2 ,\cdots ,\bm{x}_k$,则 $\bm{z}$ 垂直于由它们所生成的子空间.
+
+(c) 互相垂直的向量是线性无关的.
+
+\mvbold{定义 2A.12} \quad 向量 $\bm{x}$ 在向量 $\bm{y}$ 上的投影(或影子)为
+
+\[
+\text{$\bm{x}$ 在 $\bm{y}$ 上的投影} = \frac{(\bm{x}'\bm{y})}{L_y^2} \bm{y}
+\]
+
+如果 $\bm{y}$ 为单位长度即 $L_y = 1$,则
+
+\[
+\text{$\bm{x}$ 在 $\bm{y}$ 上的投影} = (\bm{x}'\bm{y}) \bm{y}
+\]
+
+如果 $\bm{y}_1 ,\bm{y}_2 ,\cdots ,\bm{y}_n$ 互相垂直,则向量 $\bm{x}$ 在 $\bm{y}_1 ,\bm{y}_2 ,\cdots ,\bm{y}_n$ 生成的空间的投影(或影子)为
+
+\[
+\frac{(\bm{x}'\bm{y}_1)}{\bm{y}_1'\bm{y}_1} \bm{y}_1 + \frac{(\bm{x}'\bm{y}_2)}{\bm{y}_2'\bm{y}_2} \bm{y}_2 + \cdots + \frac{(\bm{x}'\bm{y}_n)}{\bm{y}_n'\bm{y}_n} \bm{y}_n
+\]
+
+\mvthm{结论 2A.3}{} （格拉姆-施密特(Gram-Schmidt)方法) \quad 给定线性无关向量 $\bm{x}_1 ,\bm{x}_2 ,\cdots ,\bm{x}_k$,在同一个生成子空间上存在互相垂直向量 $\bm{u}_1 ,\bm{u}_2 ,\cdots ,\bm{u}_k$.这些向量可以用以下方法逐个地构造出来.
+
+\begin{align*}
+\bm{u}_1 &= \bm{x}_1 \\
+\bm{u}_2 &= \bm{x}_2 - \frac{(\bm{x}_2'\bm{u}_1)}{\bm{u}_1'\bm{u}_1} \bm{u}_1 \\
+&\vdots \qquad \vdots \\
+\bm{u}_k &= \bm{x}_k - \frac{(\bm{x}_k'\bm{u}_1)}{\bm{u}_1'\bm{u}_1} \bm{u}_1 - \cdots - \frac{(\bm{x}_k'\bm{u}_{k-1})}{\bm{u}_{k-1}'\bm{u}_{k-1}} \bm{u}_{k-1}
+\end{align*}
+
+也可以通过令 $\bm{z}_i = \bm{u}_i / \sqrt{\bm{u}_i'\bm{u}_i}$ 把 $\bm{u}$ 转换为单位长度.在此结构中,$(\bm{x}_i'\bm{z}_i)\bm{z}_i$ 是 $\bm{x}_i$ 在 $\bm{z}_i$ 上的投影且 $\sum\limits_{l=1}^{i-1} (\bm{x}_i'\bm{z}_l)\bm{z}_l$ 是 $\bm{x}_i$ 在 $\bm{x}_1 ,\bm{x}_2 ,\cdots ,\bm{x}_{i-1}$ 所生成的线性子空间上的投影.
+
+例如,由
+
+\[
+\bm{x}_1 = \begin{bmatrix} 4 \\ 0 \\ 0 \\ 2 \end{bmatrix} \quad \text{和} \quad
+\bm{x}_2 = \begin{bmatrix} 3 \\ 1 \\ 0 \\ -1 \end{bmatrix}
+\]
+
+构成垂直向量.
+
+取
+
+\[
+\bm{u}_1 = \bm{x}_1 = \begin{bmatrix} 4 \\ 0 \\ 0 \\ 2 \end{bmatrix}
+\]
+
+于是
+
+\[
+\bm{u}_1'\bm{u}_1 = 4^2 + 0^2 + 0^2 + 2^2 = 20
+\]
+
+和
+
+\[
+\bm{x}_2'\bm{u}_1 = 3 \times 4 + 1 \times 0 + 0 \times 0 - 1 \times 2 = 10
+\]
+
+因此
+
+\[
+\bm{u}_2 = \begin{bmatrix} 3 \\ 1 \\ 0 \\ -1 \end{bmatrix} - \frac{10}{20} \begin{bmatrix} 4 \\ 0 \\ 0 \\ 2 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \\ 0 \\ -2 \end{bmatrix}
+\quad \text{和} \quad
+\bm{z}_1 = \frac{1}{\sqrt{20}} \begin{bmatrix} 4 \\ 0 \\ 0 \\ 2 \end{bmatrix},
+\quad \bm{z}_2 = \frac{1}{\sqrt{6}} \begin{bmatrix} 1 \\ 1 \\ 0 \\ -2 \end{bmatrix}
+\]

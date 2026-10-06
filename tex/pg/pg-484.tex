@@ -1,0 +1,53 @@
+% ---- pg-484 （书页 472） ----
+
+计算机生成的抽样实验来研究.\footnote{这里, 稳健性是指在执行某个分类方法时, 由于数据不满足方法所要求的假定而造成的失误率的恶化. 很难解析地研究分类方法的稳健性. 然而, 具有各式各样分布和不同协方差结构的数据很容易由计算机产生. 于是, 不同分类法则的效果可利用来自这些分布的由计算机生成的“样本”来评估.}但是对于多于两个总体的情况, 用这种方法不能得出一般结论, 因为统计量的性质依赖于总体的相互位置, 这里有太多的结构使得研究产生困难.
+
+同前面一样, 本节的处置方法也是先从理论上导出一些最优法则, 然后指出将它们付诸实际应用时需要作哪些修正.
+
+\subsection*{最小期望错分代价法}
+
+设 $f_i(\mathbf{x})$ 为与总体 $\pi_i$ 相联系的密度, $i=1,2,\cdots,g$.[对本节的大部分内容, 我们将取 $f_i(\mathbf{x})$ 为多元正态密度, 但这在一般的理论推导中是不必要的.]令
+\[
+p_i=\text{总体 }\pi_i\text{ 的先验概率},\qquad i=1,2,\cdots,g
+\]
+\[
+c(k\mid i)=\text{将事实上属于 }\pi_i\text{ 的某个项目分配到 }\pi_k\text{ 的代价},\qquad k,i=1,2,\cdots,g
+\]
+对 $k=i$, $c(i\mid i)=0$. 最后, 令 $R_k$ 为被分类为 $\pi_k$ 的 $\mathbf{x}$ 的集合, 因而对 $k,i=1,2,\cdots,g$ 有
+\[
+\begin{aligned}
+P(k\mid i)&=P(\text{将项目分类为 }\pi_k\mid \pi_i)\\
+&=\int_{R_k}f_i(\mathbf{x})\mathrm{d}\mathbf{x}
+\end{aligned}
+\]
+且 $P(i\mid i)=1-\sum_{\substack{k=1\\k\ne i}}^{g}P(k\mid i)$.
+
+将 $\pi_1$ 中的 $\mathbf{x}$ 错分到 $\pi_2$, 或 $\pi_3$, $\cdots$, 或 $\pi_g$ 的条件期望代价为
+\[
+\begin{aligned}
+\mathrm{ECM}(1)&=P(2\mid 1)c(2\mid 1)+P(3\mid 1)c(3\mid 1)+\cdots+P(g\mid 1)c(g\mid 1)\\
+&=\sum_{k=2}^{g}P(k\mid 1)c(k\mid 1)
+\end{aligned}
+\]
+这个条件期望代价出现的先验概率为 $p_1$(即 $\pi_1$ 的概率).
+
+用类似方法可得到条件期望错分代价 $\mathrm{ECM}(2),\cdots,\mathrm{ECM}(g)$. 对每个条件 ECM 乘以相应的先验概率再求和, 就得到总的 ECM:
+\phantomsection\label{eq:11-37}
+\begin{equation}
+\begin{aligned}
+\mathrm{ECM}&=p_1\mathrm{ECM}(1)+p_2\mathrm{ECM}(2)+\cdots+p_g\mathrm{ECM}(g)\\
+&=p_1\left(\sum_{k=2}^{g}P(k\mid 1)c(k\mid 1)\right)+p_2\left(\sum_{\substack{k=1\\k\ne 2}}^{g}P(k\mid 2)c(k\mid 2)\right)\\
+&\quad+\cdots+p_g\left(\sum_{k=1}^{g-1}P(k\mid g)c(k\mid g)\right)\\
+&=\sum_{i=1}^{g}p_i\left(\sum_{\substack{k=1\\k\ne i}}^{g}P(k\mid i)c(k\mid i)\right)
+\end{aligned}
+\tag{11-37}
+\end{equation}
+确定一个最优分类法则相当于选择能使\hyperref[eq:11-37]{式(11-37)}达到极小的所有互斥区域 $R_1$, $R_2,\cdots,R_g$.
+
+\noindent\textbf{结论 11.5}\quad 能使 ECM \hyperref[eq:11-37]{式(11-37)}达到极小的分类域, 可通过将 $\mathbf{x}$ 分配给使
+\phantomsection\label{eq:11-38}
+\begin{equation}
+\sum_{\substack{i=1\\i\ne k}}^{g}p_if_i(\mathbf{x})c(k\mid i)
+\tag{11-38}
+\end{equation}
+最小的总体 $\pi_k$($k=1,\cdots,g$)来定义. 当\hyperref[eq:11-38]{式(11-38)}最小的总体不止一个时, 则将 $\mathbf{x}$ 指派给其中

@@ -1,0 +1,51 @@
+% ---- pg-522 （书页 510） ----
+
+这样
+\[
+\begin{aligned}
+\Delta_S^2&=\sum_{i=1}^{g}(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)'(\boldsymbol{\mu}_{iY}-\bar{\boldsymbol{\mu}}_Y)\\
+&=\sum_{i=1}^{g}(\mu_{iY_1}-\bar{\mu}_{Y_1})^2+\sum_{i=1}^{g}(\mu_{iY_2}-\bar{\mu}_{Y_2})^2+\cdots+\sum_{i=1}^{g}(\mu_{iY_p}-\bar{\mu}_{Y_p})^2\\
+&=\lambda_1+\lambda_2+\cdots+\lambda_p=\lambda_1+\lambda_2+\cdots+\lambda_s
+\end{aligned}
+\]
+因为 $\lambda_{s+1}=\cdots=\lambda_p=0$. 若只用前 $r$ 个判别量, 则它们对 $\Delta_S^2$ 的贡献为 $\lambda_1+\lambda_2+\cdots+\lambda_r$.
+
+以下练习需要使用计算机.
+
+\noindent 11.23\quad 考虑练习 1.14 中的数据.
+
+\noindent (a)\quad 对多发性硬化组(MS)和非多发性硬化组(NMS)检查各变量 $x_i$ 的边际分布的正态性(用观测值的正态概率图). 如对正态性有疑问, 建议进行适当的变换(使变换后的数据接近正态性).
+
+\noindent (b)\quad 假定 $\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2=\boldsymbol{\Sigma}$. 构造费希尔线性判别函数. 判别函数中的变量是否都重要? 讨论答案. 在等先验概率和等错分代价的假定下建立分类法则.
+
+\noindent (c)\quad 用(b)中的结果计算表观失误率. 若计算手段允许, 用拉亨布鲁克的提留方法计算期望真实失误率的估计值. 比较两个失误率.
+
+\noindent 11.24\quad 对破产的企业收集它们在破产前两年的年度财务数据, 对财务良好的企业也收集同一时期的数据. 数据涉及四个变量, $X_1=\mathrm{CF}/\mathrm{TD}$(现金流量/总债务), $X_2=\mathrm{NI}/\mathrm{TA}$(净收益/总资产), $X_3=\mathrm{CA}/\mathrm{CL}$(流动资产/流动债务), 以及 $X_4=\mathrm{CA}/\mathrm{NS}$(流动资产/净销售额). 数据列于\hyperref[tab:11.4]{表 11.4}.
+
+\begin{mvtable}
+\phantomsection\label{tab:11.4}\mvtabcap{表 11.4\quad 破产状况数据}
+\begin{tabular}{cccccc}
+\toprule
+行 & $X_1=\dfrac{\mathrm{CF}}{\mathrm{TD}}$ & $X_2=\dfrac{\mathrm{NI}}{\mathrm{TA}}$ & $X_3=\dfrac{\mathrm{CA}}{\mathrm{CL}}$ & $X_4=\dfrac{\mathrm{CA}}{\mathrm{NS}}$ & 总体 $\pi_i,i=1,2$\\
+\midrule
+1 & $-0.45$ & $-0.41$ & 1.09 & 0.45 & 0\\
+2 & $-0.56$ & $-0.31$ & 1.51 & 0.16 & 0\\
+3 & 0.06 & 0.02 & 1.01 & 0.40 & 0\\
+4 & $-0.07$ & $-0.09$ & 1.45 & 0.26 & 0\\
+5 & $-0.10$ & $-0.09$ & 1.56 & 0.67 & 0\\
+6 & $-0.14$ & $-0.07$ & 0.71 & 0.28 & 0\\
+7 & 0.04 & 0.01 & 1.50 & 0.71 & 0\\
+8 & $-0.06$ & $-0.06$ & 1.37 & 0.40 & 0\\
+9 & 0.07 & $-0.01$ & 1.37 & 0.34 & 0\\
+10 & $-0.13$ & $-0.14$ & 1.42 & 0.44 & 0\\
+11 & $-0.23$ & $-0.30$ & 0.33 & 0.18 & 0\\
+12 & 0.07 & 0.02 & 1.31 & 0.25 & 0\\
+13 & 0.01 & 0.00 & 2.15 & 0.70 & 0\\
+14 & $-0.28$ & $-0.23$ & 1.19 & 0.66 & 0\\
+15 & 0.15 & 0.05 & 1.88 & 0.27 & 0\\
+16 & 0.37 & 0.11 & 1.99 & 0.38 & 0\\
+17 & $-0.08$ & $-0.08$ & 1.51 & 0.42 & 0\\
+18 & 0.05 & 0.03 & 1.68 & 0.95 & 0\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

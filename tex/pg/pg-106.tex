@@ -1,0 +1,47 @@
+为了得到 $\mathbf{S}_{n}$ 的期望值, 首先注意到 $(X_{il}-\bar{X}_{i})(X_{kl}-\bar{X}_{k})$ 是 $(\mathbf{X}_{l}-\bar{\mathbf{X}})(\mathbf{X}_{l}-\bar{\mathbf{X}})'$ 的第 $(i,k)$ 个元素. 由于 $\sum_{l=1}^{n}(\mathbf{X}_{l}-\bar{\mathbf{X}})=\mathbf{0}$ 和 $n\bar{\mathbf{X}}'=\sum_{l=1}^{n}\mathbf{X}_{l}'$, 代表平方和与交叉乘积的矩阵可以写做
+\begin{align*}
+\sum_{l=1}^{n}(\mathbf{X}_{l}-\bar{\mathbf{X}})(\mathbf{X}_{l}-\bar{\mathbf{X}})'
+&=\sum_{l=1}^{n}(\mathbf{X}_{l}-\bar{\mathbf{X}})\mathbf{X}_{l}'+\Bigl(\sum_{l=1}^{n}(\mathbf{X}_{l}-\bar{\mathbf{X}})\Bigr)(-\bar{\mathbf{X}})'\\
+&=\sum_{l=1}^{n}\mathbf{X}_{l}\mathbf{X}_{l}'-n\bar{\mathbf{X}}\bar{\mathbf{X}}'
+\end{align*}
+因此, 它的期望值是
+\[
+E\Bigl(\sum_{l=1}^{n}\mathbf{X}_{l}\mathbf{X}_{l}'-n\bar{\mathbf{X}}\bar{\mathbf{X}}'\Bigr)=\sum_{l=1}^{n}E(\mathbf{X}_{l}\mathbf{X}_{l}')-nE(\bar{\mathbf{X}}\bar{\mathbf{X}}')
+\]
+对任何随机向量 $\mathbf{V}$, $E(\mathbf{V})=\boldsymbol{\mu}_{V}$ 和 $\operatorname{Cov}(\mathbf{V})=\boldsymbol{\Sigma}_{V}$, 我们有 $E(\mathbf{V}\mathbf{V}')=\boldsymbol{\Sigma}_{V}+\boldsymbol{\mu}_{V}\boldsymbol{\mu}_{V}'$ (参考练习 3.16). 因此,
+\[
+E(\mathbf{X}_{l}\mathbf{X}_{l}')=\boldsymbol{\Sigma}+\boldsymbol{\mu}\boldsymbol{\mu}'\quad\text{和}\quad
+E(\bar{\mathbf{X}}\bar{\mathbf{X}}')=\frac{1}{n}\boldsymbol{\Sigma}+\boldsymbol{\mu}\boldsymbol{\mu}'
+\]
+利用这些结论, 我们得到
+\[
+\sum_{l=1}^{n}E(\mathbf{X}_{l}\mathbf{X}_{l}')-nE(\bar{\mathbf{X}}\bar{\mathbf{X}}')
+=n\boldsymbol{\Sigma}+n\boldsymbol{\mu}\boldsymbol{\mu}'-n\Bigl(\frac{1}{n}\boldsymbol{\Sigma}+\boldsymbol{\mu}\boldsymbol{\mu}'\Bigr)=(n-1)\boldsymbol{\Sigma}
+\]
+又因为 $\mathbf{S}_{n}=(1/n)\Bigl(\sum_{l=1}^{n}\mathbf{X}_{l}\mathbf{X}_{l}'-n\bar{\mathbf{X}}\bar{\mathbf{X}}'\Bigr)$, 因此立即得到
+\[
+E(\mathbf{S}_{n})=\frac{(n-1)}{n}\boldsymbol{\Sigma}
+\]
+\hfill$\blacksquare$
+
+结论 3.1 指出, $[n/(n-1)]\mathbf{S}_{n}$ 的第 $(i,k)$ 项 $(n-1)^{-1}\sum_{l=1}^{n}(X_{il}-\bar{X}_{i})(X_{kl}-\bar{X}_{k})$ 是 $\sigma_{ik}$ 的一个无偏估计量. 然而, 无论是用 $n$ 或用 $n-1$ 作除数计算得到的单个的样本标准差 $\sqrt{s_{ii}}$ 都不是对应的总体量 $\sqrt{\sigma_{ii}}$ 的无偏估计量. 而且, 相关系数 $r_{ik}$ 不是总体量 $\rho_{ik}$ 的无偏估计量. 不过, 若样本容量 $n$ 适当大, 偏差 $E(\sqrt{s_{ii}})-\sqrt{\sigma_{ii}}$ 或 $E(r_{ik})-\rho_{ik}$ 通常是可以忽略.
+
+考虑偏差后, 对样本方差-协方差矩阵定义需要进行一个微小的修改. 结论 3.1 提供了 $\boldsymbol{\Sigma}$ 的无偏估计量 $\mathbf{S}$:
+
+\begin{mvbox}
+\begin{center}
+\mvbold{(无偏) 样本方差-协方差矩阵}
+\end{center}
+\phantomsection\label{eq:3-11}
+\begin{equation}
+\mathbf{S}=\Bigl(\frac{n}{n-1}\Bigr)\mathbf{S}_{n}=\frac{1}{n-1}\sum_{l=1}^{n}(\mathbf{X}_{l}-\bar{\mathbf{X}})(\mathbf{X}_{l}-\bar{\mathbf{X}})'
+\tag{3-11}
+\end{equation}
+\end{mvbox}
+
+此处 $\mathbf{S}$ 没有下标, 其第 $(i,k)$ 项为 $(n-1)^{-1}\sum_{l=1}^{n}(X_{il}-\bar{X}_{i})(X_{kl}-\bar{X}_{k})$. 样本协方差的这一定义在许多多元检验统计中被普遍使用. 因此, 在本书后面的许多地方, $\mathbf{S}$ 将取代 $\mathbf{S}_{n}$ 作为样本协方差矩阵.
+
+\section{广义方差}
+\phantomsection\label{sec:3.4}
+
+在单变量情形下, 样本方差通常用来描述该变量的观测值变差的程度. 当在每组观测到 $p$ 个变量时, 变差是用样本方差-协方差矩阵来描述.

@@ -1,0 +1,64 @@
+% ---- pg-408 （书页 396） ----
+
+\begin{mvframe}[显示板 9.1(续)]
+{\ttfamily\small
+\noindent\fbox{Initial Factor Method: Principal Components}\hfill OUTPUT\par
+\vspace{6pt}
+{\centering Prior Communality Estimates: ONE\par\vspace{8pt}
+Eigenvalues of the Correlation Matrix: Total = 5 Average = 1\par}
+\vspace{6pt}
+\begin{tabular}{l*{5}{r}}
+& 1 & 2 & 3 & 4 & 5\\
+Eigenvalue & 2.853 090 & 1.806 332 & 0.204 490 & 0.102 409 & 0.033 677\\
+Difference & 1.046 758 & 1.601 842 & 0.102 081 & 0.068 732 & \\
+Proportion & 0.570 6 & 0.361 3 & 0.040 9 & 0.020 5 & 0.006 7\\
+Cumulative & 0.570 6 & 0.931 9 & 0.972 8 & 0.993 3 & 1.000 0\\
+\end{tabular}
+\par\vspace{10pt}
+{\centering 2 factors will be retained by the NFACTOR criterion.\par}
+\vspace{10pt}
+{\centering \fbox{Factor Pattern}\par}
+\vspace{8pt}
+{\centering
+\begin{tabular}{lrr}
+& FACTOR1 & FACTOR2\\
+TASTE & 0.559 86 & 0.816 10\\
+MONEY & 0.777 26 & $-0.524$ 20\\
+FLAVOR & 0.645 34 & 0.747 95\\
+SNACK & 0.939 11 & $-0.104$ 92\\
+ENERGY & 0.798 21 & $-0.543$ 23\\
+\end{tabular}\par}
+\vspace{10pt}
+{\centering \fbox{Final Communality Estimates:}\quad Total = 4.659 423\par}
+\vspace{8pt}
+{\centering
+\begin{tabular}{*{5}{r}}
+TASTE & MONEY & FLAVOR & SNACK & ENERGY\\
+0.979 61 & 0.878 920 & 0.975 883 & 0.892 928 & 0.932 231\\
+\end{tabular}\par}
+\vspace{10pt}
+\noindent\fbox{Rotation Method: Varimax}\par
+\vspace{10pt}
+{\centering \fbox{Rotated Factor Pattern}\par}
+\vspace{8pt}
+{\centering
+\begin{tabular}{lrr}
+& FACTOR1 & FACTOR2\\
+TASTE & 0.019 70 & 0.989 48\\
+MONEY & 0.937 44 & $-0.011$ 23\\
+FLAVOR & 0.128 56 & 0.979 47\\
+SNACK & 0.842 44 & 0.428 05\\
+ENERGY & 0.965 39 & $-0.015$ 63\\
+\end{tabular}\par}
+\vspace{10pt}
+{\centering Variance explained by each factor\par}
+\vspace{8pt}
+{\centering
+\begin{tabular}{rr}
+FACTOR1 & FACTOR2\\
+2.537 396 & 2.122 027\\
+\end{tabular}\par}
+}
+\end{mvframe}
+
+由于限定初始值需满足唯一性条件 $\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}}$ 为对角阵, 则用极大似然得到的载荷, 其因子载荷旋转受到特别推荐. 唯一性条件可方便计算, 但不一定引出易于阐述的因子.

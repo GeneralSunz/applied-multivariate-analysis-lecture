@@ -1,0 +1,60 @@
+% ---- pg-583 （书页 571） ----
+
+特斯一致性残差平方和量度, 以及如何确定 $\mathbf{Y}^{*}$ 相对 $\mathbf{X}^{*}$ 的普罗克鲁斯特斯旋转.
+
+\mvthm{结论 12.2}{设 $n\times p$ 结构 $\mathbf{X}^{*}$ 和 $\mathbf{Y}^{*}$ 均已中心化, 即各行均值皆为零, 此时}
+\phantomsection\label{eq:12-50}
+\begin{equation}
+\begin{aligned}
+PR^{2}&=\sum_{j=1}^{n}\mathbf{x}_{j}'\mathbf{x}_{j}+\sum_{j=1}^{n}\mathbf{y}_{j}'\mathbf{y}_{j}-2\sum_{i=1}^{p}\lambda_{i}\\
+&=\mathrm{tr}[\mathbf{X}^{*}\mathbf{X}^{*\prime}]+\mathrm{tr}[\mathbf{Y}^{*}\mathbf{Y}^{*\prime}]-2\mathrm{tr}[\boldsymbol{\Lambda}]
+\end{aligned}
+\tag{12-50}
+\end{equation}
+其中 $\boldsymbol{\Lambda}=$ 对角$(\lambda_{1},\lambda_{2},\cdots,\lambda_{p})$, 最小化变换为
+\phantomsection\label{eq:12-51}
+\begin{equation}
+\hat{\mathbf{Q}}=\sum_{i=1}^{p}\mathbf{v}_{i}\mathbf{u}_{i}'=\mathbf{V}\mathbf{U}'\qquad \hat{\mathbf{b}}=\mathbf{0} \tag{12-51}
+\end{equation}
+这里 $\boldsymbol{\Lambda},\mathbf{U}$ 和 $\mathbf{V}$ 由下面的奇异值分解得到:
+\[
+\sum_{j=1}^{n}\mathbf{y}_{j}\mathbf{x}_{j}'=\underset{(p\times n)}{\mathbf{Y}^{*\prime}}\underset{(n\times p)}{\mathbf{X}^{*}}=\underset{(p\times p)}{\mathbf{U}}\underset{(p\times p)}{\boldsymbol{\Lambda}}\underset{(p\times p)}{\mathbf{V}'}
+\]
+
+证明\quad 由于两个点结构是已实现零均值中心化$\left(\sum_{j=1}^{n}\mathbf{x}_{j}=\mathbf{0}, \text{及} \sum_{j=1}^{n}\mathbf{y}_{j}=\mathbf{0}\right)$, 我们有
+\[
+\sum_{j=1}^{n}(\mathbf{x}_{j}-\mathbf{Q}\mathbf{y}_{j}-\mathbf{b})'(\mathbf{x}_{j}-\mathbf{Q}\mathbf{y}_{j}-\mathbf{b})=\sum_{j=1}^{n}(\mathbf{x}_{j}-\mathbf{Q}\mathbf{y}_{j})'(\mathbf{x}_{j}-\mathbf{Q}\mathbf{y}_{j})+n\mathbf{b}'\mathbf{b}
+\]
+右端的最后一项为非负项, 因此当 $\hat{\mathbf{b}}=\mathbf{0}$ 有最佳拟合. 因此我们只需考虑
+\[
+PR^{2}=\min_{\mathbf{Q}}\sum_{j=1}^{n}(\mathbf{x}_{j}-\mathbf{Q}\mathbf{y}_{j})'(\mathbf{x}_{j}-\mathbf{Q}\mathbf{y}_{j})=\sum_{j=1}^{n}\mathbf{x}_{j}'\mathbf{x}_{j}+\sum_{j=1}^{n}\mathbf{y}_{j}'\mathbf{y}_{j}-2\max_{\mathbf{Q}}\sum_{j=1}^{n}\mathbf{x}_{j}'\mathbf{Q}\mathbf{y}_{j}
+\]
+利用 $\mathbf{x}_{j}'\mathbf{Q}\mathbf{y}_{j}=\mathrm{tr}[\mathbf{Q}\mathbf{y}_{j}\mathbf{x}_{j}']$, 可将上式右端最大化的表达式变成
+\[
+\sum_{j=1}^{n}\mathbf{x}_{j}'\mathbf{Q}\mathbf{y}_{j}=\sum_{j=1}^{n}\mathrm{tr}[\mathbf{Q}\mathbf{y}_{j}\mathbf{x}_{j}']=\mathrm{tr}\left[\mathbf{Q}\sum_{j=1}^{n}\mathbf{y}_{j}\mathbf{x}_{j}'\right]
+\]
+由奇异值分解,
+\[
+\sum_{j=1}^{n}\mathbf{y}_{j}\mathbf{x}_{j}'=\mathbf{Y}^{*\prime}\mathbf{X}^{*}=\mathbf{U}\boldsymbol{\Lambda}\mathbf{V}'=\sum_{i=1}^{p}\lambda_{i}\mathbf{u}_{i}\mathbf{v}_{i}'
+\]
+其中 $\mathbf{U}=[\mathbf{u}_{1},\mathbf{u}_{2},\cdots,\mathbf{u}_{p}],\mathbf{V}=[\mathbf{v}_{1},\mathbf{v}_{2},\cdots,\mathbf{v}_{p}]$ 为 $p\times p$ 正交矩阵. 因此,
+\[
+\sum_{j=1}^{n}\mathbf{x}_{j}'\mathbf{Q}\mathbf{y}_{j}=\mathrm{tr}\left[\mathbf{Q}\left(\sum_{i=1}^{p}\lambda_{i}\mathbf{u}_{i}\mathbf{v}_{i}'\right)\right]=\sum_{i=1}^{p}\lambda_{i}\mathrm{tr}[\mathbf{Q}\mathbf{u}_{i}\mathbf{v}_{i}']
+\]
+上式右端第 $i$ 项中可变的量
+\[
+\mathrm{tr}[\mathbf{Q}\mathbf{u}_{i}\mathbf{v}_{i}']=\mathbf{v}_{i}'\mathbf{Q}\mathbf{u}_{i}
+\]
+有上界 1. 这可以用柯西-施瓦茨不等式[见\hyperref[eq:2-48]{式(2-48)}]并令 $\mathbf{b}=\mathbf{Q}\mathbf{v}_{i}$ 和 $\mathbf{d}=\mathbf{u}_{i}$ 来证明. 也就是说
+\[
+\mathbf{v}_{i}'\mathbf{Q}\mathbf{u}_{i}\leqslant\sqrt{\mathbf{v}_{i}'\mathbf{Q}'\mathbf{Q}\mathbf{v}_{i}}\sqrt{\mathbf{u}_{i}'\mathbf{u}_{i}}=\sqrt{\mathbf{v}_{i}'\mathbf{v}_{i}}\times 1=1
+\]
+所有 $p$ 个这样的项, 都可以令 $\hat{\mathbf{Q}}=\mathbf{V}\mathbf{U}'$ 使之达到最大. 在这种选择下,
+\[
+\mathbf{v}_{i}'\hat{\mathbf{Q}}\mathbf{u}_{i}=\mathbf{v}_{i}'\mathbf{V}\mathbf{U}'\mathbf{u}_{i}
+=[0,\cdots,0,1,0,\cdots,0]
+\begin{bmatrix}
+0\\ \vdots\\ 0\\ 1\\ 0\\ \vdots\\ 0
+\end{bmatrix}=1
+\]
+因此

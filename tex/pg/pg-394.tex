@@ -1,0 +1,86 @@
+% ---- pg-394 （书页 382） ----
+
+\[
+\begin{array}{r@{\quad}c}
+\begin{array}{r}
+\text{品质(变量)}\\
+\text{爱好}\\
+\text{价格合适}\\
+\text{调味品}\\
+\text{适于快餐}\\
+\text{提供充沛精力}
+\end{array}
+&
+\left[\begin{array}{rrrrr}
+1&2&3&4&5\\ \hdashline
+1.00&0.02&\tikz[baseline=(c.base)]\node[draw,ellipse,inner sep=1pt](c){0.96};&0.42&0.01\\
+0.02&1.00&0.13&0.71&\tikz[baseline=(c.base)]\node[draw,ellipse,inner sep=1pt](c){0.85};\\
+0.96&0.13&1.00&0.50&0.11\\
+0.42&0.71&0.50&1.00&\tikz[baseline=(c.base)]\node[draw,ellipse,inner sep=1pt](c){0.79};\\
+0.01&0.85&0.11&0.79&1.00
+\end{array}\right]
+\end{array}
+\]
+
+从相关矩阵中圈出的项可清楚看到, 变量 1 和 3 及变量 2 和 5 都形成小组, 变量 4 相对(1,3)组更为接近于(2,5)组. 已如这些结果, 而且变量数目较少, 我们可以期望至多用两个或三个公共因子来解释变量间明显的线性关系.
+
+前两个特征值, $\hat{\lambda}_1=2.85$ 和 $\hat{\lambda}_2=1.81$ 是 $\mathbf{R}$ 的所有大于 1 的特征值. 其次, $m=2$ 个公共因子将累积占到(标准化)样本总方差的比为
+\[
+\frac{\hat{\lambda}_1+\hat{\lambda}_2}{p}=\frac{2.85+1.85}{5}=0.93
+\]
+\hyperref[tab:9.1]{表 9.1} 给出利用\hyperref[eq:9-15]{式(9-15)}, \hyperref[eq:9-16]{式(9-16)}及\hyperref[eq:9-17]{式(9-17)}得到的估计的因子载荷、共性方差及特殊方差.
+
+现在,
+\[
+\tilde{\mathbf{L}}\tilde{\mathbf{L}}'+\tilde{\boldsymbol{\Psi}}=
+\begin{bmatrix}
+0.56&0.82\\
+0.78&-0.53\\
+0.65&0.75\\
+0.94&-0.10\\
+0.80&-0.54
+\end{bmatrix}
+\begin{bmatrix}
+0.56&0.78&0.65&0.94&0.80\\
+0.82&-0.53&0.75&-0.10&-0.54
+\end{bmatrix}
+\]
+\[
++\begin{bmatrix}
+0.02&0&0&0&0\\
+0&0.12&0&0&0\\
+0&0&0.02&0&0\\
+0&0&0&0.11&0\\
+0&0&0&0&0.07
+\end{bmatrix}
+=\begin{bmatrix}
+1.00&0.1&0.97&0.44&0.00\\
+&1.00&0.11&0.79&0.91\\
+& &1.00&0.53&0.11\\
+& & &1.00&0.81\\
+& & & &1.00
+\end{bmatrix}
+\]
+接近再现相关矩阵 $\mathbf{R}$. 这样在纯粹描述的基础上, 我们将断定两因子模型提供对该数据的一个好的拟合, 该模型具有表示在\hyperref[tab:9.1]{表 9.1} 中的因子载荷. 共性方差(0.98, 0.88, 0.98, 0.89, 0.93)表明这两个因子占各变量样本方差的一个很大比例.
+
+\begin{mvtable}
+\phantomsection\label{tab:9.1}\mvtabcap{表 9.1}
+\begin{tabular}{lcccc}
+\toprule
+\multirow{3}{*}{变量} & \multicolumn{2}{c}{因子载荷估计} & \multirow{2}{*}{\makecell{共性方差\\$\tilde{h}_i^2$}} & \multirow{2}{*}{\makecell{特殊方差\\$\tilde{\psi}_i=1-\tilde{h}_i^2$}}\\
+\cmidrule(lr){2-3}
+& \multicolumn{2}{c}{$\tilde{l}_{ij}=\sqrt{\hat{\lambda}_i}\hat{e}_{ij}$} & & \\
+\cmidrule(lr){2-3}
+& $F_1$ & $F_2$ & & \\
+\midrule
+1. 爱好 & 0.56 & 0.82 & 0.98 & 0.02\\
+2. 价格合适 & 0.78 & $-0.53$ & 0.88 & 0.12\\
+3. 调味品 & 0.65 & 0.75 & 0.98 & 0.02\\
+4. 适于快餐 & 0.94 & $-0.11$ & 0.89 & 0.11\\
+5. 提供充沛精力 & 0.80 & $-0.54$ & 0.93 & 0.07\\
+\midrule
+特征值 & 2.85 & 1.81 & & \\
+（标准）样本总方差的累积比例 & 0.571 & 0.932 & & \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

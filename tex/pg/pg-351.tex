@@ -1,0 +1,74 @@
+% ---- pg-351 （书页 339） ----
+
+\phantomsection\label{eq:8-10}
+\begin{equation}
+\mathbf{Z}=(\mathbf{V}^{1/2})^{-1}(\mathbf{X}-\boldsymbol{\mu})
+\tag{8-10}
+\end{equation}
+其中对角标准差矩阵 $\mathbf{V}^{1/2}$ 由\hyperref[eq:2-35]{式(2-35)}定义. 由\hyperref[eq:2-37]{式(2-37)}易知 $E(\mathbf{Z})=\mathbf{0}$, 且
+\[
+\mathrm{Cov}(\mathbf{Z})=(\mathbf{V}^{1/2})^{-1}\boldsymbol{\Sigma}(\mathbf{V}^{1/2})^{-1}=\boldsymbol{\rho}
+\]
+$\mathbf{Z}$ 的主成分可从 $\mathbf{X}$ 的相关矩阵 $\boldsymbol{\rho}$ 的特征向量得到. 由于各个 $Z_i$ 的方差为 1, 我们先前提供的所有结论都有更为简化的表述. 我们将继续用记号 $Y_i$ 代表第 $i$ 个主成分, 用 $(\lambda_i,\mathbf{e}_i)$ 代表特征值-特征向量对, 不管它是从 $\boldsymbol{\rho}$ 或是 $\boldsymbol{\Sigma}$ 得到的. 然而, 由 $\boldsymbol{\Sigma}$ 导出的 $(\lambda_i,\mathbf{e}_i)$ 和由 $\boldsymbol{\rho}$ 导出的 $(\lambda_i,\mathbf{e}_i)$, 一般是不同的.
+
+\mvthm{结论 8.4}{有 $\mathrm{Cov}(\mathbf{Z})=\boldsymbol{\rho}$ 的标准化变量 $\mathbf{Z}'=[Z_1,Z_2,\cdots,Z_p]$ 的第 $i$ 主成分由}
+\[
+Y_i=\mathbf{e}_i'\mathbf{Z}=\mathbf{e}_i'(\mathbf{V}^{1/2})^{-1}(\mathbf{X}-\boldsymbol{\mu}),\qquad i=1,2,\cdots,p
+\]
+给出. 而且
+\phantomsection\label{eq:8-11}
+\begin{equation}
+\sum_{i=1}^{p}\mathrm{Var}(Y_i)=\sum_{i=1}^{p}\mathrm{Var}(Z_i)=p
+\tag{8-11}
+\end{equation}
+\[
+\rho_{Y_i,Z_k}=e_{ik}\sqrt{\lambda_i}\qquad i,k=1,2,\cdots,p
+\]
+此时, $(\lambda_1,\mathbf{e}_1),(\lambda_2,\mathbf{e}_2),\cdots,(\lambda_p,\mathbf{e}_p)$ 都是 $\boldsymbol{\rho}$ 的特征值-特征向量对, 且有 $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_p\geqslant 0$.
+
+\noindent\textbf{证明}\quad 结论 8.4 从结论 8.1、8.2 和 8.3 得到, 只要用 $Z_1,Z_2,\cdots,Z_p$ 代替 $X_1,X_2,\cdots,X_p$ 和用 $\boldsymbol{\rho}$ 代替 $\boldsymbol{\Sigma}$ 即可. \hfill$\blacksquare$
+
+从\hyperref[eq:8-11]{式(8-11)}我们看到, (标准化变量)总体的总方差就是 $p$, 即矩阵 $\boldsymbol{\rho}$ 的对角元之和. 利用\hyperref[eq:8-7]{式(8-7)}, 用 $\mathbf{Z}$ 取代 $\mathbf{X}$, 我们发现, 由 $\mathbf{Z}$ 的第 $k$ 个主成分解释的总方差所占的比例是
+\phantomsection\label{eq:8-12}
+\begin{equation}
+\left(\begin{array}{c}
+\text{第 }k\text{ 个主成分}\\
+\text{解释的总方差}\\
+\text{所占的比例}
+\end{array}\right)=\frac{\lambda_k}{p},\qquad k=1,2,\cdots,p
+\tag{8-12}
+\end{equation}
+其中诸 $\lambda_k$ 都是 $\boldsymbol{\rho}$ 的特征值.
+
+\noindent\textbf{例 8.2}\quad (从协方差矩阵和从相关矩阵得到的主成分是不同的)
+
+考虑协方差矩阵
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}1&4\\4&100\end{bmatrix}
+\]
+和导出的相关矩阵
+\[
+\boldsymbol{\rho}=\begin{bmatrix}1&0.4\\0.4&1\end{bmatrix}
+\]
+自 $\boldsymbol{\Sigma}$ 得出的特征值-特征向量对是
+\[
+\lambda_1=100.16,\qquad \mathbf{e}_1'=[0.040,0.999]
+\]
+\[
+\lambda_2=0.84,\qquad \mathbf{e}_2'=[0.999,-0.040]
+\]
+类似的, 来自 $\boldsymbol{\rho}$ 的特征值-特征向量对是
+\[
+\lambda_1=1+\rho=1.4,\qquad \mathbf{e}_1'=[0.707,0.707]
+\]
+\[
+\lambda_2=1-\rho=0.6,\qquad \mathbf{e}_2'=[0.707,-0.707]
+\]
+相应的主成分则分别为
+\[
+\begin{aligned}
+\boldsymbol{\Sigma}:\quad Y_1&=0.040X_1+0.999X_2\\
+Y_2&=0.999X_1-0.040X_2
+\end{aligned}
+\]
+及

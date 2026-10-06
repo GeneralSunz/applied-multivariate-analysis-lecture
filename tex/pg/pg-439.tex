@@ -1,0 +1,57 @@
+% ---- pg-439 （书页 427） ----
+
+由于多重相关系数的解释, 第 $k$ 个典型相关系数的平方 $\rho_k^{*2}$ 是典型变量 $U_k$ 的方差被组 $\mathbf{X}^{(2)}$“解释”的比例, 亦是典型变量 $V_k$ 的方差被组 $\mathbf{X}^{(1)}$“解释”的比例. 因此, $\rho_k^{*2}$ 常被称为两组 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 之间的平分方差. 最大值 $\rho_1^{*2}$ 有时看作组重叠的测度.
+
+\mvsub{前 \texorpdfstring{$r$}{r} 个典型变量作为可变性的综合}
+
+将坐标轴从 $\mathbf{X}^{(1)}$ 变换到 $\mathbf{U}=\mathbf{A}\mathbf{X}^{(1)}$, 从 $\mathbf{X}^{(2)}$ 变换到 $\mathbf{V}=\mathbf{B}\mathbf{X}^{(2)}$, 这种变换使得 $\mathrm{Corr}(U_1,V_1)$ 最大化, 并且相继地, 使 $\mathrm{Corr}(U_i,V_i)$ 最大化, 其中 $(U_i,V_i)$ 与前面的配对 $(U_1,V_1),(U_2,V_2),\cdots,(U_{i-1},V_{i-1})$ 有零相关系数. $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 两组间的相关在这些典型变量配对中分割开了.
+
+特意挑选系数向量 $\mathbf{a}_i,\mathbf{b}_i$ 使相关系数最大, 且不必提供(近似地)说明子集协方差 $\boldsymbol{\Sigma}_{11}$ 和 $\boldsymbol{\Sigma}_{22}$ 的变量. 当前几对典型变量对 $\boldsymbol{\Sigma}_{11}$ 和 $\boldsymbol{\Sigma}_{22}$ 中的变异性提供不了好的综合时, 我们不清楚要有多高的典型相关系数该被解释.
+
+\noindent\textbf{例 10.3}\quad (典型相关系数作为可变性的糟糕综合)
+
+考虑协方差矩阵
+\[
+\mathrm{Cov}\left(\begin{bmatrix}X_1^{(1)}\\X_2^{(1)}\\ \hdashline X_1^{(2)}\\X_2^{(2)}\end{bmatrix}\right)=\left[\begin{array}{c:c}
+\boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12}\\
+\hdashline
+\boldsymbol{\Sigma}_{21} & \boldsymbol{\Sigma}_{22}
+\end{array}\right]=\left[\begin{array}{cc:cc}
+100 & 0 & 0 & 0\\
+0 & 1 & 0.95 & 0\\
+\hdashline
+0 & 0.95 & 1 & 0\\
+0 & 0 & 0 & 100
+\end{array}\right]
+\]
+读者可以证明(见练习 10.1)第一对典型变量 $U_1=X_2^{(1)}$ 与 $V_1=X_1^{(2)}$ 有相关系数
+\[
+\rho_1^*=\mathrm{Corr}(U_1,V_1)=0.95
+\]
+然而 $U_1=X_2^{(1)}$ 提供了第一组变异性的十分糟糕的综合. 这组里大部分的变异性在 $X_1^{(1)}$ 中, 与 $U_1$ 不相关. 同样的情况在第二组对 $V_1=X_1^{(2)}$ 亦为真.\hfill$\blacksquare$
+
+\mvsub{总体典型相关分析的几何解释}
+
+对挑选典型变量过程的几何解释, 提供了对典型相关分析本质的一些有价值的认识.
+
+变换
+\[
+\mathbf{U}=\mathbf{A}\mathbf{X}^{(1)}
+\]
+从 $\mathbf{X}^{(1)}$ 到 $\mathbf{U}$ 给出
+\[
+\mathrm{Cov}(\mathbf{U})=\mathbf{A}\boldsymbol{\Sigma}_{11}\mathbf{A}'=\mathbf{I}
+\]
+由结论 10.1 及\hyperref[eq:2-22]{式(2-22)}, $\mathbf{A}=\mathbf{E}'\boldsymbol{\Sigma}_{11}^{-1/2}=\mathbf{E}'\mathbf{P}_1\boldsymbol{\Delta}_1^{-1/2}\mathbf{P}_1'$, 其中 $\mathbf{E}'$ 是行向量为 $\mathbf{e}_i'$ 的正交矩阵, 并且有 $\boldsymbol{\Sigma}_{11}=\mathbf{P}_1\boldsymbol{\Delta}_1\mathbf{P}_1'$. 现在 $\mathbf{P}_1'\mathbf{X}^{(1)}$ 是仅从 $\mathbf{X}^{(1)}$ 得到的主成分组. 矩阵 $\boldsymbol{\Delta}_1^{-1/2}\mathbf{P}_1'\mathbf{X}^{(1)}$ 的第 $i$ 行 $(1/\sqrt{\lambda_i})\mathbf{P}_i'\mathbf{X}^{(1)}$ 是变换至单位方差的第 $i$ 个主成分. 也就是说,
+\[
+\begin{aligned}
+\mathrm{Cov}(\boldsymbol{\Delta}_1^{-1/2}\mathbf{P}_1'\mathbf{X}^{(1)})&=\boldsymbol{\Delta}_1^{-1/2}\mathbf{P}_1'\boldsymbol{\Sigma}_{11}\mathbf{P}_1\boldsymbol{\Delta}_1^{-1/2}=\boldsymbol{\Delta}_1^{-1/2}\mathbf{P}_1'\mathbf{P}_1\boldsymbol{\Delta}_1\mathbf{P}_1'\mathbf{P}_1\boldsymbol{\Delta}_1^{-1/2}\\
+&=\boldsymbol{\Delta}_1^{-1/2}\boldsymbol{\Delta}_1\boldsymbol{\Delta}_1^{-1/2}=\mathbf{I}
+\end{aligned}
+\]
+因此, $\mathbf{U}=\mathbf{A}\mathbf{X}^{(1)}=\mathbf{E}'\mathbf{P}_1\boldsymbol{\Delta}_1^{-1/2}\mathbf{P}_1'\mathbf{X}^{(1)}$ 可被解释为(1)与标准化主成分不相关的 $\mathbf{X}^{(1)}$ 的变换, 接着(2)由 $\boldsymbol{\Sigma}_{11}$ 决定的严格(正交)转动 $\mathbf{P}_1$, 再(3)由整体协方差矩阵 $\boldsymbol{\Sigma}$ 决定另一个旋转 $\mathbf{E}'$. 对 $\mathbf{V}=\mathbf{B}\mathbf{X}^{(2)}$ 有类似的解释.
+
+\section{样本典型变量和样本典型相关系数}
+\phantomsection\label{sec:10.4}
+
+对 $\mathbf{X}^{(1)},\mathbf{X}^{(2)}$ 中 $p+q$ 个变量中每个变量的 $n$ 个观察值的随机样本, 可构成 $n\times(p+q)$ 的数据矩阵

@@ -1,0 +1,54 @@
+% ---- pg-190 ----
+\phantomsection\label{eq:5-28}
+\begin{equation}
+\begin{aligned}
+&\ge 1-\sum_{i=1}^{m}P(C_{i}\text{ 为假})=1-\sum_{i=1}^{m}(1-P(C_{i}\text{ 为真}))\\
+&=1-(\alpha_{1}+\alpha_{2}+\cdots+\alpha_{m})
+\end{aligned} \tag{5-28}
+\end{equation}
+
+不等\hyperref[eq:5-28]{式(5-28)}为庞弗罗尼不等式的一个特殊情形. 利用它, 研究人员总可控制总体误差率 $\alpha_{1}+\alpha_{2}+\cdots+\alpha_{m}$, 不管置信表示中隐藏着何种相关结构. 同时, 在控制一组重要置信表示的误差率以及使它与另一些不太重要的置信表示达成均衡中, 此法也是较为灵活的.
+
+让我们来给出由 $\boldsymbol{\mu}$ 的分量 $\mu_{i}$ 组成的约束集的联合区间估计. 由于对这些分量的相对重要性缺乏了解, 我们考虑单一的 $t$ 区间:
+\[
+\bar{x}_{i}\pm t_{n-1}\left(\frac{\alpha_{i}}{2}\right)\sqrt{\frac{s_{ii}}{n}}, \qquad i=1,2,\cdots,m
+\]
+
+这里 $\alpha_{i}=\alpha/m$. 由于
+\[
+P[\bar{X}_{i}\pm t_{n-1}(\alpha/2m)\sqrt{s_{ii}/n}\text{ 包含 }\mu_{i}]=1-\alpha/m, \quad i=1,2,\cdots,m
+\]
+
+由\hyperref[eq:5-28]{式(5-28)}知
+\[
+P\left[\bar{X}_{i}\pm t_{n-1}\left(\frac{\alpha}{2m}\right)\sqrt{\frac{s_{ii}}{n}}\text{ 包含 }\mu_{i}, \forall i\right]\ge 1-\underbrace{\left(\frac{\alpha}{m}+\frac{\alpha}{m}+\cdots+\frac{\alpha}{m}\right)}_{m\text{ 项}}
+\]
+\[
+=1-\alpha
+\]
+
+因此, 以不小于 $1-\alpha$ 的总置信水平, 可得下列 $m=p$ 个置信表示
+\phantomsection\label{eq:5-29}
+\begin{equation}
+\begin{aligned}
+\bar{x}_{1}-t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{11}}{n}}\ &\le\ \mu_{1}\ \le\ \bar{x}_{1}+t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{11}}{n}}\\
+\bar{x}_{2}-t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{22}}{n}}\ &\le\ \mu_{2}\ \le\ \bar{x}_{2}+t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{22}}{n}}\\
+&\qquad\qquad\vdots\qquad\qquad\vdots\\
+\bar{x}_{p}-t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{pp}}{n}}\ &\le\ \mu_{p}\ \le\ \bar{x}_{p}+t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{pp}}{n}}
+\end{aligned} \tag{5-29}
+\end{equation}
+
+将\hyperref[eq:5-29]{式(5-29)}与\hyperref[eq:5-24]{式(5-24)}进行比较, 我们发现\hyperref[eq:5-29]{式(5-29)}中仅以百分位数 $t_{n-1}(\alpha/2p)$ 替代了\hyperref[eq:5-24]{式(5-24)}中的 $\sqrt{(n-1)pF_{p,n-p}(\alpha)/(n-p)}$, 区间保持相同结构.
+
+\medskip
+\noindent\textbf{例 5.6}\quad (庞弗罗尼联合置信区间的构造以及与 $T^{2}$ 区间的比较)
+
+仍考虑例 5.3 及例 5.4 中的微波炉辐射数据. 我们将给出均值 $\mu_{1}$ 与 $\mu_{2}$ 的 95\% 庞弗罗尼联合置信区间, 这里 $\alpha_{i}=0.05/2, i=1,2$. 利用例 5.3 的结论, 注意到 $n=42$ 及 $t_{41}(0.05/(2\times2))=t_{41}(0.012\,5)=2.327$, 可知
+\[
+\bar{x}_{1}\pm t_{41}(0.012\,5)\sqrt{\frac{s_{11}}{n}}=0.564\pm2.327\times\sqrt{\frac{0.014\,4}{42}} \quad\text{即}\quad 0.521\le \mu_{1}\le 0.607
+\]
+\[
+\bar{x}_{2}\pm t_{41}(0.012\,5)\sqrt{\frac{s_{22}}{n}}=0.603\pm2.327\times\sqrt{\frac{0.014\,6}{42}} \quad\text{即}\quad 0.560\le \mu_{2}\le 0.646
+\]
+
+\hyperref[fig:5.4]{图 5.4} 给出了 $\mu_{1},\mu_{2}$ 的 95\% 联合 $T^{2}$ 置信区间以及相应的 95\% 庞弗罗尼置信区间(对应\hyperref[fig:5.2]{图 5.2}). 对每一均值分量, 其庞弗罗尼置信区间均落在 $T^{2}$ 区间内. 因此, 由其庞弗罗尼置信区间所围成的矩形区域包含在由其 $T^{2}$ 区间所围成的矩形区域中. 如果我们仅对均值分量感兴趣, 那么, 庞弗罗尼区间估计比 $T^{2}$ 区间估计更精确. 另一方面, 当考虑被测变量之间的相关性时, $\boldsymbol{\mu}$ 的 95\% 置信域还能给出 $(\mu_{1},\mu_{2})$ 的似真值.

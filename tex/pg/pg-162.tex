@@ -1,0 +1,79 @@
+% ---- pg-162 （书页 150） ----
+
+$l(\lambda)$ 与 $\lambda$ 之间的曲线图形使我们能更精确地确定 $\hat{\lambda} = 0.28$, 如\hyperref[fig:4.12]{图 4.12} 所示.
+
+\begin{mvfigure}
+\begin{tikzpicture}[>=Latex, x=8.5cm, y=2.6cm]
+  \draw[->] (0,0) -- (0.57,0);
+  \draw[->] (0,0) -- (0,1.95);
+  \foreach \x/\l in {0/0.0,0.1/0.1,0.2/0.2,0.3/0.3,0.4/0.4,0.5/0.5} {
+    \draw (\x,0) -- (\x,-0.045);
+    \node[below, font=\scriptsize] at (\x,-0.055) {\l};
+  }
+  \foreach \y/\l in {0.2/105.0,0.7/105.5,1.2/106.0,1.7/106.5} {
+    \draw (0,\y) -- (-0.010,\y);
+    \node[left, font=\scriptsize] at (-0.012,\y) {\l};
+  }
+  \draw[thick] plot[smooth, tension=0.85] coordinates
+    {(0,0.02)(0.1,0.70)(0.2,1.30)(0.28,1.70)(0.40,1.20)(0.50,0.62)};
+  \draw[dashed] (0.28,0) -- (0.28,1.70);
+  \fill (0.28,1.70) circle (1.3pt);
+  \node[below, font=\scriptsize] at (0.28,-0.20) {$\lambda = 0.28$};
+  \node[below, font=\scriptsize] at (0.56,-0.055) {$\lambda$};
+  \node[left, font=\scriptsize, rotate=90] at (-0.05,1.55) {$l(\lambda)$};
+\end{tikzpicture}
+\phantomsection\label{fig:4.12}\mvcap{图 4.12\quad 对辐射量数据(炉门关闭)的 $l(\lambda)$ 与 $\lambda$ 之间的图形}
+\end{mvfigure}
+
+从表和图二者都明显地看出 $\hat{\lambda}$ 的值在 0.30 附近使 $l(\lambda)$ 达到最大. 为了方便起见, 我们选择 $\hat{\lambda} = 0.25$. 数据 $x_j$ 被重新表示为
+\[
+x_j^{(1/4)} = \frac{x_j^{1/4} - 1}{1/4} \qquad j = 1, 2, \cdots, 42
+\]
+并按变换后的量构造了 Q-Q 图. 该图示于\hyperref[fig:4.13]{图 4.13}. 分位数对非常接近一条直线, 我们可以从这个迹象得出结论, $x_j^{(1/4)}$ 是近似正态的.
+
+\begin{mvfigure}
+\begin{tikzpicture}[>=Latex, x=1.35cm, y=1.35cm]
+  \draw[->] (-2.35,0) -- (3.25,0);
+  \draw[->] (0,-3.30) -- (0,-0.35);
+  \foreach \x/\l in {-2/-2.0,-1/-1.0,0/0.0,1/1.0,2/2.0,3/3.0} {
+    \draw (\x,0) -- (\x,-0.08);
+    \node[below, font=\scriptsize] at (\x,-0.10) {\l};
+  }
+  \foreach \y/\l in {-3.0/-3.00,-2.5/-2.50,-2.0/-2.00,-1.5/-1.50,-1.0/-1.00,-0.5/-0.50} {
+    \draw (0,\y) -- (-0.10,\y);
+    \node[left, font=\scriptsize] at (-0.13,\y) {\l};
+  }
+  \draw[thick] (-2.05,-2.58) -- (2.75,-0.70);
+  \foreach \x/\y in {-2.0/-2.40,-1.1/-2.20,-0.9/-2.00,-0.4/-1.85,0.6/-1.85,0.9/-1.70,1.0/-1.60,1.1/-1.50,1.6/-1.10,2.4/-0.90} {
+    \fill (\x,\y) circle (1.5pt);
+  }
+  \node[font=\scriptsize] at (-2.22,-2.34) {2};
+  \node[font=\scriptsize] at (-1.02,-2.36) {3};
+  \node[font=\scriptsize] at (-0.95,-2.16) {5};
+  \node[font=\scriptsize] at (-0.48,-1.74) {3};
+  \node[font=\scriptsize] at (0.78,-1.85) {9};
+  \node[font=\scriptsize] at (1.02,-1.68) {2};
+  \node[font=\scriptsize] at (1.02,-1.44) {2-3};
+  \node[font=\scriptsize] at (1.22,-1.42) {3};
+  \node[font=\scriptsize] at (1.68,-1.00) {4};
+  \node[font=\scriptsize] at (2.52,-0.88) {2};
+  \node[below, font=\scriptsize] at (2.55,-0.10) {$q_{(j)}$};
+  \node[left, font=\scriptsize, rotate=90] at (-0.32,-1.60) {$x_{(j)}^{(1/4)}$};
+\end{tikzpicture}
+\phantomsection\label{fig:4.13}\mvcap{图 4.13\quad 变换后的辐射量数据(炉门关闭)的 Q-Q 图}
+\mvcap{（图中整数表示处于同一位置的点的个数）}
+\end{mvfigure}
+\hfill$\blacksquare$
+
+\mvsub{变换多元观测值}
+
+对于多元观测值, 必须对每个变量选择一个幂变换. 设 $\lambda_1, \lambda_2, \cdots, \lambda_p$ 是对于 $p$ 个测量特征的幂变换. 每个 $\lambda_k$ 通过使
+\phantomsection\label{eq:4-38}
+\begin{equation}
+l_k(\lambda) = -\frac{n}{2}\ln\left[\frac{1}{n}\sum_{j=1}^{n}\left(x_{jk}^{(\lambda_k)} - \overline{x_k^{(\lambda_k)}}\right)^2\right] + (\lambda_k - 1)\sum_{j=1}^{n}\ln x_{jk} \tag{4-38}
+\end{equation}
+最大化来选择, 其中 $x_{1k}, x_{2k}, \cdots, x_{nk}$ 是第 $k$ 个变量的 $n$ 个观测值, $k = 1, 2, \cdots, p$. 这里
+\phantomsection\label{eq:4-39}
+\begin{equation}
+\overline{x_k^{(\lambda_k)}} = \frac{1}{n}\sum_{j=1}^{n} x_{jk}^{(\lambda_k)} = \frac{1}{n}\sum_{j=1}^{n}\left(\frac{x_{jk}^{\lambda_k} - 1}{\lambda_k}\right) \tag{4-39}
+\end{equation}

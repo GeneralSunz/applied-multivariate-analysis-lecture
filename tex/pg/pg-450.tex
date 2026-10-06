@@ -1,0 +1,56 @@
+% ---- pg-450 （书页 438） ----
+
+数矩阵 $\mathbf{R}_{11}$ 和 $\mathbf{R}_{22}$[见\hyperref[eq:10-39]{式(10-39)}].\hfill$\blacksquare$
+
+\section{大样本推断}  % 原书 10.6
+\phantomsection\label{sec:10.6}
+
+当 $\boldsymbol{\Sigma}_{12}=\mathbf{0}$, $a'\mathbf{X}^{(1)}$ 和 $b'\mathbf{X}^{(2)}$ 对所有向量 $a$ 和 $b$ 有协方差 $a'\boldsymbol{\Sigma}_{12}b=\mathbf{0}$. 所以, 所有的典型相关系数必为零, 并且作典型相关分析没有什么意义. 下述结论对大样本提供了一个检验 $\boldsymbol{\Sigma}_{12}=\mathbf{0}$ 的途径.
+
+\noindent\textbf{结论 10.3}\quad 令
+\[
+\mathbf{X}_j=\left[\begin{array}{c}\mathbf{X}_j^{(1)}\\ \hdashline \mathbf{X}_j^{(2)}\end{array}\right],\qquad j=1,2,\cdots,n
+\]
+为从 $N_{p+q}(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 总体取得的随机样本, 且
+\[
+\boldsymbol{\Sigma}=\left[\begin{array}{cc}\underset{(p\times p)}{\boldsymbol{\Sigma}_{11}}&\underset{(p\times q)}{\boldsymbol{\Sigma}_{12}}\\ \hdashline \underset{(q\times p)}{\boldsymbol{\Sigma}_{21}}&\underset{(q\times q)}{\boldsymbol{\Sigma}_{22}}\end{array}\right]
+\]
+则似然比检验 $H_0:\boldsymbol{\Sigma}_{12}=\mathbf{0}$ 和 $H_1:\boldsymbol{\Sigma}_{12}\ne\mathbf{0}$, 对
+\phantomsection\label{eq:10-38}
+\begin{equation}
+-2\ln\Lambda=n\ln\left(\frac{|\mathbf{S}_{11}||\mathbf{S}_{22}|}{|\mathbf{S}|}\right)=-n\ln\prod_{i=1}^{p}(1-\hat{\rho}_i^{*2})
+\tag{10-38}
+\end{equation}
+的大值, 拒绝 $H_0$, 这里
+\[
+\mathbf{S}=\left[\begin{array}{cc}\mathbf{S}_{11}&\mathbf{S}_{12}\\ \hdashline \mathbf{S}_{21}&\mathbf{S}_{22}\end{array}\right]
+\]
+是 $\boldsymbol{\Sigma}$ 的无偏估计量. $n$ 取值较大时, 检验统计量(10-38)是近似服从 $\chi^2_{pq}$ 分布的随机变量, 自由度为 $pq$.
+
+\noindent\mvbold{证明}\quad 见克什萨戈(Kshirsagar, 见文献[8]).\hfill$\blacksquare$
+
+似然比统计量(10-38)在 $H_0$ 下将样本广义方差
+\[
+\left|\begin{array}{cc}\mathbf{S}_{11}&\mathbf{0}\\ \hdashline \mathbf{0}'&\mathbf{S}_{22}\end{array}\right|=|\mathbf{S}_{11}||\mathbf{S}_{22}|
+\]
+和无约束的广义方差 $|\mathbf{S}|$ 作比较.
+
+巴特利特(见文献[3])建议把似然比统计量中的乘数因子 $n$ 以因子 $n-1-(p+q+1)/2$ 代替, 使 $\chi^2$ 分布近似 $-2\ln\Lambda$ 的抽样分布. 这样, 当 $n$ 和 $n-(p+q)$ 较大时, 若
+\phantomsection\label{eq:10-39}
+\begin{equation}
+-\left(n-1-\frac{1}{2}(p+q+1)\right)\ln\prod_{i=1}^{p}(1-\hat{\rho}_i^{*2})>\chi^2_{pq}(\alpha)
+\tag{10-39}
+\end{equation}
+我们就在显著性水平 $\alpha$ 上拒绝 $H_0:\boldsymbol{\Sigma}_{12}=\mathbf{0}(\rho_1^*=\rho_2^*=\cdots=\rho_p^*=0)$, 其中 $\chi^2_{pq}(\alpha)$ 是自由度为 $pq$ 的 $\chi^2$ 分布的上 $100\alpha$ 百分位数.
+
+若零假设 $H_0:\boldsymbol{\Sigma}_{12}=\mathbf{0}(\rho_1^*=\rho_2^*=\cdots=\rho_p^*=0)$ 被拒绝了, 则自然地会去检验单个典型相关系数的“显著性”. 由于典型相关系数是按从大到小顺序排列的, 我们开始可以假定第一典型相关系数非零, 而剩下的 $p-1$ 个典型相关系数为零. 如果此假设被拒绝, 我们可假定头两个典型相关系数非零, 但剩下的 $p-2$ 个为零, 以此类推.
+
+令推出的序列假设为
+\phantomsection\label{eq:10-40}
+\begin{equation}
+\begin{aligned}
+H_0^k&:\ \rho_1^*\ne 0,\rho_2^*\ne 0,\cdots,\rho_k^*\ne 0,\rho_{k+1}^*=\cdots=\rho_p^*=0\\
+H_1^k&:\ \rho_i^*\ne 0\qquad \text{对某个 } i\ge k+1
+\end{aligned}
+\tag{10-40}
+\end{equation}

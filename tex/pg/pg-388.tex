@@ -1,0 +1,86 @@
+% ---- pg-388 （书页 376） ----
+
+\[
+=\mathbf{L}\mathbf{F}(\mathbf{L}\mathbf{F})'+\boldsymbol{\varepsilon}(\mathbf{L}\mathbf{F})'+\mathbf{L}\mathbf{F}\boldsymbol{\varepsilon}'+\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}'
+\]
+故按照\hyperref[eq:9-3]{式(9-3)}有
+\[
+\begin{aligned}
+\boldsymbol{\Sigma}&=\mathrm{Cov}(\mathbf{X})=E(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})'\\
+&=\mathbf{L}E(\mathbf{F}\mathbf{F}')\mathbf{L}'+E(\boldsymbol{\varepsilon}\mathbf{F}')\mathbf{L}'+\mathbf{L}E(\mathbf{F}\boldsymbol{\varepsilon}')+E(\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}')\\
+&=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}
+\end{aligned}
+\]
+而且, $\mathrm{Cov}(\boldsymbol{\varepsilon},\mathbf{F})=E(\boldsymbol{\varepsilon}\mathbf{F}')=\mathbf{0}$
+
+由模型(9-4), 也有 $(\mathbf{X}-\boldsymbol{\mu})\mathbf{F}'=(\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon})\mathbf{F}'=\mathbf{L}\mathbf{F}\mathbf{F}'+\boldsymbol{\varepsilon}\mathbf{F}'$, 故 $\mathrm{Cov}(\mathbf{X},\mathbf{F})=E(\mathbf{X}-\boldsymbol{\mu})\mathbf{F}'=\mathbf{L}E(\mathbf{F}\mathbf{F}')+E(\boldsymbol{\varepsilon}\mathbf{F}')=\mathbf{L}$.
+
+\begin{mvbox}
+\begin{center}
+\textbf{正交因子模型的协方差结构}
+\end{center}
+1. $\mathrm{Cov}(\mathbf{X})=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$
+
+或
+\phantomsection\label{eq:9-5}
+\begin{equation}
+\begin{aligned}
+\mathrm{Var}(X_i)&=l_{i1}^2+\cdots+l_{im}^2+\psi_i\\
+\mathrm{Cov}(X_i,X_k)&=l_{i1}l_{k1}+\cdots+l_{im}l_{km}
+\end{aligned}
+\tag{9-5}
+\end{equation}
+2. $\mathrm{Cov}(\mathbf{X},\mathbf{F})=\mathbf{L}$
+
+或
+\[
+\mathrm{Cov}(X_i,F_j)=l_{ij}
+\]
+\end{mvbox}
+
+模型 $\mathbf{X}-\boldsymbol{\mu}=\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon}$ 在公共因子中是线性的. 如果 $p$ 个响应 $\mathbf{X}$ 事实上是与潜在因子有关, 但这关系为非线性的, 比如为 $X_1-\mu_1=l_{11}F_1F_3+\varepsilon_1$, $X_2-\mu_2=l_{21}F_2F_3+\varepsilon_2$, 那么仅由\hyperref[eq:9-5]{式(9-5)}给出的协方差结构 $\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ 可能还是不够的. 线性假设十分重要, 它是传统因子模型公式表达中固有的假设.
+
+由 $m$ 个公共因子贡献的第 $i$ 个变量的方差部分, 叫做第 $i$ 个\mvbold{共性方差}. 属于特殊因子的 $\mathrm{Var}(X_i)=\sigma_{ii}$ 部分, 常称为\mvbold{独特方差}或\mvbold{特殊方差}. 用 $h_i^2$ 记第 $i$ 个共性方差, 从\hyperref[eq:9-5]{式(9-5)}我们看到
+\[
+\underbrace{\sigma_{ii}}_{\mathrm{Var}(X_i)}=\underbrace{l_{i1}^2+l_{i2}^2+\cdots+l_{im}^2}_{\text{共性方差}}+\underbrace{\psi_i}_{\text{特殊方差}}
+\]
+或
+\phantomsection\label{eq:9-6}
+\begin{equation}
+h_i^2=l_{i1}^2+l_{i2}^2+\cdots+l_{im}^2
+\tag{9-6}
+\end{equation}
+和
+\[
+\sigma_{ii}=h_i^2+\psi_i,\qquad i=1,2,\cdots,p
+\]
+第 $i$ 个共性方差是第 $i$ 变量在这 $m$ 个公共因子上载荷的平方和.
+
+\noindent\textbf{例 9.1}\quad (对两因子验证关系 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$)
+
+考虑协方差阵
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}
+19&30&2&12\\
+30&57&5&23\\
+2&5&38&47\\
+12&23&47&68
+\end{bmatrix}
+\]
+等式
+\[
+\begin{bmatrix}
+19&30&2&12\\
+30&57&5&23\\
+2&5&38&47\\
+12&23&47&68
+\end{bmatrix}
+=\begin{bmatrix}4&1\\7&2\\-1&6\\1&8\end{bmatrix}
+\begin{bmatrix}4&7&-1&1\\1&2&6&8\end{bmatrix}
++\begin{bmatrix}
+2&0&0&0\\
+0&4&0&0\\
+0&0&1&0\\
+0&0&0&3
+\end{bmatrix}
+\]

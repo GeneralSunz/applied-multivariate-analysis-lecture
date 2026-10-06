@@ -1,0 +1,48 @@
+% ---- pg-231 （书页 219） ----
+\[
+\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2=\frac{1}{n_1}\mathbf{X}_{11}+\frac{1}{n_1}\mathbf{X}_{12}+\cdots+\frac{1}{n_1}\mathbf{X}_{1n_1}-\frac{1}{n_2}\mathbf{X}_{21}-\frac{1}{n_2}\mathbf{X}_{22}-\cdots-\frac{1}{n_2}\mathbf{X}_{2n_2}
+\]
+服从分布 $N_p\left(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2,\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\boldsymbol{\Sigma}\right)$，这只需在结论 4.8 中令 $c_{11}=c_{12}=\cdots=c_{1n_1}=1/n_1$，$c_{21}=c_{22}=\cdots=c_{2n_2}=-1/n_2$ 即可看出. 由式(4-23)知 $(n_1-1)\mathbf{S}_1$ 与 $(n_2-1)\mathbf{S}_2$ 分别服从 $W_{n_1-1}(\boldsymbol{\Sigma})$ 和 $W_{n_2-1}(\boldsymbol{\Sigma})$ 分布，根据假定，$\mathbf{X}_{1j}$ 与 $\mathbf{X}_{2j}$ 相互独立，故 $(n_1-1)\mathbf{S}_1$ 与 $(n_2-1)\mathbf{S}_2$ 也相互独立. 于是由式(4-24)知 $(n_1-1)\mathbf{S}_1+(n_2-1)\mathbf{S}_2$ 服从 $W_{n_1+n_2-2}(\boldsymbol{\Sigma})$ 分布，因此
+\[
+\begin{aligned}
+T^2&=\left(\frac{1}{n_1}+\frac{1}{n_2}\right)^{-1/2}(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))'\mathbf{S}_p^{-1}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)^{-1/2}(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))\\
+&=\binom{\text{多元正态随机}}{\text{向量}}'\left(\frac{\text{威沙特随机矩阵}}{\text{自由度}}\right)^{-1}\binom{\text{多元正态随机}}{\text{向量}}\\
+&=N_p(\mathbf{0},\boldsymbol{\Sigma})'\left[\frac{W_{n_1+n_2-2}(\boldsymbol{\Sigma})}{n_1+n_2-2}\right]^{-1}N_p(\mathbf{0},\boldsymbol{\Sigma})
+\end{aligned}
+\]
+这就是\hyperref[eq:5-8]{式(5-8)}所规定的 $T^2$ 分布，只不过该式中的 $n$ 由 $n_1+n_2-1$ 所取代[与 $F$ 分布的关系见\hyperref[eq:5-5]{式(5-5)}].\hfill$\blacksquare$
+
+我们的主要兴趣是 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 的置信区域，由\hyperref[eq:6-24]{式(6-24)}知，与 $\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2$ 的统计距离平方小于等于 $c^2$ 的所有 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$，构成了所求的置信区域. 这是一个中心在 $\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2$ 的椭球，其主轴由 $\mathbf{S}_p$（或 $\mathbf{S}_p^{-1}$）的特征值和特征向量确定.
+
+\noindent\textbf{例 6.3}\quad (两个均值向量之差的置信区域的构造)
+
+用两种工艺各生产 50 块肥皂，测量两个指标：$X_1=$ 泡沫量，$X_2=$ 舒适度. 由两种工艺生产的肥皂的汇总统计数字为：
+\[
+\bar{\mathbf{x}}_1=\begin{bmatrix}8.3\\4.1\end{bmatrix},\qquad \mathbf{S}_1=\begin{bmatrix}2&1\\1&6\end{bmatrix}
+\]
+\[
+\bar{\mathbf{x}}_2=\begin{bmatrix}10.2\\3.9\end{bmatrix},\qquad \mathbf{S}_2=\begin{bmatrix}2&1\\1&4\end{bmatrix}
+\]
+要求构造 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 的 95\% 置信区域.
+
+注意到 $\mathbf{S}_1$ 与 $\mathbf{S}_2$ 近似相等，故可把这两个样本融合. 由\hyperref[eq:6-21]{式(6-21)}知
+\[
+\mathbf{S}_p=\frac{49}{98}\mathbf{S}_1+\frac{49}{98}\mathbf{S}_2=\begin{bmatrix}2&1\\1&5\end{bmatrix}
+\]
+又由于 $\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2=\begin{bmatrix}-1.9\\0.2\end{bmatrix}$，所以置信椭圆的中心在 $[-1.9,0.2]'$，从特征方程
+\[
+0=|\mathbf{S}_p-\lambda\mathbf{I}|=\begin{vmatrix}2-\lambda&1\\1&5-\lambda\end{vmatrix}=\lambda^2-7\lambda+9
+\]
+可解得 $\mathbf{S}_p$ 的特征根为
+\[
+\lambda=(7\pm\sqrt{49-36})/2\qquad 即\qquad \lambda_1=5.303,\qquad \lambda_2=1.697
+\]
+再由
+\[
+\mathbf{S}_p\mathbf{e}_i=\lambda_i\mathbf{e}_i,\quad i=1,2
+\]
+求得相应的特征向量 $\mathbf{e}_1$ 和 $\mathbf{e}_2$：
+\[
+\mathbf{e}_1=\begin{bmatrix}0.290\\0.957\end{bmatrix},\qquad \mathbf{e}_2=\begin{bmatrix}0.957\\-0.290\end{bmatrix}
+\]
+由于 $F_{2,97}(0.05)=3.1$，

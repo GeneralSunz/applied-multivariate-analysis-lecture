@@ -1,0 +1,57 @@
+% ---- pg-075 （书页 63） ----
+
+取 $y_{k+1} = 1, y_{k+2} = \cdots = y_p = 0$,得出所求的最大值.
+
+对于一个固定的 $\bm{x}_1 \neq \bm{0}$, $\bm{x}'\bm{B}\bm{x}/\bm{x}'\bm{x}_1$ 有与 $\bm{x}'\bm{B}\bm{x}$ 相同的值,这里 $\bm{x}' = \bm{x}_1'/\sqrt{\bm{x}_1'\bm{x}_1}$ 是单位向量.因此,\hyperref[eq:2-51]{式(2-51)}表明,对于到原点距离为单位长度的一切点 $\bm{x}$ 来说,最大特征值 $\lambda_1$ 是二次型 $\bm{x}'\bm{B}\bm{x}$ 的最大值.类似的,对于到原点距离为单位一个单位的所有点 $\bm{x}$ 来说, $\lambda_p$ 是二次型的最小值.对单位球面上的点来说,最大和最小特征值表示 $\bm{x}'\bm{B}\bm{x}$ 的极值.当进一步限制 $\bm{x}$,使其垂直于先前选择的向量时, $p \times p$ 正定矩阵 $\bm{B}$ 的“中间”特征值也有一个如同极值的解释.
+
+\mvsub{补充 2A\quad 向量与矩阵:基本概念}
+
+\mvbold{向量}
+
+许多概念,例如人的健康、智力或个性,不可能适当地量化为一个单一数字.相反,需要用若干不同的测量结果 $x_1, x_2, \cdots, x_m$ 来描述.
+
+\mvbold{定义 2A.1} 含 $m$ 元实数的数组 $(x_1, x_2, \cdots, x_i, \cdots, x_m)$ 排列成一列,称为一个向量.
+
+下面是几个实例.
+
+\[
+\bm{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{bmatrix}, \quad
+\bm{a} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+\bm{b} = \begin{bmatrix} -1 \\ -1 \\ -1 \end{bmatrix}, \quad
+\bm{y} = \begin{bmatrix} 1 \\ 2 \\ -2 \end{bmatrix}
+\]
+
+若两个向量中对应元素相同,则这两个向量相等.
+
+\mvbold{定义 2A.2} (标量乘法) 设 $c$ 是任意常数,则乘积 $c\bm{x}$ 是一个向量,其第 $i$ 个元素为 $cx_i$.为了说明标量乘法,取 $c_1 = 5$ 和 $c_2 = -1.2$,则
+
+\[
+c_1\bm{y} = 5\begin{bmatrix} 1 \\ 2 \\ -2 \end{bmatrix} = \begin{bmatrix} 5 \\ 10 \\ -10 \end{bmatrix}
+\quad \text{和} \quad
+c_2\bm{y} = (-1.2)\begin{bmatrix} 1 \\ 2 \\ -2 \end{bmatrix} = \begin{bmatrix} -1.2 \\ -2.4 \\ 2.4 \end{bmatrix}
+\]
+
+\mvbold{定义 2A.3} (向量加法) 设两个向量 $\bm{x}$ 和 $\bm{y}$ 的元素个数相同,则 $\bm{x}$ 与 $\bm{y}$ 的和为向量 $\bm{z} = \bm{x} + \bm{y}$,其第 $i$ 个元素 $z_i = x_i + y_i$.
+
+因此,
+
+\[
+\begin{bmatrix} 3 \\ -1 \\ 4 \end{bmatrix} + \begin{bmatrix} 1 \\ 2 \\ -2 \end{bmatrix} = \begin{bmatrix} 4 \\ 1 \\ 2 \end{bmatrix}
+\]
+\[
+\bm{x} \qquad + \qquad \bm{y} \qquad = \qquad \bm{z}
+\]
+
+取零向量 $\bm{0}$ 是 $m$ 元数组 $(0, 0, \cdots, 0)$ 且向量 $-\bm{x}$ 是 $m$ 元数组 $(-x_1, -x_2, \cdots, -x_m)$.标量乘法和向量加法这两种运算可以以一种有用的方式进行组合.
+
+\mvbold{定义 2A.4} 具有刚才定义的标量乘法和向量加法的一切 $m$ 元实数组的空间叫做一个向量空间.
+
+\mvbold{定义 2A.5} 向量 $\bm{y} = a_1\bm{x}_1 + a_2\bm{x}_2 + \cdots + a_k\bm{x}_k$ 是向量 $\bm{x}_1, \bm{x}_2, \cdots, \bm{x}_k$ 的一个线性组合. $\bm{x}_1, \bm{x}_2, \cdots, \bm{x}_k$ 的一切线性组合的集合叫做它们的线性生成.
+
+\mvbold{定义 2A.6} 如果存在 $k$ 个不全为零的数 $(a_1, a_2, \cdots, a_k)$,使得
+
+\[
+a_1\bm{x}_1 + a_2\bm{x}_2 + \cdots + a_k\bm{x}_k = \bm{0}
+\]
+
+则称向量集 $\bm{x}_1, \bm{x}_2, \cdots, \bm{x}_k$ 是线性相关的.否则,向量集是线性无关的.

@@ -1,0 +1,64 @@
+\begin{equation}
+\sum_{i=1}^{m}\sum_{j=1}^{k}(a_{ij}-b_{ij})^{2}=\operatorname{tr}\left[(\mathbf{A}-\mathbf{B})(\mathbf{A}-\mathbf{B})'\right]
+\end{equation}
+
+\noindent\textbf{结论 2A.16}\quad $\mathbf{A}$ 是 $m\times k(m\ge k)$ 阶实矩阵, 并且有奇异值分解 $\mathbf{U}\boldsymbol{\Delta}\mathbf{V}'$, 设 $s<k=\mathbf{A}$ 的秩, 则
+$\mathbf{B}=\sum_{i=1}^{s}\lambda_{i}\mathbf{u}_{i}\mathbf{v}_{i}'$ 是 $\mathbf{A}$ 的秩-$s$ 最小二乘逼近, 使得在所有秩小于 $s$ 的 $m\times k$ 阶矩阵 $\mathbf{B}$ 中, $\operatorname{tr}\left[(\mathbf{A}-\mathbf{B})(\mathbf{A}-\mathbf{B})'\right]$ 最小, 且最小值或者逼近误差是 $\sum_{i=s+1}^{k}\lambda_{i}^{2}$.\hfill$\blacksquare$
+
+\medskip
+为了得到以上的结论, 我们利用 $\mathbf{U}\mathbf{U}'=\mathbf{I}_{m}$ 和 $\mathbf{V}\mathbf{V}'=\mathbf{I}_{k}$, 然后将平方和写成
+\begin{align*}
+\operatorname{tr}\left[(\mathbf{A}-\mathbf{B})(\mathbf{A}-\mathbf{B})'\right]
+&=\operatorname{tr}\left[\mathbf{U}\mathbf{U}'(\mathbf{A}-\mathbf{B})\mathbf{V}\mathbf{V}'(\mathbf{A}-\mathbf{B})'\right]\\
+&=\operatorname{tr}\left[\mathbf{U}'(\mathbf{A}-\mathbf{B})\mathbf{V}\mathbf{V}'(\mathbf{A}-\mathbf{B})'\mathbf{U}\right]\\
+&=\operatorname{tr}\left[(\boldsymbol{\Delta}-\mathbf{C})(\boldsymbol{\Delta}-\mathbf{C})'\right]
+=\sum_{i=1}^{m}\sum_{j=1}^{k}(\lambda_{ij}-c_{ij})^{2}
+=\sum_{i=1}^{k}(\lambda_{i}-c_{ii})^{2}+\sum_{i\ne j}\sum_{i\ne j}c_{ij}^{2}
+\end{align*}
+这里 $\mathbf{C}=\mathbf{U}'\mathbf{B}\mathbf{V}$, 显然, 当 $\mathbf{C}$ 取如下值时取到最小值, 即当 $i\ne j$ 时, 取 $c_{ij}=0$ 且对 $s$ 个最大奇异值取 $c_{ii}=\lambda_{i}$. 而其他的 $c_{ii}=0$. 这就是说, $\mathbf{U}'\mathbf{B}\mathbf{V}=\boldsymbol{\Delta}_{s}$ 或 $\mathbf{B}=\sum_{i=1}^{s}\lambda_{i}\mathbf{u}_{i}\mathbf{v}_{i}'$.
+
+\vspace{6pt}
+{\large\bfseries 练习}
+
+\medskip
+\noindent 2.1\quad 设 $\mathbf{x}'=[5,1,3]$ 和 $\mathbf{y}'=[-1,3,1]$.
+
+\noindent (a) 画两个向量的图形.
+
+\noindent (b) 求 (i) $\mathbf{x}$ 的长度, (ii) $\mathbf{x}$ 和 $\mathbf{y}$ 之间的夹角, (iii) $\mathbf{y}$ 在 $\mathbf{x}$ 上的投影.
+
+\noindent (c) 因为 $\bar{x}=3$ 和 $\bar{y}=1$, 画出 $[5-3,1-3,3-3]=[2,-2,0]$ 和 $[-1-1,3-1,1-1]=[-2,2,0]$.
+
+\medskip
+\noindent 2.2\quad 已知矩阵
+\[
+\mathbf{A}=\begin{bmatrix}-1&3\\4&2\end{bmatrix},\quad
+\mathbf{B}=\begin{bmatrix}4&-3\\1&-2\\-2&0\end{bmatrix}\ \text{及}\
+\mathbf{C}=\begin{bmatrix}5\\-4\\2\end{bmatrix}
+\]
+做下述指定的乘法.
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= $5\mathbf{A}$\\[2pt]
+\>(b)\> $\mathbf{B}\mathbf{A}$\\[2pt]
+\>(c)\> $\mathbf{A}'\mathbf{B}'$\\[2pt]
+\>(d)\> $\mathbf{C}'\mathbf{B}$\\[2pt]
+\>(e)\> $\mathbf{A}\mathbf{B}$ 有定义吗?
+\end{tabbing}
+
+\medskip
+\noindent 2.3\quad 当
+\[
+\mathbf{A}=\begin{bmatrix}2&1\\1&3\end{bmatrix},\quad
+\mathbf{B}=\begin{bmatrix}1&4&2\\5&0&3\end{bmatrix}\ \text{及}\
+\mathbf{C}=\begin{bmatrix}1&4\\3&2\end{bmatrix}
+\]
+时, 证明转置的下列性质:
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= $(\mathbf{A}')'=\mathbf{A}$\\[2pt]
+\>(b)\> $(\mathbf{C}^{-1})'=(\mathbf{C}^{-1})'$\\[2pt]
+\>(c)\> $(\mathbf{A}\mathbf{B})'=\mathbf{B}'\mathbf{A}'$\\[2pt]
+\>(d)\> 对一般的 $\mathbf{A}$ 和 $\mathbf{B}$, $(\mathbf{A}\mathbf{B})'=\mathbf{B}'\mathbf{A}'$.
+\end{tabbing}
+
+\medskip
+\noindent 2.4\quad 当 $\mathbf{A}^{-1}$ 和 $\mathbf{B}^{-1}$ 存在时, 证明下列性质:

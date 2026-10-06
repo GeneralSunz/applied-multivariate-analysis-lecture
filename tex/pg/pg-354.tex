@@ -1,0 +1,48 @@
+% ---- pg-354 （书页 342） ----
+
+第一主成分
+\phantomsection\label{eq:8-18}
+\begin{equation}
+Y_1=\mathbf{e}_1'\mathbf{Z}=\frac{1}{\sqrt{p}}\sum_{i=1}^{p}Z_i
+\tag{8-18}
+\end{equation}
+与 $p$ 个原变量之和成比例. 它可以看做有等权的“指数”. 该主成分解释总体总方差的比例为
+\[
+\frac{\lambda_1}{p}=\frac{1+(p-1)\rho}{p}=\rho+\frac{1-\rho}{p}
+\]
+我们看到, $\rho$ 接近 1 或者 $p$ 较大时, $\lambda_1/p\doteq\rho$. 例如, 若 $\rho=0.80$ 和 $p=5$, 第一主成分解释总体方差的 $84\%$. 当 $\rho$ 近似于 1 后, $p-1$ 个成分对总方差的集体贡献十分小, 常可略去.
+
+如果标准化变量 $Z_1,Z_2,\cdots,Z_p$ 服从多元正态分布, 协方差矩阵由\hyperref[eq:8-15]{式(8-15)}给出, 那么常数密度椭球呈“雪茄烟形”, 主轴与第一主成分 $Y_1=(1/\sqrt{p})[1,1,\cdots,1]\mathbf{Z}$ 成比例. 该主成分是 $\mathbf{Z}$ 在等角线 $\mathbf{1}'=[1,1,\cdots,1]$ 上的投影. 那些短轴(及余下的主成分)占据球形对称方向, 与主轴(及第一主成分)垂直.
+
+\section{综合主成分的样本变差}
+\phantomsection\label{sec:8.3}
+
+现在我们已有了必要的框架来对 $p$ 个变量的 $n$ 次测量研究综合其变差的问题, 这 $p$ 个变量已审慎地选出了几个线性组合.
+
+设数据 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 为从均值向量为 $\boldsymbol{\mu}$, 协方差矩阵为 $\boldsymbol{\Sigma}$ 的某个 $p$ 维总体中 $n$ 个独立的抽样. 这些数据得到样本均值向量 $\bar{\mathbf{x}}$, 样本协方差阵 $\mathbf{S}$, 以及样本相关阵 $\mathbf{R}$.
+
+本节的目的是构造所测得特征的不相关线性组合, 而这些特征说明了大多数样本变差. 有最大方差的不相关线性组合, 可称为样本主成分.
+
+回忆任意线性组合的 $n$ 个值
+\[
+\mathbf{a}_1'\mathbf{x}_j=a_{11}x_{j1}+a_{12}x_{j2}+\cdots+a_{1p}x_{jp},\qquad j=1,2,\cdots,n
+\]
+有样本均值 $\mathbf{a}'\bar{\mathbf{x}}$ 和样本方差 $\mathbf{a}'\mathbf{S}\mathbf{a}$. 对两个线性组合的数值对 $(\mathbf{a}_1'\mathbf{x}_j,\mathbf{a}_2'\mathbf{x}_j)$, 也有样本协方差 $\mathbf{a}_1'\mathbf{S}\mathbf{a}_2$[见\hyperref[eq:3-36]{式(3-36)}].
+
+样本主成分被定义为使样本方差最大的那些线性组合. 与对总体量所做的一样, 我们限制系数向量 $\mathbf{a}_i$ 满足 $\mathbf{a}_i'\mathbf{a}_i=1$. 特别的,
+
+第一样本主成分 $=$ 使其样本方差最大化的线性组合 $\mathbf{a}_1'\mathbf{X}_j$, 约束为 $\mathbf{a}_1'\mathbf{a}_1=1$
+
+第二样本主成分 $=$ 使其样本方差最大化的线性组合 $\mathbf{a}_2'\mathbf{X}_j$, 约束为 $\mathbf{a}_2'\mathbf{a}_2=1$ 及数值对 $(\mathbf{a}_1'\mathbf{x}_j,\mathbf{a}_2'\mathbf{x}_j)$ 的协方差为 0
+
+在第 $i$ 步, 我们有
+
+第 $i$(个)样本主成分 $=$ 使其样本方差最大化的线性组合 $\mathbf{a}_i'\mathbf{x}_j$, 约束为 $\mathbf{a}_i'\mathbf{a}_i=1$ 及所有数值对 $(\mathbf{a}_i'\mathbf{x}_j,\mathbf{a}_k'\mathbf{x}_j)$ 的协方差为 $0$, $k<i$
+
+第一主成分将 $\mathbf{a}_1'\mathbf{S}\mathbf{a}_1$ 或等价地将
+\phantomsection\label{eq:8-19}
+\begin{equation}
+\frac{\mathbf{a}_1'\mathbf{S}\mathbf{a}_1}{\mathbf{a}_1'\mathbf{a}_1}
+\tag{8-19}
+\end{equation}
+最大化. 根据\hyperref[eq:2-51]{式(2-51)}, 此最大值即是最大的特征值 $\hat{\lambda}_1$, 在选取 $\mathbf{a}_1=\hat{\mathbf{S}}$ 的特征向量 $\hat{\mathbf{e}}_1$ 时得到. 在 $0=\mathbf{a}_i'\hat{\mathbf{S}}\hat{\mathbf{e}}_k=\mathbf{a}_i'\hat{\lambda}_k\hat{\mathbf{e}}_k$ 或 $\mathbf{a}_i$ 与 $\hat{\mathbf{e}}_k$ 垂直的约束条件下, 相继选取 $\mathbf{a}_i$ 使\hyperref[eq:8-19]{式(8-19)}最大化. 这样, 像结论 8.1$\sim$8.3 的证明一样, 我们得到关于样本主成分的下述结论:

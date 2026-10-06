@@ -1,0 +1,48 @@
+作出的贡献更大. \hfill$\blacksquare$
+
+对小样本及中等大小的样本，蒂库和辛格（见文献[24]）给出了一个类似于 $T^2$ 的统计量，该统计量对离群观测值不太敏感，但是对容量在中等以上的样本，对正态性的微小偏离或存在少数几个离群值就不会对霍特林 $T^2$ 产生明显影响.
+
+\mvsub{当样本容量不大时对正态总体的 $T^2$ 分布的一个近似}
+
+即便两个样本的容量都不大，当总体的协方差矩阵不相等时，我们仍然可以检验 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$，只要这两个总体均是多维正态的. 这种问题经常被称为多变量 Behrens-Fisher 问题. 结果要求两个样本规模 $n_1$ 和 $n_2$ 都要比变量数目 $p$ 大. 这个方法依赖于下述统计量的渐近分布.
+\phantomsection\label{eq:6-27}
+\begin{equation}
+T^2=(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))'\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)) \tag{6-27}
+\end{equation}
+这个式子和结论 6.4 中的大样本统计是一样的. 然而，对于较小的样本（见文献[15]和[19]），建议采用\hyperref[eq:6-28]{式(6-28)}给出的近似逼近，而不是用 $\chi^2$ 近似来求得用来检验 $H_0$ 的临界值.
+\phantomsection\label{eq:6-28}
+\begin{equation}
+T^2=\frac{vp}{v-p+1}F_{p,v-p+1} \tag{6-28}
+\end{equation}
+在\hyperref[eq:6-28]{式(6-28)}中，自由度 $v$ 是从样本协方差矩阵用\hyperref[eq:6-29]{式(6-29)}估计得到的.
+\phantomsection\label{eq:6-29}
+\begin{equation}
+v=\frac{p+p^2}{\sum\limits_{i=1}^2\frac{1}{n_i}\left\{\left[\mathrm{tr}\left(\frac{1}{n_i}\mathbf{S}_i\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}\right)^2\right]+\left[\mathrm{tr}\left(\frac{1}{n_i}\mathbf{S}_i\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}\right)\right]^2\right\}} \tag{6-29}
+\end{equation}
+这里 $\min(n_1,n_2)\leqslant v\leqslant n_1+n_2$. 在单变量情形（$p=1$），这个近似就是 Behrens-Fisher 问题通常的 Welch 解.
+
+对中等规模的样本容量和两正态总体，如果
+\[
+(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))'\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))>\frac{vp}{v-p+1}F_{p,v-p+1}(\alpha)
+\]
+则在近似水平 $\alpha$ 下，拒绝均值相等假设 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$. 上式中，自由度 $v$ 由\hyperref[eq:6-29]{式(6-29)}给出. 除了临界值 $\chi_p^2(\alpha)$ 被较大的常数 $\frac{vp}{v-p+1}F_{p,v-p+1}(\alpha)$ 取代外，这个过程和结论 6.4 中的大样本检验过程是一致的.
+
+类似的，近似的 $100(1-\alpha)\%$ 置信区域由所有的满足下式的 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 给出.
+\phantomsection\label{eq:6-30}
+\begin{equation}
+(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))'\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2))\leqslant\frac{vp}{v-p+1}F_{p,v-p+1}(\alpha) \tag{6-30}
+\end{equation}
+
+对于正态的总体，由\hyperref[eq:6-28]{式(6-28)}和\hyperref[eq:6-29]{式(6-29)}给出的 $T^2$ 分布近似往往得出合理的结果.
+
+\noindent\textbf{例 6.6}\quad （当 $\boldsymbol{\Sigma}_1\neq\boldsymbol{\Sigma}_2$ 时的 $T^2$ 分布近似）
+
+尽管在例 6.4 中耗电量数据的样本容量相当大，我们用这些数据和例 6.5 中的计算结果来表明这些计算可以得到一个总体协方差矩阵不相等时的近似 $T^2$ 分布.
+
+首先，计算
+\[
+\frac{1}{n_1}\mathbf{S}_1=\frac{1}{45}\begin{bmatrix}13\,825.2&23\,823.4\\23\,823.4&73\,107.4\end{bmatrix}=\begin{bmatrix}307.227&529.409\\529.409&1\,624.609\end{bmatrix}
+\]
+\[
+\frac{1}{n_2}\mathbf{S}_2=\frac{1}{55}\begin{bmatrix}8\,632.0&19\,616.7\\19\,616.7&55\,964.5\end{bmatrix}=\begin{bmatrix}156.945&356.667\\356.667&1\,017.536\end{bmatrix}
+\]

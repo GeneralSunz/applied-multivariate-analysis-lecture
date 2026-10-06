@@ -1,0 +1,65 @@
+% ---- pg-298 （书页 286） ----
+
+这样, $E(\mathbf{Y})$ 为 $\mathbf{Z}$ 的列向量的线性组合. 当 $\boldsymbol{\beta}$ 取所有可能值时, $\mathbf{Z}\boldsymbol{\beta}$ 张成由所有可能线性组合构成的模型平面. 通常, 观测值向量 $\mathbf{y}$ 不会处于模型平面内, 这是随机误差 $\boldsymbol{\epsilon}$ 所致. 也就是说, $\mathbf{y}$(严格地说)不是 $\mathbf{Z}$ 的列向量的线性组合. 回顾
+\[
+\begin{array}{ccccc}
+\mathbf{Y}&=&\mathbf{Z}\boldsymbol{\beta}&+&\boldsymbol{\epsilon}\\[6pt]
+\left(\begin{array}{c}\text{响应}\\\text{向量}\end{array}\right)&{}&
+\left(\begin{array}{c}\text{模型平面}\\\text{内的向量}\end{array}\right)&{}&
+\left(\begin{array}{c}\text{误差}\\\text{向量}\end{array}\right)
+\end{array}
+\]
+一旦得到了观测值, 最小二乘解由偏差向量
+\[
+\mathbf{y}-\mathbf{Z}\mathbf{b}=(\text{观测值向量})-(\text{模型平面内的向量})
+\]
+导出. 偏差的平方长度 $(\mathbf{y}-\mathbf{Z}\mathbf{b})'(\mathbf{y}-\mathbf{Z}\mathbf{b})$ 便是平方和 $S(\mathbf{b})$. 如\hyperref[fig:7.1]{图 7.1} 所示, 当 $\mathbf{b}$ 选得使 $\mathbf{Z}\mathbf{b}$ 成为在模型平面内距 $\mathbf{y}$ 最近的一点时, $S(\mathbf{b})$ 达到最小. 这个点就是 $\mathbf{y}$ 向量到模型平面的垂线的垂足. 也就是说, 选择 $\mathbf{b}=\hat{\boldsymbol{\beta}}$, $\hat{\mathbf{y}}=\mathbf{Z}\hat{\boldsymbol{\beta}}$ 便是 $\mathbf{y}$ 在模型平面上的投影, 而残差向量 $\hat{\boldsymbol{\epsilon}}=\mathbf{y}-\hat{\mathbf{y}}$ 则垂直于模型平面. 这个几何解释即使在 $\mathbf{Z}$ 不满秩时也成立.
+
+\begin{mvfigure}
+\begin{tikzpicture}[>=stealth,scale=1]
+% 坐标轴
+\draw[->] (0,0)--(6.0,0) node[below right,xshift=-2pt]{2};
+\draw[->] (0,0)--(0,4.15) node[above]{3};
+\draw[->] (0,0)--(-0.6,-1.9) node[below left,xshift=2pt]{1};
+% 模型平面（阴影平行四边形）
+\fill[black!22] (0,0)--(2.94,0.27)--(4.43,2.03)--(1.12,1.91)--cycle;
+% 列1(Z)=1
+\draw[->] (0,0)--(1.15,-0.05);
+\node[anchor=west] at (1.20,-0.13) {$\text{列}_1(\mathbf{Z})=\mathbf{1}$};
+% 列2(Z)
+\draw[->] (0,0)--(0.60,0.76);
+\node[anchor=west] at (0.72,0.95) {$\text{列}_2(\mathbf{Z})$};
+% y 向量
+\draw[->] (0,0)--(0.63,2.91);
+\node[anchor=south west] at (0.52,2.95) {$\mathbf{y}$};
+% yhat = Z beta
+\draw[->] (0,0)--(1.70,1.12);
+\node[anchor=west] at (1.86,1.16)
+  {$\hat{\beta}_0\cdot\text{列}_1(\mathbf{Z})+\hat{\beta}_1\cdot\text{列}_2(\mathbf{Z})=\mathbf{Z}\hat{\boldsymbol{\beta}}=\hat{\mathbf{y}}$};
+% 残差向量
+\draw[->] (0.63,2.91)--(1.70,1.12);
+\node[anchor=west] at (1.30,2.30) {$\hat{\boldsymbol{\epsilon}}=\mathbf{y}-\hat{\mathbf{y}}$};
+% 直角符号
+\coordinate (P) at (1.70,1.12);
+\coordinate (A) at ($(P)+0.24*(0.835,0.550)$);
+\coordinate (B) at ($(P)+0.24*(-0.513,0.858)$);
+\draw (A)--($(A)+(B)-(P)$)--(B);
+\end{tikzpicture}
+\phantomsection\label{fig:7.1}\mvcap{图 7.1\quad 将最小二乘看作投影的示意图（$n=3$, $r=1$ 的情形）}
+\end{mvfigure}
+
+当 $\mathbf{Z}$ 满秩时, 投影运算的解析表达是乘以矩阵 $\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$. 为说明这点, 我们用\hyperref[eq:2-16]{式(2-16)} 的谱分解得到
+\[
+\mathbf{Z}'\mathbf{Z}=\lambda_1\mathbf{e}_1\mathbf{e}_1'+\lambda_2\mathbf{e}_2\mathbf{e}_2'+\cdots+\lambda_{r+1}\mathbf{e}_{r+1}\mathbf{e}_{r+1}'
+\]
+其中 $\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_{r+1}\geq 0$ 为 $\mathbf{Z}'\mathbf{Z}$ 的特征值, $\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_{r+1}$ 为相应的特征向量. 如果 $\mathbf{Z}$ 满秩, 就有
+\[
+(\mathbf{Z}'\mathbf{Z})^{-1}=\frac{1}{\lambda_1}\mathbf{e}_1\mathbf{e}_1'+\frac{1}{\lambda_2}\mathbf{e}_2\mathbf{e}_2'+\cdots+\frac{1}{\lambda_{r+1}}\mathbf{e}_{r+1}\mathbf{e}_{r+1}'
+\]
+考虑 $\mathbf{q}_i=\lambda_i^{-1/2}\mathbf{Z}\mathbf{e}_i$, $\mathbf{q}_i$ 为 $\mathbf{Z}$ 的各列的线性组合. 此时当 $i\neq k$, 有 $\mathbf{q}_i'\mathbf{q}_k=\lambda_i^{-1/2}\lambda_k^{-1/2}\mathbf{e}_i'\mathbf{Z}'\mathbf{Z}\mathbf{e}_k=\lambda_i^{-1/2}\lambda_k^{-1/2}\lambda_k\mathbf{e}_i'\mathbf{e}_k=0$; 当 $i=k$, 则等于 1. 也就是说, 这 $r+1$ 个向量 $\mathbf{q}_i$ 相互垂直且为单位长度, $i=1,2,\cdots,r+1$. 它们的线性组合张成由 $\mathbf{Z}$ 的诸列组成的所有线性组合的空间. 此外,
+\[
+\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'=\sum_{i=1}^{r+1}\lambda_i^{-1}\mathbf{Z}\mathbf{e}_i\mathbf{e}_i'\mathbf{Z}'=\sum_{i=1}^{r+1}\mathbf{q}_i\mathbf{q}_i'
+\]
+根据结论 2A.2 和定义 2A.12, $\mathbf{y}$ 到 $\{\mathbf{q}_1,\mathbf{q}_2,\cdots,\mathbf{q}_{r+1}\}$ 的线性组合的投影为 $\sum\limits_{i=1}^{r+1}(\mathbf{q}_i'\mathbf{y})\mathbf{q}_i=\left(\sum\limits_{i=1}^{r+1}\mathbf{q}_i\mathbf{q}_i'\right)\mathbf{y}=\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}=\mathbf{Z}\hat{\boldsymbol{\beta}}$. 这样, 乘以 $\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$ 相当于将一个向量投影到 $\mathbf{Z}$ 的诸列所张成的线性空间.\footnote{{\footnotesize 若 $\mathbf{Z}$ 不满秩, 可以用广义逆 $(\mathbf{Z}'\mathbf{Z})^-=\sum\limits_{i=1}^{r_1}\lambda_i^{-1}\mathbf{e}_i\mathbf{e}_i'$, 其中 $\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_{r_1+1}>0=\lambda_{r_1+2}=\cdots=\lambda_{r+1}$, 如练习 7.6 中所描述的那样. 此时 $\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'=\sum\limits_{i=1}^{r_1+1}\mathbf{q}_i\mathbf{q}_i'$ 有秩 $r_1+1$, 因而产生 $\mathbf{y}$ 在由 $\mathbf{Z}$ 的线性独立列张成的空间的唯一投影. 这个结论对任何 $(\mathbf{Z}'\mathbf{Z})$ 的广义逆均成立(见文献[23]).}}
+
+类似的, $[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']$ 是将 $\mathbf{y}$ 投影到与 $\mathbf{Z}$ 的诸列所张成平面垂直的平面上的矩阵.

@@ -1,0 +1,80 @@
+目前我们感兴趣的是偏差 (或剩余) 向量 $\mathbf{d}_{j}=\mathbf{y}_{j}-\bar{x}_{j}\mathbf{1}$. 在图 3.4 中给出了\hyperref[fig:3.3]{图 3.3} 中的偏差向量图. 我们在不改变偏差向量的长度和方向的情况下, 把它们平移到原点.
+
+现在考虑偏差向量的长度的平方. 利用\hyperref[eq:2-5]{式(2-5)} 和\hyperref[eq:3-4]{式(3-4)}, 得到
+\phantomsection\label{eq:3-5}
+\begin{equation}
+L_{\mathbf{d}_{j}}^{2}=\mathbf{d}_{j}'\mathbf{d}_{j}=\sum_{i=1}^{n}(x_{ij}-\bar{x}_{j})^{2}
+\tag{3-5}
+\end{equation}
+(偏差向量长度)$^{2}$ = 偏差的平方和.
+
+从\hyperref[eq:1-3]{式(1-3)} 可见, 长度的平方是与第 $j$ 个变量的测量值的方差成比例的. 等价地, 长度是与标准差成比例的. 较长的向量比较短的向量表现出更多的变化性.
+
+对于任何两个偏差向量 $\mathbf{d}_{j}$ 和 $\mathbf{d}_{k}$,
+\phantomsection\label{eq:3-6}
+\begin{equation}
+\mathbf{d}_{j}'\mathbf{d}_{k}=\sum_{i=1}^{n}(x_{ij}-\bar{x}_{j})(x_{ik}-\bar{x}_{k})
+\tag{3-6}
+\end{equation}
+令 $\theta_{jk}$ 表示向量 $\mathbf{d}_{j}$ 和 $\mathbf{d}_{k}$ 所成的角. 从\hyperref[eq:2-6]{式(2-6)}, 得到
+\[
+\mathbf{d}_{j}'\mathbf{d}_{k}=L_{\mathbf{d}_{j}}L_{\mathbf{d}_{k}}\cos(\theta_{jk})
+\]
+或利用\hyperref[eq:3-5]{式(3-5)} 和\hyperref[eq:3-6]{式(3-6)}, 得到
+\[
+\sum_{i=1}^{n}(x_{ij}-\bar{x}_{j})(x_{ik}-\bar{x}_{k})=\sqrt{\sum_{i=1}^{n}(x_{ij}-\bar{x}_{j})^{2}}\sqrt{\sum_{i=1}^{n}(x_{ik}-\bar{x}_{k})^{2}}\cos(\theta_{jk})
+\]
+因此 [参见\hyperref[eq:1-5]{式(1-5)}],
+\phantomsection\label{eq:3-7}
+\begin{equation}
+r_{ik}=\frac{s_{ik}}{\sqrt{s_{ii}}\sqrt{s_{kk}}}=\cos(\theta_{jk})
+\tag{3-7}
+\end{equation}
+夹角的余弦是样本相关系数. 若两个偏差向量几乎方向相同, 其样本相关系数将接近于 1. 若两个向量几乎是垂直的, 其样本相关系数将接近零. 若两个向量几乎是相反方向的, 其样本相关系数将接近于 $-1$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.85]
+\draw[->] (0,0)--(3.6,0) node[right]{$2$};
+\draw[->] (0,0)--(0,3.2) node[above]{$3$};
+\draw[->] (0,0)--(-1.7,-1.4) node[below left]{$1$};
+\draw[->,line width=1.0pt] (0,0)--(1.9,2.1) node[right,font=\small]{$\mathbf{d}_{2}$};
+\draw[->,line width=1.0pt] (0,0)--(1.3,-1.05) node[right,font=\small]{$\mathbf{d}_{1}$};
+\draw[->,line width=1.0pt] (0,0)--(2.2,-0.35) node[right,font=\small]{$\mathbf{d}_{3}$};
+\end{tikzpicture}
+\caption{图 3.3 中的偏差向量 $\mathbf{d}_{i}$}
+\end{figure}
+
+\medskip
+\noindent\textbf{例 3.4}\quad (由偏差向量计算 $\mathbf{S}_{n}$ 和 $\mathbf{R}$)
+
+给定例 3.3 中的偏差向量, 利用刚刚介绍过的几何概念计算样本方差-协方差矩阵 $\mathbf{S}_{n}$ 和样本相关矩阵 $\mathbf{R}$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.68]
+\draw[->] (-3.4,0)--(4.6,0) node[right]{$x_{1}$};
+\draw[->] (0,-2.6)--(0,7.2) node[above]{$x_{2}$};
+\foreach \x in {-3,-2,-1,1,2,3,4} \draw (\x,0.08)--(\x,-0.08) node[below,font=\scriptsize]{\x};
+\foreach \y in {-2,-1,1,2,3,4,5,6} \draw (0.08,\y)--(-0.08,\y) node[left,font=\scriptsize]{\y};
+% d1=(-2,2), d2=(2,0)
+\draw[->,line width=1.0pt] (0,0)--(-2,2) node[below left,font=\small]{$\mathbf{d}_{1}$};
+\draw[->,line width=1.0pt] (0,0)--(2,0) node[right,font=\small]{$\mathbf{d}_{2}$};
+\draw (1.0,0) arc (0:135:1.0);
+\node[font=\scriptsize] at (0.95,0.42){$\theta_{12}$};
+\end{tikzpicture}
+\caption{偏差向量 $\mathbf{d}_{1}$ 和 $\mathbf{d}_{2}$}
+\end{figure}
+
+由例 3.3,
+\[
+\mathbf{d}_{1}=\begin{bmatrix}2\\-3\\1\end{bmatrix}\quad\text{和}\quad \mathbf{d}_{2}=\begin{bmatrix}-2\\0\\2\end{bmatrix}
+\]
+这两个向量平移到原点后, 如图 3.5 所示. 现在
+\[
+\mathbf{d}_{1}'\mathbf{d}_{1}=\begin{bmatrix}2&-3&1\end{bmatrix}\begin{bmatrix}2\\-3\\1\end{bmatrix}=14=3s_{11}
+\]
+即 $s_{11}=14/3$. 又
+\[
+\mathbf{d}_{2}'\mathbf{d}_{2}=\begin{bmatrix}-2&0&2\end{bmatrix}\begin{bmatrix}-2\\0\\2\end{bmatrix}=8=3s_{22}
+\]

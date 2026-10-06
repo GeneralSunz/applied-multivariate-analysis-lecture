@@ -1,0 +1,90 @@
+% ---- pg-071 （书页 59） ----
+
+线性组合 $c'\bm{X} = c_1X_1 + \cdots + c_pX_p$ ,有
+
+\phantomsection\label{eq:2-43}
+\begin{equation}
+\begin{aligned}
+\text{均值} &= E(c'\bm{X}) = c'\bm{\mu} \\
+\text{方差} &= \operatorname{Var}(c'\bm{X}) = c'\bm{\Sigma}c
+\end{aligned} \tag{2-43}
+\end{equation}
+
+其中 $\bm{\mu} = E(\bm{X})$ , $\bm{\Sigma} = \operatorname{Cov}(\bm{X})$.
+
+一般的,考虑 $p$ 个随机变量 $X_1, \cdots, X_p$ 的 $q$ 个线性组合:
+
+\[
+\begin{aligned}
+Z_1 &= c_{11}X_1 + c_{12}X_2 + \cdots + c_{1p}X_p \\
+Z_2 &= c_{21}X_1 + c_{22}X_2 + \cdots + c_{2p}X_p \\
+&\qquad \vdots \qquad \qquad \qquad \vdots \\
+Z_q &= c_{q1}X_1 + c_{q2}X_2 + \cdots + c_{qp}X_p
+\end{aligned}
+\]
+
+或
+
+\phantomsection\label{eq:2-44}
+\begin{equation}
+\bm{Z} =
+\begin{bmatrix}
+Z_1 \\ Z_2 \\ \vdots \\ Z_q
+\end{bmatrix}_{(q \times 1)}
+=
+\begin{bmatrix}
+c_{11} & c_{12} & \cdots & c_{1p} \\
+c_{21} & c_{22} & \cdots & c_{2p} \\
+\vdots & \vdots & & \vdots \\
+c_{q1} & c_{q2} & \cdots & c_{qp}
+\end{bmatrix}_{(q \times p)}
+\begin{bmatrix}
+X_1 \\ X_2 \\ \vdots \\ X_p
+\end{bmatrix}_{(p \times 1)}
+= \bm{C}\bm{X} \tag{2-44}
+\end{equation}
+
+线性组合 $\bm{Z} = \bm{C}\bm{X}$ 有
+
+\phantomsection\label{eq:2-45}
+\begin{equation}
+\begin{aligned}
+\bm{\mu}_Z &= E(\bm{Z}) = E(\bm{C}\bm{X}) = \bm{C}\bm{\mu}_X \\
+\bm{\Sigma}_Z &= \operatorname{Cov}(\bm{Z}) = \operatorname{Cov}(\bm{C}\bm{X}) = \bm{C}\bm{\Sigma}_X\bm{C}'
+\end{aligned} \tag{2-45}
+\end{equation}
+
+其中 $\bm{\mu}_X$ 和 $\bm{\Sigma}_X$ 分别是 $\bm{X}$ 的均值向量和方差-协方差矩阵(参考练习 2.28 对于 $\bm{C}\bm{\Sigma}_X\bm{C}'$ 中非对角线上的项的计算).
+
+在后面第 8 章和第 9 章中讨论关于主成分分析和因子分析时,我们将主要根据\hyperref[eq:2-45]{式(2-45)}的结论.
+
+\mvbold{例 2.15} (线性组合的均值和协方差)
+
+设 $\bm{X}' = [X_1, X_2]$ 是一随机向量,其均值向量 $\bm{\mu}_X' = [\mu_1, \mu_2]$,方差-协方差矩阵
+
+\[
+\bm{\Sigma}_X =
+\begin{bmatrix}
+\sigma_{11} & \sigma_{12} \\
+\sigma_{12} & \sigma_{22}
+\end{bmatrix}
+\]
+
+利用 $\bm{\mu}_X$ 与 $\bm{\Sigma}_X$,求线性组合 $\begin{aligned} Z_1 &= X_1 - X_2 \\ Z_2 &= X_1 + X_2 \end{aligned}$ 或 $\bm{Z} = \begin{bmatrix} Z_1 \\ Z_2 \end{bmatrix} = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} X_1 \\ X_2 \end{bmatrix} = \bm{C}\bm{X}$ 的均值向量和协方差矩阵.
+
+这里
+
+\[
+\bm{\mu}_Z = E(\bm{Z}) = \bm{C}\bm{\mu}_X = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix} = \begin{bmatrix} \mu_1 - \mu_2 \\ \mu_1 + \mu_2 \end{bmatrix}
+\]
+
+且
+
+\[
+\begin{aligned}
+\bm{\Sigma}_Z &= \operatorname{Cov}(\bm{Z}) = \bm{C}\bm{\Sigma}_X\bm{C}' = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sigma_{22} \end{bmatrix}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix} \\
+&= \begin{bmatrix} \sigma_{11} - 2\sigma_{12} + \sigma_{22} & \sigma_{11} - \sigma_{22} \\ \sigma_{11} - \sigma_{22} & \sigma_{11} + 2\sigma_{12} + \sigma_{22} \end{bmatrix}
+\end{aligned}
+\]
+
+注意,若 $\sigma_{12} = \sigma_{22}$ —— 即 $X_1$ 与 $X_2$ 方差相等 —— $\bm{\Sigma}_Z$ 中的非对角线元素等于零.这说明了

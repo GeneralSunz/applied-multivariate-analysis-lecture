@@ -1,0 +1,60 @@
+% ---- pg-336 （书页 324） ----
+
+\mvtabcap{显示板 7.3(续)}
+
+\begin{mvframe}
+{\ttfamily\small
+\begin{tabular}{@{}rrrl@{}}
+3&5.038 727&0.022 01&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ |\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+4&44.059 835&0.192 49&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ |****.\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+5&$-29.118$ 892&$-0.127$ 22&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ ***|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+6&36.904 291&0.161 23&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ |***\ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+7&33.008 858&0.144 21&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ |***\ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+8&$-15.424$ 015&$-0.067$ 38&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ *|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+9&$-25.379$ 057&$-0.110$ 88&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ **|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+10&$-12.890$ 888&$-0.056$ 32&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ *|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+11&$-12.777$ 280&$-0.055$ 82&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ *|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+12&$-24.825$ 623&$-0.108$ 46&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ **|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+13&2.970 197&0.012 98&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ |\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+14&24.150 168&0.105 51&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ \ \ \ |**\ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+15&$-31.407$ 314&$-0.137$ 21&|\ \ \ \ \ \ \ \ \ \ \ \ \ \ .\ ***|\ \ \ \ .\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\\
+\end{tabular}
+\par\vspace{10pt}
+{\centering ``.'' marks two standard errors\par}
+\par}
+\end{mvframe}
+
+当建模中要使用按时间顺序排序的数据时, 在回归模型中加入允许时间相依的噪音结构往往很有益. 现代的统计软件包如 SAS 等, 都能使分析人员轻而易举地对这些扩展模型进行拟合.
+
+\mvsub{补充 7A\quad 多元多重回归模型的似然比的分布}
+
+本补充中的推导结果支持结论 7.11.
+
+我们知道 $n\hat{\boldsymbol{\Sigma}}=\mathbf{Y}'(\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\mathbf{Y}$, 并且在假设 $H_0$ 下 $n\hat{\boldsymbol{\Sigma}}_1=\mathbf{Y}'[\mathbf{I}-\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\cdot\mathbf{Z}_1']\mathbf{Y}$, 其中 $\mathbf{Y}=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\boldsymbol{\epsilon}$. 令 $\mathbf{P}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']$. 由于
+\[
+\mathbf{0}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Z}
+=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'][\mathbf{Z}_1\ \vdots\ \mathbf{Z}_2]
+=[\mathbf{P}\mathbf{Z}_1\ \vdots\ \mathbf{P}\mathbf{Z}_2]
+\]
+$\mathbf{Z}$ 的各列皆垂直于 $\mathbf{P}$. 这样, 我们有
+\[
+n\hat{\boldsymbol{\Sigma}}=(\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon})'\mathbf{P}(\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon})=\boldsymbol{\epsilon}'\mathbf{P}\boldsymbol{\epsilon}
+\]
+\[
+n\hat{\boldsymbol{\Sigma}}_1=(\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\boldsymbol{\epsilon})'\mathbf{P}_1(\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\boldsymbol{\epsilon})=\boldsymbol{\epsilon}'\mathbf{P}_1\boldsymbol{\epsilon}
+\]
+其中 $\mathbf{P}_1=\mathbf{I}-\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'$. 于是我们可用格拉姆-施密特过程(见结论 2A.3)构造 $\mathbf{Z}_1$ 诸列的一组标准正交向量 $[\mathbf{g}_1,\mathbf{g}_2,\cdots,\mathbf{g}_{q+1}]=\mathbf{G}$. 然后, 我们继续从 $[\mathbf{G},\mathbf{Z}_2]$ 得到标准正交基. 最后再加上正交于前述向量的 $n-r-1$ 个标准正交向量, 完成 $n$ 维正交基的构造. 因而, 我们有
+
+\[
+\underbrace{\mathbf{g}_1,\mathbf{g}_2,\cdots,\mathbf{g}_{q+1}}_{\text{来自 }\mathbf{Z}_1\text{ 的列}},\qquad
+\underbrace{\mathbf{g}_{q+2},\mathbf{g}_{q+3},\cdots,\mathbf{g}_{r+1}}_{\text{来自 }\mathbf{Z}_2\text{ 的列, 但垂直于 }\mathbf{Z}_1\text{ 的列}},\qquad
+\underbrace{\mathbf{g}_{r+2},\mathbf{g}_{r+3},\cdots,\mathbf{g}_n}_{\text{垂直于 }\mathbf{Z}\text{ 的列的任意一组标准正交向量}}
+\]
+
+设 $(\lambda,\mathbf{e})$ 为 $\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'$ 的特征值-特征向量对. 由于 $[\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'][\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1']=\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1$, 有
+\[
+\lambda\mathbf{e}=\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{e}
+=(\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1')^2\mathbf{e}
+=\lambda(\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1')\mathbf{e}=\lambda^2\mathbf{e}
+\]
+且 $\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'$ 的特征值为 0 或 1. 进一步有, $\mathrm{tr}(\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1')=\mathrm{tr}((\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{Z}_1)=\mathrm{tr}(\underset{(q+1)\times(q+1)}{\mathbf{I}})=q+1=\lambda_1+\lambda_2+\cdots+\lambda_{q+1}$, 其中 $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_{q+1}>0$ 为 $\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'$ 的特征值. 这说明 $\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'$ 有 $q+1$ 个特征值为 1. 由于 $(\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1')\mathbf{Z}_1=\mathbf{Z}_1$, 故任一单位长度的线性组合 $\mathbf{Z}_1\mathbf{b}_l$ 为对应于特征值 1 的特征向量. 因此, 标准正交向量 $\mathbf{g}_l\ (l=1,2,\cdots,q+1)$ 为 $\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'$ 的特征向量, 因为它们为 $\mathbf{Z}_1$ 诸列的特定的线性组合. 根据谱分解(2-16), 我们有

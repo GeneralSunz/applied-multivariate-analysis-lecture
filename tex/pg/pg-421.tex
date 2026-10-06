@@ -1,0 +1,40 @@
+% ---- pg-421 （书页 409） ----
+
+对鸡的骨骼测量值的两组结果很类似. 因子 $F_2^{*}$ 和 $F_3^{*}$ 的颅骨长度和颅骨幅宽的标号互换, 但它们一起代表头部大小. 第一因子 $F_1^{*}$ 再次表现为是体格大小因子, 受腿和翅膀控制. 与对整个数据集的主成分分析给出的结果, 有着同样的阐述. 解是相当稳定的, 并且我们十分相信, 大载荷是“真实的”. 然而像我们已经指出过的, 三个因子可能是太多了. 一个单因子或双因子模型对鸡的骨骼数据已是十分充分的, 我们鼓励大家重作因子分析, 并采用更少因子和变换解法(见练习 9.10). \hfill$\blacksquare$
+
+因子分析对行为科学和社会科学有着巨大的直观上的吸引力. 在这些领域很自然会认为, 对动物和人类过程的多变量观测值是潜在的、不能观测的“特性”的表现形式. 因子分析提供了一条途径, 用这些特性来解释行为观察变量.
+
+在最后我们要说, 因子分析仍然是十分主观的. 我们的例子以及大多数出版资料中, 因子分析模型都用少数可阐述因子提供合理解释. 实际上, 绝大多数因子分析并没产生如此明确的结果. 不幸的是, 评价因子分析质量的法则尚未很好量化, 质量问题似乎只好依赖一个
+
+\par\vspace{2pt}{\centering “哇”准则\par}\vspace{2pt}
+
+如果在仔细检查因子分析的时候, 研究者能够喊出“哇, 我明白了这些因子”的时候, 就可看作是成功运用了因子分析.
+
+\mvsub{补充 9A\quad 极大似然估计的某些计算细节}
+
+虽然不能得到极大似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 的简单解析表达式, 但可以证明它们满足某些方程. 以一个不知结构的协方差矩阵的极大似然估计量 $\mathbf{S}_n=(1/n)\sum\limits_{j=1}^{n}(\mathbf{X}_j-\bar{\mathbf{X}})(\mathbf{X}_j-\bar{\mathbf{X}})'$ 来表示这些条件方程, 是毫不奇怪的. 一些因子分析者采用通常的样本协方差 $\mathbf{S}$, 却仍用极大似然的名称来称呼得到的估计. 此项修改等同于采用从威沙特分布 $\sum\limits_{j=1}^{n}(\mathbf{X}_j-\bar{\mathbf{X}})\cdot(\mathbf{X}_j-\bar{\mathbf{X}})'$ 得到的似然估计, 而忽略由 $\bar{\mathbf{X}}$ 的正态密度作出的微小贡献. 既然 $\mathbf{S}_n$ 和 $\mathbf{S}$ 都产生同样的相关矩阵, $\mathbf{R}$ 的因子分析当然不受选用 $\mathbf{S}_n$ 还是选用 $\mathbf{S}$ 的影响.
+
+\mvthm{结论 9A.1}{} \quad 令 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 是来自正态总体的随机样本. 将\hyperref[eq:9-25]{式(9-25)}在唯一性条件(9-26)约束下取最大化, 得到极大似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$. 它们满足
+\phantomsection\label{eq:9A-1}
+\begin{equation}
+(\hat{\boldsymbol{\Psi}}^{-1/2}\mathbf{S}_n\hat{\boldsymbol{\Psi}}^{-1/2})(\hat{\boldsymbol{\Psi}}^{-1/2}\hat{\mathbf{L}})=(\hat{\boldsymbol{\Psi}}^{-1/2}\hat{\mathbf{L}})(\mathbf{I}+\hat{\boldsymbol{\Delta}}) \tag{9A-1}
+\end{equation}
+故 $\hat{\boldsymbol{\Psi}}^{-1/2}\hat{\mathbf{L}}$ 的第 $j$ 列是 $\hat{\boldsymbol{\Psi}}^{-1/2}\mathbf{S}_n\hat{\boldsymbol{\Psi}}^{-1/2}$ 的(非规范化)特征向量, 对应于特征值 $1+\hat{\Delta}_j$. 这里
+\[
+\mathbf{S}_n=n^{-1}\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'=n^{-1}(n-1)\mathbf{S}\qquad\text{且}\qquad
+\hat{\Delta}_1\geqslant\hat{\Delta}_2\geqslant\cdots\geqslant\hat{\Delta}_m
+\]
+还有, 在收敛处,
+\phantomsection\label{eq:9A-2}
+\begin{equation}
+\hat{\psi}_i=\mathbf{S}_n-\hat{\mathbf{L}}\hat{\mathbf{L}}'\ \text{的第}\ i\ \text{个对角元} \tag{9A-2}
+\end{equation}
+和
+\[
+\mathrm{tr}(\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S}_n)=p
+\]
+我们不去考虑证明的细节, 但很明显, $\hat{\boldsymbol{\mu}}=\bar{\mathbf{x}}$, 考虑到对数似然函数, 会引向在 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 上求 $-(n/2)[\ln|\boldsymbol{\Sigma}|+\mathrm{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{S}_n)]$ 的最大化. 等价的, 由于 $\mathbf{S}_n$ 和 $p$ 在最大化中是常数, 我们把
+\phantomsection\label{eq:9A-3}
+\begin{equation}
+h(\hat{\boldsymbol{\mu}},\boldsymbol{\Psi},\mathbf{L})=\ln|\boldsymbol{\Sigma}|-\ln|\mathbf{S}_n|+\mathrm{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{S}_n)-p \tag{9A-3}
+\end{equation}

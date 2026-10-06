@@ -1,0 +1,43 @@
+% ---- pg-469 （书页 457） ----
+
+了以下两个变量:
+\[
+\begin{aligned}
+X_1&=\log_{10}(\text{AHF 活性})\\
+X_2&=\log_{10}(\text{类 AHF 抗原})
+\end{aligned}
+\]
+(“AHF”代表“抗血友病因子”.) 第一组妇女共 $n_1=30$ 人, 来自不携带血友病基因的女性总体. 这个组称为正常组. 第二组有 $n_2=22$ 个妇女, 来自已知的 A 型血友病患者总体(血友病患者的女儿, 有多于一个血友病儿子的母亲, 以及有一个血友病儿子且有其他血友病亲戚的母亲). 这一组称为必然携带者. 这两组观测值对 $(x_1,x_2)$ 示于\hyperref[fig:11.4]{图 11.4}. 图中还分别展示了对二元正态分布(以 $\bar{\mathbf{x}}_1$ 和 $\bar{\mathbf{x}}_2$ 为中心)含 $50\%$ 和 $95\%$ 概率的估计轮廓线. 两个总体共同的协方差矩阵用联合样本协方差矩阵 $\mathbf{S}_{\mathrm{p}}$ 来估计. 在本例中, 二元正态分布看来同数据拟合得相当好.
+
+\begin{mvfigure}
+\mvinc{pg-469}{0.311,0.305,0.713,0.512}
+\phantomsection\label{fig:11.4}\mvcap{图 11.4\quad 血友病数据的散布图}
+\end{mvfigure}
+
+研究人员(见文献[4])提供了下列信息:
+\[
+\bar{\mathbf{x}}_1=\begin{bmatrix}-0.006\,5\\-0.039\,0\end{bmatrix},\qquad \bar{\mathbf{x}}_2=\begin{bmatrix}-0.248\,3\\0.026\,2\end{bmatrix}
+\]
+以及
+\[
+\mathbf{S}_{\mathrm{p}}^{-1}=\begin{bmatrix}131.158&-90.423\\-90.423&108.147\end{bmatrix}
+\]
+因此, 相同代价和相同先验概率的判别函数[见\hyperref[eq:11-19]{式(11-19)}]为
+\[
+\begin{aligned}
+\hat{y}&=\hat{\mathbf{a}}'\mathbf{x}=[\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2]'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}\\
+&=[0.241\,8\quad -0.065\,2]\begin{bmatrix}131.158&-90.423\\-90.423&108.147\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}\\
+&=37.61x_1-28.92x_2
+\end{aligned}
+\]
+进而有
+\[
+\begin{aligned}
+\hat{y}_1&=\hat{\mathbf{a}}'\bar{\mathbf{x}}_1=[37.61\quad -28.92]\begin{bmatrix}-0.006\,5\\-0.039\,0\end{bmatrix}=0.88\\
+\hat{y}_2&=\hat{\mathbf{a}}'\bar{\mathbf{x}}_2=[37.61\quad -28.92]\begin{bmatrix}-0.248\,3\\0.026\,2\end{bmatrix}=-10.10
+\end{aligned}
+\]
+因此均值连线的中点[见\hyperref[eq:11-20]{式(11-20)}]为
+\[
+\hat{m}=\frac{1}{2}(\hat{y}_1+\hat{y}_2)=\frac{1}{2}\times(0.88-10.10)=-4.61
+\]

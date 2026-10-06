@@ -1,0 +1,68 @@
+% ---- pg-072 （书页 60） ----
+
+一个众所周知的结论,方差相等的两个随机变量的和与差是不相关的.
+
+\mvsub{分块样本均值向量和协方差矩阵}
+
+本节中,矩阵的许多结论已经用总体均值和方差(协方差)来表示.如果总体量由合理定义的样本量取代,\hyperref[eq:2-36]{式(2-36)},(2-37),(2-38)和(2-40)中的结论也成立.
+
+设 $\bar{\bm{x}}' = [\bar{x}_1, \bar{x}_2, \cdots, \bar{x}_p]$ 是由 $p$ 个变量 $X_1, X_2, \cdots, X_p$ 的 $n$ 个观察结果所构成的样本均值向量,并设
+
+\[
+\begin{aligned}
+\bm{S}_n &=
+\begin{bmatrix}
+s_{11} & \cdots & s_{1p} \\
+\vdots & \ddots & \vdots \\
+s_{1p} & \cdots & s_{pp}
+\end{bmatrix} \\[4pt]
+&=
+\begin{bmatrix}
+\dfrac{1}{n}\sum_{j=1}^{n}(x_{j1} - \bar{x}_1)^2 & \cdots & \dfrac{1}{n}\sum_{j=1}^{n}(x_{j1} - \bar{x}_1)(x_{jp} - \bar{x}_p) \\
+\vdots & \ddots & \vdots \\
+\dfrac{1}{n}\sum_{j=1}^{n}(x_{j1} - \bar{x}_1)(x_{jp} - \bar{x}_p) & \cdots & \dfrac{1}{n}\sum_{j=1}^{n}(x_{jp} - \bar{x}_p)^2
+\end{bmatrix}
+\end{aligned}
+\]
+
+是对应的样本方差-协方差矩阵.
+
+样本均值向量和协方差矩阵可以分块,以便区分对应各类变量的量.因此,
+
+\phantomsection\label{eq:2-46}
+\begin{equation}
+\bar{\bm{x}}'_{(p \times 1)} =
+\begin{bmatrix}
+\bar{x}_1 \\ \vdots \\ \bar{x}_q \\ \hline \bar{x}_{q+1} \\ \vdots \\ \bar{x}_p
+\end{bmatrix}
+=
+\begin{bmatrix}
+\bar{\bm{x}}^{(1)} \\ \hline \bar{\bm{x}}^{(2)}
+\end{bmatrix} \tag{2-46}
+\end{equation}
+
+和
+
+\phantomsection\label{eq:2-47}
+\begin{equation}
+\begin{aligned}
+\bm{S}_{(p \times p)} &=
+\begin{bmatrix}
+s_{11} & \cdots & s_{1q} & s_{1,q+1} & \cdots & s_{1,p} \\
+\vdots & & \vdots & \vdots & & \vdots \\
+s_{q1} & & s_{qq} & s_{q,q+1} & & s_{qp} \\ \hline
+s_{q+1,1} & & s_{q+1,q} & s_{q+1,q+1} & & s_{q+1,p} \\
+\vdots & & \vdots & \vdots & & \vdots \\
+s_{p1} & \cdots & s_{pq} & s_{p,q+1} & \cdots & s_{pp}
+\end{bmatrix} \\[4pt]
+&= \begin{array}{c} q \\ p - q \end{array}
+\begin{array}{c} \begin{bmatrix} \bm{S}_{11} & \vdots & \bm{S}_{12} \\ \hline \bm{S}_{21} & \vdots & \bm{S}_{22} \end{bmatrix} \end{array}
+\end{aligned} \tag{2-47}
+\end{equation}
+
+其中 $\bar{\bm{x}}^{(1)}$ 和 $\bar{\bm{x}}^{(2)}$ 是分别由观测值 $\bm{x}^{(1)'} = [x_1, \cdots, x_q]$ 和 $\bm{x}^{(2)'} = [x_{q+1}, \cdots, x_p]$ 构成的样本均值向量; $\bm{S}_{11}$ 是由观测值 $\bm{x}^{(1)}$ 计算的样本协方差阵; $\bm{S}_{22}$ 是由观测值 $\bm{x}^{(2)}$ 计算的样本协方差阵; 且 $\bm{S}_{12} = \bm{S}_{21}'$ 是关于 $\bm{x}^{(1)}$ 和 $\bm{x}^{(2)}$ 的元素间的样本协方差矩阵.
+
+\section{矩阵不等式和极大化}  % 原书 2.7
+\phantomsection\label{sec:2.7}
+
+极大化原理在多种多元方法中起着重要作用.例如,线性判别分析就涉及把诸多观察结果分配到预定的聚类.通常,分配的规则是测量值的一个线性函数,它使得聚类的分离相对于

@@ -1,0 +1,70 @@
+\[
+A\mathbf{X}=\begin{bmatrix}\sum\limits_{j=1}^{n}c_j\mathbf{X}_j\\[6pt]\sum\limits_{j=1}^{n}b_j\mathbf{X}_j\end{bmatrix}=\begin{bmatrix}V_1\\V_2\end{bmatrix}
+\]
+
+且由结论 4.3，$A\mathbf{X}$ 是正态的 $N_{2p}\left(A\boldsymbol{\mu},A\boldsymbol{\Sigma}_xA'\right)$。直接作矩阵分块乘法，得到 $A\boldsymbol{\Sigma}_xA'$ 的第一个分块对角线项
+
+\[
+[c_1\boldsymbol{\Sigma},c_2\boldsymbol{\Sigma},\cdots,c_n\boldsymbol{\Sigma}]\times[c_1I,c_2I,\cdots,c_nI]'=\left(\sum_{j=1}^{n}c_j^2\right)\boldsymbol{\Sigma}
+\]
+
+非对角线的项是
+
+\[
+[c_1\boldsymbol{\Sigma},c_2\boldsymbol{\Sigma},\cdots,c_n\boldsymbol{\Sigma}][b_1I,b_2I,\cdots,b_nI]'=\left(\sum_{j=1}^{n}c_jb_j\right)\boldsymbol{\Sigma}
+\]
+
+该项是关于 $V_1,V_2$ 的协方差矩阵。因此，当 $\sum\limits_{j=1}^{n}c_jb_j=b'c=0$，于是 $\left(\sum\limits_{j=1}^{n}c_jb_j\right)\boldsymbol{\Sigma}=\mathbf{0}_{(p\times p)}$，由结论 4.5(b)，$V_1$ 和 $V_2$ 是独立的。\hfill$\blacksquare$
+
+对于\hyperref[eq:4-10]{式(4-10)}中的类型的和，零相关性等价于要求系数向量 $\boldsymbol{b}$ 和 $\boldsymbol{c}$ 是正交的。
+
+\noindent\textbf{例 4.8}\quad （随机向量的线性组合）
+
+设 $\mathbf{X}_1,\mathbf{X}_2,\mathbf{X}_3$ 和 $\mathbf{X}_4$ 是独立同分布 $3\times1$ 随机向量，有
+
+\[
+\boldsymbol{\mu}=\begin{bmatrix}3\\-1\\1\end{bmatrix},\qquad
+\boldsymbol{\Sigma}=\begin{bmatrix}3&-1&1\\-1&1&0\\1&0&2\end{bmatrix}
+\]
+
+我们首先考虑 $\mathbf{X}_1$ 的三个分量的一个线性组合 $a'\mathbf{X}_1$，这是一个均值为
+
+\[
+a'\boldsymbol{\mu}=3a_1-a_2+a_3
+\]
+
+方差为
+
+\[
+a'\boldsymbol{\Sigma}a=3a_1^2+a_2^2+2a_3^2-2a_1a_2+2a_1a_3
+\]
+
+的随机变量。即一个随机向量分量的线性组合 $a'\mathbf{X}_1$，是由每个变量乘以常数后相加组成的单一随机变量。这与随机向量的线性组合很不同，例如，
+
+\[
+c_1\mathbf{X}_1+c_2\mathbf{X}_2+c_3\mathbf{X}_3+c_4\mathbf{X}_4
+\]
+
+它本身是一个随机向量。这里，其中的每一项是一个常数乘以一个随机向量。
+
+现在考虑随机向量的两个线性组合
+
+\[
+\frac{1}{2}\mathbf{X}_1+\frac{1}{2}\mathbf{X}_2+\frac{1}{2}\mathbf{X}_3+\frac{1}{2}\mathbf{X}_4
+\]
+
+和
+
+\[
+\mathbf{X}_1+\mathbf{X}_2+\mathbf{X}_3-3\mathbf{X}_4
+\]
+
+对这些向量的每个线性组合求均值向量与协方差矩阵，并求它们两者之间的协方差。
+
+由结论 4.8，且 $c_1=c_2=c_3=c_4=1/2$，第一个线性组合均值向量为
+
+\[
+(c_1+c_2+c_3+c_4)\boldsymbol{\mu}=2\boldsymbol{\mu}=\begin{bmatrix}6\\-2\\2\end{bmatrix}
+\]
+
+协方差矩阵为

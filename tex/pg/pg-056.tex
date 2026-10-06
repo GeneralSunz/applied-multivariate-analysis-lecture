@@ -1,0 +1,171 @@
+% ---- pg-056 （书页 44） ----
+
+\[
+\begin{gathered}
+\underset{(n\times 4)}{\bm{A}}\ \underset{(4\times p)}{\bm{B}} =
+\left[\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+\vdots & \vdots & \vdots & \vdots \\
+\cline{1-4}
+a_{i1} & a_{i2} & a_{i3} & a_{i4} \\
+\cline{1-4}
+\vdots & \vdots & \vdots & \vdots \\
+a_{n1} & a_{n2} & a_{n3} & a_{n4}
+\end{array}\right]
+\left[\begin{array}{cc|c|cc}
+b_{11} & \cdots & b_{1j} & \cdots & b_{1p} \\
+b_{21} & \cdots & b_{2j} & \cdots & b_{2p} \\
+b_{31} & \cdots & b_{3j} & \cdots & b_{3p} \\
+b_{41} & \cdots & b_{4j} & \cdots & b_{4p}
+\end{array}\right] \\[4pt]
+\begin{array}{c}
+\text{列} \\
+j \\
+\vdots \\
+= \text{行 } i\left[\cdots\left(a_{i1}b_{1j} + a_{i2}b_{2j} + a_{i3}b_{3j} + a_{i4}b_{4j}\right)\cdots\right] \\
+\vdots
+\end{array}
+\end{gathered}
+\]
+
+\mvbold{例 2.5}\quad (矩阵乘法)
+
+如果
+\[
+\bm{A} =
+\begin{bmatrix}
+3 & -1 & 2 \\
+1 & 5 & 4
+\end{bmatrix},
+\quad
+\bm{B} =
+\begin{bmatrix}
+-2 \\
+7 \\
+9
+\end{bmatrix}
+\quad\text{和}\quad
+\bm{C} =
+\begin{bmatrix}
+2 & 0 \\
+1 & -1
+\end{bmatrix}
+\]
+则
+\[
+\underset{(2\times 3)}{\bm{A}}\,\underset{(3\times 1)}{\bm{B}} =
+\begin{bmatrix}
+3 & -1 & 2 \\
+1 & 5 & 4
+\end{bmatrix}
+\begin{bmatrix}
+-2 \\
+7 \\
+9
+\end{bmatrix}
+=
+\begin{bmatrix}
+3\times(-2)+(-1)\times 7+2\times 9 \\
+1\times(-2)+5\times 7 \quad +4\times 9
+\end{bmatrix}
+=
+\underset{(2\times 1)}{\begin{bmatrix}
+5 \\
+69
+\end{bmatrix}}
+\]
+和
+\[
+\underset{(2\times 2)}{\bm{C}}\,\underset{(2\times 3)}{\bm{A}} =
+\begin{bmatrix}
+2 & 0 \\
+1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+3 & -1 & 2 \\
+1 & 5 & 4
+\end{bmatrix}
+\]
+\[
+=
+\begin{bmatrix}
+2\times 3+0\times 1 & 2\times(-1)+0\times 5 & 2\times 2+0\times 4 \\
+1\times 3-1\times 1 & 1\times(-1)-1\times 5 & 1\times 2-1\times 4
+\end{bmatrix}
+=
+\underset{(2\times 3)}{\begin{bmatrix}
+6 & -2 & 4 \\
+2 & -6 & -2
+\end{bmatrix}}
+\]
+
+当矩阵 $\bm{B}$ 由一列组成时,通常采用小写的向量符号 $\bm{b}$.\hfill$\blacksquare$
+
+\mvbold{例 2.6}\quad (某些典型的乘积以及它们的维数)
+
+设
+\[
+\bm{A} =
+\begin{bmatrix}
+1 & -2 & 3 \\
+2 & 4 & -1
+\end{bmatrix}
+\qquad
+\bm{b} =
+\begin{bmatrix}
+7 \\
+-3 \\
+6
+\end{bmatrix}
+\qquad
+\bm{c} =
+\begin{bmatrix}
+5 \\
+8 \\
+-4
+\end{bmatrix}
+\qquad
+\bm{d} =
+\begin{bmatrix}
+2 \\
+9
+\end{bmatrix}
+\]
+
+此时 $\bm{A}\bm{b},\bm{b}\bm{c}',\bm{b}'\bm{c}$ 和 $\bm{d}'\bm{A}\bm{b}$ 为典型的乘积.
+
+\[
+\bm{A}\bm{b} =
+\begin{bmatrix}
+1 & -2 & 3 \\
+2 & 4 & -1
+\end{bmatrix}
+\begin{bmatrix}
+7 \\
+-3 \\
+6
+\end{bmatrix}
+=
+\begin{bmatrix}
+31 \\
+-4
+\end{bmatrix}
+\]
+
+乘积 $\bm{A}\bm{b}$ 是一个向量,其维数等于 $\bm{A}$ 的行数.
+
+\[
+\bm{b}'\bm{c} =
+\begin{bmatrix}
+7 & -3 & 6
+\end{bmatrix}
+\begin{bmatrix}
+5 \\
+8 \\
+-4
+\end{bmatrix}
+=
+\begin{bmatrix}
+-13
+\end{bmatrix}
+\]

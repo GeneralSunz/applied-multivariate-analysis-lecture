@@ -1,0 +1,55 @@
+% ---- pg-396 （书页 384） ----
+
+还有对角元
+\[
+\rho_{ii}=1=h_i^2+\psi_i
+\]
+的共性方差部分. 如果从对角上除掉特殊因子贡献 $\psi_i$, 或者等价地以 $h_i^2$ 代替 1, 那么所得矩阵为 $\boldsymbol{\rho}-\boldsymbol{\Psi}=\mathbf{L}\mathbf{L}'$.
+
+现在设此特殊方差的初始估计 $\psi_i^*$ 可以得到, 则用 $h_i^{*2}=1-\psi_i^*$ 代替 $\mathbf{R}$ 的第 $i$ 个对角元, 我们就得到一个“缩减了的”样本相关矩阵
+\[
+\mathbf{R}_r=\begin{bmatrix}
+h_1^{*2}&r_{12}&\cdots&r_{1p}\\
+r_{12}&h_2^{*2}&\cdots&r_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+r_{1p}&r_{2p}&\cdots&h_p^{*2}
+\end{bmatrix}
+\]
+现在除去样本变差, 此缩减样本相关矩阵 $\mathbf{R}_r$ 的所有元将由 $m$ 个公共因子占据. 特别的, $\mathbf{R}_r$ 因子化为
+\phantomsection\label{eq:9-21}
+\begin{equation}
+\mathbf{R}_r\doteq\mathbf{L}_r^*\mathbf{L}_r^{*'}
+\tag{9-21}
+\end{equation}
+其中 $\mathbf{L}_r^*=\{l_{ij}^*\}$ 是荷载的估计.
+
+因子分析的主成分法采用估计
+\phantomsection\label{eq:9-22}
+\begin{equation}
+\begin{aligned}
+\mathbf{L}_r^*&=\left[\begin{array}{c:c:c:c}
+\sqrt{\hat{\lambda}_1^*}\hat{\mathbf{e}}_1^*&\sqrt{\hat{\lambda}_2^*}\hat{\mathbf{e}}_2^*&\cdots&\sqrt{\hat{\lambda}_m^*}\hat{\mathbf{e}}_m^*
+\end{array}\right]\\
+\psi_i^*&=1-\sum_{j=1}^{m}l_{ij}^{*2}
+\end{aligned}
+\tag{9-22}
+\end{equation}
+其中 $(\hat{\lambda}_i^*,\hat{\mathbf{e}}_i^*)$ $i=1,\cdots,m$ 是从 $\mathbf{R}_r$ 决定的(最大)特殊值-特征向量对. 反之, 共性方差则会(重新)估计为
+\phantomsection\label{eq:9-23}
+\begin{equation}
+\tilde{h}_i^{*2}=\sum_{j=1}^{m}l_{ij}^{*2}
+\tag{9-23}
+\end{equation}
+主成分因子解可从迭代得到, 以共性方差估计(9-23)为下一步的初始估计.
+
+以主成分分解角度看, 考虑特征值估计 $\hat{\lambda}_1^*,\hat{\lambda}_2^*,\cdots,\hat{\lambda}_p^*$, 有助于确定保留公共因子的数目. 由于使用初始共性方差估计, 一个额外的麻烦是, 现在某些特征值可能是负数. 在想象中, 我们应取公共因子的个数等于缩减总体矩阵的秩. 不幸的是, 从 $\mathbf{R}_r$ 不总是好决定秩数, 这样某些判断就是必要的了.
+
+虽然对特殊方差初始估计存在许多选择, 但当与相关矩阵打交道时最受欢迎的选择是 $\psi_i^*=1/r^{ii}$, 其中 $r^{ii}$ 是 $\mathbf{R}^{-1}$ 的第 $i$ 个对角元. 初始共性方差估计则变为
+\phantomsection\label{eq:9-24}
+\begin{equation}
+h_i^{*2}=1-\psi_i^*=1-1/r^{ii}
+\tag{9-24}
+\end{equation}
+它等于 $X_i$ 和其他 $p-1$ 个变量间多重相关系数的平方. 涉及多重相关系数, 意味着甚至当 $\mathbf{R}$ 不满秩时也可计算 $h_i^{*2}$. 为进行 $\mathbf{S}$ 因子化, 初始的特殊方差估计采用 $\mathbf{S}^{-1}$ 的对角元 $s^{ii}$. 文献[6]中有它们的进一步讨论和其他的初始估计. 虽然 $\mathbf{R}$ 的主成分法可以看成特殊方差的初始估计为零的主因子解, 两者在思想上和几何上还是有所不同. 然而, 当变量数目大而公共因子数目小时, 两种方法在实际中经常得到相差不多的因子载荷.
+
+我们不进一步探讨主因子解, 因为在我们看来, 最值得推荐的解法是主成分法和极大似然法, 我们下面就讨论它们.

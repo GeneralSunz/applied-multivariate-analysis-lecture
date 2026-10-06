@@ -1,0 +1,42 @@
+的分布.
+
+由结论 4.3,$\mathbf{A}\mathbf{X}$ 的分布为多元正态,其均值为
+\[
+\mathbf{A}\boldsymbol{\mu}=\begin{bmatrix}1&-1&0\\0&1&-1\end{bmatrix}\begin{bmatrix}\mu_1\\\mu_2\\\mu_3\end{bmatrix}=\begin{bmatrix}\mu_1-\mu_2\\\mu_2-\mu_3\end{bmatrix}
+\]
+协方差矩阵为
+\begin{align*}
+\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}'&=\begin{bmatrix}1&-1&0\\0&1&-1\end{bmatrix}\begin{bmatrix}\sigma_{11}&\sigma_{12}&\sigma_{13}\\\sigma_{12}&\sigma_{22}&\sigma_{23}\\\sigma_{13}&\sigma_{23}&\sigma_{33}\end{bmatrix}\begin{bmatrix}1&0\\-1&1\\0&-1\end{bmatrix}\\
+&=\begin{bmatrix}\sigma_{11}-\sigma_{12}&\sigma_{12}-\sigma_{22}&\sigma_{13}-\sigma_{23}\\\sigma_{12}-\sigma_{13}&\sigma_{22}-\sigma_{23}&\sigma_{23}-\sigma_{33}\end{bmatrix}\begin{bmatrix}1&0\\-1&1\\0&-1\end{bmatrix}\\
+&=\begin{bmatrix}\sigma_{11}-2\sigma_{12}+\sigma_{22}&\sigma_{12}+\sigma_{13}-\sigma_{22}-\sigma_{23}\\\sigma_{12}+\sigma_{13}-\sigma_{22}-\sigma_{23}&\sigma_{22}-2\sigma_{23}+\sigma_{33}\end{bmatrix}
+\end{align*}
+换言之,通过直接计算两个随机变量 $Y_1=X_1-X_2$ 和 $Y_2=X_2-X_3$ 的均值和协方差,可以验证均值向量 $\mathbf{A}\boldsymbol{\mu}$ 和协方差矩阵 $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}'$.\hfill$\blacksquare$
+
+我们提到过一个多元正态随机向量 $\mathbf{X}$ 的所有子集本身是正态的. 在结论 4.4 中我们正式地描述这一性质.
+
+\mvthm{结论 4.4}{$\mathbf{X}$ 的所有子集是正态分布. 若我们分别把 $\mathbf{X}$ 及其均值向量 $\boldsymbol{\mu}$ 和协方差矩阵 $\boldsymbol{\Sigma}$ 划分为
+\[
+\underset{(p\times1)}{\mathbf{X}}=\begin{bmatrix}\underset{(q\times1)}{\mathbf{X}_1}\\[2ex]\underset{((p-q)\times1)}{\mathbf{X}_2}\end{bmatrix},\qquad
+\underset{(p\times1)}{\boldsymbol{\mu}}=\begin{bmatrix}\underset{(q\times1)}{\boldsymbol{\mu}_1}\\[2ex]\underset{((p-q)\times1)}{\boldsymbol{\mu}_2}\end{bmatrix}
+\]
+和
+\[
+\underset{(p\times p)}{\boldsymbol{\Sigma}}=\left[\begin{array}{c|c}
+\underset{(q\times q)}{\boldsymbol{\Sigma}_{11}}&\underset{(q\times(p-q))}{\boldsymbol{\Sigma}_{12}}\\
+\hdashline
+\underset{((p-q)\times q)}{\boldsymbol{\Sigma}_{21}}&\underset{((p-q)\times(p-q))}{\boldsymbol{\Sigma}_{22}}
+\end{array}\right]
+\]
+则 $\mathbf{X}_1$ 服从 $N_q(\boldsymbol{\mu}_1,\boldsymbol{\Sigma}_{11})$ 分布.}
+
+\noindent\textbf{证明}\quad 令结论 4.3 中的 $\mathbf{A}=\left[\underset{(q\times q)}{\mathbf{I}}\quad\underset{(q\times(p-q))}{\mathbf{0}}\right]$,结论成立. 至于把结论 4.4 应用于 $\mathbf{X}$ 的分量的任意子集,我们只需把感兴趣的子集重新标为 $\mathbf{X}_1$,并分别选择相应的均值和协方差分量为 $\boldsymbol{\mu}_1$ 和 $\boldsymbol{\Sigma}_{11}$.\hfill$\blacksquare$
+
+\noindent\textbf{例 4.5}\quad (正态随机向量的子集的分布)
+
+若 $\mathbf{X}$ 服从 $N_3(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布,求 $\begin{bmatrix}X_2\\X_1\end{bmatrix}$ 的分布.
+
+设
+\[
+\mathbf{X}_1=\begin{bmatrix}X_2\\X_1\end{bmatrix},\qquad \boldsymbol{\mu}=\begin{bmatrix}\mu_2\\\mu_1\end{bmatrix},\qquad \boldsymbol{\Sigma}_{11}=\begin{bmatrix}\sigma_{22}&\sigma_{21}\\\sigma_{21}&\sigma_{11}\end{bmatrix}
+\]
+且注意到,在该分布下,$\mathbf{X},\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 分别可以重新排列和划分为

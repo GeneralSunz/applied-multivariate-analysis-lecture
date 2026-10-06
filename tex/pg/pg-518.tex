@@ -1,0 +1,55 @@
+% ---- pg-518 （书页 506） ----
+
+\noindent 11.6\quad 考虑线性函数 $Y=\mathbf{a}'\mathbf{X}$. 当 $\mathbf{X}$ 属于总体 $\pi_1$ 时, 记 $E(\mathbf{X})=\boldsymbol{\mu}_1$ 和 $\mathrm{Cov}(\mathbf{X})=\boldsymbol{\Sigma}$. 当 $\mathbf{X}$ 属于总体 $\pi_2$ 时, 记 $E(\mathbf{X})=\boldsymbol{\mu}_2$ 和 $\mathrm{Cov}(\mathbf{X})=\boldsymbol{\Sigma}$. 令 $m=\frac{1}{2}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)=\frac{1}{2}(\mathbf{a}'\boldsymbol{\mu}_1+\mathbf{a}'\boldsymbol{\mu}_2)$. 给定 $\mathbf{a}'=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}$, 证明下列结论:
+
+(a) $E(\mathbf{a}'\mathbf{X}\mid \pi_1)-m=\mathbf{a}'\boldsymbol{\mu}_1-m>0$
+
+(b) $E(\mathbf{a}'\mathbf{X}\mid \pi_2)-m=\mathbf{a}'\boldsymbol{\mu}_2-m<0$
+
+提示: 回顾 $\boldsymbol{\Sigma}$ 是满秩的, 因而也是正定的, 故 $\boldsymbol{\Sigma}^{-1}$ 存在且正定.
+
+\noindent 11.7\quad 设对 $|x|\le 1$, $f_1(x)=(1-|x|)$ 对 $-0.5\le x\le 1.5$, $f_2(x)=\frac{1}{2}(1-|x-0.5|)$.
+
+(a) 对两个密度函数作图.
+
+(b) 当 $p_1=p_2$ 和 $c(1\mid 2)=c(2\mid 1)$ 时, 确定分类域.
+
+(c) 当 $p_1=0.2$ 和 $c(1\mid 2)=c(2\mid 1)$ 时, 确定分类域.
+
+\noindent 11.8\quad 参看练习 11.7. 设 $f_1(x)$ 不变, 但取 $f_2(x)=\frac{1}{4}(2-|x-0.5|)$, $-1.5\le x\le 2.5$.
+
+(a) 对两个密度函数作图.
+
+(b) 当 $p_1=p_2$ 和 $c(1\mid 2)=c(2\mid 1)$ 时确定分类域.
+
+\noindent 11.9\quad 对 $g=2$ 个总体, 证明\hyperref[eq:11-59]{式(11-59)}中的比值与下述比值成比例:
+\[
+\begin{aligned}
+\frac{(\bar{Y}\text{ 的均值间的平方距离})}{(\bar{Y}\text{ 的方差})}&=\frac{(\mu_{1Y}-\mu_{2Y})^2}{\sigma_Y^2}=\frac{(\mathbf{a}'\boldsymbol{\mu}_1-\mathbf{a}'\boldsymbol{\mu}_2)^2}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}\\
+&=\frac{\mathbf{a}'(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\mathbf{a}}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}=\frac{(\mathbf{a}'\boldsymbol{\delta})^2}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}
+\end{aligned}
+\]
+其中 $\boldsymbol{\delta}=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)$ 为均值向量之差. 该比值是\hyperref[eq:11-23]{式(11-23)}的总体对应量. 试证: 对任意 $c\ne 0$, 该比值通过下面的线性组合达到最大:
+\[
+\mathbf{a}=c\boldsymbol{\Sigma}^{-1}\boldsymbol{\delta}=c\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)
+\]
+提示: 注意对 $i=1,2$, 有
+\[
+(\boldsymbol{\mu}_i-\boldsymbol{\mu})(\boldsymbol{\mu}_i-\boldsymbol{\mu})'=\frac{1}{4}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)',\quad \text{其中}\ \boldsymbol{\mu}=\frac{1}{2}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2).
+\]
+
+\noindent 11.10\quad 设 $n_1=11$ 个和 $n_2=12$ 个观测值分别取自两个随机变量 $X_1$ 和 $X_2$. 假定这两个变量服从二元正态分布, 且有相同的协方差矩阵, 但均值向量 $\boldsymbol{\mu}_1,\boldsymbol{\mu}_2$ 可能有差别. 样本均值向量和联合协方差矩阵为
+\[
+\bar{\mathbf{x}}_1=\begin{bmatrix}-1\\1\end{bmatrix};\qquad \bar{\mathbf{x}}_2=\begin{bmatrix}2\\1\end{bmatrix}
+\]
+\[
+\mathbf{S}_n=\begin{bmatrix}7.3&-1.1\\-1.1&4.8\end{bmatrix}
+\]
+
+(a) 用霍特林二样本 $T^2$ 统计量检验总体均值向量是否有显著差别. 取 $\alpha=0.10$.
+
+(b) 构造费希尔(样本)线性判别函数[见\hyperref[eq:11-19]{式(11-19)}和\hyperref[eq:11-25]{式(11-25)}].
+
+(c) 将观测值 $\mathbf{x}_0'=[0\quad 1]$ 分配到总体 $\pi_1$ 或 $\pi_2$. 假定有等代价和等先验概率.
+
+\noindent 11.11\quad 假定一维随机变量 $X$ 具有方差为 4 的正态分布. 若 $X$ 来自总体 $\pi_1$, 则其均值为 10; 而当它来自总体 $\pi_2$ 时, 其均值为 14. 假定事件 $A1=$“$X$ 来自 $\pi_1$”与事件 $A2=$“$X$ 来自 $\pi_2$”有相同的先验概率, 且错分代价 $c(2\mid 1)$ 与 $c(1\mid 2)$ 相同(例如 10 美元). 我们决定取一个常数 $c(c$ 值待定$)$, 当 $X\le c$ 时, 将 $X$ 分配(分类)到 $\pi_1$, 而当 $X>c$ 时则将 $X$ 分配到 $\pi_2$. 记 B1 为事件

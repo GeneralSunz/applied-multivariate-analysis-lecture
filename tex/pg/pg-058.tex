@@ -1,0 +1,69 @@
+% ---- pg-058 （书页 46） ----
+\[
+= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\]
+
+于是
+
+\[
+\begin{bmatrix} -0.2 & 0.4 \\ 0.8 & -0.6 \end{bmatrix}
+\]
+
+便是 $\bm{A}^{-1}$.注意到
+
+\[
+c_1\begin{bmatrix} 3 \\ 4 \end{bmatrix} + c_2\begin{bmatrix} 2 \\ 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\]
+
+意味着 $c_1 = c_2 = 0$,所以 $\bm{A}$ 的各列线性无关.这证实了\hyperref[eq:2-12]{式(2-12)}中所说的条件.
+
+当逆矩阵存在时,其计算方法见补充 2A.这些冗长的程式化计算,通常由计算机完成,尤其当维数大于 3 时更是这样.即使如此,还是必须预先警告:如果对某些常数 $c_1$, $c_2, \cdots, c_k$ 来说\hyperref[eq:2-12]{式(2-12)}中的列和接近于 $\bm{0}$,由于舍入误差极大,计算机会产生错误的逆.因此当 $\bm{A}^{-1}$ 由一个计算机软件包所产生时,最好用乘积 $\bm{A}\bm{A}^{-1}$ 和 $\bm{A}^{-1}\bm{A}$ 是否等于 $\bm{I}$ 作一下检验(见练习 2.10).
+
+有逆的对角阵很容易计算.例如,如果所有 $a_{ii} \neq 0$,则
+
+\[
+\begin{bmatrix}
+a_{11} & 0 & 0 & 0 & 0 \\
+0 & a_{22} & 0 & 0 & 0 \\
+0 & 0 & a_{33} & 0 & 0 \\
+0 & 0 & 0 & a_{44} & 0 \\
+0 & 0 & 0 & 0 & a_{55}
+\end{bmatrix}
+\qquad \text{有逆矩阵} \qquad
+\begin{bmatrix}
+\dfrac{1}{a_{11}} & 0 & 0 & 0 & 0 \\[2mm]
+0 & \dfrac{1}{a_{22}} & 0 & 0 & 0 \\[2mm]
+0 & 0 & \dfrac{1}{a_{33}} & 0 & 0 \\[2mm]
+0 & 0 & 0 & \dfrac{1}{a_{44}} & 0 \\[2mm]
+0 & 0 & 0 & 0 & \dfrac{1}{a_{55}}
+\end{bmatrix}
+\]
+
+我们要熟悉的另一类特殊方阵是正交矩阵,其特征为
+
+\phantomsection\label{eq:2-13}
+\begin{equation}
+\bm{Q}\bm{Q}' = \bm{Q}'\bm{Q} = \bm{I} \quad \text{或} \quad \bm{Q}' = \bm{Q}^{-1} \tag{2-13}
+\end{equation}
+
+正交矩阵的名称来自其性质,即如果 $\bm{Q}$ 的第 $i$ 行是 $\bm{q}_i'$,则 $\bm{Q}\bm{Q}' = \bm{I}$ 意味着 $\bm{q}_i'\bm{q}_i = 1$ 和 $\bm{q}_i'\bm{q}_j = 0$ $(i \neq j)$,因此,每一行均具有单位长度且行与行之间互相垂直(正交).根据条件 $\bm{Q}'\bm{Q} = \bm{I}$ 列也有同样的性质.
+
+在结束对矩阵代数原理的简单介绍时,我们引入一个多元统计分析的基本概念.一个方阵 $\bm{A}$,如果有
+
+\phantomsection\label{eq:2-14}
+\begin{equation}
+\bm{A}\bm{x} = \lambda\bm{x} \tag{2-14}
+\end{equation}
+
+则说方阵 $\bm{A}$ 具有特征值 $\lambda$ 和对应的特征向量 $\bm{x} \neq \bm{0}$.通常,将 $\bm{x}$ 标准化使其具有单位长度,即 $1 = \bm{x}'\bm{x}$.为方便起见,在下文中用 $\bm{e}$ 表示标准化的特征向量.我们省去详细的推导过程(见[1]),给出如下的基本结论:
+
+\begin{mvbox}
+设 $\bm{A}$ 是 $k \times k$ 对称方阵,则 $\bm{A}$ 有 $k$ 对特征值和特征向量,即
+
+\phantomsection\label{eq:2-15}
+\begin{equation}
+\lambda_1, \bm{e}_1, \qquad \lambda_2, \bm{e}_2, \qquad \cdots \qquad \lambda_k, \bm{e}_k \tag{2-15}
+\end{equation}
+
+可以选择特征向量,使其满足 $1 = \bm{e}_i'\bm{e}_i = \cdots = \bm{e}_k'\bm{e}_k$ 且互相垂直.除非两个或多个特征值是相等的,对应特征值的特征向量是唯一的.
+\end{mvbox}

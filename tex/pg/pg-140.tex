@@ -1,0 +1,51 @@
+\[
+(c_1^2+c_2^2+c_3^2+c_4^2)\boldsymbol{\Sigma}=1\times\boldsymbol{\Sigma}=\begin{bmatrix}3&-1&1\\-1&1&0\\1&0&2\end{bmatrix}
+\]
+
+对于随机向量的第二个线性组合，应用结论 4.8，且 $b_1=b_2=b_3=1$ 及 $b_4=-3$，得到均值向量
+
+\[
+(b_1+b_2+b_3+b_4)\boldsymbol{\mu}=0\boldsymbol{\mu}=\begin{bmatrix}0\\0\\0\end{bmatrix}
+\]
+
+和协方差矩阵
+
+\[
+(b_1^2+b_2^2+b_3^2+b_4^2)\boldsymbol{\Sigma}=12\times\boldsymbol{\Sigma}=\begin{bmatrix}36&-12&12\\-12&12&0\\12&0&24\end{bmatrix}
+\]
+
+最后，对随机向量的两个线性组合，协方差矩阵为
+
+\[
+(c_1b_1+c_2b_2+c_3b_3+c_4b_4)\boldsymbol{\Sigma}=0\boldsymbol{\Sigma}=\begin{bmatrix}0&0&0\\0&0&0\\0&0&0\end{bmatrix}
+\]
+
+随机向量的第一个线性组合的每个分量与随机向量的第二个线性组合的每个分量有零协方差。
+
+而且，若每个 $\mathbf{X}$ 有三元正态分布，则两个线性组合有一联合六元正态分布，且向量的两个线性组合是独立的。\hfill$\blacksquare$
+
+\section{从多元正态分布抽样与极大似然估计}  % 原书 4.3
+\phantomsection\label{sec:4.3}
+
+在第 3 章中，我们简短地讨论了抽样和简单随机样本。本节我们将涉及来自多元正态总体的样本——特别是 $\mathbf{X}$ 和 $\mathbf{S}$ 的抽样分布。
+
+\mvsub{多元正态似然}
+
+假定 $p\times1$ 向量 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 是一个来自均值向量为 $\boldsymbol{\mu}$ 和协方差矩阵为 $\boldsymbol{\Sigma}$ 的多元正态总体的随机样本。由于 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 是相互独立的，且每个为 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布，所有观测结果的联合密度函数是边缘正态密度之积：
+
+\phantomsection\label{eq:4-11}
+\begin{equation}
+\mvfit{$\displaystyle
+\begin{aligned}
+&\{\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n\}\text{ 的联合密度}\\[2pt]
+&\quad=\prod_{j=1}^{n}\left\{\frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}e^{-(\mathbf{x}_j-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})/2}\right\}\\[2pt]
+&\quad=\frac{1}{(2\pi)^{np/2}|\boldsymbol{\Sigma}|^{n/2}}e^{-\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu})/2}
+\end{aligned}
+$} \tag{4-11}
+\end{equation}
+
+当可得到观测结果的数值时，它们可以代入\hyperref[eq:4-11]{式(4-11)}中的 $\mathbf{x}_j$。对于观测结果 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$ 固定的集合，所得表达式作为 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的一个函数，称为似然函数。
+
+许多好的统计方法使用能“最好地”解释观测数据的总体参数值。“最好”的一个含意是，选择使得在该组观测值下所求出的联合密度值最大的参数值。这个方法称为极大似然估计法，使联合密度最大化的参数值称为极大似然估计值。
+
+此处，我们将考虑对多元正态总体参数 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计。为此，我们取固定的观测值 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$，并考虑对这些值计算\hyperref[eq:4-11]{式(4-11)}中的联合密度。其结果就是似然函数。为了简化问题，我们用另一形式重写似然函数。我们需要追加关于方阵的迹的某些性质（一个矩阵的

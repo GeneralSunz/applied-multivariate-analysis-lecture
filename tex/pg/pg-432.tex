@@ -1,0 +1,50 @@
+% ---- pg-432 （书页 420） ----
+% 章首页 pg-432
+
+\chapter{典型相关分析}
+\phantomsection\label{chap:10}
+
+\section{引言}
+\phantomsection\label{sec:10.1}
+
+典型相关分析的目的是识别并量化两组变量之间的联系. 霍特林(H. Hotelling, 见文献[5]和[6])最早开发了这项技术, 他提供了关于数学运算速度、数学运算能力与阅读速度、阅读能力之间关系的例子(见练习 10.9). 其他一些例子中包括政府政策变量和经济目标变量的关系, 以及大学“表现”和入学前“成绩”的关系.
+
+典型相关分析的研究焦点是, 一组变量的线性组合和另一组变量的线性组合之间的相关关系. 想法是这样的: 首先求一对线性组合, 它有最大相关系数. 下一步则从和最初挑选的这组线性组合不相关的线性组合配对中, 选出有最大相关系数的一对, 如此继续下去. 这些选出的线性组合配对称为典型变量, 它们的相关系数称为典型相关系数.
+
+典型相关系数度量了这两组变量之间联系的强度. 此项最大化技术是努力将两组变量间一个高维关系浓缩到少数几对典型变量来体现.
+
+\section{典型变量和典型相关系数}
+\phantomsection\label{sec:10.2}
+
+我们关心的是两组变量之间联系的度量. 用 $(p\times 1)$ 随机向量 $\mathbf{X}^{(1)}$ 来代表第一组的 $p$ 个变量, $(q\times 1)$ 随机向量 $\mathbf{X}^{(2)}$ 代表第二组的 $q$ 个变量. 在理论研究中, 我们假设 $\mathbf{X}^{(1)}$ 是较小的组, 即 $p\le q$.
+
+对于随机向量 $\mathbf{X}^{(1)},\mathbf{X}^{(2)}$, 令
+\phantomsection\label{eq:10-1}
+\begin{equation}
+\begin{aligned}
+E(\mathbf{X}^{(1)})&=\boldsymbol{\mu}^{(1)}; &\qquad \mathrm{Cov}(\mathbf{X}^{(1)})&=\boldsymbol{\Sigma}_{11}\\
+E(\mathbf{X}^{(2)})&=\boldsymbol{\mu}^{(2)}; &\qquad \mathrm{Cov}(\mathbf{X}^{(2)})&=\boldsymbol{\Sigma}_{22}\\
+\mathrm{Cov}(\mathbf{X}^{(1)},\mathbf{X}^{(2)})&=\boldsymbol{\Sigma}_{12}=\boldsymbol{\Sigma}_{21}'
+\end{aligned}
+\tag{10-1}
+\end{equation}
+把 $\mathbf{X}^{(1)},\mathbf{X}^{(2)}$ 联合起来考虑将是方便的, 因此利用结论(2-38)至(2-40)以及(10-1), 我们发现随机向量
+\phantomsection\label{eq:10-2}
+\begin{equation}
+\mathbf{X}_{((p+q)\times 1)}=\left[\begin{array}{c}
+\mathbf{X}^{(1)}\\
+\hdashline
+\mathbf{X}^{(2)}
+\end{array}\right]=\left[\begin{array}{c}
+X_1^{(1)}\\
+X_2^{(1)}\\
+\vdots\\
+X_p^{(1)}\\
+\hdashline
+X_1^{(2)}\\
+X_2^{(2)}\\
+\vdots\\
+X_q^{(2)}
+\end{array}\right]
+\tag{10-2}
+\end{equation}

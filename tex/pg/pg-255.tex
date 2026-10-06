@@ -1,0 +1,80 @@
+% ---- pg-255 （书页 243） ----
+
+\begin{mvtable}
+\phantomsection\label{tab:6.4}\mvtabcap{表 6.4\quad 塑料胶卷数据}
+\begin{tabular}{cccccccc}
+\toprule
+\multicolumn{8}{@{}l}{$x_1=$ 耐撕力，$x_2=$ 光泽度，$x_3=$ 不透明度}\\
+\midrule
+\multicolumn{2}{c}{} & \multicolumn{6}{c}{因子 2：（添加剂数量）}\\
+\cmidrule(lr){3-8}
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{低$(1.0\%)$} & \multicolumn{3}{c}{高$(1.5\%)$}\\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+\multicolumn{2}{c}{} & $x_1$ & $x_2$ & $x_3$ & $x_1$ & $x_2$ & $x_3$\\
+\midrule
+\multirow{5}{*}{因子 1：（拉速）} & \multirow{5}{*}{低$(-10\%)$} & \multicolumn{3}{c}{$[6.5\quad9.5\quad4.4]$} & \multicolumn{3}{c}{$[6.9\quad9.1\quad5.7]$}\\
+& & \multicolumn{3}{c}{$[6.2\quad9.9\quad6.4]$} & \multicolumn{3}{c}{$[7.2\quad10.0\quad2.0]$}\\
+& & \multicolumn{3}{c}{$[5.8\quad9.6\quad3.0]$} & \multicolumn{3}{c}{$[6.9\quad9.9\quad3.9]$}\\
+& & \multicolumn{3}{c}{$[6.5\quad9.6\quad4.1]$} & \multicolumn{3}{c}{$[6.1\quad9.5\quad1.9]$}\\
+& & \multicolumn{3}{c}{$[6.5\quad9.2\quad0.8]$} & \multicolumn{3}{c}{$[6.3\quad9.4\quad5.7]$}\\
+\cmidrule{2-8}
+& \multirow{5}{*}{高$(10\%)$} & \multicolumn{3}{c}{$[6.7\quad9.1\quad2.8]$} & \multicolumn{3}{c}{$[7.1\quad9.2\quad8.4]$}\\
+& & \multicolumn{3}{c}{$[6.6\quad9.3\quad4.1]$} & \multicolumn{3}{c}{$[7.0\quad8.8\quad5.2]$}\\
+& & \multicolumn{3}{c}{$[7.2\quad8.3\quad3.8]$} & \multicolumn{3}{c}{$[7.2\quad9.7\quad6.9]$}\\
+& & \multicolumn{3}{c}{$[7.1\quad8.4\quad1.6]$} & \multicolumn{3}{c}{$[7.5\quad10.1\quad2.7]$}\\
+& & \multicolumn{3}{c}{$[6.8\quad8.5\quad3.4]$} & \multicolumn{3}{c}{$[7.6\quad9.2\quad1.9]$}\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+计算了各平方和矩阵及交叉乘积和矩阵（见显示板 6.1 的 SAS 统计软件输出\footnote{本章所讨论的 SAS 程序和其他程序可参见文献[13]．}），所得结果导致后面的 MANOVA 表：
+
+\mvtabcap{显示板 6.1\quad 例 6.13 的 SAS 分析（利用 PROC GLM）}
+
+\begin{mvframe}
+\begin{minipage}[t]{0.62\linewidth}
+\ttfamily\small
+title 'MANOVA';\\
+data film;\\
+infile 'T6-4.dat';\\
+input x1 x2 x3 factor1 factor2;\\
+proc glm data = film;\\
+class factor1 factor2;\\
+model x1 x2 x3 = factor1 factor2 factor1*factor2 /ss3;\\
+manova h = factor1 factor2 factor1*factor2 /printe;\\
+means factor1 factor2;
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\linewidth}
+\centering\bfseries PROGRAM COMMANDS
+\end{minipage}
+\end{mvframe}
+
+\begin{mvframe}
+{\centering General Linear Models Procedure\\ Class Level Information\par}
+\vspace{4pt}
+
+\ttfamily
+\begin{tabular}{@{}llll@{}}
+Class & Levels & Values & \textbf{OUTPUT}\\
+FACTOR1 & 2 & 0\quad1 & \\
+FACTOR2 & 2 & 0\quad1 & \\
+\multicolumn{4}{@{}l@{}}{Number of observations in data set = 20}\\
+\end{tabular}
+\vspace{6pt}
+
+\noindent\fbox{Dependent Variable: X1}
+\vspace{6pt}
+
+\begin{tabular}{@{}lrrrrr@{}}
+Source & DF & Sum of Squares & Mean Square & F Value & Pr $>$ F\\
+Model & 3 & 2.501 500 00 & 0.833 833 33 & 7.56 & 0.002 3\\
+Error & 16 & 1.764 000 00 & 0.110 250 00 & & \\
+Corrected Total & 19 & 4.265 500 00 & & & \\
+\end{tabular}
+\vspace{6pt}
+
+\begin{tabular}{@{}rrrr@{}}
+R-Square & C.V. & Root MSE & X1 Mean\\
+0.586 449 & 4.893 724 & 0.332 039 & 6.785 000 00
+\end{tabular}
+\end{mvframe}

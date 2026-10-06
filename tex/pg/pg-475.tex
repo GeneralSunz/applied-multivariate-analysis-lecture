@@ -1,0 +1,46 @@
+% ---- pg-475 （书页 463） ----
+
+若数据为非多元正态数据, 则有两种可行的选择. 首先, 可将非正态性数据变换成接近正态性的数据, 然后进行协方差矩阵相等性的检验, 看看线性法则(11-18)和二次法则(11-29)哪个更合适. 可以考虑的变换在第 4 章中已有讨论. (通常的协方差齐次性检验受到非正态性的很大影响, 所以在进行这种检验之前必须将非正态性数据变换成正态性数据.)
+
+其次, 可以使用线性(或二次)法则而不考虑母体分布的形式, 期望能产生相当好的效果. 但是对这个问题的研究表明, 在非正态情形下, 即使总体协方差矩阵相同, 线性分类函数的使用效果有时也非常差(见文献[22]和[23]). 由此得出结论: 一定要检查任何分类方法的效果. 至少必须对用于构造分类函数的数据作这种检查. 在理想的情况下, 会有足够的数据用作“训练”样本和“验证”样本. 训练样本用于构造分类函数, 而验证样本则用于评估分类的效果.
+
+\section{评估分类函数}  % 原书 11.4
+\phantomsection\label{sec:11.4}
+
+判断任一分类方法效果的一个重要途径, 就是计算其“失误率”或错分概率. 当母总体分布形式完全已知时, 如例 11.5 所显示的那样, 错分概率的计算相对来说比较容易. 由于母总体分布很少是已知的, 我们将集中考虑与样本分类函数相联系的失误率. 一旦构造出一个分类函数, 我们就对如何度量它在未来样本中的性能感兴趣.
+
+由\hyperref[eq:11-8]{式(11-8)}知, 总错分概率为
+\[
+\mathrm{TPM}=p_1\int_{R_2}f_1(\mathbf{x})\,\mathrm{d}\mathbf{x}+p_2\int_{R_1}f_2(\mathbf{x})\,\mathrm{d}\mathbf{x}
+\]
+通过适当选择 $R_1$ 和 $R_2$ 得出的该量的最小值, 称为最优失误率(OER).
+
+\begin{mvframe}[最优失误率]
+\phantomsection\label{eq:11-30}
+\begin{equation}
+\mathrm{OER}=p_1\int_{R_2}f_1(\mathbf{x})\,\mathrm{d}\mathbf{x}+p_2\int_{R_1}f_2(\mathbf{x})\,\mathrm{d}\mathbf{x}
+\tag{11-30}
+\end{equation}
+其中 $R_1$ 和 $R_2$ 由\hyperref[eq:11-7]{式(11-7)}中的(b)所确定.
+\end{mvframe}
+
+这样, OER 就是最小 TPM 分类法则的失误率.
+
+\noindent\textbf{例 11.5}\quad (计算错分概率)
+
+让我们在 $p_1=p_2=1/2$, 并且\hyperref[eq:11-10]{式(11-10)}中的 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$ 为多元正态密度时导出最优失误率的表达式.
+
+最小 ECM 分类法则和最小 TPM 分类法则在 $c(1\mid2)=c(2\mid1)$ 时彼此重合. 由于先验概率也相等, 所以最小 TPM 分类域对正态总体来说由\hyperref[eq:11-12]{式(11-12)}定义, 其中 $\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]=0$. 我们发现
+\[
+\begin{aligned}
+R_1:\ &(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\geqslant0\\
+R_2:\ &(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)<0
+\end{aligned}
+\]
+这些集合可用 $y=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}=\mathbf{a}'\mathbf{x}$ 表示为
+\[
+\begin{aligned}
+R_1(y):\ &y\geqslant\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\\
+R_2(y):\ &y<\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)
+\end{aligned}
+\]

@@ -1,0 +1,41 @@
+% ---- pg-471 （书页 459） ----
+
+在\hyperref[eq:11-21]{式(11-21)}中, $\hat{a}_1^*, \hat{a}_2^*, \cdots, \hat{a}_p^*$ 的值都落在区间 $[-1,1]$ 之内. 在\hyperref[eq:11-22]{式(11-22)}中, $\hat{a}_1^*=1$, 而 $\hat{a}_2^*, \cdots, \hat{a}_p^*$ 表示为 $\hat{a}_1^*$ 的倍数. 将 $\hat{a}_i^*$ 约束在区间 $[-1,1]$ 内, 有利于对系数进行直观比较. 类似的, 将 $\hat{a}_i^*$ 表示为 $\hat{a}_1^*$ 的倍数有利于评估变量 $X_2,\cdots,X_p$ 作为判别量的相对重要性(相对于 $X_1$).
+
+只有当 $X$ 变量经过标准化之后, 我们才建议将 $\hat{a}_i$ 规范化. 如果不是这种情况, 在解释分析结果时就必须非常小心.
+
+\mvsub{费希尔判别函数——分离总体}
+
+费希尔(见文献[10])实际上是根据一个完全不同的论据发现\hyperref[eq:11-19]{式(11-19)}所给的分类统计量的. 他的想法是将多元观测值 $\mathbf{x}$ 变换成一元观测值 $y$, 使得由总体 $\pi_1$ 和 $\pi_2$ 导出的 $y$ 尽可能地分离开. 费希尔建议用 $\mathbf{x}$ 的线性组合来建立 $y$, 因为它们是 $\mathbf{x}$ 的非常简单的函数, 易于掌握. 费希尔的方法并未假定总体具有正态性, 但是隐含有总体协方差矩阵相等的假定, 因为使用了公共协方差矩阵的联合估计量.
+
+假定 $\mathbf{x}$ 的一个固定线性组合对来自第一个总体的观测值来说其取值为 $y_{11},y_{12},\cdots,y_{1n_1}$, 对来自第二个总体的观测值来说其取值为 $y_{21},y_{22},\cdots,y_{2n_2}$. 这两组单变量数据之间的分离度用以标准差为单位的 $\bar{y}_1$ 与 $\bar{y}_2$ 之间的差别来表示, 即
+\[
+\text{分离度}=\frac{|\bar{y}_1-\bar{y}_2|}{s_y},\qquad \text{其中 } s_y^2=\frac{\sum_{j=1}^{n_1}(y_{1j}-\bar{y}_1)^2+\sum_{j=1}^{n_2}(y_{2j}-\bar{y}_2)^2}{n_1+n_2-2}
+\]
+为方差的联合估计量. 目标是选择适当的 $\mathbf{x}$ 的线性组合, 使得样本均值 $\bar{y}_1$ 与 $\bar{y}_2$ 之间的分离度达到最大.
+
+\noindent\textbf{结论 11.3}\quad 线性组合 $\hat{y}=\hat{\mathbf{a}}'\mathbf{x}=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}$ 对所有可能的线性系数向量 $\hat{\mathbf{a}}$ 使下述比值达到最大:
+\phantomsection\label{eq:11-23}
+\begin{equation}
+\begin{aligned}
+\frac{(y\text{ 的样本均值之间的距离平方})}{(y\text{ 的样本方差})}&=\frac{(\bar{y}_1-\bar{y}_2)^2}{s_y^2}\\
+&=\frac{(\hat{\mathbf{a}}'\bar{\mathbf{x}}_1-\hat{\mathbf{a}}'\bar{\mathbf{x}}_2)^2}{\hat{\mathbf{a}}'\mathbf{S}_{\mathrm{p}}\hat{\mathbf{a}}}\\
+&=\frac{(\hat{\mathbf{a}}'\mathbf{d})^2}{\hat{\mathbf{a}}'\mathbf{S}_{\mathrm{p}}\hat{\mathbf{a}}}
+\end{aligned}
+\tag{11-23}
+\end{equation}
+其中 $\mathbf{d}=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$. 比值(11-23)的最大值为 $D^2=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$.
+
+\noindent\mvbold{证明}\quad 比值(11-23)的最大值直接由\hyperref[eq:2-50]{式(2-50)}给出. 这样, 令 $\mathbf{d}=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$, 就有
+\[
+\max_{\hat{\mathbf{a}}}\frac{(\hat{\mathbf{a}}'\mathbf{d})^2}{\hat{\mathbf{a}}'\mathbf{S}_{\mathrm{p}}\hat{\mathbf{a}}}=\mathbf{d}'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{d}=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)=D^2
+\]
+其中 $D^2$ 为两个均值之间的样本平方距离.\hfill$\blacksquare$
+
+注意, \hyperref[eq:11-23]{式(11-23)}中的 $s_y^2$ 可按下式计算:
+\phantomsection\label{eq:11-24}
+\begin{equation}
+s_y^2=\frac{\sum_{j=1}^{n_1}(y_{1j}-\bar{y}_1)^2+\sum_{j=1}^{n_2}(y_{2j}-\bar{y}_2)^2}{n_1+n_2-2}
+\tag{11-24}
+\end{equation}
+其中 $y_{1j}=\hat{\mathbf{a}}'\mathbf{x}_{1j}$, $y_{2j}=\hat{\mathbf{a}}'\mathbf{x}_{2j}$.

@@ -1,0 +1,49 @@
+的效应; 低水平的 $\mathrm{CO}_{2}$ 压力会导致心跳时间间隔增大.
+
+由于我们的试验是先不用三氟溴氯乙烷而后又用三氟溴氯乙烷, 因此在对比结果作解释时应该谨慎. 表观的 H 效应也许是时间趋势所致(理想的做法是所有处理的时间顺序应随机地确定).\hfill$\blacksquare$
+
+当协方差矩阵 $\mathrm{Cov}(\mathbf{X})=\boldsymbol{\Sigma}$ 不具有任何特殊结构时, \hyperref[eq:6-16]{式(6-16)}所给出的检验是适宜的. 如果有理由认为 $\boldsymbol{\Sigma}$ 具有特殊结构, 那么, 据此结构所设计的检验其功效理应比\hyperref[eq:6-16]{式(6-16)}的要高(对 $\boldsymbol{\Sigma}$ 具有等相关结构(8-14)的情形, 可参看文献[17]和[22]中对“随机化区组”设计的讨论).
+
+\section{两总体均值向量的比较}
+\phantomsection\label{sec:6.3}
+
+与一元情形进行类比, 可得到检验两个多元总体均值向量相等性的 $T^{2}$ 统计量(一元情形的讨论可参见文献[11]). 这个 $T^{2}$ 统计量适用于对两组独立实验条件(总体 1 与 2)下的响应进行比较. 这种比较就无须像成对比较那样对实验单元之间的变异性进行控制.
+
+当然, 如果可能的话, 还是应将一组实验条件随机地分配给各实验单元. 从某种程度上来讲, 随机化将减少在对处理作相继比较时由于实验单元间的变异性所产生的影响. 虽然这种比较的精度略逊于成对比较, 但由于不要求实验单元具有一致性, 两个总体情形下的这些推断方法常适用于较为一般的情形.
+
+考虑两个随机样本, 一个来自总体 1, 样本容量为 $n_{1}$; 另一个来自总体 2, 样本容量为 $n_{2}$. $p$ 个变量的观察值排列如下表:
+
+\begin{mvtable}
+\centering
+{\small
+\begin{tabular}{ccc}
+\toprule
+样本 & \multicolumn{2}{c}{汇总统计量}\\
+\midrule
+\makecell{（总体 1）\\ $\mathbf{x}_{11},\mathbf{x}_{12},\cdots,\mathbf{x}_{1n_{1}}$} & $\displaystyle \bar{\mathbf{x}}_{1}=\frac{1}{n_{1}}\sum_{j=1}^{n_{1}}\mathbf{x}_{1j}$ & $\displaystyle \mathbf{S}_{1}=\frac{1}{n_{1}-1}\sum_{j=1}^{n_{1}}(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})'$\\
+\makecell{（总体 2）\\ $\mathbf{x}_{21},\mathbf{x}_{22},\cdots,\mathbf{x}_{2n_{2}}$} & $\displaystyle \bar{\mathbf{x}}_{2}=\frac{1}{n_{2}}\sum_{j=1}^{n_{2}}\mathbf{x}_{2j}$ & $\displaystyle \mathbf{S}_{2}=\frac{1}{n_{2}-1}\sum_{j=1}^{n_{2}}(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})'$\\
+\bottomrule
+\end{tabular}}
+\end{mvtable}
+
+表中符号的第一个角标(1 或 2)代表总体.
+
+我们要对两总体均值之差 $\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}$ 作出推断. 例如, 我们要回答这样的问题: $\boldsymbol{\mu}_{1}=\boldsymbol{\mu}_{2}$(即 $\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}=\mathbf{0}$)是否成立? 若 $\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}\neq\mathbf{0}$, 那么哪些分量不相等?
+
+只需很少几个假定, 我们就能回答上述问题.
+
+\subsection{关于数据结构的假定}
+
+\noindent 1.\quad $X_{11},X_{12},\cdots,X_{1n_{1}}$ 为来自均值向量为 $\boldsymbol{\mu}_{1}$, 协方差矩阵为 $\boldsymbol{\Sigma}_{1}$ 的 $p$ 维总体的随机样本.
+
+\noindent 2.\quad $X_{21},X_{22},\cdots,X_{2n_{2}}$ 为来自均值向量为 $\boldsymbol{\mu}_{2}$, 协方差矩阵为 $\boldsymbol{\Sigma}_{2}$ 的 $p$ 维总体的随机样本.
+
+\noindent 3.\quad 样本 $X_{11},X_{12},\cdots,X_{1n_{1}}$ 与样本 $X_{21},X_{22},\cdots,X_{2n_{2}}$ 相互独立.\hfill(6-19)
+
+以后我们将会看到, 对大样本情形, 这个结构对 $p\times 1$ 维向量 $\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}$ 的推断已经足够. 但当 $n_{1}$ 与 $n_{2}$ 均较小时, 则需要更多的假定.
+
+\subsection{$n_{1}$ 与 $n_{2}$ 均较小时的进一步假定}
+
+\noindent 1.\quad 两总体均为多元正态总体.
+
+\noindent 2.\quad $\boldsymbol{\Sigma}_{1}=\boldsymbol{\Sigma}_{2}$(协方差矩阵相等.)\hfill(6-20)

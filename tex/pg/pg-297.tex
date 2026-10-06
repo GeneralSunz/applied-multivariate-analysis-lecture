@@ -1,0 +1,58 @@
+% ---- pg-297 （书页 285） ----
+
+故
+\[
+\hat{\boldsymbol{\epsilon}}=\mathbf{y}-\hat{\mathbf{y}}
+=\begin{bmatrix}1\\4\\3\\8\\9\end{bmatrix}-\begin{bmatrix}1\\3\\5\\7\\9\end{bmatrix}
+=\begin{bmatrix}0\\1\\-2\\1\\0\end{bmatrix}
+\]
+残差平方和为
+\[
+\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}
+=\begin{bmatrix}0&1&-2&1&0\end{bmatrix}\begin{bmatrix}0\\1\\-2\\1\\0\end{bmatrix}
+=0^2+1^2+(-2)^2+1^2+0^2=6
+\]
+\noindent\hfill$\blacksquare$
+
+\mvsub{平方和的分解}
+
+根据结论 7.1, $\hat{\mathbf{y}}'\hat{\boldsymbol{\epsilon}}=\mathbf{0}$, 故总的响应变量平方和 $\mathbf{y}'\mathbf{y}=\sum\limits_{j=1}^{n}y_j^2$ 满足
+\phantomsection\label{eq:7-7}
+\begin{equation}
+\mathbf{y}'\mathbf{y}=(\hat{\mathbf{y}}+\mathbf{y}-\hat{\mathbf{y}})'(\hat{\mathbf{y}}+\mathbf{y}-\hat{\mathbf{y}})
+=(\hat{\mathbf{y}}+\hat{\boldsymbol{\epsilon}})'(\hat{\mathbf{y}}+\hat{\boldsymbol{\epsilon}})
+=\hat{\mathbf{y}}'\hat{\mathbf{y}}+\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}
+\tag{7-7}
+\end{equation}
+由于 $\mathbf{Z}$ 的第一列为 $\mathbf{1}$, 条件 $\mathbf{Z}'\hat{\boldsymbol{\epsilon}}=\mathbf{0}$ 意味着 $0=\mathbf{1}'\hat{\boldsymbol{\epsilon}}=\sum\limits_{j=1}^{n}\hat{\epsilon}_j=\sum\limits_{j=1}^{n}y_j-\sum\limits_{j=1}^{n}\hat{y}_j$, 或 $\bar{y}=\bar{\hat{y}}$. 从\hyperref[eq:7-7]{式(7-7)} 两边同时减去 $n\bar{y}^2=n(\bar{\hat{y}})^2$, 便得到关于均值平方和的基本分解式:
+\[
+\mathbf{y}'\mathbf{y}-n\bar{y}^2=\hat{\mathbf{y}}'\hat{\mathbf{y}}-n(\bar{\hat{y}})^2+\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}
+\]
+或
+\phantomsection\label{eq:7-8}
+\begin{equation}
+\sum_{j=1}^{n}(y_j-\bar{y})^2=\sum_{j=1}^{n}(\hat{y}_j-\bar{y})^2+\sum_{j=1}^{n}\hat{\epsilon}_j^2
+\tag{7-8}
+\end{equation}
+\[
+\left(\begin{array}{c}\text{均值的总}\\\text{平方和}\end{array}\right)
+=(\text{回归平方和})+\left(\begin{array}{c}\text{残差（误差）}\\\text{平方和}\end{array}\right)
+\]
+这个平方和分解式表明模型拟合的质量可以用决定系数来度量, 其定义为
+\phantomsection\label{eq:7-9}
+\begin{equation}
+R^2=1-\frac{\sum\limits_{j=1}^{n}\hat{\epsilon}_j^2}{\sum\limits_{j=1}^{n}(y_j-\bar{y})^2}
+=\frac{\sum\limits_{j=1}^{n}(\hat{y}_j-\bar{y})^2}{\sum\limits_{j=1}^{n}(y_j-\bar{y})^2}
+\tag{7-9}
+\end{equation}
+$R^2$ 这个量给出 $y_j,j=1,\cdots,n$ 的总变差中由预测变量 $z_1,z_2,\cdots,z_r$ 的 ``解释'' 或所贡献的部分所占的比例. 若拟合方程通过所有数据点, 即对所有 $j$ 有 $\hat{\epsilon}_j=0$, 此时 $R^2$(或多重相关系数 $R=+\sqrt{R^2}$) 等于 1. 另一极端是当 $\hat{\beta}_0=\bar{y}$ 和 $\hat{\beta}_1=\hat{\beta}_2=\cdots=\hat{\beta}_r=0$ 时 $R^2$ 等于 0. 在这种场合, 预测变量 $z_1,z_2,\cdots,z_r$ 对响应变量没有影响.
+
+\mvsub{最小二乘几何}
+
+最小二乘法的几何解释能使我们更好地理解这个概念的本质. 根据经典线性回归模型,
+\[
+\text{响应均值向量}=E(\mathbf{Y})=\mathbf{Z}\boldsymbol{\beta}
+=\beta_0\begin{bmatrix}1\\1\\\vdots\\1\end{bmatrix}
++\beta_1\begin{bmatrix}z_{11}\\z_{21}\\\vdots\\z_{n1}\end{bmatrix}
++\cdots+\beta_r\begin{bmatrix}z_{1r}\\z_{2r}\\\vdots\\z_{nr}\end{bmatrix}
+\]

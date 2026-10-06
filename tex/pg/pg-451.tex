@@ -1,0 +1,22 @@
+﻿% ---- pg-451 （书页 439） ----
+
+\begin{mvtable}
+\mvtabcap{检验结果}
+\mvfit{%
+\begin{tabular}{@{}p{0.155\linewidth}p{0.345\linewidth}p{0.155\linewidth}p{0.185\linewidth}p{0.11\linewidth}@{}}
+\toprule
+零假设 & 观测检验统计量\\（巴特利特修正） & 自由度 & $\chi^2$ 分布的上 1\% 点 & 结论\\
+\midrule
+1.\ $H_0:\boldsymbol{\Sigma}_{12}=\mathbf{0}$ & $-\left(n-1-\dfrac{1}{2}(p+q+1)\right)\ln\prod\limits_{i=1}^{5}(1-\hat{\rho}_i^{*2})$ & $pq=5\times7=35$ & $\chi^2_{35}(0.01)=57$ & 拒绝 $H_0$\\
+（所有 $\rho_i^*=0$） & $=-\left(784-1-\dfrac{1}{2}(5+7+1)\right)\ln(0.6453)$ & & & \\
+ & $=340.1$ & & & \\
+\addlinespace
+2.\ $H_0^{(1)}:\rho_1^*\ne0,$ & $-\left(n-1-\dfrac{1}{2}(p+q+1)\right)\ln\prod\limits_{i=2}^{5}(1-\hat{\rho}_i^{*2})$ & $(p-1)(q-1)=24$ & $\chi^2_{24}(0.01)=42.98$ & 拒绝 $H_0$\\
+$\rho_2^*=\cdots=\rho_5^*=0$ & $=60.4$ & & & \\
+\addlinespace
+3.\ $H_0^{(2)}:\rho_1^*\ne0,\rho_2^*\ne0,$ & $-\left(n-1-\dfrac{1}{2}(p+q+1)\right)\ln\prod\limits_{i=3}^{5}(1-\hat{\rho}_i^{*2})$ & $(p-2)(q-2)=15$ & $\chi^2_{15}(0.01)=30.58$ & 不拒绝 $H_0$\\
+$\rho_3^*=\cdots=\rho_5^*=0$ & $=18.2$ & & & \\
+\bottomrule
+\end{tabular}
+}
+\end{mvtable}

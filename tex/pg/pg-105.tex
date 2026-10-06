@@ -1,0 +1,54 @@
+\mvthm{结论 3.1}{设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 是来自均值向量为 $\boldsymbol{\mu}$, 协方差矩阵为 $\boldsymbol{\Sigma}$ 的联合分布的一个随机样本, 则 $\bar{\mathbf{X}}$ 是 $\boldsymbol{\mu}$ 的一个无偏估计量, 它的协方差矩阵是 $\dfrac{1}{n}\boldsymbol{\Sigma}$}
+
+即
+\phantomsection\label{eq:3-9}
+\begin{equation}
+\begin{aligned}
+E(\bar{\mathbf{X}})&=\boldsymbol{\mu}\qquad(\text{总体均值向量})\\[4pt]
+\operatorname{Cov}(\bar{\mathbf{X}})&=\frac{1}{n}\boldsymbol{\Sigma}\qquad(\text{总体方差-协方差矩阵除以样本大小})
+\end{aligned}
+\tag{3-9}
+\end{equation}
+对协方差矩阵 $\mathbf{S}_{n}$,
+\[
+E(\mathbf{S}_{n})=\frac{n-1}{n}\boldsymbol{\Sigma}=\boldsymbol{\Sigma}-\frac{1}{n}\boldsymbol{\Sigma}
+\]
+因此,
+\phantomsection\label{eq:3-10}
+\begin{equation}
+E\Bigl(\frac{n}{n-1}\mathbf{S}_{n}\Bigr)=\boldsymbol{\Sigma}
+\tag{3-10}
+\end{equation}
+所以 $[n/(n-1)]\mathbf{S}_{n}$ 是 $\boldsymbol{\Sigma}$ 的无偏估计量, 而 $\mathbf{S}_{n}$ 是有偏估计量, 偏差 $=E(\mathbf{S}_{n})-\boldsymbol{\Sigma}=-(1/n)\boldsymbol{\Sigma}$.
+
+\medskip
+\noindent\mvbold{证明}\quad 现在, $\bar{\mathbf{X}}=(\mathbf{X}_{1}+\mathbf{X}_{2}+\cdots+\mathbf{X}_{n})/n$, 对两个向量重复利用\hyperref[eq:2-24]{式(2-24)} 中期望的性质, 得出
+\begin{align*}
+E(\bar{\mathbf{X}})&=E\Bigl(\frac{1}{n}\mathbf{X}_{1}+\frac{1}{n}\mathbf{X}_{2}+\cdots+\frac{1}{n}\mathbf{X}_{n}\Bigr)\\
+&=E\Bigl(\frac{1}{n}\mathbf{X}_{1}\Bigr)+E\Bigl(\frac{1}{n}\mathbf{X}_{2}\Bigr)+\cdots+E\Bigl(\frac{1}{n}\mathbf{X}_{n}\Bigr)\\
+&=\frac{1}{n}E(\mathbf{X}_{1})+\frac{1}{n}E(\mathbf{X}_{2})+\cdots+\frac{1}{n}E(\mathbf{X}_{n})=\frac{1}{n}\boldsymbol{\mu}+\frac{1}{n}\boldsymbol{\mu}+\cdots+\frac{1}{n}\boldsymbol{\mu}\\
+&=\boldsymbol{\mu}
+\end{align*}
+接下来,
+\begin{align*}
+(\bar{\mathbf{X}}-\boldsymbol{\mu})(\bar{\mathbf{X}}-\boldsymbol{\mu})'
+&=\Bigl(\frac{1}{n}\sum_{l=1}^{n}(\mathbf{X}_{l}-\boldsymbol{\mu})\Bigr)\Bigl(\frac{1}{n}\sum_{l=1}^{n}(\mathbf{X}_{l}-\boldsymbol{\mu})\Bigr)'\\
+&=\frac{1}{n^{2}}\sum_{l=1}^{n}\sum_{l'=1}^{n}(\mathbf{X}_{l}-\boldsymbol{\mu})(\mathbf{X}_{l'}-\boldsymbol{\mu})'
+\end{align*}
+因此,
+\[
+\operatorname{Cov}(\bar{\mathbf{X}})=E(\bar{\mathbf{X}}-\boldsymbol{\mu})(\bar{\mathbf{X}}-\boldsymbol{\mu})'
+=\frac{1}{n^{2}}\Bigl(\sum_{l=1}^{n}\sum_{l'=1}^{n}E(\mathbf{X}_{l}-\boldsymbol{\mu})(\mathbf{X}_{l'}-\boldsymbol{\mu})'\Bigr)
+\]
+对于 $j\ne l$, 由于 $\mathbf{X}_{j}$ 的分量与 $\mathbf{X}_{l}$ 的分量之间是相互独立的, 其间的协方差是零, 所以 $E(\mathbf{X}_{l}-\boldsymbol{\mu})(\mathbf{X}_{l'}-\boldsymbol{\mu})'$ 中的每一项都是零 [参考练习 3.17 和\hyperref[eq:2-29]{式(2-29)}].
+
+因此,
+\[
+\operatorname{Cov}(\bar{\mathbf{X}})=\frac{1}{n^{2}}\Bigl(\sum_{l=1}^{n}E(\mathbf{X}_{l}-\boldsymbol{\mu})(\mathbf{X}_{l}-\boldsymbol{\mu})'\Bigr)
+\]
+由于 $\boldsymbol{\Sigma}=E(\mathbf{X}_{l}-\boldsymbol{\mu})(\mathbf{X}_{l}-\boldsymbol{\mu})'$ 为每个 $\mathbf{X}_{l}$ 的共同的总体协方差矩阵, 我们有
+\begin{align*}
+\operatorname{Cov}(\bar{\mathbf{X}})&=\frac{1}{n^{2}}\Bigl(\sum_{l=1}^{n}E(\mathbf{X}_{l}-\boldsymbol{\mu})(\mathbf{X}_{l}-\boldsymbol{\mu})'\Bigr)
+=\frac{1}{n^{2}}(\underbrace{\boldsymbol{\Sigma}+\boldsymbol{\Sigma}+\cdots+\boldsymbol{\Sigma}}_{n\ \text{个}})\\
+&=\frac{1}{n^{2}}(n\boldsymbol{\Sigma})=\Bigl(\frac{1}{n}\Bigr)\boldsymbol{\Sigma}
+\end{align*}

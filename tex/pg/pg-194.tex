@@ -1,0 +1,47 @@
+\begin{align*}
+23.6\pm\sqrt{12.02}\times\frac{3.76}{\sqrt{96}}&\quad\text{包含}\ \mu_5,\ \text{即}\ 22.27\leqslant\mu_5\leqslant24.93\\
+22.0\pm\sqrt{12.02}\times\frac{3.93}{\sqrt{96}}&\quad\text{包含}\ \mu_6,\ \text{即}\ 20.61\leqslant\mu_6\leqslant23.39\\
+22.7\pm\sqrt{12.02}\times\frac{4.03}{\sqrt{96}}&\quad\text{包含}\ \mu_7,\ \text{即}\ 21.27\leqslant\mu_7\leqslant24.13
+\end{align*}
+或许,从数千例美国学生的数据出发,这名研究者会假设他们音乐才能测试成绩的均值为
+\[
+\boldsymbol{\mu}_0'=[31,27,34,31,23,22,22]
+\]
+从上面的联合置信区间我们看到,$\boldsymbol{\mu}_0$ 的旋律、速度及拍子三个分量似乎不是芬兰学生相应成绩均值的似真值.\hfill$\blacksquare$
+
+当样本容量很大时,均值分量的单一置信区间为
+\[
+\bar{x}_i-z\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{ii}}{n}}\leqslant\mu_i\leqslant\bar{x}_i+z\left(\frac{\alpha}{2}\right)\sqrt{\frac{s_{ii}}{n}}\qquad i=1,2,\cdots,p
+\]
+这里的 $z(\alpha/2)$ 是标准正态分布的上 $100(\alpha/2)$ 百分位数. 当 $m=p$ 时,单个均值置信表示的庞弗罗尼联合置信区间其形式与上相同,只不过其中的百分位数应改成 $z(\alpha/2p)$,即
+\[
+\bar{x}_i-z\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{ii}}{n}}\leqslant\mu_i\leqslant\bar{x}_i+z\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{ii}}{n}}\qquad i=1,2,\cdots,p
+\]
+\hyperref[tab:5.6]{表 5.6} 给出例 5.7 中音乐才能测试数据的单一置信区间、庞弗罗尼置信区间及基于 $\chi^{2}$(即置信椭球的投影)的置信区间.
+
+\begin{mvtable}
+\phantomsection\label{tab:5.6}\mvtabcap{表 5.6\quad 音乐才能测试数据的 $95\%$ 大样本置信区间\\
+(单一置信区间、庞弗罗尼置信区间及 $T^{2}$ 区间)}
+\begin{center}\small
+对单一置信区间用 $z(0.025)=1.96$\\
+对庞弗罗尼置信区间用 $z(0.025/7)=2.69$\\
+对联合 $T^{2}$ 区间(即置信椭球的投影),用 $\chi_7^{2}(0.05)=14.07$
+\end{center}
+\begin{tabular}{lcccccc}
+\toprule
+\multirow{2}{*}{变量} & \multicolumn{2}{c}{单一区间} & \multicolumn{2}{c}{庞弗罗尼区间} & \multicolumn{2}{c}{椭球的投影}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & 下限 & 上限 & 下限 & 上限 & 下限 & 上限\\
+\midrule
+$X_1$=旋律 & 26.95 & 29.25 & 26.52 & 29.68 & 25.90 & 30.30\\
+$X_2$=和声 & 25.43 & 27.77 & 24.99 & 28.21 & 24.36 & 28.84\\
+$X_3$=速度 & 34.64 & 36.16 & 34.35 & 36.45 & 33.94 & 36.86\\
+$X_4$=拍子 & 33.18 & 35.22 & 32.79 & 35.61 & 32.24 & 36.16\\
+$X_5$=短句 & 22.85 & 24.35 & 22.57 & 24.63 & 22.16 & 25.04\\
+$X_6$=协调 & 21.21 & 22.79 & 20.92 & 23.08 & 20.50 & 23.50\\
+$X_7$=风格 & 21.89 & 23.51 & 21.59 & 23.81 & 21.16 & 24.24\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+虽然样本容量可以很大,但有些统计学家宁愿用基于 $F$ 分布与 $t$ 分布的百分位数,不愿意使用基于 $\chi^{2}$ 分布及标准正态分布的百分位数,而后面那些常数恰好是前面那些常数在样本容量趋于无穷时的极限. 用 $F$ 分布与 $t$ 分布百分位数所生成的置信区间要更大些,因而也就更保守些. \hyperref[tab:5.7]{表 5.7} 给出了在这种情形下音乐才能测试数据的单一置信区间、庞弗罗尼置信区间及基于 $F$ 分布的置信区间(即置信椭球的投影).

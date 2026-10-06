@@ -1,0 +1,58 @@
+% ---- pg-517 （书页 505） ----
+
+\[
+\mathbf{S}_n=\begin{bmatrix}1&1\\1&2\end{bmatrix}
+\]
+
+(a) 计算\hyperref[eq:11-19]{式(11-19)}中的线性判别函数.
+
+(b) 用法则(11-18), 在相同先验概率和相同代价下将观测值 $\mathbf{x}_0'=[2\quad 7]$ 分类到总体 $\pi_1$ 或总体 $\pi_2$.
+
+\noindent 11.2\quad (a) 对例 11.1 中的数据, 用\hyperref[eq:11-19]{式(11-19)}得到一个线性判别函数.
+
+(b) 利用(a)中得到的函数和\hyperref[eq:11-20]{式(11-20)}, 通过将给定观测值分类构造“模糊矩阵”. 将你的分类结果与\hyperref[fig:11.1]{图 11.1} 中的结果进行比较. 这里的分类域用目测法确定(见例 11.6).
+
+(c) 给定(b)中的结果, 计算表观误分类率(APER).
+
+(d) 陈述你在使用(a)和(b)中的方法时所根据的假定.
+
+\noindent 11.3\quad 证明结论 11.1.
+
+提示: 将\hyperref[eq:11-1]{式(11-1)}和\hyperref[eq:11-2]{式(11-2)}中所给的 $P(2\mid 1)$ 和 $P(1\mid 2)$ 的积分表达式代入\hyperref[eq:11-5]{式(11-5)}, 得到
+\[
+\mathrm{ECM}=c(2\mid 1)p_1\int_{R_2}f_1(\mathbf{x})d\mathbf{x}+c(1\mid 2)p_2\int_{R_1}f_2(\mathbf{x})d\mathbf{x}
+\]
+注意 $\Omega=R_1\cup R_2$, 故总概率
+\[
+1=\int_{\Omega}f_1(\mathbf{x})d\mathbf{x}=\int_{R_1}f_1(\mathbf{x})d\mathbf{x}+\int_{R_2}f_1(\mathbf{x})d\mathbf{x}
+\]
+可以将 ECM 写成
+\[
+\mathrm{ECM}=c(2\mid 1)p_1\left[1-\int_{R_2}f_1(\mathbf{x})d\mathbf{x}\right]+c(1\mid 2)p_2\int_{R_2}f_2(\mathbf{x})d\mathbf{x}
+\]
+由于积分的可加性, 有
+\[
+\mathrm{ECM}=\int_{R_2}\left[c(1\mid 2)p_2f_2(\mathbf{x})-c(2\mid 1)p_1f_1(\mathbf{x})\right]d\mathbf{x}+c(2\mid 1)p_1
+\]
+现在, $p_1$, $p_2$, $c(1\mid 2)$ 和 $c(2\mid 1)$ 皆为非负. 此外, $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$ 对所有 $\mathbf{x}$ 均非负, 且在 ECM 中只有这两个量依赖于 $\mathbf{x}$. 这样, 若 $R_2$ 中只包含满足条件
+\[
+\left[c(1\mid 2)p_2f_2(\mathbf{x})-c(2\mid 1)p_1f_1(\mathbf{x})\right]\le 0
+\]
+的 $\mathbf{x}$ 而不包含使此量大于零的 $\mathbf{x}$, 则 ECM 达到最小.
+
+\noindent 11.4\quad 一名研究人员想确定一种在两个多元总体之间进行判别的方法. 他能获得足够多的数据来估计分别与总体 $\pi_1$ 和 $\pi_2$ 相联系的密度函数 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$. 设 $c(2\mid 1)=50$(这是将 $\pi_1$ 中的观测值指定到 $\pi_2$ 中的代价)及 $c(1\mid 2)=100$.
+
+此外, 已知大约有 20\% 的可能项目(可以记录它们的 $\mathbf{x}$ 测量值)属于 $\pi_1$.
+
+(a) 给出将一个新的观测值分入两个总体之一的最小 ECM 法则(一般形式).
+
+(b) 对一个新项目记录的测量值产生密度函数值 $f_1(\mathbf{x})=0.3$ 和 $f_2(\mathbf{x})=0.5$. 根据以上信息, 将此新项目分到 $\pi_1$ 或 $\pi_2$.
+
+\noindent 11.5\quad 证明
+\[
+\begin{aligned}
+&-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_1)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_1)+\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_2)\\
+&\quad=(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)
+\end{aligned}
+\]
+[见\hyperref[eq:11-13]{式(11-13)}.]

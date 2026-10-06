@@ -1,0 +1,74 @@
+\[
+\mathbf{S}=\begin{bmatrix}
+s_{11}&s_{12}&\cdots&s_{1p}\\
+s_{12}&s_{22}&\cdots&s_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+s_{1p}&s_{2p}&\cdots&s_{pp}
+\end{bmatrix}
+=\Bigl\{s_{ik}=\frac{1}{n-1}\sum_{j=1}^{n}(x_{ji}-\bar{x}_{i})(x_{jk}-\bar{x}_{k})\Bigr\}
+\]
+该样本协方差矩阵包含 $p$ 个方差和 $\dfrac{1}{2}p(p-1)$ 个可能的不同的协方差. 有时, 希望对用 $\mathbf{S}$ 表示的变差能给定一数值. 我们选择这一数值为 $\mathbf{S}$ 的行列式, 当 $p=1$ 时它就是单一特征的一般样本方差. 该行列式\footnote{{\footnotesize 补充 2A.24 定义了“行列式”, 并指明了计算行列式的值的方法.}}称为广义样本方差.
+
+\begin{mvbox}
+\centering
+\mvbold{广义样本方差} $=|\mathbf{S}|$ \hspace{3em} (3-12)
+\end{mvbox}
+
+\medskip
+\noindent\textbf{例 3.7}\quad (计算广义方差)
+
+美国 16 家最大的出版公司的雇员 $(x_{1})$ 和雇员人均利润 $(x_{2})$ 由\hyperref[fig:1.3]{图 1.3} 给出. 从 1990 年 4 月 30 日《福布斯》中的数据得到的样本协方差矩阵为
+\[
+\mathbf{S}=\begin{bmatrix}252.04&-68.43\\-68.43&123.67\end{bmatrix}
+\]
+求广义方差的值.
+
+这时, 我们计算
+\[
+|\mathbf{S}|=252.04\times123.67-(-68.43)\times(-68.43)=26\,487
+\]
+\hfill$\blacksquare$
+
+广义样本方差提供一种方法, 把所有方差和协方差的信息写成单个的数值. 当然, 在 $p>1$ 时, 用这一方法会丢失样本的某些信息. $|\mathbf{S}|$ 的几何解释将帮助我们了解它作为一个描述性的概括量所具有的优点和缺点.
+
+考虑由两个偏差向量 $\mathbf{d}_{1}=\mathbf{y}_{1}-\bar{x}_{1}\mathbf{1}$ 和 $\mathbf{d}_{2}=\mathbf{y}_{2}-\bar{x}_{2}\mathbf{1}$ 在平面内生成的一个区域. 令 $L_{\mathbf{d}_{1}}$ 是 $\mathbf{d}_{1}$ 的长度, $L_{\mathbf{d}_{2}}$ 是 $\mathbf{d}_{2}$ 的长度, 由初等几何学, 有图
+
+\begin{center}
+\begin{tikzpicture}[scale=0.92]
+\coordinate (O) at (0,0);
+\coordinate (D1) at (1.6,2.1);
+\coordinate (D2) at (4.2,0.5);
+\coordinate (C) at (5.8,2.6);
+\draw[->,line width=1.0pt] (O)--(D1) node[above left,font=\small]{$\mathbf{d}_{1}$};
+\draw[->,line width=1.0pt] (O)--(D2) node[below right,font=\small]{$\mathbf{d}_{2}$};
+\draw[dashed] (D1)--(C);
+\draw[dashed] (D2)--(C);
+% 垂线（高）
+\draw[dashed] (D1)--(1.913,0.228);
+\node[right,font=\scriptsize] at (1.72,1.25){高$=L_{\mathbf{d}_{1}}\sin(\theta)$};
+% 角
+\draw (0.85,0) arc (0:52.7:0.85);
+\node[font=\scriptsize] at (1.02,0.36){$\theta$};
+% 长度标注
+\node[font=\scriptsize,left] at (0.62,1.15){$L_{\mathbf{d}_{1}}$};
+\node[font=\scriptsize,above] at (2.35,0.15){$L_{\mathbf{d}_{2}}$};
+\node[font=\scriptsize,above right] at (5.35,2.72){$L_{\mathbf{d}_{2}}$};
+\end{tikzpicture}
+\end{center}
+
+且此平行四边形的面积是 $|L_{\mathbf{d}_{1}}\sin(\theta)|L_{\mathbf{d}_{2}}$. 由 $\cos^{2}(\theta)+\sin^{2}(\theta)=1$, 此面积可表示为
+\[
+\text{面积}=L_{\mathbf{d}_{1}}L_{\mathbf{d}_{2}}\sqrt{1-\cos^{2}(\theta)}
+\]
+由\hyperref[eq:3-5]{式(3-5)} 和\hyperref[eq:3-7]{式(3-7)},
+\[
+L_{\mathbf{d}_{1}}=\sqrt{\sum_{j=1}^{n}(x_{j1}-\bar{x}_{1})^{2}}=\sqrt{(n-1)s_{11}}
+\]
+\[
+L_{\mathbf{d}_{2}}=\sqrt{\sum_{j=1}^{n}(x_{j2}-\bar{x}_{2})^{2}}=\sqrt{(n-1)s_{22}}
+\]
+和
+\[
+\cos(\theta)=r_{12}
+\]
+因此,

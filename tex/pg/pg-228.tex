@@ -1,0 +1,62 @@
+\noindent 用下相应的响应均值. 此时
+
+\noindent $(\mu_{3}+\mu_{4})-(\mu_{1}+\mu_{2})=$(三氟溴氯乙烷对比, 代表吸入三氟溴氯乙烷与否间差异)
+
+\noindent $(\mu_{1}+\mu_{3})-(\mu_{2}+\mu_{4})=$(高和低 $\mathrm{CO}_{2}$ 对比, 代表 $\mathrm{CO}_{2}$ 压力高低间差异)
+
+\noindent $(\mu_{1}+\mu_{4})-(\mu_{2}+\mu_{3})=$(代表 H$-\mathrm{CO}_{2}$ 压力交互作用影响的对比)
+
+对 $\boldsymbol{\mu}'=[\mu_{1},\mu_{2},\mu_{3},\mu_{4}]$, 对比矩阵 $\mathbf{C}$ 为
+\[
+\mathbf{C}=\begin{bmatrix}
+-1&-1&1&1\\
+1&-1&1&-1\\
+1&-1&-1&1
+\end{bmatrix}
+\]
+由数据(见\hyperref[tab:6.2]{表 6.2})知
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}368.21\\404.63\\479.26\\502.89\end{bmatrix},\qquad
+\mathbf{S}=\begin{bmatrix}
+2\,819.29&&&\\
+3\,568.42&7\,963.14&&\\
+2\,943.49&5\,303.98&6\,851.32&\\
+2\,295.35&4\,065.44&4\,499.63&4\,878.99
+\end{bmatrix}
+\]
+可以验证
+\[
+\mathbf{C}\bar{\mathbf{x}}=\begin{bmatrix}209.31\\-60.05\\-12.79\end{bmatrix};\qquad
+\mathbf{C}\mathbf{S}\mathbf{C}'=\begin{bmatrix}
+9\,432.32&1\,098.92&927.62\\
+1\,098.92&5\,195.84&914.54\\
+927.62&914.54&7\,557.44
+\end{bmatrix}
+\]
+因而\quad $T^{2}=n(\mathbf{C}\bar{\mathbf{x}})'(\mathbf{C}\mathbf{S}\mathbf{C}')^{-1}(\mathbf{C}\bar{\mathbf{x}})=19\times 6.11=116$
+
+对 $\alpha=0.05$ 我们有
+\[
+\frac{(n-1)(q-1)}{(n-q+1)}F_{q-1,n-q+1}(\alpha)=\frac{18\times 3}{16}F_{3,16}(0.05)=\frac{18\times 3}{16}\times 3.24=10.94
+\]
+由\hyperref[eq:6-16]{式(6-16)}知 $T^{2}=116>10.94$, 故拒绝 $H_{0}: \mathbf{C}\boldsymbol{\mu}=\mathbf{0}$(无处理效应). 为说明是哪个对比向量导致 $H_{0}$ 被拒绝, 我们来构造这些对比向量的 $95\%$ 联合置信区间. 由\hyperref[eq:6-18]{式(6-18)}知, 对比
+\[
+c_{1}'\boldsymbol{\mu}=(\mu_{3}+\mu_{4})-(\mu_{1}+\mu_{2})=\text{三氟溴氯乙烷的影响}
+\]
+的 $95\%$ 联合置信区间为
+\begin{align*}
+(\bar{x}_{3}+\bar{x}_{4})-(\bar{x}_{1}+\bar{x}_{2})&\pm\sqrt{\frac{18\times 3}{16}F_{3,16}(0.05)}\sqrt{\frac{c_{1}'\mathbf{S}c_{1}}{19}}\\
+&=209.31\pm\sqrt{10.94}\times\sqrt{\frac{9\,432.32}{19}}\\
+&=209.31\pm 73.70
+\end{align*}
+其中 $c_{1}'$ 为 $\mathbf{C}$ 的第一行, 其余对比的区间估计为:
+
+\noindent $\mathrm{CO}_{2}$ 压力影响 $=(\mu_{1}+\mu_{3})-(\mu_{2}+\mu_{4})$:
+\[
+-60.05\pm\sqrt{10.94}\times\sqrt{\frac{5\,195.84}{19}}=-60.05\pm 54.70
+\]
+H 与 $\mathrm{CO}_{2}$ 压力交互作用影响 $=(\mu_{1}+\mu_{4})-(\mu_{2}+\mu_{3})$:
+\[
+-12.79\pm\sqrt{10.94}\times\sqrt{\frac{7\,557.44}{19}}=-12.79\pm 65.97
+\]
+第一个置信区间表明存在三氟溴氯乙烷的效应. 因此, 吸入三氟溴氯乙烷能使心跳的时间间隔延长. 这种情形在两种 $\mathrm{CO}_{2}$ 压力下均会发生, 原因是 H 与 $\mathrm{CO}_{2}$ 压力的交互作用 $(\mu_{1}+\mu_{4})-(\mu_{2}-\mu_{3})$ 与零无显著差异(见第三个置信区间). 第二个置信区间暗示存在某种来自 $\mathrm{CO}_{2}$ 压力

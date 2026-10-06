@@ -1,0 +1,66 @@
+% ---- pg-464 （书页 452） ----
+
+\phantomsection\label{eq:11-3}
+\begin{equation}
+\begin{aligned}
+&P(\text{观测对象被正确地划入 }\pi_1)\\
+&\quad =P(\text{观测对象来自 }\pi_1\text{, 且被划入 }\pi_1)\\
+&\quad =P(\mathbf{X}\in R_1\mid\pi_1)P(\pi_1)=P(1\mid1)p_1\\[6pt]
+&P(\text{观测对象被错误地划入 }\pi_1)\\
+&\quad =P(\text{观测对象来自 }\pi_2\text{, 却被划入 }\pi_1)\\
+&\quad =P(\mathbf{X}\in R_1\mid\pi_2)P(\pi_2)=P(1\mid2)p_2\\[6pt]
+&P(\text{观测对象被正确地划入 }\pi_2)\\
+&\quad =P(\text{观测对象来自 }\pi_2\text{, 且被划入 }\pi_2)\\
+&\quad =P(\mathbf{X}\in R_2\mid\pi_2)P(\pi_2)=P(2\mid2)p_2\\[6pt]
+&P(\text{观测对象被错误地划入 }\pi_2)\\
+&\quad =P(\text{观测对象来自 }\pi_1\text{, 却被划入 }\pi_2)\\
+&\quad =P(\mathbf{X}\in R_2\mid\pi_1)P(\pi_1)=P(2\mid1)p_1
+\end{aligned}
+\tag{11-3}
+\end{equation}
+
+分类方案经常按错分概率来评估(见 11.4 节), 但这样做忽视了错分的代价. 例如, 如果错分入 $\pi_1$ 的成本极其高昂, 那么即使像 $0.06=P(2\mid1)$ 这样的小概率也可能太大. 因此忽视代价的法则有可能引起问题.
+
+错分代价可以用代价矩阵来定义:
+
+\phantomsection\label{eq:11-4}
+\begin{equation}
+\begin{array}{r:c:c}
+ & \multicolumn{2}{c}{\text{分类为:}}\\ \hdashline
+\text{真实总体:} & \pi_1 & \pi_2\\ \hdashline
+\pi_1 & 0 & c(2\mid1)\\
+\pi_2 & c(1\mid2) & 0
+\end{array}
+\tag{11-4}
+\end{equation}
+
+(1)正确分类的代价为 0; (2)将属于 $\pi_2$ 的对象错分为 $\pi_1$ 的代价为 $c(1\mid2)$; (3)将属于 $\pi_1$ 的对象错分为 $\pi_2$ 的代价为 $c(2\mid1)$.
+
+对任一法则, 平均的或期望的错分代价(ECM)可由\hyperref[eq:11-4]{式(11-4)}中的非对角元与错分概率乘积之和得到. 因此,
+
+\phantomsection\label{eq:11-5}
+\begin{equation}
+\mathrm{ECM}=c(2\mid1)P(2\mid1)p_1+c(1\mid2)P(1\mid2)p_2
+\tag{11-5}
+\end{equation}
+
+一个合理的分类法则应该有最小或尽可能小的 ECM.
+
+\noindent\textbf{结论 11.1}\quad 使 ECM 达到最小的区域 $R_1$ 和 $R_2$ 由满足以下不等式的 $\mathbf{x}$ 值所定义:
+
+\phantomsection\label{eq:11-6}
+\begin{equation}
+\begin{aligned}
+R_1:\quad \frac{f_1(\mathbf{x})}{f_2(\mathbf{x})}&>\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\\
+&(\text{密度比})\geqslant(\text{代价比})(\text{先验概率比})\\[6pt]
+R_2:\quad \frac{f_1(\mathbf{x})}{f_2(\mathbf{x})}&<\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\\
+&(\text{密度比})<(\text{代价比})(\text{先验概率比})
+\end{aligned}
+\tag{11-6}
+\end{equation}
+
+\noindent\mvbold{证明}\quad 见练习 11.3.\hfill$\blacksquare$
+
+由\hyperref[eq:11-6]{式(11-6)}可以清楚看出, 建立最小 ECM 法则需要: (1) 在新观测值 $\mathbf{x}$ 处评估的密度函数比, (2) 代价比, 以及 (3) 先验概率比. 定义中出现的这些比值是有意义的, 因为在很多情况下, 确定这些比值往往比确定它们的组成部分要容易得多.
+
+例如, 很难确定将一个事实上并非上大学材料的中学生划为是上大学材料的错划代价

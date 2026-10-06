@@ -1,0 +1,65 @@
+% ---- pg-448 （书页 436） ----
+
+\[
+\begin{aligned}
+\mathbf{R}_{11}-\text{样本 }\mathrm{Cov}(\mathbf{z}^{(1)})&=\begin{bmatrix}-0.297\,4\\0.673\,9\end{bmatrix}\begin{bmatrix}-0.297\,4&0.673\,9\end{bmatrix}\\
+&=\begin{bmatrix}0.088&-0.200\\-0.200&0.454\end{bmatrix}
+\end{aligned}
+\]
+\[
+\begin{aligned}
+\mathbf{R}_{22}-\text{样本 }\mathrm{Cov}(\mathbf{z}^{(2)})&=\begin{bmatrix}-0.356\,4\\0.022\,7\end{bmatrix}\begin{bmatrix}-0.356\,4&0.022\,7\end{bmatrix}\\
+&=\begin{bmatrix}0.127&-0.008\\-0.008&0.001\end{bmatrix}
+\end{aligned}
+\]
+
+其中 $\mathbf{z}^{(1)},\mathbf{z}^{(2)}$ 由\hyperref[eq:10-33]{式(10-33)}给出, 需取 $r=1$ 且用 $\hat{a}_{\mathbf{z}}^{(l)},\hat{b}_{\mathbf{z}}^{(l)}$ 分别代替 $\hat{a}^{(l)},\hat{b}^{(l)}$.
+
+我们看到第一对典型变量有效地综合(重现) $\mathbf{R}_{12}$ 的组内相关系数. 但是, 单个方差都不是原始组 $\mathbf{z}^{(1)}$ 和 $\mathbf{z}^{(2)}$ 的抽样可变性的特别有效的综合. 这点对 $\hat{U}_1$ 尤其正确.\hfill$\blacksquare$
+
+\mvsub{被解释的样本方差的比例}
+
+当观察值是标准化的, 样本协方差矩阵 $\mathbf{S}_{kl}$ 就是相关系数矩阵 $\mathbf{R}_{kl}$, 典型系数向量是矩阵 $\hat{\mathbf{A}}_{\mathbf{z}}$ 和 $\hat{\mathbf{B}}_{\mathbf{z}}$ 的行向量, 并且 $\hat{\mathbf{A}}_{\mathbf{z}}^{-1}$ 和 $\hat{\mathbf{B}}_{\mathbf{z}}^{-1}$ 的列向量为典型变量与其成分变量的样本相关系数.
+
+特别的,
+\[
+\text{样本 }\mathrm{Cov}(\mathbf{z}^{(1)},\hat{\mathbf{U}})=\text{样本 }\mathrm{Cov}(\hat{\mathbf{A}}_{\mathbf{z}}^{-1}\hat{\mathbf{U}},\hat{\mathbf{U}})=\hat{\mathbf{A}}_{\mathbf{z}}^{-1}
+\]
+和
+\[
+\text{样本 }\mathrm{Cov}(\mathbf{z}^{(2)},\hat{\mathbf{V}})=\text{样本 }\mathrm{Cov}(\hat{\mathbf{B}}_{\mathbf{z}}^{-1}\hat{\mathbf{V}},\hat{\mathbf{V}})=\hat{\mathbf{B}}_{\mathbf{z}}^{-1}
+\]
+故
+\phantomsection\label{eq:10-35}
+\begin{equation}
+\begin{aligned}
+\hat{\mathbf{A}}_{\mathbf{z}}^{-1}&=\big[\hat{a}_{\mathbf{z}}^{(1)},\hat{a}_{\mathbf{z}}^{(2)},\cdots,\hat{a}_{\mathbf{z}}^{(p)}\big]=\begin{bmatrix}r_{\hat{U}_1,z_1^{(1)}}&r_{\hat{U}_2,z_1^{(1)}}&\cdots&r_{\hat{U}_p,z_1^{(1)}}\\
+r_{\hat{U}_1,z_2^{(1)}}&r_{\hat{U}_2,z_2^{(1)}}&\cdots&r_{\hat{U}_p,z_2^{(1)}}\\
+\vdots&\vdots&&\vdots\\
+r_{\hat{U}_1,z_p^{(1)}}&r_{\hat{U}_2,z_p^{(1)}}&\cdots&r_{\hat{U}_p,z_p^{(1)}}\end{bmatrix}\\[8pt]
+\hat{\mathbf{B}}_{\mathbf{z}}^{-1}&=\big[\hat{b}_{\mathbf{z}}^{(1)},\hat{b}_{\mathbf{z}}^{(2)},\cdots,\hat{b}_{\mathbf{z}}^{(q)}\big]=\begin{bmatrix}r_{\hat{V}_1,z_1^{(2)}}&r_{\hat{V}_2,z_1^{(2)}}&\cdots&r_{\hat{V}_q,z_1^{(2)}}\\
+r_{\hat{V}_1,z_2^{(2)}}&r_{\hat{V}_2,z_2^{(2)}}&\cdots&r_{\hat{V}_q,z_2^{(2)}}\\
+\vdots&\vdots&&\vdots\\
+r_{\hat{V}_1,z_q^{(2)}}&r_{\hat{V}_2,z_q^{(2)}}&\cdots&r_{\hat{V}_q,z_q^{(2)}}\end{bmatrix}
+\end{aligned}
+\tag{10-35}
+\end{equation}
+
+其中 $r_{\hat{U}_j,z_i^{(1)}}$ 和 $r_{\hat{V}_j,z_i^{(2)}}$ 为其下标量之间的样本相关系数.
+
+利用\hyperref[eq:10-32]{式(10-32)}, 选取标准化观察值, 我们得到
+
+第一组(标准化)样本总方差
+\phantomsection\label{eq:10-36a}
+\begin{equation}
+=\mathrm{tr}(\mathbf{R}_{11})=\mathrm{tr}\big(\hat{a}_{\mathbf{z}}^{(1)}\hat{a}_{\mathbf{z}}^{(1)'}+\hat{a}_{\mathbf{z}}^{(2)}\hat{a}_{\mathbf{z}}^{(2)'}+\cdots+\hat{a}_{\mathbf{z}}^{(p)}\hat{a}_{\mathbf{z}}^{(p)'}\big)=p
+\tag{10-36a}
+\end{equation}
+第二组(标准化)样本总方差
+\phantomsection\label{eq:10-36b}
+\begin{equation}
+=\mathrm{tr}(\mathbf{R}_{22})=\mathrm{tr}\big(\hat{b}_{\mathbf{z}}^{(1)}\hat{b}_{\mathbf{z}}^{(1)'}+\hat{b}_{\mathbf{z}}^{(2)}\hat{b}_{\mathbf{z}}^{(2)'}+\cdots+\hat{b}_{\mathbf{z}}^{(q)}\hat{b}_{\mathbf{z}}^{(q)'}\big)=q
+\tag{10-36b}
+\end{equation}
+
+因为在 $\hat{\mathbf{A}}_{\mathbf{z}}^{-1}$ 和 $\hat{\mathbf{B}}_{\mathbf{z}}^{-1}$ 的前 $r<p$ 个列向量中的相关系数, 仅分别包含样本典型变量 $\hat{U}_1,\hat{U}_2,\cdots,\hat{U}_r$ 和 $\hat{V}_1,\hat{V}_2,\cdots,\hat{V}_r$, 我们定义前 $r$ 个典型变量对(标准化)样本总方差的贡献为

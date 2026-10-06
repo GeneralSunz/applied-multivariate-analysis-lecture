@@ -1,0 +1,68 @@
+\[
+\frac{(x_1-\mu_1)^2}{\sigma_{11}}-2\rho_{12}\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}}
+=\frac{1}{\sigma_{11}}\left[x_1-\mu_1-\rho_{12}\frac{\sqrt{\sigma_{11}}}{\sqrt{\sigma_{22}}}(x_2-\mu_2)\right]^2-\frac{\rho_{12}^2}{\sigma_{22}}(x_2-\mu_2)^2
+\]
+
+由于 $\rho_{12}=\sigma_{12}/\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}$ 或 $\rho_{12}\sqrt{\sigma_{11}}/\sqrt{\sigma_{22}}=\sigma_{12}/\sigma_{22}$，全指数是
+
+\[
+\mvfit{$\displaystyle\begin{aligned}
+&-\frac{1}{2(1-\rho_{12}^2)}\left(\frac{(x_1-\mu_1)^2}{\sigma_{11}}-2\rho_{12}\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}}+\frac{(x_2-\mu_2)^2}{\sigma_{22}}\right)\\
+&=-\frac{1}{2\sigma_{11}(1-\rho_{12}^2)}\left(x_1-\mu_1-\rho_{12}\frac{\sqrt{\sigma_{11}}}{\sqrt{\sigma_{22}}}(x_2-\mu_2)\right)^2-\frac{1}{2(1-\rho_{12}^2)}\left(\frac{1}{\sigma_{22}}-\frac{\rho_{12}^2}{\sigma_{22}}\right)(x_2-\mu_2)^2\\
+&=-\frac{1}{2\sigma_{11}(1-\rho_{12}^2)}\left(x_1-\mu_1-\frac{\sigma_{12}}{\sigma_{22}}(x_2-\mu_2)\right)^2-\frac{1}{2}\frac{(x_2-\mu_2)^2}{\sigma_{22}}
+\end{aligned}$}
+\]
+
+常数项 $2\pi\sqrt{\sigma_{11}\sigma_{22}(1-\rho_{12}^2)}$ 也分解为
+
+\[
+\sqrt{2\pi\sigma_{22}}\times\sqrt{2\pi\sigma_{11}(1-\rho_{12}^2)}
+\]
+
+用边缘密度
+
+\[
+f_2(x_2)=\frac{1}{\sqrt{2\pi}\sqrt{\sigma_{22}}}e^{-(x_2-\mu_2)^2/2\sigma_{22}}
+\]
+
+除 $X_1$ 和 $X_2$ 的联合密度，消去某些项得出条件密度
+
+\[
+\mvfit{$\displaystyle
+f(x_1\mid x_2)=\frac{f(x_1,x_2)}{f_2(x_2)}=\frac{1}{\sqrt{2\pi}\sqrt{\sigma_{11}(1-\rho_{12}^2)}}e^{-[x_1-\mu_1-(\sigma_{12}/\sigma_{22})(x_2-\mu_2)]^2/2\sigma_{11}(1-\rho_{12}^2)},\qquad -\infty<x_1<\infty
+$}
+\]
+
+于是，用我们通常的记号，在给定 $X_2=x_2$ 时 $X_1$ 的条件分布是 $N_1(\mu_1+(\sigma_{12}/\sigma_{22})(x_2-\mu_2),\ \sigma_{11}(1-\rho_{12}^2))$。现在，$\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}=\sigma_{11}-\sigma_{12}^2/\sigma_{22}=\sigma_{11}(1-\rho_{12}^2)$，$\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}=\sigma_{12}/\sigma_{22}$，与通过间接方法得到的结论 4.6 一致。\hfill$\blacksquare$
+
+对于多元正态情形，需要强调以下几点：
+
+1. 所有的条件分布是（多元）正态的。
+
+2. 条件均值的形式为
+
+\phantomsection\label{eq:4-9}
+\begin{equation}
+\mvfit{$\displaystyle
+\begin{aligned}
+&\mu_1+\beta_{1,q_1+1}(x_{q_1+1}-\mu_{q_1+1})+\cdots+\beta_{1,p}(x_p-\mu_p)\\
+&\qquad\qquad\qquad\qquad\vdots\\
+&\mu_{q_1}+\beta_{q_1,q_1+1}(x_{q_1+1}-\mu_{q_1+1})+\cdots+\beta_{q_1,p}(x_p-\mu_p)
+\end{aligned}
+$} \tag{4-9}
+\end{equation}
+
+其中 $\boldsymbol{\beta}$ 由下式定义
+
+\[
+\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}=\begin{bmatrix}
+\beta_{1,q_1+1} & \beta_{1,q_1+2} & \cdots & \beta_{1,p}\\
+\beta_{2,q_1+1} & \beta_{2,q_1+2} & \cdots & \beta_{2,p}\\
+\vdots & \vdots & \ddots & \vdots\\
+\beta_{q_1,q_1+1} & \beta_{q_1,q_1+2} & \cdots & \beta_{q_1,p}
+\end{bmatrix}
+\]
+
+3. 条件协方差 $\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}$，不取决于条件变量的值。
+
+我们通过介绍多元正态随机向量的最后两个性质来结束本节。一个性质是与常数密度的

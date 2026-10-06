@@ -1,0 +1,33 @@
+% ---- pg-374 （书页 362） ----
+
+$\mathbf{u}_1'\mathbf{S}\mathbf{u}_1$ 最大, 这给出 $\mathbf{u}_1=\hat{\mathbf{e}}_1$. 对垂直于 $\hat{\mathbf{e}}_1$ 的 $\mathbf{u}_2$, 用 $\hat{\mathbf{e}}_2$ 使 $\mathbf{u}_2'\mathbf{S}\mathbf{u}_2$ 最大. 继续下去, 我们找到 $\hat{\mathbf{U}}=[\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\cdots,\hat{\mathbf{e}}_r]=\hat{\mathbf{E}}_r$ 及 $\hat{\mathbf{A}}=\hat{\mathbf{E}}_r\hat{\mathbf{E}}_r'[\mathbf{x}_1-\bar{\mathbf{x}},\mathbf{x}_2-\bar{\mathbf{x}},\cdots,\mathbf{x}_n-\bar{\mathbf{x}}]$, 这正如我们所断言的. \hfill$\blacksquare$
+
+由于这一选取, $\hat{\mathbf{U}}'\mathbf{S}\hat{\mathbf{U}}$ 的第 $i$ 个对角元是 $\hat{\mathbf{e}}_i'\mathbf{S}\hat{\mathbf{e}}_i=\hat{\mathbf{e}}_i'(\hat{\lambda}_i\hat{\mathbf{e}}_i)=\hat{\lambda}_i$, 故 $\mathrm{tr}[\hat{\mathbf{U}}'\mathbf{S}\hat{\mathbf{U}}]=\hat{\lambda}_1+\hat{\lambda}_2+\cdots+\hat{\lambda}_r$. 同样地还有 $\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})'(\mathbf{x}_j-\bar{\mathbf{x}})=\mathrm{tr}\left[\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right]=(n-1)\mathrm{tr}(\mathbf{S})=(n-1)(\hat{\lambda}_1+\hat{\lambda}_2+\cdots+\hat{\lambda}_p)$. 在\hyperref[eq:8A-3]{式(8A-3)}中, 令 $\mathbf{U}=\hat{\mathbf{U}}$ 得到误差的界. \hfill$\blacksquare$
+
+\mvsub{$p$ 维几何学解释}
+
+几何学解释涉及确定对 $p$ 维散布图的最佳近似平面. 此平面通过原点, 由 $\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_r$ 决定, 且由满足
+\[
+\mathbf{x}=b_1\mathbf{u}_1+b_2\mathbf{u}_2+\cdots+b_r\mathbf{u}_r=\mathbf{U}\mathbf{b},\quad \text{对某个 } \mathbf{b}
+\]
+的所有点 $\mathbf{x}$ 组成, 作变换使它通过 $\mathbf{a}$ 之后, 此平面对某个 $\mathbf{b}$ 变成 $\mathbf{a}+\mathbf{U}\mathbf{b}$.
+
+我们要选此 $r$ 维平面 $\mathbf{a}+\mathbf{U}\mathbf{b}$ 使观测值 $\mathbf{x}_j$ 与该平面之间的平方距离和 $\sum_{j=1}^{n}d_j^2$ 达到最小. 若 $\mathbf{x}_j$ 用 $\mathbf{a}+\mathbf{U}\mathbf{b}_j$(满足 $\sum_{j=1}^{n}\mathbf{b}_j=\mathbf{0}$)来近似\footnote{若 $\sum_{j=1}^{n}\mathbf{b}_j=n\bar{\mathbf{b}}\neq\mathbf{0}$, 就用 $\mathbf{a}+\mathbf{U}\mathbf{b}_j=(\mathbf{a}+\mathbf{U}\bar{\mathbf{b}})+\mathbf{U}(\mathbf{b}_j-\bar{\mathbf{b}})=\mathbf{a}^*+\mathbf{U}\mathbf{b}_j^*$.}, 则由于矩阵 $[\mathbf{U}\mathbf{b}_1,\cdots,\mathbf{U}\mathbf{b}_n]=\mathbf{A}'$ 有秩$(\mathbf{A})\leqslant r$, 故根据结论 8A.1 有
+\[
+\begin{aligned}
+&\sum_{j=1}^{n}(\mathbf{x}_j-\mathbf{a}-\mathbf{U}\mathbf{b}_j)'(\mathbf{x}_j-\mathbf{a}-\mathbf{U}\mathbf{b}_j)\\
+&\quad=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j+\bar{\mathbf{x}}-\mathbf{a})'(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j+\bar{\mathbf{x}}-\mathbf{a})\\
+&\quad=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j)'(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j)+n(\bar{\mathbf{x}}-\mathbf{a})'(\bar{\mathbf{x}}-\mathbf{a})\\
+&\quad\geqslant\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{\mathbf{E}}_r\hat{\mathbf{E}}_r'(\mathbf{x}_j-\bar{\mathbf{x}}))'(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{\mathbf{E}}_r\hat{\mathbf{E}}_r'(\mathbf{x}_j-\bar{\mathbf{x}}))
+\end{aligned}
+\]
+取 $\mathbf{a}=\bar{\mathbf{x}}$ 达到下界, 故此平面通过样本均值, 此平面由 $\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\cdots,\hat{\mathbf{e}}_r$ 决定, $\hat{\mathbf{e}}_k$ 的系数为 $\hat{\mathbf{e}}_k'(\mathbf{x}_j-\bar{\mathbf{x}})=\hat{y}_{jk}$, 它是在第 $j$ 个观测值估计的第 $k$ 个样本主成分.
+
+\begin{mvfigure}
+\mvinc{pg-374}{0.563,0.631,0.862,0.781}
+\phantomsection\label{fig:8.10}\mvcap{图 8.10\quad 用 $\sum_{j=1}^{n}d_j^2$ 的最小化逼近散布图的 $r=2$ 维平面}
+\end{mvfigure}
+
+样本主成分的近似平面解释, 由\hyperref[fig:8.10]{图 8.10} 表示.
+
+可以给出另一个替代的解释. 置平面穿过 $\bar{\mathbf{x}}$ 并稍作移动使得观测值在平面的投影达到最大伸长. 从\hyperref[eq:8A-2]{式(8A-2)}, 变差 $\mathbf{x}_j-\bar{\mathbf{x}}$ 在平面 $\mathbf{U}\mathbf{b}$ 的投影是 $\mathbf{v}_j=\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})$. 现在, $\bar{\mathbf{v}}=\mathbf{0}$ 且投影变差的平方长度之和为

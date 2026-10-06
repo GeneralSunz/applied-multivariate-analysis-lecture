@@ -1,0 +1,61 @@
+% ---- pg-539 （书页 527） ----
+
+表中的 $a$ 为 1—1 配对频数, $b$ 为 1—0 配对频数, 等等. 对前面给出的五对二值变量来说, $a=2$, 而 $b=c=d=1$.
+
+\hyperref[tab:12.1]{表 12.1} 列出一些用\hyperref[eq:12-7]{式(12-7)}中的频数定义的常用相似性系数. 每个定义之后附有对该定义基本依据的简短说明.
+
+\begin{mvtable}
+\phantomsection\label{tab:12.1}\mvtabcap{表 12.1\quad 聚类项目的相似性系数(对 $p$ 个二值变量)}
+\begin{tabular}{ll}
+\toprule
+系\quad 数 & 基本依据说明\\
+\midrule
+1.\quad $\dfrac{a+d}{p}$ & 对 1—1 和 0—0 配对有相同的权.\\
+2.\quad $\dfrac{2(a+d)}{2(a+d)+b+c}$ & 对 1—1 和 0—0 配对有加倍的权.\\
+3.\quad $\dfrac{a+d}{a+d+2(b+c)}$ & 对不相配的对有加倍的权.\\
+4.\quad $\dfrac{a}{p}$ & 分子中无 0—0 配对.\\
+5.\quad $\dfrac{a}{a+b+c}$ & 分子分母中均无 0—0 配对.\\
+  & (0—0 配对作为无关配对处理.)\\
+6.\quad $\dfrac{2a}{2a+b+c}$ & 分子分母中均无 0—0 配对.\\
+  & 对 1—1 配对有加倍的权.\\
+7.\quad $\dfrac{a}{a+2(b+c)}$ & 分子分母中均无 0—0 配对.\\
+  & 对不相配的对有加倍的权.\\
+8.\quad $\dfrac{a}{b+c}$ & 除去 0—0 配对后, 1—1 配对与错配之比.\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+表中系数 1, 2 和 3 是单调关联的. 假定系数 1 是对表 I 和表 II 两个列联表计算的. 此时若 $(a_{\mathrm{I}}+d_{\mathrm{I}})/p\ge(a_{\mathrm{II}}+d_{\mathrm{II}})/p$, 我们也有 $2(a_{\mathrm{I}}+d_{\mathrm{I}})/[2(a_{\mathrm{I}}+d_{\mathrm{I}})+b_{\mathrm{I}}+c_{\mathrm{I}}]\ge 2(a_{\mathrm{II}}+d_{\mathrm{II}})/[2(a_{\mathrm{II}}+d_{\mathrm{II}})+b_{\mathrm{II}}+c_{\mathrm{II}}]$. 系数 3 对表 I 的值也不会小于对表 II 的值(见练习 12.4). 系数 5, 6 和 7 也都保持它们的相对的顺序.
+
+单调性是重要的, 因为当相似性的定义改变而相似性的相对顺序保持不变时, 某些聚类方法不受影响. 在 12.3 节中讨论的单联结和完全联结分层方法也不受影响. 对这些方法, 选择\hyperref[tab:12.1]{表 12.1} 中系数 1, 2 或 3 中的任一个都会产生相同的分组. 类似的, 选择系数 5, 6 或 7 中的任一个也产生相同的分组.
+
+\noindent\textbf{例 12.1}\quad (计算相似性系数的值)
+
+假定五个人具有以下特征:
+
+\begin{mvtable}
+\begin{tabular}{ccccccc}
+\toprule
+个人 & 身高(英寸) & 体重(磅) & 眼球颜色 & 头发颜色 & 优势手 & 性别\\
+\midrule
+1 & 68 & 140 & 绿 & 金 & 右 & 女\\
+2 & 73 & 185 & 棕 & 黑 & 右 & 男\\
+3 & 67 & 165 & 蓝 & 金 & 右 & 男\\
+4 & 64 & 120 & 棕 & 黑 & 右 & 女\\
+5 & 76 & 210 & 棕 & 黑 & 左 & 男\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+定义 6 个二值变量:
+\[
+X_1=\begin{cases}
+1, & \text{身高}\ge 72 \text{ 英寸}\\
+0, & \text{身高}<72 \text{ 英寸}
+\end{cases}
+\qquad
+X_2=\begin{cases}
+1, & \text{体重}\ge 150 \text{ 磅}\\
+0, & \text{体重}<150 \text{ 磅}
+\end{cases}
+\]

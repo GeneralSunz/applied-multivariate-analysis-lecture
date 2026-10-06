@@ -1,0 +1,68 @@
+% ---- pg-467 （书页 455） ----
+
+\phantomsection\label{eq:11-11}
+\begin{equation}
+\begin{aligned}
+R_2:\ \exp&\left[-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_1)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_1)+\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_2)\right]\\
+&<\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)
+\end{aligned}
+\tag{11-11}
+\end{equation}
+
+给定这些区域 $R_1$ 和 $R_2$, 我们就可以构造下述结论中给出的分类法则.
+
+\noindent\textbf{结论 11.2}\quad 设总体 $\pi_1$ 和 $\pi_2$ 由形如\hyperref[eq:11-10]{式(11-10)}的多元正态密度描述. 此时能使 ECM 最小化的分配法则如下:
+
+当
+\phantomsection\label{eq:11-12}
+\begin{equation}
+(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}_0-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\geqslant\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]
+\tag{11-12}
+\end{equation}
+时将 $\mathbf{x}_0$ 分配给 $\pi_1$, 否则将 $\mathbf{x}_0$ 分配给 $\pi_2$.
+
+\noindent\mvbold{证明}\quad 由于对所有 $\mathbf{x}$, \hyperref[eq:11-11]{式(11-11)}中的量均属非负, 我们可以取它们的自然对数, 同时保持不等号不变. 进一步有(见练习 11.5),
+\phantomsection\label{eq:11-13}
+\begin{equation}
+\begin{aligned}
+&-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_1)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_1)+\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}_2)\\
+&\quad =(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)
+\end{aligned}
+\tag{11-13}
+\end{equation}
+于是
+\phantomsection\label{eq:11-14}
+\begin{equation}
+\begin{aligned}
+R_1:\ &(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)\geqslant\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]\\
+R_2:\ &(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)<\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]
+\end{aligned}
+\tag{11-14}
+\end{equation}
+这样就证明了结论 11.2.\hfill$\blacksquare$
+
+在大多数实际情况下, 总体参数 $\boldsymbol{\mu}_1$, $\boldsymbol{\mu}_2$ 和 $\boldsymbol{\Sigma}$ 均为未知系数, 因此法则(11-12)必须修改. 沃尔德(Wald, 见文献[31])和安德森(Anderson, 见文献[2])建议将总体参数用它们的样本对应量来代替.
+
+然后, 假定多元随机变量 $\mathbf{X}'=[X_1,X_2,\cdots,X_p]$ 有 $n_1$ 个观测值来自 $\pi_1$ 和 $n_2$ 个观测值来自 $\pi_2$, $n_1+n_2-2\geqslant p$. 这时相应的数据矩阵分别为
+\phantomsection\label{eq:11-15}
+\begin{equation}
+\underset{(n_1\times p)}{\mathbf{X}_1}=\begin{bmatrix}\mathbf{x}_{11}'\\\mathbf{x}_{12}'\\\vdots\\\mathbf{x}_{1n_1}'\end{bmatrix},\qquad \underset{(n_2\times p)}{\mathbf{X}_2}=\begin{bmatrix}\mathbf{x}_{21}'\\\mathbf{x}_{22}'\\\vdots\\\mathbf{x}_{2n_2}'\end{bmatrix}
+\tag{11-15}
+\end{equation}
+
+根据这些数据矩阵, 样本均值向量和样本协方差矩阵由下列诸式确定:
+\phantomsection\label{eq:11-16}
+\begin{equation}
+\begin{aligned}
+\underset{(p\times1)}{\bar{\mathbf{x}}_1}&=\frac{1}{n_1}\sum_{j=1}^{n_1}\mathbf{x}_{1j}, & \underset{(p\times p)}{\mathbf{S}_1}&=\frac{1}{n_1-1}\sum_{j=1}^{n_1}(\mathbf{x}_{1j}-\bar{\mathbf{x}}_1)(\mathbf{x}_{1j}-\bar{\mathbf{x}}_1)'\\
+\underset{(p\times1)}{\bar{\mathbf{x}}_2}&=\frac{1}{n_2}\sum_{j=1}^{n_2}\mathbf{x}_{2j}, & \underset{(p\times p)}{\mathbf{S}_2}&=\frac{1}{n_2-1}\sum_{j=1}^{n_2}(\mathbf{x}_{2j}-\bar{\mathbf{x}}_2)(\mathbf{x}_{2j}-\bar{\mathbf{x}}_2)'
+\end{aligned}
+\tag{11-16}
+\end{equation}
+
+由于假定总体有相同的协方差矩阵 $\boldsymbol{\Sigma}$, 样本协方差矩阵 $\mathbf{S}_1$ 和 $\mathbf{S}_2$ 应联合起来, 以导出一个如\hyperref[eq:6-21]{式(6-21)}那样的 $\boldsymbol{\Sigma}$ 的无偏估计. 特别是, 如果数据矩阵 $\mathbf{X}_1$ 和 $\mathbf{X}_2$ 分别包含来自总体 $\pi_1$ 和 $\pi_2$ 的随机样本, 则加权平均
+\phantomsection\label{eq:11-17}
+\begin{equation}
+\mathbf{S}_{\mathrm{p}}=\left[\frac{n_1-1}{(n_1-1)+(n_2-1)}\right]\mathbf{S}_1+\left[\frac{n_2-1}{(n_1-1)+(n_2-1)}\right]\mathbf{S}_2
+\tag{11-17}
+\end{equation}

@@ -1,0 +1,47 @@
+% ---- pg-370 （书页 358） ----
+
+$\mathbf{X}-\boldsymbol{\mu}$, 形如 $Y_1\mathbf{e}_1+Y_2\mathbf{e}_2$. 剩下一个没有解释的成分是
+\[
+\mathbf{X}-\boldsymbol{\mu}-Y_1\mathbf{e}_1-Y_2\mathbf{e}_2
+\]
+令 $\mathbf{E}=[\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_p]$ 是正交矩阵, 它的列是 $\boldsymbol{\Sigma}$ 的特征向量. 这个未解释的部分的正交变换
+\[
+\mathbf{E}'(\mathbf{X}-\boldsymbol{\mu}-Y_1\mathbf{e}_1-Y_2\mathbf{e}_2)=
+\begin{bmatrix}Y_1\\Y_2\\Y_3\\\vdots\\Y_p\end{bmatrix}-
+\begin{bmatrix}Y_1\\0\\0\\\vdots\\0\end{bmatrix}-
+\begin{bmatrix}0\\Y_2\\0\\\vdots\\0\end{bmatrix}=
+\begin{bmatrix}0\\0\\Y_3\\\vdots\\Y_p\end{bmatrix}=
+\begin{bmatrix}0\\0\\\mathbf{Y}_{(2)}\end{bmatrix}
+\]
+所以, 作近似误差的正交变换, 就得到后 $p-2$ 个主成分. 比起基于近似误差的 $T^2$ 图, 我们更愿意等价地用后几个主成分的 $T^2$ 图. 回忆
+\[
+\mathrm{Var}(Y_i)=\lambda_i,\qquad i=1,2,\cdots,p
+\]
+和 $\mathrm{Cov}(Y_i,Y_k)=0$, $i\neq k$. 基于后 $p-2$ 个总体主成分, 统计量 $\mathbf{Y}_{(2)}'\boldsymbol{\Sigma}_{Y_{(2)},Y_{(2)}}^{-1}\mathbf{Y}_{(2)}$ 变为
+\phantomsection\label{eq:8-38}
+\begin{equation}
+\frac{Y_3^2}{\lambda_3}+\frac{Y_4^2}{\lambda_4}+\cdots+\frac{Y_p^2}{\lambda_p} \tag{8-38}
+\end{equation}
+这正是 $p-2$ 个独立标准正态分布的平方和, 所以服从 $p-2$ 个自由度的 $\chi^2$ 分布.
+
+因为采用样本数据, 所以必须估计主成分和特征值. 由于线性组合 $\hat{\mathbf{e}}_i$ 的系数也是估计量, 因此, 即便总体是正态的, 主成分也没有服从正态分布. 不过, 通常根据统计量
+\[
+T_1^2=\frac{\hat{y}_3^2}{\hat{\lambda}_3}+\frac{\hat{y}_4^2}{\hat{\lambda}_4}+\cdots+\frac{\hat{y}_p^2}{\hat{\lambda}_p}
+\]
+生成一个 $T^2$ 图. 该统计量包含了估计的特征值和向量, 而且, 常常借助于由\hyperref[eq:8-38]{式(8-38)}描述的大样本近似, 并令 $T_1^2$ 的上控制限为 $\mathrm{UCL}=c^2=\chi_{p-2}^2(\alpha)$.
+
+该 $T^2$ 统计量是基于高维数据的. 例如, 当测量 $p=20$ 个变量时, 它利用与前两个特征向量 $\hat{\mathbf{e}}_1$ 和 $\hat{\mathbf{e}}_2$ 相重的 18 维空间里的信息. 这个基于在原观测中未被解释的变异的 $T^2$, 据报告对挑选变异中的特别原因非常有效.
+
+\noindent\textbf{例 8.11}\quad (用于未被解释的(正交的)加班时数的 $T^2$ 图)
+
+考虑例 8.10 中警署加班时数的质量控制分析. 质量监控过程的第一部分, 即基于前两个主成分的质量椭圆, 曾由\hyperref[fig:8.7]{图 8.7} 给出. 为说明两步过程的第二步, 我们对其他主成分生成 $T^2$ 图.
+
+既然 $p=5$, 此图在 $5-2=3$ 维空间里, 并且上控制限是 $\chi_3^2(0.05)=7.81$. 在例 8.10 中已经给出主成分各种值, 利用它们, 我们来画时间序列值
+\[
+T_j^2=\frac{\hat{y}_{j3}^2}{\hat{\lambda}_3}+\frac{\hat{y}_{j4}^2}{\hat{\lambda}_4}+\frac{\hat{y}_{j5}^2}{\hat{\lambda}_5}
+\]
+的图形, 这里第一个值是 $T^2=0.891$, 其他值如此一一算得. $T^2$ 图示于\hyperref[fig:8.8]{图 8.8}.
+
+由于点 12 和 13 时间段超过或接近这条上控制限, 在这些时期内发生过某些事情. 我们注意到它们正好属于特殊事件加班时数达到峰值的时间段.
+
+从\hyperref[tab:8.2]{表 8.2}, $\hat{y}_{j3}$ 在时间段 12 里大, 而从\hyperref[tab:8.1]{表 8.1}, $\mathbf{e}_3$ 的那些大系数则属于法定加班时数、处理遗留人员加班时数和允许补偿的加班时数. 跟随在时间段上达到峰值的特殊事件时数之后, 有过对这些其他分类的某些调整吗? \hfill$\blacksquare$

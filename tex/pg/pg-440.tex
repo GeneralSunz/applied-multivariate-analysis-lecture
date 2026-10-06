@@ -1,0 +1,65 @@
+% ---- pg-440 （书页 428） ----
+
+\phantomsection\label{eq:10-20}
+\begin{equation}
+\mathbf{X}=[\begin{array}{c:c}\mathbf{X}^{(1)}&\mathbf{X}^{(2)}\end{array}]=\left[\begin{array}{cccc:cccc}
+x_{11}^{(1)} & x_{12}^{(1)} & \cdots & x_{1p}^{(1)} & x_{11}^{(2)} & x_{12}^{(2)} & \cdots & x_{1q}^{(2)}\\
+x_{21}^{(1)} & x_{22}^{(1)} & \cdots & x_{2p}^{(1)} & x_{21}^{(2)} & x_{22}^{(2)} & \cdots & x_{2q}^{(2)}\\
+\vdots & \vdots & & \vdots & \vdots & \vdots & & \vdots\\
+x_{n1}^{(1)} & x_{n2}^{(1)} & \cdots & x_{np}^{(1)} & x_{n1}^{(2)} & x_{n2}^{(2)} & \cdots & x_{nq}^{(2)}
+\end{array}\right]=\left[\begin{array}{c:c}
+\mathbf{x}_1^{(1)'} & \mathbf{x}_1^{(2)'}\\
+\vdots & \vdots\\
+\mathbf{x}_n^{(1)'} & \mathbf{x}_n^{(2)'}
+\end{array}\right]
+\tag{10-20}
+\end{equation}
+样本均值向量可组成
+\phantomsection\label{eq:10-21}
+\begin{equation}
+\begin{aligned}
+\bar{\mathbf{x}}_{(p+q)\times 1}&=\left[\begin{array}{c}
+\bar{\mathbf{x}}^{(1)}\\
+\hdashline
+\bar{\mathbf{x}}^{(2)}
+\end{array}\right]\\
+\text{其中}\qquad \bar{\mathbf{x}}^{(1)}&=\frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_j^{(1)},\qquad \bar{\mathbf{x}}^{(2)}=\frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_j^{(2)}
+\end{aligned}
+\tag{10-21}
+\end{equation}
+同样, 样本协方差矩阵可以写成类似\hyperref[eq:10-4]{式(10-4)}的形式. 这样,
+\[
+\mathbf{S}_{(p+q)\times(p+q)}=\left[\begin{array}{c:c}
+\mathbf{S}_{11\,(p\times p)} & \mathbf{S}_{12\,(p\times q)}\\
+\hdashline
+\mathbf{S}_{21\,(q\times p)} & \mathbf{S}_{22\,(q\times q)}
+\end{array}\right]
+\]
+其中
+\phantomsection\label{eq:10-22}
+\begin{equation}
+\mathbf{S}_{kl}=\frac{1}{n-1}\sum_{j=1}^{n}(\mathbf{x}_j^{(k)}-\bar{\mathbf{x}}^{(k)})(\mathbf{x}_j^{(l)}-\bar{\mathbf{x}}^{(l)})',\qquad k,l=1,2
+\tag{10-22}
+\end{equation}
+线性组合
+\phantomsection\label{eq:10-23}
+\begin{equation}
+\hat{U}=\hat{\mathbf{a}}'\mathbf{x}^{(1)};\qquad \hat{V}=\hat{\mathbf{b}}'\mathbf{x}^{(2)}
+\tag{10-23}
+\end{equation}
+有样本相关系数[见\hyperref[eq:3-36]{式(3-36)}]
+\phantomsection\label{eq:10-24}
+\begin{equation}
+r_{\hat{U},\hat{V}}=\frac{\hat{\mathbf{a}}'\mathbf{S}_{12}\hat{\mathbf{b}}}{\sqrt{\hat{\mathbf{a}}'\mathbf{S}_{11}\hat{\mathbf{a}}}\ \sqrt{\hat{\mathbf{b}}'\mathbf{S}_{22}\hat{\mathbf{b}}}}
+\tag{10-24}
+\end{equation}
+\textbf{第一对样本典型变量}是具有使比率(10-24)最大的单位样本方差的线性组合 $\hat{U}_1,\hat{V}_1$ 配对. 一般来说, 第 $k$ 对样本典型变量是在与前面 $k-1$ 个样本典型变量不相关且有单位样本方差的变量的所有的线性组合中, 使比率(10-24)最大的 $\hat{U}_k,\hat{V}_k$ 配对.
+
+$\hat{U}_k$ 和 $\hat{V}_k$ 的样本相关系数称为第 $k$ 个样本典型相关系数.
+
+样本典型变量和样本典型相关系数可从样本协方差矩阵 $\mathbf{S}_{11},\mathbf{S}_{12}=\mathbf{S}_{21}'$ 和 $\mathbf{S}_{22}$ 得到, 方法与结论 10.1 中描述的总体情况是一致的.
+
+\noindent\textbf{结论 10.2}\quad 令 $\mathbf{S}_{11}^{-1/2}\mathbf{S}_{12}\mathbf{S}_{22}^{-1}\mathbf{S}_{21}\mathbf{S}_{11}^{-1/2}$ 的 $p$ 个顺序特征值为 $\hat{\rho}_1^{*2}\ge\hat{\rho}_2^{*2}\ge\cdots\ge\hat{\rho}_p^{*2}$ 对应的特征向量为 $\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\cdots,\hat{\mathbf{e}}_p$, 其中 $\mathbf{S}_{kl}$ 由\hyperref[eq:10-22]{式(10-22)}定义且 $p\le q$. 令 $\hat{\mathbf{f}}_1,\hat{\mathbf{f}}_2,\cdots,\hat{\mathbf{f}}_p$ 为 $\mathbf{S}_{22}^{-1/2}\mathbf{S}_{21}\mathbf{S}_{11}^{-1}\mathbf{S}_{12}\mathbf{S}_{22}^{-1/2}$ 的特征向量, 其中前 $p$ 个 $\hat{\mathbf{f}}$ 可以从 $\hat{\mathbf{f}}_k=(1/\hat{\rho}_k^*)\mathbf{S}_{22}^{-1/2}\mathbf{S}_{21}\mathbf{S}_{11}^{-1/2}\hat{\mathbf{e}}_k$ ($k=1,2,\cdots,p$)得到. 于是, 第 $k$ 个样本典型变量配对\footnote{{\footnotesize 当分布是正态的, 极大似然方法可通过用 $\hat{\boldsymbol{\Sigma}}=\mathbf{S}_n$ 代替 $\mathbf{S}$ 来实现. 因此, 样本典型相关系数 $\hat{\rho}_k^*$ 为 $\rho_k^*$ 的极大似然估计, 并且 $\sqrt{n/(n-1)}\hat{\mathbf{a}}_k$, $\sqrt{n/(n-1)}\hat{\mathbf{b}}_k$ 分别为 $\mathbf{a}_k$ 和 $\mathbf{b}_k$ 的极大似然估计.}}为
+\[
+\hat{U}_k=\underbrace{\hat{\mathbf{e}}_k'\mathbf{S}_{11}^{-1/2}\mathbf{x}^{(1)}}_{\hat{\mathbf{a}}_k'};\qquad \hat{V}_k=\underbrace{\hat{\mathbf{f}}_k'\mathbf{S}_{22}^{-1/2}\mathbf{x}^{(2)}}_{\hat{\mathbf{b}}_k'}
+\]

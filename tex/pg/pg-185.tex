@@ -1,0 +1,48 @@
+% ---- pg-185 ----
+\phantomsection\label{eq:5-25}
+\begin{equation}
+\le \bar{x}_{i}-\bar{x}_{k}+\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{ii}-2s_{ik}+s_{kk}}{n}} \tag{5-25}
+\end{equation}
+
+联合 $T^{2}$ 置信区间的方法对数据探测是较理想的. 由于其置信系数 $1-\alpha$ 对任意的 $\mathbf{a}$ 保持不变, 因此, 根据数据实验应受到检验的诸分量 $\boldsymbol{\mu}$ 的线性组合可以被估计出来.
+
+另外, 根据补充 5A 中的结论, 我们可以得到 $(\mu_{i},\mu_{k})$ 的置信域, 其中 $(\mu_{i},\mu_{k})$ 在以样本均值为中心的椭圆内, 即
+\phantomsection\label{eq:5-26}
+\begin{equation}
+n\left[\bar{x}_{i}-\mu_{i}, \bar{x}_{k}-\mu_{k}\right]\begin{bmatrix}s_{ii}&s_{ik}\\s_{ik}&s_{kk}\end{bmatrix}^{-1}\begin{bmatrix}\bar{x}_{i}-\mu_{i}\\\bar{x}_{k}-\mu_{k}\end{bmatrix}\le \frac{p(n-1)}{n-p}F_{p,n-p}(\alpha) \tag{5-26}
+\end{equation}
+
+而它们所有的置信系数仍保持为 $1-\alpha$.
+
+均值向量的单一分量的联合 $T^{2}$ 置信区间恰好为置信椭球在该分量轴上的投影. 我们在下一个例子中将说明置信椭球的投影与由\hyperref[eq:5-24]{式(5-24)}给出的联合置信区间之间的这种联系.
+
+\noindent\textbf{例 5.4}\quad (联合置信区间作为置信椭球的投影)
+
+在例 5.3 中, 我们得到了炉门关闭及开启时微波炉辐射测量值四次根的均值的 95\% 置信椭圆. 由\hyperref[eq:5-24]{式(5-24)}知, 这两个均值分量的 95\% 联合 $T^{2}$ 置信区间为
+\[
+\left(\bar{x}_{1}-\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(0.05)}\sqrt{\frac{s_{11}}{n}}, \bar{x}_{1}+\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(0.05)}\sqrt{\frac{s_{11}}{n}}\right)
+\]
+\[
+=\left(0.564-\sqrt{\frac{2\times41}{40}\times3.23}\times\sqrt{\frac{0.014\,4}{42}}, 0.564+\sqrt{\frac{2\times41}{40}\times3.23}\times\sqrt{\frac{0.014\,4}{42}}\right)
+\]
+\[
+=(0.516,0.612)
+\]
+
+\[
+\left(\bar{x}_{2}-\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(0.05)}\sqrt{\frac{s_{22}}{n}}, \bar{x}_{2}+\sqrt{\frac{p(n-1)}{(n-p)}F_{p,n-p}(0.05)}\sqrt{\frac{s_{22}}{n}}\right)
+\]
+\[
+=\left(0.603-\sqrt{\frac{2\times41}{40}\times3.23}\times\sqrt{\frac{0.014\,6}{42}}, 0.603+\sqrt{\frac{2\times41}{40}\times3.23}\times\sqrt{\frac{0.014\,6}{42}}\right)
+\]
+\[
+=(0.555,0.651)
+\]
+
+在\hyperref[fig:5.2]{图 5.2} 中, 我们重绘了例 5.3 中的 95\% 置信椭圆, 可以看出, 其 95\% 联合置信区间为此椭圆在其均值分量轴上的投影.
+
+\begin{mvfigure}
+\mvinc{pg-185}{0.322,0.653,0.718,0.871}
+\phantomsection\label{fig:5.2}\mvcap{图 5.2\quad 均值分量的联合 $T^{2}$ 区间作为置信椭圆在其轴上的投影——微波炉辐射数据}
+\end{mvfigure}
+\hfill$\blacksquare$

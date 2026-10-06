@@ -1,0 +1,66 @@
+% ---- pg-531 （书页 519） ----
+
+(c) 将下面的 10 个新事例用(b)中得到的判别函数进行分类.
+
+\begin{mvtable}
+\begin{longtable}{ccc|ccc}\toprule
+事例 & $\log_{10}$(AHF 活性) & $\log_{10}$(AHF 抗原) & 事例 & $\log_{10}$(AHF 活性) & $\log_{10}$(AHF 抗原)\\
+\midrule
+\endfirsthead
+\multicolumn{6}{c}{\zihao{6}续表}\\
+\toprule
+事例 & $\log_{10}$(AHF 活性) & $\log_{10}$(AHF 抗原) & 事例 & $\log_{10}$(AHF 活性) & $\log_{10}$(AHF 抗原)\\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+
+1 & $-0.112$ & $-0.279$ & 6 & $-0.094$ & $-0.113$\\
+2 & $-0.059$ & $-0.068$ & 7 & $-0.123$ & $-0.143$\\
+3 & $0.064$ & $0.012$ & 8 & $-0.011$ & $-0.037$\\
+4 & $-0.043$ & $-0.052$ & 9 & $-0.210$ & $-0.090$\\
+5 & $-0.050$ & $-0.098$ & 10 & $-0.126$ & $-0.019$\\
+\end{longtable}
+\end{mvtable}
+
+(d) 假定必然携带者(组 2)的先验概率为 $1/4$, 而非携带者(组 1)的先验概率为 $3/4$, 重复(a)$\sim$(c).
+
+\noindent 11.33\quad 考虑\hyperref[tab:1.10]{表 1.10} 中的公牛数据.
+
+(a) 用变量 YrHgt, FtFrBody, PrctFFB, Frame, BkFat, SaleHt 和 SaleWt 计算费希尔线性判别量, 并将公牛分类为 Angus, Hereford 或 Simmental. 用提留方法计算 $E(\mathrm{AER})$的估计值. 一头新的公牛有以下变量值: $\mathrm{YrHgt}=50$, $\mathrm{FtFrBody}=1000$, $\mathrm{PrctFFB}=73$, $\mathrm{Frame}=7$, $\mathrm{BkFat}=0.17$, $\mathrm{SaleHt}=54$, 及 $\mathrm{SaleWt}=1525$. 将这头牛分入三类之一. 将判别得分制成二维判别空间中的点图, 为便于识别, 用不同的符号表示不同种群的公牛.
+
+(b) 是否可以找到七个原始变量的一个子集, 用它来作判别时效果差不多与用全部变量一样好? 对各种可能的子集作判别并计算估计的 $E(\mathrm{AER})$, 以找到这样一个子集.
+
+\noindent 11.34\quad \hyperref[tab:11.9]{表 11.9} 列出由三个美国制造商所生产的早餐方便粥的数据. 这三家厂商是: 通用磨坊(G), 克罗格(K)和桂格(Q). 假定数据服从正态分布, 有相同的协方差阵, 相同先验概率及相同错分代价. 将早餐方便粥的品牌按厂商分类. 用提留方法计算估计的 $E(\mathrm{AER})$. 解释判别函数的系数. 是否有这种可能, 某个厂商的产品比其他厂商的产品更“有营养”(高蛋白, 低脂肪, 高纤维, 低糖, 等等). 将方便粥产品制成二维判别空间中的点图, 用不同的符号代表不同的厂商.
+
+\begin{mvtable}
+\phantomsection\label{tab:11.9}\mvtabcap{表 11.9\quad 方便粥品牌数据}
+\footnotesize
+\begin{longtable}{lcccccccccc}\toprule
+品\quad 牌 & 厂商 & 卡路里 & 蛋白质 & 脂肪 & 钠 & 纤维 & 碳水化合物 & 糖 & 钾 & 组\\
+\midrule
+\endfirsthead
+\multicolumn{11}{c}{\zihao{6}续表}\\
+\toprule
+品\quad 牌 & 厂商 & 卡路里 & 蛋白质 & 脂肪 & 钠 & 纤维 & 碳水化合物 & 糖 & 钾 & 组\\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+
+1 Apple\_Cinnamon\_Cheerios & G & 110 & 2 & 2 & 180 & 1.5 & 10.5 & 10 & 70 & 1\\
+2 Cheerios & G & 110 & 6 & 2 & 290 & 2.0 & 17.0 & 1 & 105 & 1\\
+3 Cocoa\_Puffs & G & 110 & 1 & 1 & 180 & 0.0 & 12.0 & 13 & 55 & 1\\
+4 Count\_Chocula & G & 110 & 1 & 1 & 180 & 0.0 & 12.0 & 13 & 65 & 1\\
+5 Golden\_Grahams & G & 110 & 1 & 1 & 280 & 0.0 & 15.0 & 9 & 45 & 1\\
+6 Honey\_Nut\_Cheerios & G & 110 & 3 & 1 & 250 & 1.5 & 11.5 & 10 & 90 & 1\\
+7 Kix & G & 110 & 2 & 1 & 260 & 0.0 & 21.0 & 3 & 40 & 1\\
+8 Lucky\_Charms & G & 110 & 2 & 1 & 180 & 0.0 & 12.0 & 12 & 55 & 1\\
+9 Multi\_Grain\_Cheerios & G & 100 & 2 & 1 & 220 & 2.0 & 15.0 & 6 & 90 & 1\\
+10 Oatmeal\_Raisin\_Crisp & G & 130 & 3 & 2 & 170 & 1.5 & 13.5 & 10 & 120 & 1\\
+11 Raisin\_Nut\_Bran & G & 100 & 3 & 2 & 140 & 2.5 & 10.5 & 8 & 140 & 1\\
+12 Total\_Corn\_Flakes & G & 110 & 2 & 1 & 200 & 0.0 & 21.0 & 3 & 35 & 1\\
+13 Total\_Raisin\_Bran & G & 140 & 3 & 1 & 190 & 4.0 & 15.0 & 14 & 230 & 1\\
+14 Total\_Whole\_Grain & G & 100 & 3 & 1 & 200 & 3.0 & 16.0 & 3 & 110 & 1\\
+\end{longtable}
+\end{mvtable}

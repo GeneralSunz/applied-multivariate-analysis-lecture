@@ -1,0 +1,64 @@
+% ---- pg-338 （书页 326） ----
+
+并要求事先将变量 $y,z_1$ 和 $z_2$ 标准化. 由这个拟合结果导出对原变量(标准化之前)的回归方程.
+
+\medskip
+\noindent 7.3\quad （加权最小二乘估计量.）设
+\[
+\underset{(n\times 1)}{\mathbf{Y}}=\underset{(n\times(r+1))}{\mathbf{Z}}\ \underset{((r+1)\times 1)}{\boldsymbol{\beta}}+\underset{(n\times 1)}{\boldsymbol{\epsilon}}
+\]
+其中 $E(\boldsymbol{\epsilon})=\mathbf{0}$, $E(\boldsymbol{\epsilon}\boldsymbol{\epsilon}')=\sigma^2\mathbf{V}$, $\mathbf{V}(n\times n)$ 为正定矩阵. 对满秩的 $\mathbf{V}$, 证明: 加权最小二乘估计量为
+\[
+\hat{\boldsymbol{\beta}}_W=(\mathbf{Z}'\mathbf{V}^{-1}\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{V}^{-1}\mathbf{Y}
+\]
+若 $\sigma^2$ 未知, 则其无偏估计量为 $(n-r-1)^{-1}\times(\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}}_W)'\mathbf{V}^{-1}(\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}}_W)$.
+
+提示: 令 $\mathbf{Y}^*=\mathbf{V}^{-1/2}\mathbf{Y}$, $\mathbf{Z}^*=\mathbf{V}^{-1/2}\mathbf{Z}$, 及 $\boldsymbol{\epsilon}^*=\mathbf{V}^{-1/2}\boldsymbol{\epsilon}$, 则 $\mathbf{Y}^*=\mathbf{Z}^*\boldsymbol{\beta}+\boldsymbol{\epsilon}^*$ 为经典线性回归形式, 其中 $E(\boldsymbol{\epsilon}^*)=\mathbf{0}$, $E(\boldsymbol{\epsilon}^*\boldsymbol{\epsilon}^{*'})=\sigma^2\mathbf{I}$. 这样, $\hat{\boldsymbol{\beta}}_W=\hat{\boldsymbol{\beta}}^*=(\mathbf{Z}^{*'}\mathbf{Z}^*)^{-1}\mathbf{Z}^{*'}\mathbf{Y}^*$.
+
+\noindent 7.4\quad 用练习 7.3 中的加权最小二乘估计量导出如下模型的参数估计表达式: $Y_j=\beta z_j+\epsilon_j$, $j=1,2,\cdots,n$, 其中 (a) $\mathrm{Var}(\epsilon_j)=\sigma^2$, (b) $\mathrm{Var}(\epsilon_j)=\sigma^2z_j$, 及 (c) $\mathrm{Var}(\epsilon_j)=\sigma^2z_j^2$. 对不相等的误差方差对 $\hat{\beta}_W$ 最佳选择的影响方式作出评论.
+
+\noindent 7.5\quad 证明\hyperref[eq:7-50]{式(7-50)}: $\rho_{Y(\mathbf{Z})}^2=1-1/\rho^{YY}$.
+
+提示: 由\hyperref[eq:7-49]{式(7-49)}和练习 4.11 可得,
+\[
+1-\rho_{Y(\mathbf{Z})}^2
+=\frac{\sigma_{YY}-\boldsymbol{\sigma}_{\mathbf{Z}Y}'\boldsymbol{\Sigma}_{\mathbf{Z}\mathbf{Z}}^{-1}\boldsymbol{\sigma}_{\mathbf{Z}Y}}{\sigma_{YY}}
+=\frac{|\boldsymbol{\Sigma}_{\mathbf{Z}\mathbf{Z}}|}{|\boldsymbol{\Sigma}|}\frac{(\sigma_{YY}-\boldsymbol{\sigma}_{\mathbf{Z}Y}'\boldsymbol{\Sigma}_{\mathbf{Z}\mathbf{Z}}^{-1}\boldsymbol{\sigma}_{\mathbf{Z}Y})}{\sigma_{YY}}
+=\frac{|\boldsymbol{\Sigma}|}{|\boldsymbol{\Sigma}_{\mathbf{Z}\mathbf{Z}}|\ \sigma_{YY}}
+\]
+根据结论 2A.8(c), $\sigma^{YY}=|\boldsymbol{\Sigma}_{\mathbf{Z}\mathbf{Z}}|/|\boldsymbol{\Sigma}|$, 其中 $\sigma^{YY}$ 为 $\boldsymbol{\Sigma}^{-1}$ 的第 $(1,1)$ 位元素. 由于(见练习 2.23) $\boldsymbol{\rho}=\mathbf{V}^{-1/2}\boldsymbol{\Sigma}\mathbf{V}^{-1/2}$ 及 $\boldsymbol{\rho}^{-1}=(\mathbf{V}^{-1/2}\boldsymbol{\Sigma}\mathbf{V}^{-1/2})^{-1}=\mathbf{V}^{1/2}\boldsymbol{\Sigma}^{-1}\mathbf{V}^{1/2}$, $\boldsymbol{\rho}^{-1}$ 中第 $(1,1)$ 位元素为 $\rho^{YY}=\sigma^{YY}\sigma_{YY}$.
+
+\medskip
+\noindent 7.6\quad （$\mathbf{Z}'\mathbf{Z}$ 的广义逆.）矩阵 $(\mathbf{Z}'\mathbf{Z})^-$ 称为 $(\mathbf{Z}'\mathbf{Z})$ 的广义逆, 若 $\mathbf{Z}'\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'\mathbf{Z}=\mathbf{Z}'\mathbf{Z}$. 设 $r_1+1=$ 秩$(\mathbf{Z})$, 并设 $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_{r_1+1}>0$ 为 $\mathbf{Z}'\mathbf{Z}$ 的非零特征根, 对应的特征向量为 $\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_{r_1+1}$.
+
+\noindent (a) 证明
+\[
+(\mathbf{Z}'\mathbf{Z})^-=\sum_{i=1}^{r_1+1}\lambda_i^{-1}\mathbf{e}_i\mathbf{e}_i'
+\]
+
+\noindent (b) 最小化平方误差 $(\mathbf{y}-\mathbf{Z}\boldsymbol{\beta})'(\mathbf{y}-\mathbf{Z}\boldsymbol{\beta})$ 的系数 $\hat{\boldsymbol{\beta}}$ 满足正规方程组 $(\mathbf{Z}'\mathbf{Z})\hat{\boldsymbol{\beta}}=\mathbf{Z}'\mathbf{y}$. 证明: 对任意 $\hat{\boldsymbol{\beta}}$, 若 $\mathbf{Z}\hat{\boldsymbol{\beta}}$ 为 $\mathbf{y}$ 到 $\mathbf{Z}$ 的列空间的投影, 则 $\hat{\boldsymbol{\beta}}$ 满足正规方程组.
+
+\noindent (c) 证明 $\mathbf{Z}\hat{\boldsymbol{\beta}}=\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'\mathbf{y}$ 为 $\mathbf{y}$ 到 $\mathbf{Z}$ 的列空间的投影.
+
+\noindent (d) 直接验证 $\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'\mathbf{y}$ 为正规方程 $(\mathbf{Z}'\mathbf{Z})[(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'\mathbf{y}]=\mathbf{Z}'\mathbf{y}$ 的一个解.
+
+提示: 若 $\mathbf{Z}\hat{\boldsymbol{\beta}}$ 为投影, 则 $\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}}$ 垂直于 $\mathbf{Z}$ 的列.
+
+\noindent (e) $(\mathbf{Z}'\mathbf{Z})(\lambda_i^{-1}\mathbf{e}_i)=\mathbf{e}_i$, $i\leqslant r_1+1$, 及 $\mathbf{0}=\mathbf{e}_i'(\mathbf{Z}'\mathbf{Z})\mathbf{e}_i$, $i>r_1+1$. 因此 $(\mathbf{Z}'\mathbf{Z})(\lambda_i^{-1}\mathbf{e}_i)\mathbf{e}_i'\mathbf{Z}'=\mathbf{e}_i\mathbf{e}_i'\mathbf{Z}'$. 由于 $\mathbf{e}_i'\mathbf{Z}'=\mathbf{0}$, 当 $i>r_1+1$ 时对 $i$ 求和得到
+\[
+\begin{aligned}
+(\mathbf{Z}'\mathbf{Z})(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'
+&=\mathbf{Z}'\mathbf{Z}\left(\sum_{i=1}^{r_1+1}\lambda_i^{-1}\mathbf{e}_i\mathbf{e}_i'\right)\mathbf{Z}'\\
+&=\left(\sum_{i=1}^{r_1+1}\mathbf{e}_i\mathbf{e}_i'\right)\mathbf{Z}'
+=\left(\sum_{i=1}^{r+1}\mathbf{e}_i\mathbf{e}_i'\right)\mathbf{Z}'
+=\mathbf{I}\mathbf{Z}'=\mathbf{Z}'
+\end{aligned}
+\]
+
+\medskip
+\noindent 7.7\quad 假定经典回归模型写为
+\[
+\underset{(n\times 1)}{\mathbf{Y}}=\underset{(n\times(q+1))}{\mathbf{Z}_1}\ \underset{((q+1)\times 1)}{\boldsymbol{\beta}_{(1)}}
++\underset{(n\times(r-q))}{\mathbf{Z}_2}\ \underset{((r-q)\times 1)}{\boldsymbol{\beta}_{(2)}}
++\underset{(n\times 1)}{\boldsymbol{\epsilon}}
+\]

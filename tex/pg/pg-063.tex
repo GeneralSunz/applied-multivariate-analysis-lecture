@@ -1,0 +1,73 @@
+% ---- pg-063 （书页 51） ----
+
+其中 $\bm{P}\bm{P}'=\bm{P}'\bm{P}=\bm{I}$，且 $\bm{\Delta}$ 为如下对角矩阵
+
+\[
+\underset{(k\times k)}{\bm{\Delta}}=
+\begin{bmatrix}
+\lambda_1 & 0 & \cdots & 0\\
+0 & \lambda_2 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & \lambda_k
+\end{bmatrix}
+\qquad \lambda_i>0
+\]
+
+因为 $(\bm{P}\bm{\Delta}^{-1}\bm{P}')\bm{P}\bm{\Delta}\bm{P}'=\bm{P}\bm{\Delta}^{-1}\bm{P}'\bm{P}\bm{\Delta}\bm{P}'=\bm{P}\bm{P}'=\bm{I}$，有
+
+\phantomsection\label{eq:2-21}
+\begin{equation}
+\bm{A}^{-1}=\bm{P}\bm{\Delta}^{-1}\bm{P}'=\sum_{i=1}^{k}\frac{1}{\lambda_i}\bm{e}_i\bm{e}_i' \tag{2-21}
+\end{equation}
+
+接下来，令 $\bm{\Delta}^{1/2}$ 为以 $\sqrt{\lambda_i}$ 为第 $i$ 个对角元素的对角阵.矩阵 $\sum\limits_{i=1}^{k}\sqrt{\lambda_i}\bm{e}_i\bm{e}_i'=\bm{P}\bm{\Delta}^{1/2}\bm{P}'$ 称为 $\bm{A}$ 的平方根，用 $\bm{A}^{1/2}$ 表示.
+
+\begin{mvframe}
+\mvbold{平方根矩阵}
+
+\phantomsection\label{eq:2-22}
+\begin{equation}
+\bm{A}^{1/2}=\sum_{i=1}^{k}\sqrt{\lambda_i}\bm{e}_i\bm{e}_i'=\bm{P}\bm{\Delta}^{1/2}\bm{P}' \tag{2-22}
+\end{equation}
+
+有下列性质：
+
+1. $(\bm{A}^{1/2})'=\bm{A}^{1/2}$ （即 $\bm{A}^{1/2}$ 是对称的）.
+
+2. $\bm{A}^{1/2}\bm{A}^{1/2}=\bm{A}$.
+
+3. $(\bm{A}^{1/2})^{-1}=\sum\limits_{i=1}^{k}\frac{1}{\sqrt{\lambda_i}}\bm{e}_i\bm{e}_i'=\bm{P}\bm{\Delta}^{-1/2}\bm{P}'$ 其中 $\bm{\Delta}^{-1/2}$ 是以 $1/\sqrt{\lambda_i}$ 作为第 $i$ 个对角线上元素的对角阵.
+
+4. $\bm{A}^{1/2}\bm{A}^{-1/2}=\bm{A}^{-1/2}\bm{A}^{1/2}=\bm{I}$，且 $\bm{A}^{-1/2}\bm{A}^{-1/2}=\bm{A}^{-1}$，其中 $\bm{A}^{-1/2}=(\bm{A}^{1/2})^{-1}$.
+\end{mvframe}
+
+\section{随机向量和矩阵}  % 原书 2.5
+\phantomsection\label{sec:2.5}
+
+随机向量是元素为随机变量的向量.类似地，随机矩阵是元素为随机变量的矩阵.随机矩阵(或向量)的期望值是由它的每个元素的期望值组成的矩阵(向量).具体地说，设 $\bm{X}=\{X_{ij}\}$ 是 $n\times p$ 随机矩阵，则 $\bm{X}$ 的期望值记做 $E(\bm{X})$，是数值为如下所示的 $n\times p$ 矩阵(如果它们存在)
+
+\phantomsection\label{eq:2-23}
+\begin{equation}
+E(\bm{X})=
+\begin{bmatrix}
+E(X_{11}) & E(X_{12}) & \cdots & E(X_{1p})\\
+E(X_{21}) & E(X_{22}) & \cdots & E(X_{2p})\\
+\vdots & \vdots & & \vdots\\
+E(X_{n1}) & E(X_{n2}) & \cdots & E(X_{np})
+\end{bmatrix}
+\tag{2-23}
+\end{equation}
+
+其中，矩阵的每个元素\footnote{如果不熟悉微积分，则应该注重对期望值和方差的理解.我们的研究主要是基于期望值的性质，而不是对连续型或离散型随机变量的具体计算.}
+
+\[
+E(X_{ij})=
+\begin{cases}
+\displaystyle\int_{-\infty}^{\infty}x_{ij}f_{ij}(x_{ij})\,\mathrm{d}x_{ij} & \text{若 } X_{ij} \text{ 是概率密度函数为 } f_{ij}(x_{ij}) \text{ 的连续型随机变量}\\[2ex]
+\displaystyle\sum_{\text{一切 }x_{ij}}x_{ij}p_{ij}(x_{ij}) & \text{若 } X_{ij} \text{ 是概率函数为 } p_{ij}(x_{ij}) \text{ 的离散型随机变量}
+\end{cases}
+\]
+
+\mvbold{例 2.12} \quad (对离散型随机变量计算期望值)
+
+设 $p=2$ 和 $n=1$，考虑随机向量 $\bm{X}'=[X_1,X_2]$.设离散型随机变量 $X_1$ 的概率函数如下：

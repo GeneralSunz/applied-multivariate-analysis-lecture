@@ -1,0 +1,57 @@
+% ---- pg-454 （书页 442） ----
+
+提示: $\cos(\theta_2-\beta)=\cos(\theta_2)\cos(\beta)+\sin(\theta_2)\sin(\beta)$.
+
+\noindent (b)\quad 令 $\mathbf{X}^{(1)}$ 只有单一成分 $X_1^{(1)}$. 证明单一的典型相关系数为 $\rho_1^*=\max\limits_{\beta}\mathrm{Corr}(X_1^{(1)},\cos(\theta_2-\beta))$. 挑选典型变量 $V_1$ 相当于为角度 $\theta_2$ 挑选一个新原点 $\beta$(约翰逊)和韦尔利(Johnson and Wehrly, 见文献[7]).
+
+\noindent (c)\quad 令 $X_1^{(1)}$ 为臭氧(以百万分之一计)且 $\theta_2=$ 风向与北方的夹角. 在威斯康星州密尔沃基城取得的 19 个观测值, 给出该样本相关系数矩阵
+\[
+\mathbf{R}=\left[\begin{array}{c:c}\mathbf{R}_{11}&\mathbf{R}_{12}\\ \hdashline \mathbf{R}_{21}&\mathbf{R}_{22}\end{array}\right]=
+\begin{array}{c}
+\begin{array}{ccc}\text{臭氧}&\cos(\theta_2)&\sin(\theta_2)\end{array}\\[4pt]
+\left[\begin{array}{cc:c}1.0&0.166&0.694\\ \hdashline 0.166&1.0&-0.051\\0.694&-0.051&1.0\end{array}\right]
+\end{array}
+\]
+求样本典型相关系数 $\hat{\rho}_1^*$ 和表示新原点 $\hat{\beta}$ 的典型变量 $\hat{V}_1$.
+
+\noindent (d)\quad 假设 $\mathbf{X}^{(1)}$ 也是角度测量值, 形如 $\mathbf{X}^{(1)}=[\cos(\theta_1),\sin(\theta_1)]'$. 又有 $a'\mathbf{X}^{(1)}=\sqrt{a_1^2+a_2^2}\cdot\cos(\theta_1-\alpha)$. 证明
+\[
+\rho_1^*=\max_{\alpha,\beta}\mathrm{Corr}(\cos(\theta_1-\alpha),\cos(\theta_2-\beta))
+\]
+
+\noindent (e)\quad 在早 6:00 和中午 12:00 测出的风向的 21 个观测值给出相关系数矩阵
+\[
+\mathbf{R}=
+\begin{array}{c}
+\begin{array}{cccc}\cos(\theta_1)&\sin(\theta_1)&\cos(\theta_2)&\sin(\theta_2)\end{array}\\[4pt]
+\left[\begin{array}{cc:cc}1.0&-0.291&0.440&0.372\\-0.291&1.0&-0.205&0.243\\ \hdashline 0.440&-0.205&1.0&0.181\\0.372&0.243&0.181&1.0\end{array}\right]
+\end{array}
+\]
+求样本典型相关系数 $\hat{\rho}_1^*$ 和 $\hat{U}_1,\hat{V}_1$.
+
+\noindent\mvbold{以下练习可能用到计算机.}
+
+\noindent 10.9\quad 霍特林(见文献[5])报告称 $n=140$ 个七年级孩子接受四项测试: $X_1^{(1)}=$ 阅读速度, $X_2^{(1)}=$ 阅读才能, $X_1^{(2)}=$ 数学运算速度以及 $X_2^{(2)}=$ 数学运算才能. 孩子们的表现的相关系数为
+\[
+\mathbf{R}=\left[\begin{array}{c:c}\mathbf{R}_{11}&\mathbf{R}_{12}\\ \hdashline \mathbf{R}_{21}&\mathbf{R}_{22}\end{array}\right]=\left[\begin{array}{cc:cc}1.0&0.632\,8&0.241\,2&0.058\,6\\0.632\,8&1.0&-0.055\,3&0.065\,5\\ \hdashline 0.241\,2&-0.055\,3&1.0&0.424\,8\\0.058\,6&0.065\,5&0.424\,8&1.0\end{array}\right]
+\]
+
+\noindent (a)\quad 求所有的样本典型相关系数和样本典型变量.
+
+\noindent (b)\quad 陈述你所作的每一个假定, 在显著性水平 $\alpha=0.05$ 时检验以下假设
+\[
+H_0:\boldsymbol{\Sigma}_{12}=\boldsymbol{\rho}_{12}=\mathbf{0}\quad(\rho_1^*=\rho_2^*=0)
+\]
+\[
+H_1:\boldsymbol{\Sigma}_{12}=\boldsymbol{\rho}_{12}\ne\mathbf{0}
+\]
+若拒绝 $H_0$, 取显著性水平 $\alpha=0.05$, 检验
+\[
+H_0^{(1)}:\rho_1^*\ne0,\qquad \rho_2^*=0
+\]
+\[
+H_1^{(1)}:\rho_2^*\ne0
+\]
+阅读能力(由两项测试度量的)与数学运算能力(由两项测试度量的)是否相关? 讨论之.
+
+\noindent (c)\quad 求出 $\mathbf{R}_{11},\mathbf{R}_{22}$ 和 $\mathbf{R}_{12}$ 的近似值误差矩阵, 前者是由第一样本典型变量配对 $\hat{U}_1,\hat{V}_1$ 导

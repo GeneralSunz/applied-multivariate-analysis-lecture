@@ -1,0 +1,60 @@
+% ---- pg-319 （书页 307） ----
+
+且误差 $\boldsymbol{\epsilon}$ 服从正态分布. 此时
+\[
+\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}
+\]
+为 $\boldsymbol{\beta}$ 的极大似然估计量, 且 $\hat{\boldsymbol{\beta}}$ 服从正态分布, 均值 $E(\hat{\boldsymbol{\beta}})=\boldsymbol{\beta}$, 且 $\operatorname{Cov}(\hat{\boldsymbol{\beta}}_{(i)},\hat{\boldsymbol{\beta}}_{(k)})=\sigma_{ik}(\mathbf{Z}'\mathbf{Z})^{-1}$. 此外, $\hat{\boldsymbol{\beta}}$ 独立于正定矩阵 $\boldsymbol{\Sigma}$ 的极大似然估计量
+\[
+\hat{\boldsymbol{\Sigma}}=\frac{1}{n}\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}
+=\frac{1}{n}(\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}})
+\]
+且 $n\hat{\boldsymbol{\Sigma}}$ 服从分布 $W_{p,n-r-1}(\boldsymbol{\Sigma})$.
+
+\medskip
+\noindent\textbf{证明}\quad (见网页：www.prenhall.com/statistics) \hfill$\blacksquare$
+
+结论 7.10 为最小二乘估计的采用提供了进一步支持. 当误差服从正态分布时, $\hat{\boldsymbol{\beta}}$ 与 $n^{-1}\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}$ 分别是 $\boldsymbol{\beta}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计量. 因此, 对大样本情形, 它们具有最小的可能方差.
+
+\mvbold{评注}\quad 多元多重回归模型并没有提出新的计算问题. 最小二乘(极大似然)估计 $\hat{\boldsymbol{\beta}}_{(i)}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}_{(i)}$ 是对每个响应变量逐个计算的. 然而请注意: 模型要求对所有响应变量使用同一组预测变量.
+
+一旦用数据拟合了一个多元多重回归模型, 就应该用 7.6 节中所介绍的诊断方法对这个模型做检查. 根据 4.6 节中介绍的方法, 考察残差向量 $[\hat{\epsilon}_{j1},\hat{\epsilon}_{j2},\cdots,\hat{\epsilon}_{jm}]$ 便可检查正态性是否满足或离群值是否存在.
+
+本节剩余部分用来对正态理论下多元多重回归模型的推断作一简要讨论. 这些问题的展开讨论见文献[2]和[18].
+
+\section{回归参数的似然比检验}
+\phantomsection\label{sec:7.8}
+
+单响应回归模型中的假设(7-12)的内容是: 响应变量不依赖于 $z_{q+1},z_{q+2},\cdots,z_r$. 设在多响应情况下该假设变为
+\phantomsection\label{eq:7-37}
+\begin{equation}
+H_0: \boldsymbol{\beta}_{(2)}=\mathbf{0}\qquad \text{其中}\qquad
+\boldsymbol{\beta}=\left[\begin{array}{c}
+\underset{((q+1)\times m)}{\boldsymbol{\beta}_{(1)}}\\
+\hdashline
+\underset{((r-q)\times m)}{\boldsymbol{\beta}_{(2)}}
+\end{array}\right]
+\tag{7-37}
+\end{equation}
+令 $\mathbf{Z}=\left[\begin{array}{c:c}\underset{(n\times(q+1))}{\mathbf{Z}_1}&\underset{(n\times(r-q))}{\mathbf{Z}_2}\end{array}\right]$, 我们可将一般模型写成
+\[
+E(\mathbf{Y})=\mathbf{Z}\boldsymbol{\beta}
+=\left[\begin{array}{c:c}\mathbf{Z}_1&\mathbf{Z}_2\end{array}\right]
+\left[\begin{array}{c}\boldsymbol{\beta}_{(1)}\\ \hdashline \boldsymbol{\beta}_{(2)}\end{array}\right]
+=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\mathbf{Z}_2\boldsymbol{\beta}_{(2)}
+\]
+在假设 $H_0: \boldsymbol{\beta}_{(2)}=\mathbf{0}$ 下, $\mathbf{Y}=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\boldsymbol{\epsilon}$, $H_0$ 的似然比检验建立在额外的平方与交叉乘积之和的基础之上:
+\[
+\begin{aligned}
+&(\mathbf{Y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})'(\mathbf{Y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})-(\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}})\\
+&=n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})
+\end{aligned}
+\]
+其中 $\hat{\boldsymbol{\beta}}_{(1)}=(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{Y}$, $\hat{\boldsymbol{\Sigma}}_1=n^{-1}(\mathbf{Y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})'(\mathbf{Y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})$. 根据结论 7.10, 可将似然比 $\Lambda$ 表为广义方差之比:
+\phantomsection\label{eq:7-38}
+\begin{equation}
+\Lambda=\frac{\max\limits_{\boldsymbol{\beta}_{(1)},\boldsymbol{\Sigma}}L(\boldsymbol{\beta}_{(1)},\boldsymbol{\Sigma})}{\max\limits_{\boldsymbol{\beta},\boldsymbol{\Sigma}}L(\boldsymbol{\beta},\boldsymbol{\Sigma})}
+=\frac{L(\hat{\boldsymbol{\beta}}_{(1)},\hat{\boldsymbol{\Sigma}}_1)}{L(\hat{\boldsymbol{\beta}},\hat{\boldsymbol{\Sigma}})}
+=\left(\frac{|\hat{\boldsymbol{\Sigma}}|}{|\hat{\boldsymbol{\Sigma}}_1|}\right)^{n/2}
+\tag{7-38}
+\end{equation}

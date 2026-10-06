@@ -1,0 +1,42 @@
+一旦得出最终的估计 $\hat{\boldsymbol{\mu}}$ 和 $\hat{\boldsymbol{\Sigma}}$, 而 $\mathbf{X}$ 中的缺损值个数相对说又很少时, 则将满足关系
+\phantomsection\label{eq:5-41}
+\begin{equation}
+n(\hat{\boldsymbol{\mu}}-\boldsymbol{\mu})'\hat{\boldsymbol{\Sigma}}^{-1}(\hat{\boldsymbol{\mu}}-\boldsymbol{\mu})\le\chi_p^2(\alpha) \tag{5-41}
+\end{equation}
+的所有 $\boldsymbol{\mu}$ 作为近似的 $100(1-\alpha)\%$ 置信椭球来处理似乎是合理的. 这时联合置信表示同 5.5 节中一样, 只不过那里的 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 应分别用 $\hat{\boldsymbol{\mu}}$ 和 $\hat{\boldsymbol{\Sigma}}$ 代替.
+
+\mvbold{警告}\quad 前面所讨论的预测-估计算法, 其基础是要求分量观测值的缺损是一种随机缺损. 若缺损值与响应的水平有关, 则用前面的方法处理缺损值可能给估计方法带来严重偏倚. 然而典型的情况是, 缺损值与被测量的响应有关. 因此, 即使数据的丢失是随机的, 我们也应对任何一种用作弥补的计算方案持怀疑态度. 当缺损值不止少数几个时, 对研究者来说, 寻找产生此种现象的原因是绝对必要的.
+
+\section{多元观测中由时间相依性造成的困难}
+\phantomsection\label{sec:5.8}
+
+对本章所描述的方法, 我们都假定多元观测量 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 构成一随机样本, 就是说, 它们相互独立. 如果观测量是按时间顺序收集的, 这个假定可能不成立. 即使观测数据中间只存在中等程度的时间相依性, 也会对建立在独立性假设基础上的统计检验、置信域以及联合置信区间造成很大困难.
+
+当时间相依性可由一阶多元自回归模型(AR(1))来刻划时, 我们来解释这种困难的本原. 设 $p\times1$ 随机向量 $\mathbf{X}_t$ 服从多元 AR(1)模型:
+\phantomsection\label{eq:5-42}
+\begin{equation}
+\mathbf{X}_t-\boldsymbol{\mu}=\boldsymbol{\Phi}(\mathbf{X}_{t-1}-\boldsymbol{\mu})+\boldsymbol{\varepsilon}_t \tag{5-42}
+\end{equation}
+其中所有 $\boldsymbol{\varepsilon}_t$ 独立同分布, 满足 $E[\boldsymbol{\varepsilon}_t]=\mathbf{0}$ 与 $\mathrm{Cov}(\boldsymbol{\varepsilon}_t)=\boldsymbol{\Sigma}_{\varepsilon}$, 且系数矩阵 $\boldsymbol{\Phi}$ 的所有特征值均在 $-1$ 与 $1$ 之间.
+
+在该模型中, $\mathrm{Cov}(\mathbf{X}_t,\mathbf{X}_{t-k})=\boldsymbol{\Phi}\boldsymbol{\Sigma}_{kk}$, 此处 $\boldsymbol{\Sigma}_{kk}=\sum_{i=0}^{\infty}\boldsymbol{\Phi}^i\boldsymbol{\Sigma}_{\varepsilon}\boldsymbol{\Phi}^{i'}$. AR(1)模型\hyperref[eq:5-42]{式(5-42)}通过系数矩阵 $\boldsymbol{\Phi}$ 建立 $t$ 时刻的观测值与 $t-1$ 时刻的观测值之间的关系. 此外, 当系数矩阵 $\boldsymbol{\Phi}$ 的所有元素均为 0 时, 在多元正态性假定下, 该模型就表明诸观测值相互独立. 自回归模型这一名称来自这样的事实: \hyperref[eq:5-42]{式(5-42)}看上去就像是以 $\mathbf{X}_t$ 为因变量, 以其前期值 $\mathbf{X}_{t-1}$ 为自变量的多元回归模型.
+
+文献[8]中已证明
+\[
+\bar{\mathbf{X}}\to\boldsymbol{\mu}, \quad
+\mathbf{S}=\frac{1}{n-1}\sum_{t=1}^{n}(\mathbf{X}_t-\bar{\mathbf{X}})(\mathbf{X}_t-\bar{\mathbf{X}})'\to\boldsymbol{\Sigma}_X
+\]
+及
+\phantomsection\label{eq:5-43}
+\begin{equation}
+\mathrm{Cov}\left(n^{-1/2}\sum_{t=1}^{n}\mathbf{X}_t\right)
+\to(\mathbf{I}-\boldsymbol{\Phi})^{-1}\boldsymbol{\Sigma}_{\varepsilon}
++\boldsymbol{\Sigma}_X(\mathbf{I}-\boldsymbol{\Phi}')^{-1}-\boldsymbol{\Sigma}_X \tag{5-43}
+\end{equation}
+其中的箭头表示依概率收敛. 此外, 当 $n$ 很大时, $\sqrt{n}(\bar{\mathbf{X}}-\boldsymbol{\mu})$ 近似服从均值为 $\mathbf{0}$, 协方差矩阵由\hyperref[eq:5-43]{式(5-43)}给出的正态分布.
+
+为计算方便起见, 假设基本过程有 $\boldsymbol{\Phi}=\varphi\mathbf{I}$, 其中 $|\varphi|<1$. 现在考虑 $\boldsymbol{\mu}$ 的名义水平为 $95\%$ 的大样本置信椭球:
+\[
+\{\boldsymbol{\mu}: n(\bar{\mathbf{X}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})\le\chi_p^2(0.05)\}
+\]
+当观测值相互独立时, 该椭球覆盖样本的概率为 0.95. 当观测值由上述的自回归模型刻划时, 该椭球的覆盖概率为

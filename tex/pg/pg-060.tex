@@ -1,0 +1,47 @@
+% ---- pg-060 （书页 48） ----
+\[
+\begin{bmatrix} 13 & -4 & 2 \\ -4 & 13 & -2 \\ 2 & -2 & 10 \end{bmatrix}\begin{bmatrix} e_{11} \\ e_{21} \\ e_{31} \end{bmatrix} = 9\begin{bmatrix} e_{11} \\ e_{21} \\ e_{31} \end{bmatrix}
+\]
+
+或
+
+\[
+13e_{11} - 4e_{21} + 2e_{31} = 9e_{11}
+\]
+\[
+-4e_{11} + 13e_{21} - 2e_{31} = 9e_{21}
+\]
+\[
+2e_{11} - 2e_{21} + 10e_{31} = 9e_{31}
+\]
+
+把等号右边的项移至左边得到三个含三个未知数的齐次方程,其中两个方程是重复的.选择其中的一个方程并任意设 $e_{11} = 1$ 及 $e_{31} = 1$,求得 $e_{21} = 0$.由于标准化特征向量各元素的平方和是 1,因此,标准化特征向量为
+
+\[
+\bm{e}_1' = \left[1/\sqrt{1^2 + 1^2 + 0^2},\, 1/\sqrt{1^2 + 1^2 + 0^2},\, 0/\sqrt{1^2 + 1^2 + 0^2}\right] = [1/\sqrt{2}, 1/\sqrt{2}, 0]
+\]
+
+可以证明 $\bm{e}_2' = [1/\sqrt{18}, -1/\sqrt{18}, -4/\sqrt{18}]$ 也是 $\lambda_1 = 9$ 的标准化特征向量, $\bm{e}_3' = [2/3, -2/3, 1/3]$ 是特征值 $\lambda_3 = 18$ 相应的标准化特征向量.而且,对 $i \neq j$, $\bm{e}_i'\bm{e}_j = 0$.
+
+容易证明,$\bm{A}$ 的谱分解是
+
+\[
+\bm{A} = \lambda_1\bm{e}_1\bm{e}_1' + \lambda_2\bm{e}_2\bm{e}_2' + \lambda_3\bm{e}_3\bm{e}_3'
+\]
+
+或
+
+\[
+\begin{bmatrix} 13 & -4 & 2 \\ -4 & 13 & -2 \\ 2 & -2 & 10 \end{bmatrix} = 9\begin{bmatrix} \dfrac{1}{\sqrt{2}} \\[2mm] \dfrac{1}{\sqrt{2}} \\[2mm] 0 \end{bmatrix}\begin{bmatrix} \dfrac{1}{\sqrt{2}} & \dfrac{1}{\sqrt{2}} & 0 \end{bmatrix}
+\]
+\[
++ 9\begin{bmatrix} \dfrac{1}{\sqrt{18}} \\[2mm] -\dfrac{1}{\sqrt{18}} \\[2mm] -\dfrac{4}{\sqrt{18}} \end{bmatrix}\begin{bmatrix} \dfrac{1}{\sqrt{18}} & -\dfrac{1}{\sqrt{18}} & -\dfrac{4}{\sqrt{18}} \end{bmatrix} + 18\begin{bmatrix} \dfrac{2}{3} \\[2mm] -\dfrac{2}{3} \\[2mm] \dfrac{1}{3} \end{bmatrix}\begin{bmatrix} \dfrac{2}{3} & -\dfrac{2}{3} & \dfrac{1}{3} \end{bmatrix}
+\]
+\[
+= 9\begin{bmatrix} \dfrac{1}{2} & \dfrac{1}{2} & 0 \\[2mm] \dfrac{1}{2} & \dfrac{1}{2} & 0 \\[2mm] 0 & 0 & 0 \end{bmatrix} + 9\begin{bmatrix} \dfrac{1}{18} & -\dfrac{1}{18} & -\dfrac{4}{18} \\[2mm] -\dfrac{1}{18} & \dfrac{1}{18} & \dfrac{4}{18} \\[2mm] -\dfrac{4}{18} & \dfrac{4}{18} & \dfrac{16}{18} \end{bmatrix}
+\]
+\[
++ 18\begin{bmatrix} \dfrac{4}{9} & -\dfrac{4}{9} & \dfrac{2}{9} \\[2mm] -\dfrac{4}{9} & \dfrac{4}{9} & -\dfrac{2}{9} \\[2mm] \dfrac{2}{9} & -\dfrac{2}{9} & \dfrac{1}{9} \end{bmatrix}
+\]
+
+谱分解是一种重要的分析工具,利用它可以顺利地论证某些统计学结论.首先,我们研究距离的矩阵解释.

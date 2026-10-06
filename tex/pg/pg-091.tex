@@ -1,0 +1,63 @@
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= $(\mathbf{A}')^{-1}=(\mathbf{A}^{-1})'$\\[2pt]
+\>(b)\> $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$
+\end{tabbing}
+
+\noindent 提示: 由 $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I},\mathbf{I}=\mathbf{I}'$ 及 $(\mathbf{A}\mathbf{A}^{-1})'=(\mathbf{A}^{-1})'\mathbf{A}'$ 可证明 (a). 由 $(\mathbf{B}^{-1}\mathbf{A}^{-1})\mathbf{A}\mathbf{B}=\mathbf{B}^{-1}(\mathbf{A}^{-1}\mathbf{A})\mathbf{B}=\mathbf{B}^{-1}\mathbf{B}=\mathbf{I}$ 可证明 (b).
+
+\medskip
+\noindent 2.5\quad 检验
+\[
+\mathbf{Q}=\begin{bmatrix}\dfrac{5}{13}&\dfrac{12}{13}\\[6pt]-\dfrac{12}{13}&\dfrac{5}{13}\end{bmatrix}
+\]
+是一个正交矩阵.
+
+\medskip
+\noindent 2.6\quad 设
+\[
+\mathbf{A}=\begin{bmatrix}9&-2\\-2&6\end{bmatrix}
+\]
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= $\mathbf{A}$ 是对称的吗?\\[2pt]
+\>(b)\> 证明 $\mathbf{A}$ 是正定的.
+\end{tabbing}
+
+\medskip
+\noindent 2.7\quad 设 $\mathbf{A}$ 是练习 2.6 中所给出的矩阵.
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= 确定 $\mathbf{A}$ 的特征值和特征向量.\\[2pt]
+\>(b)\> 写出 $\mathbf{A}$ 的谱分解.\\[2pt]
+\>(c)\> 求 $\mathbf{A}^{-1}$.\\[2pt]
+\>(d)\> 求 $\mathbf{A}^{-1}$ 的特征值和特征向量.
+\end{tabbing}
+
+\medskip
+\noindent 2.8\quad 给定矩阵
+\[
+\mathbf{A}=\begin{bmatrix}1&2\\2&-2\end{bmatrix}
+\]
+求特征值 $\lambda_{1}$ 和 $\lambda_{2}$, 并求相应的标准化特征向量 $\mathbf{e}_{1}$ 和 $\mathbf{e}_{2}$. 确定 $\mathbf{A}$ 的谱分解 (2-16).
+
+\medskip
+\noindent 2.9\quad 设 $\mathbf{A}$ 是练习 2.8 中的矩阵.
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= 求 $\mathbf{A}^{-1}$.\\[2pt]
+\>(b)\> 计算 $\mathbf{A}^{-1}$ 的特征值和特征向量.\\[2pt]
+\>(c)\> 写出 $\mathbf{A}^{-1}$ 的谱分解, 并与练习 2.8 中 $\mathbf{A}$ 的谱分解比较.
+\end{tabbing}
+
+\medskip
+\noindent 2.10\quad 考虑矩阵
+\[
+\mathbf{A}=\begin{bmatrix}4&4.001\\4.001&4.002\end{bmatrix}\quad\text{和}\quad
+\mathbf{B}=\begin{bmatrix}4&4.001\\4.001&4.002\,001\end{bmatrix}
+\]
+此二矩阵除了 (2,2) 位置上有小的差别外是相等的, 而且 $\mathbf{A}$ (和 $\mathbf{B}$) 的列差不多是线性相关的. 证明 $\mathbf{A}^{-1}\doteq(-3)\mathbf{B}^{-1}$. 因此, 小的变化——也许是由于舍入的原因——可能得出明显不同的逆.
+
+\medskip
+\noindent 2.11\quad 证明 $p\times p$ 对角矩阵 $\mathbf{A}=\{a_{ij}\}$, 其中 $a_{ij}=0, i\ne j$ 的行列式是由对角线元素的乘积给出, 即 $|\mathbf{A}|=a_{11}a_{22}\cdots a_{pp}$.
+
+\noindent 提示: 由定义 2A.24, $|\mathbf{A}|=a_{11}|\mathbf{A}_{11}|+0+\cdots+0$. $\mathbf{A}_{11}$ 是除去 $\mathbf{A}$ 的第 1 行和第 1 列元素而得到的子矩阵. 对 $|\mathbf{A}_{11}|$ 重复上述过程.
+
+\medskip
+\noindent 2.12\quad 证明 $p\times p$ 对称方阵 $\mathbf{A}$ 的行列式可表示成其特征值 $\lambda_{1},\lambda_{2},\cdots,\lambda_{p}$ 的乘积, 即 $|\mathbf{A}|=\prod_{i=1}^{p}\lambda_{i}$.

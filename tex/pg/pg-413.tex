@@ -1,0 +1,63 @@
+% ---- pg-413 （书页 401） ----
+
+比较\hyperref[eq:9-51]{式(9-51)}和\hyperref[eq:8-21]{式(8-21)}, 从 $\mathbf{x}_i$ 来看, $\hat{\mathbf{f}}_i$ 一点也不比前 $m$ 个(尺度化调整后)主成分多.
+
+\subsection*{回归法}
+
+再从原因子模型 $\mathbf{X}-\boldsymbol{\mu}=\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon}$ 开始, 我们最初把载荷矩阵 $\mathbf{L}$ 和特殊方差矩阵 $\boldsymbol{\Psi}$ 都是作为已知处理. 当公共因子 $\mathbf{F}$ 和特殊因子(或误差)$\boldsymbol{\varepsilon}$ 为联合正态分布, 由\hyperref[eq:9-3]{式(9-3)}给出其均值和协方差, 则线性组合 $\mathbf{X}-\boldsymbol{\mu}=\mathbf{L}\mathbf{F}+\boldsymbol{\varepsilon}$ 服从 $N_p(\mathbf{0},\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})$ 分布(见结论 4.3). 而且, $\mathbf{X}-\boldsymbol{\mu}$ 和 $\mathbf{F}$ 的联合分布是 $N_{m+p}(\mathbf{0},\boldsymbol{\Sigma}^*)$, 其中
+\phantomsection\label{eq:9-52}
+\begin{equation}
+\underset{(m+p)\times(m+p)}{\boldsymbol{\Sigma}^*}=
+\left[\begin{array}{c:c}
+\underset{(p\times p)}{\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}} & \underset{(p\times m)}{\mathbf{L}}\\
+\hdashline
+\underset{(m\times p)}{\mathbf{L}'} & \underset{(m\times m)}{\mathbf{I}}
+\end{array}\right]
+\tag{9-52}
+\end{equation}
+而 $\mathbf{0}$ 是一个 $(m+p)\times 1$ 的零向量. 利用结论 4.6, 我们发现 $\mathbf{F}|\mathbf{x}$ 的条件分布也是多元正态, 且
+\phantomsection\label{eq:9-53}
+\begin{equation}
+\text{均值}=E(\mathbf{F}|\mathbf{x})=\mathbf{L}'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})=\mathbf{L}'(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})^{-1}(\mathbf{x}-\boldsymbol{\mu}) \tag{9-53}
+\end{equation}
+\phantomsection\label{eq:9-54}
+\begin{equation}
+\text{协方差}=\mathrm{Cov}(\mathbf{F}|\mathbf{x})=\mathbf{I}-\mathbf{L}'\boldsymbol{\Sigma}^{-1}\mathbf{L}=\mathbf{I}-\mathbf{L}'(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})^{-1}\mathbf{L} \tag{9-54}
+\end{equation}
+\hyperref[eq:9-53]{式(9-53)}中的量 $\mathbf{L}'(\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi})^{-1}$ 是变量的因子(多元)回归里的系数. 这些系数的估计值产生的因子得分与多元回归分析中条件均值的估计类似(见第 7 章). 因而, 已知任意观测值向量 $\mathbf{x}$, 并取极大似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 为真值, 则我们看到第 $j$ 个因子得分向量由
+\phantomsection\label{eq:9-55}
+\begin{equation}
+\hat{\mathbf{f}}_j=\hat{\mathbf{L}}'\hat{\boldsymbol{\Sigma}}^{-1}(\mathbf{x}_j-\bar{\mathbf{x}})=\hat{\mathbf{L}}'(\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}})^{-1}(\mathbf{x}_j-\bar{\mathbf{x}}), \qquad j=1,2,\cdots,n \tag{9-55}
+\end{equation}
+给出. 利用矩阵恒等式(见练习 9.6)
+\phantomsection\label{eq:9-56}
+\begin{equation}
+\underset{(m\times p)}{\hat{\mathbf{L}}'}(\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}})^{-1}=\underset{(m\times m)}{(\mathbf{I}+\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})^{-1}}\underset{(m\times p)}{\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}} \tag{9-56}
+\end{equation}
+可以简化\hyperref[eq:9-55]{式(9-55)}中 $\hat{\mathbf{f}}_j$ 的计算. 这个恒等式允许我们将由回归过程生成的因子得分(9-55)与加权最小二乘过程生成的因子得分[见\hyperref[eq:9-50]{式(9-50)}]作比较. 我们临时记前者为 $\hat{f}_j^{R}$ 而后者为 $\hat{f}_j^{LS}$, 则利用\hyperref[eq:9-56]{式(9-56)}我们得到
+\phantomsection\label{eq:9-57}
+\begin{equation}
+\hat{f}_j^{LS}=(\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})^{-1}(\mathbf{I}+\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})\mathbf{f}_j^{R}=(\mathbf{I}+(\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})^{-1})\mathbf{f}_j^{R} \tag{9-57}
+\end{equation}
+对极大似然估计 $(\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})^{-1}=\hat{\boldsymbol{\Delta}}^{-1}$, 并且若此对角阵的元接近于 0, 则回归和广义最小二乘法将给出近于相同的因子得分.
+
+为努力减小对因子个数的(可能的)不正确决定带来的影响, 实际工作者倾向于用 $\mathbf{S}$(原样本协方差矩阵)代替 $\hat{\boldsymbol{\Sigma}}=\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}$ 来计算因子得分. 于是我们有:
+
+\begin{mvbox}
+{\centering\mvbold{用回归得到因子得分}\par}
+\phantomsection\label{eq:9-58}
+\begin{equation}
+\left.\begin{aligned}
+\hat{\mathbf{f}}_j&=\hat{\mathbf{L}}'\mathbf{S}^{-1}(\mathbf{x}_j-\bar{\mathbf{x}}), \qquad j=1,2,\cdots,n\\
+&\text{或者, 若将相关矩阵因子化,}\\
+\hat{\mathbf{f}}_j&=\hat{\mathbf{L}}_z'\mathbf{R}^{-1}\mathbf{z}_j, \qquad j=1,2,\cdots,n
+\end{aligned}\right\}
+\tag{9-58}
+\end{equation}
+其中, 见\hyperref[eq:8-25]{式(8-25)},
+\[
+\mathbf{z}_j=\mathbf{D}^{-1/2}(\mathbf{x}_j-\bar{\mathbf{x}})\qquad\text{和}\qquad \hat{\boldsymbol{\rho}}=\hat{\mathbf{L}}_z\hat{\mathbf{L}}_z'+\hat{\boldsymbol{\Psi}}_z
+\]
+\end{mvbox}
+
+如用旋转载荷 $\hat{\mathbf{L}}^*=\hat{\mathbf{L}}\mathbf{T}$ 代替\hyperref[eq:9-58]{式(9-58)}中的原载荷, 则再次得到因子得分 $\hat{\mathbf{f}}_j^*$ 与 $\hat{\mathbf{f}}_j$ 有关, 关系式为

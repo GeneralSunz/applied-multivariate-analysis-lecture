@@ -1,0 +1,43 @@
+\mvsub{未来子样本观测值的控制域}
+
+一旦数据取自某一稳定运行过程, 便可用来构造未来可观测子样本均值的控制限. 若 $\bar{\mathbf{X}}$ 为未来子样本均值, 那么 $\bar{\mathbf{X}}_{f}-\bar{\mathbf{X}}$ 服从多元正态分布, 均值为 $\mathbf{0}$, 且
+\[
+\operatorname{Cov}(\bar{\mathbf{X}}_{f}-\bar{\mathbf{X}})=\operatorname{Cov}(\bar{\mathbf{X}}_{f})+\frac{1}{n}\operatorname{Cov}(\bar{\mathbf{X}}_{i})=\frac{(n+1)}{nm}\boldsymbol{\Sigma}
+\]
+因此, $\dfrac{nm}{n+1}(\bar{\mathbf{X}}_{f}-\bar{\mathbf{X}})'\mathbf{S}^{-1}(\bar{\mathbf{X}}_{f}-\bar{\mathbf{X}})$ 服从分布 $\dfrac{(nm-n)p}{(nm-n-p+1)}F_{p,nm-n-p+1}$.
+
+\medskip
+\noindent\mvbold{未来子样本均值的控制椭圆}\quad $p=2$ 个特征的未来子样本均值的预测椭圆被定义为所有满足如下条件的 $\mathbf{x}$ 的集合:
+\phantomsection\label{eq:5-37}
+\begin{equation}
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\le\frac{(n+1)(m-1)\times2}{m(nm-n-1)}F_{2,nm-n-1}(0.05)
+\tag{5-37}
+\end{equation}
+同样, 此式右端常用 $\chi_{2}^{2}(0.05)/m$ 来逼近.
+
+\medskip
+\noindent\mvbold{未来子样本均值的 $T^{2}$ 控制图}\quad 同前面一样, 我们将 $n/(n+1)$ 引进控制限, 并将由未来样本均值构成的量 $T_{f}^{2}=m(\bar{\mathbf{X}}_{f}-\bar{\mathbf{X}})'\mathbf{S}^{-1}(\bar{\mathbf{X}}_{f}-\bar{\mathbf{X}})$ 按时间顺序作图. 此时控制上限为
+\[
+\text{UCL}=\frac{(n+1)(m-1)p}{(nm-n-p+1)}F_{p,nm-n-p+1}(0.05)
+\]
+当 $n$ 很大时, UCL 常用 $\chi_{p}^{2}(0.05)$ 来逼近.
+
+落在预测椭圆之外或控制上限上方的那些点暗示: 质量特征的当前值在某种程度上不同于先前稳定过程的相应值. 这可能是好事, 也可能是坏事, 但几乎可以肯定地说, 我们必须认真地去查明引起这种变化的原因.
+
+\section{观测值缺损时均值向量的推断}
+\phantomsection\label{sec:5.7}
+
+人们常常得不到观测向量的某些分量值. 当记录设备发生故障, 或当被调查人不愿回答调查表中的某个问题时, 就会出现这种情况. 处理这类不完全观测值 (即缺损值) 问题的最好方法在很大程度上依赖于实验本身. 如果观测值缺损的方式与应答值密切相关, 比如说一个收入极高的人在薪水调查问卷中会拒绝应答, 则随后所作的部分推断将发生严重偏倚. 到目前为止, 还没有能对付这种情形的统计方法. 但当数据缺损是一种随机缺损, 或者说当数据缺损的机会不受变量值的影响时, 我们就能对这种情况进行处理.
+
+登普斯特 (Dempster) 等人在文献 [5] 中提出一种从不完全数据出发计算其极大似然估计的一般方法. 这种被称为 EM 算法的技术, 由包含两个步骤的迭代计算组成, 这两个步骤分别称为预测步骤和估计步骤:
+
+1.\quad \mvbold{预测步骤}\quad 给定未知参数的某一估计 $\hat{\boldsymbol{\theta}}$, 预测任何缺损观测值对 (完全数据) 充分统计量的贡献.
+
+2.\quad \mvbold{估计步骤}\quad 利用预测得到的充分统计量计算参数的修正估计.
+
+从一步到另一步的计算循环往复地进行, 直到由相继两次迭代所得出的修正估计之间没有明显差异时为止.
+
+当观测值 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 为来自 $p$ 元正态总体的随机样本时, 这个预测-估计算法是以完全数据的充分统计量 [见\hyperref[eq:4-21]{式(4-21)}]
+\[
+T_{1}=\sum_{j=1}^{n}\mathbf{X}_{j}=n\bar{\mathbf{X}}
+\]

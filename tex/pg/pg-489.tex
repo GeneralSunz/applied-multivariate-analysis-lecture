@@ -1,0 +1,48 @@
+% ---- pg-489 （书页 477） ----
+
+故
+\[
+\begin{aligned}
+\hat{d}_1(\mathbf{x}_0)&=\ln p_1+\bar{\mathbf{x}}_1'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}_0-\frac{1}{2}\bar{\mathbf{x}}_1'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_1\\
+&=\ln(0.25)+\left(\frac{-27}{35}\right)x_{01}+\left(\frac{24}{35}\right)x_{02}-\frac{1}{2}\times\frac{99}{35}
+\end{aligned}
+\]
+注意 $\hat{d}_1(\mathbf{x}_0)=$ 常数 $+$ 常数 $\cdot\,x_{01}+$ 常数 $\cdot\,x_{02}$ 这一关系的线性形式. 用类似方法得到
+\[
+\bar{\mathbf{x}}_2'\mathbf{S}_{\mathrm{p}}^{-1}=[1\quad 4]\frac{1}{35}\begin{bmatrix}36&3\\3&9\end{bmatrix}=\frac{1}{35}[48\quad 39]
+\]
+\[
+\bar{\mathbf{x}}_2'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_2=\frac{1}{35}[48\quad 39]\begin{bmatrix}1\\4\end{bmatrix}=\frac{204}{35}
+\]
+因而
+\[
+\hat{d}_2(\mathbf{x}_0)=\ln(0.25)+\left(\frac{48}{35}\right)x_{01}+\left(\frac{39}{35}\right)x_{02}-\frac{1}{2}\times\frac{204}{35}
+\]
+最后,
+\[
+\bar{\mathbf{x}}_3'\mathbf{S}_{\mathrm{p}}^{-1}=[0\quad -2]\frac{1}{35}\begin{bmatrix}36&3\\3&9\end{bmatrix}=\frac{1}{35}[-6\quad -18]
+\]
+\[
+\bar{\mathbf{x}}_3'\mathbf{S}_{\mathrm{p}}^{-1}\bar{\mathbf{x}}_3=\frac{1}{35}[-6\quad -18]\begin{bmatrix}0\\-2\end{bmatrix}=\frac{36}{35}
+\]
+以及
+\[
+\hat{d}_3(\mathbf{x}_0)=\ln(0.50)+\left(\frac{-6}{35}\right)x_{01}+\left(\frac{-18}{35}\right)x_{02}-\frac{1}{2}\times\frac{36}{35}
+\]
+将数值 $x_{01}=-2$ 和 $x_{02}=-1$ 代入, 得到
+\[
+\hat{d}_1(\mathbf{x}_0)=-1.386+\left(\frac{-27}{35}\right)\times(-2)+\left(\frac{24}{35}\right)\times(-1)-\frac{99}{70}=-1.943
+\]
+\[
+\hat{d}_2(\mathbf{x}_0)=-1.386+\left(\frac{48}{35}\right)\times(-2)+\left(\frac{39}{35}\right)\times(-1)-\frac{204}{70}=-8.158
+\]
+\[
+\hat{d}_3(\mathbf{x}_0)=-0.693+\left(\frac{-6}{35}\right)\times(-2)+\left(\frac{-18}{35}\right)\times(-1)-\frac{36}{70}=-0.350
+\]
+由于 $\hat{d}_3(\mathbf{x}_0)=-0.350$ 为最大判别得分, 我们将 $\mathbf{x}_0$ 分入 $\pi_3$. \hfill$\blacksquare$
+
+\noindent\textbf{例 11.11}\quad (对一个潜在的商学院研究生分类)
+
+一所商学院的招生人员将本科生的平均毕业成绩(GPA)和本科毕业生的管理能力测验(GMAT)成绩用作“指标”, 帮助他决定应将哪些申报者接收为学院研究生. \hyperref[fig:11.9]{图 11.9} 显示了三组近期报名者的 $x_1=$GPA 和 $x_2=$GMAT 成绩. 这三个组是: $\pi_1$: 接收; $\pi_2$: 不接收; $\pi_3$: 处于接收与不接收的边缘.\footnote{本例中的总体都是虚构的. 另一方面, 经验表明, GPA 和 GMAT 得分高的学生一般能很好完成研究生学业, 而那些得分低的学生则会遇到困难.}
+
+\hyperref[fig:11.9]{图 11.9} 中各点的数据列于\hyperref[tab:11.6]{表 11.6}(见练习 11.29). 这些数据产生下面的量(见显示板 11.1 中的 SAS 统计软件输出):

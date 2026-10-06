@@ -1,0 +1,54 @@
+% ---- pg-144 （书页 132） ----
+
+函数. 则 $h(\boldsymbol{\theta})$ 的极大似然估计是由 $h(\hat{\boldsymbol{\theta}})$ 给定的, 即
+\phantomsection\label{eq:4-20}
+\begin{equation}
+\underset{(\boldsymbol{\theta}\text{的一个函数})}{h(\boldsymbol{\theta})}\qquad\text{由}\qquad\underset{(\hat{\boldsymbol{\theta}}\text{的同一函数})}{h(\hat{\boldsymbol{\theta}})}\qquad\text{给定} \tag{4-20}
+\end{equation}
+(参见文献 [1] 和文献 [15]). 例如:
+
+1.\quad $\boldsymbol{\mu}'\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}$ 的极大似然估计量是 $\hat{\boldsymbol{\mu}}'\hat{\boldsymbol{\Sigma}}^{-1}\hat{\boldsymbol{\mu}}$, 其中 $\hat{\boldsymbol{\mu}}=\bar{\mathbf{X}}$ 和 $\hat{\boldsymbol{\Sigma}}=((n-1)/n)\mathbf{S}$ 分别是 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计量.
+
+2.\quad $\sqrt{\sigma_{ii}}$ 的极大似然估计量是 $\sqrt{\hat{\sigma}_{ii}}$, 其中
+\[
+\hat{\sigma}_{ii}=\frac{1}{n}\sum_{j=1}^{n}(X_{ij}-\bar{X}_{i})^{2}
+\]
+是 $\sigma_{ii}=\operatorname{Var}(X_{i})$ 的极大似然估计量.
+
+\mvsub{充分统计量}
+
+从\hyperref[eq:4-15]{式(4-15)}, 联合密度仅仅通过样本均值 $\bar{\mathbf{x}}$ 以及平方与交叉乘积之和矩阵 $\sum_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\mathbf{x}_{j}-\bar{\mathbf{x}})'=(n-1)\mathbf{S}$ 取决于观测值 $\mathbf{x}_{1},\mathbf{x}_{2},\cdots,\mathbf{x}_{n}$ 的整个集合. 我们用 $\bar{\mathbf{x}}$ 和 $(n-1)\mathbf{S}$ (或 $\mathbf{S}$) 是充分统计量的说法来表达这一事实:
+
+% 原书此结论在细线方框内排两行：(4-21) 编号附着于方框右缘。
+\begin{mvbox}
+设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 是来自均值为 $\boldsymbol{\mu}$ 和协方差为 $\boldsymbol{\Sigma}$ 的一个多元正态总体的随机样本, 则
+
+$\bar{\mathbf{X}}$ 和 $\mathbf{S}$ 是充分统计量
+\phantomsection\label{eq:4-21}
+\begin{equation}
+\tag{4-21}
+\end{equation}
+\end{mvbox}
+
+充分统计量对于正态总体的重要性在于, 无论样本容量 $n$ 多么大, 数据矩阵 $\mathbf{X}$ 中关于 $\mu$ 和 $\boldsymbol{\Sigma}$ 的全部信息都包含在 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 中. 对于非正态总体这一般是不成立的. 由于许多多元方法先从样本均值和协方差开始, 因此应慎重检查多元正态假定的适当性(参见 4.6 节). 若不能把数据当作多元正态, 单独依赖于 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 的方法可能会忽视其他有用的样本信息.
+
+\section{$\bar{X}$ 和 $S$ 的抽样分布}
+\phantomsection\label{sec:4.4}
+
+初步假定 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 组成一个来自均值为 $\boldsymbol{\mu}$ 和协方差为 $\boldsymbol{\Sigma}$ 的正态总体的随机样本, 这就完全决定了 $\bar{\mathbf{X}}$ 和 $\mathbf{S}$ 的抽样分布. 这里我们用与熟悉的一元结论相比较的办法提出关于 $\bar{X}$ 和 $S$ 的抽样分布的结论.
+
+在一元情况($p=1$), 我们已知 $\bar{X}$ 是正态的, 且具有均值 $\mu=$(总体均值)和方差
+\[
+\frac{1}{n}\sigma^{2}=\frac{\text{总体方差}}{\text{样本容量}}
+\]
+
+对于多元情况($p\geq 2$)结论是类似的, $\bar{\mathbf{X}}$ 为正态分布, 其均值为 $\boldsymbol{\mu}$ 和协方差矩阵为 $(1/n)\boldsymbol{\Sigma}$.
+
+对于样本方差, 回想 $(n-1)s^{2}=\sum_{j=1}^{n}(X_{j}-\bar{X})^{2}$ 的分布为 $\sigma^{2}$ 乘以一个自由度(d.f.)为 $n-1$ 的卡方变量, 该卡方量度是独立的标准正态随机变量的平方和的分布, 即 $(n-1)s^{2}$ 分布为 $\sigma^{2}(\chi_{1}^{2}+\cdots+\chi_{n-1}^{2})=\sigma^{2}Z_{1}^{2}+\cdots+\sigma^{2}Z_{n-1}^{2}=(\sigma Z_{1})^{2}+\cdots+(\sigma Z_{n-1})^{2}$, 单个项 $\sigma Z_{i}$ 独立地服从 $N(0,\sigma^{2})$ 分布, 对于样本协方差矩阵正是后面的形式, 可以适当地推广到基本抽样分布.
+
+样本协方差矩阵的抽样分布以其发现者的名字命名为威沙特分布; 它被定义为多元正态随机向量的独立乘积之和, 具体地,
+
+% UNCERTAIN: pg-144 原书"多元正态随机向量的独立乘积之和"疑为"独立乘积之和"的
+%   通行译法（威沙特分布定义为 $\sum_{j=1}^{n}\mathbf{Z}_{j}\mathbf{Z}_{j}'$），
+%   但页面上确为此字样，故照原样转写。
+% NOTE: 本页 4.4 节标题在原书中带有一个球形图标装饰，已省略（非文字内容）。

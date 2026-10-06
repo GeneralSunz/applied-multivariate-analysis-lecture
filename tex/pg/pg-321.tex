@@ -1,0 +1,56 @@
+% ---- pg-321 （书页 309） ----
+
+9.49, 我们在 5\% 的水平下不拒绝 $H_0$. 也就是说, 不需要交互作用项. \hfill$\blacksquare$
+
+信息准则也能帮助选择简单但适当的多元多重回归模型. 对于连截距在内有 $d$ 个预测变量的模型, 令
+\[
+\hat{\boldsymbol{\Sigma}}_d=\frac{1}{n}(\text{残差平方及交叉乘积和矩阵})
+\]
+则赤池信息准则的多元多重回归版为
+\[
+\text{AIC}=n\ln(|\hat{\boldsymbol{\Sigma}}_d|)-2p\times d
+\]
+该准则在广义方差与参数数目之间寻求平衡. 具有较小 AIC 的模型优先考虑.
+
+在例 7.9 中, 在无交互效应的零假设下, 我们有 $n=18$, $p=2$ 响应变量, 且 $d=4$ 项, 因此
+\[
+\begin{aligned}
+\text{AIC}&=n\ln(|\hat{\boldsymbol{\Sigma}}_d|)-2p\times d
+=18\ln\left(\left|\frac{1}{18}\begin{bmatrix}3\ 419.15&1\ 267.88\\1\ 267.88&2\ 417.07\end{bmatrix}\right|\right)-2\times2\times4\\
+&=18\ln(20\ 545.7)-16=162.75
+\end{aligned}
+\]
+更一般的情形是, 我们可以考虑一个形如 $H_0:\mathbf{C}\boldsymbol{\beta}=\boldsymbol{\Gamma}_0$ 的零假设, 其中 $\mathbf{C}$ 为 $(r-q)\times(r+1)$ 常数阵, 且有满秩 $(r-q)$. 对 $\mathbf{C}=\left[\begin{array}{c:c}\mathbf{0}&\underset{(r-q)\times(r-q)}{\mathbf{I}}\end{array}\right]$ 及 $\boldsymbol{\Gamma}_0=\mathbf{0}$ 两种选择, 这个零假设变成 $H_0:\mathbf{C}\boldsymbol{\beta}=\boldsymbol{\beta}_{(2)}=\mathbf{0}$, 即前面讨论的情况. 可以证明, 由假设 $H_0$ 所产生的额外平方与交叉乘积之和为
+\[
+n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})
+=(\mathbf{C}\hat{\boldsymbol{\beta}}-\boldsymbol{\Gamma}_0)'(\mathbf{C}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{C}')^{-1}(\mathbf{C}\hat{\boldsymbol{\beta}}-\boldsymbol{\Gamma}_0)
+\]
+在零假设下, 统计量 $n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})$ 为 $W_{r-q}(\boldsymbol{\Sigma})$ 分布, 且与 $\hat{\boldsymbol{\Sigma}}$ 独立. 这一分布理论可用来得出对假设 $H_0:\mathbf{C}\boldsymbol{\beta}=\boldsymbol{\Gamma}_0$ 的检验, 即类似于结论 7.11 中的检验(见文献[18]).
+
+\section{其他多元检验统计量}
+\phantomsection\label{sec:7.9}
+
+在多元多重回归模型中, 除似然比检验外, 还提出过一些别的对假设 $H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}$ 的检验.
+
+流行的计算机程序包通常只计算四种多元检验统计量. 为了同它们的输出相联系, 我们引进另一些符号. 以 $\mathbf{E}$ 代表 $p\times p$ 误差, 或残差的平方与交叉乘积之和矩阵
+\[
+\mathbf{E}=n\hat{\boldsymbol{\Sigma}}
+\]
+它可由拟合全模型得到. $p\times p$ 假设或额外的平方与交叉乘积之和矩阵
+\[
+\mathbf{H}=n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})
+\]
+上述统计量可直接由 $\mathbf{E}$ 和 $\mathbf{H}$ 来定义, 或者由 $\mathbf{H}\mathbf{E}^{-1}$ 的非零特征值 $\eta_1\geqslant\eta_2\geqslant\cdots\geqslant\eta_s$ 来定义, 此处 $s=\min(p,r-q)$. 等价地, 它们是 $|(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})-\eta\hat{\boldsymbol{\Sigma}}|=0$ 的根. 这些统计量的定义为:
+\[
+\text{威尔克斯}\ \Lambda=\prod_{i=1}^{s}\frac{1}{1+\eta_i}=\frac{|\mathbf{E}|}{|\mathbf{E}+\mathbf{H}|}
+\]
+\[
+\text{皮莱迹}=\sum_{i=1}^{s}\frac{\eta_i}{1+\eta_i}=\operatorname{tr}[\mathbf{H}(\mathbf{H}+\mathbf{E})^{-1}]
+\]
+\[
+\text{霍特林 - 劳雷迹}=\sum_{i=1}^{s}\eta_i=\operatorname{tr}[\mathbf{H}\mathbf{E}^{-1}]
+\]
+\[
+\text{罗伊最大根}=\frac{\eta_1}{1+\eta_1}
+\]
+罗伊检验选择系数向量 $\mathbf{a}$, 使得基于 $\mathbf{a}'\mathbf{Y}_j$ 的单变量 $F$ 统计量达到最大的可能值. 当存在几个中等大小的特征值 $\eta_i$ 时, 罗伊检验与其他三种检验相比表现较差. 模拟研究表明, 它的功效在

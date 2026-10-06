@@ -1,0 +1,69 @@
+% ---- pg-302 （书页 290） ----
+
+及
+\[
+\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}
+=\begin{bmatrix}30.967\\2.634\\0.045\end{bmatrix}
+\]
+这样, 拟合的方程为
+\[
+\hat{y}=\underset{(7.88)}{30.967}+\underset{(0.785)}{2.634z_1}+\underset{(0.285)}{0.045z_2}
+\]
+其标准差 $s=3.473$. 上式下边括号中的数字为相应参数估计值的标准差估计值. 此外, $R^2=0.834$ 表明数据间有很强的回归关系. (见显示板 7.1, 其中有 SAS 统计软件包对这组数据的回归分析结果.) 若残差 $\hat{\boldsymbol{\epsilon}}$ 通过了诊断检查(见 7.6 节), 则此拟合方程便可用于根据此居民区内其他住宅的居住面积和估价来预测其售价. 我们注意到 $\beta_2$ 的 $95\%$ 置信区间[见\hyperref[eq:7-14]{式(7-14)}]为
+\[
+\hat{\beta}_2\pm t_{17}(0.025)\sqrt{\widehat{\text{Var}}(\hat{\beta}_2)}=0.045\pm 2.110\times 0.285
+\]
+或
+\[
+(-0.556,\ 0.647)
+\]
+由于置信区间包含 $\beta_2=0$, 变量 $z_2$ 可以从回归模型中剔除, 然后对单个预测变量 $z_1$ 重作回归拟合. 给定居住面积, 看来评估价值对售价的预测并无多大贡献. \hfill$\blacksquare$
+
+\medskip
+\noindent\textbf{显示板 7.1}\quad 对例 7.4 采用程序设计时的 SAS 分析
+
+\begin{mvbox}
+{\ttfamily\small
+title 'Regression Analysis';\hfill\textbf{\rmfamily PROGRAM COMMANDS}\\
+data estate;\\
+infile 'T7-1.dat';\\
+input z1 z2 y;\\
+proc reg data = estate;\\
+model y = z1 z2;
+\par}
+\end{mvbox}
+
+\begin{mvbox}
+Model: MODEL 1\hfill\textbf{OUTPUT}\\
+Dependent Variable:\\
+\par\vspace{6pt}
+{\centering\small Analysis of Variance\par}
+\vspace{4pt}
+{\centering\small
+\begin{tabular}{lccccc}
+Source&DF&\makecell{Sum of\\Squares}&\makecell{Mean\\Square}&F value&Prob $>$ F\\
+Model&2&1\,032.875\,06&516.437\,53&42.828&0.000\,1\\
+Error&17&204.994\,94&12.058\,53&&\\
+C Total&19&1\,237.870\,00&&&\\
+\end{tabular}\par}
+\vspace{6pt}
+{\centering\small
+\begin{tabular}{llll}
+\texttt{Root MSE}&\texttt{3.472\,54}&\quad\texttt{R-square}&\texttt{0.834\,4}\\
+Deep Mean&76.550\,00&\quad Adj R-sq&0.814\,9\\
+C.V.&4.536\,30&&\\
+\end{tabular}\par}
+\vspace{8pt}
+{\centering\small Parameter Estimates\par}
+\vspace{4pt}
+{\centering\small
+\begin{tabular}{lccccc}
+\hline
+Variable&DF&\makecell{Parameter\\Estimate}&\makecell{Standard\\Error}&\makecell{T for H0:\\Parameter $=0$}&Prob $>|$T$|$\\
+\hline
+INTERCEP&1&30.966\,566&7.882\,208\,44&3.929&0.001\,1\\
+z1&1&2.634\,400&0.785\,598\,72&3.353&0.003\,8\\
+z2&1&0.045\,184&0.285\,182\,71&0.158&0.876\,0\\
+\hline
+\end{tabular}\par}
+\end{mvbox}

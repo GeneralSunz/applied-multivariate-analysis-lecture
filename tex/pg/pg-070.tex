@@ -1,0 +1,82 @@
+% ---- pg-070 （书页 58） ----
+
+注意有 $\bm{\Sigma}_{12} = \bm{\Sigma}_{21}'$, $\bm{X}^{(1)}$ 的协方差阵是 $\bm{\Sigma}_{11}$, $\bm{X}^{(2)}$ 的是 $\bm{\Sigma}_{22}$,且来自 $\bm{X}^{(1)}$ 和 $\bm{X}^{(2)}$ 元素的协方差阵是 $\bm{\Sigma}_{12}$(或 $\bm{\Sigma}_{21}$).
+
+有时候用记号 $\operatorname{Cov}(\bm{X}^{(1)},\bm{X}^{(2)})$ 更为方便些,这里
+
+\[
+\operatorname{Cov}(\bm{X}^{(1)},\bm{X}^{(2)}) = \bm{\Sigma}_{12}
+\]
+
+是一个由 $\bm{X}^{(1)}$ 和 $\bm{X}^{(2)}$ 的分量之间的协方差构成的矩阵.
+
+\mvsub{随机变量线性组合的均值向量和协方差阵}
+
+如果单个随机变量,如 $X_1$,乘以一个常数 $c$,则有
+
+\[
+E(cX_1) = cE(X_1) = c\mu_1
+\]
+
+和
+
+\[
+\operatorname{Var}(cX_1) = E(cX_1 - c\mu_1)^2 = c^2\operatorname{Var}(X_1) = c^2\sigma_{11}
+\]
+
+如果 $X_2$ 是另一个随机变量且 $a, b$ 为常数,则利用期望的可加性,有
+
+\begin{equation*}
+\begin{aligned}
+\operatorname{Cov}(aX_1,bX_2) &= E(aX_1 - a\mu_1)(bX_2 - b\mu_2) \\
+&= abE(X_1 - \mu_1)(X_2 - \mu_2) \\
+&= ab\operatorname{Cov}(X_1,X_2) = ab\sigma_{12}
+\end{aligned}
+\end{equation*}
+
+最后,对于线性组合 $aX_1 + bX_2$,有
+
+\phantomsection\label{eq:2-41}
+\begin{equation}
+\begin{aligned}
+E(aX_1 + bX_2) &= aE(X_1) + bE(X_2) = a\mu_1 + b\mu_2 \\
+\operatorname{Var}(aX_1 + bX_2) &= E[(aX_1 + bX_2) - (a\mu_1 + b\mu_2)]^2 \\
+&= E[a(X_1 - \mu_1) + b(X_2 - \mu_2)]^2 \\
+&= E\big[a^2(X_1 - \mu_1)^2 + b^2(X_2 - \mu_2)^2 + 2ab(X_1 - \mu_1)(X_2 - \mu_2)\big] \\
+&= a^2\operatorname{Var}(X_1) + b^2\operatorname{Var}(X_2) + 2ab\operatorname{Cov}(X_1,X_2) \\
+&= a^2\sigma_{11} + b^2\sigma_{22} + 2ab\sigma_{12}
+\end{aligned} \tag{2-41}
+\end{equation}
+
+引入 $\bm{c}' = [a,b]$, $aX_1 + bX_2$ 可写为
+
+\[
+[a \quad b]\begin{bmatrix} X_1 \\ X_2 \end{bmatrix} = \bm{c}'\bm{X}
+\]
+
+类似的, $E(aX_1 + bX_2) = a\mu_1 + b\mu_2$ 可表示为
+
+\[
+[a \quad b]\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix} = \bm{c}'\bm{\mu}
+\]
+
+如果设
+
+\[
+\bm{\Sigma} = \begin{bmatrix} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sigma_{22} \end{bmatrix}
+\]
+
+是 $\bm{X}$ 的方差-协方差矩阵,由于
+
+\[
+\bm{c}'\bm{\Sigma}\,\bm{c} = [a \quad b]\begin{bmatrix} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sigma_{22} \end{bmatrix}\begin{bmatrix} a \\ b \end{bmatrix} = a^2\sigma_{11} + 2ab\sigma_{12} + b^2\sigma_{22}
+\]
+
+\hyperref[eq:2-41]{式(2-41)}变为
+
+\phantomsection\label{eq:2-42}
+\begin{equation}
+\operatorname{Var}(aX_1 + bX_2) = \operatorname{Var}(\bm{c}'\bm{X}) = \bm{c}'\bm{\Sigma}\,\bm{c} \tag{2-42}
+\end{equation}
+
+上述结论可推广到 $p$ 个随机变量的线性组合：

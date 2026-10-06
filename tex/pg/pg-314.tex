@@ -1,0 +1,71 @@
+% ---- pg-314 （书页 302） ----
+
+或
+\phantomsection\label{eq:7-26}
+\begin{equation}
+\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y} \tag{7-26}
+\end{equation}
+对参数的任一选择 $\mathbf{B}=[\mathbf{b}_{(1)}\;\vdots\;\mathbf{b}_{(2)}\;\vdots\;\cdots\;\vdots\;\mathbf{b}_{(m)}]$, 误差矩阵为 $\mathbf{Y}-\mathbf{Z}\mathbf{B}$. 误差的平方与交叉乘积之和的矩阵为
+\phantomsection\label{eq:7-27}
+\begin{equation}
+\begin{aligned}
+&(\mathbf{Y}-\mathbf{Z}\mathbf{B})'(\mathbf{Y}-\mathbf{Z}\mathbf{B})\\
+&\quad=\begin{bmatrix}(Y_{(1)}-\mathbf{Z}\mathbf{b}_{(1)})'(Y_{(1)}-\mathbf{Z}\mathbf{b}_{(1)})&\cdots&(Y_{(1)}-\mathbf{Z}\mathbf{b}_{(1)})'(Y_{(m)}-\mathbf{Z}\mathbf{b}_{(m)})\\\vdots&&\vdots\\(Y_{(m)}-\mathbf{Z}\mathbf{b}_{(m)})'(Y_{(1)}-\mathbf{Z}\mathbf{b}_{(1)})&\cdots&(Y_{(m)}-\mathbf{Z}\mathbf{b}_{(m)})'(Y_{(m)}-\mathbf{Z}\mathbf{b}_{(m)})\end{bmatrix}
+\end{aligned} \tag{7-27}
+\end{equation}
+选择 $\mathbf{b}_{(i)}=\hat{\boldsymbol{\beta}}_{(i)}$ 能使第 $i$ 个对角平方和 $(Y_{(i)}-\mathbf{Z}\mathbf{b}_{(i)})'(Y_{(i)}-\mathbf{Z}\mathbf{b}_{(i)})$ 极小化. 因而, 当选择 $\mathbf{B}=\hat{\boldsymbol{\beta}}$ 时, $\operatorname{tr}[(\mathbf{Y}-\mathbf{Z}\mathbf{B})'(\mathbf{Y}-\mathbf{Z}\mathbf{B})]$ 达到最小. 同时, ``广义方差''$|(\mathbf{Y}-\mathbf{Z}\mathbf{B})'(\mathbf{Y}-\mathbf{Z}\mathbf{B})|$ 也在最小二乘估计 $\hat{\boldsymbol{\beta}}$ 处达到最小(其他广义平方和性质见练习 7.11).
+
+用最小二乘估计 $\hat{\boldsymbol{\beta}}$, 我们可以构造以下两个矩阵:
+\[
+\text{预测值矩阵: }\hat{\mathbf{Y}}=\mathbf{Z}\hat{\boldsymbol{\beta}}=\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}
+\]
+\phantomsection\label{eq:7-28}
+\begin{equation}
+\text{残差矩阵: }\hat{\boldsymbol{\epsilon}}=\mathbf{Y}-\hat{\mathbf{Y}}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Y} \tag{7-28}
+\end{equation}
+在经典线性回归中残差、预测值和 $\mathbf{Z}$ 的各列之间的正交性在多元多重回归中也成立. 这是由于 $\mathbf{Z}'[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']=\mathbf{Z}'-\mathbf{Z}'=\mathbf{0}$ 之故. 具体说,
+\phantomsection\label{eq:7-29}
+\begin{equation}
+\mathbf{Z}'\hat{\boldsymbol{\epsilon}}=\mathbf{Z}'[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Y}=\mathbf{0} \tag{7-29}
+\end{equation}
+故残差 $\hat{\boldsymbol{\epsilon}}_{(i)}$ 垂直于 $\mathbf{Z}$ 的各列. 又因
+\phantomsection\label{eq:7-30}
+\begin{equation}
+\hat{\mathbf{Y}}'\hat{\boldsymbol{\epsilon}}=\hat{\boldsymbol{\beta}}'\mathbf{Z}'[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Y}=\mathbf{0} \tag{7-30}
+\end{equation}
+由此确认第 $i$ 个响应的预测值垂直于残差 $\hat{\boldsymbol{\epsilon}}_{(i)}$. 由于 $\mathbf{Y}=\hat{\mathbf{Y}}+\hat{\boldsymbol{\epsilon}}$,
+\[
+\mathbf{Y}'\mathbf{Y}=(\hat{\mathbf{Y}}+\hat{\boldsymbol{\epsilon}})'(\hat{\mathbf{Y}}+\hat{\boldsymbol{\epsilon}})=\hat{\mathbf{Y}}'\hat{\mathbf{Y}}+\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}+\mathbf{0}+\mathbf{0}'
+\]
+或
+\phantomsection\label{eq:7-31}
+\begin{equation}
+\underset{\substack{\text{(总的平方与}\\\text{交叉乘积之和)}}}{\mathbf{Y}'\mathbf{Y}}=\underset{\substack{\text{(预测的平方与}\\\text{交叉乘积之和)}}}{\hat{\mathbf{Y}}'\hat{\mathbf{Y}}}+\underset{\substack{\text{(误差的平方与}\\\text{交叉乘积之和)}}}{\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}} \tag{7-31}
+\end{equation}
+残差平方与交叉乘积之和也可写成
+\phantomsection\label{eq:7-32}
+\begin{equation}
+\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}=\mathbf{Y}'\mathbf{Y}-\hat{\mathbf{Y}}'\hat{\mathbf{Y}}=\mathbf{Y}'\mathbf{Y}-\hat{\boldsymbol{\beta}}'\mathbf{Z}'\mathbf{Z}\hat{\boldsymbol{\beta}} \tag{7-32}
+\end{equation}
+
+\noindent\textbf{例 7.8}\quad (拟合多元直线回归模型)
+
+为说明 $\hat{\boldsymbol{\beta}}$, $\hat{\mathbf{Y}}$ 和 $\hat{\boldsymbol{\epsilon}}$ 的计算, 我们拟合有两个响应 $Y_1$, $Y_2$ 及一个预测量 $z_1$ 的直线回归模型
+\[
+Y_{j1}=\beta_{01}+\beta_{11}z_{j1}+\epsilon_{j1}
+\]
+\[
+Y_{j2}=\beta_{02}+\beta_{12}z_{j1}+\epsilon_{j2},\qquad j=1,2,\cdots,5
+\]
+所用数据为例 7.3 中的数据再加上一个响应变量的观测值:
+
+\begin{mvtable}
+\begin{tabular}{c|ccccc}
+\hline
+$z_1$ & 0 & 1 & 2 & 3 & 4\\
+\hline
+$y_1$ & 1 & 4 & 3 & 8 & 9\\
+$y_2$ & $-1$ & $-1$ & 2 & 3 & 2\\
+\hline
+\end{tabular}
+\end{mvtable}

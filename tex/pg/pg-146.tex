@@ -1,0 +1,40 @@
+\mvthm{结论 4.12}{（大数定律）\quad 设 $Y_{1},Y_{2},\cdots,Y_{n}$ 是来自具有均值 $E(Y_{i})=\mu$ 的总体的独立观测结果. 则}
+\[
+\bar{Y}=\frac{Y_{1}+Y_{2}+\cdots+Y_{n}}{n}
+\]
+在 $n$ 无限增加时, 依概率收敛于 $\mu$. 即, 对任一给定的 $\varepsilon>0$, 当 $n\to\infty$ 时, $P(-\varepsilon<\bar{Y}-\mu<\varepsilon)$ 接近于 1.
+
+\noindent\textbf{证明}\quad 参见文献 [9].\hfill$\blacksquare$
+
+作为大数定律的一个直接推论, 即每个 $\bar{X}_{i}$ 依概率收敛到 $\mu_{i},i=1,2,\cdots,p$, $\bar{\mathbf{X}}$ 依概率收敛到 $\boldsymbol{\mu}$\phantomsection\label{eq:4-26}\hfill (4-26)
+
+又, 每个样本协方差 $s_{ik}$ 依概率收敛到 $\sigma_{ik},k=1,2,\cdots,p$, 且
+\phantomsection\label{eq:4-27}
+\begin{equation}
+\mathbf{S}\ (\text{或}\ \hat{\boldsymbol{\Sigma}}=\mathbf{S}_{n})\ \text{依概率收敛到}\ \boldsymbol{\Sigma} \tag{4-27}
+\end{equation}
+\hyperref[eq:4-27]{式(4-27)} 由下式可得
+\begin{align*}
+(n-1)s_{ik}&=\sum_{j=1}^{n}(X_{ji}-\bar{X}_{i})(X_{jk}-\bar{X}_{k})\\
+&=\sum_{j=1}^{n}(X_{ji}-\mu_{i}+\mu_{i}-\bar{X}_{i})(X_{jk}-\mu_{k}+\mu_{k}-\bar{X}_{k})\\
+&=\sum_{j=1}^{n}(X_{ji}-\mu_{i})(X_{jk}-\mu_{k})+n(\bar{X}_{i}-\mu_{i})(\bar{X}_{k}-\mu_{k})
+\end{align*}
+令 $Y_{j}=(X_{ji}-\mu_{i})(X_{jk}-\mu_{k})$, 且 $E(Y_{j})=\sigma_{ik}$, 通过应用大数定律, 可知 $s_{ik}$ 中的第一项收敛到 $\sigma_{ik}$ 且第二项收敛于零.
+
+\hyperref[eq:4-26]{式(4-26)} 和\hyperref[eq:4-27]{式(4-27)} 的实际的解释就是, 每当样本容量很大时, 将以大概率有 $\bar{\mathbf{X}}$ 接近于 $\boldsymbol{\mu}$ 以及 $\mathbf{S}$ 接近于 $\boldsymbol{\Sigma}$. 通过中心极限定理的多元形式, 关于 $\bar{\mathbf{X}}$ 的陈述甚至可以更精确.
+
+\mvthm{结论 4.13}{（中心极限定理）\quad 设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 是来自任何有均值 $\boldsymbol{\mu}$ 与有限协方差 $\boldsymbol{\Sigma}$ 的总体的独立观测结果. 则对大样本容量, 有}
+\[
+\sqrt{n}(\bar{\mathbf{X}}-\boldsymbol{\mu})\ \text{有一个近似的}\ N_{p}(\mathbf{0},\boldsymbol{\Sigma})\ \text{分布}
+\]
+这里, $n$ 相对于 $p$ 也应是大的.
+
+\noindent\textbf{证明}\quad 参见文献 [1].\hfill$\blacksquare$
+
+由中心极限定理提供的近似值适用于离散的以及连续的多元总体. 从数学上看, 极限是精确的, 而且对正态性的接近常常是十分迅速的. 此外, 从 4.4 节的结论, 我们已知当基本总体是正态时, $\bar{\mathbf{X}}$ 精确地服从正态分布. 因此, 我们可以期望, 当总体接近正态时, 对中等大小的 $n$, 中心极限定理近似效果也很好.
+
+正如我们所见到的, 当 $n$ 大时, $\mathbf{S}$ 以大概率接近于 $\boldsymbol{\Sigma}$. 因此, $\bar{\mathbf{X}}$ 逼近正态分布时用 $\mathbf{S}$ 替换 $\boldsymbol{\Sigma}$, 对随后的概率计算的影响可以忽略.
+
+结论 4.7 可以用来证明当 $\bar{\mathbf{X}}$ 的分布为 $N_{p}\left(\boldsymbol{\mu},\frac{1}{n}\boldsymbol{\Sigma}\right)$ 或者等价, 当 $\sqrt{n}(\bar{\mathbf{X}}-\boldsymbol{\mu})$ 有 $N_{p}(\mathbf{0},\boldsymbol{\Sigma})$ 分布时, $n(\bar{\mathbf{X}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})$ 为 $\chi_{p}^{2}$ 分布. 当 $\bar{\mathbf{X}}$ 近似正态分布时, $n(\bar{\mathbf{X}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})$ 的抽样分布近似服从 $\chi_{p}^{2}$ 分布. 用 $\mathbf{S}^{-1}$ 替换 $\boldsymbol{\Sigma}^{-1}$, 对于比 $p$ 大得多的大 $n$ 来说, 并不会严重影响这一近似.
+
+我们概括本节的主要结论如下:

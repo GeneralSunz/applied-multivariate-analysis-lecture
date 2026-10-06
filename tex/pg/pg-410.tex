@@ -1,0 +1,110 @@
+% ---- pg-410 （书页 398） ----
+
+在第四个因子上, 1 500 米有高载荷且 400 米有高载荷. 林登称此因子为“跑的耐力”因子. 正如他所注意到的, “这项研究所指出的基本功能大致是与田赛运动员和径赛运动员的传统分类, 保持一致.”
+
+\begin{mvtable}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccccccc}
+\toprule
+& \multicolumn{5}{c}{主\hspace{1em}成\hspace{1em}分} & \multicolumn{5}{c}{极\hspace{1em}大\hspace{1em}似\hspace{1em}然}\\
+\cmidrule(lr){2-6}\cmidrule(lr){7-11}
+& \multicolumn{4}{c}{\shortstack{估计的旋转因子载荷, \\ $\hat{l}_{ij}^*$}} & 特殊方差 & \multicolumn{4}{c}{\shortstack{估计的旋转因子载荷, \\ $\hat{l}_{ij}^*$}} & 特殊方差\\
+\cmidrule(lr){2-5}\cmidrule(lr){6-6}\cmidrule(lr){7-10}\cmidrule(lr){11-11}
+变量 & $F_1^*$ & $F_2^*$ & $F_3^*$ & $F_4^*$ & $\tilde{\psi}_i=1-\tilde{h}_i^2$ & $F_1^*$ & $F_2^*$ & $F_3^*$ & $F_4^*$ & $\hat{\psi}_i=1-\hat{h}_i^2$\\
+\midrule
+1.\ 100 米 & 0.182 & \textbf{0.885} & 0.205 & $-0.139$ & 0.12 & 0.204 & 0.296 & \textbf{0.928} & $-0.005$ & 0.01\\
+2.\ 跳远 & 0.291 & \textbf{0.664} & 0.429 & 0.055 & 0.29 & 0.280 & \textbf{0.554} & $-0.451$ & 0.155 & 0.39\\
+3.\ 铅球 & \textbf{0.819} & 0.302 & 0.252 & $-0.097$ & 0.17 & \textbf{0.883} & 0.278 & 0.228 & $-0.045$ & 0.09\\
+4.\ 跳高 & 0.267 & 0.221 & \textbf{0.683} & 0.293 & 0.33 & 0.254 & \textbf{0.739} & 0.057 & 0.242 & 0.33\\
+5.\ 400 米 & 0.086 & \textbf{0.747} & 0.068 & \textbf{0.507} & 0.17 & 0.142 & 0.151 & \textbf{0.519} & 0.700 & 0.20\\
+6.\ 110 米跨栏 & 0.048 & 0.108 & \textbf{0.826} & $-0.161$ & 0.28 & 0.136 & 0.465 & 0.173 & $-0.033$ & 0.73\\
+7.\ 铁饼 & \textbf{0.832} & 0.185 & 0.204 & $-0.076$ & 0.23 & \textbf{0.793} & 0.220 & 0.133 & $-0.009$ & 0.30\\
+8.\ 撑竿跳高 & 0.324 & 0.278 & \textbf{0.656} & 0.293 & 0.30 & 0.314 & \textbf{0.613} & 0.169 & 0.279 & 0.42\\
+9.\ 标枪 & \textbf{0.754} & 0.024 & 0.054 & 0.188 & 0.39 & 0.477 & 0.160 & 0.041 & 0.139 & 0.73\\
+10.\ 1 500 米 & $-0.002$ & 0.019 & 0.075 & \textbf{0.921} & 0.15 & 0.001 & 0.110 & $-0.070$ & \textbf{0.619} & 0.60\\
+\midrule
+\shortstack{所解释的\\样本总方差的\\累积比例} & 0.22 & 0.43 & 0.62 & 0.76 & & 0.20 & 0.37 & 0.51 & 0.62 & \\
+\bottomrule
+\end{tabular}}
+\phantomsection\label{tab:9.9}\mvtabcap{表 9.9}
+\end{mvtable}
+
+\hyperref[fig:9.3]{图 9.3} 中为对因子配对$(1,2)$和$(1,3)$旋转极大似然载荷的图. 图上这些点一般沿因子轴分组. 旋转主成分载荷的图也十分类似. \hfill$\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=4.6cm,y=3.6cm,>=stealth]
+\draw (0,0) rectangle (1,1);
+\foreach \x/\xlab in {0/0.0,0.2/0.2,0.4/0.4,0.6/0.6,0.8/0.8}{
+  \draw (\x,0) -- (\x,-0.02);
+  \node[below,font=\scriptsize,inner sep=2pt] at (\x,-0.02) {\xlab};}
+\node[below=1.1em,font=\small] at (0.5,-0.02) {因子1};
+\foreach \y/\ylab in {0/0.0,0.2/0.2,0.4/0.4,0.6/0.6,0.8/0.8,1.0/1.0}{
+  \draw (0,\y) -- (-0.02,\y);
+  \node[left,font=\scriptsize,inner sep=2pt] at (-0.02,\y) {\ylab};}
+\node[rotate=90,font=\small] at (-0.26,0.5) {因子2};
+% 分组椭圆
+\draw[rotate around={55:(0.235,0.63)}] (0.235,0.63) ellipse (0.16 and 0.10);
+\draw[rotate around={15:(0.170,0.22)}] (0.170,0.22) ellipse (0.055 and 0.10);
+\draw (0.02,0.12) circle (0.05);
+\draw[rotate around={25:(0.840,0.25)}] (0.840,0.25) ellipse (0.075 and 0.045);
+% 数据点
+\fill (0.204,0.296) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.204,0.296) {1};
+\fill (0.280,0.554) circle (0.9pt);
+\node[below,font=\scriptsize,inner sep=1.5pt] at (0.280,0.554) {2};
+\fill (0.883,0.278) circle (0.9pt);
+\node[right,font=\scriptsize,inner sep=1.5pt] at (0.883,0.278) {3};
+\fill (0.254,0.739) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.254,0.739) {4};
+\fill (0.142,0.151) circle (0.9pt);
+\node[below,font=\scriptsize,inner sep=1.5pt] at (0.142,0.151) {5};
+\fill (0.136,0.465) circle (0.9pt);
+\node[left,font=\scriptsize,inner sep=1.5pt] at (0.136,0.465) {6};
+\fill (0.793,0.220) circle (0.9pt);
+\node[left,font=\scriptsize,inner sep=1.5pt] at (0.793,0.220) {7};
+\fill (0.314,0.613) circle (0.9pt);
+\node[above right=-1pt,font=\scriptsize,inner sep=1.5pt] at (0.314,0.613) {8};
+\fill (0.477,0.160) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.477,0.160) {9};
+\fill (0.001,0.110) circle (0.9pt);
+\node[right=-1pt,font=\scriptsize,inner sep=1.5pt] at (0.001,0.110) {10};
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}[x=4.6cm,y=3.6cm,>=stealth]
+\draw (0,0) rectangle (1,1);
+\foreach \x/\xlab in {0/0.0,0.2/0.2,0.4/0.4,0.6/0.6,0.8/0.8}{
+  \draw (\x,0) -- (\x,-0.02);
+  \node[below,font=\scriptsize,inner sep=2pt] at (\x,-0.02) {\xlab};}
+\node[below=1.1em,font=\small] at (0.5,-0.02) {因子1};
+\foreach \y/\ylab in {0/0.0,0.2/0.2,0.4/0.4,0.6/0.6,0.8/0.8,1.0/1.0}{
+  \draw (0,\y) -- (-0.02,\y);
+  \node[left,font=\scriptsize,inner sep=2pt] at (-0.02,\y) {\ylab};}
+\node[rotate=90,font=\small] at (-0.26,0.5) {因子3};
+% 分组椭圆
+\draw[rotate around={8:(0.175,0.72)}] (0.175,0.72) ellipse (0.075 and 0.245);
+\draw[rotate around={45:(0.840,0.185)}] (0.840,0.185) ellipse (0.075 and 0.10);
+\draw (0.010,0.030) circle (0.045);
+% 数据点
+\fill (0.204,0.928) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.204,0.928) {1};
+\fill (0.280,0.461) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.280,0.461) {2};
+\fill (0.883,0.250) circle (0.9pt);
+\node[right,font=\scriptsize,inner sep=1.5pt] at (0.883,0.250) {3};
+\fill (0.254,0.060) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.254,0.060) {4};
+\fill (0.142,0.519) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.142,0.519) {5};
+\fill (0.136,0.180) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.136,0.180) {6};
+\fill (0.793,0.120) circle (0.9pt);
+\node[left,font=\scriptsize,inner sep=1.5pt] at (0.793,0.120) {7};
+\fill (0.314,0.180) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.314,0.180) {8};
+\fill (0.477,0.040) circle (0.9pt);
+\node[above,font=\scriptsize,inner sep=1.5pt] at (0.477,0.040) {9};
+\fill (0.001,0.030) circle (0.9pt);
+\node[above right=-1pt,font=\scriptsize,inner sep=1.5pt] at (0.001,0.030) {10};
+\end{tikzpicture}
+\phantomsection\label{fig:9.3}\mvcap{图 9.3\quad 对十项全能运动数据因子配对(1,2)和(1,3)的旋转极大似然估计载荷\par（图中数字对应于变量）}
+\end{mvfigure}

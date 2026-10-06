@@ -1,0 +1,26 @@
+% ---- pg-585 （书页 573） ----
+
+\begin{mvfigure}
+\mvinc{pg-585}{0.157,0.129,0.865,0.336}
+\phantomsection\label{fig:12.26}\mvcap{图 12.26\quad 森林数据的度量多维标度变换 \qquad 图 12.27\quad 森林数据的非度量多维标度变换}
+\end{mvfigure}
+
+\[
+\boldsymbol{\Lambda}=\begin{bmatrix}43.374\,8&0.000\\0.000&14.910\,3\end{bmatrix}
+\]
+根据结论 12.2, 为更好地对齐两个解, 我们对非度量标度变换解乘以正交矩阵
+\[
+\hat{\mathbf{Q}}=\sum_{i=1}^{2}\mathbf{v}_{i}\mathbf{u}_{i}'=\mathbf{V}\mathbf{U}'=\begin{bmatrix}0.983\,3&0.182\,1\\-0.182\,1&0.983\,3\end{bmatrix}
+\]
+这相当于将非度量解沿顺时针方向旋转大约 10 度. 旋转后, 平方距离从 8.547 减少到普罗克鲁斯特斯拟合量度
+\[
+PR^{2}=\sum_{j=1}^{10}\mathbf{x}_{j}'\mathbf{x}_{j}+\sum_{j=1}^{10}\mathbf{y}_{j}'\mathbf{y}_{j}-2\sum_{i=1}^{2}\lambda_{i}=6.599
+\]
+我们注意到抽样场所在两个图中都大致位于一条曲线附近. 这就有可能对数据作一维的非线性排序. 可以用二次或其他曲线来拟合这些点. 通过对曲线施加一个标度, 我们可以得到一个一维排序.
+
+如果将威斯康星森林数据中的抽样单元和变量同时显示在图中, 就会有更多信息. 对数据进行对应分析得到\hyperref[fig:12.28]{图 12.28} 的点图. 同一组数据的双重信息图示于\hyperref[fig:12.29]{图 12.29}.
+
+\begin{mvfigure}
+\mvinc{pg-585}{0.287,0.656,0.736,0.875}
+\phantomsection\label{fig:12.28}\mvcap{图 12.28\quad 森林数据的对应分析图}
+\end{mvfigure}

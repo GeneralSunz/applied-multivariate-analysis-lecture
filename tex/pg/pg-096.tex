@@ -1,0 +1,54 @@
+\noindent $(\mathbf{b}'\mathbf{b})(\mathbf{d}'\mathbf{d})$.
+
+\medskip
+\noindent 2.35\quad 利用向量 $\mathbf{b}'=[-4,3]$ 和 $\mathbf{d}'=[1,1]$, 又若矩阵
+\[
+\mathbf{B}=\begin{bmatrix}2&-2\\-2&5\end{bmatrix}
+\]
+验证广义柯西-施瓦茨不等式 $(\mathbf{b}'\mathbf{d})^{2}\le(\mathbf{b}'\mathbf{B}\mathbf{b})(\mathbf{d}'\mathbf{B}^{-1}\mathbf{d})$.
+
+\medskip
+\noindent 2.36\quad 对所有满足 $\mathbf{x}'\mathbf{x}=1$ 的点 $\mathbf{x}'=[x_{1},x_{2}]$, 求二次型 $4x_{1}^{2}+4x_{2}^{2}+6x_{1}x_{2}$ 的最大值和最小值.
+
+\medskip
+\noindent 2.37\quad 给定练习 2.6 中的 $\mathbf{A}$, 对于 $\mathbf{x}'\mathbf{x}=1$, 求 $\mathbf{x}'\mathbf{A}\mathbf{x}$ 的最大值.
+
+\medskip
+\noindent 2.38\quad 如果
+\[
+\mathbf{A}=\begin{bmatrix}13&-4&2\\-4&13&-2\\2&-2&10\end{bmatrix}
+\]
+对任何非零向量 $\mathbf{x}'=[x_{1},x_{2},x_{3}]$, 求比率 $\mathbf{x}'\mathbf{A}\mathbf{x}/\mathbf{x}'\mathbf{x}$ 的最大值和最小值.
+
+\medskip
+\noindent 2.39\quad 证明
+\[
+\underset{(n\times k)(k\times m)(m\times q)}{A\quad B\quad C}\ \text{的第}\ (i,j)\ \text{个元素为}\ \sum_{l=1}^{k}\sum_{s=1}^{m}a_{il}b_{ls}c_{sj}.
+\]
+提示: $\mathbf{B}\mathbf{C}$ 的第 $(l,j)$ 个元素为 $\sum_{s=1}^{m}b_{ls}c_{sj}=d_{lj}$. 因此, $\mathbf{A}(\mathbf{B}\mathbf{C})$ 的第 $(i,j)$ 个元素为
+\[
+a_{i1}d_{1j}+a_{i2}d_{2j}+\cdots+a_{ik}d_{kj}=\sum_{l=1}^{k}a_{il}\Bigl(\sum_{s=1}^{m}b_{ls}c_{sj}\Bigr)=\sum_{l=1}^{k}\sum_{s=1}^{m}a_{il}b_{ls}c_{sj}
+\]
+
+\medskip
+\noindent 2.40\quad 证明\hyperref[eq:2-24]{式(2-24)}: $E(\mathbf{X}+\mathbf{Y})=E(\mathbf{X})+E(\mathbf{Y})$ 和 $E(\mathbf{A}\mathbf{X}\mathbf{B})=\mathbf{A}E(\mathbf{X})\mathbf{B}$.
+
+\noindent 提示: $\mathbf{X}+\mathbf{Y}$ 的第 $(i,j)$ 个元素为 $X_{ij}+Y_{ij}$, 由期望的性质有 $E(X_{ij}+Y_{ij})=E(X_{ij})+E(Y_{ij})$ 量 $E(X_{ij})+E(Y_{ij})$ 是 $E(\mathbf{X})+E(\mathbf{Y})$ 的第 $(i,j)$ 个元素. 接下来 (参考练习 2.39), $\mathbf{A}\mathbf{X}\mathbf{B}$ 的第 $(i,j)$ 个元素是 $\sum_{l}\sum_{s}a_{il}X_{ls}b_{sj}$, 由期望的加法性质,
+\[
+E\Bigl(\sum_{l}\sum_{s}a_{il}X_{ls}b_{sj}\Bigr)=\sum_{l}\sum_{s}a_{il}E(X_{ls})b_{sj}
+\]
+这是 $\mathbf{A}E(\mathbf{X})\mathbf{B}$ 的第 $(i,j)$ 个元素.
+
+\medskip
+\noindent 2.41\quad 给定随机向量 $\mathbf{X}'=[X_{1},X_{2},X_{3},X_{4}]$, 其均值向量为 $\boldsymbol{\mu}_{\mathbf{X}}'=[3,2,-2,0]$, 协方差阵为
+\[
+\boldsymbol{\Sigma}_{\mathbf{X}}=\begin{bmatrix}3&0&0&0\\0&3&0&0\\0&0&3&0\\0&0&0&3\end{bmatrix}
+\]
+设
+\[
+\mathbf{A}=\begin{bmatrix}1&-1&0&0\\1&1&-2&0\\1&1&1&-3\end{bmatrix}
+\]
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= 求 $\mathbf{A}\mathbf{X}$ 的均值 $E(\mathbf{A}\mathbf{X})$.\\[2pt]
+\>(b)\> 求 $\operatorname{Cov}(\mathbf{A}\mathbf{X})$, 即 $\mathbf{A}\mathbf{X}$ 的方差和协方差.
+\end{tabbing}

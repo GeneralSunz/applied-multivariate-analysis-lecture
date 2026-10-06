@@ -1,0 +1,49 @@
+% ---- pg-366 （书页 354） ----
+
+个 $\lambda_i$ 得到庞弗罗尼 $100(1-\alpha)\%$ 联合置信区间(见 5.4 节).
+
+结论 2 表明, 对大样本, $\hat{\mathbf{e}}_i$ 在相应的 $\mathbf{e}_i$ 附近为正态分布. 诸 $\hat{\mathbf{e}}_i$ 的元是相关的, 并且这种相关在很大程度上依赖于特征值 $\lambda_1,\lambda_2,\cdots,\lambda_p$ 的划分(划分是未知的)和样本大小 $n$. 用 $(1/n)\hat{\mathbf{E}}_i$ 的对角元的平方根, 给出系数 $\hat{e}_{ik}$ 的近似标准误差, 这里 $\hat{\mathbf{E}}_i$ 是在 $\mathbf{E}_i$ 中用 $\hat{\lambda}_i$ 替代 $\lambda_i$、用 $\hat{\mathbf{e}}_i$ 替代 $\mathbf{e}_i$ 后得到的.
+
+\noindent\textbf{例 8.8}\quad (构造 $\lambda_1$ 的置信区间)
+
+利用章后练习中\hyperref[tab:8.4]{表 8.4} 里的股票价格数据, 我们将得到总体第一主成分方差 $\lambda_1$ 的一个 95\% 的置信区间.
+
+假设股票的回报率是从总体 $N_5(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 中独立抽取, 其中 $\boldsymbol{\Sigma}$ 是有不同特征值 $\lambda_1>\lambda_2>\cdots>\lambda_5>0$ 的正定矩阵. 由于 $n=103$ 较大, 我们可以利用\hyperref[eq:8-33]{式(8-33)}, 取 $i=1$, 构造 $\lambda_1$ 的一个 95\% 的置信区间. 从练习 8.10 知, $\hat{\lambda}_1=0.001\ 4$ 及 $z(0.025)=1.96$. 所以, 在具有 95\% 的置信度下
+\[
+\frac{0.001\ 4}{\left(1+1.96\times\sqrt{\dfrac{2}{103}}\right)}\leqslant\lambda_1\leqslant\frac{0.001\ 4}{\left(1-1.96\times\sqrt{\dfrac{2}{103}}\right)}
+\qquad\text{或}\qquad 0.001\ 1\leqslant\lambda_1\leqslant 0.001\ 9 \hfill\blacksquare
+\]
+无论何时, 当大特征值较大, 如 100 甚或 1000, 由\hyperref[eq:8-33]{式(8-33)}产生的区间, 对一个合理的置信水平, 即使 $n$ 很大它也可以是相当宽的. 一般说, $\hat{\lambda}_i$ 变大, 在同样的置信度下置信区间就变宽. 于是, 基于对 $\hat{\lambda}_i$ 的检测而取舍主成分时必须小心从事.
+
+\mvsub{等相关结构的检验}
+
+特殊的相关结构 $\mathrm{Cov}(X_i,X_k)=\sqrt{\sigma_{ii}\sigma_{kk}}\rho$ 或 $\mathrm{Corr}(X_i,X_k)=\rho$(所有 $i\neq k$)是一个重要结构, 此时, $\boldsymbol{\Sigma}$ 的特征值不是不同的, 因此先前的结论不适用.
+
+为检验该结构, 令
+\[
+H_0:\boldsymbol{\rho}=\underset{(p\times p)}{\boldsymbol{\rho}_0}=
+\begin{bmatrix}
+1&\rho&\cdots&\rho\\
+\rho&1&\cdots&\rho\\
+\vdots&\vdots&\ddots&\vdots\\
+\rho&\rho&\cdots&1
+\end{bmatrix}
+\]
+及
+\[
+H_1:\boldsymbol{\rho}\neq\boldsymbol{\rho}_0
+\]
+可以基于似然比统计量作一个 $H_0$ 对 $H_1$ 的检验, 但劳雷(Lawley)(文献[14])证明了一个等价的检验程序可从 $\mathbf{R}$ 的非对角元构造出来.
+
+劳雷的程序中需要计算如下量
+\[
+\bar{r}_k=\frac{1}{p-1}\sum_{\substack{i=1\\ i\neq k}}^{p}r_{ik}\qquad k=1,2,\cdots,p;\qquad
+\bar{r}=\frac{2}{p(p-1)}\sum_{i<k}\sum r_{ik}
+\]
+\phantomsection\label{eq:8-34}
+\begin{equation}
+\hat{\gamma}=\frac{(p-1)^2[1-(1-\bar{r})^2]}{p-(p-2)(1-\bar{r})^2} \tag{8-34}
+\end{equation}
+显然, $\bar{r}_k$ 是 $\mathbf{R}$ 的第 $k$ 列(或行)上所有非对角元的平均值, 而 $\bar{r}$ 是全部非对角元的总平均值.
+
+大样本近似 $\alpha$ 水平检验是, 如果

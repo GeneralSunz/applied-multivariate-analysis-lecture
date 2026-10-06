@@ -1,0 +1,65 @@
+数据的均值和协方差矩阵为
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}
+0.766\\
+0.508\\
+0.438\\
+0.161
+\end{bmatrix},
+\quad
+\mathbf{S}=\begin{bmatrix}
+0.856&0.635&0.173&0.096\\
+0.635&0.568&0.128^{*}&0.067\\
+0.173&0.128^{*}&0.171&0.039\\
+0.096&0.067&0.039&0.043
+\end{bmatrix}
+\]
+
+(a)\ 利用汇总统计量, 确定美国对这些主要能源的总消耗量的样本均值和样本方差.
+
+(b)\ 确定石油消耗超出天然气消耗部分的样本均值和样本方差, 同时求出这个超出部分与 (a) 中的总消耗量的样本协方差.
+
+\noindent 3.19\quad 利用练习 3.18 中前 3 个变量的汇总统计量, 证明如下关系式
+\[
+|\mathbf{S}|=(s_{11}\ s_{22}\ s_{33})|\mathbf{R}|
+\]
+
+\noindent 3.20\quad 在北方, 暴风雪之后必须马上对道路进行扫雪. 对暴风雪强度的一个衡量是 $x_1=$ 它的持续时间(单位: 小时), 扫雪的效果可以用 $x_2=$ 工作人员和机器花在扫雪上的时间(单位: 小时)来衡量. 如\hyperref[tab:3.2]{表 3.2} 中列出了威斯康星州 25 次暴风雪数值结果.
+
+\begin{mvtable}
+\phantomsection\label{tab:3.2}\mvtabcap{表 3.2\quad 暴风雪数据}
+\begin{tabular}{cc@{\hspace{2em}}cc@{\hspace{2em}}cc}
+\toprule
+$x_1$&$x_2$&$x_1$&$x_2$&$x_1$&$x_2$\\
+\midrule
+12.5&13.7&9.0&24.4&3.5&26.1\\
+14.5&16.5&6.5&18.2&8.0&14.5\\
+8.0&17.4&10.5&22.0&17.5&42.3\\
+9.0&11.0&10.0&32.5&10.5&17.5\\
+19.5&23.6&4.5&18.7&12.0&21.8\\
+8.0&13.2&7.0&15.8&6.0&10.4\\
+9.0&32.1&8.5&15.6&13.0&25.6\\
+7.0&12.3&6.5&12.0&&\\
+7.0&11.8&8.0&12.8&&\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+(a)\ 通过先计算汇总统计量, 求出差 $x_2-x_1$ 的样本均值和方差.
+
+(b)\ 通过得到个体值 $x_{j2}-x_{j1}(j=1,2,\cdots,25)$, 计算它的均值和方差, 把这些值与由 (a) 中得到的值进行比较.
+
+\vspace{6pt}
+\phantomsection\label{bib:3}
+{\large\bfseries 参考文献}
+
+\medskip
+\begin{enumerate}
+\item Anderson, T. W. \textit{An Introduction to Multivariate Statistical Analysis} (3rd ed.). New York: John Wiley, 2003.
+\item Eaton, M., and M. Perlman. ``The Non-Singularity of Generalized Sample Covariance Matrices.'' \textit{Annals of Statistics}, \textbf{1}(1973), 710--717.
+\end{enumerate}
+
+\vspace{2em}
+\noindent\rule{\linewidth}{0.4pt}
+
+{\footnotesize $^*$ 原书中此处为 0.127, 应更正为 0.128. ——译者注}

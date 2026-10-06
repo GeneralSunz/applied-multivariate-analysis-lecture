@@ -1,0 +1,67 @@
+% ---- pg-265 （书页 253） ----
+
+\begin{mvtable}
+\noindent\hfill{\zihao{6}续表}\par
+\begin{tabular}{crrrr}
+\toprule
+被测个体 & 起初 & 1 年后 & 2 年后 & 3 年后\\
+\midrule
+9 & 76.7 & 79.0 & 76.9 & 70.3\\
+10 & 77.2 & 74.0 & 77.8 & 67.9\\
+11 & 67.3 & 70.7 & 68.9 & 65.9\\
+12 & 50.3 & 51.4 & 53.6 & 48.0\\
+13 & 57.7 & 57.0 & 57.5 & 51.5\\
+14 & 74.3 & 77.7 & 72.6 & 68.0\\
+15 & 74.0 & 74.7 & 74.5 & 65.7\\
+16 & 57.3 & 56.0 & 64.7 & 53.0\\
+\midrule
+均值 & 69.29 & 70.66 & 71.18 & 64.53\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+资料来源：数据经 Everett Smith 许可使用．
+
+当一项研究中涉及多个处理组时，就需要像单因子 MANOVA 模型那样增加一个角标．令 $\mathbf{X}_{l1},\mathbf{X}_{l2},\cdots,\mathbf{X}_{ln_l}$ 为第 $l$ 组中 $n_l$ 个个体的 $n_l$ 个测量值向量（$l=1,\cdots,g$）．
+
+假定：所有 $\mathbf{X}_{li}$ 均相互独立，且有相同的协方差矩阵．
+
+在二次生长模型下，均值向量为
+\[
+E[\mathbf{X}_{li}]=\begin{bmatrix}\beta_{l0}+\beta_{l1}t_1+\beta_{l2}t_1^2\\ \beta_{l0}+\beta_{l1}t_2+\beta_{l2}t_2^2\\ \vdots\\ \beta_{l0}+\beta_{l1}t_p+\beta_{l2}t_p^2\end{bmatrix}
+=\begin{bmatrix}1&t_1&t_1^2\\1&t_2&t_2^2\\ \vdots&\vdots&\vdots\\1&t_p&t_p^2\end{bmatrix}\begin{bmatrix}\beta_{l0}\\\beta_{l1}\\\beta_{l2}\end{bmatrix}=\mathbf{B}\boldsymbol{\beta}_l
+\]
+其中
+\phantomsection\label{eq:6-76}
+\begin{equation}
+\mathbf{B}=\begin{bmatrix}1&t_1&t_1^2\\1&t_2&t_2^2\\ \vdots&\vdots&\vdots\\1&t_p&t_p^2\end{bmatrix},\quad
+\boldsymbol{\beta}_l=\begin{bmatrix}\beta_{l0}\\\beta_{l1}\\\beta_{l2}\end{bmatrix} \tag{6-76}
+\end{equation}
+若一个 $q$ 次多项式适合此生长数据，则
+\phantomsection\label{eq:6-77}
+\begin{equation}
+\mathbf{B}=\begin{bmatrix}1&t_1&\cdots&t_1^q\\1&t_2&\cdots&t_2^q\\ \vdots&\vdots&&\vdots\\1&t_p&\cdots&t_p^q\end{bmatrix},\quad
+\boldsymbol{\beta}_l=\begin{bmatrix}\beta_{l0}\\\beta_{l1}\\\vdots\\\beta_{lq}\end{bmatrix} \tag{6-77}
+\end{equation}
+在多元正态的假定下，$\boldsymbol{\beta}_l$ 的极大似然估计量为
+\phantomsection\label{eq:6-78}
+\begin{equation}
+\hat{\boldsymbol{\beta}}_l=(\mathbf{B}'\mathbf{S}_p^{-1}\mathbf{B})^{-1}\mathbf{B}'\mathbf{S}_p^{-1}\bar{\mathbf{X}}_l,\quad l=1,2,\cdots,g \tag{6-78}
+\end{equation}
+其中，
+\[
+\mathbf{S}_p=\frac{1}{(N-g)}\left[(n_1-1)\mathbf{S}_1+\cdots+(n_g-1)\mathbf{S}_g\right]=\frac{1}{N-g}\mathbf{W},\quad \left(N=\sum_{l=1}^{g}n_l\right)
+\]
+为公共协方差阵 $\boldsymbol{\Sigma}$ 的融合估计量．该极大似然估计量的协方差的估计量为
+\phantomsection\label{eq:6-79}
+\begin{equation}
+\widehat{\operatorname{Cov}}\;(\hat{\boldsymbol{\beta}}_l)=\frac{k}{n_l}(\mathbf{B}'\mathbf{S}_p^{-1}\mathbf{B})^{-1},\quad l=1,2,\cdots,g \tag{6-79}
+\end{equation}
+其中
+\[
+k=(N-g)(N-g-1)/(N-g-p+q)(N-g-p+q+1)\text{．}
+\]
+
+由于 $\hat{\boldsymbol{\beta}}_l$ 与 $\hat{\boldsymbol{\beta}}_h$ 相互独立，$l\neq h$，故它们的协方差为 $\mathbf{0}$．
+
+可以正式地检验 $q$ 次多项式是否合适．模型不加限制就能适合，其误差的平方与交叉乘积之和恰好是自由度为 $N-g$ 的 $\mathbf{W}$ 中的组成部分．在 $q$ 次多项式条件下，误差的平方与交叉

@@ -1,0 +1,70 @@
+% ---- pg-080 （书页 68） ----
+
+矩阵的数乘生成一新矩阵,其元素是用这个数去乘原来矩阵的每个元素.
+
+例如,如果 $c=2$,
+
+\[
+2 \begin{bmatrix} 3 & -4 \\ 2 & 6 \\ 0 & 5 \end{bmatrix} = \begin{bmatrix} 3 & -4 \\ 2 & 6 \\ 0 & 5 \end{bmatrix} 2 = \begin{bmatrix} 6 & -8 \\ 4 & 12 \\ 0 & 10 \end{bmatrix}
+\]
+
+\[
+\underset{}{c\bm{A}} \qquad = \qquad \underset{}{\bm{A}c} \qquad = \qquad \underset{}{\bm{B}}
+\]
+
+\mvbold{定义 2A.18} \quad （矩阵减法) \quad 设 $\underset{(m \times k)}{\bm{A}} = (a_{ij})$ 和 $\underset{(m \times k)}{\bm{B}} = (b_{ij})$ 是两个维数相等的矩阵.则 $\bm{A}$ 与 $\bm{B}$ 的差写做 $\bm{A} - \bm{B}$,是一个 $m \times k$ 矩阵 $\bm{C} = (c_{ij})$,由下式给出
+
+\[
+\bm{C} = \bm{A} - \bm{B} = \bm{A} + (-1)\bm{B}
+\]
+
+即
+
+\[
+c_{ij} = a_{ij} + (-1)b_{ij} = a_{ij} - b_{ij} ,i=1,2,\cdots ,m,j=1,2,\cdots ,k.
+\]
+
+\mvbold{定义 2A.19} \quad 考虑 $m \times k$ 矩阵 $\bm{A}$,其任意元素为 $a_{ij} ,i=1,2,\cdots ,m,j=1,2,\cdots ,k$.矩阵 $\bm{A}$ 的转置,记做 $\bm{A}'$,是 $k \times m$ 矩阵,它的元素为 $a_{ji} ,j=1,2,\cdots ,k,i=1,2,\cdots ,m$.即矩阵 $\bm{A}$ 的转置是由 $\bm{A}$ 的行与列互换得到的.
+
+例,如果
+
+\[
+\underset{(2 \times 3)}{\bm{A}} = \begin{bmatrix} 2 & 1 & 3 \\ 7 & -4 & 6 \end{bmatrix}, \quad \text{则} \quad
+\underset{(3 \times 2)}{\bm{A}'} = \begin{bmatrix} 2 & 7 \\ 1 & -4 \\ 3 & 6 \end{bmatrix}
+\]
+
+\mvthm{结论 2A.4}{} \quad 对所有的矩阵 $\bm{A}$,$\bm{B}$ 和 $\bm{C}$(维数相等)以及标量 $c$ 和 $d$,以下性质成立:
+
+(a) $(\bm{A} + \bm{B}) + \bm{C} = \bm{A} + (\bm{B} + \bm{C})$
+
+(b) $\bm{A} + \bm{B} = \bm{B} + \bm{A}$
+
+(c) $c(\bm{A} + \bm{B}) = c\bm{A} + c\bm{B}$
+
+(d) $(c + d)\bm{A} = c\bm{A} + d\bm{A}$
+
+(e) $(\bm{A} + \bm{B})' = \bm{A}' + \bm{B}'$ \quad （即和的转置等于转置的和)
+
+(f) $(cd)\bm{A} = c(d\bm{A})$
+
+(g) $(c\bm{A})' = c\bm{A}'$
+
+\mvbold{定义 2A.20} \quad 如果任一矩阵 $\bm{A}$ 的行数与列数相同,则称 $\bm{A}$ 是方阵.在定义 2A.13 之后给出的 $\bm{\Sigma}$,$\bm{I}$ 和 $\bm{E}$ 都是方阵.
+
+\mvbold{定义 2A.21} \quad 设 $\bm{A}$ 是 $k \times k$(方)阵.如果 $\bm{A} = \bm{A}'$,则称 $\bm{A}$ 是对称的.即当 $a_{ij} = a_{ji} ,i=1,2,\cdots ,k,j=1,2,\cdots ,k$ 时 $\bm{A}$ 是对称的.
+
+以下为几个对称矩阵.
+
+\[
+\underset{(3 \times 3)}{\bm{I}} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad
+\underset{(2 \times 2)}{\bm{A}} = \begin{bmatrix} 2 & 4 \\ 4 & 1 \end{bmatrix}, \quad
+\underset{(4 \times 4)}{\bm{B}} = \begin{bmatrix} a & c & e & f \\ c & b & g & d \\ e & g & c & a \\ f & d & a & d \end{bmatrix}
+\]
+
+\mvbold{定义 2A.22} \quad $k \times k$ 单位矩阵用 $\underset{(k \times k)}{\bm{I}}$ 表示,它是主对角线左上方至右下方元素为 1,其他元素为零的方阵.上面我们已经给出了一个 $3 \times 3$ 的单位矩阵.
+
+\mvbold{定义 2A.23} \quad （矩阵乘法) \quad 设一个 $m \times n$ 矩阵 $\bm{A} = (a_{ij})$ 和一个 $n \times k$ 矩阵 $\bm{B} = (b_{ij})$ 的乘积 $\bm{A}\bm{B}$ 是 $m \times k$ 矩阵 $\bm{C}$,它的元素是
+
+\[
+c_{ij} = \sum_{l=1}^{n} a_{il} b_{lj} \qquad i=1,2,\cdots ,m \quad j=1,2,\cdots ,k
+\]

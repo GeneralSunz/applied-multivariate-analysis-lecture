@@ -1,0 +1,67 @@
+% ---- pg-483 （书页 471） ----
+
+\[
+\bar{\mathbf{x}}_2=\begin{bmatrix}137.460\\366.620\end{bmatrix},\qquad \mathbf{S}_2=\begin{bmatrix}326.090&133.505\\133.505&893.261\end{bmatrix}
+\]
+
+数据看上去满足二元正态分布的假定(见练习 11.31), 但协方差矩阵可能不同. 然而, 为说明与错分概率有关的要点, 我们仍采用线性判别方法.
+
+使用同等代价和同等先验概率假定, 分类方法给出的提留估计失误率为
+
+\begin{mvtable}
+\begin{tabular}{ccc}
+\toprule
+& \multicolumn{2}{c}{预测归属}\\
+\cmidrule(lr){2-3}
+& $\pi_1$: 阿拉斯加 & $\pi_2$: 加拿大\\
+\midrule
+$\pi_1$: 阿拉斯加 & 44 & 6\\
+$\pi_2$: 加拿大 & 1 & 49\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+其根据的线性判别函数[见\hyperref[eq:11-19]{式(11-19)}和\hyperref[eq:11-20]{式(11-20)}]为
+\[
+\hat{w}=\hat{y}-\bar{m}=-5.541\,21-0.128\,39x_1+0.051\,94x_2
+\]
+对两个总体, $\bar{w}$ 的样本标准差有所不同:
+
+\begin{mvtable}
+\begin{tabular}{cccc}
+\toprule
+& $n$ & \makecell{样本\\均值} & \makecell{样本\\标准差}\\
+\midrule
+阿拉斯加 & 50 & 4.144 & 3.253\\
+加拿大 & 50 & $-4.147$ & 2.450\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+虽然总失误率(7\%)相当低, 但这里有一种不公平现象: 加拿大产的鲑鱼更不容易被错判为阿拉斯加产鲑鱼, 而不是相反. \hyperref[fig:11.8]{图 11.8} 显示线性判别函数 $\hat{y}$ 的两个正态密度. 由此图可以看出上面所说的现象. 采用两个样本均值的中点并未使两个错分概率相等. 显然, 具有较大方差的总体处于不利地位. 这样, 盲目地使用线性判别函数可能是不明智的. $\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[xscale=0.78,yscale=1.15]
+\fill[pattern=north east lines,pattern color=black]
+  (4.79,0) -- plot[domain=4.79:7.19,smooth,variable=\x] (\x,{1.13*exp(-((\x-9.67)*(\x-9.67))/(2*2.66*2.66))}) -- (7.19,0) -- cycle;
+\draw[domain=0:11.9,smooth,variable=\x] plot (\x,{1.7*exp(-((\x-4.79)*(\x-4.79))/(2*1.85*1.85))});
+\draw[domain=3.3:11.9,smooth,variable=\x] plot (\x,{1.13*exp(-((\x-9.67)*(\x-9.67))/(2*2.66*2.66))});
+\draw[->] (0,0) -- (12.2,0) node[below right]{$y$};
+\draw (7.19,0) -- (7.19,0.732);
+\draw (4.79,0) -- (4.79,-0.07) node[below]{$\bar{y}_2$};
+\draw (7.19,0) -- (7.19,-0.07) node[below]{$\hat{m}$};
+\draw (9.67,0) -- (9.67,-0.07) node[below]{$\bar{y}_1$};
+\end{tikzpicture}
+\phantomsection\label{fig:11.8}\mvcap{图 11.8\quad 线性判别量的正态密度——鲑鱼数据}
+\end{mvfigure}
+
+直观上应该很清楚: 好的分类(低失误率)将依赖于总体的分离程度. 两个总体相互离得越远, 就越能得出有用的分类法则. 这个分离目标在 11.1 节中曾经提及, 我们在 11.6 节中将进一步探究.
+
+正如我们将看到的, 在涉及相同先验概率和相同错分代价的场合, 分配法则与最大限度分离的总体的函数相对应. 正是在这种情形下, 分类与分离之间的界限开始消失.
+
+\section{多个总体的分类}  % 原书 11.5
+\phantomsection\label{sec:11.5}
+
+理论上, 将两个总体的分类方法推广到 $g\ge 2$ 个总体是直截了当的. 不过我们对相应样本分类函数的性质所知不多, 特别是对它们的失误率尚未充分研究.
+
+例如, 对两个总体的线性分类统计量, 其“稳健性”在不同协方差或非正态分布下可以用

@@ -1,0 +1,65 @@
+% ---- pg-447 （书页 435） ----
+
+\phantomsection\label{eq:10-34}
+\begin{equation}
+\begin{aligned}
+\mathbf{S}_{11}-(\hat{\mathbf{a}}^{(1)}\hat{\mathbf{a}}^{(1)'}+\hat{\mathbf{a}}^{(2)}\hat{\mathbf{a}}^{(2)'}+\cdots+\hat{\mathbf{a}}^{(r)}\hat{\mathbf{a}}^{(r)'})&=\hat{\mathbf{a}}^{(r+1)}\hat{\mathbf{a}}^{(r+1)'}+\cdots+\hat{\mathbf{a}}^{(p)}\hat{\mathbf{a}}^{(p)'}\\
+\mathbf{S}_{22}-(\hat{\mathbf{b}}^{(1)}\hat{\mathbf{b}}^{(1)'}+\hat{\mathbf{b}}^{(2)}\hat{\mathbf{b}}^{(2)'}+\cdots+\hat{\mathbf{b}}^{(r)}\hat{\mathbf{b}}^{(r)'})&=\hat{\mathbf{b}}^{(r+1)}\hat{\mathbf{b}}^{(r+1)'}+\cdots+\hat{\mathbf{b}}^{(q)}\hat{\mathbf{b}}^{(q)'}\\
+\mathbf{S}_{12}-(\hat{\rho}_1^*\hat{\mathbf{a}}^{(1)}\hat{\mathbf{b}}^{(1)'}+\hat{\rho}_2^*\hat{\mathbf{a}}^{(2)}\hat{\mathbf{b}}^{(2)'}+\cdots+\hat{\rho}_r^*\hat{\mathbf{a}}^{(r)}\hat{\mathbf{b}}^{(r)'})&=\hat{\rho}_{r+1}^*\hat{\mathbf{a}}^{(r+1)}\hat{\mathbf{b}}^{(r+1)'}+\cdots+\hat{\rho}_p^*\hat{\mathbf{a}}^{(p)}\hat{\mathbf{b}}^{(p)'}
+\end{aligned}
+\tag{10-34}
+\end{equation}
+这个渐近误差矩阵(10-34)可被阐述为前 $r$ 个样本典型变量重现样本协方差矩阵的完好程度的描述性综合测度. 渐近误差矩阵行和(或)列的值较大时, 暗示着对相应变量的“拟合”很糟糕.
+
+通常, 前 $r$ 个变量在重现 $\mathbf{S}_{12}=\mathbf{S}_{21}'$ 的元素时比在重现 $\mathbf{S}_{11}$ 或 $\mathbf{S}_{22}$ 的元素时做得更好. 数学上看, 这是因为前者的残差矩阵与最小的 $p-r$ 个样本典型相关系数有直接的关系造成的. 这些相关系数常常都接近于零. 另一方面, 该残差矩阵与矩阵 $\mathbf{S}_{11}$ 和 $\mathbf{S}_{22}$ 的近似值相联系, 仅依赖于后面的 $p-r$ 和 $q-r$ 个系数向量, 这些系数向量中的元素可能相对较大, 因此, 残差矩阵有“大”的值.
+
+对标准化观察值, 在\hyperref[eq:10-34]{式(10-34)}中, 以 $\mathbf{R}_{kl}$ 代替 $\mathbf{S}_{kl}$, 以 $\hat{\mathbf{a}}_z^{(k)},\hat{\mathbf{b}}_z^{(l)}$ 代替 $\hat{\mathbf{a}}^{(k)},\hat{\mathbf{b}}^{(l)}$.
+
+\noindent\textbf{例 10.6}\quad (计算渐近误差矩阵)
+
+在例 10.4 中, 我们得到白来亨鸡的两个头变量和两个腿变量间的典型相关系数, 从样本相关系数矩阵
+\[
+\mathbf{R}=\left[\begin{array}{c:c}
+\mathbf{R}_{11} & \mathbf{R}_{12}\\
+\hdashline
+\mathbf{R}_{21} & \mathbf{R}_{22}
+\end{array}\right]=\left[\begin{array}{cc:cc}
+1.0 & 0.505 & 0.569 & 0.602\\
+0.505 & 1.0 & 0.422 & 0.467\\
+\hdashline
+0.569 & 0.422 & 1.0 & 0.926\\
+0.602 & 0.467 & 0.926 & 1.0
+\end{array}\right]
+\]
+出发, 我们得到两个组的典型相关系数和变量
+\[
+\hat{\rho}_1^*=0.631\qquad
+\begin{aligned}
+\hat{U}_1&=0.781z_1^{(1)}+0.345z_2^{(1)}\\
+\hat{V}_1&=0.060z_1^{(2)}+0.944z_2^{(2)}
+\end{aligned}
+\]
+和
+\[
+\hat{\rho}_2^*=0.057\qquad
+\begin{aligned}
+\hat{U}_2&=-0.856z_1^{(1)}+1.106z_2^{(1)}\\
+\hat{V}_2&=-2.648z_1^{(2)}+2.475z_2^{(2)}
+\end{aligned}
+\]
+其中 $z_i^{(1)}$ ($i=1,2$)和 $z_i^{(2)}$ ($i=1,2$)分别为组 1 和组 2 的标准化数据值.
+
+我们首先计算出(见显示板 10.1)
+\[
+\hat{\mathbf{A}}_z^{-1}=\begin{bmatrix}0.781 & 0.345\\ -0.856 & 1.106\end{bmatrix}^{-1}=\begin{bmatrix}0.9548 & -0.2974\\ 0.7388 & 0.6739\end{bmatrix}
+\]
+\[
+\hat{\mathbf{B}}_z^{-1}=\begin{bmatrix}0.9343 & -0.3564\\ 0.9997 & 0.0227\end{bmatrix}
+\]
+所以, 渐近误差矩阵可仅利用第一典型变量配对得到, 为
+\[
+\begin{aligned}
+\mathbf{R}_{12}-\text{样本}\ \mathrm{Cov}(\tilde{\mathbf{z}}^{(1)},\tilde{\mathbf{z}}^{(2)})&=(0.057)\begin{bmatrix}-0.2974\\0.6739\end{bmatrix}[-0.3564\quad 0.0227]\\
+&=\begin{bmatrix}0.006 & -0.000\\ -0.014 & 0.001\end{bmatrix}
+\end{aligned}
+\]

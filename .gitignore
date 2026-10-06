@@ -1,0 +1,17 @@
+﻿# LaTeX 编译中间产物
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# 编辑器
+.vscode/
+.idea/
+*.swp

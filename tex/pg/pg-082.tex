@@ -1,0 +1,58 @@
+% ---- pg-082 （书页 70） ----
+
+1. 一般来说,矩阵乘法没有交换律,即一般有 $\bm{A}\bm{B} \neq \bm{B}\bm{A}$. 下面几个例子将说明对矩阵交换律是不成立的.
+\[
+\begin{bmatrix} 3 & -1 \\ 4 & 7 \end{bmatrix}\begin{bmatrix} 0 \\ 2 \end{bmatrix} = \begin{bmatrix} -2 \\ 14 \end{bmatrix}
+\]
+
+而
+\[
+\begin{bmatrix} 0 \\ 2 \end{bmatrix}\begin{bmatrix} 3 & -1 \\ 4 & 7 \end{bmatrix}
+\]
+
+是没有定义的.
+\[
+\begin{bmatrix} 1 & 0 & 1 \\ 2 & -3 & 6 \end{bmatrix}\begin{bmatrix} 7 & 6 \\ -3 & 1 \\ 2 & 4 \end{bmatrix} = \begin{bmatrix} 9 & 10 \\ 35 & 33 \end{bmatrix}
+\]
+
+而
+\[
+\begin{bmatrix} 7 & 6 \\ -3 & 1 \\ 2 & 4 \end{bmatrix}\begin{bmatrix} 1 & 0 & 1 \\ 2 & -3 & 6 \end{bmatrix} = \begin{bmatrix} 19 & -18 & 43 \\ -1 & -3 & 3 \\ 10 & -12 & 26 \end{bmatrix}
+\]
+
+又
+\[
+\begin{bmatrix} 4 & -1 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 2 & 1 \\ -3 & 4 \end{bmatrix} = \begin{bmatrix} 11 & 0 \\ -3 & 4 \end{bmatrix}
+\]
+
+而
+\[
+\begin{bmatrix} 2 & 1 \\ -3 & 4 \end{bmatrix}\begin{bmatrix} 4 & -1 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 8 & -1 \\ -12 & 7 \end{bmatrix}
+\]
+
+2. 设 $\bm{0}$ 为零矩阵,即每个元素都为零的矩阵.在实数代数中,若两个数的乘积 $ab$ 是零,则 $a=0$ 或 $b=0$. 然而,在矩阵代数中,两个非零矩阵的乘积可以是零矩阵.因此,
+\[
+\bm{A}\bm{B}_{(m\times k)\;(k\times n)} = \bm{0}_{(m\times n)}
+\]
+
+并不意味着 $\bm{A}=\bm{0}$ 或 $\bm{B}=\bm{0}$. 例如
+\[
+\begin{bmatrix} 3 & 1 & 3 \\ 1 & 2 & 2 \end{bmatrix}\begin{bmatrix} 4 \\ 3 \\ -5 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\]
+
+然而,当 $\bm{A} = \bm{0}_{(m\times k)}$ 或 $\bm{B} = \bm{0}_{(k\times n)}$ 时,则 $\bm{A}\bm{B} = \bm{0}_{(m\times n)}$,这是成立的.
+
+\mvthm{定义 2A.24}{$k\times k$ 方阵 $\bm{A}=\{a_{ij}\}$ 的行列式记做 $|\bm{A}|$,它是一个标量.}
+\[
+|\bm{A}| = a_{11} \qquad \text{如果 } k=1
+\]
+\[
+|\bm{A}| = \sum_{j=1}^{k}a_{1j}\,|\bm{A}_{1j}|\,(-1)^{1+j} \qquad \text{如果 } k>1
+\]
+
+其中 $\bm{A}_{1j}$ 是除去 $\bm{A}$ 的第 1 行和第 $j$ 列而得到的 $(k-1)\times(k-1)$ 矩阵. 若除去第 $i$ 行而不是第 1 行,则有 $|\bm{A}| = \sum\limits_{j=1}^{k}a_{ij}\,|\bm{A}_{ij}|\,(-1)^{i+j}$.
+
+下面举出行列式的实例(利用定义 2A.24 计算)
+\[
+\left|\begin{matrix} 1 & 3 \\ 6 & 4 \end{matrix}\right| = 1\times|4|\times(-1)^2 + 3\times|6|\times(-1)^3 = 1\times4 + 3\times6\times(-1) = -14
+\]

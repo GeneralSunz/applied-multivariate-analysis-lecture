@@ -1,0 +1,44 @@
+% ---- pg-333 （书页 321） ----
+
+\[
+\left[\begin{array}{c:c}
+\displaystyle\sum_{j=1}^{n}(\mathbf{y}_j-\bar{\mathbf{y}})(\mathbf{y}_j-\bar{\mathbf{y}})' &
+\displaystyle\sum_{j=1}^{n}(\mathbf{y}_j-\bar{\mathbf{y}})(\mathbf{z}_j-\bar{\mathbf{z}})'\\\hdashline
+\displaystyle\sum_{j=1}^{n}(\mathbf{z}_j-\bar{\mathbf{z}})(\mathbf{y}_j-\bar{\mathbf{y}})' &
+\displaystyle\sum_{j=1}^{n}(\mathbf{z}_j-\bar{\mathbf{z}})(\mathbf{z}_j-\bar{\mathbf{z}})'
+\end{array}\right]
+=\left[\begin{array}{c:c}\mathbf{Y}_c'\mathbf{Y}_c&\mathbf{Y}_c'\mathbf{Z}_{c2}\\\hdashline\mathbf{Z}_{c2}'\mathbf{Y}_c&\mathbf{Z}_{c2}'\mathbf{Z}_{c2}\end{array}\right]
+=n\left[\begin{array}{c:c}\hat{\boldsymbol{\Sigma}}_{YY}&\hat{\boldsymbol{\Sigma}}_{YZ}\\\hdashline\hat{\boldsymbol{\Sigma}}_{ZY}&\hat{\boldsymbol{\Sigma}}_{ZZ}\end{array}\right]
+\]
+这种形式来完成. 这是计算参数估计值和它们的协方差估计值所必需的全部信息. 当然, 回归分析的一个重要部分是模型检查, 这需要用残差(误差), 它们必须用所有原始数据来计算.
+
+\section{有时间相关误差的多重回归模型}  % 原书 7.10
+\phantomsection\label{sec:7.14}
+
+对于随时间推移而收集的数据, 不同时期的观测往往是有关联的, 或者说自相关的. 因此, 在回归模型中, 因变量的观测值(或误差)不可能独立, 如我们在 5.8 节中讨论相依性时所指出的那样, 诸观测值之间的时间相依性会使建立在独立性假定基础上的推断不成立. 类似地, 当用回归模型去拟合按时间顺序排序的数据并使用标准回归假定时, 回归分析的结论会产生误导. 这个问题很重要, 因此在下面的例子中, 我们不仅要说明如何去发现数据中的时间相依性, 而且要说明如何将这种相依性容纳到多重回归模型之中.
+
+\noindent\textbf{例 7.16}\quad （在回归模型中容纳时间相关误差）
+
+电力公司必须有足够的天然气来使其客户的住宅和办公场所获得温暖, 特别是在一年中最寒冷的日子里. 规划过程的一个主要部分是对天然气输送量与诸如温度等因素之间的关系建立一个回归模型. 天然气消费量显然与温度有关, 寒冷的日子需要较多的天然气. 在处理实际问题时习惯上不用日平均温度, 而用“日加热度”$(\mathrm{DHD})=65^{\circ}\mathrm{F}-\text{日平均温度}$. DHD 值越大, 天气越冷. 24 小时平均风速也可能是影响天然气输送量的因素. 由于许多公司在周末停止营业, 通常周末的天然气需求量较小. \hyperref[tab:7.4]{表 7.4} 列出某北方大城市的这些变量在一个冬天的部分数据完整数据集参见网址 www.prenhall.com/statistics, 有 $n=63$ 个观测.
+
+\begin{mvtable}
+\phantomsection\label{tab:7.4}\mvtabcap{表 7.4\quad 天然气数据}
+\begin{tabular}{ccccc}
+\toprule
+$Y$ & $Z_1$ & $Z_2$ & $Z_3$ & $Z_4$ \\
+输送量 & DHD & DHD 滞后值 & 风速 & 周末 \\
+\midrule
+227 & 32 & 30 & 12 & 1 \\
+236 & 31 & 32 & 8 & 1 \\
+228 & 30 & 31 & 8 & 0 \\
+252 & 34 & 30 & 8 & 0 \\
+238 & 28 & 34 & 12 & 0 \\
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+333 & 46 & 41 & 8 & 0 \\
+266 & 33 & 46 & 8 & 0 \\
+280 & 38 & 33 & 18 & 0 \\
+386 & 52 & 38 & 22 & 0 \\
+415 & 57 & 52 & 18 & 0 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}

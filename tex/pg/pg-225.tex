@@ -1,0 +1,84 @@
+% ---- pg-225 （书页 213） ----
+种差异识别出来，并将最相似的那些实验单元配对. 此外，将处理 1 随机分配给一个单元而将处理 2 分配给另一个单元有助于消除不可控变差来源所造成的系统效应. 实现随机化的方法是通过掷硬币来确定成对单元中的第一个单元是接受第一种处理（正面）还是接受第二种处理（反面），此时另一种处理就被分配给另一个单元. 对每一对单元来说，随机化是各自独立地进行的. 这一过程设想如下：
+
+\begin{mvfigure}
+\centering
+\begin{tikzpicture}[scale=0.85,every node/.style={font=\small}]
+% 标题
+\node at (3.6,3.25) {成对比较的实验设计};
+\draw (1.35,3.05)--(5.85,3.05);
+% 列号
+\node at (0,2.55) {1};
+\node at (2.2,2.55) {2};
+\node at (4.4,2.55) {3};
+\node at (7.4,2.55) {$n$};
+% 方框
+\foreach \x in {0,2.2,4.4,7.4}{
+  \draw (\x-0.45,1.8) rectangle (\x+0.45,2.35);
+  \draw (\x-0.45,0.45) rectangle (\x+0.45,1.0);
+}
+% 省略号
+\node at (5.9,2.07) {$\cdots$};
+\node at (5.9,0.72) {$\cdots$};
+% 左侧大括号与说明
+\node[scale=3.4] at (-0.75,1.4) {\}};
+\node[align=center] at (-0.95,1.4) {各对可能的\\实验单元};
+% 箭头与标签
+\foreach \x in {0,2.2,4.4,7.4}{
+  \draw[->] (\x,0.15)--(\x,0.43);
+  \node[below,align=center] at (\x,0.05) {处理 1 与 2\\随机分配};
+}
+\node at (5.9,-0.45) {$\cdots$};
+\end{tikzpicture}
+\end{mvfigure}
+
+注意到 $\bar{d}$ 和 $\mathbf{S}_d$，便得出成对比较讨论的结论，由此可从全样本统计量 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 计算出 $T^2$，此处 $\bar{\mathbf{x}}$ 为两种处理下，$p$ 个变量的 $2p\times 1$ 样本均值向量. 即
+\phantomsection\label{eq:6-11}
+\begin{equation}
+\bar{\mathbf{x}}'=[\bar{x}_{11},\bar{x}_{12},\cdots,\bar{x}_{1p},\bar{x}_{21},\bar{x}_{22},\cdots,\bar{x}_{2p}] \tag{6-11}
+\end{equation}
+$\mathbf{S}$ 为 $2p\times 2p$ 样本协方差阵：
+\phantomsection\label{eq:6-12}
+\begin{equation}
+\mathbf{S}=\left[\begin{array}{cc}
+\mathbf{S}_{11\,(p\times p)}&\mathbf{S}_{12\,(p\times p)}\\\hdashline
+\mathbf{S}_{21\,(p\times p)}&\mathbf{S}_{22\,(p\times p)}
+\end{array}\right] \tag{6-12}
+\end{equation}
+$\mathbf{S}_{11}$ 和 $\mathbf{S}_{22}$ 分别为处理 1 和处理 2 下 $p$ 个变量的样本协方差阵，而 $\mathbf{S}_{12}=\mathbf{S}_{21}'$ 则为由处理 1 和处理 2 中各对变量的观测值算出的样本协方差阵.
+
+定义矩阵
+\phantomsection\label{eq:6-13}
+\begin{equation}
+\mathbf{C}_{(p\times 2p)}=\left[\begin{array}{cccc:cccc}
+1&0&\cdots&0&-1&0&\cdots&0\\
+0&1&\cdots&0&0&-1&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&1&0&0&\cdots&-1
+\end{array}\right] \tag{6-13}
+\end{equation}
+\begin{center}
+$\uparrow$\\
+第 $p+1$ 列
+\end{center}
+
+可以验证（见练习 6.9）：
+\phantomsection\label{eq:6-14}
+\begin{equation}
+\begin{aligned}
+\mathbf{d}_j&=\mathbf{C}\mathbf{x}_j,\quad j=1,2,\cdots,n\\
+\bar{\mathbf{d}}&=\mathbf{C}\bar{\mathbf{x}}\qquad 和\qquad \mathbf{S}_d=\mathbf{C}\mathbf{S}\mathbf{C}'
+\end{aligned} \tag{6-14}
+\end{equation}
+于是，
+\phantomsection\label{eq:6-15}
+\begin{equation}
+T^2=n\bar{\mathbf{x}}'\mathbf{C}'(\mathbf{C}\mathbf{S}\mathbf{C}')^{-1}\mathbf{C}\bar{\mathbf{x}} \tag{6-15}
+\end{equation}
+因而必先计算差值 $\mathbf{d}_1,\mathbf{d}_2,\cdots,\mathbf{d}_n$. 另一方面，为检验随机样本的假设及正态性，计算这些差值又是明智之举.
+
+\hyperref[eq:6-13]{式(6-13)}中矩阵 $\mathbf{C}$ 的每一行 $\mathbf{c}_i'$ 均为一对比向量，因为其元素之和为 0. 在比较各种处理时，人们通常关注的是对比向量. 由于 $\mathbf{c}_i'\mathbf{1}=0$，故每一对比向量都垂直于向量 $\mathbf{1}'=[1,1,\cdots,1]$. 分量 $\mathbf{1}'\bar{\mathbf{x}}$ 代表所有处理之和，它常被本节所提供的检验统计量 $T^2$ 所忽略.
+
+\subsection{比较各种处理的重复测量设计}
+
+一元成对 $t$ 统计量的另一种推广，就是在有一个响应变量的情况下对 $q$ 种处理进行比较. 在

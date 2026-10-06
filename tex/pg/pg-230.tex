@@ -1,0 +1,53 @@
+第二个假定 $\boldsymbol{\Sigma}_{1}=\boldsymbol{\Sigma}_{2}$ 要比一元情形的相应假定更强. 这里我们需要假定有若干对方差和协方差几乎相等.
+
+当 $\boldsymbol{\Sigma}_{1}=\boldsymbol{\Sigma}_{2}=\boldsymbol{\Sigma}$ 时, $\sum\limits_{j=1}^{n_{1}}(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})'$ 为 $(n_{1}-1)\boldsymbol{\Sigma}$ 的估计量, 而 $\sum\limits_{j=1}^{n_{2}}(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})'$ 则为 $(n_{2}-1)\boldsymbol{\Sigma}$ 的估计量. 因此, 为了估计公共协方差阵 $\boldsymbol{\Sigma}$, 需融合来自两个样本的信息. 为此, 令
+\phantomsection\label{eq:6-21}
+\begin{equation}
+\begin{aligned}
+\mathbf{S}_{p}&=\frac{\sum\limits_{j=1}^{n_{1}}(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})'+\sum\limits_{j=1}^{n_{2}}(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})'}{n_{1}+n_{2}-2}\\
+&=\frac{n_{1}-1}{n_{1}+n_{2}-2}\mathbf{S}_{1}+\frac{n_{2}-1}{n_{1}+n_{2}-2}\mathbf{S}_{2}
+\end{aligned}
+\tag{6-21}
+\end{equation}
+由于 $\sum\limits_{j=1}^{n_{1}}(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})(\mathbf{x}_{1j}-\bar{\mathbf{x}}_{1})'$ 的自由度为 $n_{1}-1$, 而 $\sum\limits_{j=1}^{n_{2}}(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})(\mathbf{x}_{2j}-\bar{\mathbf{x}}_{2})'$ 的自由度为 $n_{2}-1$, 因此, \hyperref[eq:6-21]{式(6-21)}的分母 $(n_{1}-1)+(n_{2}-1)$ 恰为其组成部分的自由度之和[见式(4-24)]. 另一个可以说明融合过程的理由来自多元正态的极大似然估计(见练习 6.11).
+
+对给定的 $\boldsymbol{\delta}$, 为检验 $\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}=\boldsymbol{\delta}$, 我们考虑由 $\bar{\mathbf{x}}_{1}-\bar{\mathbf{x}}_{2}$ 到 $\boldsymbol{\delta}$ 的统计距离的平方. 显然有
+\[
+E(\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2})=E(\bar{\mathbf{X}}_{1})-E(\bar{\mathbf{X}}_{2})=\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}
+\]
+由独立性假定(6-19)知, $\bar{\mathbf{X}}_{1}$ 与 $\bar{\mathbf{X}}_{2}$ 也相互独立. 因此 $\mathrm{Cov}(\bar{\mathbf{X}}_{1},\bar{\mathbf{X}}_{2})=\mathbf{0}$(见结论 4.5). 于是由\hyperref[eq:3-9]{式(3-9)}可知
+\phantomsection\label{eq:6-22}
+\begin{equation}
+\mathrm{Cov}(\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2})=\mathrm{Cov}(\bar{\mathbf{X}}_{1})+\mathrm{Cov}(\bar{\mathbf{X}}_{2})=\frac{1}{n_{1}}\boldsymbol{\Sigma}+\frac{1}{n_{2}}\boldsymbol{\Sigma}=\left(\frac{1}{n_{1}}+\frac{1}{n_{2}}\right)\boldsymbol{\Sigma}
+\tag{6-22}
+\end{equation}
+又因 $\mathbf{S}_{p}$ 为 $\boldsymbol{\Sigma}$ 的估计量, 我们看到 $\left(\frac{1}{n_{1}}+\frac{1}{n_{2}}\right)\mathbf{S}_{p}$ 为 $\mathrm{Cov}(\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2})$ 的一个估计量.
+
+对假设 $H_{0}: \boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}=\boldsymbol{\delta}$ 的似然比检验建立在统计距离平方 $T^{2}$ 的基础之上(见文献[1]): 若
+\phantomsection\label{eq:6-23}
+\begin{equation}
+T^{2}=(\bar{\mathbf{x}}_{1}-\bar{\mathbf{x}}_{2}-\boldsymbol{\delta})'\left[\left(\frac{1}{n_{1}}+\frac{1}{n_{2}}\right)\mathbf{S}_{p}\right]^{-1}(\bar{\mathbf{x}}_{1}-\bar{\mathbf{x}}_{2}-\boldsymbol{\delta})>c^{2}
+\tag{6-23}
+\end{equation}
+则拒绝 $H_{0}$, 其中临界距离 $c^{2}$ 由二样本 $T^{2}$ 统计量的分布确定.
+
+\noindent\textbf{结论 6.2}\quad 设 $X_{11},X_{12},\cdots,X_{1n_{1}}$ 为来自总体 $N_{p}(\boldsymbol{\mu}_{1},\boldsymbol{\Sigma})$ 的一个容量为 $n_{1}$ 的随机样本, 而 $X_{21},X_{22},\cdots,X_{2n_{2}}$ 则为来自总体 $N_{p}(\boldsymbol{\mu}_{2},\boldsymbol{\Sigma})$ 的一个容量为 $n_{2}$ 的独立随机样本, 此时
+\[
+T^{2}=[\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2}-(\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2})]'\left[\left(\frac{1}{n_{1}}+\frac{1}{n_{2}}\right)\mathbf{S}_{p}\right]^{-1}[\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2}-(\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2})]
+\]
+的分布为
+\[
+\frac{(n_{1}+n_{2}-2)p}{(n_{1}+n_{2}-p-1)}F_{p,n_{1}+n_{2}-p-1}
+\]
+于是有
+\phantomsection\label{eq:6-24}
+\begin{equation}
+P\left\{(\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2}-(\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}))'\left[\left(\frac{1}{n_{1}}+\frac{1}{n_{2}}\right)\mathbf{S}_{p}\right]^{-1}(\bar{\mathbf{X}}_{1}-\bar{\mathbf{X}}_{2}-(\boldsymbol{\mu}_{1}-\boldsymbol{\mu}_{2}))\le c^{2}\right\}=1-\alpha
+\tag{6-24}
+\end{equation}
+其中,
+\[
+c^{2}=\frac{(n_{1}+n_{2}-2)p}{(n_{1}+n_{2}-p-1)}F_{p,n_{1}+n_{2}-p-1}(\alpha)
+\]
+
+\noindent\textbf{证明}\quad 首先注意到

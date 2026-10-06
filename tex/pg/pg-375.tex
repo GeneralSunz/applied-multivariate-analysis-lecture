@@ -1,0 +1,35 @@
+% ---- pg-375 （书页 363） ----
+
+\[
+\sum_{j=1}^{n}\mathbf{v}_j'\mathbf{v}_j=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})=(n-1)\mathrm{tr}[\mathbf{U}'\mathbf{S}\mathbf{U}]
+\]
+由 $\mathbf{U}=\hat{\mathbf{E}}$ 得到最大. 由于 $\bar{\mathbf{v}}=\mathbf{0}$, 也还有
+\[
+(n-1)\mathbf{S}_{\mathbf{v}}=\sum_{j=1}^{n}(\mathbf{v}_j-\bar{\mathbf{v}})(\mathbf{v}_j-\bar{\mathbf{v}})'=\sum_{j=1}^{n}\mathbf{v}_j\mathbf{v}_j'
+\]
+且此平面也使总方差达到
+\[
+\mathrm{tr}(\mathbf{S}_{\mathbf{v}})=\frac{1}{(n-1)}\mathrm{tr}\left[\sum_{j=1}^{n}\mathbf{v}_j\mathbf{v}_j'\right]=\frac{1}{(n-1)}\mathrm{tr}\left[\sum_{j=1}^{n}\mathbf{v}_j'\mathbf{v}_j\right]
+\]
+最大.
+
+\mvsub{$n$ 维几何学解释}
+
+我们现在来考虑, 按列用 $\mathbf{A}$ 逼近均值中心化数据矩阵. 对 $r=1$, 第 $i$ 列 $[x_{1i}-\bar{x}_i,x_{2i}-\bar{x}_i,\cdots,x_{ni}-\bar{x}_i]'$ 由一个固定向量 $\mathbf{b}=[b_1,b_2,\cdots,b_n]'$ 的乘积 $c_i\mathbf{b}'$ 来近似. 此近似误差的平方长度为
+\[
+L_i^2=\sum_{j=1}^{n}(x_{ji}-\bar{x}_i-c_ib_j)^2
+\]
+考虑到矩阵 $\mathbf{A}_{(n\times p)}$ 秩为 1, 我们从结论 8A.1 得出:
+\[
+\hat{\mathbf{A}}=\begin{bmatrix}\hat{\mathbf{e}}_1\hat{\mathbf{e}}_1'(\mathbf{x}_1-\bar{\mathbf{x}})\\ \hat{\mathbf{e}}_1\hat{\mathbf{e}}_1'(\mathbf{x}_2-\bar{\mathbf{x}})\\ \vdots\\ \hat{\mathbf{e}}_1\hat{\mathbf{e}}_1'(\mathbf{x}_n-\bar{\mathbf{x}})\end{bmatrix}=\begin{bmatrix}\hat{y}_{11}\\ \hat{y}_{21}\\ \vdots\\ \hat{y}_{n1}\end{bmatrix}\hat{\mathbf{e}}_1'
+\]
+将平方长度之和 $\sum_{i=1}^{p}L_i^2$ 最小化. 也即, 第一主成分值的向量决定最佳方向. 在\hyperref[fig:8.11]{图 8.11}(a) 中这一点得到了说明. 注意, 较长的变差向量(更大的 $s_{ii}$)对 $\sum_{i=1}^{p}L_i^2$ 的最小化影响最大.
+
+如果先将变量标准化, 则对所有的变量, 得到的向量 $\left[(x_{1i}-\bar{x}_i)/\sqrt{s_{ii}},(x_{2i}-\bar{x}_i)/\sqrt{s_{ii}},\cdots,(x_{ni}-\bar{x}_i)/\sqrt{s_{ii}}\right]'$ 长度为 $n-1$, 且每个向量对方向选择的影响相等 [见\hyperref[fig:8.11]{图 8.11}(b)].
+
+在两种情况下, 在 $n$ 维空间中旋转 $\mathbf{b}$ 使平方距离之和 $\sum_{i=1}^{p}L_i^2$ 最小, 其中 $L_i$ 是 $[x_{1i}-\bar{x}_i,x_{2i}-\bar{x}_i,\cdots$
+
+\begin{mvfigure}
+\mvinc{pg-375}{0.285,0.687,0.748,0.843}
+\phantomsection\label{fig:8.11}\mvcap{图 8.11\quad 第一样本主成分 $\hat{y}_1$ 使离差向量 $\mathbf{d}_i=[x_{1i}-\bar{x}_i,x_{2i}-\bar{x}_i,\cdots,x_{ni}-\bar{x}_i]'$ 到直线的距离平方之和最小化}
+\end{mvfigure}

@@ -1,0 +1,58 @@
+% ---- pg-391 （书页 379） ----
+
+\section{估计方法}
+\phantomsection\label{sec:9.3}
+
+已知对 $p$ 个一般为相关的变量的观测值 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$, 因子分析是寻求对如下问题的答案: 具有小数量因子的因子模型(9-4)足以代表数据吗? 实质上, 我们通过验证\hyperref[eq:9-5]{式(9-5)}中的协方差关系, 来着手处理这个统计建模问题.
+
+样本协方差阵 $\mathbf{S}$ 是未知总体协方差矩阵 $\boldsymbol{\Sigma}$ 的一个估计量. 若 $\mathbf{S}$ 的非对角元较小或者样本相关矩阵 $\mathbf{R}$ 的非对角元实质上为 0, 则变量不相关, 因子分析便将无用. 在这种情况下, 特殊因子起着重要作用, 而因子分析的主要目的就是要决定几个重要的公共因子.
+
+若 $\boldsymbol{\Sigma}$ 明显背离一个对角阵, 那就可准备考虑因子模型了, 并且一开始的问题便是估计因子载荷 $l_{ij}$ 和特殊方差 $\psi_j$. 我们将考虑两个最流行的参数估计方法: \mvbold{主成分}(和有关的主因子)方法和\mvbold{极大似然估计方法}. 为使因子的阐述简化, 从无论哪个方法得到的解, 都可作旋转, 就像在 9.4 节所描述的那样. 多试几种解法总是谨慎的; 若该因子模型适于手边的问题, 那么各解应该一致.
+
+现行的估计和旋转方法, 要求必须在计算机上作迭代计算. 有几种计算机程序都可用于此类计算.
+
+\mvsub{主成分（和主因子）方法}
+
+谱分解(2-16)为我们提供协方差矩阵 $\boldsymbol{\Sigma}$ 的因子化分解. 令 $\boldsymbol{\Sigma}$ 有特征值-特征向量对 $(\lambda_i,\mathbf{e}_i)$, $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_p\geqslant0$. 则
+\phantomsection\label{eq:9-10}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\Sigma}&=\lambda_1\mathbf{e}_1\mathbf{e}_1'+\lambda_2\mathbf{e}_2\mathbf{e}_2'+\cdots+\lambda_p\mathbf{e}_p\mathbf{e}_p'\\
+&=\left[\begin{array}{c:c:c:c}
+\sqrt{\lambda_1}\mathbf{e}_1&\sqrt{\lambda_2}\mathbf{e}_2&\cdots&\sqrt{\lambda_p}\mathbf{e}_p
+\end{array}\right]
+\left[\begin{array}{c}
+\sqrt{\lambda_1}\mathbf{e}_1'\\ \hdashline
+\sqrt{\lambda_2}\mathbf{e}_2'\\ \hdashline
+\vdots\\ \hdashline
+\sqrt{\lambda_p}\mathbf{e}_p'
+\end{array}\right]
+\end{aligned}
+\tag{9-10}
+\end{equation}
+这符合所规定的因子分析模型的协方差结构, 该模型有与变量一样多($m=p$)的因子, 并且对所有 $i$ 有特殊方差 $\psi_i=0$. 载荷矩阵第 $j$ 列为 $\sqrt{\lambda_j}\mathbf{e}_j$. 这就是说, 我们可有
+\phantomsection\label{eq:9-11}
+\begin{equation}
+\underset{(p\times p)}{\boldsymbol{\Sigma}}=\underset{(p\times p)}{\mathbf{L}}\underset{(p\times p)}{\mathbf{L}'}+\underset{(p\times p)}{\mathbf{0}}=\mathbf{L}\mathbf{L}'
+\tag{9-11}
+\end{equation}
+不计尺度因子 $\sqrt{\lambda_j}$, 在第 $j$ 个因子上的因子载荷是该总体第 $j$ 个主成分的系数.
+
+虽然在\hyperref[eq:9-11]{式(9-11)}中 $\boldsymbol{\Sigma}$ 的因子分析表示是精确的, 但它并不很有用: 它用到和所有变量一样多的公共因子, 并且不允许\hyperref[eq:9-4]{式(9-4)}中特殊因子 $\boldsymbol{\varepsilon}$ 有任何变异. 我们更愿意要以少数几个公共因子解释协方差结构的模型. 当后 $p-m$ 个特征值较小时, 方法就是略去 $\lambda_{m+1}\mathbf{e}_{m+1}\mathbf{e}_{m+1}'+\cdots+\lambda_p\mathbf{e}_p\mathbf{e}_p'$ 对\hyperref[eq:9-10]{式(9-10)}中 $\boldsymbol{\Sigma}$ 的贡献. 略去这一贡献, 我们得到近似
+\phantomsection\label{eq:9-12}
+\begin{equation}
+\boldsymbol{\Sigma}\doteq\left[\begin{array}{c:c:c:c}
+\sqrt{\lambda_1}\mathbf{e}_1&\sqrt{\lambda_2}\mathbf{e}_2&\cdots&\sqrt{\lambda_m}\mathbf{e}_m
+\end{array}\right]
+\left[\begin{array}{c}
+\sqrt{\lambda_1}\mathbf{e}_1'\\ \hdashline
+\sqrt{\lambda_2}\mathbf{e}_2'\\ \hdashline
+\vdots\\ \hdashline
+\sqrt{\lambda_m}\mathbf{e}_m'
+\end{array}\right]
+=\underset{(p\times m)}{\mathbf{L}}\underset{(m\times p)}{\mathbf{L}'}
+\tag{9-12}
+\end{equation}
+\hyperref[eq:9-12]{式(9-12)}中的近似表示假定\hyperref[eq:9-4]{式(9-4)}中诸特殊因子 $\boldsymbol{\varepsilon}$ 是不大重要的, 并在 $\boldsymbol{\Sigma}$ 因子化时也可忽略. 若此模型中包含特殊因子, 那么可取它们的方差为 $\boldsymbol{\Sigma}-\mathbf{L}\mathbf{L}'$ 的对角元, 这里 $\mathbf{L}\mathbf{L}'$ 如\hyperref[eq:9-12]{式(9-12)}定义.
+
+考虑到特殊因子, 我们发现这近似变成

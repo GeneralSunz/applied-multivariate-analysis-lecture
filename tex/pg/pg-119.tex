@@ -1,0 +1,70 @@
+由于
+\[
+\mathbf{S}=\begin{bmatrix}
+s_{11}&s_{12}&\cdots&s_{1p}\\
+\vdots&\vdots&\ddots&\vdots\\
+s_{p1}&s_{p2}&\cdots&s_{pp}
+\end{bmatrix}
+\]
+
+且
+\[
+\mathbf{R}=\begin{bmatrix}
+\dfrac{s_{11}}{\sqrt{s_{11}}\sqrt{s_{11}}}&\dfrac{s_{12}}{\sqrt{s_{11}}\sqrt{s_{22}}}&\cdots&\dfrac{s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}}\\[2mm]
+\vdots&\vdots&\ddots&\vdots\\[2mm]
+\dfrac{s_{p1}}{\sqrt{s_{pp}}\sqrt{s_{11}}}&\dfrac{s_{p2}}{\sqrt{s_{pp}}\sqrt{s_{22}}}&\cdots&\dfrac{s_{pp}}{\sqrt{s_{pp}}\sqrt{s_{pp}}}
+\end{bmatrix}
+=\begin{bmatrix}
+1&r_{12}&\cdots&r_{1p}\\
+\vdots&\vdots&\ddots&\vdots\\
+r_{p1}&r_{p2}&\cdots&1
+\end{bmatrix}
+\]
+
+我们有
+\phantomsection\label{eq:3-29}
+\begin{equation}
+\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2} \tag{3-29}
+\end{equation}
+在\hyperref[eq:3-29]{式(3-29)}的两边用 $\mathbf{D}^{1/2}$ 右乘和左乘, 并注意到 $\mathbf{D}^{-1/2}\mathbf{D}^{1/2}=\mathbf{D}^{1/2}\mathbf{D}^{-1/2}=\mathbf{I}$, 得出
+\phantomsection\label{eq:3-30}
+\begin{equation}
+\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2} \tag{3-30}
+\end{equation}
+即 $\mathbf{R}$ 可以由 $\mathbf{S}$ 里的信息得到, 反之, $\mathbf{S}$ 可以由 $\mathbf{D}^{1/2}$ 和 $\mathbf{R}$ 得到. \hyperref[eq:3-29]{式(3-29)}和\hyperref[eq:3-30]{式(3-30)}是\hyperref[eq:2-36]{式(2-36)}和\hyperref[eq:2-37]{式(2-37)}的样本模拟量.
+
+\section{变量的线性组合的样本值}
+\phantomsection\label{sec:3.6}
+
+在 2.6 节中, 我们已引进了 $p$ 个变量的线性组合. 在许多多元方法中, 我们自然地会考虑一个形如
+\[
+c'\mathbf{X}=c_1X_1+c_2X_2+\cdots+c_pX_p
+\]
+的线性组合, 它在第 $j$ 次试验中的观测值是
+\phantomsection\label{eq:3-31}
+\begin{equation}
+c'\mathbf{x}_j=c_1x_{j1}+c_2x_{j2}+\cdots+c_px_{jp}, \quad j=1,2,\cdots,n \tag{3-31}
+\end{equation}
+从\hyperref[eq:3-31]{式(3-31)}得到 $n$ 个观测值, 有
+\phantomsection\label{eq:3-32}
+\begin{align}
+\text{样本均值}&=\frac{(c'\mathbf{x}_1+c'\mathbf{x}_2+\cdots+c'\mathbf{x}_n)}{n}\notag\\
+&=c'(\mathbf{x}_1+\mathbf{x}_2+\cdots+\mathbf{x}_n)\,\frac{1}{n}=c'\bar{\mathbf{x}} \tag{3-32}
+\end{align}
+由于 $(c'\mathbf{x}_i-c'\bar{\mathbf{x}})^2=(c'(\mathbf{x}_i-\bar{\mathbf{x}}))^2=c'(\mathbf{x}_i-\bar{\mathbf{x}})(\mathbf{x}_i-\bar{\mathbf{x}})'c$, 我们有
+\begin{align}
+\text{样本方差}&=\frac{(c'\mathbf{x}_1-c'\bar{\mathbf{x}})^2+(c'\mathbf{x}_2-c'\bar{\mathbf{x}})^2+\cdots+(c'\mathbf{x}_n-c'\bar{\mathbf{x}})^2}{n-1}\notag\\
+&=\frac{c'(\mathbf{x}_1-\bar{\mathbf{x}})(\mathbf{x}_1-\bar{\mathbf{x}})'c+c'(\mathbf{x}_2-\bar{\mathbf{x}})(\mathbf{x}_2-\bar{\mathbf{x}})'c+\cdots+c'(\mathbf{x}_n-\bar{\mathbf{x}})(\mathbf{x}_n-\bar{\mathbf{x}})'c}{n-1}\notag\\
+&=c'\left[\frac{(\mathbf{x}_1-\bar{\mathbf{x}})(\mathbf{x}_1-\bar{\mathbf{x}})'+(\mathbf{x}_2-\bar{\mathbf{x}})(\mathbf{x}_2-\bar{\mathbf{x}})'+\cdots+(\mathbf{x}_n-\bar{\mathbf{x}})(\mathbf{x}_n-\bar{\mathbf{x}})'}{n-1}\right]c\notag
+\end{align}
+或
+\phantomsection\label{eq:3-33}
+\begin{equation}
+c'\mathbf{X}\ \text{的样本方差}=c'\mathbf{S}c \tag{3-33}
+\end{equation}
+\hyperref[eq:3-32]{式(3-32)}和\hyperref[eq:3-33]{式(3-33)}是\hyperref[eq:2-43]{式(2-43)}的样本模拟量. 它们把\hyperref[eq:2-43]{式(2-43)}中的总体量 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 分别用样本量 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 代替.
+
+现考虑另一个线性组合
+\[
+b'\mathbf{X}=b_1X_1+b_2X_2+\cdots+b_pX_p
+\]

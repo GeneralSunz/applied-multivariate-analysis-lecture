@@ -1,0 +1,72 @@
+% ---- pg-369 （书页 357） ----
+
+\begin{mvtable}
+\phantomsection\label{tab:8.2}\mvtabcap{表 8.2\quad 警署数据的样本主成分的值}
+\begin{tabular}{cccccc}
+\toprule
+期间 & $\hat{y}_{j1}$ & $\hat{y}_{j2}$ & $\hat{y}_{j3}$ & $\hat{y}_{j4}$ & $\hat{y}_{j5}$\\
+\midrule
+1 & 2 044.9 & 588.2 & 425.8 & $-189.1$ & $-209.8$\\
+2 & $-2$ 143.7 & $-686.2$ & 883.6 & $-565.9$ & $-441.5$\\
+3 & $-177.8$ & $-464.6$ & 707.5 & 736.3 & 38.2\\
+4 & $-2$ 186.2 & 450.5 & $-184.0$ & 443.7 & $-325.3$\\
+5 & $-878.6$ & $-545.7$ & 115.7 & 296.4 & 437.5\\
+6 & 563.2 & $-1$ 045.4 & 281.2 & 620.5 & 142.7\\
+7 & 403.1 & 66.8 & 340.6 & $-135.5$ & 521.2\\
+8 & $-1$ 988.9 & $-801.8$ & $-1$ 437.3 & $-148.8$ & 61.6\\
+9 & 132.8 & 563.7 & 125.3 & 68.2 & 611.5\\
+10 & $-2$ 787.3 & $-213.4$ & 7.8 & 169.4 & $-202.3$\\
+11 & 283.4 & 3 936.9 & $-0.9$ & 276.2 & $-159.6$\\
+12 & 761.6 & 256.0 & $-2$ 153.6 & $-418.8$ & 28.2\\
+13 & $-498.3$ & 244.7 & 966.5 & $-1$ 142.3 & 182.6\\
+14 & 2 366.2 & $-1$ 193.7 & $-165.5$ & 270.6 & $-344.9$\\
+15 & 1 917.8 & $-782.0$ & $-82.9$ & $-196.8$ & $-89.9$\\
+16 & 2 187.7 & $-373.8$ & 170.1 & $-84.1$ & $-250.2$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+由 $n=16$, 我们找到 $\chi_2^2(0.05)=5.99$, 并且这个椭圆为
+\[
+\frac{\hat{y}_1^2}{\hat{\lambda}_1}+\frac{\hat{y}_2^2}{\hat{\lambda}_2}\leqslant 5.99
+\]
+该椭圆及各数据示于\hyperref[fig:8.7]{图 8.7}.
+
+有一个点失去控制, 因为对这个点, 第二主成分的值较大. 查看\hyperref[tab:8.2]{表 8.2}, 我们看到这是时间段 11 的值 3 936.9. 根据\hyperref[tab:8.1]{表 8.1} 中的 $\hat{\mathbf{e}}_2$, 这个第二主成分实质上是特别事件的加班小时数. 这个主成分方法让我们得到与例 5.9 中相同的结论. \hfill$\blacksquare$
+
+特别的原因很可能对系统产生冲击, 这时需要进行我们两步过程的第二步, 即第二张图. 该图由在椭圆形式图里不曾包含到的主成分中的信息生成.
+
+\begin{mvfigure}
+\begin{tikzpicture}
+\begin{scope}[x=0.0011cm,y=0.0011cm]
+\draw (-5500,-3200) rectangle (4600,4600);
+\foreach \y/\l in {3000/3 000,1000/1 000,0/0,-1000/-1 000,-3000/-3 000}{
+  \draw (-5500,\y) -- (-5000,\y);
+  \node[left,font=\scriptsize] at (-5600,\y) {\l};}
+\foreach \x/\l in {-5000/-5 000,-2000/-2 000,0/0,2000/2 000,4000/4 000}{
+  \draw (\x,-3200) -- (\x,-2700);
+  \node[below,font=\scriptsize] at (\x,-3300) {\l};}
+\node[below left,font=\small] at (4600,-3300) {$\hat{y}_1$};
+\node[left,font=\small] at (-5400,1000) {$\hat{y}_2$};
+\draw (0,0) ellipse [x radius=4075, y radius=2926];
+\node[font=\small] at (0,-150) {$+$};
+\foreach \x/\y in {2044.9/588.2,-2143.7/-686.2,-177.8/-464.6,-2186.2/450.5,-878.6/-545.7,563.2/-1045.4,403.1/66.8,-1988.9/-801.8,132.8/563.7,-2787.3/-213.4,283.4/3936.9,761.6/256.0,-498.3/244.7,2366.2/-1193.7,1917.8/-782.0,2187.7/-373.8}
+  {\fill (\x,\y) circle (1.8pt);}
+\end{scope}
+\end{tikzpicture}
+\phantomsection\label{fig:8.7}\mvcap{图 8.7\quad 基于加班时数的前两个主成分的 95\%控制椭圆}
+\end{mvfigure}
+
+考虑离差向量 $\mathbf{X}-\boldsymbol{\mu}$, 并假设 $\mathbf{X}$ 为 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布. 即便没有正态性假定, $\mathbf{X}-\boldsymbol{\mu}$ 也可表达为它在 $\boldsymbol{\Sigma}$ 的特征向量上的投影之和.
+\[
+\begin{aligned}
+\mathbf{X}-\boldsymbol{\mu}&=(\mathbf{X}-\boldsymbol{\mu})'\mathbf{e}_1\mathbf{e}_1+(\mathbf{X}-\boldsymbol{\mu})'\mathbf{e}_2\mathbf{e}_2\\
+&\quad+(\mathbf{X}-\boldsymbol{\mu})'\mathbf{e}_3\mathbf{e}_3+\cdots+(\mathbf{X}-\boldsymbol{\mu})'\mathbf{e}_p\mathbf{e}_p
+\end{aligned}
+\]
+或
+\phantomsection\label{eq:8-37}
+\begin{equation}
+\mathbf{X}-\boldsymbol{\mu}=Y_1\mathbf{e}_1+Y_2\mathbf{e}_2+Y_3\mathbf{e}_3+\cdots+Y_p\mathbf{e}_p \tag{8-37}
+\end{equation}
+其中 $Y_i=(\mathbf{X}-\boldsymbol{\mu})'\mathbf{e}_i$ 是总体的中心化为有均值 0 的第 $i$ 个主成分. 用前两个主成分近似

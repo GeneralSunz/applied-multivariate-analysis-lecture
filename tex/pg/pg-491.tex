@@ -1,0 +1,98 @@
+% ---- pg-491 （书页 479） ----
+
+显示板 11.1(续)
+
+\begin{mvbox}
+{\ttfamily\small
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\multicolumn{3}{c}{DISCRIMINANT ANALYSIS}\\
+85 Observations & 84 DF Total & \multirow{3}{*}{\textbf{OUTPUT}}\\
+2 Variables & 82 DF Within Classes\\
+3 Classes & 2 DF Between Classes\\[4pt]
+\multicolumn{3}{c}{Class Level Information}\\[4pt]
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+ADMIT & Frequency & Weight & Proportion & Prior Probability\\
+\hline
+admit & 31 & 31.000\,0 & 0.364\,706 & 0.333\,333\\
+border & 26 & 26.000\,0 & 0.305\,882 & 0.333\,333\\
+notadmit & 28 & 28.000\,0 & 0.329\,412 & 0.333\,333\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\multicolumn{3}{c}{DISCRIMINANT ANALYSIS\quad WITHIN-CLASS COVARIANCE MATRICES}\\
+\multicolumn{3}{c}{ADMIT = admit\qquad DF = 30}\\
+Variable & GPA & GMAT\\
+GPA & 0.043\,558 & 0.058\,097\\
+GMAT & 0.058\,097 & 4\,618.247\,312\\ \hdashline
+\multicolumn{3}{c}{ADMIT = border\qquad DF = 25}\\
+Variable & GPA & GMAT\\
+GPA & 0.029\,692 & $-5.403\,846$\\
+GMAT & $-5.403\,846$ & 2\,246.904\,615\\ \hdashline
+\multicolumn{3}{c}{ADMIT = notadmit\qquad DF = 27}\\
+Variable & GPA & GMAT\\
+GPA & 0.033\,649 & $-1.192\,037$\\
+GMAT & $-1.192\,037$ & 3\,891.253\,968\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|l|l|@{}}
+\hline
+Pooled Within-Class Covariance Matrix & DF = 82\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+Variable & GPA & GMAT\\[2pt]
+GPA & \multicolumn{1}{|r}{0.036\,068} & \multicolumn{1}{r|}{$-2.018\,759$}\\
+GMAT & \multicolumn{1}{|r}{$-2.018\,759$} & \multicolumn{1}{r|}{3\,655.901\,121}\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}lrrrrr@{}}
+\multicolumn{6}{c}{Multivariate Statistics and F Approximations}\\
+\multicolumn{6}{c}{S = 2\qquad M = $-0.5$\qquad N = 39.5}\\
+Statistic & Value & F & Num DF & Den DF & Pr $>$ F\\
+Wilks' Lambda & 0.126\,376\,61 & 73.425\,7 & 4 & 162 & 0.000\,1\\
+Pillai's Trace & 1.009\,630\,02 & 41.797\,3 & 4 & 164 & 0.000\,1\\
+Hotelling-Lawley Trace & 5.836\,656\,01 & 116.733\,1 & 4 & 160 & 0.000\,1\\
+Roy's Greatest Root & 5.646\,044\,52 & 231.487\,8 & 2 & 82 & 0.000\,1\\
+\multicolumn{6}{c}{NOTE: F Statistic for Roy's Greatest Root is an upper bound.}\\
+\multicolumn{6}{c}{NOTE: F Statistic for Wilks' Lambda is exact.}\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\multicolumn{4}{c}{DISCRIMINANT ANALYSIS\quad LINEAR DISCRIMINANT FUNCTION}\\
+Constant = $-.5\bar{X}_j'$ COV$^{-1}\bar{X}_j$ + ln PRIOR$_j$ & & \multicolumn{2}{l}{Coefficient Vector = COV$^{-1}\bar{X}_j$}\\
+\multicolumn{4}{c}{ADMIT}\\
+& admit & border & notadmit\\
+CONSTANT & $-241.470\,30$ & $-178.414\,37$ & $-134.997\,53$\\
+GPA & 106.249\,91 & 92.669\,53 & 78.086\,37\\
+GMAT & 0.212\,18 & 0.173\,23 & 0.165\,41\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+Classification Results for Calibration Data: WORK.GPA\\
+Resubstitution Results using Linear Discriminant Function\\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{mvbox}

@@ -1,0 +1,41 @@
+% ---- pg-465 （书页 453） ----
+
+(取适当单位), 反之亦然. 例如, 对于纳税人, 教育一个在两年内就会退学的大学生的代价只能大致估计. 若大学和社会未能使一个有能力的学生受教育, 要估计这种代价更加困难. 然而, 对错分代价的比值却可能得出一个比较现实的数据. 无论取何种度量单位, 未录取一名有望读到毕业的大学生的代价可能 5 倍于录取一名最终退学的大学生的代价. 在这种场合, 代价比为 5.
+
+有趣的是在某些特殊情形下考虑\hyperref[eq:11-6]{式(11-6)}所定义的分类区域.
+
+\begin{mvframe}[最小期望代价域的几个特例]
+\phantomsection\label{eq:11-7}
+\begin{equation}
+\begin{array}{l}
+\text{(a) } p_2/p_1=1 \text{ (相同先验概率)}\\[4pt]
+\qquad R_1:\ \dfrac{f_1(\mathbf{x})}{f_2(\mathbf{x})}\geqslant\dfrac{c(1\mid2)}{c(2\mid1)} \qquad R_2:\ \dfrac{f_1(\mathbf{x})}{f_2(\mathbf{x})}<\dfrac{c(1\mid2)}{c(2\mid1)}\\[8pt]
+\text{(b) } c(1\mid2)/c(2\mid1)=1 \text{ (相同错分代价)}\\[4pt]
+\qquad R_1:\ \dfrac{f_1(\mathbf{x})}{f_2(\mathbf{x})}\geqslant\dfrac{p_2}{p_1} \qquad R_2:\ \dfrac{f_1(\mathbf{x})}{f_2(\mathbf{x})}<\dfrac{p_2}{p_1}\\[8pt]
+\text{(c) } p_2/p_1=c(1\mid2)/c(2\mid1)=1 \text{ 或 } p_2/p_1=1/(c(1\mid2)/c(2\mid1))\\
+\qquad\text{(相同先验概率和相同错分代价)}\\[4pt]
+\qquad R_1:\ \dfrac{f_1(\mathbf{x})}{f_2(\mathbf{x})}\geqslant 1 \qquad R_2:\ \dfrac{f_1(\mathbf{x})}{f_2(\mathbf{x})}<1
+\end{array}
+\tag{11-7}
+\end{equation}
+\end{mvframe}
+
+当先验概率未知时, 它们通常被取成相等, 此时最小 ECM 法则只涉及总体密度比与适当的错分代价比的比较. 如果错分代价比不确定, 通常就取成 1, 结果就形成总体密度比与先验概率比的比较. 最后, 当先验概率比和错分代价比都是 1, 或者二者为倒数关系, 则最优分类区域就由比较总体密度的大小来决定. 在这种场合, 如果 $\mathbf{x}_0$ 是一个新的观测值, 且 $f_1(\mathbf{x}_0)/f_2(\mathbf{x}_0)\geqslant 1$, 即 $f_1(\mathbf{x}_0)\geqslant f_2(\mathbf{x}_0)$, 我们就将 $\mathbf{x}_0$ 分入 $\pi_1$. 反之, 若 $f_1(\mathbf{x}_0)/f_2(\mathbf{x}_0)<1$, 即 $f_1(\mathbf{x}_0)<f_2(\mathbf{x}_0)$, 我们就将 $\mathbf{x}_0$ 分入 $\pi_2$. 实践中一种普遍的做法是在分类时随意采用\hyperref[eq:11-7]{式(11-7)}中的情况(c). 这种做法等价于假定对最小 ECM 法则有相同的先验概率和相同的错分代价.\footnote{这是通常所提出的理由. 它也等价于假定先验概率比与错分代价比互为倒数.}
+
+\noindent\textbf{例 11.2}\quad (将一个新的观测值分到两个总体之一)
+
+某研究人员可获得足够的数据来估计分别与总体 $\pi_1$ 和 $\pi_2$ 相联系的密度函数 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$. 设 $c(2\mid1)=5$ 个单位, $c(1\mid2)=10$ 个单位. 此外, 已知大约 $20\%$ 的对象(所有这些对象的测量值均已取得)属于 $\pi_2$, 也就是说, 先验概率为 $p_1=0.8$, $p_2=0.2$.
+
+给定先验概率和错分代价, 便可根据\hyperref[eq:11-6]{式(11-6)}导出分类区域 $R_1$ 和 $R_2$. 我们有
+\[
+R_1:\ \frac{f_1(\mathbf{x})}{f_2(\mathbf{x})}\geqslant\left(\frac{10}{5}\right)\times\left(\frac{0.2}{0.8}\right)=0.5
+\]
+\[
+R_2:\ \frac{f_1(\mathbf{x})}{f_2(\mathbf{x})}<\left(\frac{10}{5}\right)\times\left(\frac{0.2}{0.8}\right)=0.5
+\]
+
+假定在一个新的观测点 $\mathbf{x}_0$ 算得 $f_1(\mathbf{x}_0)=0.3$ 和 $f_2(\mathbf{x}_0)=0.4$. 试问: 应将此新观测点分入 $\pi_1$ 还是 $\pi_2$? 为回答此问题, 我们计算比值
+\[
+\frac{f_1(\mathbf{x}_0)}{f_2(\mathbf{x}_0)}=\frac{0.3}{0.4}=0.75
+\]
+并将此值与前面得到的结果比较. 由于

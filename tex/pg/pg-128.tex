@@ -1,0 +1,55 @@
+在一元正态密度函数的指数中,以单位标准差测量从 $x$ 到 $\mu$ 的距离的平方
+\phantomsection\label{eq:4-2}
+\begin{equation}
+\mvfit{$\displaystyle
+\left(\frac{x-\mu}{\sigma}\right)^{2}=(x-\mu)(\sigma^{2})^{-1}(x-\mu)
+$} \tag{4-2}
+\end{equation}
+这可以推广到根据关于若干个变量的观测结果的 $p\times1$ 向量 $\mathbf{x}$ 上,如
+\phantomsection\label{eq:4-3}
+\begin{equation}
+\mvfit{$\displaystyle
+(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
+$} \tag{4-3}
+\end{equation}
+$p\times1$ 向量 $\boldsymbol{\mu}$ 表示随机向量 $\mathbf{X}$ 的期望值,$p\times p$ 矩阵 $\boldsymbol{\Sigma}$ 是 $\mathbf{X}$ 的方差-协方差矩阵[参见\hyperref[eq:2-30]{式(2-30)}和\hyperref[eq:2-31]{式(2-31)}]. 我们假定对称矩阵 $\boldsymbol{\Sigma}$ 是正定的,所以表达\hyperref[eq:4-3]{式(4-3)}是从 $\mathbf{x}$ 到 $\boldsymbol{\mu}$ 的广义距离的平方.
+
+在\hyperref[eq:4-1]{式(4-1)}的密度函数中,用\hyperref[eq:4-3]{式(4-3)}的多元广义距离替换\hyperref[eq:4-2]{式(4-2)}中的一元距离,就得到多元正态密度. 当这个替换完成时,一元标准化常数 $(2\pi)^{-1/2}(\sigma^{2})^{-1/2}$ 必须变成一个更一般的常数,使得对任何 $p$,多元密度函数表面下的体积为 1. 这是必要的,因为在多元情况,概率是由 $x_i$ 值的区间定义的区域上方表面下的体积表示. 可以证明(参见文献[1])这个常数是 $(2\pi)^{-p/2}|\boldsymbol{\Sigma}|^{-1/2}$,因此,对随机向量 $\mathbf{X}=[X_1,X_2,\cdots,X_p]$,$p$ 维正态密度如下所示
+\phantomsection\label{eq:4-4}
+\begin{equation}
+\mvfit{$\displaystyle
+f(\mathbf{x})=\frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}\mathrm{e}^{-(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})/2}
+$} \tag{4-4}
+\end{equation}
+其中 $-\infty<x_i<\infty,i=1,2,\cdots,p$. 类似于一元情况的正态密度,我们用 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 表示 $p$ 维正态密度.
+
+\noindent\textbf{例 4.1}\quad (二元正态密度)
+
+根据参数 $\mu_1=E(X_1),\mu_2=E(X_2),\sigma_{11}=\operatorname{Var}(X_1),\sigma_{22}=\operatorname{Var}(X_2)$ 和 $\rho_{12}=\sigma_{12}/(\sqrt{\sigma_{11}}\sqrt{\sigma_{22}})=\operatorname{Corr}(X_1,X_2)$,计算 $p=2$ 元正态密度.
+
+利用结论 2A.8,我们求得协方差矩阵
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}\sigma_{11}&\sigma_{12}\\\sigma_{12}&\sigma_{22}\end{bmatrix}
+\]
+的逆是
+\[
+\boldsymbol{\Sigma}^{-1}=\frac{1}{\sigma_{11}\sigma_{22}-\sigma_{12}^{2}}\begin{bmatrix}\sigma_{22}&-\sigma_{12}\\-\sigma_{12}&\sigma_{11}\end{bmatrix}
+\]
+由 $\sigma_{12}=\rho_{12}\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}$,引入相关系数 $\rho_{12}$,我们得到 $\sigma_{11}\sigma_{22}-\sigma_{12}^{2}=\sigma_{11}\sigma_{22}(1-\rho_{12}^{2})$,且距离平方变为
+\phantomsection\label{eq:4-5}
+\begin{equation}
+\mvfit{$\displaystyle\begin{aligned}
+(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
+&=[x_1-\mu_1,x_2-\mu_2]\frac{1}{\sigma_{11}\sigma_{22}(1-\rho_{12}^{2})}\begin{bmatrix}\sigma_{22}&-\rho_{12}\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}\\-\rho_{12}\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}&\sigma_{11}\end{bmatrix}\begin{bmatrix}x_1-\mu_1\\x_2-\mu_2\end{bmatrix}\\
+&=\frac{\sigma_{22}(x_1-\mu_1)^{2}+\sigma_{11}(x_2-\mu_2)^{2}-2\rho_{12}\sqrt{\sigma_{11}}\sqrt{\sigma_{22}}(x_1-\mu_1)(x_2-\mu_2)}{\sigma_{11}\sigma_{22}(1-\rho_{12}^{2})}\\
+&=\frac{1}{1-\rho_{12}^{2}}\left[\left(\frac{x_1-\mu_1}{\sqrt{\sigma_{11}}}\right)^{2}+\left(\frac{x_2-\mu_2}{\sqrt{\sigma_{22}}}\right)^{2}-2\rho_{12}\left(\frac{x_1-\mu_1}{\sqrt{\sigma_{11}}}\right)\left(\frac{x_2-\mu_2}{\sqrt{\sigma_{22}}}\right)\right]\end{aligned}$} \tag{4-5}
+\end{equation}
+最后表达式是依据标准化值 $(x_1-\mu_1)/\sqrt{\sigma_{11}}$ 和 $(x_2-\mu_2)/\sqrt{\sigma_{22}}$ 写出的.
+
+接下来,由于 $|\boldsymbol{\Sigma}|=\sigma_{11}\sigma_{22}-\sigma_{12}^{2}=\sigma_{11}\sigma_{22}(1-\rho_{12}^{2})$,我们可以替换\hyperref[eq:4-4]{式(4-4)}中的 $\boldsymbol{\Sigma}^{-1}$ 和 $|\boldsymbol{\Sigma}|$ 而得到包含各个参数 $\mu_1,\mu_2,\sigma_{11},\sigma_{22}$ 和 $\rho_{12}$ 的二元($p=2$)正态密度:
+\phantomsection\label{eq:4-6}
+\begin{equation}
+\mvfit{$\displaystyle
+f(x_1,x_2)=\frac{1}{2\pi\sqrt{\sigma_{11}\sigma_{22}(1-\rho_{12}^{2})}}\exp\left\{-\frac{1}{2(1-\rho_{12}^{2})}\left[\left(\frac{x_1-\mu_1}{\sqrt{\sigma_{11}}}\right)^{2}+\left(\frac{x_2-\mu_2}{\sqrt{\sigma_{22}}}\right)^{2}-2\rho_{12}\left(\frac{x_1-\mu_1}{\sqrt{\sigma_{11}}}\right)\left(\frac{x_2-\mu_2}{\sqrt{\sigma_{22}}}\right)\right]\right\}
+$} \tag{4-6}
+\end{equation}

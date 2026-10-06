@@ -1,0 +1,68 @@
+% ---- pg-441 （书页 429） ----
+
+其中 $\mathbf{x}^{(1)}$ 和 $\mathbf{x}^{(2)}$ 为变量 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 对特定实验单元的值. 并且, 第一样本典型变量配对有最大的样本相关系数
+\[
+r_{\hat{U}_1,\hat{V}_1}=\hat{\rho}_1^*
+\]
+且对第 $k$ 对,
+\[
+r_{\hat{U}_k,\hat{V}_k}=\hat{\rho}_k^*
+\]
+是同前 $k-1$ 个样本典型变量不相关的线性组合中可能的最大相关系数.
+
+量 $\hat{\rho}_1^*,\hat{\rho}_2^*,\cdots,\hat{\rho}_p^*$ 是样本典型相关系数.\footnote{{\footnotesize 若 $p>\text{秩}(\mathbf{S}_{12})=p_1$, 非零样本典型相关系数为 $\hat{\rho}_1^*,\hat{\rho}_2^*,\cdots,\hat{\rho}_{p_1}^*$.}
+
+\noindent{\footnotesize 向量 $\hat{\mathbf{b}}_{p_1+1}=\mathbf{S}_{22}^{-1/2}\hat{\mathbf{f}}_{p_1+1},\hat{\mathbf{b}}_{p_1+2}=\mathbf{S}_{22}^{-1/2}\hat{\mathbf{f}}_{p_1+2},\cdots,\hat{\mathbf{b}}_q=\mathbf{S}_{22}^{-1/2}\hat{\mathbf{f}}_q$ 由后 $q-p_1$ 个相互正交的特征向量 $\hat{\mathbf{f}}$ 决定, 而 $\hat{\mathbf{f}}$ 为 $\mathbf{S}_{22}^{-1/2}\mathbf{S}_{21}\mathbf{S}_{11}^{-1}\mathbf{S}_{12}\mathbf{S}_{22}^{-1/2}$ 的零特征值相联系的特征向量.}}
+
+\noindent\mvbold{证明}\quad 用 $\mathbf{S}_{kl}$ 代替 $\boldsymbol{\Sigma}_{kl}$ ($k,l=1,2$), 从结论 10.1 的证明得到此结论的证明.\hfill$\blacksquare$
+
+样本典型变量有单位样本方差
+\phantomsection\label{eq:10-25}
+\begin{equation}
+s_{\hat{U}_k,\hat{U}_k}=s_{\hat{V}_k,\hat{V}_k}=1
+\tag{10-25}
+\end{equation}
+且它们的样本相关系数为
+\phantomsection\label{eq:10-26}
+\begin{equation}
+\begin{aligned}
+r_{\hat{U}_k,\hat{U}_l}&=r_{\hat{V}_k,\hat{V}_l}=0,\qquad k\ne l\\
+r_{\hat{U}_k,\hat{V}_l}&=0,\qquad k\ne l
+\end{aligned}
+\tag{10-26}
+\end{equation}
+计算在组 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 中变量和典型变量之间的样本相关系数, 常常有助于阐述 $\hat{U}_k$ 和 $\hat{V}_k$. 我们定义矩阵
+\phantomsection\label{eq:10-27}
+\begin{equation}
+\hat{\mathbf{A}}_{(p\times p)}=[\hat{\mathbf{a}}_1,\hat{\mathbf{a}}_2,\cdots,\hat{\mathbf{a}}_p]';\qquad \hat{\mathbf{B}}_{(q\times q)}=[\hat{\mathbf{b}}_1,\hat{\mathbf{b}}_2,\cdots,\hat{\mathbf{b}}_q]'
+\tag{10-27}
+\end{equation}
+它们的行是样本典型变量的系数向量.\textsuperscript{\textcircled{2}} 模仿\hyperref[eq:10-12]{式(10-12)}, 我们有
+\phantomsection\label{eq:10-28}
+\begin{equation}
+\hat{\mathbf{U}}_{(p\times 1)}=\hat{\mathbf{A}}\mathbf{x}^{(1)};\qquad \hat{\mathbf{V}}_{(q\times 1)}=\hat{\mathbf{B}}\mathbf{x}^{(2)}
+\tag{10-28}
+\end{equation}
+并且我们可以定义
+\[
+\begin{aligned}
+\mathbf{R}_{\hat{U},\mathbf{x}^{(1)}}&=\hat{\mathbf{U}}\ \text{和}\ \mathbf{x}^{(1)}\ \text{的样本相关矩阵}\\
+\mathbf{R}_{\hat{V},\mathbf{x}^{(2)}}&=\hat{\mathbf{V}}\ \text{和}\ \mathbf{x}^{(2)}\ \text{的样本相关矩阵}\\
+\mathbf{R}_{\hat{U},\mathbf{x}^{(2)}}&=\hat{\mathbf{U}}\ \text{和}\ \mathbf{x}^{(2)}\ \text{的样本相关矩阵}\\
+\mathbf{R}_{\hat{V},\mathbf{x}^{(1)}}&=\hat{\mathbf{V}}\ \text{和}\ \mathbf{x}^{(1)}\ \text{的样本相关矩阵}
+\end{aligned}
+\]
+与\hyperref[eq:10-19]{式(10-19)}相对应, 我们有
+\phantomsection\label{eq:10-29}
+\begin{equation}
+\begin{aligned}
+\mathbf{R}_{\hat{U},\mathbf{x}^{(1)}}&=\hat{\mathbf{A}}\mathbf{S}_{11}\mathbf{D}_{11}^{-1/2}\\
+\mathbf{R}_{\hat{V},\mathbf{x}^{(2)}}&=\hat{\mathbf{B}}\mathbf{S}_{22}\mathbf{D}_{22}^{-1/2}\\
+\mathbf{R}_{\hat{U},\mathbf{x}^{(2)}}&=\hat{\mathbf{A}}\mathbf{S}_{12}\mathbf{D}_{22}^{-1/2}\\
+\mathbf{R}_{\hat{V},\mathbf{x}^{(1)}}&=\hat{\mathbf{B}}\mathbf{S}_{21}\mathbf{D}_{11}^{-1/2}
+\end{aligned}
+\tag{10-29}
+\end{equation}
+其中 $\mathbf{D}_{11}^{-1/2}$ 是第 $i$ 个对角元素为(样本 $\mathrm{Var}(x_i^{(1)}))^{-1/2}$ 的 $(p\times p)$ 对角阵, 而 $\mathbf{D}_{22}^{-1/2}$ 是第 $i$ 个对角元素为(样本 $\mathrm{Var}(x_i^{(2)}))^{-1/2}$ 的 $(q\times q)$ 对角阵.
+
+\noindent\mvbold{评注}\quad 若观察值是已标准化的[见\hyperref[eq:8-25]{式(8-25)}], 则数据矩阵变为

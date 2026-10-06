@@ -1,0 +1,48 @@
+% ---- pg-449 （书页 437） ----
+
+\[
+\mathrm{tr}\big(\hat{a}_{\mathbf{z}}^{(1)}\hat{a}_{\mathbf{z}}^{(1)'}+\hat{a}_{\mathbf{z}}^{(2)}\hat{a}_{\mathbf{z}}^{(2)'}+\cdots+\hat{a}_{\mathbf{z}}^{(r)}\hat{a}_{\mathbf{z}}^{(r)'}\big)=\sum_{i=1}^{r}\sum_{k=1}^{p}r^2_{\hat{U}_i,z_k^{(1)}}
+\]
+和
+\[
+\mathrm{tr}\big(\hat{b}_{\mathbf{z}}^{(1)}\hat{b}_{\mathbf{z}}^{(1)'}+\hat{b}_{\mathbf{z}}^{(2)}\hat{b}_{\mathbf{z}}^{(2)'}+\cdots+\hat{b}_{\mathbf{z}}^{(r)}\hat{b}_{\mathbf{z}}^{(r)'}\big)=\sum_{i=1}^{r}\sum_{k=1}^{p}r^2_{\hat{V}_i,z_k^{(2)}}
+\]
+
+(标准化)样本总方差由前 $r$ 个典型变量“解释”的比例则变为
+\phantomsection\label{eq:10-37}
+\begin{equation}
+\begin{aligned}
+R^2_{z^{(1)}|\hat{U}_1,\hat{U}_2,\cdots,\hat{U}_r}&=\left\{\begin{array}{l}\text{在第一组标准化样本总方差中}\\[2pt]\text{由 }\hat{U}_1,\hat{U}_2,\cdots,\hat{U}_r\\[2pt]\text{解释的比例}\end{array}\right.\\
+&=\frac{\mathrm{tr}\big(\hat{a}_{\mathbf{z}}^{(1)}\hat{a}_{\mathbf{z}}^{(1)'}+\cdots+\hat{a}_{\mathbf{z}}^{(r)}\hat{a}_{\mathbf{z}}^{(r)'}\big)}{\mathrm{tr}(\mathbf{R}_{11})}\\
+&=\frac{\displaystyle\sum_{i=1}^{r}\sum_{k=1}^{p}r^2_{\hat{U}_i,z_k^{(1)}}}{p}
+\end{aligned}
+\tag{10-37}
+\end{equation}
+并且
+\[
+\begin{aligned}
+R^2_{z^{(2)}|\hat{V}_1,\hat{V}_2,\cdots,\hat{V}_r}&=\left\{\begin{array}{l}\text{在第二组标准化样本总方差中}\\[2pt]\text{由 }\hat{V}_1,\hat{V}_2,\cdots,\hat{V}_r\\[2pt]\text{解释的比例}\end{array}\right.\\
+&=\frac{\mathrm{tr}\big(\hat{b}_{\mathbf{z}}^{(1)}\hat{b}_{\mathbf{z}}^{(1)'}+\cdots+\hat{b}_{\mathbf{z}}^{(r)}\hat{b}_{\mathbf{z}}^{(r)'}\big)}{\mathrm{tr}(\mathbf{R}_{22})}\\
+&=\frac{\displaystyle\sum_{i=1}^{r}\sum_{k=1}^{q}r^2_{\hat{V}_i,z_k^{(2)}}}{q}
+\end{aligned}
+\]
+
+描述性测度(10-37)可表明典型变量对其所对应组的代表性程度. 它们对误差矩阵提供单一数字的描述. 尤其是, 根据式(10-36)和\hyperref[eq:10-37]{式(10-37)}, 有
+\[
+\frac{1}{p}\mathrm{tr}\big[\mathbf{R}_{11}-\hat{a}_{\mathbf{z}}^{(1)}\hat{a}_{\mathbf{z}}^{(1)'}-\hat{a}_{\mathbf{z}}^{(2)}\hat{a}_{\mathbf{z}}^{(2)'}-\cdots-\hat{a}_{\mathbf{z}}^{(r)}\hat{a}_{\mathbf{z}}^{(r)'}\big]=1-R^2_{z^{(1)}|\hat{U}_1,\hat{U}_2,\cdots,\hat{U}_r}
+\]
+\[
+\frac{1}{q}\mathrm{tr}\big[\mathbf{R}_{22}-\hat{b}_{\mathbf{z}}^{(1)}\hat{b}_{\mathbf{z}}^{(1)'}-\hat{b}_{\mathbf{z}}^{(2)}\hat{b}_{\mathbf{z}}^{(2)'}-\cdots-\hat{b}_{\mathbf{z}}^{(r)}\hat{b}_{\mathbf{z}}^{(r)'}\big]=1-R^2_{z^{(2)}|\hat{V}_1,\hat{V}_2,\cdots,\hat{V}_r}
+\]
+
+\noindent\textbf{例 10.7}\quad (计算样本方差由典型变量解释的比例)
+
+考虑例 10.5 中讨论过的职业特性-职业满意度数据, 利用原例题中列出的样本相关系数表格, 我们发现
+\[
+R^2_{z^{(1)}|\hat{U}_1}=\frac{1}{5}\sum_{k=1}^{5}r^2_{\hat{U}_1,z_k^{(1)}}=\frac{1}{5}[0.83^2+0.74^2+\cdots+0.85^2]=0.58
+\]
+\[
+R^2_{z^{(2)}|\hat{V}_1}=\frac{1}{7}\sum_{k=1}^{7}r^2_{\hat{V}_1,z_k^{(2)}}=\frac{1}{7}[0.75^2+0.65^2+\cdots+0.50^2]=0.37
+\]
+
+职业特性组的第一样本典型变量 $\hat{U}_1$ 解释该组的样本总方差的 58\%. 职业满意度组的第一样本典型变量 $\hat{V}_1$, 则解释该组样本总方差的 37\%. 我们因此可以指出 $\hat{U}_1$ 比 $\hat{V}_1$ 是其自身所属组的“更好”的代表. 对此有兴趣的读者可能希望看到 $\hat{U}_1$ 和 $\hat{V}_1$ 是如何恰当地分别再现相关系

@@ -1,0 +1,48 @@
+利用例 6.5 的结论知
+\[
+\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}=(10^{-4})\begin{bmatrix}59.874&-20.080\\-20.080&10.519\end{bmatrix}
+\]
+故
+\begin{align*}
+\frac{1}{n_1}\mathbf{S}_1\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}&=\begin{bmatrix}307.227&529.409\\529.409&1\,624.609\end{bmatrix}(10^{-4})\begin{bmatrix}59.874&-20.080\\-20.080&10.519\end{bmatrix}\\
+&=\begin{bmatrix}0.776&-0.060\\-0.092&0.646\end{bmatrix}
+\end{align*}
+且
+\begin{align*}
+\left(\frac{1}{n_1}\mathbf{S}_1\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}\right)^2&=\begin{bmatrix}0.776&-0.060\\-0.092&0.646\end{bmatrix}\begin{bmatrix}0.776&-0.060\\-0.092&0.646\end{bmatrix}\\
+&=\begin{bmatrix}0.608&-0.085\\-0.131&0.423\end{bmatrix}
+\end{align*}
+进一步，有
+\begin{align*}
+\frac{1}{n_2}\mathbf{S}_2\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}&=\begin{bmatrix}156.945&356.667\\356.667&1\,017.536\end{bmatrix}(10^{-4})\begin{bmatrix}59.874&-20.080\\-20.080&10.519\end{bmatrix}\\
+&=\begin{bmatrix}0.224&-0.060\\-0.092^{\ast}&0.354\end{bmatrix}
+\end{align*}
+和
+\begin{align*}
+\left(\frac{1}{n_2}\mathbf{S}_2\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}\right)^2&=\begin{bmatrix}0.224&-0.060\\-0.092&0.354\end{bmatrix}\begin{bmatrix}0.224&-0.060\\-0.092&0.354\end{bmatrix}\\
+&=\begin{bmatrix}0.055&0.035\\0.053&0.131\end{bmatrix}
+\end{align*}
+于是，
+\begin{align*}
+&\frac{1}{n_1}\left\{\mathrm{tr}\left[\left(\frac{1}{n_1}\mathbf{S}_1\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}\right)^2\right]+\left[\mathrm{tr}\left(\frac{1}{n_1}\mathbf{S}_1\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}\right)\right]^2\right\}\\
+&\qquad=\frac{1}{45}[(0.608+0.423)+(0.776+0.646)^2]=0.067\,8
+\end{align*}
+\begin{align*}
+&\frac{1}{n_2}\left\{\mathrm{tr}\left[\left(\frac{1}{n_2}\mathbf{S}_2\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}\right)^2\right]+\left[\mathrm{tr}\left(\frac{1}{n_2}\mathbf{S}_2\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)^{-1}\right)\right]^2\right\}\\
+&\qquad=\frac{1}{55}[(0.055+0.131)+(0.224+0.354)^2]=0.009\,5
+\end{align*}
+利用\hyperref[eq:6-29]{式(6-29)}，自由度 $v$ 为
+\[
+v=\frac{2+2^2}{0.067\,8+0.009\,5}=77.6
+\]
+且 $\alpha=0.05$ 时的临界值为
+\[
+\frac{vp}{v-p+1}F_{p,v-p+1}(0.05)=\frac{77.6\times 2}{77.6-2+1}F_{2,77.6-2+1}(0.05)=\frac{155.2}{76.6}\times 3.12=6.32
+\]
+从例 6.5，检验统计量的观测值是 $T^2=15.66$，所以在 5\% 水平时，假设 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$ 被拒绝. 这个结论和例 6.5 中大样本过程得到的结论一样. \hfill$\blacksquare$
+
+在例 6.6 中，非整数自由度的 $F_{p,v-p+1}$ 分布也可以定义. 一个稍微保守的近似是采用 $v$ 的整数部分.
+
+\noindent\rule{\linewidth}{0.4pt}
+
+{\small $\ast$ 原著为 0.092，疑有误，更正为 $-0.092$. —— 译者注}

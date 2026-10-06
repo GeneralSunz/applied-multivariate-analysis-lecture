@@ -1,0 +1,44 @@
+% ---- pg-320 （书页 308） ----
+
+因此可等价地采用威尔克斯 $\Lambda$ 统计量
+\[
+\Lambda^{2/n}=\frac{|\hat{\boldsymbol{\Sigma}}|}{|\hat{\boldsymbol{\Sigma}}_1|}
+\]
+\mvthm{结论 7.11}{设\hyperref[eq:7-23]{式(7-23)}中的多元多重回归模型成立, 有满秩$(\mathbf{Z})=r+1$, 且 $(r+1)+m\leqslant n$. 设误差 $\boldsymbol{\epsilon}$ 服从正态分布. 在假设 $H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}$ 下, $n\hat{\boldsymbol{\Sigma}}$ 服从 $W_{p,n-r-1}(\boldsymbol{\Sigma})$ 分布, 与 $n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})$ 独立, 而后者则服从 $W_{p,r-q}(\boldsymbol{\Sigma})$ 分布. $H_0$ 的似然比检验等价于当}
+\[
+-2\ln\Lambda=-n\ln\left(\frac{|\hat{\boldsymbol{\Sigma}}|}{|\hat{\boldsymbol{\Sigma}}_1|}\right)
+=-n\ln\frac{|n\hat{\boldsymbol{\Sigma}}|}{|n\hat{\boldsymbol{\Sigma}}+n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})|}
+\]
+的值很大时拒绝 $H_0$. 对大的 $n$\footnote{{\footnotesize 从技术上说, $n-r$ 和 $n-m$ 也都应足够大, 才能得到好的 $\chi^2$ 近似.}}, 修正的统计量
+\[
+-\left[n-r-1-\frac{1}{2}(m-r+q+1)\right]\ln\left(\frac{|\hat{\boldsymbol{\Sigma}}|}{|\hat{\boldsymbol{\Sigma}}_1|}\right)
+\]
+作为相当好的近似, 服从自由度为 $(r-q)$ 的 $\chi^2$ 分布.
+
+\medskip
+\noindent\textbf{证明}\quad (见补充 7A.) \hfill$\blacksquare$
+
+若 $\mathbf{Z}$ 并非满秩, 而是秩为 $r_1+1$, 则 $\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^-\mathbf{Z}'\mathbf{Y}$, 此处 $(\mathbf{Z}'\mathbf{Z})^-$ 为 $(\mathbf{Z}'\mathbf{Z})$ 的广义逆, 这在文献[22]中有详细讨论(又见练习 7.6). 结论 7.11 中有关分布的结论仍然正确, 但要用 $r_1$ 代替 $r$, 及用秩$(\mathbf{Z}_1)$代替 $q+1$. 然而在这种情况下并非所有关于 $\boldsymbol{\beta}$ 的假设都是可以检验的. 这是因为由 $\mathbf{Z}$ 的各列之间的相依性所造成的 $\boldsymbol{\beta}$ 的识别不具备唯一性. 尽管如此, 广义逆使得所有重要的 MANOVA 模型都可以作为多元多重回归模型的特殊情况来分析.
+
+\medskip
+\noindent\textbf{例 7.9}\quad (在多元响应下检验附加预测变量的重要性)
+
+一个大型连锁饭店处于不同地点的三个分店的服务由一批男性和女性主顾根据两个质量指标进行了评估. 第一个服务质量指标已在例 7.5 中给出. 假定一个回归模型考虑了位置、性别和位置—性别交互作用三者对两个服务质量指标产生的效应. 设计矩阵(见例 7.5)对两个响应均保持不变. 我们用结论 7.11 来说明对“无位置—性别交互作用”这一假设的检验. 计算机程序给出
+\[
+\left(\begin{array}{c}\text{残差的平方与}\\\text{交叉乘积之和}\end{array}\right)
+=n\hat{\boldsymbol{\Sigma}}
+=\begin{bmatrix}2\ 977.39&1\ 021.72\\1\ 021.72&2\ 050.95\end{bmatrix}
+\]
+\[
+\left(\begin{array}{c}\text{额外的平方与}\\\text{交叉乘积之和}\end{array}\right)
+=n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})
+=\begin{bmatrix}441.76&246.16\\246.16&366.12\end{bmatrix}
+\]
+令 $\boldsymbol{\beta}_{(2)}$ 为两个响应的交互作用参数矩阵. 虽然样本容量 $n=18$ 不大, 我们来说明结论 7.11 所提供的检验假设 $H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}$ 时所涉及的计算. 令 $\alpha=0.05$, 我们将
+\[
+\begin{aligned}
+&-\left[n-r_1-1-\frac{1}{2}(m-r_1+q_1+1)\right]\ln\left(\frac{|n\hat{\boldsymbol{\Sigma}}|}{|n\hat{\boldsymbol{\Sigma}}+n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})|}\right)\\
+&=-\left[18-5-1-\frac{1}{2}\times(2-5+3+1)\right]\times\ln(0.760\ 5)=3.28
+\end{aligned}
+\]
+与自由度为 $m(r_1-q_1)=2\times2=4$ 的卡方百分点作比较, 以检验 $H_0$. 由于 $3.28<\chi_4^2(0.05)=$

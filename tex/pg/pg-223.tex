@@ -1,0 +1,57 @@
+均说来，处理 2 的效应大于处理 1 的效应. 一般来说，利用结论 6.1 可作出关于 $\boldsymbol{\delta}$ 的推断.
+
+\begin{mvbox}
+给定对应于\hyperref[eq:6-5]{式(6-5)}中随机变量的观测值之差 $\mathbf{d}_j'=[d_{j1},d_{j2},\cdots,d_{jp}]$，$j=1,2,\cdots,n$，对总体 $N_p(\boldsymbol{\delta},\boldsymbol{\Sigma}_d)$，若 $T^2=n\bar{\mathbf{d}}'\mathbf{S}_d^{-1}\bar{\mathbf{d}}>\dfrac{(n-1)p}{(n-p)}F_{p,n-p}(\alpha)$，则在水平 $\alpha$ 下，拒绝 $H_0: \boldsymbol{\delta}=\mathbf{0}$ 而接受 $H_1: \boldsymbol{\delta}\neq\mathbf{0}$. 其中 $F_{p,n-p}(\alpha)$ 为自由度为 $p$ 与 $n-p$ 的 $F$ 分布的上 $100\alpha$ 百分位数，而 $\bar{\mathbf{d}}$ 与 $\mathbf{S}_d$ 由\hyperref[eq:6-8]{式(6-8)}给出.
+
+$\boldsymbol{\delta}$ 的 $100(1-\alpha)\%$ 置信域由所有满足
+\phantomsection\label{eq:6-9}
+\begin{equation}
+(\bar{\mathbf{d}}-\boldsymbol{\delta})'\mathbf{S}_d^{-1}(\bar{\mathbf{d}}-\boldsymbol{\delta})\leqslant\frac{(n-1)p}{(n-p)}F_{p,n-p}(\alpha) \tag{6-9}
+\end{equation}
+的 $\boldsymbol{\delta}$ 组成.
+
+此外，个别均值差 $\delta_i$ 的 $100(1-\alpha)\%$ 联合置信区间为
+\phantomsection\label{eq:6-10}
+\begin{equation}
+\delta_i: \bar{d}_i\pm\sqrt{\frac{(n-1)p}{(n-p)}F_{p,n-p}(\alpha)}\sqrt{\frac{s_{di}^2}{n}} \tag{6-10}
+\end{equation}
+此处 $\bar{d}_i$ 为 $\bar{\mathbf{d}}$ 的第 $i$ 个分量，$s_{di}^2$ 为 $\mathbf{S}_d$ 的第 $i$ 个对角元.
+
+当 $n-p$ 充分大时，$\left[(n-1)p/(n-p)\right]F_{p,n-p}(\alpha)\dot{\sim}\chi_p^2(\alpha)$，因而不需要正态性假定.
+
+单一均值差的 $100(1-\alpha)\%$ 庞弗罗尼联合置信区间为
+\phantomsection\label{eq:6-10a}
+\begin{equation}
+\delta_i: \bar{d}_i\pm t_{n-1}\left(\frac{\alpha}{2p}\right)\sqrt{\frac{s_{di}^2}{n}} \tag{6-10a}
+\end{equation}
+其中 $t_{n-1}(\alpha/2p)$ 为自由度为 $n-1$ 的 $t$ 分布的上 $100(\alpha/2p)$ 百分位数.
+\end{mvbox}
+
+\noindent\textbf{例 6.1}\quad （检验成对观测值的均值差）
+
+法律要求城市污水处理厂对它们排向河流的污水进行定期监测. 出于对来自这些厂方自我监督方案之一的数据可靠性的关注，开展了一项研究工作：把污水的每个样品分成两份，分别送往两个实验室进行检验. 一份送往威斯康星州卫生实验室，另一份送往通常为厂方监控方案作检验的私营商业实验室. 这两家实验室对 11 个样品分别提供了生化氧（BOD）和悬浮固体（SS）的含量的测量值，数据见\hyperref[tab:6.1]{表 6.1}.
+
+\begin{mvtable}
+\phantomsection\label{tab:6.1}\mvtabcap{表 6.1\quad 污水数据}
+\begin{tabular}{ccccc}
+\toprule
+\multirow{2}{*}{样品 $j$} & \multicolumn{2}{c}{商业实验室} & \multicolumn{2}{c}{州卫生实验室}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+& $x_{1j1}$（BOD） & $x_{1j2}$（SS） & $x_{2j1}$（BOD） & $x_{2j2}$（SS）\\
+\midrule
+1 & 6 & 27 & 25 & 15\\
+2 & 6 & 23 & 28 & 13\\
+3 & 18 & 64 & 36 & 22\\
+4 & 8 & 44 & 35 & 29\\
+5 & 11 & 30 & 15 & 31\\
+6 & 34 & 75 & 44 & 64\\
+7 & 28 & 26 & 42 & 30\\
+8 & 71 & 124 & 54 & 64\\
+9 & 43 & 54 & 34 & 56\\
+10 & 33 & 30 & 29 & 20\\
+11 & 20 & 14 & 39 & 21\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+{\small 资料来源：数据经 S. Weber 许可使用.}

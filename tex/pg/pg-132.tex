@@ -1,0 +1,38 @@
+$a_pX_p$ 服从 $N(\mathbf{a}'\boldsymbol{\mu},\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a})$ 分布. 而且,对每个 $\mathbf{a}$,若 $\mathbf{a}'\mathbf{X}$ 服从 $N(\mathbf{a}'\boldsymbol{\mu},\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a})$ 分布,则 $\mathbf{X}$ 必须是 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$.
+
+\noindent\textbf{证明}\quad 从\hyperref[eq:2-43]{式(2-43)}得出 $\mathbf{a}'\mathbf{X}$ 的期望值和方差. 若 $\mathbf{X}$ 是多元正态的,证明 $\mathbf{a}'\mathbf{X}$ 是正态分布会很困难. 可以在文献[1]中找到证明. 结论 4.2 的第二部分也在文献[1]中有证明.\hfill$\blacksquare$
+
+\noindent\textbf{例 4.3}\quad (正态随机向量的分量的一个线性组合的分布)
+
+考虑由选择 $\mathbf{a}'=[1,0,\cdots,0]$ 所确定的多元正态随机向量的线性组合 $\mathbf{a}'\mathbf{X}$,由于
+\[
+\mathbf{a}'\mathbf{X}=[1,0,\cdots,0]\begin{bmatrix}X_1\\X_2\\\vdots\\X_p\end{bmatrix}=X_1
+\]
+和
+\[
+\mathbf{a}'\boldsymbol{\mu}=[1,0,\cdots,0]\begin{bmatrix}\mu_1\\\mu_2\\\vdots\\\mu_p\end{bmatrix}=\mu_1
+\]
+我们有
+\[
+\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}=[1,0,\cdots,0]\begin{bmatrix}\sigma_{11}&\sigma_{12}&\cdots&\sigma_{1p}\\\sigma_{12}&\sigma_{22}&\cdots&\sigma_{2p}\\\vdots&\vdots&&\vdots\\\sigma_{1p}&\sigma_{2p}&\cdots&\sigma_{pp}\end{bmatrix}\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}=\sigma_{11}
+\]
+且从结论 4.2 得出的 $X_1$ 服从 $N(\mu_1,\sigma_{11})$ 分布. 更一般的,$\mathbf{X}$ 的任何分量 $X_i$ 的边缘分布是 $N(\mu_i,\sigma_{ii})$.\hfill$\blacksquare$
+
+下面的结论考虑一个多元正态向量 $\mathbf{X}$ 的若干个线性组合.
+
+\mvthm{结论 4.3}{如果 $\mathbf{X}$ 服从 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布,$q$ 个线性组合
+\[
+\underset{(q\times p)}{\mathbf{A}}\mathbf{X}=\begin{bmatrix}a_{11}X_1+\cdots+a_{1p}X_p\\a_{21}X_1+\cdots+a_{2p}X_p\\\vdots\\a_{q1}X_1+\cdots+a_{qp}X_p\end{bmatrix}
+\]
+服从 $N_q(\mathbf{A}\boldsymbol{\mu},\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}')$ 分布. 又,$\mathbf{X}+\mathbf{d}$ 服从 $N_p(\boldsymbol{\mu}+\mathbf{d},\boldsymbol{\Sigma})$ 分布,其中 $\mathbf{d}$ 为常数向量.}
+
+\noindent\textbf{证明}\quad 从\hyperref[eq:2-45]{式(2-45)}得出 $\mathbf{A}\mathbf{X}$ 的期望值 $E(\mathbf{A}\mathbf{X})$ 和协方差矩阵. 任何线性组合 $\mathbf{b}'(\mathbf{A}\mathbf{X})$ 是 $\mathbf{X}$ 的形如 $\mathbf{a}'\mathbf{X}$ 的一个线性组合,其中 $\mathbf{a}=\mathbf{A}'\mathbf{b}$. 于是,从结论 4.2 直接得出关于 $\mathbf{A}\mathbf{X}$ 的最后结论.
+
+结论的第二部分通过考察 $\mathbf{a}'(\mathbf{X}+\mathbf{d})=\mathbf{a}'\mathbf{X}+(\mathbf{a}'\mathbf{d})$ 可以得到,其中 $\mathbf{a}'\mathbf{X}$ 服从 $N(\mathbf{a}'\boldsymbol{\mu},\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a})$ 分布. 从一元情况可知,加一个常数 $\mathbf{a}'\mathbf{d}$ 到随机变量 $\mathbf{a}'\mathbf{X}$ 上,方差不会变化,而均值变为 $\mathbf{a}'\boldsymbol{\mu}+\mathbf{a}'\mathbf{d}=\mathbf{a}'(\boldsymbol{\mu}+\mathbf{d})$. 由于 $\mathbf{a}$ 是任意的,$\mathbf{X}+\mathbf{d}$ 服从 $N_p(\boldsymbol{\mu}+\mathbf{d},\boldsymbol{\Sigma})$ 分布.\hfill$\blacksquare$
+
+\noindent\textbf{例 4.4}\quad (正态随机向量的分量的两个线性组合的分布)
+
+考虑 $\mathbf{X}$ 服从 $N_3(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 分布,求
+\[
+\begin{bmatrix}X_1-X_2\\X_2-X_3\end{bmatrix}=\begin{bmatrix}1&-1&0\\0&1&-1\end{bmatrix}\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}=\mathbf{A}\mathbf{X}
+\]

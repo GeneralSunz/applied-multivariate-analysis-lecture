@@ -1,0 +1,65 @@
+% ---- pg-414 （书页 402） ----
+
+\[
+\hat{\mathbf{f}}_j^*=\mathbf{T}'\hat{\mathbf{f}}_j,\qquad j=1,2,\cdots,n
+\]
+用两个不同计算方法生成在同一因子上的因子得分之间的样本相关系数, 可提供一个因子得分间一致性的数值测度. 在介绍的所有方法中, 还没有一个可推荐为具有全面的优势.
+
+\noindent\textbf{例 9.12}\quad (计算因子得分)
+
+我们用例 9.10 中的股票价格数据来说明用最小二乘法和回归方法计算因子得分. 由 $\mathbf{R}$ 得到估计的旋转载荷和特殊方差的极大似然解
+\[
+\hat{\mathbf{L}}_z^*=
+\begin{bmatrix}
+0.763&0.024\\
+0.821&0.227\\
+0.669&0.104\\
+0.118&0.993\\
+0.113&0.675
+\end{bmatrix}
+\qquad\text{与}\qquad
+\hat{\boldsymbol{\Psi}}_z=
+\begin{bmatrix}
+0.42&0&0&0&0\\
+0&0.27&0&0&0\\
+0&0&0.54&0&0\\
+0&0&0&0.00&0\\
+0&0&0&0&0.53
+\end{bmatrix}
+\]
+标准化观测向量 $\mathbf{z}'=[0.50,-1.40,-0.20,-0.70,1.40]$ 产生以下的因子 1 和 2 的得分:
+
+加权最小二乘(9-50):\footnote{{\footnotesize 为根据\hyperref[eq:9-58]{式(9-58)}计算加权最小二乘因子得分, $\hat{\boldsymbol{\Psi}}_z$ 的第 4 对角元上的 0.00 修改为 0.01, 以使矩阵可逆.}}
+\[
+\hat{\mathbf{f}}=(\hat{\mathbf{L}}_z^{*'}\hat{\boldsymbol{\Psi}}_z^{-1}\hat{\mathbf{L}}_z^*)^{-1}\hat{\mathbf{L}}_z^{*'}\hat{\boldsymbol{\Psi}}_z^{-1}\mathbf{z}=
+\begin{bmatrix}
+-0.61\\
+-0.61
+\end{bmatrix}
+\]
+回归(9-58):
+\[
+\hat{\mathbf{L}}_z^{*'}\mathbf{R}^{-1}\mathbf{z}=
+\begin{bmatrix}
+0.331&0.526&0.221&-0.137&0.011\\
+-0.040&-0.063&-0.026&1.023&-0.001
+\end{bmatrix}
+\begin{bmatrix}
+0.50\\
+-1.40\\
+-0.20\\
+-0.70\\
+1.40
+\end{bmatrix}
+=
+\begin{bmatrix}
+-0.50\\
+-0.64
+\end{bmatrix}
+\]
+在这个案例中, 两种方法产生非常相似的结果. 所有由\hyperref[eq:9-58]{式(9-58)}得到的回归因子得分的点图在\hyperref[fig:9.4]{图 9.4} 中. \hfill$\blacksquare$
+
+\begin{mvfigure}
+\mvinc{pg-414}{0.269,0.635,0.710,0.770}
+\phantomsection\label{fig:9.4}\mvcap{图 9.4\quad 对股票价格数据用式(9-58)得到的因子 1 和 2 的因子得分\par（因子载荷的极大似然估计）}
+\end{mvfigure}

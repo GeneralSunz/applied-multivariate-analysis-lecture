@@ -1,0 +1,85 @@
+% ---- pg-556 （书页 544） ----
+
+在第二步中, 我们计算每一项到组中心的欧氏距离, 并将其重新归入最近的组. 如果某一项从原来的结构中移动了, 则类中心(均值)必须更新.
+中心的第 $i$ 个坐标, $i=1,\cdots,p$, 可用以下公式更新:
+\[
+\bar{x}_{i,\text{new}}=\frac{n\bar{x}_i+x_{ji}}{n+1}, \qquad \text{若第 } j \text{ 项加入到组 } i,
+\]
+\[
+\bar{x}_{i,\text{new}}=\frac{n\bar{x}_i-x_{ji}}{n-1}, \qquad \text{若第 } j \text{ 项从组 } i \text{ 移除}
+\]
+其中 $n$ 是旧组中项目的数目, 其中心为 $\bar{\mathbf{x}}'_i=(\bar{x}_{i1},\cdots,\bar{x}_{ip})$.
+
+考虑初始类 $(AB)$ 和 $(CD)$. 中心坐标分别为 $(2,2)$ 和 $(-1,-2)$. 假设项目 $A$ 被移到组 $(CD)$ 中, 则新的组为 $(B)$ 和 $(ACD)$, 更新后的中心为:
+\[
+\begin{aligned}
+\text{组 }(B)\qquad \bar{x}_{1,\text{new}}&=\frac{2\times 2-5}{2-1}=-1 &\qquad
+\bar{x}_{2,\text{new}}&=\frac{2\times 2-3}{2-1}=1, \qquad \text{即 } B \text{ 的坐标}\\
+\text{组 }(ACD)\qquad \bar{x}_{1,\text{new}}&=\frac{2\times(-1)+5}{2+1}=1 &\qquad
+\bar{x}_{2,\text{new}}&=\frac{2\times(-2)+3}{2+1}=-0.33
+\end{aligned}
+\]
+
+回到步骤 1 中的初始分组, 我们计算距离平方
+\[
+\begin{aligned}
+d^{2}(A,(AB))&=(5-2)^{2}+(3-2)^{2}=10 &&\text{若 } A \text{ 不移动}\\
+d^{2}(A,(CD))&=(5+1)^{2}+(3+2)^{2}=61
+\end{aligned}
+\]
+\[
+\begin{aligned}
+d^{2}(A,(B))&=(5+1)^{2}+(3-1)^{2}=40 &&\text{若 } A \text{ 移动到组 }(CD)\\
+d^{2}(A,(ACD))&=(5-1)^{2}+(3+0.33)^{2}=27.09
+\end{aligned}
+\]
+由于 $A$ 到组 $(AB)$ 中心的距离小于到组 $(ACD)$ 中心的距离, 因此 $A$ 不更换组.
+
+我们继续考虑 $B$ 是否更换组的问题. 我们有
+\[
+\begin{aligned}
+d^{2}(B,(AB))&=(-1-2)^{2}+(1-2)^{2}=10 &&\text{若 } B \text{ 不移动}\\
+d^{2}(B,(CD))&=(-1+1)^{2}+(1+2)^{2}=9
+\end{aligned}
+\]
+\[
+\begin{aligned}
+d^{2}(B,(A))&=(-1-5)^{2}+(1-3)^{2}=40 &&\text{若 } B \text{ 移动到组 }(CD)\\
+d^{2}(B,(BCD))&=(-1+1)^{2}+(1+1)^{2}=4
+\end{aligned}
+\]
+由于 $B$ 到组 $(BCD)$ 中心的距离小于到组 $(AB)$ 中心的距离, 因此 $B$ 更换组到组 $(CD)$. 于是我们得到类 $(A)$ 和 $(BCD)$, 中心分别为 $(5,3)$ 和 $(-1,-1)$.
+
+我们考虑 $C$ 的更换问题. (译者注: 在新的分类 $(A)$ 和 $(BCD)$ 的前提下.)
+\[
+\begin{aligned}
+d^{2}(C,(A))&=(1-5)^{2}+(-2-3)^{2}=41 &&\text{若 } C \text{ 不移动}\\
+d^{2}(C,(BCD))&=(1+1)^{2}+(-2+1)^{2}=5
+\end{aligned}
+\]
+\[
+\begin{aligned}
+d^{2}(C,(AC))&=(1-3)^{2}+(-2-0.5)^{2}=10.25 &&\text{若 } C \text{ 移动到组 }(A)\\
+d^{2}(C,(BD))&=(1+1)^{2}+(-2+0.5)^{2}=11.25
+\end{aligned}
+\]
+由于 $C$ 到组 $(BCD)$ 中心的距离小于到组 $(AC)$ 中心的距离, 因此 $C$ 不移动.
+如此继续, 我们发现: 没有更换再发生, 最终的 $K=2$ 类为 $(A)$ 和 $(BCD)$.
+
+对最终的类, 我们有
+
+\begin{mvtable}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{4}{c}{到组中心的距离平方}\\
+\cmidrule(lr){2-5}
+\multirow{2}{*}{类} & \multicolumn{4}{c}{项\quad 目}\\
+\cmidrule(lr){2-5}
+& $A$ & $B$ & $C$ & $D$\\
+\midrule
+$A$ & 0 & 40 & 41 & 89\\
+$(BCD)$ & 52 & 4 & 5 & 5\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

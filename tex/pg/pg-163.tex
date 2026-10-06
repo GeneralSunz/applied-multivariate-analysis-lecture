@@ -1,0 +1,25 @@
+% ---- pg-163 （书页 151） ----
+
+是变换后的观测值的算术平均值. 第 $j$ 个变换后的多元观测值是
+\[
+\mathbf{x}_j^{(\hat{\lambda})} = \begin{bmatrix} \dfrac{x_{j1}^{\hat{\lambda}_1} - 1}{\hat{\lambda}_1} \\[2.2ex] \dfrac{x_{j2}^{\hat{\lambda}_2} - 1}{\hat{\lambda}_2} \\[2.2ex] \vdots \\[2.2ex] \dfrac{x_{jp}^{\hat{\lambda}_p} - 1}{\hat{\lambda}_p} \end{bmatrix}
+\]
+其中 $\hat{\lambda}_1, \hat{\lambda}_2, \cdots, \hat{\lambda}_p$ 是分别使\hyperref[eq:4-38]{式(4-38)}达到最大的值.
+
+刚刚描述的方法等价于使每个边缘分布近似正态. 虽然边缘正态不能充分地保证联合分布是正态的, 在实际应用中, 它们可以是足够好的. 否则, 我们可以从上述变换所得到的 $\hat{\lambda}_1, \hat{\lambda}_2, \cdots, \hat{\lambda}_p$ 值着手, 并迭代得到集合 $\boldsymbol{\lambda}' = [\lambda_1, \lambda_2, \cdots, \lambda_p]$, 该集合共同使
+\phantomsection\label{eq:4-40}
+\begin{align}
+l(\lambda_1, \lambda_2, \cdots, \lambda_p) &= -\frac{n}{2}\ln |\mathbf{S}(\boldsymbol{\lambda})| + (\lambda_1 - 1)\sum_{j=1}^{n}\ln x_{j1} + (\lambda_2 - 1)\sum_{j=1}^{n}\ln x_{j2} \nonumber \\
+&\quad + \cdots + (\lambda_p - 1)\sum_{j=1}^{n}\ln x_{jp} \tag{4-40}
+\end{align}
+最大化, 其中 $\mathbf{S}(\boldsymbol{\lambda})$ 是从
+\[
+\mathbf{x}_j^{(\lambda)} = \begin{bmatrix} \dfrac{x_{j1}^{\lambda_1} - 1}{\lambda_1} \\[2.2ex] \dfrac{x_{j2}^{\lambda_2} - 1}{\lambda_2} \\[2.2ex] \vdots \\[2.2ex] \dfrac{x_{jp}^{\lambda_p} - 1}{\lambda_p} \end{bmatrix} \qquad j = 1, 2, \cdots, n
+\]
+计算得到的样本协方差矩阵.
+
+使\hyperref[eq:4-40]{式(4-40)}最大化不仅显著地使\hyperref[eq:4-38]{式(4-38)}中单个表达式最大化更困难, 而且也不大可能得出明显更好的结果. 基于\hyperref[eq:4-40]{式(4-40)}的选择方法等价于使一个多元似然函数关于 $\boldsymbol{\mu}, \boldsymbol{\Sigma}$ 和 $\boldsymbol{\lambda}$ 最大化, 而基于\hyperref[eq:4-38]{式(4-38)}的方法对应于使第 $k$ 个一元似然函数关于 $\mu_k, \sigma_{kk}$ 和 $\lambda_k$ 达到最大. 后一个似然函数是通过自认为存在某个能使观测值 $(x_{jk}^{\lambda_k} - 1)/\lambda_k$ $(j = 1, 2, \cdots, n)$ 遵从正态分布的 $\lambda_k$ 而产生的. 对一元和多元情形更详细的讨论, 分别参见文献[3]和文献[2](还可参见文献[8]).
+
+\noindent\textbf{例 4.17}\quad (对于二元数据确定幂变换)
+
+例 4.10 中的 $n = 42$ 个微波炉在炉门打开时的辐射量也被记录下来. 炉门打开时的辐射量列于\hyperref[tab:4.5]{表 4.5} 中.

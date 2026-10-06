@@ -1,0 +1,47 @@
+% ---- pg-422 （书页 410） ----
+
+在 $\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L}=\boldsymbol{\Delta}$ 为对角阵的约束下, 予以最小化. \hfill$\blacksquare$
+
+\noindent\mvbold{评注}\quad 劳雷和马克斯韦尔(见文献[10]), 以及许多做因子分析的工作者, 用协方差的无偏估计 $\mathbf{S}$ 代替极大似然估计 $\mathbf{S}_n$. 现在, 对正态数据, $(n-1)\mathbf{S}$ 服从威沙特分布[见\hyperref[eq:4-21]{式(4-21)}和式(4-23)]. 如果我们略去包含 $(\boldsymbol{\mu}-\bar{\mathbf{x}})$ 的第二项对似然函数(9-25)的贡献, 则在 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 上将缩减了的似然函数做最大化, 等价于在 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 上将威沙特似然函数
+\[
+\text{似然函数}\propto|\boldsymbol{\Sigma}|^{-(n-1)/2}e^{-[(n-1)/2]\mathrm{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{S})}
+\]
+最大化. 等价的, 我们可以把
+\[
+\ln|\boldsymbol{\Sigma}|+\mathrm{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{S}_n)
+\]
+最小化, 或者像\hyperref[eq:9A-3]{式(9A-3)}那样把
+\[
+\ln|\boldsymbol{\Sigma}|+\mathrm{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{S})-\ln|\mathbf{S}|-p
+\]
+最小化. 在这些条件下, 以 $\mathbf{S}$ 代替 $\mathbf{S}_n$, 结论 9A-1 成立. 还有, 对大 $n$, $\mathbf{S}$ 和 $\mathbf{S}_n$ 几乎是相等的, 并且相应的极大似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 会类似. 为检验因子模型[见\hyperref[eq:9-39]{式(9-39)}], 若采用实际的似然函数(9-25), 应该把 $|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|$ 与 $|\mathbf{S}_n|$ 作比较, 如用前述的威沙特似然函数去导出 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$, 就应该把 $|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|$ 与 $|\mathbf{S}|$ 作比较.
+
+\mvsub{推荐的计算方案}
+
+对 $m>1$, 条件 $\mathbf{L}'\boldsymbol{\Psi}^{-1}\mathbf{L}=\boldsymbol{\Delta}$ 有效地给 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 的元素施加了 $m(m-1)/2$ 个限制, 并且在这些限制的约束下以一种迭代方式解出似然方程. 方法可如下:
+
+1. 计算特殊方差 $\psi_1,\psi_2,\cdots,\psi_p$ 的初始估计. 朱瑞司柯克(见文献[8])建议设
+\phantomsection\label{eq:9A-4}
+\begin{equation}
+\hat{\psi}_i=\left(1-\frac{1}{2}\cdot\frac{m}{p}\right)\left(\frac{1}{s^{ii}}\right) \tag{9A-4}
+\end{equation}
+其中 $s^{ii}$ 是 $\mathbf{S}^{-1}$ 的第 $i$ 个对角元.
+
+2. 已知 $\hat{\boldsymbol{\Psi}}$, 计算“再调节了唯一性的”协方差矩阵
+\phantomsection\label{eq:9A-5}
+\begin{equation}
+\mathbf{S}^{*}=\hat{\boldsymbol{\Psi}}^{-1/2}\mathbf{S}_n\hat{\boldsymbol{\Psi}}^{-1/2} \tag{9A-5}
+\end{equation}
+的前 $m$ 个不同特征值 $\hat{\lambda}_1>\hat{\lambda}_2>\cdots>\hat{\lambda}_m>1$, 以及对应的特征向量 $\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\cdots,\hat{\mathbf{e}}_m$. 令 $\tilde{\mathbf{E}}=[\hat{\mathbf{e}}_1\ \vdots\ \hat{\mathbf{e}}_2\ \vdots\ \cdots\ \vdots\ \hat{\mathbf{e}}_m]$ 是规范化特征向量的 $p\times m$ 矩阵, $\tilde{\boldsymbol{\Lambda}}=$ 对角阵$[\hat{\lambda}_1,\hat{\lambda}_2,\cdots,\hat{\lambda}_m]$ 是特征值的 $m\times m$ 对角阵. 从\hyperref[eq:9A-1]{式(9A-1)}, $\tilde{\boldsymbol{\Lambda}}=\mathbf{I}+\hat{\boldsymbol{\Delta}}$, $\tilde{\mathbf{E}}=\hat{\boldsymbol{\Psi}}^{-1/2}\hat{\mathbf{L}}\hat{\boldsymbol{\Delta}}^{-1/2}$. 这样, 我们得到估计
+\phantomsection\label{eq:9A-6}
+\begin{equation}
+\hat{\mathbf{L}}=\hat{\boldsymbol{\Psi}}^{1/2}\tilde{\mathbf{E}}\hat{\boldsymbol{\Delta}}^{1/2}=\hat{\boldsymbol{\Psi}}^{1/2}\tilde{\mathbf{E}}(\tilde{\boldsymbol{\Lambda}}-\mathbf{I})^{1/2} \tag{9A-6}
+\end{equation}
+
+3. 将\hyperref[eq:9A-6]{式(9A-6)}得到的 $\hat{\mathbf{L}}$ 代进似然函数(9A-3), 并就 $\hat{\psi}_1,\hat{\psi}_2,\cdots,\hat{\psi}_p$ 将结果最小化. 必须用到一个数值搜索程序. 在步骤 2 用从最小化得到的值 $\hat{\psi}_1,\hat{\psi}_2,\cdots,\hat{\psi}_p$ 去生成一个新的 $\hat{\mathbf{L}}$. 重复步骤 2 和 3 直到收敛为止, 即直到 $\hat{l}_{ij}$ 和 $\hat{\psi}_i$ 的相继值之差可以忽略为止.
+
+\noindent\mvbold{评注}\quad 常常会发生这种情况: \hyperref[eq:9A-3]{式(9A-3)}中的目标函数对应于某个 $\hat{\psi}_i$ 的负值有相对的最小值. 这个解很清楚是不能接受的, 并说它是不真实的或是一个海伍德情况. 对大部分计算机程序包, 如在某个迭代中出现这种情况, 在下一步处理之前, 把负的 $\hat{\psi}_i$ 将改为小正数.
+
+\mvsub{$\boldsymbol{\rho}=\mathbf{L}_z\mathbf{L}_z'+\boldsymbol{\Psi}_z$ 的极大似然估计}
+
+当 $\boldsymbol{\Sigma}$ 有因子分析结构 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$, 则 $\boldsymbol{\rho}$ 可因子化, 为 $\boldsymbol{\rho}=\mathbf{V}^{-1/2}\boldsymbol{\Sigma}\mathbf{V}^{-1/2}=(\mathbf{V}^{-1/2}\mathbf{L})(\mathbf{V}^{-1/2}\mathbf{L})'+$

@@ -1,0 +1,69 @@
+% ---- pg-266 （书页 254） ----
+
+乘积之和
+\phantomsection\label{eq:6-80}
+\begin{equation}
+\mathbf{W}_q=\sum_{l=1}^{g}\sum_{j=1}^{n_l}(\mathbf{X}_{lj}-\mathbf{B}\hat{\boldsymbol{\beta}}_l)(\mathbf{X}_{lj}-\mathbf{B}\hat{\boldsymbol{\beta}}_l)' \tag{6-80}
+\end{equation}
+的自由度为 $n_g-g+p-q-1$．“$q$ 次多项式是合适的”这一零假设的似然比检验，可建立在威尔克斯 $\Lambda$ 统计量
+\phantomsection\label{eq:6-81}
+\begin{equation}
+\Lambda^*=\frac{|\mathbf{W}|}{|\mathbf{W}_q|} \tag{6-81}
+\end{equation}
+之上．在多项式生长模型中，对 $g$ 组中的每一组，均由 $q+1$ 项取代 $p$ 个均值，故有 $(p-q-1)g$ 个参数．对大样本情形，若
+\phantomsection\label{eq:6-82}
+\begin{equation}
+-\left(N-\frac{1}{2}(p-q-2-g)\right)\ln\Lambda^*>\chi_{(p-q-1)g}^{2}(\alpha) \tag{6-82}
+\end{equation}
+则在水平 $\alpha$ 下拒绝“多项式是合适的”这一零假设．
+
+\noindent\textbf{例 6.15}\quad （拟合钙损失的二次生长曲线）
+
+参看\hyperref[tab:6.5]{表 6.5} 与\hyperref[tab:6.6]{表 6.6} 中的数据．试拟合二次生长模型．
+
+用计算机可算出
+\[
+[\hat{\boldsymbol{\beta}}_1,\hat{\boldsymbol{\beta}}_2]=\begin{bmatrix}73.070\,1&70.138\,7\\3.644\,4&4.090\,0\\-2.027\,4&-1.853\,4\end{bmatrix}
+\]
+
+这样估计出的生长曲线为
+
+\noindent 控制组：$73.07+3.64t-2.03t^2$
+
+\noindent\hspace*{3em}$(2.58)\quad(0.83)\quad(0.28)$
+
+\noindent 处理组：$70.14+4.09t-1.85t^2$
+
+\noindent\hspace*{3em}$(2.50)\quad(0.80)\quad(0.27)$
+
+其中
+\[
+(\mathbf{B}'\mathbf{S}_p^{-1}\mathbf{B})^{-1}=\begin{bmatrix}93.174\,4&-5.836\,8&0.218\,4\\-5.836\,8&9.569\,9&-3.024\,0\\0.218\,4&-3.024\,0&1.105\,1\end{bmatrix}
+\]
+
+根据\hyperref[eq:6-79]{式(6-79)}，参数估计值下方的标准误差可通过将其对角元素除以 $n_l$ 再开方后得出．
+
+对估计值和标准误差的考察表明需要 $t^2$ 项．对这两个组都预测了 3 年后的钙损失量，而且发现这两组之间似乎没有任何实质性差别．
+
+检验“二次多项式生长模型是合适的”这一零假设所用的威尔克斯 $\Lambda$ 检验统计量为
+\[
+\Lambda^*=\frac{|\mathbf{W}|}{|\mathbf{W}_2|}=
+\frac{\begin{vmatrix}
+2\,726.282&2\,660.749&2\,369.308&2\,335.912\\
+2\,660.749&2\,756.009&2\,343.514&2\,327.961\\
+2\,369.308&2\,343.514&2\,301.714&2\,098.544\\
+2\,335.912&2\,327.961&2\,098.544&2\,277.452
+\end{vmatrix}}
+{\begin{vmatrix}
+2\,781.017&2\,698.589&2\,363.228&2\,362.253\\
+2\,698.589&2\,832.430&2\,331.235&2\,381.160\\
+2\,363.228&2\,331.235&2\,303.687&2\,089.996\\
+2\,362.253&2\,381.160&2\,089.996&2\,314.485
+\end{vmatrix}}
+=0.762\,7
+\]
+
+对 $\alpha=0.01$，由于
+\[
+-\left[N-\frac{1}{2}(p-q-2+g)\right]\ln\Lambda^*=-\left[31-\frac{1}{2}(4-2-2+2)\right]\ln0.762\,7
+\]

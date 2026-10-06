@@ -1,0 +1,55 @@
+% ---- pg-019 （书页 7） ----
+
+用于计算与分析. 当数据没有显示出明显的非线性结合模式且没有出现杂乱的观测值时,它们能提供有说服力的结合的数值概括.
+
+必须考虑可疑的观测值,以便改正明显的记录错误并根据所发现的原因而采取相应措施. $s_{kk}$ 和 $r_{ik}$ 的值应该同时用它们的观测值或同时不用这些观测值来引证.
+
+来自均值的偏差的平方和与偏差的交叉乘积的和常常是有用的.这些参量是:
+
+\phantomsection\label{eq:1-6}
+\begin{equation}
+w_{kk} = \sum_{i=1}^{n}(x_{ik}-\bar{x}_k)^2 \qquad k=1,2,\cdots,p \tag{1-6}
+\end{equation}
+
+和
+
+\phantomsection\label{eq:1-7}
+\begin{equation}
+w_{ik} = \sum_{j=1}^{n}(x_{ji}-\bar{x}_i)(x_{jk}-\bar{x}_k) \qquad i=1,2,\cdots,p, \quad k=1,2,\cdots,p \tag{1-7}
+\end{equation}
+
+由 $p$ 个变量的 $n$ 组测量值计算出的描述统计量也可用阵列来构成.
+
+\begin{center}
+\mvbold{基本的描述统计量阵列}
+\end{center}
+
+样本均值\ \ $\bar{\bm{x}} = \begin{bmatrix}\bar{x}_1\\ \bar{x}_2\\ \vdots\\ \bar{x}_p\end{bmatrix}$
+
+样本方差和协方差
+
+\phantomsection\label{eq:1-8}
+\begin{equation}
+\bm{S}_n = \begin{bmatrix} s_{11} & s_{12} & \cdots & s_{1p}\\ s_{21} & s_{22} & \cdots & s_{2p}\\ \vdots & \vdots & \ddots & \vdots\\ s_{p1} & s_{p2} & \cdots & s_{pp}\end{bmatrix} \tag{1-8}
+\end{equation}
+
+样本相关系数\ \ $\bm{R} = \begin{bmatrix} 1 & r_{12} & \cdots & r_{1p}\\ r_{21} & 1 & \cdots & r_{2p}\\ \vdots & \vdots & \ddots & \vdots\\ r_{p1} & r_{p2} & \cdots & 1\end{bmatrix}$
+
+样本均值阵列由 $\bar{\bm{x}}$ 表示.样本方差和协方差阵列用大写字母 $\bm{S}_n$ 表示,而样本相关系数阵列用 $\bm{R}$ 表示.在阵列 $\bm{S}_n$ 中下标 $n$ 作为助记符来提醒你 $n$ 被当做元素 $s_{ik}$ 的除数.所有阵列的大小取决于变量的个数 $p$.
+
+阵列 $\bm{S}_n$ 和 $\bm{R}$ 由 $p$ 行 $p$ 列组成.$\bar{\bm{x}}$ 是个只有 1 列 $p$ 行的阵列.阵列 $\bm{S}_n$ 和 $\bm{R}$ 中每个元素的第 1 个下标表示行,第 2 个下标表示列.由于 $s_{ik}=s_{ki}$ 和 $r_{ik}=r_{ki}$ 对所有的 $i,k$ 成立,阵列 $\bm{S}_n$ 和 $\bm{R}$ 中与主对角线对称位置上的元素是相同的,并且这样的阵列称为是对称的.
+
+\mvbold{例 1.2} (关于二元数据的阵列 $\bar{\bm{x}},\bm{S}_n$ 和 $\bm{R}$)
+
+考虑例 1.1 中所用数据.每张收据产生一对测量值,总销售金额和售书总数.求阵列 $\bar{\bm{x}},\bm{S}_n$ 和 $\bm{R}$.
+
+由于有 4 张收据,共得到每个变量的 4 个测量值.
+
+样本均值是
+
+\begin{align*}
+\bar{x}_1 &= \frac{1}{4}\sum_{j=1}^{4}x_{j1} = \frac{1}{4}\times(42+52+48+58) = 50 \\
+\bar{x}_2 &= \frac{1}{4}\sum_{j=1}^{4}x_{j2} = \frac{1}{4}\times(4+5+4+3) = 4
+\end{align*}
+
+% UNCERTAIN: pg-019 第1段 "有说服力的结合的数值概括" 中 "结合" 二字辨认存疑

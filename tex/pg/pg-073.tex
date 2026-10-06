@@ -1,0 +1,84 @@
+% ---- pg-073 （书页 61） ----
+
+聚类内的差异性达到最大.又如,主成分是有最大变异性的测量值的线性组合.
+
+本节中介绍的矩阵不等式,使我们容易推导出在以后章节将要用到的某些极大化结论.
+
+\mvbold{柯西-施瓦茨(Cauchy-Schwarz)不等式} 设 $\bm{b}$ 和 $\bm{d}$ 是任意两个 $p \times 1$ 向量,则
+
+\phantomsection\label{eq:2-48}
+\begin{equation}
+(\bm{b}'\bm{d})^2 \leqslant (\bm{b}'\bm{b})(\bm{d}'\bm{d}) \tag{2-48}
+\end{equation}
+
+且等号当且仅当对某个常数 $c$ 有 $\bm{b} = c\bm{d}$ (或 $\bm{d} = c\bm{b}$) 时成立.
+
+\mvbold{证明} 如果 $\bm{b} = \bm{0}$ 或 $\bm{d} = \bm{0}$,不等式显然成立.排除这种可能后,考虑向量 $\bm{b} - x\bm{d}$,其中 $x$ 是任意标量.由于对于 $\bm{b} - x\bm{d} \neq \bm{0}$, $\bm{b} - x\bm{d}$ 的长度为正,在此情况下,
+
+\[
+\begin{aligned}
+0 < (\bm{b} - x\bm{d})'(\bm{b} - x\bm{d}) &= \bm{b}'\bm{b} - x\bm{d}'\bm{b} - \bm{b}'(x\bm{d}) + x^2\bm{d}'\bm{d} \\
+&= \bm{b}'\bm{b} - 2x(\bm{b}'\bm{d}) + x^2(\bm{d}'\bm{d})
+\end{aligned}
+\]
+
+这最后的表达式是 $x$ 的二次式,若加上和减去标量 $(\bm{b}'\bm{d})^2/\bm{d}'\bm{d}$,使之完全平方,得到
+
+\[
+\begin{aligned}
+0 < \bm{b}'\bm{b} - \frac{(\bm{b}'\bm{d})^2}{\bm{d}'\bm{d}} + \frac{(\bm{b}'\bm{d})^2}{\bm{d}'\bm{d}} - 2x(\bm{b}'\bm{d}) + x^2(\bm{d}'\bm{d}) \\
+= \bm{b}'\bm{b} - \frac{(\bm{b}'\bm{d})^2}{\bm{d}'\bm{d}} + (\bm{d}'\bm{d})\left(x - \frac{\bm{b}'\bm{d}}{\bm{d}'\bm{d}}\right)^2
+\end{aligned}
+\]
+
+若取 $x = \bm{b}'\bm{d}/\bm{d}'\bm{d}$,则括号中的项为零,由此得出结论
+
+\[
+0 < \bm{b}'\bm{b} - \frac{(\bm{b}'\bm{d})^2}{\bm{d}'\bm{d}}
+\]
+
+若对某个 $x$, $\bm{b} \neq x\bm{d}$,则有 $(\bm{b}'\bm{d})^2 < (\bm{b}'\bm{b})(\bm{d}'\bm{d})$.
+
+注意,若 $\bm{b} = c\bm{d}$, $0 = (\bm{b} - c\bm{d})'(\bm{b} - c\bm{d})$,同样的论证可得 $(\bm{b}'\bm{d})^2 = (\bm{b}'\bm{b})(\bm{d}'\bm{d})$.
+
+下面是柯西-施瓦茨不等式的一个简单而重要的推广.
+
+\mvbold{广义柯西-施瓦茨不等式} 令 $\bm{b}$ 和 $\bm{d}$ 是任意两个向量, $\bm{B}$ 是正定矩阵,则
+
+\phantomsection\label{eq:2-49}
+\begin{equation}
+(\bm{b}'\bm{d})^2 \leqslant (\bm{b}'\bm{B}\bm{b})(\bm{d}'\bm{B}^{-1}\bm{d}) \tag{2-49}
+\end{equation}
+
+且等号当且仅当对某个常数 $c$ 有 $\bm{b} = c\bm{B}^{-1}\bm{d}$ 或 $\bm{d} = c\bm{B}\bm{b}$ 时成立.
+
+\mvbold{证明} 当 $\bm{b} = \bm{0}$ 或 $\bm{d} = \bm{0}$ 时,不等式显然成立.对其他情况,考虑平方根矩阵 $\bm{B}^{1/2}$,它以其特征值 $\lambda_i$ 和标准化特征向量 $\bm{e}_i$ 定义为 $\bm{B}^{1/2} = \sum_{i=1}^{p}\sqrt{\lambda_i}\bm{e}_i\bm{e}_i'$.如果我们令[见\hyperref[eq:2-22]{式(2-22)}]
+
+\[
+\bm{B}^{-1/2} = \sum_{i=1}^{p}\frac{1}{\sqrt{\lambda_i}}\bm{e}_i\bm{e}_i'
+\]
+
+由此得出
+
+\[
+\bm{b}'\bm{d} = \bm{b}'\bm{I}\bm{d} = \bm{b}'\bm{B}^{1/2}\bm{B}^{-1/2}\bm{d} = (\bm{B}^{1/2}\bm{b})'(\bm{B}^{-1/2}\bm{d})
+\]
+
+把柯西-施瓦茨不等式运用到向量 $(\bm{B}^{1/2}\bm{b})$ 和 $(\bm{B}^{-1/2}\bm{d})$ 上,证明即可完成.
+
+广义柯西-施瓦茨不等式导致下面的极大化结论.
+
+\mvbold{极大化引理} 令 $\bm{B}_{(p \times p)}$ 为正定矩阵且 $\bm{d}_{(p \times 1)}$ 为给定向量,则对任意非零向量 $\bm{x}_{(p \times 1)}$ 有
+
+\phantomsection\label{eq:2-50}
+\begin{equation}
+\max_{\bm{x} \neq \bm{0}} \frac{(\bm{x}'\bm{d})^2}{\bm{x}'\bm{B}\bm{x}} = \bm{d}'\bm{B}^{-1}\bm{d} \tag{2-50}
+\end{equation}
+
+对任意非零常数 $c$,当 $\bm{x}_{(p \times 1)} = c\bm{B}_{(p \times p)}^{-1}\bm{d}_{(p \times 1)}$ 时,达到最大值.
+
+\mvbold{证明} 由广义柯西-施瓦茨不等式,有 $(\bm{x}'\bm{d})^2 \leqslant (\bm{x}'\bm{B}\bm{x})(\bm{d}'\bm{B}^{-1}\bm{d})$.因为 $\bm{x} \neq \bm{0}$ 且 $\bm{B}$ 为正定, $\bm{x}'\bm{B}\bm{x} > 0$.用正标量 $\bm{x}'\bm{B}\bm{x}$ 除以不等式两边,得出上界
+
+\[
+\frac{(\bm{x}'\bm{d})^2}{\bm{x}'\bm{B}\bm{x}} \leqslant \bm{d}'\bm{B}^{-1}\bm{d}
+\]

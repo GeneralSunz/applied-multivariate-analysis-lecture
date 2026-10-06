@@ -1,0 +1,43 @@
+因此, 经常希望不仅仅用单一数 $|\mathbf{S}|$ 作为 $\mathbf{S}$ 的一个概括量. 从练习 2.12 可知, $|\mathbf{S}|$ 可以表示为 $\mathbf{S}$ 的特征值的乘积 $\lambda_{1}\lambda_{2}\cdots\lambda_{p}$. 而且, 基于 $\mathbf{S}^{-1}$ 的均值中心椭球[参见\hyperref[eq:3-16]{式(3-16)}]具有长度与 $\lambda$ 的平方根成比例的轴(参考 2.3 节). 因此, 这些特征值提供了在 $p$ 维空间中表现数据在所有方向上变化性的信息. 所以, 报告它们的个别值与它们的乘积一样是有用的. 以后当我们讨论主成分时, 将连续这个题目.
+
+\mvsub{广义样本方差为零的情况}
+
+在某些情况中, 广义样本方差将是零. 在偏差矩阵
+\phantomsection\label{eq:3-18}
+\begin{equation}
+\begin{aligned}
+\begin{bmatrix}\mathbf{x}'_{1}-\bar{\mathbf{x}}'\\[2pt]\mathbf{x}'_{2}-\bar{\mathbf{x}}'\\[2pt]\vdots\\[2pt]\mathbf{x}'_{n}-\bar{\mathbf{x}}'\end{bmatrix}_{(n\times p)}
+&=\begin{bmatrix}x_{11}-\bar{x}_{1}&x_{12}-\bar{x}_{2}&\cdots&x_{1p}-\bar{x}_{p}\\[2pt]x_{21}-\bar{x}_{1}&x_{22}-\bar{x}_{2}&\cdots&x_{2p}-\bar{x}_{p}\\[2pt]\vdots&\vdots&&\vdots\\[2pt]x_{n1}-\bar{x}_{1}&x_{n2}-\bar{x}_{2}&\cdots&x_{np}-\bar{x}_{p}\end{bmatrix}\\[6pt]
+&=\underset{(n\times p)}{\mathbf{X}-\dfrac{1}{n}\mathbf{1}\bar{\mathbf{x}}'}
+\end{aligned}
+\tag{3-18}
+\end{equation}
+至少有一列可表示为其他列的线性组合时, 一个为零的广义方差表示极值退化. 正如我们曾经从几何上说明过的, 这是偏差向量之一——例如 $\mathbf{d}'_{i}=[x_{i1}-\bar{x}_{1},\cdots,x_{ip}-\bar{x}_{p}]$——位于由 $\mathbf{d}_{1},\cdots,\mathbf{d}_{i-1},\mathbf{d}_{i+1},\cdots,\mathbf{d}_{n}$ 生成的(超)平面内.
+
+\mvthm{结论 3.2}{广义方差为零, 当且仅当至少一个偏差向量位于由其他向量的所有线性组合形成的(超)平面内——也就是说, \hyperref[eq:3-18]{式(3-18)} 中的偏差矩阵的列线性相关.}
+
+\noindent\mvbold{证明}\quad 如果偏差矩阵 $(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')$ 的列是线性相关的, 存在一个列的线性组合使得
+\begin{align*}
+0&=a_{1}\cdot\text{列}_{1}(\mathbf{X}-\tfrac{1}{n}\mathbf{1}\bar{\mathbf{x}}')+\cdots+a_{p}\cdot\text{列}_{p}(\mathbf{X}-\tfrac{1}{n}\mathbf{1}\bar{\mathbf{x}}')\\
+&=(\mathbf{X}-\tfrac{1}{n}\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}\qquad\text{对某个}\ \mathbf{a}\ne0
+\end{align*}
+但是, 正如可以证明 $(n-1)\mathbf{S}=(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')'(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')$ 和 $(n-1)\mathbf{S}\mathbf{a}=(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')'(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}=0$ 一样, 同样的 $\mathbf{a}$, 在 $\mathbf{S}$ 的列中对应于一个线性相关性 $a_{1}\cdot\text{列}_{1}(\mathbf{S})+\cdots+a_{p}\cdot\text{列}_{p}(\mathbf{S})=\mathbf{S}\mathbf{a}=0$. 因此, 由结论 2A.9, $|\mathbf{S}|=0$.
+
+另一方面, 如果 $|\mathbf{S}|=0$, 则存在 $\mathbf{S}$ 的列的某个线性组合 $\mathbf{S}\mathbf{a}$, 使得 $\mathbf{S}\mathbf{a}=0$, 即 $0=(n-1)\mathbf{S}\mathbf{a}=(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')'(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}$. 用 $\mathbf{a}'$ 左乘得
+\[
+0=\mathbf{a}'(\mathbf{X}-\tfrac{1}{n}\mathbf{1}\bar{\mathbf{x}}')'(\mathbf{X}-\tfrac{1}{n}\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}=L^{2}_{1\times1}
+\]
+且因为长度等于零, 必须有 $(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}=0$. 因此, $(\mathbf{X}-\frac{1}{n}\mathbf{1}\bar{\mathbf{x}}')$ 的列是线性相关的.\hfill$\blacksquare$
+
+\noindent\textbf{例 3.9}\quad (广义方差为零的一个实例)
+
+对
+\[
+\underset{(3\times3)}{\mathbf{X}}=\begin{bmatrix}1&2&5\\4&1&6\\4&0&4\end{bmatrix}
+\]
+证明 $|\mathbf{S}|=0$ 且确定退化.
+
+这里 $\bar{\mathbf{x}}'=[3,1,5]$, 因此
+\[
+\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}'=\begin{bmatrix}1-3&2-1&5-5\\4-3&1-1&6-5\\4-3&0-1&4-5\end{bmatrix}=\begin{bmatrix}-2&1&0\\1&0&1\\1&-1&-1\end{bmatrix}
+\]

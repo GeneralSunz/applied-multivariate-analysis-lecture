@@ -1,0 +1,70 @@
+% ---- pg-303 （书页 291） ----
+
+\mvsub{回归参数的似然比检验}
+
+回归分析的部分内容涉及评估特定预测变量对响应变量的影响. 有一个人们感兴趣的零假设是说某些 $z_i$ 对响应 $Y$ 没有影响. 可将这些预测变量表示为 $z_{q+1},z_{q+2},\cdots,z_r$. 对 $Y$ 无影响这种说法表示成统计假设
+\phantomsection\label{eq:7-12}
+\begin{equation}
+H_0:\beta_{q+1}=\beta_{q+2}=\cdots=\beta_r=0\qquad H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}
+\tag{7-12}
+\end{equation}
+其中 $\boldsymbol{\beta}_{(2)}'=[\beta_{q+1},\beta_{q+2},\cdots,\beta_r]'$. 令
+\[
+\mathbf{Z}=\left[\begin{array}{c:c}
+\underset{n\times(q+1)}{\mathbf{Z}_1}&\underset{n\times(r-q)}{\mathbf{Z}_2}
+\end{array}\right],\qquad
+\boldsymbol{\beta}=\left[\begin{array}{c}
+\underset{(q+1)\times 1}{\boldsymbol{\beta}_{(1)}}\\\hdashline
+\underset{(r-q)\times 1}{\boldsymbol{\beta}_{(2)}}
+\end{array}\right]
+\]
+我们可将一般线性模型表示为
+\[
+\mathbf{Y}=\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon}
+=\left[\begin{array}{c:c}\mathbf{Z}_1&\mathbf{Z}_2\end{array}\right]
+\begin{bmatrix}\boldsymbol{\beta}_{(1)}\\\boldsymbol{\beta}_{(2)}\end{bmatrix}
++\boldsymbol{\epsilon}
+=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\mathbf{Z}_2\boldsymbol{\beta}_{(2)}+\boldsymbol{\epsilon}
+\]
+在假设 $H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}$ 下, $\mathbf{Y}=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\boldsymbol{\epsilon}$. $H_0$ 的似然比检验的依据是
+\phantomsection\label{eq:7-13}
+\begin{equation}
+\begin{aligned}
+\text{额外的平方和}&=\text{SS}_{\text{残差}}(\mathbf{Z}_1)-\text{SS}_{\text{残差}}(\mathbf{Z})\\
+&=(\mathbf{y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})'(\mathbf{y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})-(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})
+\end{aligned}
+\tag{7-13}
+\end{equation}
+其中 $\hat{\boldsymbol{\beta}}_{(1)}=(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{y}$.
+
+\mvthm{结论 7.6}{设 $\mathbf{Z}$ 有满秩 $r+1$, 且 $\boldsymbol{\epsilon}$ 服从 $N_n(\mathbf{0},\sigma^2\mathbf{I})$ 分布. 假设 $H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}$ 的似然比检验等价于 $H_0$ 按\hyperref[eq:7-13]{式(7-13)} 中额外平方和以及 $s^2=(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})/(n-r-1)$ 所作的检验. 特别是似然比检验对 $H_0$ 的拒绝域为}
+\[
+\frac{(\text{SS}_{\text{残差}}(\mathbf{Z}_1)-\text{SS}_{\text{残差}}(\mathbf{Z}))/(r-q)}{s^2}>F_{r-q,n-r-1}(\alpha)
+\]
+其中 $F_{r-q,n-r-1}(\alpha)$ 为自由度为 $r-q$ 和 $n-r-1$ 的 $F$ 分布的上 $100\alpha$ 百分位数.
+
+证明\quad 给定数据和正态性假定, 参数 $\boldsymbol{\beta}$ 和 $\sigma^2$ 的似然函数为
+\[
+L(\boldsymbol{\beta},\sigma^2)=\frac{1}{(2\pi)^{n/2}\sigma^n}e^{-(\mathbf{y}-\mathbf{Z}\boldsymbol{\beta})'(\mathbf{y}-\mathbf{Z}\boldsymbol{\beta})/2\sigma^2}
+\leq\frac{1}{(2\pi)^{n/2}\hat{\sigma}^n}e^{-n/2}
+\]
+最大值在 $\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{y}$, 及 $\hat{\sigma}^2=(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})/n$ 时达到. 而在零假设的约束下, $\mathbf{Y}=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\boldsymbol{\epsilon}$ 且
+\[
+\max_{\boldsymbol{\beta}_{(1)},\sigma^2}L(\boldsymbol{\beta}_{(1)},\sigma^2)=\frac{1}{(2\pi)^{n/2}\hat{\sigma}_1^n}e^{-n/2}
+\]
+其中最大值在 $\hat{\boldsymbol{\beta}}_{(1)}=(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{y}$ 时出现, 此外,
+\[
+\hat{\sigma}_1^2=(\mathbf{y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})'(\mathbf{y}-\mathbf{Z}_1\hat{\boldsymbol{\beta}}_{(1)})/n
+\]
+似然比为
+\[
+\frac{\max\limits_{\boldsymbol{\beta}_{(1)},\sigma^2}L(\boldsymbol{\beta}_{(1)},\sigma^2)}{\max\limits_{\boldsymbol{\beta},\sigma^2}L(\boldsymbol{\beta},\sigma^2)}
+=\left(\frac{\hat{\sigma}_1^2}{\hat{\sigma}^2}\right)^{-n/2}
+=\left(\frac{\hat{\sigma}^2+\hat{\sigma}_1^2-\hat{\sigma}^2}{\hat{\sigma}^2}\right)^{-n/2}
+=\left(1+\frac{\hat{\sigma}_1^2-\hat{\sigma}^2}{\hat{\sigma}^2}\right)^{-n/2}
+\]
+当似然比值很小时拒绝 $H_0:\boldsymbol{\beta}_{(2)}=\mathbf{0}$, 这等价于当 $(\hat{\sigma}_1^2-\hat{\sigma}^2)/\hat{\sigma}^2$ 值很大时拒绝 $H_0$, 或当
+\[
+\frac{n(\hat{\sigma}_1^2-\hat{\sigma}^2)/(r-q)}{n\hat{\sigma}^2/(n-r-1)}
+=\frac{(\text{SS}_{\text{残差}}(\mathbf{Z}_1)-\text{SS}_{\text{残差}}(\mathbf{Z}))/(r-q)}{s^2}=F
+\]

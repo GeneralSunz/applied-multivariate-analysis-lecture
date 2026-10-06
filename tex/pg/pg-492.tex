@@ -1,0 +1,83 @@
+% ---- pg-492 （书页 480） ----
+
+显示板 11.1(续)
+
+\begin{mvbox}
+{\ttfamily\small
+\begin{center}
+\begin{tabular}{@{}l@{}}
+Generalized Squared Distance Function:\\
+$\mathrm{D}_j^2(\mathrm{X})=(\mathrm{X}-\bar{\mathrm{X}}_j)'\mathrm{cov}^{-1}(\mathrm{X}-\bar{\mathrm{X}}_j)$\\
+Posterior Probability of Membership in each ADMIT:\\
+$\Pr(j\,|\,\mathrm{X})=\exp(-.5\mathrm{D}_j^2(\mathrm{X}))/\mathrm{SUM}_k\exp(-.5\mathrm{D}_k^2(\mathrm{X}))$
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}rrlcrrr@{}}
+\multicolumn{7}{c}{Posterior Probability of Membership in ADMIT:}\\
+Obs & From & Classified & & admit & border & notadmit\\
+ & ADMIT & into ADMIT & & & &\\
+2 & admit & border & $*$ & 0.120\,2 & 0.877\,8 & 0.002\,0\\
+3 & admit & border & $*$ & 0.365\,4 & 0.634\,2 & 0.000\,4\\
+24 & admit & border & $*$ & 0.476\,6 & 0.523\,4 & 0.000\,0\\
+31 & admit & border & $*$ & 0.296\,4 & 0.703\,2 & 0.000\,4\\
+58 & notadmit & border & $*$ & 0.000\,1 & 0.755\,0 & 0.245\,0\\
+59 & notadmit & border & $*$ & 0.000\,1 & 0.867\,3 & 0.132\,6\\
+66 & border & admit & $*$ & 0.533\,6 & 0.466\,4 & 0.000\,0\\
+\multicolumn{7}{c}{$*$Misclassified observation}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+Classification Summary for Calibration Data: WORK.GPA\\
+Cross validation Summary using Linear Discriminant Function\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}l@{}}
+Generalized Squared Distance Function:\\
+$\mathrm{D}_j^2(\mathrm{X})=(\mathrm{X}-\bar{\mathrm{X}}_{(\mathrm{x})j})'\mathrm{COV}_{(\mathrm{x})j}^{-1}(\mathrm{X}-\bar{\mathrm{X}}_{(\mathrm{x})j})$\\
+Posterior Probability of Membership in each ADMIT:\\
+$\Pr(j\,|\,\mathrm{X})=\exp(-.5\mathrm{D}_j^2(\mathrm{X}))/\mathrm{SUM}_k\exp(-.5\mathrm{D}_k^2(\mathrm{X}))$
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}llrrrr@{}}
+\multicolumn{6}{c}{Number of Observations and Percent Classified into ADMIT:}\\
+From & ADMIT & admit & border & notadmit & Total\\
+admit & & 26 & 5 & 0 & 31\\
+& & 83.87 & 16.13 & 0.00 & 100.00\\
+border & & 1 & 24 & 1 & 26\\
+& & 3.85 & 92.31 & 3.85 & 100.00\\
+notadmit & & 0 & 2 & 26 & 28\\
+& & 0.00 & 7.14 & 92.86 & 100.00\\
+Total & & 27 & 31 & 27 & 85\\
+Percent & & 31.76 & 36.47 & 31.76 & 100.00\\
+Priors & & 0.333\,3 & 0.333\,3 & 0.333\,3 &\\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\multicolumn{5}{c}{Error Count Estimates for ADMIT:}\\
+& admit & border & notadmit & Total\\
+Rate & 0.161\,3 & 0.076\,9 & 0.071\,4 & 0.103\,2\\
+Priors & 0.333\,3 & 0.333\,3 & 0.333\,3 &\\
+\end{tabular}
+\end{center}
+}
+\end{mvbox}
+
+由\hyperref[eq:11-49]{式(11-49)}给出的线性判别得分可以进行两两比较. 使用这些量, 我们可以看到: $d_k(\mathbf{x})$ 为 $d_1(\mathbf{x}), d_2(\mathbf{x}),\cdots,d_g(\mathbf{x})$ 中的最大值这个条件等价于
+\[
+\begin{aligned}
+0\le & d_k(\mathbf{x})-d_i(\mathbf{x})\\
+&=(\boldsymbol{\mu}_k-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_k-\boldsymbol{\mu}_i)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_k+\boldsymbol{\mu}_i)+\ln\left(\frac{p_k}{p_i}\right)
+\end{aligned}
+\]

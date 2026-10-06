@@ -1,0 +1,44 @@
+% ---- pg-377 （书页 365） ----
+
+(b) 计算全部样本方差中由 $\hat{y}_1$ 解释的比例.
+
+(c) 计算相关系数 $r_{\hat{y}_1,z_k},k=1,2$. 解释 $\hat{y}_1$.
+
+(d) 比较由 (a) 得到的成分和由练习 8.6(a) 求得的成分. 已知列于练习 1.4 的原始数据, 你认为由样本协方差矩阵或样本相关系数矩阵求主成分, 哪个会更好些? 试说明之.
+
+\noindent 8.8\quad 利用例 8.5 的结果:
+
+(a) 计算相关系数 $r_{\hat{y}_i,z_k},i=1,2$ 和 $k=1,2,\cdots,5$. 这些相关系数是否加强了对前两个成分的解释? 试说明之.
+
+(b) 在 $5\%$ 显著性水平, 检验假设
+\[
+H_0:\boldsymbol{\rho}=\boldsymbol{\rho}_0=\begin{bmatrix}1&\rho&\rho&\rho&\rho\\ \rho&1&\rho&\rho&\rho\\ \rho&\rho&1&\rho&\rho\\ \rho&\rho&\rho&1&\rho\\ \rho&\rho&\rho&\rho&1\end{bmatrix}
+\]
+\[
+H_1:\boldsymbol{\rho}\neq\boldsymbol{\rho}_0
+\]
+列出在完成检验时需要的所有假定.
+
+\noindent 8.9\quad (所有变量相互独立的检验.)
+
+(a) 考虑正态理论似然比检验 $H_0:\boldsymbol{\Sigma}$ 为对角阵
+\[
+\begin{bmatrix}\sigma_{11}&0&\cdots&0\\ 0&\sigma_{22}&\cdots&0\\ \vdots&\vdots&\ddots&\vdots\\ 0&0&\cdots&\sigma_{pp}\end{bmatrix},\quad \sigma_{ii}>0
+\]
+证明检验为: 若
+\[
+\Lambda=\frac{|\mathbf{S}|^{n/2}}{\prod_{i=1}^{p}s_{ii}^{n/2}}=|\mathbf{R}|^{n/2}<c
+\]
+则拒绝 $H_0$.
+
+对于大样本, $-2\ln\Lambda$ 近似 $\chi^2_{p(p-1)/2}$ 分布. 巴特利特[3]建议检验统计量以 $-2[1-(2p+11)/6n]\ln\Lambda$ 取代 $-2\ln\Lambda$. 这得出一个改善的 $\chi^2$ 近似. 大样本的 $\alpha$ 临界点为 $\chi^2_{p(p-1)/2}(\alpha)$. 注意, 检验 $\boldsymbol{\Sigma}=\boldsymbol{\Sigma}_0$ 与检验 $\boldsymbol{\rho}=\mathbf{I}$ 是一样的.
+
+(b) 证明对似然比检验 $H_0:\boldsymbol{\Sigma}=\sigma^2\mathbf{I}$, 当下式成立则拒绝 $H_0$
+\[
+\Lambda=\frac{|\mathbf{S}|^{n/2}}{(\mathrm{tr}(\mathbf{S})/p)^{np/2}}=\left[\frac{\prod_{i=1}^{p}\hat{\lambda}_i}{\left(\frac{1}{p}\sum_{i=1}^{p}\hat{\lambda}_i\right)^p}\right]^{n/2}=\left[\frac{\text{几何均值 }\hat{\lambda}_i}{\text{算术均值 }\hat{\lambda}_i}\right]^{np/2}<c
+\]
+对大容量样本, 巴特利特[3]认为 $-2[1-(2p^2+p+2)/6pn]\ln\Lambda$ 近似服从 $\chi^2_{(p+2)(p-1)/2}$. 因此, 该大样本的 $\alpha$ 临界点是 $\chi^2_{(p+2)(p-1)/2}(\alpha)$. 因为当 $\boldsymbol{\Sigma}=\sigma^2\mathbf{I}$ 时, 常数密度的轮廓线是球面, 因此这个检验称为球性检验.
+
+提示:
+
+(a) $\max_{\boldsymbol{\mu},\boldsymbol{\Sigma}}L(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 由\hyperref[eq:5-10]{式(5-10)}给出, 并且 $\max_{\boldsymbol{\mu}}L(\boldsymbol{\mu},\boldsymbol{\Sigma}_0)$ 是单变量似然函数的积:

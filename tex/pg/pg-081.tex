@@ -1,0 +1,70 @@
+% ---- pg-081 （书页 69） ----
+
+注意关于乘积 $\bm{A}\bm{B}$ 的定义,要求 $\bm{A}$ 的列维必须等于 $\bm{B}$ 的行维. 在此条件下,所得 $\bm{A}\bm{B}$ 的行维等于 $\bm{A}$ 的行维,$\bm{A}\bm{B}$ 的列维等于 $\bm{B}$ 的列维.
+
+例如,设
+\[
+\bm{A} = \begin{bmatrix} 3 & -1 & 2 \\ 4 & 0 & 5 \end{bmatrix}_{(2\times 3)}
+\qquad \text{和} \qquad
+\bm{B} = \begin{bmatrix} 3 & 4 \\ 6 & -2 \\ 4 & 3 \end{bmatrix}_{(3\times 2)}
+\]
+
+则
+\[
+\begin{bmatrix} 3 & -1 & 2 \\ 4 & 0 & 5 \end{bmatrix}_{(2\times 3)}
+\begin{bmatrix} 3 & 4 \\ 6 & -2 \\ 4 & 3 \end{bmatrix}_{(3\times 2)}
+= \begin{bmatrix} 11 & 20 \\ 32 & 31 \end{bmatrix}_{(2\times 2)}
+= \begin{bmatrix} c_{11} & c_{12} \\ c_{21} & c_{22} \end{bmatrix}
+\]
+
+其中
+\[
+c_{11} = 3 \times 3 + (-1) \times 6 + 2 \times 4 = 11
+\]
+\[
+c_{12} = 3 \times 4 + (-1) \times (-2) + 2 \times 3 = 20
+\]
+\[
+c_{21} = 4 \times 3 + 0 \times 6 + 5 \times 4 = 32
+\]
+\[
+c_{22} = 4 \times 4 + 0 \times (-2) + 5 \times 3 = 31
+\]
+
+再举一个例子,考虑两个向量的乘积,设
+\[
+\bm{x} = \begin{bmatrix} 1 \\ 0 \\ -2 \\ 3 \end{bmatrix}
+\qquad \text{和} \qquad
+\bm{y} = \begin{bmatrix} 2 \\ -3 \\ -1 \\ -8 \end{bmatrix}
+\]
+
+则 $\bm{x}' = [\,1 \quad 0 \quad -2 \quad 3\,]$ 且
+\[
+\bm{x}'\bm{y} = [\,1 \quad 0 \quad -2 \quad 3\,]
+\begin{bmatrix} 2 \\ -3 \\ -1 \\ -8 \end{bmatrix}
+= [-20] = [\,2 \quad -3 \quad -1 \quad -8\,]
+\begin{bmatrix} 1 \\ 0 \\ -2 \\ 3 \end{bmatrix}
+= \bm{y}'\bm{x}
+\]
+
+注意:乘积 $\bm{x}\bm{y}$ 是无意义的.因为 $\bm{x}$ 是 $4\times 1$ 矩阵,$\bm{y}$ 是 $4\times 1$ 矩阵,故 $\bm{x}$ 的列维 1 不等于 $\bm{y}$ 的行维 4. 如果 $\bm{x}$ 与 $\bm{y}$ 是同维向量,如 $n\times 1$,乘积 $\bm{x}'\bm{y}$ 和 $\bm{x}\bm{y}'$ 两者都有意义. 具体地,$\bm{y}'\bm{x} = \bm{x}'\bm{y} = x_1y_1 + x_2y_2 + \cdots + x_ny_n$, 而 $\bm{x}\bm{y}'$ 是一个 $n\times n$ 矩阵,其第 $i,j$ 个元素为 $x_iy_j$.
+
+\mvthm{结论 2A.5}{对于所有矩阵 $\bm{A},\bm{B}$ 和 $\bm{C}$(其维数符合乘法规定)和一标量 $c$,}
+
+(a) $c(\bm{A}\bm{B}) = (c\bm{A})\bm{B}$
+
+(b) $\bm{A}(\bm{B}\bm{C}) = (\bm{A}\bm{B})\bm{C}$
+
+(c) $\bm{A}(\bm{B}+\bm{C}) = \bm{A}\bm{B} + \bm{A}\bm{C}$
+
+(d) $(\bm{B}+\bm{C})\bm{A} = \bm{B}\bm{A} + \bm{C}\bm{A}$
+
+(e) $(\bm{A}\bm{B})' = \bm{B}'\bm{A}'$
+
+一般的,对任何使得 $\bm{A}\bm{x}_j$ 有定义的 $\bm{x}_j$,有
+
+(f) $\displaystyle\sum_{j}\bm{A}\bm{x}_j = \bm{A}\sum_{j}\bm{x}_j$
+
+(g) $\displaystyle\sum_{j}(\bm{A}\bm{x}_j)(\bm{A}\bm{x}_j)' = \bm{A}\left(\sum_{j}\bm{x}_j\bm{x}_j'\right)\bm{A}'$
+
+矩阵代数与实数代数之间有若干重要差别.其中两点如下所述:

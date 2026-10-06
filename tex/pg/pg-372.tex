@@ -1,0 +1,50 @@
+% ---- pg-372 （书页 360） ----
+
+些特征值却很小. 为避免用很小的特征值去除小的平方主成分引起的困难, 已经成功地采用了另一种构造控制图的方法(见文献[13]). 该方法的实施步骤如下.
+
+对各个稳定的观测值, 取它的未曾解释的成分的平方和
+\[
+d_{Uj}^2=(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{y}_{j1}\hat{\mathbf{e}}_1-\hat{y}_{j2}\hat{\mathbf{e}}_2)'(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{y}_{j1}\hat{\mathbf{e}}_1-\hat{y}_{j2}\hat{\mathbf{e}}_2)
+\]
+注意, 插入 $\hat{\mathbf{E}}\hat{\mathbf{E}}'=\mathbf{I}$, 我们也有
+\[
+d_{Uj}^2=(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{y}_{j1}\hat{\mathbf{e}}_1-\hat{y}_{j2}\hat{\mathbf{e}}_2)'\hat{\mathbf{E}}\hat{\mathbf{E}}'(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{y}_{j1}\hat{\mathbf{e}}_1-\hat{y}_{j2}\hat{\mathbf{e}}_2)=\sum_{k=3}^{p}\hat{y}_{jk}^2
+\]
+这正是所略去的主成分的平方和.
+
+无论用哪一种形式, 画出 $(j,d_{Uj}^2)$ 曲线生成一张控制图. 图的下控制限是 0, 而上控制限由 $d_{Uj}^2$ 分布的近似来设定, 该分布是常数 $c$ 乘以自由度为 $v$ 的 $\chi^2$ 变量的分布.
+
+对此 $\chi^2$ 近似, 常数 $c$ 和自由度 $v$ 的选取要与 $d_{Uj}^2$ $(j=1,2,\cdots,n)$ 的样本均值及方差相匹配. 特别地, 我们令
+\[
+\overline{d_U^2}=\frac{1}{n}\sum_{j=1}^{n}d_{Uj}^2=cv
+\]
+\[
+s_{d^2}^2=\frac{1}{n-1}\sum_{j=1}^{n}(d_{Uj}^2-\overline{d_U^2})^2=2c^2v
+\]
+并确定
+\[
+c=\frac{s_{d^2}^2}{2\,\overline{d_U^2}}\qquad\text{和}\qquad v=2\,\frac{(\overline{d_U^2})^2}{s_{d^2}^2}
+\]
+上控制限就是 $c\chi_v^2(\alpha)$, 其中 $\alpha=0.05$ 或 $0.01$.
+
+\section*{补充 8A\quad 样本主成分近似的几何意义}
+\phantomsection\label{sec:8.7}
+
+这个补充里我们将对基于前 $r$ 个样本主成分的数据近似, 提供一个解释. 对 $p$ 维散布图和 $n$ 维表示的解释, 要依赖下述代数结论. 我们考虑对形如 $\underset{(n\times p)}{\mathbf{A}}=[\mathbf{a}_1,\mathbf{a}_2,\cdots,\mathbf{a}_n]'$ 的矩阵以均值相关数据矩阵近似
+\[
+[\mathbf{x}_1-\bar{\mathbf{x}},\mathbf{x}_2-\bar{\mathbf{x}},\cdots,\mathbf{x}_n-\bar{\mathbf{x}}]'
+\]
+近似误差被量化为 $np$ 个平方误差之和
+\phantomsection\label{eq:8A-1}
+\begin{equation}
+\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{a}_j)'(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{a}_j)=\sum_{j=1}^{n}\sum_{i=1}^{p}(x_{ji}-\bar{x}_i-a_{ji})^2 \tag{8A-1}
+\end{equation}
+
+\mvthm{结论 8A.1}{令 $\underset{(n\times p)}{\mathbf{A}}$ 是任一矩阵, 秩$(\mathbf{A})\leqslant r<\min(p,n)$. 令 $\hat{\mathbf{E}}_r=[\hat{\mathbf{e}}_1,\hat{\mathbf{e}}_2,\cdots,\hat{\mathbf{e}}_r]$, 其中 $\hat{\mathbf{e}}_i$ 是 $\mathbf{S}$ 的第 $i$ 个特征向量. 选择}
+\[
+\hat{\mathbf{A}}=\begin{bmatrix}(\mathbf{x}_1-\bar{\mathbf{x}})'\\(\mathbf{x}_2-\bar{\mathbf{x}})'\\\vdots\\(\mathbf{x}_n-\bar{\mathbf{x}})'\end{bmatrix}\hat{\mathbf{E}}_r\hat{\mathbf{E}}_r'=[\hat{\mathbf{y}}_1,\hat{\mathbf{y}}_2,\cdots,\hat{\mathbf{y}}_r]\hat{\mathbf{E}}_r'
+\]
+使\hyperref[eq:8A-1]{式(8A-1)}中的近似平方和误差最小化, 故其转置 $\hat{\mathbf{A}}'$ 的第 $j$ 列为
+\[
+\hat{\mathbf{a}}_j=\hat{y}_{j1}\hat{\mathbf{e}}_1+\hat{y}_{j2}\hat{\mathbf{e}}_2+\cdots+\hat{y}_{jr}\hat{\mathbf{e}}_r
+\]

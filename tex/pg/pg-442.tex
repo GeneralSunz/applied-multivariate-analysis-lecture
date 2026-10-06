@@ -1,0 +1,78 @@
+% ---- pg-442 （书页 430） ----
+
+\[
+\mathbf{Z}=[\begin{array}{c:c}\mathbf{Z}^{(1)}&\mathbf{Z}^{(2)}\end{array}]=\left[\begin{array}{c:c}
+\mathbf{z}_1^{(1)'} & \mathbf{z}_1^{(2)'}\\
+\vdots & \vdots\\
+\mathbf{z}_n^{(1)'} & \mathbf{z}_n^{(2)'}
+\end{array}\right]
+\]
+并且样本典型变量变为
+\phantomsection\label{eq:10-30}
+\begin{equation}
+\hat{\mathbf{U}}_{(p\times 1)}=\hat{\mathbf{A}}_z\mathbf{z}^{(1)};\qquad \hat{\mathbf{V}}_{(q\times 1)}=\hat{\mathbf{B}}_z\mathbf{z}^{(2)}
+\tag{10-30}
+\end{equation}
+其中 $\hat{\mathbf{A}}_z=\hat{\mathbf{A}}\mathbf{D}_{11}^{-1/2}$ 和 $\hat{\mathbf{B}}_z=\hat{\mathbf{B}}\mathbf{D}_{22}^{-1/2}$. 样本典型相关系数不受标准化的影响. \hyperref[eq:10-29]{式(10-29)}中列出的相关系数对标准观察值保持不变, 并且这些相关系数可通过 $\hat{\mathbf{A}}_z$ 代替 $\hat{\mathbf{A}}$, $\hat{\mathbf{B}}_z$ 代替 $\hat{\mathbf{B}}$ 及 $\mathbf{R}$ 代替 $\mathbf{S}$ 来计算. 注意对标准观察值有 $\mathbf{D}_{11}^{-1/2}=\mathbf{I}_{(p\times p)}$ 和 $\mathbf{D}_{22}^{-1/2}=\mathbf{I}_{(q\times q)}$.
+
+\noindent\textbf{例 10.4}\quad (鸡的骨骼数据的典型相关分析)
+
+在例 9.14 中, 描述了白来亨鸡的骨骼和颅骨测量值组成的数据. 在该例中, 鸡骨测量值
+\[
+\begin{aligned}
+\text{头}(\mathbf{X}^{(1)}):\quad &\begin{cases}X_1^{(1)}=\text{颅骨幅宽}\\ X_2^{(1)}=\text{颅骨长度}\end{cases}\\
+\text{腿}(\mathbf{X}^{(2)}):\quad &\begin{cases}X_1^{(2)}=\text{股骨长度}\\ X_2^{(2)}=\text{胫骨长度}\end{cases}
+\end{aligned}
+\]
+有样本相关矩阵
+\[
+\mathbf{R}=\left[\begin{array}{c:c}
+\mathbf{R}_{11} & \mathbf{R}_{12}\\
+\hdashline
+\mathbf{R}_{21} & \mathbf{R}_{22}
+\end{array}\right]=\left[\begin{array}{cc:cc}
+1.0 & 0.505 & 0.569 & 0.602\\
+0.505 & 1.0 & 0.422 & 0.467\\
+\hdashline
+0.569 & 0.422 & 1.0 & 0.926\\
+0.602 & 0.467 & 0.926 & 1.0
+\end{array}\right]
+\]
+头和腿的变量组的典型相关分析利用 $\mathbf{R}$ 产生两个典型相关系数和对应的变量对
+\[
+\hat{\rho}_1^*=0.631\qquad
+\begin{aligned}
+\hat{U}_1&=0.781z_1^{(1)}+0.345z_2^{(1)}\\
+\hat{V}_1&=0.060z_1^{(2)}+0.944z_2^{(2)}
+\end{aligned}
+\]
+和
+\[
+\hat{\rho}_2^*=0.057\qquad
+\begin{aligned}
+\hat{U}_2&=-0.856z_1^{(1)}+1.106z_2^{(1)}\\
+\hat{V}_2&=-2.648z_1^{(2)}+2.475z_2^{(2)}
+\end{aligned}
+\]
+这里 $z_i^{(1)}$ ($i=1,2$)和 $z_i^{(2)}$ ($i=1,2$)分别是组 1 和组 2 的标准化数据值. 处理的结果取自统计软件 SAS 的输出, 示于显示板 10.1 中. 此外, 原始变量和典型变量的相关系数在显示板中以阴影表示.\hfill$\blacksquare$
+
+\medskip
+\noindent\textbf{显示板 10.1}\quad 利用 PROC CANCORR 对例 10.4 作 SAS 分析
+
+\begin{mvbox}
+{\ttfamily\small
+title 'Canonical Correlation Analysis';\hfill\textbf{\rmfamily PROGRAM COMMANDS}\\
+data skull (type = corr);\\
+\_type\_ = 'CORR';\\
+input \_name\_\$ x1 x2 x3 x4;\\
+cards;\\
+x1\quad 1.0\\
+x2\quad .505\quad 1.0\\
+x3\quad .569\quad .422\quad 1.0\\
+x4\quad .602\quad .467\quad .926\quad 1.0\\
+;\\
+\par\vspace{8pt}
+proc cancorr data = skull vprefix = head wprefix = leg;\\
+\hspace*{2em}var x1 x2; with x3 x4;
+\par}
+\end{mvbox}

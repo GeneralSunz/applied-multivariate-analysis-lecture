@@ -1,0 +1,41 @@
+的总形状, 从而与这个结构一致.
+
+此外, 由结论 4.7, 二元结果的集合 $\mathbf{x}$ 满足
+\[
+(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\le \chi_{2}^{2}(0.5)
+\]
+其概率为 0.5. 因此, 我们应当粗略地期望对于所给椭圆上的样本观测值有相同的百分比(50\%), 该椭圆由下式给出
+\[
+\{\text{一切满足 } (\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\le \chi_{2}^{2}(0.5) \text{ 的 } \mathbf{x}\}
+\]
+其中我们用 $\boldsymbol{\mu}$ 的估计值 $\bar{\mathbf{x}}$ 来代替 $\boldsymbol{\mu}$ 并用 $\boldsymbol{\Sigma}^{-1}$ 的估计值 $\mathbf{S}^{-1}$ 来代替 $\boldsymbol{\Sigma}^{-1}$. 否则, 正态性假定就是可疑的.
+
+\noindent\textbf{例 4.12}\quad \textbf{(二元正态性检验)}
+
+虽然不是一个随机样本, 在练习 1.4 中列举了对美国最大的 10 家工业公司的观测值对 $(x_{1}=\text{销售额},x_{2}=\text{利润})$ 组成的数据. 这些数据给出
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}155.60\\14.70\end{bmatrix},\quad \mathbf{S}=\begin{bmatrix}7\,476.45 & 303.62\\303.62 & 26.19\end{bmatrix}
+\]
+于是
+\[
+\mathbf{S}^{-1}=\frac{1}{103\,623.12}\begin{bmatrix}26.19 & -303.62\\-303.62 & 7\,476.45\end{bmatrix}
+=\begin{bmatrix}0.000\,253 & -0.002\,930\\-0.002\,930 & 0.072\,148\end{bmatrix}
+\]
+根据附表 3, $\chi_{2}^{2}(0.5)=1.39$. 因此, 任意满足
+\[
+\begin{bmatrix}x_{1}-155.60\\x_{2}-14.70\end{bmatrix}'\begin{bmatrix}0.000\,253 & -0.002\,930\\-0.002\,930 & 0.072\,148\end{bmatrix}\begin{bmatrix}x_{1}-155.60\\x_{2}-14.70\end{bmatrix}\le 1.39
+\]
+的观测值 $\mathbf{x}'=[x_{1},x_{2}]$ 处于估计 50\% 轮廓线的线上或内部, 否则观测值在轮廓线的外部. 在练习 1.4 中第一对观测值是 $[x_{1},x_{2}]'=[108.28,17.05]$. 此时
+\[
+\begin{bmatrix}108.28-155.60\\17.05-14.70\end{bmatrix}'\begin{bmatrix}0.000\,253 & -0.002\,930\\-0.002\,930 & 0.072\,148\end{bmatrix}\begin{bmatrix}108.28-155.60\\17.05-14.70\end{bmatrix}=1.61>1.39
+\]
+并且该点落在 50\% 轮廓线之外. 其余 9 个点距 $\bar{\mathbf{x}}$ 的广义距离分别为 0.30, 0.62, 1.79, 1.30, 4.38, 1.64, 3.53, 1.71 和 1.16. 由于这些距离中有 4 个小于 1.39, 数据落在 50\% 轮廓线之内的比例占 0.4. 如果观测值服从正态分布, 我们应期望它们中的大约一半或 5 个处于轮廓线之内. 比例上的差别通常为拒绝二元正态性的看法提供证据; 但是, 本例中的样本容量太小, 仅为 10, 不足以得出这一结论(也参见例 4.13).\hfill$\blacksquare$
+
+计算处于轮廓线内的点的比例, 并将其与理论上的概率进行主观比较, 这是有用的方法, 不过有点粗略. 在判断一个数据集的联合正态性时, 一种更正式的方法是基于广义平方距离
+\phantomsection\label{eq:4-32}
+\begin{equation}
+d_{j}^{2}=(\mathbf{x}_{j}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}_{j}-\bar{\mathbf{x}}),\quad j=1,2,\cdots,n \tag{4-32}
+\end{equation}
+其中 $\mathbf{x}_{1},\mathbf{x}_{2},\cdots,\mathbf{x}_{n}$ 是样本观测值. 我们准备描述的方法不仅仅局限于二元情况, 它对所有 $p\ge 2$ 的情况都适用.
+
+当总体是多元正态的, 且 $n$ 和 $n-p$ 都比 25 或 30 更大时, 平方距离 $d_{1}^{2},d_{2}^{2},\cdots,d_{n}^{2}$ 中的每一个应该表现为一个卡方随机变量[参见结论 4.7 以及\hyperref[eq:4-26]{式(4-26)}和\hyperref[eq:4-27]{式(4-27)}]. 即使这些距离

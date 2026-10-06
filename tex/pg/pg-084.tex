@@ -1,0 +1,55 @@
+% ---- pg-084 （书页 72） ----
+
+\[
+-2\begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix} + 5\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} + \begin{bmatrix} -1 \\ -1 \\ -1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+
+而第 1 列和第 2 列是线性无关的.正如下面结论所指出的,这并非巧合.
+
+\mvthm{结论 2A.6}{一个矩阵的行秩和列秩是相等的.}
+
+因此,一个矩阵的秩既是行秩也是列秩.
+
+\mvthm{定义 2A.26}{对方阵 $\bm{A}$,如果 $\bm{A}\,\bm{x}_{(k\times 1)} = \bm{0}_{(k\times 1)}$ 意味着 $\bm{x}_{(k\times 1)} = \bm{0}_{(k\times 1)}$,则称此方阵是非奇异的.如果一个矩阵不是非奇异的,则称它是奇异的.等价地说,如果一个方阵的秩等于它的行(或列)数,则此方阵是非奇异的.}
+
+注意 $\bm{A}\bm{x} = x_1\bm{a}_1 + x_2\bm{a}_2 + \cdots + x_k\bm{a}_k$,其中 $\bm{a}_i$ 是 $\bm{A}$ 的第 $i$ 列,于是 $\bm{A}$ 是非奇异 的条件恰好就是 $\bm{A}$ 的列向量线性无关.
+
+\mvthm{结论 2A.7}{设 $\bm{A}$ 是一个非奇异的 $k\times k$ 维方阵,则存在唯一的 $k\times k$ 矩阵 $\bm{B}$,使得}
+\[
+\bm{A}\bm{B} = \bm{B}\bm{A} = \bm{I}
+\]
+其中 $\bm{I}$ 是 $k\times k$ 单位矩阵.
+
+\mvthm{定义 2A.27}{若 $\bm{B}$ 满足 $\bm{A}\bm{B}=\bm{B}\bm{A}=\bm{I}$,称 $\bm{B}$ 为 $\bm{A}$ 的逆并用 $\bm{A}^{-1}$ 表示.事实上,如果 $\bm{B}\bm{A}=\bm{I}$ 或 $\bm{A}\bm{B}=\bm{I}$,则 $\bm{B}=\bm{A}^{-1}$,且两个乘积必定等于 $\bm{I}$.}
+
+例如,
+\[
+\bm{A} = \begin{bmatrix} 2 & 3 \\ 1 & 5 \end{bmatrix} \qquad \text{有} \qquad
+\bm{A}^{-1} = \begin{bmatrix} \dfrac{5}{7} & -\dfrac{3}{7} \\[8pt] -\dfrac{1}{7} & \dfrac{2}{7} \end{bmatrix}
+\]
+
+因为
+\[
+\begin{bmatrix} 2 & 3 \\ 1 & 5 \end{bmatrix}\begin{bmatrix} \dfrac{5}{7} & -\dfrac{3}{7} \\[8pt] -\dfrac{1}{7} & \dfrac{2}{7} \end{bmatrix}
+= \begin{bmatrix} \dfrac{5}{7} & -\dfrac{3}{7} \\[8pt] -\dfrac{1}{7} & \dfrac{2}{7} \end{bmatrix}\begin{bmatrix} 2 & 3 \\ 1 & 5 \end{bmatrix}
+= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\]
+
+\mvthm{结论 2A.8}{}
+
+(a) 任一 $2\times2$ 矩阵
+\[
+\bm{A} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
+\]
+
+的逆是
+\[
+\bm{A}^{-1} = \frac{1}{|\bm{A}|}\begin{bmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{bmatrix}
+\]
+
+(b) 任一 $3\times3$ 矩阵
+\[
+\bm{A} = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{bmatrix}
+\]
+
+的逆是

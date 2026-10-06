@@ -1,0 +1,69 @@
+% ---- pg-234 （书页 222） ----
+\[
+\sqrt{\lambda_2}\sqrt{\left(\frac{1}{n_1}+\frac{1}{n_2}\right)c^2}=\sqrt{3\,301.5}\times\sqrt{\left(\frac{1}{45}+\frac{1}{55}\right)\times 6.26}=28.9
+\]
+
+\begin{mvfigure}
+\centering
+\begin{tikzpicture}[scale=0.95,every node/.style={font=\small}]
+% 坐标轴
+\draw[->] (0,0)--(4.3,0) node[below right] {$\mu_{11}-\mu_{21}$};
+\draw[->] (0,0)--(0,4.3) node[left] {$\mu_{12}-\mu_{22}$};
+\node[below left] at (0,0) {0};
+% 刻度
+\foreach \x/\lab in {1.538/100,3.077/200} {
+  \draw (\x,0.06)--(\x,-0.06);
+  \node[below] at (\x,-0.04) {\lab};
+}
+\foreach \y/\lab in {1.143/100,2.286/200,3.429/300} {
+  \draw (0.06,\y)--(-0.06,\y);
+  \node[left] at (-0.05,\y) {\lab};
+}
+% 95% 置信椭圆
+\draw[rotate around={64.3:(1.144,2.304)}] (1.144,2.304) ellipse ({1.604} and {0.433});
+% 主轴方向
+\draw (0.387,0.726)--(1.901,3.882);
+\draw (0.612,2.163)--(1.676,2.445);
+\fill (1.144,2.304) circle (1.6pt);
+\end{tikzpicture}
+\phantomsection\label{fig:6.2}\mvcap{图 6.2\quad $\boldsymbol{\mu}_1'-\boldsymbol{\mu}_2'=(\mu_{11}-\mu_{21},\mu_{12}-\mu_{22})$ 的 95\% 置信椭圆}
+\end{mvfigure}
+
+我们得出如\hyperref[fig:6.2]{图 6.2} 所示的 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 的 95\% 置信椭圆，因为这个均值差的置信椭圆不包含 $\mathbf{0}'=[0,0]$，故在 5\% 显著性水平下，$T^2$ 统计量将拒绝假设 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$.
+
+对拒绝该假设起主要作用的线性组合而言，其系数向量与 $\mathbf{S}_p^{-1}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)$ 成正比（见练习 6.7）.\hfill$\blacksquare$
+
+$p$ 维总体均值差的 $100(1-\alpha)\%$ \mvbold{庞弗罗尼}联合置信区间为
+\[
+\mu_{1i}-\mu_{2i}:\ (\bar{x}_{1i}-\bar{x}_{2i})\pm t_{n_1+n_2-2}\left(\frac{\alpha}{2p}\right)\sqrt{\left(\frac{1}{n_1}+\frac{1}{n_2}\right)s_{ii,\mathrm{p}}}
+\]
+其中的 $t_{n_1+n_2-2}(\alpha/2p)$ 为自由度为 $n_1+n_2-2$ 的 $t$ 分布的上 $100(\alpha/2p)$ 百分位数.
+
+\subsection{\texorpdfstring{$\boldsymbol{\Sigma}_1\neq\boldsymbol{\Sigma}_2$}{Sigma1!=Sigma2} 时的二样本问题}
+
+$\boldsymbol{\Sigma}_1\neq\boldsymbol{\Sigma}_2$ 时，我们无法找到像 $T^2$ 这样的“距离”测度，$T^2$ 的分布与未知的 $\boldsymbol{\Sigma}_1$ 和 $\boldsymbol{\Sigma}_2$ 无关. 虽然我们可用巴特利特检验（见文献[3]）以广义方差的形式来检验 $\boldsymbol{\Sigma}_1$ 与 $\boldsymbol{\Sigma}_2$ 的相等性，不幸的是，当总体为非正态总体时，结论将受到严重误导. 在巴特利特检验中，非正态性与不相等协方差不能分离（参见 6.6 节）. 蒂库和巴拉克里莎（见文献[23]）提出了一种检验两个协方差阵是否相等的方法，该方法对多元正态性假定不太敏感. 不过在我们无条件地介绍这一方法之前，尚需积累更多的实际经验.
+
+我们认为（没有多少实际根据），阶的歧异可能很严重（$\sigma_{1,ii}=4\sigma_{2,ii}$，反过来也一样）. 这在一元情形的确是对的. 在多元情形下，极其重要的歧异大小在很大程度上依赖于变量数目 $p$.
+
+当边际方差之间有较大差异时，某种变换也许能使情况得到改善. 不过当 $n_1$ 与 $n_2$ 很大时，由不相等的协方差阵所引起的复杂性可以避免.
+
+\mvthm{结论 6.4}{设样本容量使 $n_1-p$ 与 $n_2-p$ 都很大，此时 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 的近似 $100(1-\alpha)\%$ 置信椭球为满足
+\[
+[\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)]'\left[\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right]^{-1}[\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)]\leqslant\chi_p^2(\alpha)
+\]
+的所有 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 给出，其中 $\chi_p^2(\alpha)$ 为自由度为 $p$ 的 $\chi^2$ 分布的上 $100\alpha$ 百分位数. 而且，所有线性组合 $\boldsymbol{a}'(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)$ 的 $100(1-\alpha)\%$ 联合置信区间为
+\[
+\boldsymbol{a}'(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)\pm\sqrt{\chi_p^2(\alpha)}\sqrt{\boldsymbol{a}'\left(\frac{1}{n_1}\mathbf{S}_1+\frac{1}{n_2}\mathbf{S}_2\right)\boldsymbol{a}}
+\]}
+
+\mvbold{证明}\quad 由\hyperref[eq:6-22]{式(6-22)}及\hyperref[eq:3-9]{式(3-9)}知
+\[
+E(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2)=\boldsymbol{\mu}_1-\boldsymbol{\mu}_2
+\]
+\[
+\operatorname{Cov}(\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2)=\operatorname{Cov}(\bar{\mathbf{X}}_1)+\operatorname{Cov}(\bar{\mathbf{X}}_2)=\frac{1}{n_1}\boldsymbol{\Sigma}_1+\frac{1}{n_2}\boldsymbol{\Sigma}_2
+\]
+根据由中心极限定理，$\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2$ 近似服从 $N_p\left[\boldsymbol{\mu}_1-\boldsymbol{\mu}_2,n_1^{-1}\boldsymbol{\Sigma}_1+n_2^{-1}\boldsymbol{\Sigma}_2\right]$. 若 $\boldsymbol{\Sigma}_1$ 和 $\boldsymbol{\Sigma}_2$ 已知，从 $\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2$ 到 $\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$ 的统计距离的平方为
+\[
+[\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)]'\left(\frac{1}{n_1}\boldsymbol{\Sigma}_1+\frac{1}{n_2}\boldsymbol{\Sigma}_2\right)^{-1}[\bar{\mathbf{X}}_1-\bar{\mathbf{X}}_2-(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)]
+\]

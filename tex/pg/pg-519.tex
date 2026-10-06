@@ -1,0 +1,59 @@
+% ---- pg-519 （书页 507） ----
+
+“将 $X$ 分配到 $\pi_1$”, $B2$ 为事件“将 $X$ 分配到 $\pi_2$”. 试对下表所列的各种 $c$ 值给出 $P(B1\mid A2)$, $P(B2\mid A1)$, $P(A1\text{ 且 }B2)$, $P(A2\text{ 且 }B1)$, $P(\text{错误分类})$, 以及期望代价之值. 对哪个 $c$ 值期望代价最小?
+
+\begin{mvtable}
+\begin{tabular}{ccccccc}
+\toprule
+$c$ & $P(B1\mid A2)$ & $P(B2\mid A1)$ & $P(A1\text{ 且 }B2)$ & $P(A2\text{ 且 }B1)$ & $P(\text{错误})$ & 期望代价\\
+\midrule
+10 & & & & & & \\
+\vdots & & & & & & \\
+14 & & & & & & \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+最小期望代价值是什么?
+
+\noindent 11.12\quad 重复练习 11.11, 但假定 $A1$ 和 $A2$ 的先验概率相等, 而 $c(2\mid 1)=5$ 美元, $c(1\mid 2)=15$ 美元.
+
+\noindent 11.13\quad 重复练习 11.11, 但假定先验概率为 $P(A1)=0.25$, $P(A2)=0.75$, 而错分代价与 11.12 所给的相同.
+
+\noindent 11.14\quad 考虑例 11.13 所导出的判别函数. 用\hyperref[eq:11-21]{式(11-21)}和\hyperref[eq:11-22]{式(11-22)}使 $\hat{\mathbf{a}}'$ 正则化. 计算对应于两个正则化向量 $\hat{\mathbf{a}}_1^*$ 和 $\hat{\mathbf{a}}_2^*$ 的中点 $\hat{m}_1^*$ 和 $\hat{m}_2^*$. 对这两种情形将 $\mathbf{x}_0'=[-0.210,-0.044]$ 用函数 $\hat{y}=\hat{\mathbf{a}}_i^{*\prime}\mathbf{x}$ 进行分类. 所得结果与例 11.3 中在等先验概率下得到的结果是否一致? 它们是否应该一致?
+
+\noindent 11.15\quad 设 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$ 为多元正态分布, 均值向量分别为 $\boldsymbol{\mu}_1$ 和 $\boldsymbol{\mu}_2$, 协方差矩阵分别为 $\boldsymbol{\Sigma}_1$ 和 $\boldsymbol{\Sigma}_2$, 试由\hyperref[eq:11-6]{式(11-6)}导出\hyperref[eq:11-27]{式(11-27)}.
+
+\noindent 11.16\quad 假定 $\mathbf{x}$ 来自以下两个总体之一.
+\[
+\begin{gathered}
+\pi_1:\ \text{正态}, \text{均值}\ \boldsymbol{\mu}_1, \text{协方差阵}\ \boldsymbol{\Sigma}_1\\
+\pi_2:\ \text{正态}, \text{均值}\ \boldsymbol{\mu}_2, \text{协方差阵}\ \boldsymbol{\Sigma}_2
+\end{gathered}
+\]
+两个密度函数分别记为 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$, 给出二次判别量
+\[
+Q=\ln\left[\frac{f_1(\mathbf{x})}{f_2(\mathbf{x})}\right]
+\]
+的表达式. 如果 $\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2=\boldsymbol{\Sigma}$, 验证: $Q$ 变为
+\[
+(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}\mathbf{x}-\frac{1}{2}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)
+\]
+
+\noindent 11.17\quad 设总体 $\pi_1$ 和 $\pi_2$ 如下表所示:
+
+\begin{mvtable}
+\begin{tabular}{lcc}
+\toprule
+& \multicolumn{2}{c}{总体}\\
+\cmidrule(lr){2-3}
+& $\pi_1$ & $\pi_2$\\
+\midrule
+分布 & 正态 & 正态\\
+均值 $\boldsymbol{\mu}_i$ & $[10,15]'$ & $[10,25]'$\\
+方差-协方差 $\boldsymbol{\Sigma}_i$ & $\begin{bmatrix}18&12\\12&32\end{bmatrix}$ & $\begin{bmatrix}20&-7\\-7&5\end{bmatrix}$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+假定先验概率相同, 错分代价 $c(2\mid 1)=10$ 美元和 $c(1\mid 2)=73.89$ 美元. 计算总体 $\pi_1$ 和 $\pi_2$ 的后验概率 $P(\pi_1\mid \mathbf{x})$ 和 $P(\pi_2\mid \mathbf{x})$, 练习 11.16 中的二次判别量 $Q$ 的值, 并对下表中的每个 $\mathbf{x}$ 值进行分类.

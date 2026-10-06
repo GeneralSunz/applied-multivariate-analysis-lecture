@@ -1,0 +1,96 @@
+% ---- pg-066 （书页 54） ----
+
+\[
+=E\begin{bmatrix}
+(X_1-\mu_1)^2 & (X_1-\mu_1)(X_2-\mu_2) & \cdots & (X_1-\mu_1)(X_p-\mu_p)\\
+(X_2-\mu_2)(X_1-\mu_1) & (X_2-\mu_2)^2 & \cdots & (X_2-\mu_2)(X_p-\mu_p)\\
+\vdots & \vdots & & \vdots\\
+(X_p-\mu_p)(X_1-\mu_1) & (X_p-\mu_p)(X_2-\mu_2) & \cdots & (X_p-\mu_p)^2
+\end{bmatrix}
+\]
+
+\[
+=\begin{bmatrix}
+E(X_1-\mu_1)^2 & E(X_1-\mu_1)(X_2-\mu_2) & \cdots & E(X_1-\mu_1)(X_p-\mu_p)\\
+E(X_2-\mu_2)(X_1-\mu_1) & E(X_2-\mu_2)^2 & \cdots & E(X_2-\mu_2)(X_p-\mu_p)\\
+\vdots & \vdots & & \vdots\\
+E(X_p-\mu_p)(X_1-\mu_1) & E(X_p-\mu_p)(X_2-\mu_2) & \cdots & E(X_p-\mu_p)^2
+\end{bmatrix}
+\]
+
+或
+
+\phantomsection\label{eq:2-31}
+\begin{equation}
+\bm{\Sigma}=\operatorname{Cov}(\bm{X})=\begin{bmatrix}
+\sigma_{11} & \sigma_{12} & \cdots & \sigma_{1p}\\
+\sigma_{21} & \sigma_{22} & \cdots & \sigma_{2p}\\
+\vdots & \vdots & & \vdots\\
+\sigma_{p1} & \sigma_{p2} & \cdots & \sigma_{pp}
+\end{bmatrix} \tag{2-31}
+\end{equation}
+
+\mvbold{例 2.13} （计算协方差矩阵）
+
+例 2.12 中的两个随机变量 $X_1$ 和 $X_2$,设其联合概率函数 $p_{12}(x_1,x_2)$ 如下表所示：
+
+\begin{mvtable}
+\begin{tabular}{ccccc}
+\toprule
+$X_1 \backslash X_2$ & & 0 & 1 & $p_1(x_1)$ \\
+\midrule
+& $-1$ & 0.24 & 0.06 & 0.3 \\
+& 0 & 0.16 & 0.14 & 0.3 \\
+& 1 & 0.40 & 0.00 & 0.4 \\
+$p_2(x_2)$ & & 0.8 & 0.2 & 1 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+求其协方差矩阵.
+
+我们已经求出 $\mu_1=E(X_1)=0.1$ 和 $\mu_2=E(X_2)=0.2$(参见例 2.12). 此外,
+
+\[
+\sigma_{11}=E(X_1-\mu_1)^2=\sum_{\text{所有 }x_1}(x_1-0.1)^2p_1(x_1)
+\]
+
+\[
+=(-1-0.1)^2\times 0.3+(0-0.1)^2\times 0.3+(1-0.1)^2\times 0.4=0.69
+\]
+
+\[
+\sigma_{22}=E(X_2-\mu_2)^2=\sum_{\text{所有 }x_2}(x_2-0.2)^2p_2(x_2)
+\]
+
+\[
+=(0-0.2)^2\times 0.8+(1-0.2)^2\times 0.2=0.16
+\]
+
+\[
+\sigma_{12}=E(X_1-\mu_1)(X_2-\mu_2)=\sum_{\text{所有 }(x_1,x_2)}(x_1-0.1)(x_2-0.2)p_{12}(x_1,x_2)
+\]
+
+\[
+=(-1-0.1)(0-0.2)\times 0.24+(-1-0.1)(1-0.2)\times 0.06
+\]
+
+\[
++\cdots+(1-0.1)(1-0.2)\times 0.00=-0.08
+\]
+
+\[
+\sigma_{21}=E(X_2-\mu_2)(X_1-\mu_1)=E(X_1-\mu_1)(X_2-\mu_2)=\sigma_{12}=-0.08
+\]
+
+因此,由 $\bm{X}'=[X_1,X_2]$ 有
+
+\[
+\bm{\mu}=E(\bm{X})=\begin{bmatrix}E(X_1)\\E(X_2)\end{bmatrix}=\begin{bmatrix}\mu_1\\\mu_2\end{bmatrix}=\begin{bmatrix}0.1\\0.2\end{bmatrix}
+\]
+
+和
+
+\[
+\bm{\Sigma}=E(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})'
+\]

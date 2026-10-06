@@ -1,0 +1,72 @@
+% ---- pg-592 （书页 580） ----
+
+\noindent 12.2\quad 用\hyperref[tab:12.1]{表 12.1} 中的相似性系数 5,6 和 7 重复练习 12.1.
+
+\noindent 12.3\quad 证明: 对具有后面所列频数的二值变量, 样本相关系数[见\hyperref[eq:12-11]{式(12-11)}]可以写为
+\[
+r=\frac{ad-bc}{[(a+b)(a+c)(b+d)(c+d)]^{1/2}}
+\]
+二值变量的频数为
+
+\begin{mvtable}
+\setlength{\tabcolsep}{10pt}%
+\begin{tabular}{cc|cc}
+\toprule
+& & \multicolumn{2}{c}{变量 2} \\
+\cmidrule(lr){3-4}
+& & 0 & 1 \\
+\midrule
+\multirow{2}{*}{变量 1} & 0 & $a$ & $b$ \\
+& 1 & $c$ & $d$ \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+\noindent 12.4\quad 试证\hyperref[tab:12.1]{表 12.1} 中的相似性系数 1,2,3 之间有单调关系.
+
+提示: $(b+c)=p-(a+d)$. 故有(比如说)
+\[
+\frac{a+d}{a+d+2(b+c)}=\frac{1}{1+2[p/(a+d)-1]}
+\]
+这个方程表达了系数 3 与 1 之间的关系. 求其他各对系数的类似表示.
+
+\noindent 12.5\quad 考虑距离矩阵
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{cccc}1&2&3&4\end{array}\\[2pt]
+\begin{array}{r}1\\2\\3\\4\end{array} &
+\left[\begin{array}{cccc}
+0&&&\\
+1&0&&\\
+11&2&0&\\
+5&3&4&0
+\end{array}\right]
+\end{array}
+\]
+用下述方法对以上 4 个项目进行聚类.
+
+\noindent (a) 单连接分层方法.
+
+\noindent (b) 完全连接分层方法.
+
+\noindent (c) 平均连接分层方法.
+
+画出树图, 并比较以上三种方法所得到的结果.
+
+\noindent 12.6\quad 五个项目间的距离阵如下:
+\[
+\begin{array}{r@{\;}c}
+ & \begin{array}{ccccc}1&2&3&4&5\end{array}\\[2pt]
+\begin{array}{r}1\\2\\3\\4\\5\end{array} &
+\left[\begin{array}{ccccc}
+0&&&&\\
+4&0&&&\\
+6&9&0&&\\
+1&7&10&0&\\
+6&3&5&8&0
+\end{array}\right]
+\end{array}
+\]
+用练习 12.5 中的三种方法对这五个项目进行聚类. 画出树图并比较结果.
+
+\noindent 12.7\quad 例 8.5 中曾给出五种股票间的相关系数. 这些相关系数在保留两位小数后重新列于下表:

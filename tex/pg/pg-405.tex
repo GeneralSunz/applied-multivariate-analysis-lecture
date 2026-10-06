@@ -1,0 +1,77 @@
+% ---- pg-405 （书页 393） ----
+
+\begin{mvtable}
+\begin{tabular}{@{}l@{\quad}rrrrrr@{}}
+& 盖尔语 & 英语 & 历史 & 算术 & 代数 & 几何\\[2pt]
+$\mathbf{R}=$ & \multicolumn{6}{c}{$\begin{bmatrix}
+1.0&0.439&0.410&0.288&0.329&0.248\\
+&1.0&0.351&0.354&0.320&0.329\\
+& &1.0&0.164&0.190&0.181\\
+& & &1.0&0.595&0.470\\
+& & & &1.0&0.464\\
+& & & & &1.0
+\end{bmatrix}$}
+\end{tabular}
+\end{mvtable}
+
+对 $m=2$ 公共因子的极大似然解得出\hyperref[tab:9.5]{表 9.5} 中的估计值.
+
+\begin{mvtable}
+\begin{tabular}{lccc}
+\toprule
+\multirow{2}{*}{变\hspace{1.5em}量} & \multicolumn{2}{c}{因子载荷估计} & \multirow{2}{*}{共性方差 $\hat{h}_i^2$}\\
+\cmidrule(lr){2-3}
+& $F_1$ & $F_2$ & \\
+\midrule
+1.\ 盖尔语 & 0.553 & 0.429 & 0.490\\
+2.\ 英语 & 0.568 & 0.288 & 0.406\\
+3.\ 历史 & 0.392 & 0.450 & 0.356\\
+4.\ 算术 & 0.740 & $-0.273$ & 0.623\\
+5.\ 代数 & 0.724 & $-0.211$ & 0.569\\
+6.\ 几何 & 0.595 & $-0.132$ & 0.372\\
+\bottomrule
+\end{tabular}
+\phantomsection\label{tab:9.5}\mvtabcap{表 9.5}
+\end{mvtable}
+
+所有的变量在第一因子上都有正载荷. 劳雷和马克斯韦尔建议, 这个因子反映学生对教学的整体响应并且可以标为一般智力因子. 在第二因子上, 一半载荷为正一半载荷为负. 有这种载荷模式的因子叫\mvbold{两极因子}. (负极与正极的分派是任意的, 因为在一个因子上载荷的正负号可换为相反的符号而不影响分析.) 这种因子不易确认, 但在语言表达的测试中得到平均分以上的个人在这个因子上也得到平均分以上的得分. 在数学测试中有平均分以上成绩的个人在此因子上得到平均分以下的得分, 也许可以把这种因子分类作为一个“数学-非数学”因子.
+
+将因子载荷配对 $(\hat{l}_{i1},\hat{l}_{i2})$ 在\hyperref[fig:9.1]{图 9.1} 中用点表示, 在点上标出相应的变量的序号. 图上还画出坐标轴顺时针方向绕过一个角度 $\phi\doteq20^\circ$ 的正交旋转. 选这个角度是为了让新坐标轴之一经过 $(\hat{l}_{41},\hat{l}_{42})$. 做完这些, 所有点都全落在第一象限中(因子载荷全为正), 并且更为清晰地揭示出有两个不同的变量簇.
+
+数学测试变量在 $F_1^*$ 上有高额载荷而在 $F_2^*$ 上有负载荷. 第一个因子可以称为数学能力因子. 类似的, 三个语言表达的测试变量在 $F_2^*$ 上有高额而在 $F_1^*$ 上为中到小的载荷. 可以给第二因子标为语言表达能力因子. 最初确认的一般智力因子被淹没在因子 $F_1^*$ 和 $F_2^*$ 之中.
+
+在\hyperref[tab:9.6]{表 9.6} 中是, 从取 $\phi\doteq20^\circ$ 的\hyperref[eq:9-44]{式(9-44)}得到的旋转后因子载荷和相应的共性方差估计. 旋转后因子载荷的大小支持由\hyperref[fig:9.1]{图 9.1} 所提出的因子阐述.
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=4.2cm,y=4.2cm,>=stealth]
+\draw[->] (0,-0.62) -- (0,0.72) node[above,font=\small] {$F_2$};
+\draw[->] (0,0) -- (1.20,0) node[below right=-2pt,font=\small] {$F_1$};
+\foreach \y in {0.5,-0.5}{
+  \draw (0,\y) -- (-0.04,\y);
+  \node[left,font=\small,inner sep=2pt] at (-0.06,\y) {\y};}
+\node[left,font=\small,inner sep=2pt] at (-0.06,0) {0};
+\foreach \x/\lab in {0.5/0.5,1.0/1.0}{
+  \draw (\x,0) -- (\x,0.035);
+  \node[below,font=\small,inner sep=2pt] at (\x,-0.02) {\lab};}
+% 旋转后的坐标轴
+\draw[dashed,->] (0,0) -- (0.246,0.676) node[above right=-2pt,font=\small] {$F_2^*$};
+\draw[dashed,->] (0,0) -- (1.10,-0.400) node[below right=-2pt,font=\small] {$F_1^*$};
+% 旋转角
+\draw[->] (0.32,0) arc (0:-20:0.32);
+\node[font=\small] at (0.40,-0.10) {$\phi$};
+% 点与序号
+\fill (0.553,0.429) circle (1.8pt);
+\node[right,font=\small,inner sep=2.5pt] at (0.553,0.429) {1};
+\fill (0.568,0.288) circle (1.8pt);
+\node[right,font=\small,inner sep=2.5pt] at (0.568,0.288) {2};
+\fill (0.392,0.450) circle (1.8pt);
+\node[left,font=\small,inner sep=2.5pt] at (0.392,0.450) {3};
+\fill (0.740,-0.273) circle (1.8pt);
+\node[below left,font=\small,inner sep=2.5pt] at (0.740,-0.273) {4};
+\fill (0.724,-0.211) circle (1.8pt);
+\node[above right,font=\small,inner sep=2pt] at (0.724,-0.211) {5};
+\fill (0.595,-0.132) circle (1.8pt);
+\node[left,font=\small,inner sep=2.5pt] at (0.595,-0.132) {6};
+\end{tikzpicture}
+\phantomsection\label{fig:9.1}\mvcap{图 9.1\quad 测试得分的因子旋转}
+\end{mvfigure}

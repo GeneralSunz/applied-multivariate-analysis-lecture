@@ -1,0 +1,46 @@
+% ---- pg-312 （书页 300） ----
+
+量. 另一个缺点是: 这种(自动)选择方法不能显示在什么情况下变量的变换是有用的.
+
+另一个选择适当模型的准则称为信息准则. 此准则也在残差平方和的大小和模型中参数个数之间寻求平衡.
+
+赤池(Akaike)信息准则(AIC)是
+\[
+\text{AIC}=n\ln\left(\frac{\text{有 }p\text{ 个参数并含有截距的子模型的残差平方和}}{n}\right)+2p
+\]
+残差平方和应该小, 但是第二项惩罚过多的参数. 总体上, 我们希望选择具有较小 AIC 值的模型.
+
+\noindent\textbf{共线性}\quad 若 $\mathbf{Z}$ 不满秩, 则某些线性组合, 例如 $\mathbf{Z}\mathbf{a}$, 必为 $\mathbf{0}$. 在这种情况下, 就说这些列是共线的. 这意味着 $\mathbf{Z}'\mathbf{Z}$ 没有逆阵. 就大多数回归分析而言, 不大可能恰好有 $\mathbf{Z}\mathbf{a}=\mathbf{0}$. 但如果 $\mathbf{Z}$ 矩阵诸列的线性组合接近于零, 则 $(\mathbf{Z}'\mathbf{Z})^{-1}$ 的计算值不稳定. 典型的情况是, $(\mathbf{Z}'\mathbf{Z})^{-1}$ 的对角元将很大. 这就使某些 $\hat{\beta}_j$ 的方差也很大, 这时很难发现``显著的''回归系数 $\beta_j$. 由共线性所引起的问题可通过下列方法得到一定程度的改善: (1) 将两个彼此强相关的预测变量之一剔除; 或 (2) 将响应 $Y$ 与预测变量的主成分联系起来. 也就是说, 将 $\mathbf{Z}$ 的各行 $\mathbf{z}_j'$ 看成一个样本, 按后面 8.3 节中将描述的方法计算前几个主成分, 然后用这些主成分作为新的``回归变量''对 $Y$ 作回归.
+
+\noindent\textbf{由模型定型错误引起的偏倚}\quad 假定某些重要的预测变量未被选进模型, 也就是说, 假定真正的模型应该是 $\mathbf{Z}=[\mathbf{Z}_1\;\mathbf{Z}_2]$, 秩为 $r+1$, 且
+\phantomsection\label{eq:7-20}
+\begin{equation}
+\underset{(n\times1)}{\mathbf{Y}}=\left[\begin{array}{c:c}\underset{(n\times(q+1))}{\mathbf{Z}_1}&\underset{(n\times(r-q))}{\mathbf{Z}_2}\end{array}\right]\left[\begin{array}{c}\underset{((q+1)\times1)}{\boldsymbol{\beta}_{(1)}}\\\hdashline\underset{((r-q)\times1)}{\boldsymbol{\beta}_{(2)}}\end{array}\right]+\underset{(n\times1)}{\boldsymbol{\epsilon}} \tag{7-20}
+\end{equation}
+\[
+=\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\mathbf{Z}_2\boldsymbol{\beta}_{(2)}+\boldsymbol{\epsilon}
+\]
+其中 $E(\boldsymbol{\epsilon})=\mathbf{0}$, 且 $\operatorname{Var}(\boldsymbol{\epsilon})=\sigma^2\mathbf{I}$. 但是, 研究者在使误差平方和 $(\mathbf{Y}-\mathbf{Z}_1\boldsymbol{\beta}_{(1)})'(\mathbf{Y}-\mathbf{Z}_1\boldsymbol{\beta}_{(1)})$ 极小化时只用了前 $q$ 个变量. $\boldsymbol{\beta}_{(1)}$ 的最小二乘估计量为 $\hat{\boldsymbol{\beta}}_{(1)}=(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{Y}$. 这时, 与模型正确定型时的情形不同,
+\phantomsection\label{eq:7-21}
+\begin{equation}
+\begin{aligned}
+E(\hat{\boldsymbol{\beta}}_{(1)})&=(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'E(\mathbf{Y})=(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'(\mathbf{Z}_1\boldsymbol{\beta}_{(1)}+\mathbf{Z}_2\boldsymbol{\beta}_{(2)}+E(\boldsymbol{\epsilon}))\\
+&=\boldsymbol{\beta}_{(1)}+(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'\mathbf{Z}_2\boldsymbol{\beta}_{(2)}
+\end{aligned} \tag{7-21}
+\end{equation}
+也就是说, 除非 $\mathbf{Z}_1$ 的列与 $\mathbf{Z}_2$ 的列相互垂直(也就是说, $\mathbf{Z}_1'\mathbf{Z}_2=\mathbf{0}$), $\hat{\boldsymbol{\beta}}_{(1)}$ 为 $\boldsymbol{\beta}_{(1)}$ 的有偏估计量. 若重要的变量被遗弃在模型之外, 最小二乘估计量 $\hat{\boldsymbol{\beta}}_{(1)}$ 可能会把人引入歧途.
+
+\section{多元多重回归}
+\phantomsection\label{sec:7.7}
+
+在本节中, 我们考虑 $m$ 个响应变量 $Y_1,Y_2,\cdots,Y_m$ 与同一个预测变量集 $z_1,z_2,\cdots,z_r$ 之间的关系. 假定每个响应有自己的回归模型:
+\phantomsection\label{eq:7-22}
+\begin{equation}
+\begin{aligned}
+Y_1&=\beta_{01}+\beta_{11}z_1+\cdots+\beta_{r1}z_r+\epsilon_1\\
+Y_2&=\beta_{02}+\beta_{12}z_1+\cdots+\beta_{r2}z_r+\epsilon_2\\
+&\qquad\vdots\qquad\qquad\vdots\\
+Y_m&=\beta_{0m}+\beta_{1m}z_1+\cdots+\beta_{rm}z_r+\epsilon_m
+\end{aligned} \tag{7-22}
+\end{equation}
+误差项 $\boldsymbol{\epsilon}'=[\epsilon_1,\epsilon_2,\cdots,\epsilon_m]$ 有 $E(\boldsymbol{\epsilon})=\mathbf{0}$ 和 $\operatorname{Var}(\boldsymbol{\epsilon})=\boldsymbol{\Sigma}$. 这样, 与不同响应相联系的误差项可以彼此相关.

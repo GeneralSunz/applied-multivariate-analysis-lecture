@@ -1,0 +1,66 @@
+% ---- pg-074 （书页 62） ----
+
+由于 $\bm{x} = c\bm{B}^{-1}\bm{d}$ 时达到上界,因此,通过此 $\bm{x}$ 取得最大值,得出\hyperref[eq:2-50]{式(2-50)}.
+
+最后一个极大化结论可提供对特征值的一种解释.
+
+\mvbold{单位球面上的点的二次型的极大化} 令 $\bm{B}_{(p \times p)}$ 是正定矩阵,它的特征值是 $\lambda_1 \geqslant \lambda_2 \geqslant \cdots \geqslant \lambda_p \geqslant 0$,其相应的标准化特征向量是 $\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_p$,则
+
+\phantomsection\label{eq:2-51}
+\begin{equation}
+\begin{aligned}
+\max_{\bm{x} \neq \bm{0}} \frac{\bm{x}'\bm{B}\bm{x}}{\bm{x}'\bm{x}} &= \lambda_1 \quad (\text{当 } \bm{x} = \bm{e}_1 \text{ 时达到}) \\
+\min_{\bm{x} \neq \bm{0}} \frac{\bm{x}'\bm{B}\bm{x}}{\bm{x}'\bm{x}} &= \lambda_p \quad (\text{当 } \bm{x} = \bm{e}_p \text{ 时达到})
+\end{aligned} \tag{2-51}
+\end{equation}
+
+更进一步,
+
+\phantomsection\label{eq:2-52}
+\begin{equation}
+\max_{\bm{x} \neq \bm{0}, \bm{x} \perp \bm{e}_1, \cdots, \bm{e}_k} \frac{\bm{x}'\bm{B}\bm{x}}{\bm{x}'\bm{x}} = \lambda_{k+1} \quad (\text{当 } \bm{x} = \bm{e}_{k+1}, k = 1, 2, \cdots, p - 1 \text{ 时达到}) \tag{2-52}
+\end{equation}
+
+其中符号上读做“垂直于”.
+
+\mvbold{证明} 令 $\bm{P}_{(p \times p)}$ 是正交阵,其列是特征向量 $\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_p$,且 $\bm{\Lambda}$ 是由特征值 $\lambda_1, \lambda_2, \cdots, \lambda_p$ 沿主对角线排列的对角阵.令 $\bm{B}^{1/2} = \bm{P}\bm{\Lambda}^{1/2}\bm{P}'$[见\hyperref[eq:2-22]{式(2-22)}]且 $\bm{y}_{(p \times 1)} = \bm{P}'_{(p \times p)}\bm{x}_{(p \times 1)}$.因此, $\bm{x} \neq \bm{0}$ 意味着 $\bm{y} \neq \bm{0}$.于是,
+
+\phantomsection\label{eq:2-53}
+\begin{equation}
+\begin{aligned}
+\frac{\bm{x}'\bm{B}\bm{x}}{\bm{x}'\bm{x}} &= \frac{\bm{x}'\bm{B}^{1/2}\bm{B}^{1/2}\bm{x}}{\bm{x}'\bm{x}} = \frac{\bm{x}'\bm{P}\bm{\Lambda}^{1/2}\bm{P}'\bm{P}\bm{\Lambda}^{1/2}\bm{P}'\bm{x}}{\bm{x}'\bm{P}\bm{P}'\bm{x}} = \frac{\bm{y}'\bm{\Lambda}\bm{y}}{\bm{y}'\bm{y}} \\
+&\qquad\qquad \bm{I}_{(p \times p)} \\
+&= \frac{\sum_{i=1}^{p}\lambda_i y_i^2}{\sum_{i=1}^{p}y_i^2} \leqslant \lambda_1 \frac{\sum_{i=1}^{p}y_i^2}{\sum_{i=1}^{p}y_i^2} = \lambda_1
+\end{aligned} \tag{2-53}
+\end{equation}
+
+令 $\bm{x} = \bm{e}_1$,
+
+由于
+
+\[
+\bm{e}_k'\bm{e}_1 = \begin{cases} 1, & k = 1 \\ 0, & k \neq 1 \end{cases}
+\]
+
+有
+
+\[
+\bm{y} = \bm{P}'\bm{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}
+\]
+
+对 $\bm{x}$ 的这种选择,有 $\bm{y}'\bm{\Lambda}\bm{y}/\bm{y}'\bm{y} = \lambda_1/1 = \lambda_1$,或
+
+\phantomsection\label{eq:2-54}
+\begin{equation}
+\frac{\bm{e}_1'\bm{B}\bm{e}_1}{\bm{e}_1'\bm{e}_1} = \bm{e}_1'\bm{B}\bm{e}_1 = \lambda_1 \tag{2-54}
+\end{equation}
+
+类似的证明可得出\hyperref[eq:2-51]{式(2-51)}的第二部分.
+
+现在, $\bm{x} = \bm{P}\bm{y} = y_1\bm{e}_1 + y_2\bm{e}_2 + \cdots + y_p\bm{e}_p$,因此 $\bm{x} \perp \bm{e}_1, \cdots, \bm{e}_k$ 这条件蕴涵了 $0 = \bm{e}_i'\bm{x} = y_1\bm{e}_i'\bm{e}_1 + y_2\bm{e}_i'\bm{e}_2 + \cdots + y_p\bm{e}_i'\bm{e}_p = y_i, i \leqslant k$
+
+所以,在 $\bm{x}$ 垂直于前 $k$ 个特征向量 $\bm{e}_i$ 的情况下,\hyperref[eq:2-53]{式(2-53)}的右边变为
+
+\[
+\frac{\bm{x}'\bm{B}\bm{x}}{\bm{x}'\bm{x}} = \frac{\sum_{i=k+1}^{p}\lambda_i y_i^2}{\sum_{i=k+1}^{p}y_i^2}
+\]

@@ -1,0 +1,66 @@
+% ---- pg-436 （书页 424） ----
+
+\[
+[0.4026,0.5443]\begin{bmatrix}1.0 & 0.2\\ 0.2 & 1.0\end{bmatrix}\begin{bmatrix}0.4026\\0.5443\end{bmatrix}=0.5460
+\]
+利用 $\sqrt{0.5460}=0.7389$, 我们取
+\[
+\mathbf{b}_1=\frac{1}{0.7389}\begin{bmatrix}0.4026\\0.5443\end{bmatrix}=\begin{bmatrix}0.5448\\0.7366\end{bmatrix}
+\]
+第一对典型变量是
+\[
+\begin{aligned}
+U_1&=\mathbf{a}_1'\mathbf{Z}^{(1)}=0.86Z_1^{(1)}+0.28Z_2^{(1)}\\
+V_1&=\mathbf{b}_1'\mathbf{Z}^{(2)}=0.54Z_1^{(2)}+0.74Z_2^{(2)}
+\end{aligned}
+\]
+它们的典型相关系数为
+\[
+\rho_1^*=\sqrt{\rho_1^{*2}}=\sqrt{0.5458}=0.74
+\]
+这是分别来自 $\mathbf{Z}^{(1)}$ 组和 $\mathbf{Z}^{(2)}$ 组的变量的线性组合之间可能的最大相关系数.
+
+第二典型相关系数 $\rho_2^*=\sqrt{0.0009}=0.03$ 很小, 因而第二对典型变量没有为两组变量的联系传达什么信息, 尽管它们和第一对的成员是不相关的(第二对典型变量的计算见练习 10.5).
+
+我们指出 $U_1,V_1$ 除尺度改变, 与下一配对
+\[
+\widetilde{U}_1=\mathbf{a}'\mathbf{Z}^{(1)}=[3,1]\begin{bmatrix}Z_1^{(1)}\\Z_2^{(1)}\end{bmatrix}=3Z_1^{(1)}+Z_2^{(1)},
+\]
+\[
+\widetilde{V}_1=\mathbf{b}'\mathbf{Z}^{(2)}=[1,1]\begin{bmatrix}Z_1^{(2)}\\Z_2^{(2)}\end{bmatrix}=Z_1^{(2)}+Z_2^{(2)}
+\]
+没有大的不同. 对这些变量, 有
+\[
+\begin{aligned}
+\mathrm{Var}(\widetilde{U}_1)&=\mathbf{a}'\boldsymbol{\rho}_{11}\mathbf{a}=12.4\\
+\mathrm{Var}(\widetilde{V}_1)&=\mathbf{b}'\boldsymbol{\rho}_{22}\mathbf{b}=2.4\\
+\mathrm{Cov}(\widetilde{U}_1,\widetilde{V}_1)&=\mathbf{a}'\boldsymbol{\rho}_{12}\mathbf{b}=4.0
+\end{aligned}
+\]
+和
+\[
+\mathrm{Corr}(\widetilde{U}_1,\widetilde{V}_1)=\frac{4.0}{\sqrt{12.4}\times\sqrt{2.4}}=0.73
+\]
+在相当简单并易于解释的线性组合 $\widetilde{U}_1,\widetilde{V}_1$ 之间的相关系数, 几乎是最大的值 $\rho_1^*=0.74$.\hfill$\blacksquare$
+
+在结论 10.1 中求解典型变量的过程有某些优点. 其特征向量决定典型系数的对称矩阵, 容易用计算机处理. 此外, 将系数向量写为 $\mathbf{a}_k=\boldsymbol{\Sigma}_{11}^{-1/2}\mathbf{e}_k$ 和 $\mathbf{b}_k=\boldsymbol{\Sigma}_{22}^{-1/2}\mathbf{f}_k$ 便于解析描述和几何解释. 为了减轻计算负担, 很多人喜欢从特征值方程
+\phantomsection\label{eq:10-10}
+\begin{equation}
+|\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}-\rho^{*2}\mathbf{I}|=0
+\tag{10-10}
+\end{equation}
+求典型相关系数. 系数向量 $\mathbf{a}$ 和 $\mathbf{b}$ 可直接从特征向量方程
+\phantomsection\label{eq:10-11}
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}\mathbf{a}&=\rho^{*2}\mathbf{a}\\
+\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}\mathbf{b}&=\rho^{*2}\mathbf{b}
+\end{aligned}
+\tag{10-11}
+\end{equation}
+求得. 通常, 矩阵 $\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}$ 和 $\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}$ 是不对称的(详见练习 10.4).
+
+\section{总体典型变量的解释}
+\phantomsection\label{sec:10.3}
+
+一般说来, 典型变量是人为定义的. 就是说, 它们没有实质意义. 如果使用原始变量 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$, 那么典型系数 $\mathbf{a},\mathbf{b}$ 的单位与 $\mathbf{X}^{(1)}$ 和 $\mathbf{X}^{(2)}$ 两组的单位成比例. 如果原始变量被标准化, 有

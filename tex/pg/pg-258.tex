@@ -1,0 +1,59 @@
+% ---- pg-258 （书页 246） ----
+
+\begin{mvtable}
+\noindent\hfill{\zihao{6}续表}\par
+\mvfit{%
+\begin{tabular}{ccc}
+\toprule
+变差来源 & 平方和阵与交叉乘积和阵 & 自由度\\
+\midrule
+因子 2：添加剂数量 & $\begin{bmatrix}0.760\,5&0.682\,5&1.930\,5\\&0.612\,5&1.732\,5\\&&4.900\,5\end{bmatrix}$ & 1\\[8pt]
+交互效应 & $\begin{bmatrix}0.000\,5&0.016\,5&0.044\,5\\&0.544\,5&1.468\,5\\&&3.960\,5\end{bmatrix}$ & 1\\[8pt]
+残差 & $\begin{bmatrix}1.764\,0&0.020\,0&-3.070\,0\\&2.628\,0&-0.552\,0\\&&64.924\,0\end{bmatrix}$ & 16\\[8pt]
+总和(修正的) & $\begin{bmatrix}4.265\,5&-0.785\,5&-0.239\,5\\&5.085\,5&1.909\,5\\&&74.205\,5\end{bmatrix}$ & 19\\
+\bottomrule
+\end{tabular}
+}
+\end{mvtable}
+
+为检验交互效应，我们计算
+\[
+\Lambda^*=\frac{|\mathbf{SSP}_{\text{残差}}|}{|\mathbf{SSP}_{\text{交互}}+\mathbf{SSP}_{\text{残差}}|}=\frac{275.709\,8}{354.790\,6}=0.777\,1
+\]
+
+因 $(g-1)(b-1)=1$，
+
+故
+\[
+F=\left(\frac{1-\Lambda^*}{\Lambda^*}\right)\frac{(gb(n-1)-p+1)/2}{(|(g-1)(b-1)-p|+1)/2}
+\]
+服从自由度为 $\nu_1=|(g-1)(b-1)-p|+1$ 和 $\nu_2=gb(n-1)-p+1$ 的 $F$ 分布（见文献[1]）．就此例而言，
+\[
+F=\left(\frac{1-0.777\,1}{0.777\,1}\right)\frac{(2\times2\times4-3+1)/2}{(|1\times1-3|+1)/2}=1.34
+\]
+\[
+\nu_1=(|1\times1-3|+1)=3
+\]
+\[
+\nu_2=(2\times2\times4-3+1)=14
+\]
+且 $F_{3,14}(0.05)=3.34$，由于 $F=1.34<F_{3,14}(0.05)=3.34$，我们不能拒绝假设 $H_0:\gamma_{11}=\gamma_{12}=\gamma_{21}=\gamma_{22}=\mathbf{0}$（无交互效应）．
+
+注意，这一检验的近似 $\chi^2$ 统计量可利用\hyperref[eq:6-65]{式(6-65)}得出，即 $-\left[2\times2\times4-(3+1-1\times1)/2\right]\ln(0.777\,1)=3.66$．因为 $\chi_3^2(0.05)=7.81$，由此得出的结论与精确 $F$ 分布下推得的结论完全相同．
+
+为检验因子 1 和因子 2 的主效应，我们计算
+\[
+\Lambda_1^*=\frac{|\mathbf{SSP}_{\text{残差}}|}{|\mathbf{SSP}_{\text{因子1}}+\mathbf{SSP}_{\text{残差}}|}=\frac{275.709\,8}{722.021\,2}=0.381\,9
+\]
+和
+\[
+\Lambda_2^*=\frac{|\mathbf{SSP}_{\text{残差}}|}{|\mathbf{SSP}_{\text{因子2}}+\mathbf{SSP}_{\text{残差}}|}=\frac{275.709\,8}{527.134\,7}=0.523\,0
+\]
+对 \quad $g-1=1$ \ 和 \ $b-1=1$，
+\[
+F_1=\left(\frac{1-\Lambda_1^*}{\Lambda_1^*}\right)\frac{(gb(n-1)-p+1)/2}{(|(g-1)-p|+1)/2}
+\]
+和
+\[
+F_2=\left(\frac{1-\Lambda_2^*}{\Lambda_2^*}\right)\frac{(gb(n-1)-p+1)/2}{(|(b-1)-p|+1)/2}
+\]

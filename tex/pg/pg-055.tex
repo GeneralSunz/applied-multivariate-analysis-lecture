@@ -1,0 +1,106 @@
+% ---- pg-055 （书页 43） ----
+
+\[
+\underset{(n\times p)}{\bm{A}} =
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1p} \\
+a_{21} & a_{22} & \cdots & a_{2p} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{np}
+\end{bmatrix}
+\]
+
+刚才引进的许多向量概念可直接推广到矩阵.
+
+矩阵的转置运算 $\bm{A}'$ 把列变成行.这样变换后,$\bm{A}$ 的第一列成为 $\bm{A}'$ 的第一行,第二列成为第二行,依此类推.
+
+\mvbold{例 2.3}\quad (矩阵的转置)
+
+如果
+\[
+\underset{(2\times 3)}{\bm{A}} =
+\begin{bmatrix}
+3 & -1 & 2 \\
+1 & 5 & 4
+\end{bmatrix}
+\]
+则
+\[
+\underset{(3\times 2)}{\bm{A}'} =
+\begin{bmatrix}
+3 & 1 \\
+-1 & 5 \\
+2 & 4
+\end{bmatrix}
+\quad\blacksquare
+\]
+
+矩阵也可乘以常数 $c$.乘积 $c\bm{A}$ 也是矩阵,其元素为矩阵 $\bm{A}$ 的每个元素乘 $c$ 后所得之结果,即
+\[
+\underset{(n\times p)}{c\bm{A}} =
+\begin{bmatrix}
+ca_{11} & ca_{12} & \cdots & ca_{1p} \\
+ca_{21} & ca_{22} & \cdots & ca_{2p} \\
+\vdots & \vdots & \ddots & \vdots \\
+ca_{n1} & ca_{n2} & \cdots & ca_{np}
+\end{bmatrix}
+\]
+
+相同维数的两个矩阵 $\bm{A}$ 和 $\bm{B}$ 可以相加.矩阵和 $\bm{A}+\bm{B}$ 的第 $(i,j)$ 个元素为 $a_{ij}+b_{ij}$.
+
+\mvbold{例 2.4}\quad (两矩阵之和及矩阵与常数之积)
+
+如果
+\[
+\underset{(2\times 3)}{\bm{A}} =
+\begin{bmatrix}
+0 & 3 & 1 \\
+1 & -1 & 1
+\end{bmatrix}
+\quad\text{和}\quad
+\underset{(2\times 3)}{\bm{B}} =
+\begin{bmatrix}
+1 & -2 & -3 \\
+2 & 5 & 1
+\end{bmatrix}
+\]
+则
+\[
+\underset{(2\times 3)}{4\bm{A}} =
+\begin{bmatrix}
+0 & 12 & 4 \\
+4 & -4 & 4
+\end{bmatrix}
+\quad\text{和}
+\]
+\[
+\underset{(2\times 3)}{\bm{A}} + \underset{(2\times 3)}{\bm{B}} =
+\begin{bmatrix}
+0+1 & 3-2 & 1-3 \\
+1+2 & -1+5 & 1+1
+\end{bmatrix}
+=
+\underset{(2\times 3)}{\begin{bmatrix}
+1 & 1 & -2 \\
+3 & 4 & 2
+\end{bmatrix}}
+\quad\blacksquare
+\]
+
+如果两个矩阵的维数符合下面的要求,也可定义两个矩阵的乘法: 当 $\bm{A}$ 为 $(n\times k)$ 时,$\bm{B}$ 为 $(k\times p)$ 矩阵.就是说,当 $\bm{A}$ 的行元素个数与 $\bm{B}$ 的列元素个数相同时,就可以构造矩阵的乘积 $\bm{A}\bm{B}$.新矩阵 $\bm{A}\bm{B}$ 的元素由 $\bm{A}$ 的每一行与 $\bm{B}$ 的每一列的内积构成.
+
+矩阵乘积 $\bm{A}\bm{B}$ 为
+\[
+\begin{gathered}
+\underset{(n\times k)}{\bm{A}}\,\underset{(k\times p)}{\bm{B}} = (n\times p)\ \text{矩阵,其中第 } i \text{ 行第 } j \text{ 列元素是 } \bm{A} \text{ 的第 } i \text{ 行} \\
+\text{与 } \bm{B} \text{ 的第 } j \text{ 列的内积}
+\end{gathered}
+\]
+
+或
+\phantomsection\label{eq:2-10}
+\begin{equation}
+\bm{A}\bm{B} \text{ 的第 } (i,j) \text{ 元素} = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{ik}b_{kj} = \sum_{l=1}^{k} a_{il}b_{lj} \tag{2-10}
+\end{equation}
+
+当 $k=4$ 时,矩阵 $\bm{A}\bm{B}$ 中的每一元素便是 4 项乘积之和.因此,%

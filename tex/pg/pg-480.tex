@@ -1,0 +1,73 @@
+% ---- pg-480 （书页 468） ----
+
+\[
+=[2-4\quad 12-7]\frac{1}{8}\begin{bmatrix}10&1\\1&2.5\end{bmatrix}\begin{bmatrix}2-4\\12-7\end{bmatrix}=10.3
+\]
+
+由于 $\mathbf{x}_H$ 到 $\bar{\mathbf{x}}_{1H}$ 的距离小于到 $\bar{\mathbf{x}}_2$ 的距离, 我们将 $\mathbf{x}_H$ 分类到 $\pi_1$. 在这种情形下, 分类是正确的.
+
+如果提取 $\mathbf{x}_H'=[4,10]$, 则 $\bar{\mathbf{x}}_{1H}$ 和 $\mathbf{S}_{H,\mathrm{p}}^{-1}$ 变成
+\[
+\bar{\mathbf{x}}_{1H}=\begin{bmatrix}2.5\\10\end{bmatrix}\quad \text{和}\quad \mathbf{S}_{H,\mathrm{p}}^{-1}=\frac{1}{8}\begin{bmatrix}16&4\\4&2.5\end{bmatrix}
+\]
+
+我们发现
+\[
+\begin{aligned}
+(\mathbf{x}_H-\bar{\mathbf{x}}_{1H})'\mathbf{S}_{H,\mathrm{p}}^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_{1H})&=[4-2.5\quad 10-10]\frac{1}{8}\begin{bmatrix}16&4\\4&2.5\end{bmatrix}\begin{bmatrix}4-2.5\\10-10\end{bmatrix}\\
+&=4.5
+\end{aligned}
+\]
+\[
+\begin{aligned}
+(\mathbf{x}_H-\bar{\mathbf{x}}_2)'\mathbf{S}_{H,\mathrm{p}}^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_2)&=[4-4\quad 10-7]\frac{1}{8}\begin{bmatrix}16&4\\4&2.5\end{bmatrix}\begin{bmatrix}4-4\\10-7\end{bmatrix}\\
+&=2.8
+\end{aligned}
+\]
+
+因此我们将错误地把 $\mathbf{x}_H'=[4,10]$ 指派给 $\pi_2$. 提取 $\mathbf{x}_H'=[3,8]$ 也会导致错误地将这个观测值指派给 $\pi_2$. 这样, $n_{1M}^{(H)}=2$.
+
+转向第二组. 假定提取 $\mathbf{x}_H'=[5,7]$, 则
+\[
+\mathbf{X}_{2H}=\begin{bmatrix}3&9\\4&5\end{bmatrix};\quad \bar{\mathbf{x}}_{2H}=\begin{bmatrix}3.5\\7\end{bmatrix};\quad 1\mathbf{S}_{2H}=\begin{bmatrix}0.5&-2\\-2&8\end{bmatrix}
+\]
+
+新的联合协方差矩阵为
+\[
+\mathbf{S}_{H,\mathrm{p}}=\frac{1}{3}[2\mathbf{S}_1+1\mathbf{S}_{2H}]=\frac{1}{3}\begin{bmatrix}2.5&-4\\-4&16\end{bmatrix}
+\]
+
+其逆为
+\[
+\mathbf{S}_{H,\mathrm{p}}^{-1}=\frac{3}{24}\begin{bmatrix}16&4\\4&2.5\end{bmatrix}
+\]
+
+我们发现
+\[
+\begin{aligned}
+(\mathbf{x}_H-\bar{\mathbf{x}}_1)'\mathbf{S}_{H,\mathrm{p}}^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_1)&=[5-3\quad 7-10]\frac{3}{24}\begin{bmatrix}16&4\\4&2.5\end{bmatrix}\begin{bmatrix}5-3\\7-10\end{bmatrix}\\
+&=4.8
+\end{aligned}
+\]
+\[
+\begin{aligned}
+(\mathbf{x}_H-\bar{\mathbf{x}}_{2H})'\mathbf{S}_{H,\mathrm{p}}^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_{2H})&=[5-3.5\quad 7-7]\frac{3}{24}\begin{bmatrix}16&4\\4&2.5\end{bmatrix}\begin{bmatrix}5-3.5\\7-7\end{bmatrix}\\
+&=4.5
+\end{aligned}
+\]
+因而 $\mathbf{x}_H'=[5,7]$ 被正确地指派给 $\pi_2$.
+
+当 $\mathbf{x}_H'=[3,9]$ 被取出时,
+\[
+\begin{aligned}
+(\mathbf{x}_H-\bar{\mathbf{x}}_1)'\mathbf{S}_{H,\mathrm{p}}^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_1)&=[3-3\quad 9-10]\frac{3}{24}\begin{bmatrix}10&1\\1&2.5\end{bmatrix}\begin{bmatrix}3-3\\9-10\end{bmatrix}\\
+&=0.3
+\end{aligned}
+\]
+\[
+\begin{aligned}
+(\mathbf{x}_H-\bar{\mathbf{x}}_{2H})'\mathbf{S}_{H,\mathrm{p}}^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_{2H})&=[3-4.5\quad 9-6]\frac{3}{24}\begin{bmatrix}10&1\\1&2.5\end{bmatrix}\begin{bmatrix}3-4.5\\9-6\end{bmatrix}\\
+&=4.5
+\end{aligned}
+\]
+于是 $\mathbf{x}_H'=[3,9]$ 被不正确地指派给 $\pi_1$. 最后, 提取 $\mathbf{x}_H'=[4,5]$ 导致将这个观测值正确地分到

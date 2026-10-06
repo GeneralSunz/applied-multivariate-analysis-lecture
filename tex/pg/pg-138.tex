@@ -1,0 +1,71 @@
+\[
+(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})
+\]
+
+是从 $\mathbf{X}$ 到总体均值向量 $\boldsymbol{\mu}$ 的统计距离平方。如果一个分量有比其他分量大得多的方差，它将对距离平方影响较小。再者，两个高度相关的随机变量比两个几乎不相关的变量影响更小。本质上，利用协方差矩阵的逆，(1)使所有的变量标准化，(2)消除相关的影响。从结论 4.7 的证明，
+
+\[
+(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})=Z_1^2+Z_2^2+\cdots+Z_p^2
+\]
+
+依据 $\boldsymbol{\Sigma}^{-1/2}$（参见\hyperref[eq:2-22]{式(2-22)}），$\mathbf{Z}=\boldsymbol{\Sigma}^{-1/2}(\mathbf{X}-\boldsymbol{\mu})$ 有 $N_p(\mathbf{0},I_p)$ 分布，且
+
+\begin{align*}
+(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu})&=(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1/2}\boldsymbol{\Sigma}^{-1/2}(\mathbf{X}-\boldsymbol{\mu})\\
+&=\mathbf{Z}'\mathbf{Z}=Z_1^2+Z_2^2+\cdots+Z_p^2
+\end{align*}
+
+统计距离平方似乎可以计算如下：首先，把随机向量 $\mathbf{X}$ 变换为 $p$ 个独立的标准正态随机变量，然后应用通常的距离平方，即变量的平方和。
+
+下面，考虑向量随机变量的线性组合
+
+\phantomsection\label{eq:4-10}
+\begin{equation}
+c_1\mathbf{X}_1+c_2\mathbf{X}_2+\cdots+c_n\mathbf{X}_n=[\mathbf{X}_1:\mathbf{X}_2:\cdots:\mathbf{X}_n]_{(p\times n)}\mathbf{c}_{(n\times1)}
+\tag{4-10}
+\end{equation}
+
+这个线性组合不同于以前考虑过的线性组合，原因在于：它定义的一个 $p\times1$ 向量随机变量是向量的一个线性组合。以前，我们讨论过单一的随机变量能写成其他一元随机变量的线性组合。
+
+\mvthm{结论 4.8}{设 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 是相互独立的，且 $\mathbf{X}_j$ 的分布为 $N_p(\boldsymbol{\mu}_j,\boldsymbol{\Sigma})$（注意，每个 $\mathbf{X}_j$ 有相同的协方差矩阵 $\boldsymbol{\Sigma}$）。则}
+
+\[
+V_1=c_1\mathbf{X}_1+c_2\mathbf{X}_2+\cdots+c_n\mathbf{X}_n
+\]
+
+服从 $N_p\left(\sum\limits_{j=1}^{n}c_j\boldsymbol{\mu}_j,\left(\sum\limits_{j=1}^{n}c_j^2\right)\boldsymbol{\Sigma}\right)$ 分布，而且 $V_1$ 和 $V_2=b_1\mathbf{X}_1+b_2\mathbf{X}_2+\cdots+b_n\mathbf{X}_n$ 是协方差矩阵为
+
+\[
+\begin{bmatrix}
+\left(\sum\limits_{j=1}^{n}c_j^2\right)\boldsymbol{\Sigma} & (b'c)\boldsymbol{\Sigma}\\[6pt]
+(b'c)\boldsymbol{\Sigma} & \left(\sum\limits_{j=1}^{n}b_j^2\right)\boldsymbol{\Sigma}
+\end{bmatrix}
+\]
+
+的联合多元正态。所以，若 $b'c=\sum\limits_{j=1}^{n}c_jb_j=0$，则 $V_1$ 与 $V_2$ 独立。
+
+\noindent\textbf{证明}\quad 由结论 4.5(c)，$np$ 个分量向量
+
+\[
+[X_{11},\cdots,X_{1p},X_{12},\cdots,X_{2p},\cdots,X_{np}]=[\mathbf{X}_1',\mathbf{X}_2',\cdots,\mathbf{X}_n']_{(1\times np)}=\mathbf{X}_{(np\times1)}'
+\]
+
+为多元正态。特别的，$\mathbf{X}$ 服从 $N_{np}(\boldsymbol{\mu},\boldsymbol{\Sigma}_x)$ 分布，其中
+
+\[
+\boldsymbol{\mu}_{(np\times1)}=\begin{bmatrix}\boldsymbol{\mu}_1\\\boldsymbol{\mu}_2\\\vdots\\\boldsymbol{\mu}_n\end{bmatrix},\qquad
+\boldsymbol{\Sigma}_{x\ (np\times np)}=\begin{bmatrix}
+\boldsymbol{\Sigma} & \mathbf{0} & \cdots & \mathbf{0}\\
+\mathbf{0} & \boldsymbol{\Sigma} & \cdots & \mathbf{0}\\
+\vdots & \vdots & \ddots & \vdots\\
+\mathbf{0} & \mathbf{0} & \cdots & \boldsymbol{\Sigma}
+\end{bmatrix}
+\]
+
+选择
+
+\[
+A_{(2p\times np)}=\begin{bmatrix}c_1I & c_2I & \cdots & c_nI\\ b_1I & b_2I & \cdots & b_nI\end{bmatrix}
+\]
+
+其中 $I$ 是 $p\times p$ 单位矩阵，得到

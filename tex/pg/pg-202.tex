@@ -1,0 +1,60 @@
+\[
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\leqslant\frac{(n^{2}-1)p}{n(n-p)}F_{p,n-p}(\alpha)
+\]
+
+\noindent\textbf{证明}\quad 首先注意到 $\mathbf{X}-\bar{\mathbf{X}}$ 的均值为 0,由于 $\mathbf{X}$ 为未来观测值,故 $\mathbf{X}$ 与 $\bar{\mathbf{X}}$ 相互独立,于是
+\[
+\operatorname{Cov}(\mathbf{X}-\bar{\mathbf{X}})=\operatorname{Cov}(\mathbf{X})+\operatorname{Cov}(\bar{\mathbf{X}})=\boldsymbol{\Sigma}+\frac{1}{n}\boldsymbol{\Sigma}=\frac{(n+1)}{n}\boldsymbol{\Sigma}
+\]
+且由结论 4.8 知 $\sqrt{n/(n+1)}(\mathbf{X}-\bar{\mathbf{X}})$ 服从分布 $N_p(\mathbf{0},\boldsymbol{\Sigma})$.
+
+由于 $\sqrt{\frac{n}{n+1}}(\mathbf{X}-\bar{\mathbf{X}})'\mathbf{S}^{-1}\sqrt{\frac{n}{n+1}}(\mathbf{X}-\bar{\mathbf{X}})$ 是由服从多元正态分布 $N_p(\mathbf{0},\boldsymbol{\Sigma})$ 的随机向量与独立的威沙特阵 $W_{p,n-1}(\boldsymbol{\Sigma})$ 按以下形式结合而成:
+\[
+(\text{多元正态随机向量})'\left(\frac{\text{威沙特随机阵}}{\text{自由度}}\right)^{-1}(\text{多元正态随机向量})
+\]
+根据\hyperref[eq:5-8]{式(5-8)},它服从 $F$ 分布.
+
+椭圆中的常数由\hyperref[eq:5-6]{式(5-6)}得出.\hfill$\blacksquare$
+
+注意,对一个未来观测值 $\mathbf{x}$,结论 5.6 中的预测域为一椭球,其中心为初始的样本均值 $\bar{\mathbf{x}}$,其轴则由 $\mathbf{S}$ 的特征向量确定. 由于
+\[
+P\left[(\mathbf{X}-\bar{\mathbf{X}})'\mathbf{S}^{-1}(\mathbf{X}-\bar{\mathbf{X}})\leqslant\frac{(n^{2}-1)p}{n(n-p)}F_{p,n-p}(\alpha)\right]=1-\alpha
+\]
+在获得任何新观测值之前,$\mathbf{X}$ 落在预测椭球中的概率为 $1-\alpha$.
+
+请记住,在利用当前观测值来确定未来观测值的控制域之前,这些当前观测值必须是稳定的.
+
+根据结论 5.6,可得出两种关于未来观测值的质量控制图.
+
+\mvsub{未来观测值的控制椭圆}
+
+对 $p=2$,结论 5.6 中的 $95\%$ 预测椭圆为
+\phantomsection\label{eq:5-34}
+\begin{equation}
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\leqslant\frac{(n^{2}-1)2}{n(n-2)}F_{2,n-2}(0.05)
+\tag{5-34}
+\end{equation}
+如果未来观测值 $\mathbf{x}$ 落在控制椭圆之外,就说 $\mathbf{x}$ 失控.
+
+\noindent\textbf{例 5.12}\quad (未来加班时数的控制椭圆)
+
+在例 5.9 中,我们检验了法定加班出勤时数与特殊事件处理加班时数的稳定性,下面我们用这些数据来确定这两个变量未来观测值的控制域.
+
+从例 5.9 及\hyperref[fig:5.6]{图 5.6} 我们发现,第 11 时期的那对数据失控. 我们舍去此点,重新构造 $99\%$ 椭圆控制图. 此时所有的点均在控制域内,因此,它们可用来确定 $p=2$ 时的 $95\%$ 预测域. 这个控制椭圆连同 15 个稳定的原始观测值均示于\hyperref[fig:5.12]{图 5.12}.
+
+落在椭圆中的任何未来观测值被认为是稳定或在控制中的,椭圆之外的观测值代表着可能的失控观测值或特殊原因变量.\hfill$\blacksquare$
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=1.0cm,y=0.5cm]
+  \draw[->] (0,0) -- (9.4,0) node[right,font=\small]{法定加班出勤时数};
+  \draw[->] (0,0) -- (0,7.6) node[above,font=\small]{特殊事件处理加班时数};
+  \foreach \x/\lab in {0/1\,500,2/2\,500,4/3\,500,6/4\,500,8/5\,500}
+    {\draw (\x,0) -- (\x,-0.15); \node[below,font=\scriptsize] at (\x,-0.25) {$\lab$};}
+  \foreach \y/\lab in {0/$-500$,1/$0$,2/$500$,3/$1\,000$,4/$1\,500$,5/$2\,000$,6/$2\,500$,7/$3\,000$}
+    {\draw (0,\y) -- (-0.15,\y); \node[left,font=\scriptsize] at (-0.15,\y) {\lab};}
+  \draw (4.1,3.9) ellipse (2.4 and 2.7);
+  \foreach \x/\y in {3.774/5.4,3.218/2.75,2.340/2.914,3.250/4.516,3.938/2.736,3.240/1.796,4.342/4.206,6.062/2.046,4.356/5.068,3.476/3.272,3.270/4.316,4.456/4.890,4.012/1.688,4.648/2.614,4.032/3.446}
+    \fill (\x,\y) circle (1.6pt);
+\end{tikzpicture}
+\phantomsection\label{fig:5.12}\mvcap{图 5.12\quad 法定出勤及特殊事件处理加班时数的未来观测值的 $95\%$ 控制椭圆}
+\end{mvfigure}

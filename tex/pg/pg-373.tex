@@ -1,0 +1,57 @@
+% ---- pg-373 （书页 361） ----
+
+其中
+\[
+[\hat{y}_{j1},\hat{y}_{j2},\cdots,\hat{y}_{jr}]'=[\hat{\mathbf{e}}_1'(\mathbf{x}_j-\bar{\mathbf{x}}),\hat{\mathbf{e}}_2'(\mathbf{x}_j-\bar{\mathbf{x}}),\cdots,\hat{\mathbf{e}}_r'(\mathbf{x}_j-\bar{\mathbf{x}})]'
+\]
+是前 $r$ 个样本主成分对第 $j$ 个单元的值. 其次,
+\[
+\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{\mathbf{a}}_j)'(\mathbf{x}_j-\bar{\mathbf{x}}-\hat{\mathbf{a}}_j)=(n-1)(\hat{\lambda}_{r+1}+\cdots+\hat{\lambda}_p)
+\]
+其中 $\hat{\lambda}_{r+1}\geqslant\cdots\geqslant\hat{\lambda}_p$ 是 $\mathbf{S}$ 最小的一些特征值.
+
+\noindent\textbf{证明}\quad 首先考虑任一矩阵 $\mathbf{A}$, 其转置 $\mathbf{A}'$ 的列 $\mathbf{a}_j$ 是固定一组 $r$ 个相互垂直向量 $\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_r$ 的线性组合, 使 $\mathbf{U}=[\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_r]$ 满足 $\mathbf{U}'\mathbf{U}=\mathbf{I}$. 对固定的 $\mathbf{U}$, $\mathbf{x}_j-\bar{\mathbf{x}}$ 在 $\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_r$ 形成的空间的投影(见结论 2A.3)或者
+\[
+(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{u}_1\mathbf{u}_1+(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{u}_2\mathbf{u}_2+\cdots+(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{u}_r\mathbf{u}_r,
+\]
+\phantomsection\label{eq:8A-2}
+\begin{equation}
+=[\mathbf{u}_1,\mathbf{u}_2,\cdots,\mathbf{u}_r]\begin{bmatrix}\mathbf{u}_1'(\mathbf{x}_j-\bar{\mathbf{x}})\\\mathbf{u}_2'(\mathbf{x}_j-\bar{\mathbf{x}})\\\vdots\\\mathbf{u}_r'(\mathbf{x}_j-\bar{\mathbf{x}})\end{bmatrix}=\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}}) \tag{8A-2}
+\end{equation}
+是它的最佳近似. 这是因为, 对任一向量 $\mathbf{b}_j$,
+\[
+\begin{aligned}
+\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j&=\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})+\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})-\mathbf{U}\mathbf{b}_j\\
+&=(\mathbf{I}-\mathbf{U}\mathbf{U}')(\mathbf{x}_j-\bar{\mathbf{x}})+\mathbf{U}(\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})-\mathbf{b}_j)
+\end{aligned}
+\]
+因此误差平方和为
+\[
+\begin{aligned}
+(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j)'(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{b}_j)&=(\mathbf{x}_j-\bar{\mathbf{x}})'(\mathbf{I}-\mathbf{U}\mathbf{U}')(\mathbf{x}_j-\bar{\mathbf{x}})+0\\
+&\quad+(\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})-\mathbf{b}_j)'(\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})-\mathbf{b}_j)
+\end{aligned}
+\]
+其中交叉乘积因 $(\mathbf{I}-\mathbf{U}\mathbf{U}')\mathbf{U}=\mathbf{U}-\mathbf{U}\mathbf{U}'\mathbf{U}=\mathbf{U}-\mathbf{U}=\mathbf{0}$ 而消失了. 最后一项是正的, 除非选 $\mathbf{b}_j$ 使 $\mathbf{b}_j=\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})$, 且 $\mathbf{U}\mathbf{b}_j=\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})$ 是 $(\mathbf{x}_j-\bar{\mathbf{x}})$ 在平面上的投影.
+
+进而, 由于选 $\mathbf{a}_j=\mathbf{U}\mathbf{b}_j=\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})$, \hyperref[eq:8A-1]{式(8A-1)}变为
+\phantomsection\label{eq:8A-3}
+\begin{equation}
+\begin{aligned}
+&\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}}))'(\mathbf{x}_j-\bar{\mathbf{x}}-\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}}))\\
+&\quad=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})'(\mathbf{I}-\mathbf{U}\mathbf{U}')(\mathbf{x}_j-\bar{\mathbf{x}})\\
+&\quad=\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})'(\mathbf{x}_j-\bar{\mathbf{x}})-\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})
+\end{aligned}
+\tag{8A-3}
+\end{equation}
+现在我们可以将\hyperref[eq:8A-3]{式(8A-3)}中最后一项最大化从而使误差在 $\mathbf{U}$ 上最小. 由迹的性质(见结论 2A.12),
+\phantomsection\label{eq:8A-4}
+\begin{equation}
+\begin{aligned}
+\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})&=\sum_{j=1}^{n}\mathrm{tr}[(\mathbf{x}_j-\bar{\mathbf{x}})'\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})]\\
+&=\sum_{j=1}^{n}\mathrm{tr}[\mathbf{U}\mathbf{U}'(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})']\\
+&=(n-1)\mathrm{tr}[\mathbf{U}\mathbf{U}'\mathbf{S}]=(n-1)\mathrm{tr}[\mathbf{U}'\mathbf{S}\mathbf{U}]
+\end{aligned}
+\tag{8A-4}
+\end{equation}
+也即 $\mathbf{U}$ 的最佳选择使 $\mathbf{U}'\mathbf{S}\mathbf{U}$ 对角元之和最大. 从\hyperref[eq:8-19]{式(8-19)}, 选 $\mathbf{u}_1$ 使 $\mathbf{U}'\mathbf{S}\mathbf{U}$ 的第一个对角元

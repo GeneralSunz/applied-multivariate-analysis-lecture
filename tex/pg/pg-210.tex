@@ -1,0 +1,54 @@
+于是
+\phantomsection\label{eq:5A-1}
+\begin{align}
+\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}&=(\mathbf{A}^{-1/2}\mathbf{z})'(\mathbf{A}^{-1/2}\mathbf{z})\notag\\
+&=\left(\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z}+(\mathbf{I}-\mathbf{P})\mathbf{A}^{-1/2}\mathbf{z}\right)'\left(\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z}+(\mathbf{I}-\mathbf{P})\mathbf{A}^{-1/2}\mathbf{z}\right)\notag\\
+&=(\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z})'(\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z})+\left((\mathbf{I}-\mathbf{P})\mathbf{A}^{-1/2}\mathbf{z}\right)'\left((\mathbf{I}-\mathbf{P})\mathbf{A}^{-1/2}\mathbf{z}\right)\notag\\
+&\ge\mathbf{z}'\mathbf{A}^{-1/2}\mathbf{P}'\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z}
+=\mathbf{z}'\mathbf{A}^{-1/2}\mathbf{P}\mathbf{A}^{-1/2}\mathbf{z}
+=\mathbf{z}'\mathbf{U}(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}\mathbf{U}'\mathbf{z} \tag{5A-1}
+\end{align}
+由于 $\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2$ 及 $\mathbf{U}$ 的任意性, 结论得证. \hfill$\blacksquare$
+
+我们的下一结论给出了作为 $p$ 维椭球投影的二维置信椭圆的构造方法(参见\hyperref[fig:5.13]{图 5.13}).
+
+\begin{mvfigure}
+\mvinc{pg-210}{0.624,0.248,0.859,0.407}
+\phantomsection\label{fig:5.13}\mvcap{图 5.13\quad 椭球 $\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2$ 在 $\mathbf{u}_1,\mathbf{u}_2$ 面上的投影为椭圆}
+\end{mvfigure}
+
+椭球在平面上的投影是最简单的, 当该平面由 $\mathbf{u}_1$, $\mathbf{u}_2$ 两向量确定时, 只要首先使这两单位向量彼此正交即可(见结论 2A.3).
+
+\mvthm{结论 5A.3}{} 给定椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$ 及两正交单位向量 $\mathbf{u}_1$ 和 $\mathbf{u}_2$, 则椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$ 在 $\mathbf{u}_1,\mathbf{u}_2$ 平面上的投影是一椭圆 $\{(\mathbf{U}'\mathbf{z})'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}(\mathbf{U}'\mathbf{z})\le c^2\}$, 其中, $\mathbf{U}=[\mathbf{u}_1:\mathbf{u}_2]$.
+
+\mvbold{证明}\quad 由结论 2A.3, 向量 $\mathbf{z}$ 在 $\mathbf{u}_1,\mathbf{u}_2$ 平面上的投影为
+\[
+(\mathbf{u}_1'\mathbf{z})\mathbf{u}_1+(\mathbf{u}_2'\mathbf{z})\mathbf{u}_2
+=[\mathbf{u}_1:\mathbf{u}_2]\begin{bmatrix}\mathbf{u}_1'\mathbf{z}\\\mathbf{u}_2'\mathbf{z}\end{bmatrix}
+=\mathbf{U}\mathbf{U}'\mathbf{z}
+\]
+椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$ 的投影为椭球中所有向量 $\mathbf{z}$ 在 $\mathbf{u}_1,\mathbf{u}_2$ 面上的投影, 即 $\mathbf{U}\mathbf{U}'\mathbf{z}$. 考虑投影 $\mathbf{U}(\mathbf{U}'\mathbf{z})$ 的两坐标 $\mathbf{U}'\mathbf{z}$. 设 $\mathbf{z}$ 属于椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$, 则 $\mathbf{U}\mathbf{U}'\mathbf{z}$ 属于椭球的投影. 由结论 5A.2
+\[
+(\mathbf{U}'\mathbf{z})'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}(\mathbf{U}'\mathbf{z})\le c^2
+\]
+故椭圆 $\{(\mathbf{U}'\mathbf{z})'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}(\mathbf{U}'\mathbf{z})\le c^2\}$ 包含椭球投影的系数向量.
+
+设 $\mathbf{U}a$ 为 $\mathbf{u}_1,\mathbf{u}_2$ 平面上一向量, 其系数 $a$ 属于椭圆 $\{a'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}a\le c^2\}$. 若令 $\mathbf{z}=\mathbf{A}\mathbf{U}(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}a$, 则有
+\[
+\mathbf{U}'\mathbf{z}=\mathbf{U}'\mathbf{A}\mathbf{U}(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}a=a
+\]
+及
+\[
+\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}=a'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}\mathbf{U}'\mathbf{A}\mathbf{A}^{-1}\mathbf{A}\mathbf{U}(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}a=a'(\mathbf{U}'\mathbf{A}\mathbf{U})^{-1}a\le c^2
+\]
+因此, $\mathbf{U}'\mathbf{z}$ 属于系数向量椭圆, 且 $\mathbf{z}$ 属于椭球 $\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2$, 于是, 该椭圆只包含来自自由椭球 $\{\mathbf{z}:\mathbf{z}'\mathbf{A}^{-1}\mathbf{z}\le c^2\}$ 向 $\mathbf{u}_1,\mathbf{u}_2$ 平面的投影的系数向量. \hfill$\blacksquare$
+
+\mvbold{评注}\quad 椭球先投影到 $\mathbf{u}_1,\mathbf{u}_2$ 平面, 然后再投影到 $\mathbf{u}_1$ 轴, 这与将椭球直接投影到 $\mathbf{u}_1$ 轴是一样的. 在讨论置信椭球时, 二维置信椭圆的投影给出单一分量的置信区间.
+
+\mvbold{评注}\quad 若 $\mathbf{U}=[\mathbf{u}_1,\cdots,\mathbf{u}_q]$ 由 $q(2<q\le p)$ 个线性无关的列所组成, 则结论 5A.2 及结论 5A.3 仍成立.
+
+\vspace{6pt}
+{\large\bfseries 练习}
+
+\medskip
+\noindent 5.1\quad (a) 设数据 $\mathbf{X}=\begin{bmatrix}2&12\\8&9\\6&9\\8&10\end{bmatrix}$

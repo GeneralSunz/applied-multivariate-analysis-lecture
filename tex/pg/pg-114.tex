@@ -1,0 +1,39 @@
+% ---- pg-114 （书页 102） ----
+
+些测量结果应除去, 这一问题并不容易回答. 在有选择时, 我们应保留表示原因的(假定)变量, 而不是那些次要特征变量的测量结果. 在主成分的讨论中, 将再次讲到这个问题.
+
+此刻, 我们暂时只描述 $\mathbf{S}$ 为满秩或降秩的一些简单条件.
+
+\mvthm{结论 3.3}{如果 $n\le p$, 即(样本大小)$\le$(变量的个数), 则对所有样本有 $|\mathbf{S}|=0$.}
+
+\noindent\textbf{证明}\quad 我们必须证明 $\mathbf{S}$ 的秩小于或等于 $p$, 然后应用结论 2A.9.
+
+对任何固定样本, \hyperref[eq:3-18]{式(3-18)}的 $n$ 个行向量加起来是零向量. 这个线性组合的存在, 意味着 $\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}'$ 的秩小于或等于 $n-1$, 又因为 $n\le p$, 所以秩小于或等于 $p-1$. 由于
+\[
+(n-1)\underset{(p\times p)}{\mathbf{S}}=\underset{(p\times n)}{(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'}\underset{(n\times p)}{(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')}
+\]
+$\mathbf{S}$ 的第 $k$ 列, 列$_{k}(\mathbf{S})$, 可写成 $(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'$ 的行的一个线性组合, 具体的,
+\begin{align*}
+(n-1)\cdot\text{列}_{k}(\mathbf{S})&=(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'\cdot\text{列}_{k}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')\\
+&=(x_{1k}-\bar{x}_{k})\cdot\text{行}_{1}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'+\cdots+(x_{nk}-\bar{x}_{k})\cdot\text{行}_{n}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'
+\end{align*}
+由于 $(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'$ 的行向量加起来是零向量, 我们可以把行$_{1}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'$写为剩余行向量之和的负值. 将它代入上述方程式的行$_{1}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'$中, 列$_{k}(\mathbf{S})$可表示为至多 $n-1$ 个线性独立的行向量行$_{2}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')',\cdots$, 行$_{n}(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')'$ 的一个线性组合. 因此, $\mathbf{S}$ 的秩小于或等于 $n-1$——如同在证明开始时所指明的——小于或等于 $p-1$, 且 $\mathbf{S}$ 是奇异的. 这就意味着, 由结论 2A.9, $|\mathbf{S}|=0$.\hfill$\blacksquare$
+
+\mvthm{结论 3.4}{设行向量 $\mathbf{x}_{1},\mathbf{x}_{2},\cdots,\mathbf{x}_{n}$ 是独立的随机向量 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 的实现, 其中 $\mathbf{x}'_{j}$ 是数据矩阵 $\mathbf{X}$ 的第 $j$ 行. 则}
+
+1.\quad 若对于每个常数向量 $\mathbf{a}\ne\mathbf{0}$, 线性组合 $\mathbf{a}'\mathbf{X}_{j}$ 有正方差, 则在 $p<n$ 时, $\mathbf{S}$ 以概率 1 满秩且 $|\mathbf{S}|>0$.
+
+2.\quad 若对所有 $j$, $\mathbf{a}'\mathbf{X}_{j}$ 以概率 1 为常数(例如, $c$), 则 $|\mathbf{S}|=0$.
+
+\noindent\textbf{证明}\quad (2) 若以概率 1 有 $\mathbf{a}'\mathbf{X}_{j}=a_{1}X_{j1}+a_{2}X_{j2}+\cdots+a_{p}X_{jp}=c$, 则对所有 $j$, $\mathbf{a}'\mathbf{x}_{j}=c$, 且该线性组合的样本均值是 $\bar{c}=\sum_{j=1}^{n}(a_{1}x_{j1}+a_{2}x_{j2}+\cdots+a_{p}x_{jp})/n=a_{1}\bar{x}_{1}+a_{2}\bar{x}_{2}+\cdots+a_{p}\bar{x}_{p}=\mathbf{a}'\bar{\mathbf{x}}$. 那么,
+\begin{align*}
+(\mathbf{X}-\mathbf{1}\bar{\mathbf{x}}')\mathbf{a}&=a_{1}\begin{bmatrix}x_{11}-\bar{x}_{1}\\\vdots\\x_{n1}-\bar{x}_{1}\end{bmatrix}+\cdots+a_{p}\begin{bmatrix}x_{1p}-\bar{x}_{p}\\\vdots\\x_{np}-\bar{x}_{p}\end{bmatrix}\\
+&=\begin{bmatrix}\mathbf{a}'\mathbf{x}_{1}-\mathbf{a}'\bar{\mathbf{x}}\\\vdots\\\mathbf{a}'\mathbf{x}_{n}-\mathbf{a}'\bar{\mathbf{x}}\end{bmatrix}=\begin{bmatrix}c-c\\\vdots\\c-c\end{bmatrix}=\mathbf{0}
+\end{align*}
+表明线性相关; 由结论 3.2 得出结论成立.
+
+(1) 的证明很困难, 可以在文献[2]中找到.\hfill$\blacksquare$
+
+\mvsub{由 $|\mathbf{R}|$ 确定广义方差及其几何解释}
+
+广义样本方差受到单个变量观测结果的变化性的过度影响. 例如, 假定某个 $s_{ii}$ 或者大或者很小. 从几何上看, 对应的偏差向量 $\mathbf{d}_{i}=(\mathbf{y}_{i}-\bar{x}_{i}\mathbf{1})$ 会很长或很短, 因而在确定体积时很明显地是一个重要因素. 因此, 有时改变所有偏差向量的比例, 使它们有相同的长度, 是有用的.

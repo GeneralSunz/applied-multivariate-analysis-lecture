@@ -1,0 +1,60 @@
+% ---- pg-512 （书页 500） ----
+
+\[
+d_j=\pm\sqrt{2\left[y_j\ln\left(\frac{y_j}{n_j\hat{p}(\mathbf{z}_j)}\right)+(n_j-y_j)\ln\left(\frac{n_j-y_j}{n_j(1-\hat{p}(\mathbf{z}_j))}\right)\right]}
+\]
+其中 $d_j$ 的正负号与 $y_j-n_j\hat{p}(\mathbf{z}_j)$ 的正负号相同, 且
+\phantomsection\label{eq:11-83}
+\begin{equation}
+\begin{aligned}
+&\text{若}\ y_j=0,\ \text{则}\ d_j=-\sqrt{2n_j\left|\ln(1-\hat{p}(\mathbf{z}_j))\right|}\\
+&\text{若}\ y_j=1,\ \text{则}\ d_j=-\sqrt{2n_j\left|\ln\hat{p}(\mathbf{z}_j)\right|}
+\end{aligned}
+\tag{11-83}
+\end{equation}
+皮尔逊(Pearson)残差($r_j$):
+\phantomsection\label{eq:11-84}
+\begin{equation}
+r_j=\frac{y_j-n_j\hat{p}(\mathbf{z}_j)}{\sqrt{n_j\hat{p}(\mathbf{z}_j)(1-\hat{p}(\mathbf{z}_j))}}
+\tag{11-84}
+\end{equation}
+标准化皮尔逊残差($r_{s_j}$):
+\phantomsection\label{eq:11-85}
+\begin{equation}
+r_{s_j}=\frac{r_j}{\sqrt{1-h_{jj}}}
+\tag{11-85}
+\end{equation}
+其中 $h_{jj}$ 为“帽子矩阵”$\mathbf{H}$ 的 $(j,j)$ 元, $\mathbf{H}$ 在\hyperref[eq:11-87]{式(11-87)}中给出. 大于约 2.5 的值表明在 $\mathbf{z}_j$ 失拟合度.
+
+作为模型总体拟合优度检验统计量(对小样本特别适合), 皮尔逊卡方统计量为
+\phantomsection\label{eq:11-86}
+\begin{equation}
+X^2=\sum_{j=1}^{m}r_j^2=\sum_{j=1}^{m}\frac{(y_j-n_j\hat{p}(\mathbf{z}_j))^2}{n_j\hat{p}(\mathbf{z}_j)(1-\hat{p}(\mathbf{z}_j))}
+\tag{11-86}
+\end{equation}
+作为单一数值的拟合综合优度, 卡方统计量是皮尔逊残差的平方和. 直接考察皮尔逊残差本身也可以检定拟合的质量.
+
+Hosmer 和 Lemeshow(见文献[17])提出另一种拟合优度检验方法. 但是这种方法仅适用于一定条件: 在相同的协变量值上只有少量的给出, 并且所有因变量(协变量)是连续的.
+
+\mvsub{杠杆点与影响观测}\quad 在逻辑斯蒂模型中, 帽子矩阵 $\mathbf{H}$ 的等价概念包含估计的概率 $\hat{p}_k(\mathbf{z}_j)$.
+\phantomsection\label{eq:11-87}
+\begin{equation}
+\mathbf{H}=\mathbf{V}^{-1/2}\mathbf{Z}(\mathbf{Z}'\mathbf{V}^{-1}\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{V}^{-1/2}
+\tag{11-87}
+\end{equation}
+其中 $\mathbf{V}^{-1}$ 为对角阵, $(j,j)$ 元为 $n_j\hat{p}(\mathbf{z}_j)(1-\hat{p}(\mathbf{z}_j))$, $\mathbf{V}^{-1/2}$ 为对角阵, $(j,j)$ 元为 $\sqrt{n_j\hat{p}(\mathbf{z}_j)(1-\hat{p}(\mathbf{z}_j))}$. 逻辑斯蒂回归版本的杠杆率为帽子矩阵 $\mathbf{H}$ 的对角元 $h_{jj}$.
+
+除了由\hyperref[eq:11-87]{式(11-87)}给出的杠杆率外, 还有其他度量. 我们介绍一种最通用的度量, 称为 delta-beta 或删除替代(deletion displacement). 这个度量有助于辨识对于模式有强影响的观测. 从数据中删除所有对应 $\mathbf{z}_j$ 的观测, 回归系数的变化量为
+\phantomsection\label{eq:11-88}
+\begin{equation}
+\Delta\boldsymbol{\beta}_j=\frac{r_{s_j}^2h_{jj}}{1-h_{jj}}
+\tag{11-88}
+\end{equation}
+作 $\Delta\boldsymbol{\beta}_j$ 对 $j$ 的点图可用来检定有影响的观测点.
+
+\section{最后的评述}  % 原书 11.8
+\phantomsection\label{sec:11.9}
+
+\mvsub{引入性质变量}
+
+在本章中, 我们的讨论都假定判别或分类变量 $X_1,X_2,\cdots,X_p$ 有自然的度量单位. 也就是说, 每个变量原则上可以取任意实数, 且这些数值可以被记录. 性质变量或类别变量往往可以成为有用的判别量(分类量). 例如, 有或没有某种特性(如红色)可以是一个有价值的分类变量. 这种情况经常用如下方法处理: 定义一个变量 $X$, 当对象具有该特性时 $X$ 取值 1, 而当对

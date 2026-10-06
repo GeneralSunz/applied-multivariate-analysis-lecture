@@ -1,0 +1,53 @@
+最后的这个表达式就是从观测值 $\mathbf{x}$ 算出的 $T^2$ 值.
+
+\section{霍特林 $T^2$ 与似然比检验}  % 原书 5.3
+\phantomsection\label{sec:5.3}
+
+我们通过与一元平方距离 $t^2$ 的类比引进了 $T^2$ 统计量. 在构造检验方法时存在一个一般原理, 即所谓似然比方法, 而 $T^2$ 统计量则能从 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$ 的似然比检验导出. 似然比检验的一般理论已超出本书范围(见文献[3]的处理方法). 似然比检验对充分大的样本有一些优良性质, 而利用这些性质处理以多元正态参数形式陈述的假设时特别方便.
+
+由\hyperref[eq:4-18]{式(4-18)}可知, 对一切可能的 $\boldsymbol{\mu}$ 与 $\boldsymbol{\Sigma}$, 多元正态似然函数的最大值为
+\phantomsection\label{eq:5-10}
+\begin{equation}
+\max_{\boldsymbol{\mu},\boldsymbol{\Sigma}}L(\boldsymbol{\mu},\boldsymbol{\Sigma})=\frac{1}{(2\pi)^{np/2}|\hat{\boldsymbol{\Sigma}}|^{n/2}}e^{-np/2} \tag{5-10}
+\end{equation}
+
+其中,
+\[
+\hat{\boldsymbol{\Sigma}}=\frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\qquad\text{和}\qquad \hat{\boldsymbol{\mu}}=\bar{\mathbf{x}}=\frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_j
+\]
+
+分别为 $\boldsymbol{\Sigma}$ 和 $\boldsymbol{\mu}$ 的极大似然估计量. 前面已指出, 对 $\boldsymbol{\mu}$ 及 $\boldsymbol{\Sigma}$ 而言, 选取极大似然估计量 $\hat{\boldsymbol{\mu}}$ 及 $\hat{\boldsymbol{\Sigma}}$ 能最好地刻画随机样本的观测值.
+
+在假设 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$ 下, 正态似然函数为
+\[
+L(\boldsymbol{\mu}_0,\boldsymbol{\Sigma})=\frac{1}{(2\pi)^{np/2}|\boldsymbol{\Sigma}|^{n/2}}\exp\left(-\frac{1}{2}\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu}_0)\right)
+\]
+
+现在均值 $\boldsymbol{\mu}_0$ 是固定的. 但在固定 $\boldsymbol{\mu}_0$ 的条件下可让 $\boldsymbol{\Sigma}$ 变化, 以寻求使其似然函数为最大的值(即“最可能”导致所观察到的样本的值), 因此, 我们需要使 $L(\boldsymbol{\mu}_0,\boldsymbol{\Sigma})$ 相对 $\boldsymbol{\Sigma}$ 极大化.
+
+根据\hyperref[eq:4-13]{式(4-13)}的步骤, $L(\boldsymbol{\mu}_0,\boldsymbol{\Sigma})$ 中的指数部分可写为
+\begin{align*}
+-\frac{1}{2}\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)'\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu}_0)&=-\frac{1}{2}\sum_{j=1}^{n}\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'\right]\\
+&=-\frac{1}{2}\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'\right)\right]
+\end{align*}
+
+对 $\mathbf{B}=\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'$ 和 $b=n/2$ 应用结论 4.10, 我们有
+\phantomsection\label{eq:5-11}
+\begin{equation}
+\max_{\boldsymbol{\Sigma}}L(\boldsymbol{\mu}_0,\boldsymbol{\Sigma})=\frac{1}{(2\pi)^{np/2}|\hat{\boldsymbol{\Sigma}}_0|^{n/2}}e^{-np/2} \tag{5-11}
+\end{equation}
+
+其中
+\[
+\hat{\boldsymbol{\Sigma}}_0=\frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_j-\boldsymbol{\mu}_0)(\mathbf{x}_j-\boldsymbol{\mu}_0)'
+\]
+
+为了确定 $\boldsymbol{\mu}_0$ 是否为 $\boldsymbol{\mu}$ 的似真值, 将 $L(\boldsymbol{\mu}_0,\boldsymbol{\Sigma})$ 的最大值与无限制的 $L(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 的最大值相比较, 所得出的比值就是所谓的似然比统计量.
+
+由\hyperref[eq:5-10]{式(5-10)}和\hyperref[eq:5-11]{式(5-11)}可得
+\phantomsection\label{eq:5-12}
+\begin{equation}
+\text{似然比}=\Lambda=\frac{\max_{\boldsymbol{\mu},\boldsymbol{\Sigma}}L(\boldsymbol{\mu},\boldsymbol{\Sigma})}{\max_{\boldsymbol{\Sigma}}L(\boldsymbol{\mu}_0,\boldsymbol{\Sigma})}=\left(\frac{|\hat{\boldsymbol{\Sigma}}_0|}{|\hat{\boldsymbol{\Sigma}}|}\right)^{n/2} \tag{5-12}
+\end{equation}
+
+与此等价的统计量 $\Lambda^{2/n}=|\hat{\boldsymbol{\Sigma}}_0|/|\hat{\boldsymbol{\Sigma}}|$ 称为威尔克斯 $\Lambda$ 统计量. 如果这个似然比的观测值太小, 则假设 $H_0: \boldsymbol{\mu}=\boldsymbol{\mu}_0$ 不大可能为真, 应予拒绝. 尤其是当

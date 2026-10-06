@@ -1,0 +1,61 @@
+% ---- pg-435 （书页 423） ----
+
+$\sqrt{\sigma_{ii}}$. 同理, $\mathbf{b}_k'\mathbf{V}_{22}^{1/2}$ 是由标准化变量组 $\mathbf{Z}^{(2)}$ 构造的典型变量的系数向量. 在这种情况下, $\mathbf{V}_{22}^{1/2}$ 是第 $i$ 个对角元素为 $\sqrt{\sigma_{ii}}=\sqrt{\mathrm{Var}(X_i^{(2)})}$ 的对角阵. 标准化不改变典型相关系数. 但是, 如果 $\rho_k^{*2}=\rho_{k+1}^{*2}$, 系数向量 $\mathbf{a}_k,\mathbf{b}_k$ 的选择将是不唯一的.
+
+标准化变量的典型系数和原始变量的典型系数之间的关系从矩阵
+\[
+\boldsymbol{\Sigma}_{11}^{-1/2}\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1/2}\quad (\text{或}\ \boldsymbol{\rho}_{11}^{-1/2}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1/2})
+\]
+的特殊结构得出(也见于\hyperref[eq:10-11]{式(10-11)}), 并且在本中, 对典型相关分析该关系是唯一的. 例如, 主成分分析中, 若 $\mathbf{a}_k'$ 是从 $\boldsymbol{\Sigma}$ 得到的第 $k$ 个主成分的系数向量, 则 $\mathbf{a}_k'(\mathbf{X}-\boldsymbol{\mu})=\mathbf{a}_k'\mathbf{V}^{1/2}\mathbf{Z}$, 但我们不能由此就推断说 $\mathbf{a}_k'\mathbf{V}^{1/2}$ 是从 $\boldsymbol{\rho}$ 导出的第 $k$ 个主成分的系数向量.
+
+\noindent\textbf{例 10.1}\quad (计算标准化变量的典型变量和典型相关系数)
+
+假设 $\mathbf{Z}^{(1)}=[\mathbf{Z}_1^{(1)},\mathbf{Z}_2^{(1)}]'$ 是标准化变量且 $\mathbf{Z}^{(2)}=[\mathbf{Z}_1^{(2)},\mathbf{Z}_2^{(2)}]'$ 也是标准化变量. 令 $\mathbf{Z}=[\mathbf{Z}^{(1)},\mathbf{Z}^{(2)}]'$ 和
+\[
+\mathrm{Cov}(\mathbf{Z})=\left[\begin{array}{c:c}
+\boldsymbol{\rho}_{11} & \boldsymbol{\rho}_{12}\\
+\hdashline
+\boldsymbol{\rho}_{21} & \boldsymbol{\rho}_{22}
+\end{array}\right]=\left[\begin{array}{cc:cc}
+1.0 & 0.4 & 0.5 & 0.6\\
+0.4 & 1.0 & 0.3 & 0.4\\
+\hdashline
+0.5 & 0.3 & 1.0 & 0.2\\
+0.6 & 0.4 & 0.2 & 1.0
+\end{array}\right]
+\]
+则
+\[
+\boldsymbol{\rho}_{11}^{-1/2}=\begin{bmatrix}1.0681 & -0.2229\\ -0.2229 & 1.0681\end{bmatrix}
+\]
+\[
+\boldsymbol{\rho}_{22}^{-1}=\begin{bmatrix}1.0417 & -0.2083\\ -0.2083 & 1.0417\end{bmatrix}
+\]
+和
+\[
+\boldsymbol{\rho}_{11}^{-1/2}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1/2}=\begin{bmatrix}0.4371 & 0.2178\\ 0.2178 & 0.1096\end{bmatrix}
+\]
+$\boldsymbol{\rho}_{11}^{-1/2}\boldsymbol{\rho}_{12}\boldsymbol{\rho}_{22}^{-1}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1/2}$ 的特征值 $\rho_1^{*2}$ 和 $\rho_2^{*2}$ 可由下式
+\[
+\begin{aligned}
+0&=\begin{vmatrix}0.4371-\lambda & 0.2178\\ 0.2178 & 0.1096-\lambda\end{vmatrix}=(0.4371-\lambda)(0.1096-\lambda)-2.178^2\\
+&=\lambda^2-0.5467\lambda+0.0005
+\end{aligned}
+\]
+解得 $\rho_1^{*2}=0.5458$ 和 $\rho_2^{*2}=0.0009$. 特征向量 $\mathbf{e}_1$ 从向量方程
+\[
+\begin{bmatrix}0.4371 & 0.2178\\ 0.2178 & 0.1096\end{bmatrix}\mathbf{e}_1=0.5458\mathbf{e}_1
+\]
+得到. 因此, $\mathbf{e}_1'=[0.8947,0.4466]$ 及
+\[
+\mathbf{a}_1=\boldsymbol{\rho}_{11}^{-1/2}\mathbf{e}_1=\begin{bmatrix}0.8561\\0.2776\end{bmatrix}
+\]
+由结论 10.1, $f_1\propto\boldsymbol{\rho}_{22}^{-1/2}\boldsymbol{\rho}_{21}\boldsymbol{\rho}_{11}^{-1/2}\mathbf{e}_1$, $\mathbf{b}_1=\boldsymbol{\rho}_{22}^{-1/2}f_1$. 因此,
+\[
+\mathbf{b}_1\propto\boldsymbol{\rho}_{22}^{-1}\boldsymbol{\rho}_{21}\mathbf{a}_1=\begin{bmatrix}0.3959 & 0.2292\\ 0.5209 & 0.3542\end{bmatrix}\begin{bmatrix}0.8561\\0.2776\end{bmatrix}=\begin{bmatrix}0.4026\\0.5443\end{bmatrix}
+\]
+我们必须调整 $\mathbf{b}_1$, 使得
+\[
+\mathrm{Var}(V_1)=\mathrm{Var}(\mathbf{b}_1'\mathbf{Z}^{(2)})=\mathbf{b}_1'\boldsymbol{\rho}_{22}\mathbf{b}_1=1
+\]
+向量 $[0.4026,0.5443]'$ 给出

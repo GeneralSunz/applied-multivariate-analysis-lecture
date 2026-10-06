@@ -1,0 +1,65 @@
+% ---- pg-085 （书页 73） ----
+
+\[
+\bm{A}^{-1} = \frac{1}{|\bm{A}|}
+\begin{bmatrix}
+\left|\begin{matrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{matrix}\right| & -\left|\begin{matrix} a_{12} & a_{13} \\ a_{32} & a_{33} \end{matrix}\right| & \left|\begin{matrix} a_{12} & a_{13} \\ a_{22} & a_{23} \end{matrix}\right| \\[12pt]
+-\left|\begin{matrix} a_{21} & a_{23} \\ a_{31} & a_{33} \end{matrix}\right| & \left|\begin{matrix} a_{11} & a_{13} \\ a_{31} & a_{33} \end{matrix}\right| & -\left|\begin{matrix} a_{11} & a_{13} \\ a_{21} & a_{23} \end{matrix}\right| \\[12pt]
+\left|\begin{matrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{matrix}\right| & -\left|\begin{matrix} a_{11} & a_{12} \\ a_{31} & a_{32} \end{matrix}\right| & \left|\begin{matrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{matrix}\right|
+\end{bmatrix}
+\]
+
+在 (a) 和 (b) 中,如果逆存在,显然 $|\bm{A}| \neq 0$.
+
+(c) 一般的,$\bm{A}^{-1}$ 的第 $j,i$ 个元素为 $[|\bm{A}_{ij}|\,/\,|\bm{A}|]\,(-1)^{i+j}$,其中 $\bm{A}_{ij}$ 是从 $\bm{A}$ 中除去第 $i$ 行和第 $j$ 列后得到的矩阵.
+
+\mvthm{结论 2A.9}{对一个 $k\times k$ 维的方阵 $\bm{A}$,有如下等价表述:}
+
+(a) $\bm{A}\,\bm{x}_{(k\times 1)} = \bm{0}_{(k\times 1)}$ 意味着 $\bm{x}_{(k\times 1)} = \bm{0}_{(k\times 1)}$ ($\bm{A}$ 是非奇异的).
+
+(b) $|\bm{A}| \neq 0$.
+
+(c) 存在一个矩阵 $\bm{A}^{-1}$,使得 $\bm{A}\bm{A}^{-1} = \bm{A}^{-1}\bm{A} = \bm{I}_{(k\times k)}$.
+
+\mvthm{结论 2A.10}{设 $\bm{A}$ 和 $\bm{B}$ 是同维数方阵,且存在逆矩阵,则如下性质成立:}
+
+(a) $(\bm{A}^{-1})' = (\bm{A}')^{-1}$
+
+(b) $(\bm{A}\bm{B})^{-1} = \bm{B}^{-1}\bm{A}^{-1}$
+
+行列式具有如下性质.
+
+\mvthm{结论 2A.11}{设 $\bm{A}$ 和 $\bm{B}$ 是 $k\times k$ 方阵.}
+
+(a) $|\bm{A}| = |\bm{A}'|$
+
+(b) 若 $\bm{A}$ 中一行(列)的每一元素均为零,则 $|\bm{A}| = 0$
+
+(c) 若 $\bm{A}$ 的任两行(列)相同,则 $|\bm{A}| = 0$
+
+(d) 若 $\bm{A}$ 是非奇异的,则 $|\bm{A}| = 1/|\bm{A}^{-1}|$,即 $|\bm{A}|\,|\bm{A}^{-1}| = 1$.
+
+(e) $|\bm{A}\bm{B}| = |\bm{A}|\,|\bm{B}|$
+
+(f) $|c\bm{A}| = c^k|\bm{A}|$,其中 $c$ 为标量.
+
+结论 2A.9 和 2A.11 的部分证明参看文献 [6],这些证明有的相当复杂,超出了本书的范围.
+
+\mvthm{定义 2A.28}{设 $\bm{A} = \{a_{ij}\}$ 是 $k\times k$ 方阵,矩阵 $\bm{A}$ 的迹记做 $\operatorname{tr}(\bm{A})$,它是对角线上元素的和,即}
+\[
+\operatorname{tr}(\bm{A}) = \sum_{i=1}^{k}a_{ii}
+\]
+
+\mvthm{结论 2A.12}{设 $\bm{A}$ 和 $\bm{B}$ 是 $k\times k$ 矩阵且 $c$ 为标量.}
+
+(a) $\operatorname{tr}(c\bm{A}) = c\operatorname{tr}(\bm{A})$
+
+(b) $\operatorname{tr}(\bm{A}\pm\bm{B}) = \operatorname{tr}(\bm{A}) \pm \operatorname{tr}(\bm{B})$
+
+(c) $\operatorname{tr}(\bm{A}\bm{B}) = \operatorname{tr}(\bm{B}\bm{A})$
+
+(d) $\operatorname{tr}(\bm{B}^{-1}\bm{A}\bm{B}) = \operatorname{tr}(\bm{A})$
+
+(e) $\operatorname{tr}(\bm{A}\bm{A}') = \sum_{i=1}^{k}\sum_{j=1}^{k}a_{ij}^2$
+
+\mvthm{定义 2A.29}{把方阵 $\bm{A}$ 的行看成是向量,若行与行互相垂直且都为单位长度,则说 $\bm{A}$ 是正交的.即 $\bm{A}\bm{A}' = \bm{I}$.}

@@ -1,0 +1,67 @@
+% ---- pg-477 （书页 465） ----
+
+本来估计(通常情况就是如此), 那么失误率的计算就不那么直截了当了.
+
+原则上, 样本分类函数的效果可以用真实失误率(AER)来评估:
+\phantomsection\label{eq:11-32}
+\begin{equation}
+\mathrm{AER}=p_1\int_{\tilde{R}_2}f_1(\mathbf{x})\,\mathrm{d}\mathbf{x}+p_2\int_{\tilde{R}_1}f_2(\mathbf{x})\,\mathrm{d}\mathbf{x}
+\tag{11-32}
+\end{equation}
+其中 $\tilde{R}_1$ 和 $\tilde{R}_2$ 表示由容量分别为 $n_1$ 和 $n_2$ 的样本所决定的分类域. 例如, 若使用\hyperref[eq:11-18]{式(11-18)}中的分类函数, 则区域 $\tilde{R}_1$ 和 $\tilde{R}_2$ 由满足下列不等式的 $\mathbf{x}$ 的集合来定义.
+\[
+\begin{aligned}
+\tilde{R}_1:\ &(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}-\frac{1}{2}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)\geqslant\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]\\
+\tilde{R}_2:\ &(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}\mathbf{x}-\frac{1}{2}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{S}_{\mathrm{p}}^{-1}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)<\ln\left[\left(\frac{c(1\mid2)}{c(2\mid1)}\right)\left(\frac{p_2}{p_1}\right)\right]
+\end{aligned}
+\]
+
+AER 指出样本分类函数在未来样本中将如何表现. 同最优失误率一样, 一般来说 AER 不能计算, 因为它依赖于未知密度函数 $f_1(\mathbf{x})$ 和 $f_2(\mathbf{x})$. 但有一个与真实失误率有关的量的估计值却可以计算, 下面简短讨论一下.
+
+存在一个分类方法效果的度量, 它不依赖于母体总体分布的形式, 并且对任意分类方法均可计算. 这个度量称为表观失误率(APER). 它定义为训练样本中被错分的观测值所占的比例.
+
+表观失误率可以很容易地从模糊矩阵计算出来. 对来自 $\pi_1$ 的 $n_1$ 个观测值和来自 $\pi_2$ 的 $n_2$ 个观测值, 模糊矩阵的形式为
+
+\phantomsection\label{eq:11-33}
+\begin{equation}
+\begin{array}{ll|cc|c}
+ & & \multicolumn{2}{c|}{预测归属} & \\
+ & & \pi_1 & \pi_2 & \\ \hline
+\multirow{2}{*}{\makecell{真实\\归属}} & \pi_1 & n_{1C} & n_{1M}=n_1-n_{1C} & n_1\\
+ & \pi_2 & n_{2M}=n_2-n_{2C} & n_{2C} & n_2
+\end{array}
+\tag{11-33}
+\end{equation}
+
+其中
+\[
+\begin{aligned}
+n_{1C}&=\pi_1\text{ 中的对象被正确地分类为 }\pi_1\text{ 的个数}\\
+n_{1M}&=\pi_1\text{ 中的对象被错误地分类为 }\pi_2\text{ 的个数}\\
+n_{2C}&=\pi_2\text{ 中的对象被正确分类的个数}\\
+n_{2M}&=\pi_2\text{ 中的对象被错误分类的个数}
+\end{aligned}
+\]
+于是表观失误率为
+\phantomsection\label{eq:11-34}
+\begin{equation}
+\mathrm{APER}=\frac{n_{1M}+n_{2M}}{n_1+n_2}
+\tag{11-34}
+\end{equation}
+正好是训练样本中被错分的观测值所占的比例.
+
+\noindent\textbf{例 11.6}\quad (计算表观失误率)
+
+考虑\hyperref[fig:11.1]{图 11.1} 所示的机动割草机数据的分类域 $R_1$ 和 $R_2$. 这里, 实线右上方的数据被分类为 $\pi_1$, 即割草机拥有者; 实线左下方的数据被分类为 $\pi_2$. 注意, 某些观测值被错分了. 模糊矩阵为
+
+\begin{mvtable}
+\begin{tabular}{@{}ll|cc|c@{}}
+\toprule
+& & \multicolumn{2}{c|}{预测归属} & \\
+& & $\pi_1$: 割草机拥有者 & $\pi_2$: 非拥有者 & \\
+\midrule
+\multirow{2}{*}{\makecell{实际\\归属}} & $\pi_1$: 拥有者 & $n_{1C}=10$ & $n_{1M}=2$ & $n_1=12$\\
+ & $\pi_2$: 非拥有者 & $n_{2M}=2$ & $n_{2C}=10$ & $n_2=12$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

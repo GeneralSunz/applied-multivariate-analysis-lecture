@@ -1,0 +1,69 @@
+% ---- pg-260 （书页 248） ----
+这里 $\mathbf{C}$ 为对比阵
+\phantomsection\label{eq:6-72}
+\begin{equation}
+\underset{((p-1)\times p)}{\mathbf{C}}=
+\begin{bmatrix}
+-1&1&0&0&\cdots&0&0\\
+0&-1&1&0&\cdots&0&0\\
+\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&0&0&\cdots&-1&1
+\end{bmatrix}
+\tag{6-72}
+\end{equation}
+对来自两个总体的容量分别为 $n_1$ 和 $n_2$ 的独立样本, 通过构造变换后的观测值
+\[
+\mathbf{C}\mathbf{x}_{1j}, \quad j=1,2,\cdots,n_1
+\]
+和
+\[
+\mathbf{C}\mathbf{x}_{2j}, \quad j=1,2,\cdots,n_2
+\]
+便可检验零假设. 变换后的观测值的样本均值向量分别为 $\mathbf{C}\bar{\mathbf{x}}_1$ 和 $\mathbf{C}\bar{\mathbf{x}}_2$. 联合的样本协方差阵为 $\mathbf{C}\mathbf{S}_p\mathbf{C}'$.
+
+由于变换后的两组观测值分别服从 $N_{p-1}(\mathbf{C}\boldsymbol{\mu}_1,\mathbf{C}\boldsymbol{\Sigma}\mathbf{C}')$ 与 $N_{p-1}(\mathbf{C}\boldsymbol{\mu}_2,\mathbf{C}\boldsymbol{\Sigma}\mathbf{C}')$, 应用结论 6.2, 便可检验两个轮廓的平行性.
+
+\begin{mvframe}
+\mvbold{两个正态总体平行轮廓的检验}
+
+若
+\phantomsection\label{eq:6-73}
+\begin{equation}
+T^2=(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)'\mathbf{C}'\left[\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\mathbf{C}\mathbf{S}_p\mathbf{C}'\right]^{-1}\mathbf{C}(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)>c^2 \tag{6-73}
+\end{equation}
+则在显著性水平 $\alpha$ 下拒绝 $H_{01}: \mathbf{C}\boldsymbol{\mu}_1=\mathbf{C}\boldsymbol{\mu}_2$, 其中
+\[
+c^2=\frac{(n_1+n_2-2)(p-1)}{n_1+n_2-p}F_{p-1,n_1+n_2-p}(\alpha)
+\]
+\end{mvframe}
+
+当两个总体的轮廓平行时, 第 1 个总体的轮廓或者高于第 2 个总体的轮廓(对所有 $i, \mu_{1i}>\mu_{2i}$), 或者低于第 2 个总体的轮廓, 两者必居其一. 在此条件下, 只有当总高度 $\mu_{11}+\mu_{12}+\cdots+\mu_{1p}=\mu_{21}+\mu_{22}+\cdots+\mu_{2p}=\mathbf{1}'\boldsymbol{\mu}_1$ 相等时, 两总体的轮廓才会重合. 因此, 第二步中的零假设可改写为如下等价形式
+\[
+H_{02}: \mathbf{1}'\boldsymbol{\mu}_1=\mathbf{1}'\boldsymbol{\mu}_2
+\]
+这时我们可以利用根据一元观测值 $\mathbf{1}'\mathbf{x}_{1j}, j=1,2,\cdots,n_1$ 和 $\mathbf{1}'\mathbf{x}_{2j}, j=1,2,\cdots,n_2$ 得出的两个普通二样本 $t$ 统计量来检验 $H_{02}$.
+
+\begin{mvframe}
+\mvbold{两个总体轮廓平行时的重合轮廓的检验}
+
+对两个正态总体, 若
+\phantomsection\label{eq:6-74}
+\begin{equation}
+\begin{aligned}
+T^2&=\mathbf{1}'(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)\left[\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\mathbf{1}'\mathbf{S}_p\mathbf{1}\right]^{-1}\mathbf{1}'(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)\\
+&=\left[\frac{\mathbf{1}'(\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2)}{\sqrt{\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\mathbf{1}'\mathbf{S}_p\mathbf{1}}}\right]^2>t_{n_1+n_2-2}^2\left(\frac{\alpha}{2}\right)=F_{1,n_1+n_2-2}(\alpha)
+\end{aligned}
+\tag{6-74}
+\end{equation}
+则我们在显著性水平 $\alpha$ 下拒绝假设
+\[
+H_{02}: \mathbf{1}'\boldsymbol{\mu}_1=\mathbf{1}'\boldsymbol{\mu}_2\ (\text{轮廓重合})
+\]
+\end{mvframe}
+
+若两总体的轮廓重合, 则 $\mathbf{x}_{11},\mathbf{x}_{12},\cdots,\mathbf{x}_{1n_1}$ 与 $\mathbf{x}_{21},\mathbf{x}_{22},\cdots,\mathbf{x}_{2n_2}$ 均来自同一正态总体, 下一步要研究是否所有变量具有相同的均值, 因而其公共轮廓是水平的.
+
+当 $H_{01}$ 和 $H_{02}$ 被接受时, 可用 $n_1+n_2$ 个观测值来估计其公共均值向量 $\boldsymbol{\mu}$, 其估计量为:
+\[
+\bar{\mathbf{x}}=\frac{1}{n_1+n_2}\left(\sum_{j=1}^{n_1}\mathbf{x}_{1j}+\sum_{j=1}^{n_2}\mathbf{x}_{2j}\right)=\frac{n_1}{(n_1+n_2)}\bar{\mathbf{x}}_1+\frac{n_2}{(n_1+n_2)}\bar{\mathbf{x}}_2
+\]

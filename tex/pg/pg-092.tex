@@ -1,0 +1,68 @@
+\noindent 提示: 由\hyperref[eq:2-16]{式(2-16)} 和\hyperref[eq:2-20]{式(2-20)}, $\mathbf{A}=\mathbf{P}\boldsymbol{\Lambda}\mathbf{P}'$, 其中 $\mathbf{P}'\mathbf{P}=\mathbf{I}$. 由结论 2A.11(e), $|\mathbf{A}|=|\mathbf{P}\boldsymbol{\Lambda}\mathbf{P}'|=|\mathbf{P}|\,|\boldsymbol{\Lambda}\mathbf{P}'|=|\mathbf{P}|\,|\boldsymbol{\Lambda}|\,|\mathbf{P}'|=|\boldsymbol{\Lambda}|\,|\mathbf{I}|$, 因为 $|\mathbf{I}|=|\mathbf{P}'\mathbf{P}|=|\mathbf{P}'|\,|\mathbf{P}|$. 运用练习 2.11 的结论.
+
+\medskip
+\noindent 2.13\quad 若 $\mathbf{Q}$ 是 $p\times p$ 正交阵, 证明 $|\mathbf{Q}|=+1$ 或 $-1$.
+
+\noindent 提示: $|\mathbf{Q}\mathbf{Q}'|=|\mathbf{I}|$. 又从结论 2A.11, $|\mathbf{Q}\mathbf{Q}'|=|\mathbf{Q}|\,|\mathbf{Q}'|=|\mathbf{Q}|^{2}$. 这样, $|\mathbf{Q}|^{2}=|\mathbf{I}|$. 现在利用练习 2.11 的结论.
+
+\medskip
+\noindent 2.14\quad 如果 $\mathbf{Q}$ 是正交阵, 证明 $\underset{(p\times p)}{Q'}\underset{(p\times p)}{A}\underset{(p\times p)}{Q}$ 和 $\mathbf{A}$ 有相同的特征值.
+
+\noindent 提示: 设 $\lambda$ 是 $\mathbf{A}$ 的一个特征值, 则 $0=|\mathbf{A}-\lambda\mathbf{I}|$. 由练习 2.13 和结论 2A.11(e), 因为 $\mathbf{Q}'\mathbf{Q}=\mathbf{I}$, 可有 $0=|\mathbf{Q}'|\,|\mathbf{A}-\lambda\mathbf{I}|\,|\mathbf{Q}|=|\mathbf{Q}'\mathbf{A}\mathbf{Q}-\lambda\mathbf{I}|$.
+
+\medskip
+\noindent 2.15\quad 如果矩阵 $\mathbf{A}$ 是正定的, 则说二次型 $\mathbf{x}'\mathbf{A}\mathbf{x}$ 是正定的. 二次型 $3x_{1}^{2}+3x_{2}^{2}-2x_{1}x_{2}$ 是否正定?
+
+\medskip
+\noindent 2.16\quad 设任一 $n\times p$ 矩阵 $\mathbf{A}$, 则 $\mathbf{A}'\mathbf{A}$ 是一 $p\times p$ 对称矩阵. 证明 $\mathbf{A}'\mathbf{A}$ 必是非负定的.
+
+\noindent 提示: 令 $\mathbf{y}=\mathbf{A}\mathbf{x}$, 因而 $\mathbf{y}'\mathbf{y}=\mathbf{x}'\mathbf{A}'\mathbf{A}\mathbf{x}$.
+
+\medskip
+\noindent 2.17\quad 证明 $k\times k$ 正定矩阵 $\mathbf{A}$ 的每个特征值都是正的.
+
+\noindent 提示: 考虑特征值定义, 其中 $\mathbf{A}\mathbf{e}=\lambda\mathbf{e}$. 用 $\mathbf{e}'$ 左乘, 从而有 $\mathbf{e}'\mathbf{A}\mathbf{e}=\lambda\mathbf{e}'\mathbf{e}$.
+
+\medskip
+\noindent 2.18\quad 考虑点 $(x_{1},x_{2})$ 的集合. 对于 $c^{2}=1$ 和 $c^{2}=4$ 从原点到该点的“距离”由下式给出
+\[
+c^{2}=4x_{1}^{2}+3x_{2}^{2}-2\sqrt{2}x_{1}x_{2}
+\]
+确定常数距离椭圆的长短轴及其相应的长度, 画其草图并注明位置. 当 $c^{2}$ 增大时会怎样?
+
+\medskip
+\noindent 2.19\quad 设 $\mathbf{A}^{1/2}=\sum_{i=1}^{p}\sqrt{\lambda_{i}}\mathbf{e}_{i}\mathbf{e}_{i}'=\mathbf{P}\boldsymbol{\Lambda}^{1/2}\mathbf{P}'$, 其中 $\mathbf{P}\mathbf{P}'=\mathbf{P}'\mathbf{P}=\mathbf{I}$. ($\lambda_{i}$ 和 $\mathbf{e}_{i}$ 是矩阵 $\mathbf{A}$ 的特征值和对应的标准化特征向量.) 证明\hyperref[eq:2-22]{式(2-22)} 中平方根矩阵的性质 (1)$\sim$(4).
+
+\medskip
+\noindent 2.20\quad 利用练习 2.3 中的矩阵 $\mathbf{A}$, 确定平方根矩阵 $\mathbf{A}^{1/2}$ 及 $\mathbf{A}^{-1/2}$, 并证明 $\mathbf{A}^{1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1/2}\mathbf{A}^{1/2}=\mathbf{I}$.
+
+\medskip
+\noindent 2.21\quad (参见结论 2A.15) 利用矩阵
+\[
+\mathbf{A}=\begin{bmatrix}1&1\\2&-2\\2&2\end{bmatrix}
+\]
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= 计算 $\mathbf{A}'\mathbf{A}$ 及其特征值和特征向量.\\[2pt]
+\>(b)\> 计算 $\mathbf{A}\mathbf{A}'$ 及其特征值和特征向量, 核对非零特征值与 (a) 中是否一样.\\[2pt]
+\>(c)\> 求出 $\mathbf{A}$ 的奇异值分解.
+\end{tabbing}
+
+\medskip
+\noindent 2.22\quad (参见结论 2A.15) 利用矩阵
+\[
+\mathbf{A}=\begin{bmatrix}4&8&8\\3&6&-9\end{bmatrix}
+\]
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= 计算 $\mathbf{A}\mathbf{A}'$ 及其特征值和特征向量.\\[2pt]
+\>(b)\> 计算 $\mathbf{A}'\mathbf{A}$ 及其特征值和特征向量, 该对非零特征值与 (a) 中是否一样.\\[2pt]
+\>(c)\> 求出 $\mathbf{A}$ 的奇异值分解.
+\end{tabbing}
+
+\medskip
+\noindent 2.23\quad 设 $\boldsymbol{\Sigma}$ 是 $p\times p$ 总体协方差矩阵[\hyperref[eq:2-32]{式(2-32)}], $\boldsymbol{\rho}$ 是 $p\times p$ 总体相关矩阵[\hyperref[eq:2-34]{式(2-34)}] 和 $\mathbf{V}^{1/2}$ 是总体标准差矩阵[\hyperref[eq:2-35]{式(2-35)}]. 证明关系式 $\mathbf{V}^{-1/2}\boldsymbol{\rho}\mathbf{V}^{1/2}=\boldsymbol{\Sigma}$ 和 $\boldsymbol{\rho}=(\mathbf{V}^{1/2})^{-1}\boldsymbol{\Sigma}(\mathbf{V}^{1/2})^{-1}$.
+
+\medskip
+\noindent 2.24\quad 设 $\mathbf{X}$ 有协方差矩阵
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}4&0&0\\0&9&0\\0&0&1\end{bmatrix}
+\]

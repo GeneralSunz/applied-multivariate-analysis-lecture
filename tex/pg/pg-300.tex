@@ -1,0 +1,48 @@
+% ---- pg-300 （书页 288） ----
+
+\section{回归模型的推断}
+\phantomsection\label{sec:7.4}
+
+我们根据经典线性回归模型 (7-3) 以及附加的对误差 $\boldsymbol{\epsilon}$ 的正态假定来描述推断方法. 检验模型的一般适用性的方法将在 7.6 节中考虑.
+
+\mvsub{关于回归参数的推断}
+
+在评估回归函数
+\phantomsection\label{eq:7-10}
+\begin{equation}
+E(Y)=\beta_0+\beta_1 z_1+\cdots+\beta_r z_r
+\tag{7-10}
+\end{equation}
+中特定变量的重要性之前, 必须确定 $\hat{\boldsymbol{\beta}}$ 及残差平方和 $\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}$ 的抽样分布. 为此我们将假定误差 $\boldsymbol{\epsilon}$ 服从正态分布.
+
+\mvthm{结论 7.4}{设 $\mathbf{Y}=\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon}$, 其中 $\mathbf{Z}$ 有满秩 $r+1$, 且 $\boldsymbol{\epsilon}$ 服从 $N_n(\mathbf{0},\sigma^2\mathbf{I})$ 分布. 此时 $\boldsymbol{\beta}$ 的极大似然估计量就是最小二乘估计量 $\hat{\boldsymbol{\beta}}$. 进而有}
+\[
+\hat{\boldsymbol{\beta}}=(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'\mathbf{Y}\text{ 服从 }N_{r+1}(\boldsymbol{\beta},\sigma^2(\mathbf{Z}'\mathbf{Z})^{-1})\text{ 分布},
+\]
+且 $\hat{\boldsymbol{\beta}}$ 与残差 $\hat{\boldsymbol{\epsilon}}=\mathbf{Y}-\mathbf{Z}\hat{\boldsymbol{\beta}}$ 独立. 此外,
+\[
+n\hat{\sigma}^2=\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}\text{ 服从 }\sigma^2\chi_{n-r-1}^2\text{ 分布},
+\]
+其中 $\hat{\sigma}^2$ 为 $\sigma^2$ 的极大似然估计量.
+
+证明\quad (见网页: www.prenhall.com/statistics) \hfill$\blacksquare$
+
+$\boldsymbol{\beta}$ 的置信椭球很容易构造, 它可用估计的协方差矩阵 $s^2(\mathbf{Z}'\mathbf{Z})^{-1}$ 来表示, 其中 $s^2=\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}/(n-r-1)$.
+
+\mvthm{结论 7.5}{设 $\mathbf{Y}=\mathbf{Z}\boldsymbol{\beta}+\boldsymbol{\epsilon}$, 其中 $\mathbf{Z}$ 有满秩 $r+1$, 且 $\boldsymbol{\epsilon}$ 为 $N_n(\mathbf{0},\sigma^2\mathbf{I})$. 此时 $\boldsymbol{\beta}$ 的 $100(1-\alpha)\%$ 置信域为}
+\[
+(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}})'\mathbf{Z}'\mathbf{Z}(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}})\leq (r+1)s^2 F_{r+1,n-r-1}(\alpha)
+\]
+其中 $F_{r+1,n-r-1}(\alpha)$ 为自由度为 $r+1$ 和 $n-r-1$ 的 $F$ 分布的上 $100\alpha$ 百分位点.
+
+还有, $\beta_i$, $i=1,\cdots,r$ 的联合置信区间为
+\[
+\hat{\beta}_i\pm\sqrt{\widehat{\text{Var}}(\hat{\beta}_i)}\sqrt{(r+1)F_{r+1,n-r-1}(\alpha)},\qquad i=0,1,\cdots,r
+\]
+其中 $\widehat{\text{Var}}(\hat{\beta}_i)$ 为 $s^2(\mathbf{Z}'\mathbf{Z}^{-1})$ 对应于 $\hat{\beta}_i$ 的对角元.
+
+证明\quad 考虑对称平方根矩阵 $(\mathbf{Z}'\mathbf{Z})^{1/2}$[见\hyperref[eq:2-22]{式(2-22)}]. 令 $\mathbf{V}=(\mathbf{Z}'\mathbf{Z})^{1/2}(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta})$ 并注意 $E(\mathbf{V})=\mathbf{0}$,
+\[
+\text{Cov}(\mathbf{V})=(\mathbf{Z}'\mathbf{Z})^{1/2}\text{Cov}(\hat{\boldsymbol{\beta}})(\mathbf{Z}'\mathbf{Z})^{1/2}=\sigma^2(\mathbf{Z}'\mathbf{Z})^{1/2}(\mathbf{Z}'\mathbf{Z})^{-1}(\mathbf{Z}'\mathbf{Z})^{1/2}=\sigma^2\mathbf{I}
+\]
+且 $\mathbf{V}$ 服从正态分布, 因为它由诸 $\hat{\beta}_i$ 的线性组合构成. 因此, $\mathbf{V}'\mathbf{V}=(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta})'(\mathbf{Z}'\mathbf{Z})^{1/2}(\mathbf{Z}'\mathbf{Z})^{1/2}(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta})=(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta})'(\mathbf{Z}'\mathbf{Z})(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta})$ 服从 $\sigma^2\chi_{r+1}^2$ 分布. 根据结论 7.4, $(n-r-1)s^2=\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}$ 服从 $\sigma^2\chi_{n-r-1}^2$ 分布, 独立于 $\hat{\boldsymbol{\beta}}$ 因而也独立于 $\mathbf{V}$. 因此 $[\chi_{r+1}^2/(r+1)]/[\chi_{n-r-1}^2/(n-r-1)]=[\mathbf{V}'\mathbf{V}/(r+1)]/s^2$ 服从 $F_{r+1,n-r-1}$ 分布, 且可得到 $\boldsymbol{\beta}$ 的置信椭球. 用结论 5A.1, 令 $\mathbf{A}^{-1}=\mathbf{Z}'\mathbf{Z}/s^2$, $c^2=(r+1)F_{r+1,n-r-1}(\alpha)$, 及 $\mathbf{u}'=[0,\cdots,0,1,0,\cdots,0]$, 将此置信椭球对 $(\hat{\boldsymbol{\beta}}-\boldsymbol{\beta})$ 投影, 便得到 $|\beta_i-\hat{\beta}_i|\leq$

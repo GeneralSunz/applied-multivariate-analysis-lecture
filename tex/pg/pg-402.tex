@@ -1,0 +1,53 @@
+% ---- pg-402 （书页 390） ----
+
+结论 4.11, 取 $\hat{\boldsymbol{\Sigma}}=((n-1)/n)\mathbf{S}=\mathbf{S}_n$]与
+\phantomsection\label{eq:9-34}
+\begin{equation}
+|\mathbf{S}_n|^{-n/2}e^{-np/2} \tag{9-34}
+\end{equation}
+成比例. 在 $H_0$ 之下, 限定 $\boldsymbol{\Sigma}$ 形如\hyperref[eq:9-33]{式(9-33)}. 此种情况下, 似然函数的最大值[见\hyperref[eq:9-25]{式(9-25)}, 取 $\hat{\boldsymbol{\mu}}=\bar{\mathbf{x}}$ 和 $\hat{\boldsymbol{\Sigma}}=\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}$, 其中 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 分别是 $\mathbf{L}$ 和 $\boldsymbol{\Psi}$ 的极大似然估计]与
+\phantomsection\label{eq:9-35}
+\begin{equation}
+\begin{aligned}
+&|\hat{\boldsymbol{\Sigma}}|^{-n/2}\exp\left(-\frac{1}{2}\mathrm{tr}\left[\hat{\boldsymbol{\Sigma}}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})(\mathbf{x}_j-\bar{\mathbf{x}})'\right)\right]\right)\\
+&\quad=|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|^{-n/2}\exp\left(-\frac{1}{2}n\mathrm{tr}[(\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}})^{-1}\mathbf{S}_n]\right)
+\end{aligned}
+\tag{9-35}
+\end{equation}
+成比例. 利用结论 5.2, \hyperref[eq:9-34]{式(9-34)}及\hyperref[eq:9-35]{式(9-35)}, 我们发现对检验 $H_0$ 的似然比统计量是
+\phantomsection\label{eq:9-36}
+\begin{equation}
+\begin{aligned}
+-2\ln\Lambda&=-2\ln\left[\frac{H_0\ \text{下极大似然函数}}{\text{极大似然函数}}\right]\\
+&=-2\ln\left(\frac{|\hat{\boldsymbol{\Sigma}}|}{|\mathbf{S}_n|}\right)^{-n/2}+n[\mathrm{tr}(\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S}_n)-p]
+\end{aligned}
+\tag{9-36}
+\end{equation}
+其自由度为
+\phantomsection\label{eq:9-37}
+\begin{equation}
+\begin{aligned}
+v-v_0&=\frac{1}{2}p(p+1)-\left[p(m+1)-\frac{1}{2}m(m-1)\right]\\
+&=\frac{1}{2}\left[(p-m)^2-p-m\right]
+\end{aligned}
+\tag{9-37}
+\end{equation}
+补充 9A 表明, $\mathrm{tr}(\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S}_n)-p=0$ 可证明 $\hat{\boldsymbol{\Sigma}}=\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}$ 是 $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$ 的极大似然估计. 这样, 我们有
+\phantomsection\label{eq:9-38}
+\begin{equation}
+-2\ln\Lambda=n\ln\left(\frac{|\hat{\boldsymbol{\Sigma}}|}{|\mathbf{S}_n|}\right) \tag{9-38}
+\end{equation}
+巴特利特(见文献[3])已经证明, 对 $-2\ln\Lambda$ 的抽样分布的 $\chi^2$ 近似可以用多重因子 $(n-1-(2p+4m+5)/6)$ 代替\hyperref[eq:9-38]{式(9-38)}中的 $n$ 来修正.
+
+利用巴特利特修正\footnote{{\footnotesize 许多因子分析以无偏估计 $\mathbf{S}=[n/(n-1)]\mathbf{S}_n$ 代替 $\mathbf{S}_n$ 得到近似极大似然估计, 然后将 $\ln|\boldsymbol{\Sigma}|+\mathrm{tr}[\boldsymbol{\Sigma}^{-1}\mathbf{S}]$ 最小化. 把 $\mathbf{S}$ 和近似极大似然估计量两次代换到\hyperref[eq:9-39]{式(9-39)}的检验统计量中, 不影响它的大样本性质.}}, 只要 $n$ 和 $n-p$ 大, 若
+\phantomsection\label{eq:9-39}
+\begin{equation}
+(n-1-(2p+4m+5)/6)\ln\frac{|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|}{|\mathbf{S}_n|}>\chi^2_{[(p-m)^2-p-m]/2}(\alpha) \tag{9-39}
+\end{equation}
+则在显著性水平 $\alpha$ 上拒绝 $H_0$. 由于自由度 $\frac{1}{2}[(p-m)^2-p-m]$ 必为正的, 为应用检验(9-39), 得出
+\phantomsection\label{eq:9-40}
+\begin{equation}
+m<\frac{1}{2}(2p+1-\sqrt{8p+1}) \tag{9-40}
+\end{equation}
+
+\mvbold{评注}\quad 在实施检验(9-39)中, 我们用比较广义方差 $|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|$ 和 $|\mathbf{S}_n|$ 去检验 $m$ 个公共因子模型的充分性. 如果 $n$ 大而 $m$ 相对于 $p$ 较小, 则假设 $H_0$ 通常将被拒绝, 这导致保留更多的因子. 然而 $\hat{\boldsymbol{\Sigma}}=\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}$ 可能足够靠近 $\mathbf{S}_n$, 以至于增加更多的因子并不会加深认识, 即使那些增加的因子是“显著的”. 在选择 $m$ 时必须加以判断.

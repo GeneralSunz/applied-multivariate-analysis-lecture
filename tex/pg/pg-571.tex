@@ -1,0 +1,89 @@
+% ---- pg-571 （书页 559） ----
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=2.6cm,y=2.6cm,font=\zihao{6}]
+% ---- 边框 ----
+\draw (-1.19,-1.08) rectangle (1.03,1.17);
+% ---- 参考线 ----
+\draw (-1.19,0) -- (1.03,0);
+\draw (0,-1.08) -- (0,1.17);
+% ---- x 轴主刻度 ----
+\foreach \x in {-1.0,-0.5,0.0,0.5,1.0} \draw (\x,-1.08) -- (\x,-1.145);
+% ---- x 轴次刻度 ----
+\foreach \x in {-0.75,-0.25,0.25,0.75} \draw (\x,-1.08) -- (\x,-1.11);
+\node[below,inner sep=1.5pt] at (-1.0,-1.145) {$-1.0$};
+\node[below,inner sep=1.5pt] at (-0.5,-1.145) {$-0.5$};
+\node[below,inner sep=1.5pt] at (0.0,-1.145) {$0.0$};
+\node[below,inner sep=1.5pt] at (0.5,-1.145) {$0.5$};
+\node[below,inner sep=1.5pt] at (1.0,-1.145) {$1.0$};
+% ---- y 轴主刻度 ----
+\foreach \y in {-1.0,-0.5,0.0,0.5,1.0} \draw (-1.19,\y) -- (-1.26,\y);
+% ---- y 轴次刻度 ----
+\foreach \y in {-0.75,-0.25,0.25,0.75} \draw (-1.19,\y) -- (-1.22,\y);
+\node[left,inner sep=1.5pt] at (-1.26,1.0) {$1.0$};
+\node[left,inner sep=1.5pt] at (-1.26,0.5) {$0.5$};
+\node[left,inner sep=1.5pt] at (-1.26,0.0) {$0.0$};
+\node[left,inner sep=1.5pt] at (-1.26,-0.5) {$-0.5$};
+\node[left,inner sep=1.5pt] at (-1.26,-1.0) {$-1.0$};
+% ---- 轴名 ----
+\node[rotate=90,inner sep=1pt] at (-1.60,0) {$c_1$};
+\node[below,inner sep=3pt] at (0,-1.42) {$c_2$};
+% ---- 轴端注记 ----
+\node[anchor=south west,inner sep=1pt] at (-1.19,1.20) {$\tilde{\lambda}_1^2=0.28(55\%)$};
+\node[anchor=west,inner sep=1pt] at (1.05,0) {$\tilde{\lambda}_2^2=0.17(33\%)$};
+% ---- 场所（空心方块） ----
+\foreach \px/\py in {0.67/0.92, -0.64/0.42, -0.58/0.20, -0.28/0.72, 0.16/0.19, -0.15/0.00, 0.08/-0.61}
+  \draw[fill=white] (\px-0.055,\py-0.055) rectangle (\px+0.055,\py+0.055);
+% ---- 类型（实心方块 + 白色叉） ----
+\foreach \px/\py in {-0.45/0.48, 0.32/0.00, -0.10/-0.43, 0.77/0.94} {
+  \fill (\px-0.055,\py-0.055) rectangle (\px+0.055,\py+0.055);
+  \draw[white,line width=0.4pt] (\px-0.055,\py-0.055) -- (\px+0.055,\py+0.055);
+  \draw[white,line width=0.4pt] (\px-0.055,\py+0.055) -- (\px+0.055,\py-0.055);
+}
+% ---- 点标记 ----
+\node[below,inner sep=2pt] at (0.67,0.92) {P0};
+\node[below right,inner sep=2pt] at (-0.64,0.42) {P1};
+\node[right,inner sep=2.5pt] at (-0.58,0.20) {P2};
+\node[right,inner sep=2.5pt] at (-0.28,0.72) {P3};
+\node[right,inner sep=2.5pt] at (0.16,0.19) {P4};
+\node[left,inner sep=2.5pt] at (-0.15,0.00) {P5};
+\node[right,inner sep=2.5pt] at (0.08,-0.61) {P6};
+\node[right,inner sep=2.5pt] at (-0.45,0.48) {A};
+\node[right,inner sep=2.5pt] at (0.32,0.00) {B};
+\node[right,inner sep=2.5pt] at (-0.10,-0.43) {C};
+\node[right,inner sep=2.5pt] at (0.77,0.94) {D};
+% ---- 图例 ----
+\begin{scope}[yshift=-4.5cm]
+\fill (-0.80,-0.075) rectangle (-0.65,0.075);
+\draw[white,line width=0.4pt] (-0.80,-0.075) -- (-0.65,0.075);
+\draw[white,line width=0.4pt] (-0.80,0.075) -- (-0.65,-0.075);
+\node[right,inner sep=3pt] at (-0.63,0) {类型};
+\draw[fill=white] (0.10,-0.075) rectangle (0.25,0.075);
+\node[right,inner sep=3pt] at (0.27,0) {场所};
+\end{scope}
+\end{tikzpicture}
+\phantomsection\label{fig:12.22}\mvcap{图 12.22\quad 陶器类型—场所数据的对应分析图}
+\end{mvfigure}
+
+例如, \hyperref[fig:12.22]{图 12.22} 中的点指示场所 P1 和 P2 具有类似的陶器类型轮廓(两个点彼此靠近), 而场所 P0 和 P6 的轮廓则很不相同(两个点远离). 对应陶器类型的点散布得很开, 表示不同类型的考古地点的轮廓非常不同. 这些发现与\hyperref[fig:12.21]{图 12.21} 所画的轮廓是一致的.
+
+注意点 P0 和 D 彼此很接近, 且与其他的点分开. 这说明 D 型陶器几乎是排他地与考古场所 P0 相联系. 类似的, 陶器类型 A 倾向于与场所 P1 相联系, 且较小程度上与 P2 和 P3 相联系. 陶器 B 与场所 P4 和 P5 相联系, 而类型 C 差不多只和场所 P6 相联系. 由于考古场所代表不同的年代, 这些联系对考古学家是有特别意义的.
+
+位于二维图纵坐标轴末端的 $\tilde{\lambda}_1^2=0.28$ 是与第一维相联系的惯性, 这个惯性占总惯性的 $55\%$. 与第二维相联系的惯性为 $\tilde{\lambda}_2^2=0.17$, 占总惯性的 $33\%$. 两个维的惯性之和占总惯性的 $55\%+33\%=88\%$. 由于这个问题中的数据恰好可以用三维空间中的点来表示, \hyperref[fig:12.22]{图 12.22} 中的二维表示损失的信息(变差)很少. 等价地说, 我们可以认为这些点是多维行点集的“最佳”二维表示, 同时也是多维列点集的“最佳”二维表示. 总共 $88\%$ 的惯性说明这个表示对数据的“拟合”是好的.
+
+在本例中, 对应分析的图像输出相当清晰地显示了列联表中各种联系的性质.\hfill$\blacksquare$
+
+\mvsub{对应分析的代数推导}
+
+首先, 令 $\mathbf{X}$ 为 $I\times J$ 列联表, 其元素 $x_{ij}$ 为未标准化的频数或计数. 在我们的讨论中, 总假定 $I>J$, 并且 $\mathbf{X}$ 满列秩. $\mathbf{X}$ 的行和列分别对应不同的类和不同的特性. 作为例子, \hyperref[tab:12.8]{表 12.8} 是一张列联表, 其中有 $I=7$ 个考古场所, $J=4$ 种陶器类型.
+
+设 $n$ 为 $\mathbf{X}$ 中的总频数(译者注: $\mathbf{X}$ 中元素之和), 我们先构造比例矩阵 $\mathbf{P}=\{p_{ij}\}$, 其中
+\phantomsection\label{eq:12-28}
+\begin{equation}
+p_{ij}=\frac{x_{ij}}{n},\quad i=1,\cdots,I,\ j=1,\cdots,J,\ \text{或}\
+\underset{(I\times J)}{\mathbf{P}}=\frac{1}{n}\underset{(I\times J)}{\mathbf{X}}
+\tag{12-28}
+\end{equation}
+矩阵 $\mathbf{P}$ 称为对应矩阵.
+
+然后分别定义行和列的“和向量”$\mathbf{r}$ 和 $\mathbf{c}$:

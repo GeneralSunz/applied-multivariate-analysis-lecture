@@ -1,0 +1,48 @@
+% ---- pg-511 （书页 499） ----
+
+\[
+\widehat{\mathrm{Var}}(\hat{p}(\mathbf{z}_k))\approx(\hat{p}(\mathbf{z}_k))(1-\hat{p}(\mathbf{z}_k))^2\mathbf{z}_k'\left[\sum_{j=1}^{m}n_j\hat{p}(\mathbf{z}_j)(1-\hat{p}(\mathbf{z}_j))\mathbf{z}_j\mathbf{z}_j'\right]^{-1}\mathbf{z}_k
+\]
+考察以 $\hat{p}(\mathbf{z}_j)$ 为中心, 加减两倍标准误差估计的区间可能发现难于分类的观测(译者注: 此话语义不明).
+
+\quad\mvbold{模型检定}\quad 一旦对数据拟合了一个模型, 最好要检定一下拟合的适合度. 为此应该提出以下问题.
+\begin{itemize}
+\item 是否存在数据对于拟合的逻辑斯蒂模型的系统偏离?
+\item 是否存在一些不寻常的观测, 它们与数据的总体模式不一致(离群值)?
+\item 是否存在一些观测, 当它们被包含在或被排除出数据时会导致统计分析结果发生重大差异(高影响点)?
+\end{itemize}
+如果单个的概率 $p(\mathbf{z}_j)=P(\text{成功}\mid \mathbf{z}_j)$ 没有参数结构, 则每个概率可以用观测的成功频数对于试验次数 $n_j$ 的比值来估计. 在此非参数模型或饱和模型下, 第 $j$ 个试验点对于似然的贡献为
+\[
+\binom{n_j}{y_j}p^{y_j}(\mathbf{z}_j)(1-p(\mathbf{z}_j))^{n_j-y_j}
+\]
+其最大值在 $\hat{p}(\mathbf{z}_j)=y_j/n_j$ 达到, $j=1,\cdots,n, m=\sum n_j$. 非参数(NP)负二倍最大化对数似然为
+\phantomsection\label{eq:11-80}
+\begin{equation}
+-2\ln L_{\max,\mathrm{NP}}=-2\sum_{j=1}^{m}\left[y_j\ln\left(\frac{y_j}{n_j}\right)+(n_j-y_j)\ln\left(1-\frac{y_j}{n_j}\right)\right]+2\ln\left[\prod_{j=1}^{m}\binom{n_j}{y_j}\right]
+\tag{11-80}
+\end{equation}
+其中右端最后一项对于所有模型都是一样的.
+
+我们对于非参数模型与另外的包含一个常数项和 $r-1$ 个预测项的模型同样定义离差, 即负二倍对数似然比
+\phantomsection\label{eq:11-81}
+\begin{equation}
+G^2=2\sum_{j=1}^{m}\left[y_j\ln\left(\frac{y_j}{\hat{y}_j}\right)+(n_j-y_j)\ln\left(\frac{n_j-y_j}{n_j-\hat{y}_j}\right)\right]
+\tag{11-81}
+\end{equation}
+其中 $\hat{y}_j=n_j\hat{p}(\mathbf{z}_j)$ 为拟合的成功频数. 这是一种特殊的离差, 它的作用类似于线性模型中的残差平方和.
+
+对于大的样本, $G^2$ 的渐近分布为卡方分布, 自由度 $f=m-r$, 其中 $m$ 为不同的试验点总数, $r$ 为拟合模型中参数的个数.
+
+记全模型的离差为 $G^2_{\mathrm{Full}}$, 一个缩减模型的离差为 $G^2_{\mathrm{Reduced}}$, 则额外的预测项(译者注: 即包含在全模型中而不包含在缩减模型中的预测项)的贡献为
+\phantomsection\label{eq:11-82}
+\begin{equation}
+G^2_{\mathrm{Reduced}}-G^2_{\mathrm{Full}}=-2\ln\left(\frac{L_{\max,\mathrm{Reduced}}}{L_{\max}}\right)
+\tag{11-82}
+\end{equation}
+此差的渐近分布为卡方分布, 自由度 $\mathrm{df}=\mathrm{df}_{\mathrm{Reduces}}-\mathrm{df}_{\mathrm{Full}}$. 当此差有大的值, 意味着应考虑全模型.
+
+当 $m$ 很大时, 在非参数模型中要估计的概率太多. 此时用现有的方法无法证明渐近卡方分布. 在这种场合, 最好以一个包含较少预测项的逻辑斯蒂模型作为基础进行似然比检验.
+
+\quad\mvbold{残差与拟合优度检验}\quad 残差可用于检定数据的模式, 对逻辑模型的失拟合度和预测变量(协变量)的选择提出建议. 逻辑斯蒂回归模型中残差的定义不如在多重回归模型(第 7 章)中那样明确. 这里有三种不同的残差定义.
+
+\qquad 离差残差($d_j$):

@@ -1,0 +1,94 @@
+% ---- pg-566 （书页 554） ----
+
+\begin{mvtable}
+\phantomsection\label{tab:12.7}\mvtabcap{表 12.7\quad 航线距离数据}
+\setlength{\tabcolsep}{3.2pt}%
+\zihao{6}%
+\begin{tabular}{l*{12}{r}}
+\toprule
+& \makecell{亚特\\兰大} & 波士顿 & \makecell{辛辛\\那提} & \makecell{哥伦\\布} & \makecell{达拉\\斯} & \makecell{印第安纳\\波利斯} & \makecell{小石\\城} & \makecell{洛杉\\矶} & \makecell{孟菲\\斯} & \makecell{圣路\\易斯} & 斯波坎 & 坦帕 \\
+& (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) & (12) \\
+\midrule
+(1)  & 0 & & & & & & & & & & & \\
+(2)  & 1\,068 & 0 & & & & & & & & & & \\
+(3)  & 461 & 867 & 0 & & & & & & & & & \\
+(4)  & 549 & 769 & 107 & 0 & & & & & & & & \\
+(5)  & 805 & 1\,819 & 943 & 1\,050 & 0 & & & & & & & \\
+(6)  & 508 & 941 & 108 & 172 & 882 & 0 & & & & & & \\
+(7)  & 505 & 1\,494 & 618 & 725 & 325 & 562 & 0 & & & & & \\
+(8)  & 2\,197 & 3\,052 & 2\,186 & 2\,245 & 1\,403 & 2\,080 & 1\,701 & 0 & & & & \\
+(9)  & 366 & 1\,355 & 502 & 586 & 464 & 436 & 137 & 1\,831 & 0 & & & \\
+(10) & 558 & 1\,178 & 338 & 409 & 645 & 234 & 353 & 1\,848 & 294 & 0 & & \\
+(11) & 2\,467 & 2\,747 & 2\,067 & 2\,131 & 1\,891 & 1\,959 & 1\,988 & 1\,227 & 2\,042 & 1\,820 & 0 & \\
+(12) & 467 & 1\,379 & 928 & 985 & 1\,077 & 975 & 912 & 2\,480 & 779 & 1\,016 & 2\,821 & 0 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+对 $q=2$ 维的多维标度变换图示于\hyperref[fig:12.15]{图 12.15} 中, 坐标轴是沿散布图的主成分方向.
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=2.6cm,y=2.7cm,font=\zihao{6}]
+% ---- 边框 ----
+\draw (-2.055,-0.93) rectangle (1.782,1.07);
+% ---- x 轴主刻度 ----
+\foreach \x in {-2.0,-1.5,-1.0,-0.5,0.0,0.5,1.0,1.5}
+  \draw (\x,-0.93) -- (\x,-1.00);
+% ---- x 轴次刻度 ----
+\foreach \x in {-1.75,-1.25,-0.75,-0.25,0.25,0.75,1.25}
+  \draw (\x,-0.93) -- (\x,-0.975);
+\node[below,inner sep=1.5pt] at (-2.0,-1.00) {$-2.0$};
+\node[below,inner sep=1.5pt] at (-1.5,-1.00) {$-1.5$};
+\node[below,inner sep=1.5pt] at (-1.0,-1.00) {$-1.0$};
+\node[below,inner sep=1.5pt] at (-0.5,-1.00) {$-0.5$};
+\node[below,inner sep=1.5pt] at (0.0,-1.00) {$0$};
+\node[below,inner sep=1.5pt] at (0.5,-1.00) {$0.5$};
+\node[below,inner sep=1.5pt] at (1.0,-1.00) {$1.0$};
+\node[below,inner sep=1.5pt] at (1.5,-1.00) {$1.5$};
+% ---- y 轴主刻度 ----
+\foreach \y in {-0.8,-0.4,0.0,0.4,0.8}
+  \draw (-2.105,\y) -- (-2.055,\y);
+% ---- y 轴次刻度 ----
+\foreach \y in {-0.6,-0.2,0.2,0.6}
+  \draw (-2.08,\y) -- (-2.055,\y);
+\node[left,inner sep=1.5pt] at (-2.105,0.8) {$0.8$};
+\node[left,inner sep=1.5pt] at (-2.105,0.4) {$0.4$};
+\node[left,inner sep=1.5pt] at (-2.105,0.0) {$0$};
+\node[left,inner sep=1.5pt] at (-2.105,-0.4) {$-0.4$};
+\node[left,inner sep=1.5pt] at (-2.105,-0.8) {$-0.8$};
+% ---- 城市点 ----
+\fill (-1.80,0.94) circle (1.1pt);
+\node[above,inner sep=2pt] at (-1.80,0.94) {斯波坎};
+\fill (1.32,0.81) circle (1.1pt);
+\node[above,inner sep=2pt] at (1.32,0.81) {波士顿};
+\fill (0.67,0.41) circle (1.1pt);
+\node[above,inner sep=2pt] at (0.67,0.41) {哥伦布};
+\fill (0.40,0.35) circle (1.1pt);
+\node[left,inner sep=2pt] at (0.40,0.35) {印第安纳波利斯};
+\fill (0.55,0.34) circle (1.1pt);
+\node[right,inner sep=2pt] at (0.55,0.34) {辛辛那提};
+\fill (0.23,0.17) circle (1.1pt);
+\node[right,inner sep=2pt] at (0.23,0.17) {圣路易斯};
+\fill (0.87,-0.10) circle (1.1pt);
+\node[above,inner sep=2pt] at (0.87,-0.10) {亚特兰大};
+\fill (0.28,-0.10) circle (1.1pt);
+\node[below left,inner sep=2pt] at (0.28,-0.10) {孟菲斯};
+\fill (0.38,-0.22) circle (1.1pt);
+\node[right,inner sep=2pt] at (0.38,-0.22) {小石城};
+\fill (-0.18,-0.32) circle (1.1pt);
+\node[above,inner sep=2pt] at (-0.18,-0.32) {达拉斯};
+\fill (-1.77,-0.29) circle (1.1pt);
+\node[above,inner sep=2pt] at (-1.77,-0.29) {洛杉矶};
+\fill (1.08,-0.44) circle (1.1pt);
+\node[above left,inner sep=2pt] at (1.08,-0.44) {坦帕};
+\end{tikzpicture}
+\phantomsection\label{fig:12.15}\mvcap{图 12.15\quad 多维标度变换所产生的一些城市的几何表示}
+\end{mvfigure}
+
+应力$(q)$对 $q$ 的点图示于\hyperref[fig:12.16]{图 12.16}. 由于应力$(q)\times 100\%=12\%$, 将这些城市表为一维(沿一个轴)的点也不能说不合理. 应力函数的“肘”出现在 $q=2$ 处. 这里应力$(2)\times 100\%=0.8\%$, 因此“拟合”几乎是完美的.
+
+注意在\hyperref[fig:12.16]{图 12.16} 中, 应力在 $q=3$ 时实际上是增加了. 这种不正常在应力值非常小时有可能发生, 这是由用于确定最小应力位置的数值搜索法本身的困难所引起的.\hfill$\blacksquare$
+
+\noindent\textbf{例 12.15}\quad (公用事业公司的多维标度变换)
+
+我们来将例 12.7 中 22 个公用事业公司的数据表示为低维空间的点. 各对公司之间的相似(异)性度量就是\hyperref[tab:12.6]{表 12.6} 中所列的欧氏距离. $q=1,2,\cdots,6$ 六种维数的多维标度变换所产生的应力函数示于\hyperref[fig:12.17]{图 12.17}.

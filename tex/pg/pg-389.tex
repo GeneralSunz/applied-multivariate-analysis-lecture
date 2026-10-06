@@ -1,0 +1,68 @@
+% ---- pg-389 （书页 377） ----
+
+或
+\[
+\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}
+\]
+可用矩阵代数来验证. 因此, $\boldsymbol{\Sigma}$ 具有由一个 $m=2$ 正交因子模型产生的结构. 由于
+\[
+\mathbf{L}=\begin{bmatrix}
+l_{11}&l_{12}\\
+l_{21}&l_{22}\\
+l_{31}&l_{32}\\
+l_{41}&l_{42}
+\end{bmatrix}=\begin{bmatrix}4&1\\7&2\\-1&6\\1&8\end{bmatrix}
+\]
+\[
+\boldsymbol{\Psi}=\begin{bmatrix}
+\psi_1&0&0&0\\
+0&\psi_2&0&0\\
+0&0&\psi_3&0\\
+0&0&0&\psi_4
+\end{bmatrix}=\begin{bmatrix}
+2&0&0&0\\
+0&4&0&0\\
+0&0&1&0\\
+0&0&0&3
+\end{bmatrix}
+\]
+从\hyperref[eq:9-6]{式(9-6)}得到 $X_1$ 的共性方差是
+\[
+h_1^2=l_{11}^2+l_{12}^2=4^2+1^2=17
+\]
+而 $X_1$ 的方差可分解为
+\[
+\sigma_{11}=(l_{11}^2+l_{12}^2)+\psi_1=h_1^2+\psi_1
+\]
+或
+\[
+\underbrace{19}_{\text{方差}}=\underbrace{4^2+1^2}_{\text{共性方差}}+\underbrace{2}_{\text{特殊方差}}=17+2
+\]
+对其他变量可作类似处理. \hfill$\blacksquare$
+
+因子模型假设这 $p+p(p-1)/2=p(p+1)/2$ 个变量和 $\mathbf{X}$ 的协方差, 可由 $pm$ 个因子载荷 $l_{ij}$ 及 $p$ 个特殊方差 $\psi_i$ 重新得到. 当 $m=p$, 协方差矩阵 $\boldsymbol{\Sigma}$ 可准确复制为 $\mathbf{L}\mathbf{L}'$[见\hyperref[eq:9-11]{式(9-11)}], 故 $\boldsymbol{\Psi}$ 可以是零矩阵. 然而当 $m$ 相对于 $p$ 较小时的因子分析, 是最有用的. 此时, 因子模型提供 $\mathbf{X}$ 中协同变异的一个“简单”解释, 该模型带有的参数个数比 $\boldsymbol{\Sigma}$ 中 $p(p+1)/2$ 个参数要少. 例如, 若 $\mathbf{X}$ 包含 $p=12$ 个变量, 并且具有 $m=2$ 的因子模型(9-4)是合适的, 那么 $\boldsymbol{\Sigma}$ 中 $p(p+1)/2=(12\times13)/2=78$ 个元素可以用因子模型的 $mp+p=12\times2+12=36$ 个参数 $l_{ij}$ 和 $\psi_i$ 来刻画.
+
+对因子分析而言不幸的是, 大多数协方差矩阵不能作因子化化为 $\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$, 且使其中因子数 $m$ 较 $p$ 小得多. 下例说明了在试图从观测变量的方差和协方差确定参数 $l_{ij}$ 和 $\psi_i$ 时, 会引起的问题之一.
+
+\noindent\textbf{例 9.2}\quad (不存在真实解)
+
+令 $p=3$ 和 $m=1$, 并设随机变量 $X_1,X_2$ 及 $X_3$ 有正定协方差矩阵
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}
+1&0.9&0.7\\
+0.9&1&0.4\\
+0.7&0.4&1
+\end{bmatrix}
+\]
+利用因子模型(9-4), 我们得到
+\[
+\begin{aligned}
+X_1-\mu_1&=l_{11}F_1+\varepsilon_1\\
+X_2-\mu_2&=l_{21}F_1+\varepsilon_2\\
+X_3-\mu_3&=l_{31}F_1+\varepsilon_3
+\end{aligned}
+\]
+\hyperref[eq:9-5]{式(9-5)}中的协方差结构推出
+\[
+\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}
+\]

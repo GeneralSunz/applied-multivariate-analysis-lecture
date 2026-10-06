@@ -1,0 +1,79 @@
+我们看到 $\mathbf{X}_1=\begin{bmatrix}X_1\\X_2\end{bmatrix}$ 和 $X_3$ 的协方差矩阵 $\boldsymbol{\Sigma}_{12}=\begin{bmatrix}0\\0\end{bmatrix}$。因此，$(X_1,X_2)$ 和 $X_3$ 根据结论 4.5 是独立的。这意味着 $X_3$ 对 $X_1$ 独立，对 $X_2$ 也独立。\hfill$\blacksquare$
+
+在二元正态分布的讨论中，我们已指出 $\rho_{12}=0$（零相关）意味着独立，这是因为联合密度函数[参见\hyperref[eq:4-6]{式(4-6)}]可写成 $X_1$ 和 $X_2$ 的边缘（正态）密度之积。这种情况，只不过是结论 4.5 在 $q_1=q_2=1$ 时的一个特例，这一点可以直接证明。
+
+\mvthm{结论 4.6}{设 $\mathbf{X}=\begin{bmatrix}\mathbf{X}_1\\\mathbf{X}_2\end{bmatrix}$ 是服从 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 的分布，$\boldsymbol{\mu}=\begin{bmatrix}\boldsymbol{\mu}_1\\\boldsymbol{\mu}_2\end{bmatrix}$，$\boldsymbol{\Sigma}=\begin{bmatrix}\boldsymbol{\Sigma}_{11}&\boldsymbol{\Sigma}_{12}\\\boldsymbol{\Sigma}_{21}&\boldsymbol{\Sigma}_{22}\end{bmatrix}$，且 $|\boldsymbol{\Sigma}_{22}|>0$。}
+
+则给定 $\mathbf{X}_2=\mathbf{x}_2$ 时，$\mathbf{X}_1$ 的条件分布是正态的，并且
+
+\[
+\text{均值}=\boldsymbol{\mu}_1+\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_2-\boldsymbol{\mu}_2)
+\]
+
+和
+
+\[
+\text{协方差}=\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}
+\]
+
+注意协方差不取决于条件变量的值 $\mathbf{x}_2$。
+
+\noindent\textbf{证明}\quad 我们将给出一个间接的证明（参见练习 4.13，其中直接利用密度）。取
+
+\[
+A=\begin{bmatrix}
+I_{q_1\times q_1} & -\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\\[2pt]
+\mathbf{0}_{(p-q_1)\times q_1} & I_{(p-q_1)\times(p-q_1)}
+\end{bmatrix}
+\]
+
+于是
+
+\[
+A(\mathbf{X}-\boldsymbol{\mu})=A\begin{bmatrix}\mathbf{X}_1-\boldsymbol{\mu}_1\\\mathbf{X}_2-\boldsymbol{\mu}_2\end{bmatrix}
+=\begin{bmatrix}
+\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)\\[2pt]
+\mathbf{X}_2-\boldsymbol{\mu}_2
+\end{bmatrix}
+\]
+
+是联合正态的，协方差矩阵 $A\boldsymbol{\Sigma}A'$ 由
+
+\[
+\begin{bmatrix}
+I & -\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\\
+\mathbf{0} & I
+\end{bmatrix}
+\begin{bmatrix}
+\boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12}\\
+\boldsymbol{\Sigma}_{21} & \boldsymbol{\Sigma}_{22}
+\end{bmatrix}
+\begin{bmatrix}
+I & \mathbf{0}\\
+(-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1})' & I
+\end{bmatrix}
+=\begin{bmatrix}
+\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21} & \mathbf{0}\\
+\mathbf{0} & \boldsymbol{\Sigma}_{22}
+\end{bmatrix}
+\]
+
+给出。
+
+由于 $\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)$ 与 $\mathbf{X}_2-\boldsymbol{\mu}_2$ 有零协方差，它们独立。而且，量 $\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)$ 服从 $N_{q_1}(\mathbf{0},\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21})$ 分布。给定 $\mathbf{X}_2=\mathbf{x}_2$，$\boldsymbol{\mu}_1+\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_2-\boldsymbol{\mu}_2)$ 是一常数。因为 $\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)$ 和 $\mathbf{X}_2-\boldsymbol{\mu}_2$ 独立，$\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)$ 的条件分布与 $\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)$ 的无条件分布是相同的。由于 $\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{X}_2-\boldsymbol{\mu}_2)$ 服从 $N_{q_1}(\mathbf{0},\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21})$ 分布，因此，当 $\mathbf{X}_2$ 有特定值 $\mathbf{x}_2$ 时，随机向量 $\mathbf{X}_1-\boldsymbol{\mu}_1-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_2-\boldsymbol{\mu}_2)$ 也是同一分布。等价地，给定 $\mathbf{X}_2=\mathbf{x}_2$ 时，$\mathbf{X}_1$ 服从 $N_{q_1}(\boldsymbol{\mu}_1+\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_2-\boldsymbol{\mu}_2),\boldsymbol{\Sigma}_{11}-\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21})$ 分布。\hfill$\blacksquare$
+
+\noindent\textbf{例 4.7}\quad （二元正态分布的条件密度）
+
+对任何二元分布，在给定 $X_2=x_2$ 时，$X_1$ 的条件密度被定义为
+
+\[
+f(x_1\mid x_2)=\{\text{给定 }X_2=x_2,\ X_1 \text{ 的条件密度}\}=\frac{f(x_1,x_2)}{f_2(x_2)}
+\]
+
+其中 $f_2(x_2)$ 是 $X_2$ 的边缘分布。若 $f(x_1,x_2)$ 是二元正态密度，证明 $f(x_1\mid x_2)$ 为
+
+\[
+N\left(\mu_1+\frac{\sigma_{12}}{\sigma_{22}}(x_2-\mu_2),\ \sigma_{11}-\frac{\sigma_{12}^2}{\sigma_{22}}\right)
+\]
+
+这里 $\sigma_{11}-\sigma_{12}^2/\sigma_{22}=\sigma_{11}(1-\rho_{12}^2)$。在二元正态密度[参见\hyperref[eq:4-6]{式(4-6)}]的指数中，除去相乘的常数 $-1/2(1-\rho_{12}^2)$ 以外，包含 $x_1-\mu_1$ 的两项变成

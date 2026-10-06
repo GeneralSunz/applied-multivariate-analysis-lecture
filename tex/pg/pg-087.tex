@@ -1,0 +1,80 @@
+% ---- pg-087 （书页 75） ----
+
+\mvbold{定义 2A.31}\quad 设 $\bm{A}$ 是一个 $k \times k$ 维矩阵, $\lambda$ 是 $\bm{A}$ 的一个特征值.如果非零向量 $\bm{x}_{(k \times 1)}$($\bm{x} \neq \bm{0}$)满足
+
+\[
+\bm{A}\bm{x} = \lambda\bm{x}
+\]
+
+则称 $\bm{x}$ 是矩阵 $\bm{A}$ 的相应于特征值 $\lambda$ 的特征向量.
+
+$\lambda$ 是特征值-特征向量方程的解的一个等价条件是 $|\bm{A} - \lambda\bm{I}| = 0$.这是因为,对于某个 $\lambda$ 和 $\bm{x} \neq \bm{0}$, $\bm{A}\bm{x} = \lambda\bm{x}$ 意味着
+
+\[
+\bm{0} = (\bm{A} - \lambda\bm{I})\bm{x} = x_1 \cdot \text{列}_1(\bm{A} - \lambda\bm{I}) + \cdots + x_k \cdot \text{列}_k(\bm{A} - \lambda\bm{I})
+\]
+
+也就是说, $\bm{A} - \lambda\bm{I}$ 的列向量是线性相关的,故由结论 2A.9(b)可断言 $|\bm{A} - \lambda\bm{I}| = 0$.按照定义 2A.30,我们指出
+
+\[
+\bm{A} = \begin{bmatrix} 1 & 0 \\ 1 & 3 \end{bmatrix}
+\]
+
+的特征值是 $\lambda_1 = 1$ 和 $\lambda_2 = 3$.对应于这些特征值的特征向量可以通过解下述方程来确定：
+
+\[
+\begin{bmatrix} 1 & 0 \\ 1 & 3 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 1\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+\]
+\[
+\bm{A}\bm{x} = \lambda_1\bm{x}
+\]
+\[
+\begin{bmatrix} 1 & 0 \\ 1 & 3 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 3\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+\]
+\[
+\bm{A}\bm{x} = \lambda_2\bm{x}
+\]
+
+从第一式
+
+\[
+\begin{aligned}
+x_1 &= x_1 \\
+x_1 + 3x_2 &= x_2
+\end{aligned}
+\]
+
+或
+
+\[
+x_1 = -2x_2
+\]
+
+可求出 $x_1$ 和 $x_2$ 的许多解.
+
+令 $x_2 = 1$(任意的),得出 $x_1 = -2$,因此,
+
+\[
+\bm{x} = \begin{bmatrix} -2 \\ 1 \end{bmatrix}
+\]
+
+是对应于特征值 1 的一个特征向量.从第二式,
+
+\[
+\begin{aligned}
+x_1 &= 3x_1 \\
+x_1 + 3x_2 &= 3x_2
+\end{aligned}
+\]
+
+可以推出 $x_1 = 0$ 和 $x_2 = 1$(任意地),因此,
+
+\[
+\bm{x} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+\]
+
+是特征值 3 对应的特征向量.通常习惯于确定一个特征向量使它为单位长度.即,如果 $\bm{A}\bm{x} = \lambda\bm{x}$,取 $\bm{e} = \bm{x}/\sqrt{\bm{x}'\bm{x}}$ 作为 $\lambda$ 对应的特征向量.例如, $\lambda_1 = 1$ 时其特征向量为 $[-2/\sqrt{5}, 1/\sqrt{5}]'$.
+
+\mvbold{定义 2A.32}\quad $k$ 个变量 $x_1, x_2, \cdots, x_k$ 的二次型 $Q(\bm{x})$ 为 $Q(\bm{x}) = \bm{x}'\bm{A}\bm{x}$,其中 $\bm{x}' = [x_1, x_2, \cdots, x_k]$,且 $\bm{A}$ 是一个 $k \times k$ 对称矩阵.
+
+注意二次型可以写做 $Q(\bm{x}) = \sum\limits_{i=1}^{k}\sum\limits_{j=1}^{k}a_{ij}x_i x_j$.例如,

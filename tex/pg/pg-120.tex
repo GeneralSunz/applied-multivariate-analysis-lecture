@@ -1,0 +1,70 @@
+在第 $j$ 次试验中观测值是
+\phantomsection\label{eq:3-34}
+\begin{equation}
+b'\mathbf{x}_j=b_1x_{j1}+b_2x_{j2}+\cdots+b_px_{jp}, \quad j=1,2,\cdots,n \tag{3-34}
+\end{equation}
+由\hyperref[eq:3-32]{式(3-32)}和\hyperref[eq:3-33]{式(3-33)}, 所得的这些观测结果的样本均值和方差是
+\[
+b'\mathbf{X}\ \text{的样本均值}=b'\bar{\mathbf{x}}
+\]
+\[
+b'\mathbf{X}\ \text{的样本方差}=b'\mathbf{S}b
+\]
+而且, 由 $b'\mathbf{X}$ 和 $c'\mathbf{X}$ 的观测结果可计算出样本协方差:
+\begin{align}
+\text{样本协方差}&=\frac{(b'\mathbf{x}_1-b'\bar{\mathbf{x}})(c'\mathbf{x}_1-c'\bar{\mathbf{x}})+(b'\mathbf{x}_2-b'\bar{\mathbf{x}})(c'\mathbf{x}_2-c'\bar{\mathbf{x}})+\cdots+(b'\mathbf{x}_n-b'\bar{\mathbf{x}})(c'\mathbf{x}_n-c'\bar{\mathbf{x}})}{n-1}\notag\\
+&=\frac{b'(\mathbf{x}_1-\bar{\mathbf{x}})(\mathbf{x}_1-\bar{\mathbf{x}})'c+b'(\mathbf{x}_2-\bar{\mathbf{x}})(\mathbf{x}_2-\bar{\mathbf{x}})'c+\cdots+b'(\mathbf{x}_n-\bar{\mathbf{x}})(\mathbf{x}_n-\bar{\mathbf{x}})'c}{n-1}\notag\\
+&=b'\left[\frac{(\mathbf{x}_1-\bar{\mathbf{x}})(\mathbf{x}_1-\bar{\mathbf{x}})'+(\mathbf{x}_2-\bar{\mathbf{x}})(\mathbf{x}_2-\bar{\mathbf{x}})'+\cdots+(\mathbf{x}_n-\bar{\mathbf{x}})(\mathbf{x}_n-\bar{\mathbf{x}})'}{n-1}\right]c\notag
+\end{align}
+或
+\phantomsection\label{eq:3-35}
+\begin{equation}
+b'\mathbf{X}\ \text{和}\ c'\mathbf{X}\ \text{的样本协方差}=b'\mathbf{S}c \tag{3-35}
+\end{equation}
+总之, 我们有下列结论.
+
+\mvthm{结论 3.5}{线性组合}
+\begin{align*}
+b'\mathbf{X}&=b_1X_1+b_2X_2+\cdots+b_pX_p\\
+c'\mathbf{X}&=c_1X_1+c_2X_2+\cdots+c_pX_p
+\end{align*}
+的样本均值、方差和协方差由下式与 $\bar{\mathbf{x}}$ 及 $\mathbf{S}$ 联系起来.
+\phantomsection\label{eq:3-36}
+\begin{align}
+b'\mathbf{X}\ \text{的样本均值}&=b'\bar{\mathbf{x}}\notag\\
+c'\mathbf{X}\ \text{的样本均值}&=c'\bar{\mathbf{x}}\notag\\
+b'\mathbf{X}\ \text{的样本方差}&=b'\mathbf{S}b \tag{3-36}\\
+c'\mathbf{X}\ \text{的样本方差}&=c'\mathbf{S}c\notag\\
+b'\mathbf{X}\ \text{和}\ c'\mathbf{X}\ \text{的样本协方差}&=b'\mathbf{S}c\notag
+\end{align}
+
+\noindent\textbf{例 3.13}\quad (关于线性组合的均值和协方差)
+
+我们考虑两个线性组合和它们的导出值, 对于 $n=3$, 利用例 3.9 中给出的观测值, 为
+\[
+\mathbf{X}=\begin{bmatrix}
+x_{11}&x_{12}&x_{13}\\
+x_{21}&x_{22}&x_{23}\\
+x_{31}&x_{32}&x_{33}
+\end{bmatrix}
+=\begin{bmatrix}
+1&2&5\\
+4&1&6\\
+4&0&4
+\end{bmatrix}
+\]
+考虑两个线性组合
+\[
+b'\mathbf{X}=\begin{bmatrix}2&2&-1\end{bmatrix}
+\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}
+=2X_1+2X_2-X_3
+\]
+和
+\[
+c'\mathbf{X}=\begin{bmatrix}1&-1&3\end{bmatrix}
+\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}
+=X_1-X_2+3X_3
+\]
+先直接计算均值、方差与协方差的值, 然后再用\hyperref[eq:3-36]{式(3-36)}计算.
+
+这些线性组合中的观测结果是通过用 $X_1$, $X_2$ 和 $X_3$ 的观测值替换而得到的. 例如, $b'\mathbf{X}$ 的

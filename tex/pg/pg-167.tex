@@ -1,0 +1,68 @@
+时, $P[X_{2}\le x_{2}]=P[X_{2}\le -1]+P[-1<X_{2}\le x_{2}]=P[X_{1}\le -1]+P[-1<-X_{1}\le x_{2}]=P[X_{1}\le -1]+P[-x_{2}\le X_{1}<1]$. 然而用本提示开头的对称性论点有 $P[-x_{2}\le X_{1}<1]=P[-1<X_{1}\le x_{2}]$, 因此 $P[X_{2}\le x_{2}]=P[X_{1}\le -1]+P[-1<X_{1}\le x_{2}]=P[X_{1}\le x_{2}]$ 是一个标准正态概率.
+
+(b) 考虑线性组合 $X_{1}-X_{2}$, 它等于 0 且概率 $P[|X_{1}|>1]=0.3174$.
+
+4.9\quad 参看练习 4.8, 但用 $c$ 替换分割点 1 以更改结构, 得到
+\[
+X_{2}=\begin{cases}-X_{1} & \text{若 } -c\le X_{1}\le c\\[2pt] X_{1} & \text{其他}\end{cases}
+\]
+证明可以选到 $c$, 使得 $\operatorname{Cov}(X_{1},X_{2})=0$, 但两个随机变量却并不独立.
+
+提示:
+
+对于 $c=0$, 计算 $\operatorname{Cov}(X_{1},X_{2})=E[X_{1}(X_{1})]$.
+
+对于很大的 $c$, 计算 $\operatorname{Cov}(X_{1},X_{2})\doteq E[X_{1}(-X_{1})]$.
+
+4.10\quad 证明下列命题:
+
+(a)
+\[
+\begin{vmatrix}\mathbf{A}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}=|\mathbf{A}|\,|\mathbf{B}|
+\]
+
+(b)
+\[
+\begin{vmatrix}\mathbf{A}&\mathbf{C}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}=|\mathbf{A}|\,|\mathbf{B}|,\ \text{其中 } |\mathbf{A}|\ne 0
+\]
+
+提示:
+
+(a)
+\[
+\begin{vmatrix}\mathbf{A}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}
+=\begin{vmatrix}\mathbf{A}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{I}\end{vmatrix}
+\begin{vmatrix}\mathbf{I}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}
+\]
+将行列式 $\begin{vmatrix}\mathbf{I}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}$ 按第一行展开 (见定义 2A.24), 产生一个 1 乘一个降低一阶的 $\mathbf{I}$ 的同样形式的行列式. 重复此过程, 直到得出 $1\times|\mathbf{B}|$. 类似的, 将
+$\begin{vmatrix}\mathbf{A}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{I}\end{vmatrix}$ 按最后一行展开, 产生 $\begin{vmatrix}\mathbf{A}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{I}\end{vmatrix}=|\mathbf{A}|$.
+
+(b)
+\[
+\begin{vmatrix}\mathbf{A}&\mathbf{C}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}
+=\begin{vmatrix}\mathbf{A}&\mathbf{0}\\[2pt]\mathbf{0}'&\mathbf{B}\end{vmatrix}
+\begin{vmatrix}\mathbf{I}&\mathbf{A}^{-1}\mathbf{C}\\[2pt]\mathbf{0}'&\mathbf{I}\end{vmatrix}
+\]
+但将行列式 $\begin{vmatrix}\mathbf{I}&\mathbf{A}^{-1}\mathbf{C}\\[2pt]\mathbf{0}'&\mathbf{I}\end{vmatrix}$ 按最后一行展开, 给出
+$\begin{vmatrix}\mathbf{I}&\mathbf{A}^{-1}\mathbf{C}\\[2pt]\mathbf{0}'&\mathbf{I}\end{vmatrix}=1$. 再利用 (a) 的结果.
+
+4.11\quad 若 $\mathbf{A}$ 是方阵, 证明
+\[
+\begin{aligned}
+|\mathbf{A}|&=|\mathbf{A}_{22}|\,|\mathbf{A}_{11}-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\mathbf{A}_{21}| &&\text{对 } |\mathbf{A}_{22}|\ne 0\\
+&=|\mathbf{A}_{11}|\,|\mathbf{A}_{22}-\mathbf{A}_{21}\mathbf{A}_{11}^{-1}\mathbf{A}_{12}| &&\text{对 } |\mathbf{A}_{11}|\ne 0
+\end{aligned}
+\]
+
+提示: 将 $\mathbf{A}$ 分块并证明
+\[
+\begin{bmatrix}\mathbf{I}&-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\\[4pt]\mathbf{0}'&\mathbf{I}\end{bmatrix}
+\begin{bmatrix}\mathbf{A}_{11}&\mathbf{A}_{12}\\[4pt]\mathbf{A}_{21}&\mathbf{A}_{22}\end{bmatrix}
+\begin{bmatrix}\mathbf{I}&\mathbf{0}\\[4pt]-\mathbf{A}_{22}^{-1}\mathbf{A}_{21}&\mathbf{I}\end{bmatrix}
+=\begin{bmatrix}\mathbf{A}_{11}-\mathbf{A}_{12}\mathbf{A}_{22}^{-1}\mathbf{A}_{21}&\mathbf{0}\\[4pt]\mathbf{0}'&\mathbf{A}_{22}\end{bmatrix}
+\]
+对这个等式的两边取行列式, 再对左边第 1 个和第 3 个行列式以及右边的行列式利用练习 4.10 的结果. 对 $|\mathbf{A}|$ 的第 2 个等式考虑
+\[
+\begin{bmatrix}\mathbf{I}&\mathbf{0}\\[4pt]-\mathbf{A}_{21}\mathbf{A}_{11}^{-1}&\mathbf{I}\end{bmatrix}
+\begin{bmatrix}\mathbf{A}_{11}&\mathbf{A}_{12}\\[4pt]\mathbf{A}_{21}&\mathbf{A}_{22}\end{bmatrix}
+\]

@@ -1,0 +1,47 @@
+当 $\boldsymbol{\Sigma}=(1/2b)\mathbf{B}$ 时, 唯一地达到该上界, 因为对于这个选择, 有
+\[
+\mathbf{B}^{1/2}\boldsymbol{\Sigma}^{-1}\mathbf{B}^{1/2}=\mathbf{B}^{1/2}(2b)\mathbf{B}^{-1}\mathbf{B}^{1/2}=(2b)\underset{(p\times p)}{\mathbf{I}}
+\]
+和
+\[
+\operatorname{tr}[\boldsymbol{\Sigma}^{-1}\mathbf{B}]=\operatorname{tr}[\mathbf{B}^{1/2}\boldsymbol{\Sigma}^{-1}\mathbf{B}^{1/2}]=\operatorname{tr}[(2b)\mathbf{I}]=2bp
+\]
+进一步,
+\[
+\frac{1}{|\boldsymbol{\Sigma}|}=\frac{|\mathbf{B}^{1/2}\boldsymbol{\Sigma}^{-1}\mathbf{B}^{1/2}|}{|\mathbf{B}|}=\frac{|(2b)\mathbf{I}|}{|\mathbf{B}|}=\frac{(2b)^{p}}{|\mathbf{B}|}
+\]
+对于 $\operatorname{tr}|\boldsymbol{\Sigma}^{-1}\mathbf{B}|$ 和 $1/|\boldsymbol{\Sigma}|^{b}$ 直接地代入得到所指出界.\hfill$\blacksquare$
+
+$\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计是使\hyperref[eq:4-16]{式(4-16)} 中函数 $L(\boldsymbol{\mu},\boldsymbol{\Sigma})$ 最大的值, 估计值用 $\hat{\boldsymbol{\mu}}$ 和 $\hat{\boldsymbol{\Sigma}}$ 表示. 估计值 $\hat{\boldsymbol{\mu}}$ 和 $\hat{\boldsymbol{\Sigma}}$ 通过概括性统计量 $\bar{\mathbf{x}}$ 和 $\mathbf{S}$ 随观测值 $\mathbf{x}_{1},\mathbf{x}_{2},\cdots,\mathbf{x}_{n}$ 而定.
+
+\mvthm{结论 4.11}{设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 是一个来自均值为 $\boldsymbol{\mu}$ 和协方差为 $\boldsymbol{\Sigma}$ 的正态总体的随机样本. 则}
+\[
+\hat{\boldsymbol{\mu}}=\bar{\mathbf{X}}\ \text{和}\ \hat{\boldsymbol{\Sigma}}=\frac{1}{n}\sum_{j=1}^{n}(\mathbf{X}_{j}-\bar{\mathbf{X}})(\mathbf{X}_{j}-\bar{\mathbf{X}})'=\frac{(n-1)}{n}\mathbf{S}
+\]
+分别是 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计量. 它们的观测值 $\bar{\mathbf{x}}$ 和 $(1/n)\sum_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\mathbf{x}_{j}-\bar{\mathbf{x}})'$, 称为 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 的极大似然估计值.
+
+\noindent\textbf{证明}\quad 除了乘数因子 $-1/2$ 以外, 似然函数 [参见\hyperref[eq:4-16]{式(4-16)}] 中的指数是 [参见\hyperref[eq:4-17]{式(4-17)}]
+\[
+\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\mathbf{x}_{j}-\bar{\mathbf{x}})'\right)\right]+n(\bar{\mathbf{x}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})
+\]
+由结论 4.1, $\boldsymbol{\Sigma}^{-1}$ 是正定的, 因此, 除非 $\boldsymbol{\mu}=\bar{\mathbf{x}}$, 距离 $(\bar{\mathbf{x}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu})>0$. 所以, 关于 $\boldsymbol{\mu}$ 在 $\hat{\boldsymbol{\mu}}=\bar{\mathbf{x}}$ 处使似然达到最大值. 我们还须使
+\[
+L(\boldsymbol{\mu},\boldsymbol{\Sigma})=\frac{1}{(2\pi)^{np/2}}\frac{1}{|\boldsymbol{\Sigma}|^{n/2}}e^{-\operatorname{tr}\left[\boldsymbol{\Sigma}^{-1}\left(\sum_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\mathbf{x}_{j}-\bar{\mathbf{x}})'\right)\right]/2}
+\]
+关于 $\boldsymbol{\Sigma}$ 达到最大. 由结论 4.10 和 $b=n/2$ 及 $\mathbf{B}=\sum_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\mathbf{x}_{j}-\bar{\mathbf{x}})'$, 在 $\hat{\boldsymbol{\Sigma}}=(1/n)\sum_{j=1}^{n}(\mathbf{x}_{j}-\bar{\mathbf{x}})(\mathbf{x}_{j}-\bar{\mathbf{x}})'$ 处, 出现所述的最大值.
+
+极大似然估计量是随机量. 它们是通过用相应的随机向量 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 去替换关于 $\boldsymbol{\mu}$ 和 $\boldsymbol{\Sigma}$ 表达式中的观测值 $\mathbf{x}_{1},\mathbf{x}_{2},\cdots,\mathbf{x}_{n}$ 而得到的.\hfill$\blacksquare$
+
+我们注意到极大似然估计量 $\bar{\mathbf{X}}$ 是一个随机向量且极大似然估计量 $\hat{\boldsymbol{\Sigma}}$ 是一个随机矩阵. 对于给定的数据集, 极大似然估计是它们的特殊值. 而且, 该似然的最大值为
+\phantomsection\label{eq:4-18}
+\begin{equation}
+L(\hat{\boldsymbol{\mu}},\hat{\boldsymbol{\Sigma}})=\frac{1}{(2\pi)^{np/2}}e^{-np/2}\frac{1}{|\hat{\boldsymbol{\Sigma}}|^{n/2}} \tag{4-18}
+\end{equation}
+或, 由于 $|\hat{\boldsymbol{\Sigma}}|=[(n-1)/n]^{n}|\mathbf{S}|$,
+\phantomsection\label{eq:4-19}
+\begin{equation}
+L(\hat{\boldsymbol{\mu}},\hat{\boldsymbol{\Sigma}})=\text{常数}\times(|\mathbf{S}|)^{-n/2} \tag{4-19}
+\end{equation}
+广义方差决定似然函数的“最大值”, 因此, 当母总体是多元正态时, 它是变异性的自然度量.
+
+极大似然估计量具有不变性质. 设 $\hat{\boldsymbol{\theta}}$ 是 $\boldsymbol{\theta}$ 的极大似然估计量, 并考虑参数 $h(\boldsymbol{\theta})$, 它是 $\boldsymbol{\theta}$ 的

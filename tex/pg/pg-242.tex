@@ -1,0 +1,59 @@
+根据模型（6-38），观测值向量 $\mathbf{X}_{lj}$ 的每个分量满足一元模型（6-33），但 $\mathbf{X}_{lj}$ 的分量的误差彼此相关，且所有总体的协方差矩阵 $\boldsymbol{\Sigma}$ 均相同.
+
+观测值向量可按模型所暗示的方式分解如下：
+\phantomsection\label{eq:6-39}
+\begin{equation}
+\begin{array}{c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+\mathbf{x}_{lj} & = & \bar{\mathbf{x}} & + & (\bar{\mathbf{x}}_l-\bar{\mathbf{x}}) & + & (\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)\\
+(\text{观测值}) & & \left(\begin{array}{c}\text{样本总}\\\text{均值}\hat{\boldsymbol{\mu}}\end{array}\right) & & \left(\begin{array}{c}\text{处理效应}\\\text{的估计}\hat{\boldsymbol{\tau}}_l\end{array}\right) & & \left(\begin{array}{c}\text{残差}\\\hat{\mathbf{e}}_{lj}\end{array}\right)
+\end{array}
+\tag{6-39}
+\end{equation}
+分解\hyperref[eq:6-39]{式(6-39)}导致与一元情形相类似的多元平方和分解式. 首先，注意到乘积 $(\mathbf{x}_{lj}-\bar{\mathbf{x}})(\mathbf{x}_{lj}-\bar{\mathbf{x}})'$ 可写成
+\begin{align*}
+(\mathbf{x}_{lj}-\bar{\mathbf{x}})(\mathbf{x}_{lj}-\bar{\mathbf{x}})'&=[(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)+(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})][(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)+(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})]'\\
+&=(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)'+(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})'\\
+&\qquad+(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)'+(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})'
+\end{align*}
+因为 $\sum\limits_{j=1}^{n_l}(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)=\mathbf{0}$，所以对 $j$ 求和后，中间两项均为零矩阵. 于是将交叉乘积对 $l$ 和 $j$ 求和后可得：
+\phantomsection\label{eq:6-40}
+\begin{equation}
+\sum_{l=1}^g\sum_{j=1}^{n_l}(\mathbf{x}_{lj}-\bar{\mathbf{x}})(\mathbf{x}_{lj}-\bar{\mathbf{x}})'=\sum_{l=1}^g n_l(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})'+\sum_{l=1}^g\sum_{j=1}^{n_l}(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)' \tag{6-40}
+\end{equation}
+\[
+\begin{array}{ccc}
+\text{（总平方和及交叉乘积和）} & \text{（处理平方和及} & \text{（残差平方和及}\\
+& \text{交叉乘积和（或} & \text{交叉乘积和（或}\\
+& \text{组间平方和））} & \text{组内平方和））}
+\end{array}
+\]
+组内平方和可表示为
+\phantomsection\label{eq:6-41}
+\begin{equation}
+\begin{aligned}
+\mathbf{W}&=\sum_{l=1}^g\sum_{j=1}^{n_l}(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)'\\
+&=(n_1-1)\mathbf{S}_1+(n_2-1)\mathbf{S}_2+\cdots+(n_g-1)\mathbf{S}_g
+\end{aligned}
+\tag{6-41}
+\end{equation}
+其中 $\mathbf{S}_l$ 为第 $l$ 个样本的样本协方差矩阵. 它是二样本时 $(n_1+n_2-2)\mathbf{S}_p$ 的推广，在处理效应的存在性检验中，它起着决定性作用.
+
+同一元情形相似，可通过比较处理与残差的平方和及交叉乘积和的相对大小，来检验关于无处理效应的假设
+\[
+H_0: \boldsymbol{\tau}_1=\boldsymbol{\tau}_2=\cdots=\boldsymbol{\tau}_g=\mathbf{0}
+\]
+等价的做法是，也可以考虑残差与总和（修正后）的平方和及交叉乘积和的相对大小. 我们将得出检验统计量的计算用 MANOVA 表列出.
+
+\begin{mvtable}
+\mvtabcap{总体均值向量比较的 MANOVA 表}
+\begin{tabular}{ccc}
+\toprule
+变差来源 & 平方和及交叉乘积和矩阵（SSP） & 自由度（d.f.）\\
+\midrule
+处理 & $\mathbf{B}=\sum\limits_{l=1}^g n_l(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})'$ & $g-1$\\
+残差（误差） & $\mathbf{W}=\sum\limits_{l=1}^g\sum\limits_{j=1}^{n_l}(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)(\mathbf{x}_{lj}-\bar{\mathbf{x}}_l)'$ & $\sum\limits_{l=1}^g n_l-g$\\
+\midrule
+总和（修正后的） & $\mathbf{B}+\mathbf{W}=\sum\limits_{l=1}^g\sum\limits_{j=1}^{n_l}(\mathbf{x}_{lj}-\bar{\mathbf{x}})(\mathbf{x}_{lj}-\bar{\mathbf{x}})'$ & $\sum\limits_{l=1}^g n_l-1$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

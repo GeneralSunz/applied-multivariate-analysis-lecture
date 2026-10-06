@@ -1,0 +1,54 @@
+% ---- pg-116 （书页 104） ----
+
+量 $|\mathbf{S}|$ 和 $|\mathbf{R}|$ 通过关系
+\phantomsection\label{eq:3-21}
+\begin{equation}
+|\mathbf{S}|=(s_{11}s_{22}\cdots s_{pp})|\mathbf{R}| \tag{3-21}
+\end{equation}
+相联系, 因此
+\phantomsection\label{eq:3-22}
+\begin{equation}
+(n-1)^{p}|\mathbf{S}|=(n-1)^{p}(s_{11}s_{22}\cdots s_{pp})|\mathbf{R}| \tag{3-22}
+\end{equation}
+[\hyperref[eq:3-21]{式(3-21)}的证明作为练习 3.12, 留给读者.]
+
+用体积解释\hyperref[eq:3-22]{式(3-22)}, 从\hyperref[eq:3-15]{式(3-15)}和\hyperref[eq:3-20]{式(3-20)}可见, 体积平方 $(n-1)^{-p}|\mathbf{S}|$ 与体积平方 $(n-1)^{-p}|\mathbf{R}|$ 成比例. 比例常数是方差的乘积, 而它同样也正比于 $\mathbf{d}_{i}$ 的长度 $(n-1)s_{ii}$ 的平方之积. \hyperref[eq:3-21]{式(3-21)}从代数上说明了对 $x_{1}$ 等量的标度的变化如何改变广义方差之间的关系. 因为 $|\mathbf{R}|$ 是基于标准化测量值, 它不会受到标度变化的影响. 然而, 每当乘积因子 $s_{ii}$ 变化时, $|\mathbf{S}|$ 的相对值将随之改变.
+
+\noindent\textbf{例 3.11}\quad (说明 $|\mathbf{S}|$ 与 $|\mathbf{R}|$ 之间的关系)
+
+让我们来说明当 $p=3$ 时, 广义方差 $|\mathbf{S}|$ 与 $|\mathbf{R}|$ 在\hyperref[eq:3-21]{式(3-21)}中的关系. 设
+\[
+\underset{(3\times3)}{\mathbf{S}}=\begin{bmatrix}4&3&1\\3&9&2\\1&2&1\end{bmatrix}
+\]
+则 $s_{11}=4$, $s_{22}=9$ 和 $s_{33}=1$. 而且,
+\[
+\mathbf{R}=\begin{bmatrix}1&\dfrac{1}{2}&\dfrac{1}{2}\\[4pt]\dfrac{1}{2}&1&\dfrac{2}{3}\\[4pt]\dfrac{1}{2}&\dfrac{2}{3}&1\end{bmatrix}
+\]
+利用定义 2A.24, 我们得到
+\begin{align*}
+|\mathbf{S}|&=4\begin{vmatrix}9&2\\2&1\end{vmatrix}(-1)^{2}+3\begin{vmatrix}3&2\\1&1\end{vmatrix}(-1)^{3}+1\begin{vmatrix}3&9\\1&2\end{vmatrix}(-1)^{4}\\
+&=4\times(9-4)-3\times(3-2)+1\times(6-9)=14
+\end{align*}
+\begin{align*}
+|\mathbf{R}|&=1\begin{vmatrix}1&\frac{2}{3}\\\frac{2}{3}&1\end{vmatrix}(-1)^{2}+\frac{1}{2}\begin{vmatrix}\frac{1}{2}&\frac{2}{3}\\\frac{1}{2}&1\end{vmatrix}(-1)^{3}+\frac{1}{2}\begin{vmatrix}\frac{1}{2}&1\\\frac{1}{2}&\frac{2}{3}\end{vmatrix}(-1)^{4}\\
+&=\left(1-\frac{4}{9}\right)-\frac{1}{2}\times\left(\frac{1}{2}-\frac{1}{3}\right)+\frac{1}{2}\times\left(\frac{1}{3}-\frac{1}{2}\right)=\frac{7}{18}
+\end{align*}
+因此有
+\[
+14=|\mathbf{S}|=s_{11}s_{22}s_{33}|\mathbf{R}|=4\times9\times1\times\frac{7}{18}=14\qquad\text{(检验)}\quad\blacksquare
+\]
+
+\mvsub{方差的其他推广}
+
+我们来叙述方差的另一推广形式来结束这一讨论. 具体的, 我们定义总样本方差作为样本方差-协方差矩阵 $\mathbf{S}$ 的对角线元素之和. 这样
+
+\begin{mvbox}
+\phantomsection\label{eq:3-23}
+\begin{equation}
+\text{总样本方差}=s_{11}+s_{22}+\cdots+s_{pp} \tag{3-23}
+\end{equation}
+\end{mvbox}
+
+\noindent\textbf{例 3.12}\quad (计算总样本方差)
+
+对于例 3.7 和例 3.9 中的方差-协方差矩阵 $\mathbf{S}$ 计算总样本方差.

@@ -1,0 +1,64 @@
+% ---- pg-503 （书页 491） ----
+
+如在\hyperref[eq:11-66]{式(11-66)}之后所讨论的, $\mathbf{a}_j$ 垂直于每个 $\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}}$, 因此也垂直于 $(\boldsymbol{\mu}_k-\bar{\boldsymbol{\mu}})-(\boldsymbol{\mu}_i-\bar{\boldsymbol{\mu}})=\boldsymbol{\mu}_k-\boldsymbol{\mu}_i$, $i,k=1,2,\cdots,g$. 条件 $0=\mathbf{a}_j'(\boldsymbol{\mu}_k-\boldsymbol{\mu}_i)=\mu_{kY_j}-\mu_{iY_j}$ 意味着, $y_j-\mu_{kY_j}=y_j-\mu_{iY_j}$, 故 $\sum\limits_{j=s+1}^{p}(y_j-\mu_{iY_j})^2$ 对 $i=1,2,\cdots,g$ 为常数. 因此, 只有前 $s$ 个判别量 $y_j$ 对分类有用.\hfill$\blacksquare$
+
+现在我们陈述基于前 $r\le s$ 个样本判别量的分类法则.
+
+\begin{mvframe}[基于样本判别量的费希尔分类方法]
+若
+\phantomsection\label{eq:11-67}
+\begin{equation}
+\sum_{j=1}^{r}(\hat{y}_j-\bar{y}_{kj})^2=\sum_{j=1}^{r}[\hat{\mathbf{a}}_j'(\mathbf{x}-\bar{\mathbf{x}}_k)]^2\le\sum_{j=1}^{r}[\hat{\mathbf{a}}_j'(\mathbf{x}-\bar{\mathbf{x}}_i)]^2\qquad \text{对所有}\ i\ne k
+\tag{11-67}
+\end{equation}
+则将 $\mathbf{x}$ 分入 $\pi_k$, 其中 $\hat{\mathbf{a}}_j$ 由\hyperref[eq:11-62]{式(11-62)}中定义, $\bar{y}_{kj}=\hat{\mathbf{a}}_j'\bar{\mathbf{x}}_k$ 且 $r\le s$.
+\end{mvframe}
+
+当先验概率满足 $p_1=p_2=\cdots=p_g=1/g$ 且 $r=s$ 时, 法则(11-67)等价于法则(11-52), 后者根据最大线性判别得分得出. 此外, 若用 $r<s$ 个判别量进行分类, 则对每个总体 $\pi_i$ 来说, 平方距离或得分都要损失 $\sum\limits_{j=r+1}^{p}[\hat{\mathbf{a}}_j'(\mathbf{x}-\bar{\mathbf{x}}_i)]^2$, 此处 $\sum\limits_{j=r+1}^{s}[\hat{\mathbf{a}}_j'(\mathbf{x}-\bar{\mathbf{x}}_i)]^2$ 为对分类有用的部分.
+
+\noindent\textbf{例 11.16}\quad (用费希尔判别量将一个新观测值分类)
+
+我们采用例 11.13 中的费希尔判别量
+\[
+\hat{y}_1=\hat{\mathbf{a}}_1'\mathbf{x}=0.386x_1+0.495x_2
+\]
+\[
+\hat{y}_2=\hat{\mathbf{a}}_2'\mathbf{x}=0.938x_1-0.112x_2
+\]
+根据\hyperref[eq:11-67]{式(11-67)}来对新观测值 $\mathbf{x}_0'=[1,3]$ 进行分类.
+
+将 $\mathbf{x}_0'=[x_{01},x_{02}]=[1,3]$ 代入上述判别量, 就有
+\[
+\hat{y}_1=0.386x_{01}+0.495x_{02}=0.386\times 1+0.495\times 3=1.87
+\]
+\[
+\hat{y}_2=0.938x_{01}-0.112x_{02}=0.938\times 1-0.112\times 3=0.60
+\]
+此外, $\bar{y}_{kj}=\hat{\mathbf{a}}_j'\bar{\mathbf{x}}_k$, 故(见例 11.13)
+\[
+\bar{y}_{11}=\hat{\mathbf{a}}_1'\bar{\mathbf{x}}_1=[0.386\quad 0.495]\begin{bmatrix}-1\\3\end{bmatrix}=1.10
+\]
+\[
+\bar{y}_{12}=\hat{\mathbf{a}}_2'\bar{\mathbf{x}}_1=[0.938\quad -0.112]\begin{bmatrix}-1\\3\end{bmatrix}=-1.27
+\]
+类似地有
+\[
+\bar{y}_{21}=\hat{\mathbf{a}}_1'\bar{\mathbf{x}}_2=2.37
+\]
+\[
+\bar{y}_{22}=\hat{\mathbf{a}}_2'\bar{\mathbf{x}}_2=0.49
+\]
+\[
+\bar{y}_{31}=\hat{\mathbf{a}}_1'\bar{\mathbf{x}}_3=-0.99
+\]
+\[
+\bar{y}_{32}=\hat{\mathbf{a}}_2'\bar{\mathbf{x}}_3=0.22
+\]
+最后, 必须识别
+\[
+\sum_{j=1}^{2}(\hat{y}_j-\bar{y}_{kj})^2=\sum_{j=1}^{2}[\hat{\mathbf{a}}_j'(\mathbf{x}-\bar{\mathbf{x}}_k)]^2
+\]
+对 $k=1,2,3$ 的最小值. 利用以上数字得到
+\[
+\sum_{j=1}^{2}(\hat{y}_j-\bar{y}_{1j})^2=(1.87-1.10)^2+(0.60+1.27)^2=4.09
+\]

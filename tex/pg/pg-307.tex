@@ -1,0 +1,50 @@
+% ---- pg-307 （书页 295） ----
+
+\mvthm{结论 7.8}{给定线性回归模型(7-3), 一个新的观测值 $Y_0$ 有无偏预测量}
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}=\hat{\beta}_0+\hat{\beta}_1z_{01}+\cdots+\hat{\beta}_rz_{0r}
+\]
+预测误差 $Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}}$ 的方差为
+\[
+\operatorname{Var}(Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\sigma^2\left(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)
+\]
+当 $\boldsymbol{\epsilon}$ 服从正态分布时, $Y_0$ 的 $100(1-\alpha)\%$ 预测区间为
+\[
+\mathbf{z}_0'\hat{\boldsymbol{\beta}}\pm t_{n-r-1}\left(\frac{\alpha}{2}\right)\sqrt{s^2\left(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)}
+\]
+其中 $t_{n-r-1}(\alpha/2)$ 为自由度为 $n-r-1$ 的 $t$ 分布上 $100(\alpha/2)$ 百分位数.
+
+\noindent\textbf{证明}\quad 我们用的估计 $\mathbf{z}_0'\hat{\boldsymbol{\beta}}E(Y_0\mid\mathbf{z}_0)$ 来预测 $Y_0$, 由结论 7.7, $\mathbf{z}_0'\hat{\boldsymbol{\beta}}$ 有 $E(\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\mathbf{z}_0'\boldsymbol{\beta}$, 且 $\operatorname{Var}(\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\sigma^2$. 这样预测误差为 $Y_0-\mathbf{z}_0'\boldsymbol{\beta}=\mathbf{z}_0'\boldsymbol{\beta}+\epsilon_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}}=\epsilon_0+\mathbf{z}_0'(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}})$. 于是 $E(Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}})=E(\epsilon_0)+E\left[\mathbf{z}_0'(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}})\right]=0$. 可见预测量是无偏的. 由于 $\epsilon_0$ 和 $\hat{\boldsymbol{\beta}}$ 彼此独立, $\operatorname{Var}(Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\operatorname{Var}(\epsilon_0)+\operatorname{Var}(\mathbf{z}_0'\hat{\boldsymbol{\beta}})=\sigma^2+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\sigma^2=\sigma^2\left(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)$. 如果进一步假定 $\boldsymbol{\epsilon}$ 服从正态分布, 则 $\hat{\boldsymbol{\beta}}$ 服从正态分布, 因此线性组合 $Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}}$ 也服从正态分布. 于是, $(Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}})\Big/\sqrt{\sigma^2\left(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)}$ 的分布为 $N(0,1)$. 再对此量除以 $\sqrt{s^2/\sigma^2}$, 其分布为 $\sqrt{\chi^2_{n-r-1}/(n-r-1)}$, 我们得到
+\[
+\frac{Y_0-\mathbf{z}_0'\hat{\boldsymbol{\beta}}}{\sqrt{s^2\left(1+\mathbf{z}_0'(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{z}_0\right)}}
+\]
+其分布为 $t_{n-r-1}$. 预测区间即可由此分布得到. \hfill$\blacksquare$
+
+$Y_0$ 的预测区间宽于其期望值 $E(Y_0\mid\mathbf{z}_0)=\mathbf{z}_0'\boldsymbol{\beta}$ 的置信区间. 在预测 $Y_0$ 时, 增加的不确定性来自未知误差项 $\epsilon_0$.
+
+\noindent\textbf{例 7.6}\quad (平均响应和未来响应的区间估计)
+
+准备购买计算机的公司必须先估计它们的未来需求, 以确定适当的设备. 某计算机科学家从 7 个相似的公司中收集了一批数据, 旨在开发计算机硬件需求的预测方程. 数据在\hyperref[tab:7.3]{表 7.3} 中给出, 其中的变量如下:
+
+$z_1=$用户命令(千)
+
+$z_2=$增删项目数(千)
+
+$Y=$CPU(中央处理器)时间(小时)
+
+对平均 CPU 时间 $E(Y_0\mid\mathbf{z}_0)=\beta_0+\beta_1z_{01}+\beta_2z_{02}$ 在 $\mathbf{z}_0=[1,130,7.5]'$ 点构造 95\% 置信区间, 并在同一点上求一台新设备的 CPU 时间的 95\% 预测区间.
+
+\begin{mvtable}
+\phantomsection\label{tab:7.3}\mvtabcap{表 7.3\quad 计算机数据}
+\begin{tabular}{ccc|ccc}
+\toprule
+$z_1$ & $z_2$ & $Y$ & $z_1$ & $z_2$ & $Y$\\
+(命令) & (增减项目) & (CPU 时间) & (命令) & (增减项目) & (CPU 时间)\\
+\midrule
+123.5 & 2.108 & 141.5 & 151.5 & 1.061 & 172.8\\
+146.1 & 9.213 & 168.9 & 136.2 & 8.603 & 160.1\\
+133.9 & 1.905 & 154.8 & 92.0 & 1.125 & 108.5\\
+128.5 & 0.815 & 146.5 & & &\\
+\bottomrule
+\end{tabular}
+\end{mvtable}

@@ -1,0 +1,51 @@
+% ---- pg-359 （书页 347） ----
+
+\[
+\begin{aligned}
+\hat{y}_1&=0.683\ \ln(\text{长})+0.510\ \ln(\text{宽})+0.523\ \ln(\text{高})\\
+&=\ln[(\text{长})^{0.683}(\text{宽})^{0.510}(\text{高})^{0.523}]
+\end{aligned}
+\]
+第一主成分可看作修正了量纲的一个盒子容积的自然对数($\ln$ 容积). 例如修正后的高实际上是 $(\text{高})^{0.523}$, 在这种尺寸修正意义上, 才给出龟甲为圆形一说.
+
+\mvsub{样本主成分的解释}
+
+样本主成分有几种解释. 首先设 $\mathbf{X}$ 的真实分布接近 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$, 此时样本主成分 $\hat{y}_i=\hat{e}_i'(\mathbf{x}-\bar{\mathbf{x}})$ 是总体主成分 $Y_i=\mathbf{e}_i'(\mathbf{X}-\boldsymbol{\mu})$ 的一个实现, 后者服从 $N_p(\mathbf{0},\mathbf{A})$ 分布. 对角阵 $\mathbf{A}$ 有主对角元 $\lambda_1,\lambda_2,\cdots,\lambda_p$, 而 $(\lambda_i,\mathbf{e}_i)$ 是 $\boldsymbol{\Sigma}$ 的特征值-特征向量对.
+
+利用样本值 $\mathbf{x}$, 我们也用 $\mathbf{x}$ 近似 $\boldsymbol{\mu}$ 而用 $\mathbf{S}$ 近似 $\boldsymbol{\Sigma}$. 若 $\mathbf{S}$ 正定, 则所有满足
+\phantomsection\label{eq:8-24}
+\begin{equation}
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})=c^2 \tag{8-24}
+\end{equation}
+的 $p\times 1$ 向量 $\mathbf{x}$ 所组成的等值轮廓线, 估计出真实的正态密度的常数密度等值轮廓线 $(\mathbf{x}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})=c^2$. 为显示生成数据的正态分布, 可以把这些近似的等值轮廓线绘制到散布图上. 正态性的假设, 对 8.5 节讨论的推断过程是有用的, 但对研究在\hyperref[eq:8-20]{式(8-20)}中总结出的样本主成分性质, 并不是必须的.
+
+即便在正态性假定很可疑, 并且散布图可能偏离椭圆模式的时候, 我们仍可从 $\mathbf{S}$ 抽取特征值并得到样本主成分. 从几何上看, 数据可绘成 $p$ 维空间的 $n$ 个点, 然后在新坐标系中表示出数据, 这个新坐标系和\hyperref[eq:8-24]{式(8-24)}中等值轮廓线的坐标轴重合. 现在, \hyperref[eq:8-24]{式(8-24)}定义一个超椭球, 其中心在 $\bar{\mathbf{x}}$ 而轴由 $\mathbf{S}^{-1}$ 的特征向量给出, 或者等价地由 $\mathbf{S}$ 的特征向量给出(见 2.3 节和结论 4.1, 取 $\mathbf{S}$ 代替 $\boldsymbol{\Sigma}$). 这些超椭球轴的长度与 $\sqrt{\hat{\lambda}_i}$, $i=1,2,\cdots,p$, 成比例, 这里 $\hat{\lambda}_1\geqslant\hat{\lambda}_2\geqslant\cdots\geqslant\hat{\lambda}_p\geqslant 0$ 是 $\mathbf{S}$ 的特征值.
+
+因为 $\hat{\mathbf{e}}_i$ 长度为 1, 第 $i$ 个主成分的绝对值 $|\hat{y}_i|=|\hat{\mathbf{e}}_i'(\mathbf{x}-\bar{\mathbf{x}})|$, 给出向量 $(\mathbf{x}-\bar{\mathbf{x}})$ 在单位向量 $\hat{\mathbf{e}}_i$ 上的投影[见\hyperref[eq:2-8]{式(2-8)}和\hyperref[eq:2-9]{式(2-9)}]. 于是, 样本主成分 $\hat{y}_i=\hat{\mathbf{e}}_i'(\mathbf{x}-\bar{\mathbf{x}})$, $i=1,2,\cdots,p$, 依着在超椭球的轴上, 它们的绝对值是 $\mathbf{x}-\bar{\mathbf{x}}$ 在轴 $\hat{\mathbf{e}}_i$ 方向上的投影的长度. 因此, 样本主成分可看作是将原坐标系的原点变换到 $\bar{\mathbf{x}}$, 然后, 再旋转坐标轴直到在最大方差的方向上穿过散布线.
+
+样本主成分在几何学上的解释, 对 $p=2$ 由\hyperref[fig:8.4]{图 8.4} 给出. \hyperref[fig:8.4]{图 8.4}(a) 表明一个常数距离的椭圆, 其中心在 $\bar{\mathbf{x}}$, 且有 $\hat{\lambda}_1>\hat{\lambda}_2$. 这些样本主成分被顺利确定, 它们依着椭圆轴线样本方差最大的两个相应垂直方向, \hyperref[fig:8.4]{图 8.4}(b) 表明一个常数距离的椭圆, 中心在 $\bar{\mathbf{x}}$, 且有 $\hat{\lambda}_1\doteq\hat{\lambda}_2$. 此时常数距离椭圆(一个圆周)的轴不是唯一确定的, 可以沿着任何两个相互垂直的方向, 包括原坐标轴的方向. 类似的, 样本主成分可沿着任何两个垂直方向, 包括原坐标轴的方向. 当常数距离的轮廓线接近于圆, 或等价的, 当 $\mathbf{S}$ 的特征值近似相等时, 样本方差在所有方向上都是均匀的. 这就不可能在维数比 $p$ 维更小的空间里表示数据.
+
+如果后几个特征值 $\hat{\lambda}_i$ 充分小, 使得对应 $\hat{\mathbf{e}}_i$ 方向上的变差微不足道, 那这后几个样本主成分常可略去, 因而留下的成分就足可近似表达这批数据(见 8.4 节).
+
+\begin{mvfigure}
+\begin{tikzpicture}[scale=1.0]
+\draw[->] (0,0) -- (0,4.0) node[left,font=\small] {$\hat{\lambda}_i\times 10^3$};
+\draw[->] (0,0) -- (7.0,0) node[below right,font=\small] {$i$};
+\node[left,font=\scriptsize] at (-0.08,0) {0};
+\draw (-0.08,1.65) -- (0.08,1.65);
+\node[left,font=\scriptsize] at (-0.08,1.65) {10};
+\draw (-0.08,3.3) -- (0.08,3.3);
+\node[left,font=\scriptsize] at (-0.08,3.3) {20};
+\draw (1.5,0) -- (1.5,-0.1);
+\node[below,font=\scriptsize] at (1.5,-0.1) {1};
+\draw (3.0,0) -- (3.0,-0.1);
+\node[below,font=\scriptsize] at (3.0,-0.1) {2};
+\draw (4.5,0) -- (4.5,-0.1);
+\node[below,font=\scriptsize] at (4.5,-0.1) {3};
+\draw[thick] (1.5,4.1) -- (3.0,0.18) -- (4.5,0.18);
+\fill (1.5,4.1) circle (2pt);
+\fill (3.0,0.18) circle (2pt);
+\fill (4.5,0.18) circle (2pt);
+\end{tikzpicture}
+\phantomsection\label{fig:8.3}\mvcap{图 8.3\quad 海龟数据的崖底碎石图}
+\end{mvfigure}

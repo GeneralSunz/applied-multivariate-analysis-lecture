@@ -1,0 +1,66 @@
+% ---- pg-271 （书页 259） ----
+
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}46.1\\57.3\\50.4\end{bmatrix},\quad \mathbf{S}=\begin{bmatrix}101.3&63.0&71.0\\63.0&80.2&55.6\\71.0&55.6&97.4\end{bmatrix}
+\]
+
+\noindent (a) 对每个患者均测量这三个指标. 试利用\hyperref[eq:6-16]{式(6-16)}在 $\alpha=0.05$ 水平下检验三个均值指标的相等性.
+
+\noindent (b) 利用 95\% 联合置信区间, 判断对各对平均指标之间有无差异[见\hyperref[eq:6-18]{式(6-18)}].
+
+\noindent 6.6\quad 利用练习 6.8 中处理 2 和处理 3 的数据:
+
+\noindent (a) 计算 $\mathbf{S}_{p}$.
+
+\noindent (b) 用双样本方法以 $\alpha=0.01$ 检验 $H_0: \boldsymbol{\mu}_2-\boldsymbol{\mu}_3=\mathbf{0}$.
+
+\noindent (c) 构造 $\mu_{2i}-\mu_{3i}, i=1,2$ 的 99\% 联合置信区间.
+
+\noindent 6.7\quad 利用例 6.4 中的电力需求数据的汇总统计数字计算 $T^2$, 并检验假设 $H_0: \boldsymbol{\mu}_1-\boldsymbol{\mu}_2=\mathbf{0}$. (假定 $\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2, \alpha=0.05$). 另外, 确定对拒绝 $H_0$ 起关键作用的均值分量的线性组合.
+
+\noindent 6.8\quad 对三种处理收集了两种响应的观测值, 观测值向量 $\begin{bmatrix}x_1\\x_2\end{bmatrix}$ 为
+
+处理 1:
+\[
+\begin{bmatrix}6\\7\end{bmatrix},\begin{bmatrix}5\\9\end{bmatrix},\begin{bmatrix}8\\6\end{bmatrix},\begin{bmatrix}4\\9\end{bmatrix},\begin{bmatrix}7\\9\end{bmatrix}
+\]
+
+处理 2:
+\[
+\begin{bmatrix}3\\3\end{bmatrix},\begin{bmatrix}1\\6\end{bmatrix},\begin{bmatrix}2\\3\end{bmatrix}
+\]
+
+处理 3:
+\[
+\begin{bmatrix}2\\3\end{bmatrix},\begin{bmatrix}5\\1\end{bmatrix},\begin{bmatrix}3\\1\end{bmatrix},\begin{bmatrix}2\\3\end{bmatrix}
+\]
+
+\noindent (a) 像\hyperref[eq:6-39]{式(6-39)}一样, 把观测值分解为总平均、处理效应和残差三个部分. 对每个变量构造相应的矩阵(见例 6.9).
+
+\noindent (b) 利用 (a) 中的信息, 构造单因子 MANOVA 表.
+
+\noindent (c) 计算威尔克斯 $\Lambda$ 统计量 $\Lambda^*$, 并利用\hyperref[tab:6.3]{表 6.3} 检验处理效应(取 $\alpha=0.01$). 再利用巴特利特修正的 $\chi^2$ 近似重新检验上述假设[见\hyperref[eq:6-43]{式(6-43)}], 并比较这两个结论.
+
+\noindent 6.9\quad 用\hyperref[eq:6-13]{式(6-13)}的对照阵 $\mathbf{C}$, 验证\hyperref[eq:6-14]{式(6-14)}中的关系式: $\mathbf{d}_i=\mathbf{C}\mathbf{x}_i$, $\bar{\mathbf{d}}=\mathbf{C}\bar{\mathbf{x}}$ 和 $\mathbf{S}_d=\mathbf{C}\mathbf{S}\mathbf{C}'$.
+
+\noindent 6.10\quad 考虑由\hyperref[eq:6-34]{式(6-34)}给出的观测值 $x_{lj}$ 的一元单因子分解式, 证明均值向量 $\bar{x}$ 恒垂直于处理效应向量 $(\bar{x}_1-\bar{x})\mathbf{u}_1+(\bar{x}_2-\bar{x})\mathbf{u}_2+\cdots+(\bar{x}_g-\bar{x})\mathbf{u}_g$, 此处
+
+\[
+\mathbf{u}_1=\left[\begin{array}{@{}c@{}}
+\left.\begin{array}{@{}c@{}}1\\\vdots\\1\end{array}\right\}n_1\\[6pt]
+0\\\vdots\\0\\[6pt]
+0\\\vdots\\0
+\end{array}\right],\quad
+\mathbf{u}_2=\left[\begin{array}{@{}c@{}}
+0\\\vdots\\0\\[6pt]
+\left.\begin{array}{@{}c@{}}1\\\vdots\\1\end{array}\right\}n_2\\[6pt]
+0\\\vdots\\0
+\end{array}\right],\cdots,
+\mathbf{u}_g=\left[\begin{array}{@{}c@{}}
+0\\\vdots\\0\\[6pt]
+0\\\vdots\\0\\[6pt]
+\left.\begin{array}{@{}c@{}}1\\\vdots\\1\end{array}\right\}n_g
+\end{array}\right]
+\]
+
+\noindent 6.11\quad 考虑两个具有公共协方差矩阵的正态总体, 我们可用两独立样本的融合协方差阵来估计它们的公共协方差阵, 这一估计方法还得到似然估计法的支持. 设 $L(\boldsymbol{\mu}_1,\boldsymbol{\mu}_2,\boldsymbol{\Sigma})$ 为来自

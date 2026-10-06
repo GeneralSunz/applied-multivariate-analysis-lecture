@@ -1,0 +1,82 @@
+% ---- pg-509 （书页 497） ----
+
+但是我们仍然保留性别进行分类. 我们将鲑鱼 $j$ 分类为 1(阿拉斯加), 若线性分类函数
+\[
+\boldsymbol{\beta}'\mathbf{z}=3.5054+0.2816\ \text{性别}+0.1264\ \text{淡水生长}+0.0486\ \text{海水生长}\ge 0
+\]
+错误分类的观测见下表
+
+\begin{mvtable}
+\begin{tabular}{cccccc}
+\toprule
+行 & 总体 & 性别 & 淡水 & 海水 & 线性分类函数 \\
+\midrule
+2 & 1 & 1 & 131 & 355 & 3.093 \\
+12 & 1 & 2 & 123 & 372 & 1.537 \\
+13 & 1 & 1 & 123 & 372 & 1.255 \\
+30 & 1 & 2 & 118 & 381 & 0.467 \\
+51 & 2 & 1 & 129 & 420 & $-0.319$ \\
+68 & 2 & 2 & 136 & 438 & $-0.028$ \\
+71 & 2 & 2 & 90 & 385 & $-3.266$ \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+根据错误分类数据得到混淆矩阵:
+
+\begin{mvtable}
+\begin{tabular}{c|l|c|c|}
+\multicolumn{2}{c}{} & \multicolumn{2}{c}{预测类属}\\
+\multicolumn{2}{c}{} & \multicolumn{1}{c}{$\pi_1$: 阿拉斯加} & \multicolumn{1}{c}{$\pi_2$: 加拿大}\\ \cline{3-4}
+\multirow{2}{*}{实际类属} & $\pi_1$: 阿拉斯加 & 46 & 4 \\ \cline{3-4}
+ & $\pi_2$: 加拿大 & 3 & 47 \\ \cline{3-4}
+\end{tabular}
+\end{mvtable}
+
+近似的误差率用百分比表示为
+\[
+\mathrm{APER}=\frac{4+3}{50+50}\times 100=7\%
+\]
+\hfill$\blacksquare$
+
+在作逻辑斯蒂分类时, 最好使用折刀法(保留法)对误分类概率进行估计. 但是这种方法在通用的主要统计软件包中还没有.
+
+\medskip
+\noindent\textbf{显示板 11.2}\quad 利用 PROC LOGISTIC 对鲑鱼数据的 SAS 分析
+
+\begin{mvbox}
+{\ttfamily\small
+title 'Logistic Regression and Discrimination';\hfill\textbf{\rmfamily PROGRAM COMMANDS}\\
+data salmon;\\
+infile 'T11-2.dat';\\
+input country gender freshwater marine;\\
+proc logistic desc;\\
+model country = gender freshwater marine / expb;
+\par}
+\end{mvbox}
+
+\begin{mvbox}
+{\ttfamily\small
+\hfill\textbf{OUTPUT}\\
+\par\vspace{6pt}
+{\centering\small Logistic Regression and Discrimination\par}
+\vspace{4pt}
+{\centering\small The LOGISTIC procedure\par}
+\vspace{8pt}
+{\centering\small Model Information\par}
+\vspace{4pt}
+{\centering\small
+\begin{tabular}{ll}
+Model & binary logit\\
+\end{tabular}\par}
+\vspace{8pt}
+{\centering\small Response Profile\par}
+\vspace{4pt}
+{\centering\small
+\begin{tabular}{lcc}
+Ordered Value & country & \makecell{Total\\Frequency}\\
+1 & 2 & 50\\
+2 & 1 & 50\\
+\end{tabular}\par}
+\par}
+\end{mvbox}

@@ -1,0 +1,84 @@
+% ---- pg-327 （书页 315） ----
+
+代替参数
+\[
+\boldsymbol{\mu}=\left[\begin{array}{c}\mu_Y\\ \hdashline \boldsymbol{\mu}_Z\end{array}\right]
+\qquad\text{与}\qquad
+\boldsymbol{\Sigma}=\left[\begin{array}{c:c}\sigma_{YY}&\boldsymbol{\sigma}_{ZY}'\\ \hdashline \boldsymbol{\sigma}_{ZY}&\boldsymbol{\Sigma}_{ZZ}\end{array}\right]
+\]
+而得到. \hfill$\blacksquare$
+
+习惯的做法是将均方误差 $\sigma_{YY\cdot Z}=E(Y-\beta_0-\boldsymbol{\beta}'\mathbf{Z})^2$ 的估计量的除数 $n$ 用 $n-(r+1)$ 来代替, 以获得无偏估计量:
+\phantomsection\label{eq:7-52}
+\begin{equation}
+\left(\frac{n-1}{n-r-1}\right)\left(s_{YY}-\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}\mathbf{s}_{ZY}\right)
+=\frac{\sum\limits_{j=1}^{n}(Y_j-\hat{\beta}_0-\hat{\boldsymbol{\beta}}'\mathbf{Z}_j)^2}{n-r-1}
+\tag{7-52}
+\end{equation}
+
+\medskip
+\noindent\textbf{例 7.12}\quad (单响应回归函数的极大似然估计)
+
+对例 7.6 中给出计算机数据, $Y$(CPU 时间), $Z_1$(命令)和 $Z_2$(增删项目)的 $n=7$ 个观测值所给出的样本均值向量和样本协方差矩阵为
+\[
+\hat{\boldsymbol{\mu}}=\left[\begin{array}{c}\bar{y}\\ \hdashline \bar{\mathbf{Z}}\end{array}\right]
+=\left[\begin{array}{c}150.44\\ \hdashline 130.24\\3.547\end{array}\right]
+\]
+\[
+\mathbf{S}=\left[\begin{array}{c:c}s_{YY}&\mathbf{s}_{ZY}'\\ \hdashline \mathbf{s}_{ZY}&\mathbf{S}_{ZZ}\end{array}\right]
+=\left[\begin{array}{c:cc}
+467.913&418.763&35.983\\
+\hdashline
+418.763&377.200&28.034\\
+35.983&28.034&13.657
+\end{array}\right]
+\]
+假定 $Y$, $Z_1$ 和 $Z_2$ 是联合正态变量, 求估计的回归函数和估计的均方误差.
+
+结论 7.13 给出极大似然估计值
+\[
+\hat{\boldsymbol{\beta}}=\mathbf{S}_{ZZ}^{-1}\mathbf{s}_{ZY}
+=\begin{bmatrix}0.003\ 128&-0.006\ 422\\-0.006\ 422&0.086\ 404\end{bmatrix}
+\begin{bmatrix}418.763\\35.983\end{bmatrix}
+=\begin{bmatrix}1.079\\0.420\end{bmatrix}
+\]
+\[
+\hat{\beta}_0=\bar{y}-\hat{\boldsymbol{\beta}}'\bar{\mathbf{z}}
+=150.44-[1.079,0.420]\begin{bmatrix}130.24\\3.547\end{bmatrix}
+=150.44-142.019
+\]
+\[
+=8.421
+\]
+于是估计的回归函数为
+\[
+\hat{\beta}_0+\hat{\boldsymbol{\beta}}'\mathbf{z}=8.42-1.08z_1+0.42z_2
+\]
+用回归函数预测 $Y$ 的均方误差为
+\[
+\left(\frac{n-1}{n}\right)\left(s_{YY}-\mathbf{s}_{ZY}'\mathbf{S}_{ZZ}^{-1}\mathbf{s}_{ZY}\right)
+\]
+\[
+=\left(\frac{6}{7}\right)\left(467.913-[418.763,35.983]
+\begin{bmatrix}0.003\ 128&-0.006\ 422\\-0.006\ 422&0.086\ 404\end{bmatrix}
+\begin{bmatrix}418.763\\35.983\end{bmatrix}\right)
+\]
+\[
+=0.894
+\]
+\hfill$\blacksquare$
+
+\section{若干个变量的预测}
+\phantomsection\label{sec:7.12}
+
+上述结论可直截了当地推广到若干个响应 $Y_1,Y_2,\cdots,Y_m$ 的预测问题. 我们对正态总体给出此种推广.
+
+设
+\[
+\left[\begin{array}{c}
+\underset{(m\times1)}{\mathbf{Y}}\\
+\hdashline
+\underset{(r\times1)}{\mathbf{Z}}
+\end{array}\right]
+\quad\text{的联合分布为}\quad N_{m+r}(\boldsymbol{\mu},\boldsymbol{\Sigma})
+\]

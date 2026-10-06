@@ -1,0 +1,61 @@
+\noindent 求
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= $\boldsymbol{\Sigma}^{-1}$.\\[2pt]
+\>(b)\> $\boldsymbol{\Sigma}$ 的特征值和特征向量.\\[2pt]
+\>(c)\> $\boldsymbol{\Sigma}^{-1}$ 的特征值和特征向量.
+\end{tabbing}
+
+\medskip
+\noindent 2.25\quad 设 $\mathbf{X}$ 有协方差矩阵
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}25&-2&4\\-2&4&1\\4&1&9\end{bmatrix}
+\]
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= 确定 $\boldsymbol{\rho}$ 和 $\mathbf{V}^{1/2}$.\\[2pt]
+\>(b)\> 用矩阵乘法验证关系式 $\mathbf{V}^{-1/2}\boldsymbol{\rho}\mathbf{V}^{1/2}=\boldsymbol{\Sigma}$.
+\end{tabbing}
+
+\medskip
+\noindent 2.26\quad 利用练习 2.25 中所给的 $\boldsymbol{\Sigma}$.
+
+\noindent (a) 求 $\rho_{13}$.
+
+\noindent (b) 求 $X_{1}$ 与 $\dfrac{1}{2}X_{2}+\dfrac{1}{2}X_{3}$ 之间的相关关系.
+
+\medskip
+\noindent 2.27\quad 利用随机变量 $X_{1},X_{2}$ 和 $X_{3}$ 的均值和方差推导下列线性组合的均值和方差的表达式.
+
+\begin{tabbing}
+\hspace*{2em}\=(a)\quad \= $X_{1}-2X_{2}$\\[2pt]
+\>(b)\> $-X_{1}+3X_{2}$\\[2pt]
+\>(c)\> $X_{1}+X_{2}+X_{3}$\\[2pt]
+\>(e)\> $X_{1}+2X_{2}-X_{3}$\\[2pt]
+\>(f)\> $3X_{1}-4X_{2}$ (若 $X_{1}$ 和 $X_{2}$ 是独立的随机变量).
+\end{tabbing}
+
+\medskip
+\noindent 2.28\quad 证明
+\[
+\operatorname{Cov}(c_{11}X_{1}+c_{12}X_{2}+\cdots+c_{1p}X_{p},\,c_{21}X_{1}+c_{22}X_{2}+\cdots+c_{2p}X_{p})=\mathbf{c}_{1}'\boldsymbol{\Sigma}\mathbf{c}_{2}
+\]
+其中 $\mathbf{c}_{1}'=[c_{11},c_{12},\cdots,c_{1p}]$ 及 $\mathbf{c}_{2}'=[c_{21},c_{22},\cdots,c_{2p}]$. 这可以验证如果 $\mathbf{c}_{1}=\mathbf{c}_{2}$, \hyperref[eq:2-45]{式(2-45)} 中的 $\mathbf{C}\boldsymbol{\Sigma}\mathbf{C}'$ 的非对角线元素或 $\mathbf{c}_{1}=\mathbf{c}_{2}$ 时对角线元素是正确的.
+
+\noindent 提示: 由\hyperref[eq:2-43]{式(2-43)}, $Z_{1}-E(Z_{1})=c_{11}(X_{1}-\mu_{1})+\cdots+c_{1p}(X_{p}-\mu_{p})$ 和 $Z_{2}-E(Z_{2})=c_{21}(X_{1}-\mu_{1})+\cdots+c_{2p}(X_{p}-\mu_{p})$. 因此,
+\begin{align*}
+\operatorname{Cov}(Z_{1},Z_{2})&=E[(Z_{1}-E(Z_{1}))(Z_{2}-E(Z_{2}))]=E[(c_{11}(X_{1}-\mu_{1})+\cdots\\
+&\qquad+c_{1p}(X_{p}-\mu_{p}))(c_{21}(X_{1}-\mu_{1})+\cdots+c_{2p}(X_{p}-\mu_{p}))]
+\end{align*}
+
+\noindent 乘积
+\begin{align*}
+&(c_{11}(X_{1}-\mu_{1})+c_{12}(X_{2}-\mu_{2})+\cdots\\
+&\qquad+c_{1p}(X_{p}-\mu_{p}))(c_{21}(X_{1}-\mu_{1})+c_{22}(X_{2}-\mu_{2})+\cdots+c_{2p}(X_{p}-\mu_{p}))\\
+&=\Bigl(\sum_{i=1}^{p}c_{1i}(X_{i}-\mu_{i})\Bigr)\Bigl(\sum_{m=1}^{p}c_{2m}(X_{m}-\mu_{m})\Bigr)\\
+&=\sum_{i=1}^{p}\sum_{m=1}^{p}c_{1i}c_{2m}(X_{i}-\mu_{i})(X_{m}-\mu_{m})
+\end{align*}
+
+\noindent 有期望值
+\[
+\sum_{i=1}^{p}\sum_{m=1}^{p}c_{1i}c_{2m}\sigma_{im}=[c_{11},\cdots,c_{1p}]\,\boldsymbol{\Sigma}\,[c_{21},\cdots,c_{2p}]'
+\]
+根据矩阵乘法的定义证明最后一步, 对所有元素相同步骤成立.

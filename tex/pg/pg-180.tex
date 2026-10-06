@@ -1,0 +1,32 @@
+似然比检验在多元分析中是很常用的. 正如我们将要指出的那样, 这种检验所具有的优良大样本性质在很大范围内都成立. 似然比检验适用于本书所考虑的检验问题. 在一元情形下, 似然比方法所产生的统计量正是大家熟知的 $F$ 统计量与 $t$ 统计量.
+
+\mvsub{广义似然比方法}
+
+现在我们考虑广义似然比方法, 设 $\boldsymbol{\theta}$ 是由总体所有未知参数所组成的向量, $L(\boldsymbol{\theta})$ 为由 $X_1,X_2,\cdots,X_n$ 的联合密度在其观测值 $x_1,x_2,\cdots,x_n$ 处算得的似然函数. 参数向量 $\boldsymbol{\theta}$ 在参数集 $\boldsymbol{\Theta}$ 中取值. 例如, 在 $p$ 维多元正态情形下, $\boldsymbol{\theta}'=[\mu_1,\cdots,\mu_p,\sigma_{11},\cdots,\sigma_{1p},\sigma_{22},\cdots,\sigma_{2p},\cdots,\sigma_{p-1,p},\sigma_{pp}]$, 而 $\boldsymbol{\Theta}$ 则由 $p$ 维空间的并组成, 此处 $-\infty<\mu_1<\infty,\cdots,-\infty<\mu_p<\infty$, 且 $p(p+1)/2$ 维方差及协方差空间要满足 $\boldsymbol{\Sigma}$ 为正定的条件. 因此, $\boldsymbol{\theta}$ 的维数为 $\nu=p+p(p+1)/2$. 在零假设 $H_0: \boldsymbol{\theta}=\boldsymbol{\theta}_0$ 下, $\boldsymbol{\theta}$ 被限制在 $\boldsymbol{\Theta}$ 的一个子集 $\boldsymbol{\Theta}_0$ 中. 对 $\boldsymbol{\mu}=\boldsymbol{\mu}_0$ 而 $\boldsymbol{\Sigma}$ 未指定的多元正态情形下, $\boldsymbol{\Theta}_0=\{\mu_1=\mu_{10},\mu_2=\mu_{20},\cdots,\mu_p=\mu_{p0}; \sigma_{11},\cdots,\sigma_{1p},\sigma_{22},\cdots,\sigma_{2p},\cdots,\sigma_{p-1,p},\sigma_{pp}$ 且 $\boldsymbol{\Sigma}$ 正定\}, 故 $\boldsymbol{\theta}_0$ 的维数 $\nu_0=0+p(p+1)/2=p(p+1)/2$.
+
+若
+\phantomsection\label{eq:5-16}
+\begin{equation}
+\mvfit{$\displaystyle
+\Lambda=\frac{\max_{\boldsymbol{\theta}\in\boldsymbol{\Theta}_0}L(\boldsymbol{\theta})}{\max_{\boldsymbol{\theta}\in\boldsymbol{\Theta}}L(\boldsymbol{\theta})}<c
+$} \tag{5-16}
+\end{equation}
+
+则似然比检验拒绝假设 $H_0: \boldsymbol{\theta}\in\boldsymbol{\Theta}_0$, 而接受假设 $H_1: \boldsymbol{\theta}\notin\boldsymbol{\Theta}_0$. 这里 $c$ 为适当选定的常数. 凭直觉来看, 如果 $\boldsymbol{\theta}$ 在 $\boldsymbol{\Theta}_0$ 上变化时所得的极大似然函数值比 $\boldsymbol{\theta}$ 在 $\boldsymbol{\Theta}$ 上变化时要小得多, 就拒绝 $H_0$, 即当\hyperref[eq:5-16]{式(5-16)}中的分子比分母小得多时, $\boldsymbol{\Theta}_0$ 不包含 $\boldsymbol{\theta}$ 的似真值.
+
+在似然比方法的各种应用中, 我们必须知道似然比检验统计量 $\Lambda$ 的抽样分布. 于是可在给定的显著性水平 $\alpha_0$ 下, 选定检验法中的 $c$ 值. 但是, 当样本容量很大且满足一定的正则条件时, $-2\ln\Lambda$ 的抽样分布与 $\chi^2$ 分布十分接近. 这一吸引人的特征部分地说明了为什么似然比方法如此流行.
+
+\mvthm{结论 5.2}{当样本容量 $n$ 很大时,
+\[
+-2\ln\Lambda=-2\ln\frac{\max_{\boldsymbol{\theta}\in\boldsymbol{\Theta}_0}L(\boldsymbol{\theta})}{\max_{\boldsymbol{\theta}\in\boldsymbol{\Theta}}L(\boldsymbol{\theta})}\quad\text{近似等于随机变量 }\chi^2_{\nu-\nu_0}
+\]
+这里自由度为 $\nu-\nu_0=(\boldsymbol{\Theta}$ 的维数$)-(\boldsymbol{\Theta}_0$ 的维数$)$.}
+
+统计检验的优劣可以通过它们的功效函数进行比较. 所谓功效函数, 是对每一个参数向量 $\boldsymbol{\theta}$ 算出的高度为 $P(\text{检验拒绝 }H_0\mid\boldsymbol{\theta})$ 的曲线或曲面. 功效函数所度量的是当 $H_0$ 非真时, 检验法拒绝 $H_0$ 的能力. 在 $H_0$ 中 $\boldsymbol{\theta}=\boldsymbol{\theta}_0$ 完全确定而备选假设 $H_1$ 由单一值 $\boldsymbol{\theta}=\boldsymbol{\theta}_1$ 构成这种罕见情形下, 对相同的显著性水平 $\alpha=P(\text{检验拒绝 }H_0\mid\boldsymbol{\theta}=\boldsymbol{\theta}_0)$, 似然比检验的功效比别的检验都要大. 对于许多单参数情形(即 $\boldsymbol{\theta}$ 只有一个分量), 似然比检验同样具有最大功效. 对其他情形, 此种性质只对大样本近似成立.
+
+对多元分析中似然比检验的一些最优性质的讨论, 我们暂时不给出其具体细节. 在本书中, 此性质的含义就是当样本容量很大时, 似然比检验具有最大可能的(平均)功效.
+
+\section{置信域与均值分量的联合比较}  % 原书 5.4
+\phantomsection\label{sec:5.4}
+
+为得到利用样本进行推断的基本方法, 我们需要把一元置信区间的概念推广到多元置信域. 设 $\boldsymbol{\theta}$ 为总体未知参数向量, $\boldsymbol{\Theta}$ 为 $\boldsymbol{\theta}$ 所有可能值的集合. 置信域就是 $\boldsymbol{\theta}$ 很可能有的那些值的集

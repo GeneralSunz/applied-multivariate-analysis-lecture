@@ -1,0 +1,50 @@
+% ---- pg-446 （书页 434） ----
+
+\section{其他样本描述性度量}
+\phantomsection\label{sec:10.5}
+
+如果典型变量分别是其各变量组的“良好”综合, 则变量间的联系可用典型变量和它们的相关系数来描述. 有一些可使典型变量分别说明它们各组的变化的综合测度, 将是很有用的. 计算由其他组的典型变量来解释的一组变量方差所占的比例, 有时也是有用的.
+
+\mvsub{渐近误差矩阵}
+
+在\hyperref[eq:10-27]{式(10-27)}中定义的矩阵 $\hat{\mathbf{A}}$ 和 $\hat{\mathbf{B}}$, 令 $\hat{\mathbf{a}}^{(i)}$ 和 $\hat{\mathbf{b}}^{(i)}$ 分别表示 $\hat{\mathbf{A}}^{-1}$ 和 $\hat{\mathbf{B}}^{-1}$ 的第 $i$ 列. 由于 $\hat{\mathbf{U}}=\hat{\mathbf{A}}\mathbf{x}^{(1)}$ 和 $\hat{\mathbf{V}}=\hat{\mathbf{B}}\mathbf{x}^{(2)}$, 我们可以写出
+\phantomsection\label{eq:10-31}
+\begin{equation}
+\mathbf{x}^{(1)}_{(p\times 1)}=\hat{\mathbf{A}}^{-1}_{(p\times p)}\hat{\mathbf{U}}_{(p\times 1)};\qquad \mathbf{x}^{(2)}_{(q\times 1)}=\hat{\mathbf{B}}^{-1}_{(q\times q)}\hat{\mathbf{V}}_{(q\times 1)}
+\tag{10-31}
+\end{equation}
+因为样本 $\mathrm{Cov}(\hat{\mathbf{U}},\hat{\mathbf{V}})=\hat{\mathbf{A}}\mathbf{S}_{12}\hat{\mathbf{B}}'$, 样本 $\mathrm{Cov}(\hat{\mathbf{U}})=\hat{\mathbf{A}}\mathbf{S}_{11}\hat{\mathbf{A}}'=\mathbf{I}_{(p\times p)}$, 且样本 $\mathrm{Cov}(\hat{\mathbf{V}})=\hat{\mathbf{B}}\mathbf{S}_{22}\hat{\mathbf{B}}'=\mathbf{I}_{(q\times q)}$, 故
+\phantomsection\label{eq:10-32}
+\begin{equation}
+\begin{aligned}
+\mathbf{S}_{12}&=\hat{\mathbf{A}}^{-1}\left[\begin{array}{cccc:c}
+\hat{\rho}_1^* & 0 & \cdots & 0 &\\[2pt]
+0 & \hat{\rho}_2^* & \cdots & 0 &\\[2pt]
+\vdots & \vdots & \ddots & \vdots & \mathbf{0}\\[2pt]
+0 & 0 & \cdots & \hat{\rho}_p^* &
+\end{array}\right](\hat{\mathbf{B}}^{-1})'=\hat{\rho}_1^*\hat{\mathbf{a}}^{(1)}\hat{\mathbf{b}}^{(1)'}+\hat{\rho}_2^*\hat{\mathbf{a}}^{(2)}\hat{\mathbf{b}}^{(2)'}\\
+&\qquad+\cdots+\hat{\rho}_p^*\hat{\mathbf{a}}^{(p)}\hat{\mathbf{b}}^{(p)'}
+\end{aligned}
+\tag{10-32}
+\end{equation}
+\[
+\mathbf{S}_{11}=(\hat{\mathbf{A}}^{-1})(\hat{\mathbf{A}}^{-1})'=\hat{\mathbf{a}}^{(1)}\hat{\mathbf{a}}^{(1)'}+\hat{\mathbf{a}}^{(2)}\hat{\mathbf{a}}^{(2)'}+\cdots+\hat{\mathbf{a}}^{(p)}\hat{\mathbf{a}}^{(p)'}
+\]
+\[
+\mathbf{S}_{22}=(\hat{\mathbf{B}}^{-1})(\hat{\mathbf{B}}^{-1})'=\hat{\mathbf{b}}^{(1)}\hat{\mathbf{b}}^{(1)'}+\hat{\mathbf{b}}^{(2)}\hat{\mathbf{b}}^{(2)'}+\cdots+\hat{\mathbf{b}}^{(q)}\hat{\mathbf{b}}^{(q)'}
+\]
+由于 $\mathbf{x}^{(1)}=\hat{\mathbf{A}}^{-1}\hat{\mathbf{U}}$, 且 $\hat{\mathbf{U}}$ 有样本协方差 $\mathbf{I}$, $\hat{\mathbf{A}}^{-1}$ 的前 $r$ 列包含了前 $r$ 个典型变量 $\hat{U}_1,\hat{U}_2,\cdots,\hat{U}_r$ 与其成分变量 $X_1^{(1)},X_2^{(1)},\cdots,X_p^{(1)}$ 的样本协方差. 同样, $\hat{\mathbf{B}}^{-1}$ 的前 $r$ 列包含 $\hat{V}_1,\hat{V}_2,\cdots,\hat{V}_r$ 与其成分变量的样本协方差.
+
+如果仅用前 $r$ 个典型配对, 举例来说,
+\[
+\tilde{\mathbf{x}}^{(1)}=[\hat{\mathbf{a}}^{(1)}\vdots\hat{\mathbf{a}}^{(2)}\vdots\cdots\vdots\hat{\mathbf{a}}^{(r)}]\begin{bmatrix}\hat{U}_1\\\hat{U}_2\\\vdots\\\hat{U}_r\end{bmatrix}
+\]
+和
+\phantomsection\label{eq:10-33}
+\begin{equation}
+\tilde{\mathbf{x}}^{(2)}=[\hat{\mathbf{b}}^{(1)}\vdots\hat{\mathbf{b}}^{(2)}\vdots\cdots\vdots\hat{\mathbf{b}}^{(r)}]\begin{bmatrix}\hat{V}_1\\\hat{V}_2\\\vdots\\\hat{V}_r\end{bmatrix}
+\tag{10-33}
+\end{equation}
+则 $\mathbf{S}_{12}$ 可用样本 $\mathrm{Cov}(\tilde{\mathbf{x}}^{(1)},\tilde{\mathbf{x}}^{(2)})$ 近似.
+
+下面, 我们看到近似值误差矩阵为

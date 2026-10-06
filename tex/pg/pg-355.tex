@@ -1,0 +1,51 @@
+% ---- pg-355 （书页 343） ----
+
+\begin{mvbox}
+若 $\mathbf{S}=\{s_{ik}\}$ 是特征值-特征向量对为 $(\hat{\lambda}_1,\hat{\mathbf{e}}_1),(\hat{\lambda}_2,\hat{\mathbf{e}}_2),\cdots,(\hat{\lambda}_p,\hat{\mathbf{e}}_p)$ 的 $p\times p$ 样本协方差阵, 则第 $i$ 个样本主成分由
+\[
+\hat{y}_i=\hat{\mathbf{e}}_i'\mathbf{x}=\hat{e}_{i1}x_1+\hat{e}_{i2}x_2+\cdots+\hat{e}_{ip}x_p,\qquad i=1,2,\cdots,p
+\]
+给出, 其中 $\hat{\lambda}_1\geqslant\hat{\lambda}_2\geqslant\cdots\geqslant\hat{\lambda}_p\geqslant 0$, 而 $\mathbf{x}$ 是变量 $X_1,X_2,\cdots,X_p$ 的任一观察, 同时还有
+\phantomsection\label{eq:8-20}
+\begin{equation}
+\begin{aligned}
+\text{样本方差}(\hat{y}_k)&=\hat{\lambda}_k,\qquad k=1,2,\cdots,p\\
+\text{样本协方差}(\hat{y}_i,\hat{y}_k)&=0,\qquad i\neq k
+\end{aligned}
+\tag{8-20}
+\end{equation}
+此外,
+\[
+\text{样本总方差}=\sum_{i=1}^{p}s_{ii}=\hat{\lambda}_1+\hat{\lambda}_2+\cdots+\hat{\lambda}_p
+\]
+且
+\[
+r_{\hat{y}_i,x_k}=\frac{\hat{e}_{ik}\sqrt{\hat{\lambda}_i}}{\sqrt{s_{kk}}}\qquad i,k=1,2,\cdots,p
+\]
+\end{mvbox}
+
+我们把样本主成分记为 $\hat{y}_1,\hat{y}_2,\cdots,\hat{y}_p$, 不管它们是由 $\mathbf{S}$ 还是由 $\mathbf{R}$ 得到的.\footnote{{\footnotesize 如 $X_j$ 服从正态分布, 样本主成分也可以从 $\hat{\boldsymbol{\Sigma}}=\mathbf{S}_n$ 得到, 它是协方差矩阵 $\boldsymbol{\Sigma}$ 的极大似然估计(参看结论 4.11). 此时, 只要 $\boldsymbol{\Sigma}$ 的诸特征值不同, 样本主成分就可看作为相应总体主成分的极大似然估计(参看文献[1]). 因为本节不要求正态性假定, 因此将不考虑 $\hat{\boldsymbol{\Sigma}}$. 同样, $\hat{\boldsymbol{\Sigma}}$ 有特征值 $[(n-1)/n]\hat{\lambda}_i$ 和对应的特征向量 $\hat{\mathbf{e}}_i$, 其中 $(\hat{\lambda}_i,\hat{\mathbf{e}}_i)$ 是 $\mathbf{S}$ 的特征值-特征向量对. 这样, 无论是 $\mathbf{S}$ 还是 $\hat{\boldsymbol{\Sigma}}$ 都给出相同的样本主成分 $\hat{\mathbf{e}}_i'\mathbf{x}$[见\hyperref[eq:8-20]{式(8-20)}]和相同的解释方差的比例 $\hat{\lambda}_i/(\hat{\lambda}_1+\hat{\lambda}_2+\cdots+\hat{\lambda}_p)$. 最后, 无论 $\mathbf{S}$ 还是 $\hat{\boldsymbol{\Sigma}}$ 都给出相同的样本相关阵 $\mathbf{R}$, 因此只要把变量标准化, 选 $\mathbf{S}$ 还是选 $\hat{\boldsymbol{\Sigma}}$ 都无所谓.}} 从 $\mathbf{S}$ 和从 $\mathbf{R}$ 构造的主成分, 一般说是不同的, 但从上下文会清楚究竟用的是哪个矩阵, 而为方便只用一个记号 $\hat{y}$. 在两种情况下, 将成分系数向量表示为 $\hat{\mathbf{e}}_i$, 将成分方差表示为 $\hat{\lambda}_i$, 也是方便的.
+
+常常从观察值 $\mathbf{x}$ 中减去 $\bar{\mathbf{x}}$ 而使其“中心化”. 这不影响样本协方差阵 $\mathbf{S}$, 并给出任一观察值向量 $\mathbf{x}$ 的第 $i$ 个主成分
+\phantomsection\label{eq:8-21}
+\begin{equation}
+\hat{y}_i=\hat{\mathbf{e}}_i'(\mathbf{x}-\bar{\mathbf{x}}),\qquad i=1,2,\cdots,p
+\tag{8-21}
+\end{equation}
+若我们考虑在\hyperref[eq:8-21]{式(8-21)}中以各个观察值 $\mathbf{x}_j$ 代替任意的 $\mathbf{x}$, 所生成的第 $i$ 个主成分的值
+\phantomsection\label{eq:8-22}
+\begin{equation}
+\hat{y}_{ji}=\hat{\mathbf{e}}_i'(\mathbf{x}_j-\bar{\mathbf{x}}),\qquad j=1,2,\cdots,n
+\tag{8-22}
+\end{equation}
+则有
+\phantomsection\label{eq:8-23}
+\begin{equation}
+\bar{\hat{y}}_i=\frac{1}{n}\sum_{j=1}^{n}\hat{y}_{ji}=\frac{1}{n}\hat{\mathbf{e}}_i'\left(\sum_{j=1}^{n}(\mathbf{x}_j-\bar{\mathbf{x}})\right)=\frac{1}{n}\hat{\mathbf{e}}_i'\mathbf{0}=0
+\tag{8-23}
+\end{equation}
+也即各个主成分的样本均值为 0. 样本方差仍如\hyperref[eq:8-20]{式(8-20)}中那样, 由诸 $\hat{\lambda}_i$ 给出.
+
+\noindent\textbf{例 8.3}\quad (用两个样本主成分综合样本变差)
+
+一项调查提供了威斯康星州麦迪逊地区的五项社会经济变量的信息. 从 61 个小区得到的数据列在\hyperref[tab:8.5]{表 8.5} 中(在本章末尾的练习中). 从这组数据得到以下的综合统计量:

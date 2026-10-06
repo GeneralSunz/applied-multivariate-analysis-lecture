@@ -1,0 +1,119 @@
+% ---- pg-547 （书页 535） ----
+
+连接就能保证: 对一个聚类中的所有项目, 彼此间的距离均不超过某个最大距离(或最小相似性).
+
+一般的聚集算法从找到 $\mathbf{D}=\{d_{ik}\}$ 中的最小元素开始, 并将 $U$ 和 $V$ 这样的相应对象合并, 得到新的聚类 $(UV)$. 对式(12-12)中一般算法的步骤 3, $(UV)$ 与任一其他聚类 $W$ 之间的距离定义为
+\phantomsection\label{eq:12-14}
+\begin{equation}
+d_{(UV)W}=\max\{d_{UW},d_{VW}\}
+\tag{12-14}
+\end{equation}
+这里 $d_{UW}$ 和 $d_{VW}$ 分别为 $U$ 与 $W$ 及 $V$ 与 $W$ 的相隔最远的成员之间的距离.
+
+\noindent\textbf{例 12.5}\quad (用完全连接法聚类)
+
+回到例 12.4 中引进的距离矩阵
+\[
+\mathbf{D}=\{d_{ik}\}=
+\begin{array}{cc}
+\begin{array}{c}\mbox{}\\1\\2\\3\\4\\5\end{array} &
+\begin{array}{c}
+\begin{array}{ccccc}1&2&3&4&5\end{array}\\[2pt]
+\begin{bmatrix}
+0& & & & \\
+9&0& & & \\
+3&7&0& & \\
+6&5&9&0& \\
+11&10&\textcircled{2}&8&0
+\end{bmatrix}
+\end{array}
+\end{array}
+\]
+
+在第一阶段, 将对象 3 和 5 合并, 因为它们最相似. 这样就得到聚类(35). 在第二阶段, 我们计算
+\[
+\begin{aligned}
+d_{(35)1}&=\max\{d_{31},d_{51}\}=\max\{3,11\}=11\\
+d_{(35)2}&=\max\{d_{32},d_{52}\}=10\\
+d_{(35)4}&=\max\{d_{34},d_{54}\}=9
+\end{aligned}
+\]
+于是距离阵修正为
+\[
+\begin{array}{cc}
+\begin{array}{c}\mbox{}\\(35)\\1\\2\\4\end{array} &
+\begin{array}{c}
+\begin{array}{cccc}(35)&1&2&4\end{array}\\[2pt]
+\begin{bmatrix}
+0& & & \\
+11&0& & \\
+10&9&0& \\
+9&6&\textcircled{5}&0
+\end{bmatrix}
+\end{array}
+\end{array}
+\]
+
+下一次合并发生在两个最相似的组 2 与 4 之间, 得到一个新的聚类(24). 在第三阶段我们有
+\[
+\begin{aligned}
+d_{(24)(35)}&=\max\{d_{2(35)},d_{4(35)}\}=\max\{10,9\}=10\\
+d_{(24)1}&=\max\{d_{21},d_{41}\}=9
+\end{aligned}
+\]
+因而距离阵为
+\[
+\begin{array}{cc}
+\begin{array}{c}\mbox{}\\(35)\\(24)\\1\end{array} &
+\begin{array}{c}
+\begin{array}{ccc}(35)&(24)&1\end{array}\\[2pt]
+\begin{bmatrix}
+0& & \\
+10&0& \\
+11&\textcircled{9}&0
+\end{bmatrix}
+\end{array}
+\end{array}
+\]
+
+\begin{mvfigure}
+\begin{tikzpicture}[x=1.05cm,y=0.34cm,line width=0.5pt]
+% 叶结点竖线
+\draw (0,0) -- (0,11);
+\draw (1,0) -- (1,5);
+\draw (2,0) -- (2,5);
+\draw (3,0) -- (3,2);
+\draw (4,0) -- (4,2);
+% 合并横线
+\draw (1,5) -- (2,5);
+\draw (3,2) -- (4,2);
+\draw (1.5,9) -- (3.5,9);
+\draw (0,11) -- (2.5,11);
+% 向上的竖线
+\draw (1.5,5) -- (1.5,9);
+\draw (3.5,2) -- (3.5,9);
+\draw (2.5,9) -- (2.5,11);
+% 坐标轴
+\draw (-0.75,0) -- (-0.75,12.3);
+\foreach \t in {0,2,4,6,8,10,12}{%
+  \draw (-0.75,\t) -- (-0.55,\t);%
+  \node[left,font=\small] at (-0.85,\t) {\t};%
+}
+\node[rotate=90,font=\small] at (-1.7,6) {距离};
+\node[font=\small] at (2,-2.6) {对象};
+% 叶结点
+\foreach \i/\l in {0/1,1/2,2/4,3/3,4/5}{%
+  \fill (\i,0) circle (0.055);%
+  \node[below,font=\small,inner sep=1.5pt] at (\i,0) {\l};%
+}
+\end{tikzpicture}
+\phantomsection\label{fig:12.6}\mvcap{图 12.6\quad 五个对象之间距离的完全连接树图}
+\end{mvfigure}
+
+下一次合并产生聚类(124). 在最后阶段, 将组(35)和(124)合并成一个聚类(12345), 其距离水平为
+\[
+d_{(124)(35)}=\max\{d_{1(35)},d_{(24)(35)}\}=\max\{11,10\}=11
+\]
+这个聚类过程的树图由\hyperref[fig:12.6]{图 12.6} 给出. \hfill$\blacksquare$
+
+比较\hyperref[fig:12.3]{图 12.3} 和\hyperref[fig:12.6]{图 12.6} 可以看出, 单连接法与完全连接法在将对象 1 分配给前面的组时分配方法是不一样的.

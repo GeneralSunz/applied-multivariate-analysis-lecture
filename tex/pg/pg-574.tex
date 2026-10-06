@@ -1,0 +1,66 @@
+% ---- pg-574 （书页 562） ----
+
+注: 虽然在\hyperref[eq:12-38]{式(12-38)}中向量 $\mathbf{D}_r^{1/2}\mathbf{u}_k$ 和 $\mathbf{D}_c^{1/2}\mathbf{v}_k$ 不必是单位长度的, 但是满足条件
+\[
+\begin{aligned}
+(\mathbf{D}_r^{1/2}\mathbf{u}_k)'(\mathbf{D}_r^{1/2}\mathbf{u}_k)&=\mathbf{u}_k'\mathbf{u}_k=1\\
+(\mathbf{D}_c^{1/2}\mathbf{v}_k)'(\mathbf{D}_c^{1/2}\mathbf{v}_k)&=\mathbf{v}_k'\mathbf{v}_k=1
+\end{aligned}
+\]
+因此结论 12.1 中的展开称为广义奇异值分解.
+
+令 $\boldsymbol{\Lambda}$, $\mathbf{U}=[\mathbf{u}_1,\cdots,\mathbf{u}_I]$ 和 $\mathbf{V}=[\mathbf{v}_1,\cdots,\mathbf{v}_J]$ 分别表示 $\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}$ 的奇异值矩阵和奇异向量矩阵. 在对应分析中, 通常将 $\mathbf{F}=\mathbf{D}_r^{-1}(\mathbf{D}_r^{1/2}\mathbf{U})\boldsymbol{\Lambda}$ 和 $\mathbf{G}=\mathbf{D}_c^{-1}(\mathbf{D}_c^{1/2}\mathbf{V})\boldsymbol{\Lambda}$ 的前两列或前三列用点图表示. $\mathbf{F}$ 和 $\mathbf{G}$ 的联合点图称为对称地图(symmetric map, 见文献[13]). 这是因为表示行和列的点在解的维度上有相同的标准化. 换句话说, 行点的几何与列点的几何一致.
+
+\noindent\textbf{例 12.18}\quad (对应分析计算)
+
+考虑如下的 $3\times 2$ 列联表
+
+\begin{mvtable}
+\begin{tabular}{lccc}
+\toprule
+& \textbf{B1} & \textbf{B2} & \textbf{和} \\
+\midrule
+\textbf{A1} & 24 & 12 & 36 \\
+\textbf{A2} & 16 & 48 & 64 \\
+\textbf{A3} & 60 & 40 & 100 \\
+\midrule
+\textbf{和} & 100 & 100 & 200 \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+对应矩阵为
+\[
+\mathbf{P}=\begin{bmatrix}0.12&0.06\\0.08&0.24\\0.30&0.20\end{bmatrix}
+\]
+列和向量 $\mathbf{c}'=[0.5,0.5]$, 行和向量 $\mathbf{r}'=[0.18,0.32,0.50]$. 负均方根矩阵
+\[
+\mathbf{D}_r^{-1/2}=\operatorname{diag}\left[\sqrt{2}/0.6,\sqrt{2}/0.8,\sqrt{2}\right],\quad
+\mathbf{D}_c^{-1/2}=\operatorname{diag}\left[\sqrt{2},\sqrt{2}\right]
+\]
+由此,
+\[
+\mathbf{P}-\mathbf{r}\mathbf{c}'=
+\begin{bmatrix}0.12&0.06\\0.08&0.24\\0.30&0.20\end{bmatrix}
+-\begin{bmatrix}0.18\\0.32\\0.50\end{bmatrix}
+\begin{bmatrix}0.5&0.5\end{bmatrix}
+=\begin{bmatrix}0.03&-0.03\\-0.08&0.08\\0.05&-0.05\end{bmatrix}
+\]
+此矩阵的标准化为
+\[
+\begin{aligned}
+\mathbf{A}&=\mathbf{D}_r^{-1/2}(\mathbf{P}-\mathbf{r}\mathbf{c}')\mathbf{D}_c^{-1/2}\\
+&=\begin{bmatrix}\sqrt{2}/0.6&0&0\\0&\sqrt{2}/0.8&0\\0&0&\sqrt{2}\end{bmatrix}
+\begin{bmatrix}0.03&-0.03\\-0.08&0.08\\0.05&-0.05\end{bmatrix}
+\begin{bmatrix}\sqrt{2}&0\\0&\sqrt{2}\end{bmatrix}\\
+&=\begin{bmatrix}0.1&-0.1\\-0.2&0.2\\0.1&-0.1\end{bmatrix}
+\end{aligned}
+\]
+由于 $I>J$, 奇异值分解基于
+\[
+\mathbf{A}'\mathbf{A}=
+\begin{bmatrix}0.1&-0.2&0.1\\-0.1&0.2&-0.1\end{bmatrix}
+\begin{bmatrix}0.1&-0.1\\-0.2&0.2\\0.1&-0.1\end{bmatrix}
+=\begin{bmatrix}0.06&-0.06\\-0.06&0.06\end{bmatrix}
+\]
+容易得到 $\tilde{\lambda}_1^2=0.12$, $\tilde{\lambda}_2^2=0$(由于 $J-1=2-1=1$). 对应奇异值 $\tilde{\lambda}_1$ 的列奇异向量

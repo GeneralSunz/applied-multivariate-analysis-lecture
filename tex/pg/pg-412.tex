@@ -1,0 +1,60 @@
+% ---- pg-412 （书页 400） ----
+
+分为
+\phantomsection\label{eq:9-49}
+\begin{equation}
+\hat{\mathbf{f}}_j=(\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})^{-1}\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}(\mathbf{x}_j-\bar{\mathbf{x}}) \tag{9-49}
+\end{equation}
+当 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 是由极大似然方法决定时, 这些估计值必须满足唯一性条件: $\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}}=\hat{\boldsymbol{\Delta}}$ 是一对角阵. 于是我们有:
+
+\begin{mvbox}
+{\centering\mvbold{从极大似然估计用加权最小二乘得到的因子得分}\par}
+\phantomsection\label{eq:9-50}
+\begin{equation}
+\left.\begin{aligned}
+\hat{\mathbf{f}}_j&=(\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}\hat{\mathbf{L}})^{-1}\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}(\mathbf{x}_j-\hat{\boldsymbol{\mu}})\\
+&=\hat{\boldsymbol{\Delta}}^{-1}\hat{\mathbf{L}}'\hat{\boldsymbol{\Psi}}^{-1}(\mathbf{x}_j-\bar{\mathbf{x}}), \qquad j=1,2,\cdots,n\\[4pt]
+&\text{或者, 若将相关矩阵因子化,}\\[4pt]
+\hat{\mathbf{f}}_j&=(\hat{\mathbf{L}}_z'\hat{\boldsymbol{\Psi}}_z^{-1}\hat{\mathbf{L}}_z)^{-1}\hat{\mathbf{L}}_z'\hat{\boldsymbol{\Psi}}_z^{-1}\mathbf{z}_j\\
+&=\hat{\boldsymbol{\Delta}}_z^{-1}\hat{\mathbf{L}}_z'\hat{\boldsymbol{\Psi}}_z^{-1}\mathbf{z}_j, \qquad j=1,2,\cdots,n
+\end{aligned}\right\}
+\tag{9-50}
+\end{equation}
+其中, 同\hyperref[eq:8-25]{式(8-25)}中一样, $\mathbf{z}_j=\mathbf{D}^{-1/2}(\mathbf{x}_j-\bar{\mathbf{x}})$, 且 $\hat{\boldsymbol{\rho}}=\hat{\mathbf{L}}_z\hat{\mathbf{L}}_z'+\hat{\boldsymbol{\Psi}}_z$.
+\end{mvbox}
+
+由\hyperref[eq:9-50]{式(9-50)}产生的因子得分有样本均值向量 $\mathbf{0}$ 和零样本协方差(见练习 9.16).
+
+若\hyperref[eq:9-50]{式(9-50)}中的原载荷改用旋转载荷 $\hat{\mathbf{L}}^*=\hat{\mathbf{L}}\mathbf{T}$, 则相应的因子得分 $\hat{\mathbf{f}}_j^*$ 与 $\hat{\mathbf{f}}_j$ 有关, 关系为
+\[
+\hat{\mathbf{f}}_j^*=\mathbf{T}'\hat{\mathbf{f}}_j,\quad j=1,2,\cdots,n
+\]
+
+\mvbold{评注}\quad 若由主成分方法估计因子载荷, 那么习惯上用未加权(普通的)最小二乘过程生成因子得分. 毫无疑问, 这相当于假定 $\psi_i$ 相等或近似相等. 于是因子得分为
+\[
+\hat{\mathbf{f}}_j=(\tilde{\mathbf{L}}'\tilde{\mathbf{L}})^{-1}\tilde{\mathbf{L}}'(\mathbf{x}_j-\bar{\mathbf{x}})
+\]
+或者对标准化数据为
+\[
+\hat{\mathbf{f}}_j=(\tilde{\mathbf{L}}_z'\tilde{\mathbf{L}}_z)^{-1}\tilde{\mathbf{L}}_z'\mathbf{z}_j
+\]
+既然 $\tilde{\mathbf{L}}_z=[\sqrt{\hat{\lambda}_1}\hat{\mathbf{e}}_1 \vdots \sqrt{\hat{\lambda}_2}\hat{\mathbf{e}}_2 \vdots \cdots \vdots \sqrt{\hat{\lambda}_m}\hat{\mathbf{e}}_m]$[见\hyperref[eq:9-15]{式(9-15)}], 我们有
+\phantomsection\label{eq:9-51}
+\begin{equation}
+\hat{\mathbf{f}}_j=
+\begin{bmatrix}
+\frac{1}{\sqrt{\hat{\lambda}_1}}\hat{\mathbf{e}}_1'(\mathbf{x}_j-\bar{\mathbf{x}})\\[6pt]
+\frac{1}{\sqrt{\hat{\lambda}_2}}\hat{\mathbf{e}}_2'(\mathbf{x}_j-\bar{\mathbf{x}})\\[6pt]
+\vdots\\[4pt]
+\frac{1}{\sqrt{\hat{\lambda}_m}}\hat{\mathbf{e}}_m'(\mathbf{x}_j-\bar{\mathbf{x}})
+\end{bmatrix}
+\tag{9-51}
+\end{equation}
+对于这些因子得分, 有
+\[
+\frac{1}{n}\sum_{j=1}^{n}\hat{\mathbf{f}}_j=\mathbf{0}\qquad\text{(样本均值)}
+\]
+和
+\[
+\frac{1}{n-1}\sum_{j=1}^{n}\hat{\mathbf{f}}_j\hat{\mathbf{f}}_j'=\mathbf{I}\qquad\text{(样本方差)}
+\]

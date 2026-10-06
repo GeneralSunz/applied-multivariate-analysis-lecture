@@ -1,0 +1,49 @@
+% ---- pg-272 （书页 260） ----
+
+两个正态总体 $N_p(\boldsymbol{\mu}_1,\boldsymbol{\Sigma})$ 和 $N_p(\boldsymbol{\mu}_2,\boldsymbol{\Sigma})$ 的样本容量分别为 $n_1$ 和 $n_2$ 的独立随机样本的似然函数, 试证 $L(\boldsymbol{\mu}_1,\boldsymbol{\mu}_2,\boldsymbol{\Sigma})$ 的最大值在 $\hat{\boldsymbol{\mu}}_1=\bar{\mathbf{x}}_1,\hat{\boldsymbol{\mu}}_2=\bar{\mathbf{x}}_2$ 及
+\[
+\hat{\boldsymbol{\Sigma}}=\frac{1}{n_1+n_2}\left[(n_1-1)\mathbf{S}_1+(n_2-1)\mathbf{S}_2\right]=\left(\frac{n_1+n_2-2}{n_1+n_2}\right)\mathbf{S}_p
+\]
+时达到.
+
+提示: 利用\hyperref[eq:4-16]{式(4-16)}和结论 4.10.
+
+\noindent 6.12\quad （已知轮廓平行时对线性轮廓的检验.）设 $\boldsymbol{\mu}_1'=[\mu_{11},\mu_{12},\cdots,\mu_{1p}]$, $\boldsymbol{\mu}_2'=[\mu_{21},\mu_{22},\cdots,\mu_{2p}]$ 分别为总体 1 与总体 2 的 $p$ 个处理的响应均值, 假定这两个均值向量给出的轮廓是平行的.
+
+\noindent (a) 证明“轮廓是线性的”这一假设可写为
+\[
+H_0: (\mu_{1i}+\mu_{2i})-(\mu_{1,i-1}+\mu_{2,i-1})=(\mu_{1,i-1}+\mu_{2,i-1})-(\mu_{1,i-2}+\mu_{2,i-2}),
+\]
+\[
+i=3,\cdots,p
+\]
+或 $H_0: \mathbf{C}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)=\mathbf{0}$, 其中 $(p-2)\times p$ 矩阵
+\[
+\mathbf{C}=\begin{bmatrix}1&-2&1&0&\cdots&0&0&0\\0&1&-2&1&\cdots&0&0&0\\\vdots&\vdots&\vdots&\vdots&&\vdots&\vdots&\vdots\\0&0&0&0&\cdots&1&-2&1\end{bmatrix}
+\]
+
+\noindent (b) 通过类似于\hyperref[eq:6-73]{式(6-73)}的讨论可得: 若
+\[
+T^2=(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)'\mathbf{C}'\left[\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\mathbf{C}\mathbf{S}_p\mathbf{C}'\right]^{-1}\mathbf{C}(\bar{\mathbf{x}}_1+\bar{\mathbf{x}}_2)>c^2
+\]
+则在显著性水平 $\alpha$ 下拒绝 $H_0: \mathbf{C}(\boldsymbol{\mu}_1+\boldsymbol{\mu}_2)=\mathbf{0}$, 其中
+\[
+c^2=\frac{(n_1+n_2-2)(p-2)}{n_1+n_2-p+1}F_{p-2,n_1+n_2-p+1}(\alpha)
+\]
+设 $n_1=30, n_2=30, \bar{\mathbf{x}}_1'=[6.4,6.8,7.3,7.0], \bar{\mathbf{x}}_2'=[4.3,4.9,5.3,5.1]$, 且
+\[
+\mathbf{S}_p=\begin{bmatrix}0.61&0.26&0.07&0.16\\0.26&0.64&0.17&0.14\\0.07&0.17&0.81&0.03\\0.16&0.14&0.03&0.31\end{bmatrix}
+\]
+假定两个轮廓平行, 试检验这两轮廓是否为线性(取 $\alpha=0.05$).
+
+\noindent 6.13\quad （无重复的双因子 MANOVA）考虑以下面的双因子表形式给出的(注意, 对因子水平的每一种组合中仅有一个观测值向量)响应 $x_1$ 和 $x_2$ 的观测值:
+
+\begin{mvtable}
+\begin{tabular}{c|cccc}
+ & \multicolumn{4}{c}{因子 2}\\\midrule
+ & 水平 1 & 水平 2 & 水平 3 & 水平 4\\\midrule
+ & $\begin{bmatrix}6\\8\end{bmatrix}$ & $\begin{bmatrix}4\\6\end{bmatrix}$ & $\begin{bmatrix}8\\12\end{bmatrix}$ & $\begin{bmatrix}2\\6\end{bmatrix}$\\[10pt]
+\multirow{3}{*}{因子 1} & $\begin{bmatrix}3\\8\end{bmatrix}$ & $\begin{bmatrix}-3\\2\end{bmatrix}$ & $\begin{bmatrix}4\\3\end{bmatrix}$ & $\begin{bmatrix}-4\\3\end{bmatrix}$\\[10pt]
+ & $\begin{bmatrix}-3\\2\end{bmatrix}$ & $\begin{bmatrix}-4\\-5\end{bmatrix}$ & $\begin{bmatrix}3\\-3\end{bmatrix}$ & $\begin{bmatrix}-4\\-6\end{bmatrix}$
+\end{tabular}
+\end{mvtable}

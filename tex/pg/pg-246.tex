@@ -1,0 +1,50 @@
+% ---- pg-246 （书页 234） ----
+
+\mvsub{样本协方差阵}
+
+\[
+\mathbf{S}_1=\begin{bmatrix}0.291&&&\\-0.001&0.011&&\\0.002&0.000&0.001&\\0.010&0.003&0.000&0.010\end{bmatrix};\quad
+\mathbf{S}_2=\begin{bmatrix}0.561&&&\\0.011&0.025&&\\0.001&0.004&0.005&\\0.037&0.007&0.002&0.019\end{bmatrix};
+\]
+\[
+\mathbf{S}_3=\begin{bmatrix}0.261&&&\\0.030&0.017&&\\0.003&-0.000&0.004&\\0.018&0.006&0.001&0.013\end{bmatrix}
+\]
+
+资料来源：数据经威斯康星州卫生与社会服务部许可使用．
+
+由于各 $\mathbf{S}_l$ 似乎差异不大\footnote{不过由于样本容量很大，所以在任意合理的显著性水平下，用正态理论检验假设 $H_0:\boldsymbol{\Sigma}_1=\boldsymbol{\Sigma}_2=\boldsymbol{\Sigma}_3$ 时仍将拒绝 $H_0$（参见例 6.12）．}，故可将它们融合（见\hyperref[eq:6-41]{式(6-41)}）可得
+\[
+\begin{aligned}
+\mathbf{W}&=(n_1-1)\mathbf{S}_1+(n_2-1)\mathbf{S}_2+(n_3-1)\mathbf{S}_3\\
+&=\begin{bmatrix}182.962&&&\\4.408&8.200&&\\1.695&0.633&1.484&\\9.581&2.428&0.394&6.538\end{bmatrix}
+\end{aligned}
+\]
+
+此外有
+\[
+\bar{\mathbf{x}}=\frac{n_1\bar{\mathbf{x}}_1+n_2\bar{\mathbf{x}}_2+n_3\bar{\mathbf{x}}_3}{n_1+n_2+n_3}
+=\begin{bmatrix}2.136\\0.519\\0.102\\0.380\end{bmatrix}
+\]
+
+和
+\[
+\mathbf{B}=\sum_{l=1}^{3}n_l(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})(\bar{\mathbf{x}}_l-\bar{\mathbf{x}})'=
+\begin{bmatrix}3.475&&&\\1.111&1.225&&\\0.821&0.453&0.235&\\0.584&0.610&0.230&0.304\end{bmatrix}
+\]
+
+为检验 $H_0:\boldsymbol{\tau}_1=\boldsymbol{\tau}_2=\boldsymbol{\tau}_3$（无所有制的效应，或等价地说，私人、非营利者和政府三类业主之间的平均费用没有差别），可利用\hyperref[tab:6.3]{表 6.3} 中 $g=3$ 的结果．
+
+由计算机算得
+\[
+\Lambda^*=\frac{|\mathbf{W}|}{|\mathbf{B}+\mathbf{W}|}=0.771\,4
+\]
+
+及
+\[
+\left(\frac{\sum n_i-p-2}{p}\right)\left(\frac{1-\sqrt{\Lambda^*}}{\sqrt{\Lambda^*}}\right)
+=\left(\frac{516-4-2}{4}\right)\times\left(\frac{1-\sqrt{0.771\,4}}{\sqrt{0.771\,4}}\right)=17.67
+\]
+
+取 $\alpha=0.01$，这样 $F_{2\times4,2\times510}(0.01)\doteq\chi_8^2(0.01)/8=2.51$．由于 $17.67>F_{8,1020}(0.01)\doteq2.51$，故在 $0.01$ 显著性水平下我们拒绝 $H_0$，并得出平均费用因所有制不同而存在差异的结论．
+
+将这种“精确”检验结果与用\hyperref[eq:6-43]{式(6-43)}和\hyperref[eq:6-44]{式(6-44)}给出的大样本分析结果进行比较是有

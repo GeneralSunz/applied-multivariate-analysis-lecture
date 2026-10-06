@@ -1,0 +1,46 @@
+% ---- pg-423 （书页 411） ----
+
+$\mathbf{V}^{-1/2}\boldsymbol{\Psi}\mathbf{V}^{-1/2}=\mathbf{L}_z\mathbf{L}_z'+\boldsymbol{\Psi}_z$. 对标准化变量的载荷矩阵是 $\mathbf{L}_z=\mathbf{V}^{-1/2}\mathbf{L}$, 而相应的特殊方差矩阵是 $\boldsymbol{\Psi}_z=\mathbf{V}^{-1/2}\boldsymbol{\Psi}\mathbf{V}^{-1/2}$, 其中 $\mathbf{V}^{-1/2}$ 是对角阵, 其第 $i$ 个对角元为 $\sigma_{ii}^{-1/2}$. 若用 $\mathbf{R}$ 替代目标函数(9A-3)中的 $\mathbf{S}_n$, 研究者将
+\phantomsection\label{eq:9A-7}
+\begin{equation}
+\ln\left(\frac{|\mathbf{L}_z\mathbf{L}_z'+\boldsymbol{\Psi}_z|}{|\mathbf{R}|}\right)+\mathrm{tr}[(\mathbf{L}_z\mathbf{L}_z'+\boldsymbol{\Psi}_z)^{-1}\mathbf{R}]-p \tag{9A-7}
+\end{equation}
+最小化.
+
+引进对角阵 $\hat{\mathbf{V}}^{1/2}$, 它的第 $i$ 个对角元是 $\mathbf{S}_n$ 第 $i$ 个对角元的平方根, 我们可将目标函数(9A-7)写为
+\phantomsection\label{eq:9A-8}
+\begin{equation}
+\begin{aligned}
+&\ln\left(\frac{|\hat{\mathbf{V}}^{1/2}|}{|\hat{\mathbf{V}}^{1/2}|}\cdot\frac{|\mathbf{L}_z\mathbf{L}_z'+\boldsymbol{\Psi}_z|}{|\mathbf{R}|}\cdot\frac{|\hat{\mathbf{V}}^{1/2}|}{|\hat{\mathbf{V}}^{1/2}|}\right)\\
+&\quad+\mathrm{tr}[(\mathbf{L}_z\mathbf{L}_z'+\boldsymbol{\Psi}_z)^{-1}\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{V}}^{1/2}\mathbf{R}\hat{\mathbf{V}}^{1/2}\hat{\mathbf{V}}^{-1/2}]-p\\
+&=\ln\left(\frac{|(\hat{\mathbf{V}}^{1/2}\mathbf{L}_z)(\hat{\mathbf{V}}^{1/2}\mathbf{L}_z)'+\hat{\mathbf{V}}^{1/2}\boldsymbol{\Psi}_z\hat{\mathbf{V}}^{1/2}|}{|\mathbf{S}_n|}\right)\\
+&\quad+\mathrm{tr}[((\hat{\mathbf{V}}^{1/2}\mathbf{L}_z)(\hat{\mathbf{V}}^{1/2}\mathbf{L}_z)'+\hat{\mathbf{V}}^{1/2}\boldsymbol{\Psi}_z\hat{\mathbf{V}}^{1/2})^{-1}\mathbf{S}_n]-p\\
+&\geqslant\ln\left(\frac{|\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}|}{|\mathbf{S}_n|}\right)+\mathrm{tr}[(\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}})^{-1}\mathbf{S}_n]-p
+\end{aligned} \tag{9A-8}
+\end{equation}
+
+最后一个不等号是因为极大似然估计 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 使目标函数(9A-3)最小化. [对 $\mathbf{L}_z=\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}}$ 和 $\boldsymbol{\Psi}_z=\hat{\mathbf{V}}^{-1/2}\hat{\boldsymbol{\Psi}}\hat{\mathbf{V}}^{-1/2}$, \hyperref[eq:9A-8]{式(9A-8)}中等号成立.] 因此, 在 $\mathbf{L}_z$ 和 $\boldsymbol{\Psi}_z$ 上将\hyperref[eq:9A-7]{式(9A-7)}最小化, 等价于从 $\mathbf{S}_n$ 得到 $\hat{\mathbf{L}}$ 和 $\hat{\boldsymbol{\Psi}}$ 并且用 $\hat{\mathbf{L}}_z=\hat{\mathbf{V}}^{-1/2}\hat{\mathbf{L}}$ 估计 $\mathbf{L}_z=\mathbf{V}^{-1/2}\mathbf{L}$ 和用 $\hat{\boldsymbol{\Psi}}_z=\hat{\mathbf{V}}^{-1/2}\hat{\boldsymbol{\Psi}}\hat{\mathbf{V}}^{-1/2}$ 估计 $\boldsymbol{\Psi}_z=\mathbf{V}^{-1/2}\boldsymbol{\Psi}\mathbf{V}^{-1/2}$. 后一估计过程的根据是极大似然估计的不变性[见\hyperref[eq:4-20]{式(4-20)}].
+
+\mvsub{练习}
+
+\noindent 9.1\quad 证明对 $p=3$ 个标准化随机变量 $Z_1$, $Z_2$ 和 $Z_3$ 的协方差矩阵
+\[
+\boldsymbol{\rho}=\begin{bmatrix}1.0&0.63&0.45\\0.63&1.0&0.35\\0.45&0.35&1.0\end{bmatrix}
+\]
+可以由 $m=1$ 的因子模型
+\[
+\left\{\begin{array}{l}
+Z_1=0.9F_1+\epsilon_1\\
+Z_2=0.7F_1+\epsilon_2\\
+Z_3=0.5F_1+\epsilon_3
+\end{array}\right.
+\]
+来生成, 其中 $\mathrm{Var}(F_1)=1$, $\mathrm{Cov}(\boldsymbol{\epsilon},F_1)=\mathbf{0}$, 且
+\[
+\boldsymbol{\Psi}=\mathrm{Cov}(\boldsymbol{\epsilon})=\begin{bmatrix}0.19&0&0\\0&0.51&0\\0&0&0.75\end{bmatrix}
+\]
+也即, 将 $\boldsymbol{\rho}$ 写成形式 $\boldsymbol{\rho}=\mathbf{L}\mathbf{L}'+\boldsymbol{\Psi}$.
+
+\noindent 9.2\quad 利用练习 9.1 中的信息
+
+(a) 计算共性方差 $h_i^2$, $i=1,2,3$, 并解释这些量.

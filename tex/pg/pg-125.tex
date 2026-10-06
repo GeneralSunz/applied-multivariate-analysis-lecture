@@ -1,0 +1,56 @@
+提示: 从\hyperref[eq:3-30]{式(3-30)}, $\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}$, 取行列式得 $|\mathbf{S}|=|\mathbf{D}^{1/2}||\mathbf{R}||\mathbf{D}^{1/2}|$(参考结论 2A.11). 再检查 $|\mathbf{D}^{1/2}|$.
+
+\noindent 3.13\quad 已知一数据矩阵 $\mathbf{X}$ 和所得到的样本相关矩阵 $\mathbf{R}$, 考虑标准化观测值 $(x_{jk}-\bar{x}_k)/\sqrt{s_{kk}}$, $k=1,2,\cdots,p$, $j=1,2,\cdots,n$. 证明这些标准化量有样本协方差矩阵 $\mathbf{R}$.
+
+\noindent 3.14\quad 设练习 3.1 中的数据矩阵 $\mathbf{X}$, 对 $p=2$ 个变量 $X_1$ 和 $X_2$ 有 $n=3$ 个测量值. 形成线性组合
+\[
+c'\mathbf{X}=\begin{bmatrix}-1&2\end{bmatrix}\begin{bmatrix}X_1\\X_2\end{bmatrix}=-X_1+2X_2
+\]
+\[
+b'\mathbf{X}=\begin{bmatrix}2&3\end{bmatrix}\begin{bmatrix}X_1\\X_2\end{bmatrix}=2X_1+3X_2
+\]
+
+(a)\ 计算 $b'\mathbf{X}$ 和 $c'\mathbf{X}$ 的样本均值、方差与协方差, 即计算 $b'\mathbf{X}$ 和 $c'\mathbf{X}$ 的观测值, 然后利用样本均值、方差与协方差的公式.
+
+(b)\ 利用\hyperref[eq:3-36]{式(3-36)}计算 $b'\mathbf{X}$ 和 $c'\mathbf{X}$ 的样本均值、方差与协方差. 比较 (a) 和 (b) 中的结果.
+
+\noindent 3.15\quad 利用数据矩阵
+\[
+\mathbf{X}=\begin{bmatrix}
+1&4&3\\
+6&2&6\\
+8&3&3
+\end{bmatrix}
+\]
+及线性组合
+\[
+b'\mathbf{X}=\begin{bmatrix}1&1&1\end{bmatrix}\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}
+\]
+和
+\[
+c'\mathbf{X}=\begin{bmatrix}1&2&-3\end{bmatrix}\begin{bmatrix}X_1\\X_2\\X_3\end{bmatrix}
+\]
+重复练习 3.14.
+
+\noindent 3.16\quad 设 $\mathbf{V}$ 是一个均值向量 $E(\mathbf{V})=\boldsymbol{\mu}_V$ 和协方差矩阵 $E(\mathbf{V}-\boldsymbol{\mu}_V)(\mathbf{V}-\boldsymbol{\mu}_V)'=\boldsymbol{\Sigma}_V$ 的随机向量. 证明
+\[
+E(\mathbf{V}\mathbf{V}')=\boldsymbol{\Sigma}_V+\boldsymbol{\mu}_V\boldsymbol{\mu}_V'
+\]
+
+\noindent 3.17\quad 证明如果 $\mathbf{X}$ 和 $\mathbf{Z}$ 是独立的, 则 $\mathbf{X}$ 的每个分量与 $\mathbf{Z}$ 的每个分量也是独立的.
+
+提示: 由独立性
+\begin{align*}
+&P[X_1\le x_1, X_2\le x_2,\cdots, X_p\le x_p\ \text{和}\ Z_1\le z_1,\cdots, Z_q\le z_q]\\
+&\quad=P[X_1\le x_1, X_2\le x_2,\cdots, X_p\le x_p]\cdot P[Z_1\le z_1,\cdots, Z_q\le z_q],
+\end{align*}
+令 $x_2,\cdots,x_p$ 和 $z_2,\cdots,z_q$ 趋向无穷大, 得到, 对所有 $x_1, z_1$,
+\[
+P[X_1\le x_1\ \text{和}\ Z_1\le z_1]=P[X_1\le x_1]\cdot P[Z_1\le z_1]
+\]
+所以 $X_1, Z_1$ 是独立的. 对于其他对重复该过程.
+
+\noindent 3.18\quad 2001 年美国能源的消耗主要有 4 个来源(单位: $10^{15}$ BTU; 资料来源: 2006 年美国统计摘要):
+\[
+x_1=\text{石油}, \quad x_2=\text{天然气}, \quad x_3=\text{水电力}, \quad x_4=\text{核电力}
+\]

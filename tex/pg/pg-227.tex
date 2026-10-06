@@ -1,0 +1,86 @@
+\phantomsection\label{eq:6-17}
+\begin{equation}
+n(c\bar{\mathbf{x}}-c\boldsymbol{\mu})'(c\mathbf{S}c')^{-1}(c\bar{\mathbf{x}}-c\boldsymbol{\mu})
+\le \frac{(n-1)(q-1)}{(n-q+1)}F_{q-1,n-q+1}(\alpha)
+\tag{6-17}
+\end{equation}
+的所有 $c\boldsymbol{\mu}$. 此处的 $\bar{\mathbf{x}}$ 与 $\mathbf{S}$ 由\hyperref[eq:6-16]{式(6-16)}中定义. 因此对我们感兴趣的任何对比向量来说, 单个对比向量 $c'\boldsymbol{\mu}$ 的 $100(1-\alpha)\%$ 联合置信区间为(见结论 5A.1):
+
+\phantomsection\label{eq:6-18}
+\begin{equation}
+c'\boldsymbol{\mu}: c'\bar{\mathbf{x}} \pm \sqrt{\frac{(n-1)(q-1)}{(n-q+1)}F_{q-1,n-q+1}(\alpha)}\sqrt{\frac{c'\mathbf{S}c}{n}}
+\tag{6-18}
+\end{equation}
+
+\noindent\textbf{例 6.2}\quad (重复测量设计中等效处理的检验)
+
+改进的麻醉剂往往是先通过动物试验研究其效果后开发出来的. 在一项研究中, 先给 19 只狗服用戊巴比妥, 然后让每只狗在两种压力水平下吸入二氧化碳($\mathrm{CO}_{2}$). 接着让狗先吸入三氟溴氯乙烷(H), 再吸入 $\mathrm{CO}_{2}$. 对四种处理组合测量响应, 即测量狗的心跳间隔(毫秒):
+
+\begin{mvfigure}
+\centering
+\begin{tikzpicture}[scale=0.85,every node/.style={font=\small}]
+\draw (0,1.5) circle (0.28) node {4};
+\draw (2.2,1.5) circle (0.28) node {3};
+\draw (0,0) circle (0.28) node {2};
+\draw (2.2,0) circle (0.28) node {1};
+\draw (0,1.5)--(2.2,1.5);
+\draw (0,0)--(2.2,0);
+\draw (0,1.5)--(0,0);
+\draw (2.2,1.5)--(2.2,0);
+\node[left] at (-0.4,1.5) {吸入};
+\node[left] at (-0.4,0) {不吸入};
+\node[below] at (0,-0.4) {低};
+\node[below] at (2.2,-0.4) {高};
+\node[rotate=90] at (-1.35,0.75) {三氟溴氯乙烷};
+\node at (1.1,-1.0) {二氧化碳压力};
+\end{tikzpicture}
+\end{mvfigure}
+
+\hyperref[tab:6.2]{表 6.2} 中列出 19 只狗的这 4 个测量值, 其中:
+
+处理 1 = 高 $\mathrm{CO}_{2}$ 压力, 不吸入 H
+
+处理 2 = 低 $\mathrm{CO}_{2}$ 压力, 不吸入 H
+
+处理 3 = 高 $\mathrm{CO}_{2}$ 压力, 吸入 H
+
+处理 4 = 低 $\mathrm{CO}_{2}$ 压力, 吸入 H
+
+\begin{mvtable}
+\phantomsection\label{tab:6.2}\mvtabcap{表 6.2\quad 睡眠中狗的数据}
+\centering
+{\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{狗} & \multicolumn{4}{c|}{处理}\\
+\cline{2-5}
+ & 1 & 2 & 3 & 4\\
+\hline
+1 & 426 & 609 & 556 & 600\\
+2 & 253 & 236 & 392 & 395\\
+3 & 359 & 433 & 349 & 357\\
+4 & 432 & 431 & 522 & 600\\
+5 & 405 & 426 & 513 & 513\\
+6 & 324 & 438 & 507 & 539\\
+7 & 310 & 312 & 410 & 456\\
+8 & 326 & 326 & 350 & 504\\
+9 & 375 & 447 & 547 & 548\\
+10 & 286 & 286 & 403 & 422\\
+11 & 349 & 382 & 473 & 497\\
+12 & 429 & 410 & 488 & 547\\
+13 & 348 & 377 & 447 & 514\\
+14 & 412 & 473 & 472 & 446\\
+15 & 347 & 326 & 455 & 468\\
+16 & 434 & 458 & 637 & 524\\
+17 & 364 & 367 & 432 & 469\\
+18 & 420 & 395 & 508 & 531\\
+19 & 397 & 556 & 645 & 625\\
+\hline
+\end{tabular}}
+\end{mvtable}
+
+\noindent 资料来源: 数据经 J. Atlee 博士许可使用.
+
+我们来分析这一重复测量设计中 $\mathrm{CO}_{2}$ 压力与三氟溴氯乙烷的麻醉效果.
+
+在该实验中, 所感兴趣的处理对比有 3 种. 记 $\mu_{1},\mu_{2},\mu_{3}$ 和 $\mu_{4}$ 分别为在处理 1,2,3 和 4 作

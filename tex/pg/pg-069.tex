@@ -1,0 +1,78 @@
+% ---- pg-069 （书页 57） ----
+
+\[
+\bm{X}=\begin{bmatrix}X_1\\\vdots\\X_q\\\hline X_{q+1}\\\vdots\\X_p\end{bmatrix}\ \begin{array}{l}\left.\vphantom{\begin{array}{c}X_1\\\vdots\\X_q\end{array}}\right\}q\\[1ex]\left.\vphantom{\begin{array}{c}X_{q+1}\\\vdots\\X_p\end{array}}\right\}p-q\end{array}\quad=\begin{bmatrix}\bm{X}^{(1)}\\[1ex]\bm{X}^{(2)}\end{bmatrix}
+\]
+
+和
+
+\phantomsection\label{eq:2-38}
+\begin{equation}
+\bm{\mu}=E(\bm{X})=\begin{bmatrix}\mu_1\\\vdots\\\mu_q\\\hline\mu_{q+1}\\\vdots\\\mu_p\end{bmatrix}=\begin{bmatrix}\bm{\mu}^{(1)}\\[1ex]\bm{\mu}^{(2)}\end{bmatrix} \tag{2-38}
+\end{equation}
+
+由转置和矩阵乘法定义有
+
+\[
+(\bm{X}^{(1)}-\bm{\mu}^{(1)})(\bm{X}^{(2)}-\bm{\mu}^{(2)})'
+\]
+
+\[
+=\begin{bmatrix}X_1-\mu_1\\X_2-\mu_2\\\vdots\\X_q-\mu_q\end{bmatrix}[X_{q+1}-\mu_{q+1},X_{q+2}-\mu_{q+2},\cdots,X_p-\mu_p]
+\]
+
+\[
+=\begin{bmatrix}
+(X_1-\mu_1)(X_{q+1}-\mu_{q+1}) & (X_1-\mu_1)(X_{q+2}-\mu_{q+2}) & \cdots & (X_1-\mu_1)(X_p-\mu_p)\\
+(X_2-\mu_2)(X_{q+1}-\mu_{q+1}) & (X_2-\mu_2)(X_{q+2}-\mu_{q+2}) & \cdots & (X_2-\mu_2)(X_p-\mu_p)\\
+\vdots & \vdots & & \vdots\\
+(X_q-\mu_q)(X_{q+1}-\mu_{q+1}) & (X_q-\mu_q)(X_{q+2}-\mu_{q+2}) & \cdots & (X_q-\mu_q)(X_p-\mu_p)
+\end{bmatrix}
+\]
+
+对矩阵 $(\bm{X}^{(1)}-\bm{\mu}^{(1)})(\bm{X}^{(2)}-\bm{\mu}^{(2)})'$ 取期望,得
+
+\phantomsection\label{eq:2-39}
+\begin{equation}
+E(\bm{X}^{(1)}-\bm{\mu}^{(1)})(\bm{X}^{(2)}-\bm{\mu}^{(2)})'=\begin{bmatrix}
+\sigma_{1,q+1} & \sigma_{1,q+2} & \cdots & \sigma_{1,p}\\
+\sigma_{2,q+1} & \sigma_{2,q+2} & \cdots & \sigma_{2,p}\\
+\vdots & \vdots & & \vdots\\
+\sigma_{q,q+1} & \sigma_{q,q+2} & \cdots & \sigma_{q,p}
+\end{bmatrix}=\bm{\Sigma}_{12} \tag{2-39}
+\end{equation}
+
+\hyperref[eq:2-39]{式(2-39)}给出了 $\bm{X}^{(1)}$ 的分量与 $\bm{X}^{(2)}$ 的分量之间的所有的协方差,$\sigma_{ij},i=1,2,\cdots,q,j=q+1,q+2,\cdots,p$.注意,$\bm{\Sigma}_{12}$ 不必是对称的,甚至不必是方阵.
+
+利用\hyperref[eq:2-38]{式(2-38)}的分块,容易证明
+
+\[
+(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})'
+\]
+
+\[
+=\begin{bmatrix}
+(\bm{X}^{(1)}-\bm{\mu}^{(1)})(\bm{X}^{(1)}-\bm{\mu}^{(1)})' & (\bm{X}^{(1)}-\bm{\mu}^{(1)})(\bm{X}^{(2)}-\bm{\mu}^{(2)})'\\
+{}_{(q\times q)}\\
+(\bm{X}^{(2)}-\bm{\mu}^{(2)})(\bm{X}^{(1)}-\bm{\mu}^{(1)})' & (\bm{X}^{(2)}-\bm{\mu}^{(2)})(\bm{X}^{(2)}-\bm{\mu}^{(2)})'\\
+{}_{(p-q)\times(p-q)}
+\end{bmatrix}
+\]
+
+因此,
+
+\phantomsection\label{eq:2-40}
+\begin{equation}
+\underset{(p\times p)}{\bm{\Sigma}}=E(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})'=\begin{array}{c}q\\p-q\end{array}\begin{bmatrix}\bm{\Sigma}_{11} & \bm{\Sigma}_{12}\\\bm{\Sigma}_{21} & \bm{\Sigma}_{22}\end{bmatrix}\begin{array}{c}q\\p-q\end{array} \tag{2-40}
+\end{equation}
+
+\[
+=\begin{bmatrix}
+\sigma_{11} & \cdots & \sigma_{1q} & \sigma_{1,q+1} & \cdots & \sigma_{1p}\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+\sigma_{q1} & \cdots & \sigma_{qq} & \sigma_{q,q+1} & \cdots & \sigma_{qp}\\
+\sigma_{q+1,1} & \cdots & \sigma_{q+1,q} & \sigma_{q+1,q+1} & \cdots & \sigma_{q+1,p}\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+\sigma_{p1} & \cdots & \sigma_{pq} & \sigma_{p,q+1} & \cdots & \sigma_{pp}
+\end{bmatrix}
+\]

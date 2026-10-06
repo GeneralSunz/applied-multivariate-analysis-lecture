@@ -1,0 +1,50 @@
+\phantomsection\label{eq:4-22}
+\begin{equation}
+W_{m}(\cdot\mid\boldsymbol{\Sigma})=\text{自由度为}\ m\ \text{的威沙特分布}=\sum_{j=1}^{m}\mathbf{Z}_{j}\mathbf{Z}_{j}'\ \text{的分布} \tag{4-22}
+\end{equation}
+其中, $\mathbf{Z}_{j}$ 是相互独立的 $N_{p}(\mathbf{0},\boldsymbol{\Sigma})$ 分布.
+
+我们概括抽样分布结论如下:
+
+\begin{mvbox}
+设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 是容量为 $n$ 的随机样本, 来自均值为 $\boldsymbol{\mu}$ 和协方差矩阵为 $\boldsymbol{\Sigma}$ 的 $p$ 元正态分布, 则:
+
+1.\quad $\bar{\mathbf{X}}$ 的分布为 $N_{p}(\boldsymbol{\mu},(1/n)\boldsymbol{\Sigma})$.
+
+2.\quad $(n-1)\mathbf{S}$ 的分布为自由度为 $n-1$ 的威沙特随机矩阵. \hfill (4-23)
+
+3.\quad $\bar{\mathbf{X}}$ 和 $\mathbf{S}$ 是独立的.
+\end{mvbox}
+
+因为 $\boldsymbol{\Sigma}$ 未知, $\bar{\mathbf{X}}$ 的分布不能直接用于对 $\boldsymbol{\mu}$ 作推断. 但是, $\mathbf{S}$ 提供了关于 $\boldsymbol{\Sigma}$ 的独立信息, 且 $\mathbf{S}$ 的分布不取决于 $\boldsymbol{\mu}$. 这使我们能构造一个可对 $\boldsymbol{\mu}$ 作推断的统计量, 正如我们将在第 5 章将见到的.
+
+目前, 我们对多元分布理论有一些更进一步的结论. 威沙特分布的下列性质是从它作为独立乘积 $\mathbf{Z}_{j}\mathbf{Z}_{j}'$ 之和的定义直接推导出来的. 证明可以在文献 [1] 中找到.
+
+\mvsub{威沙特分布的性质}
+
+1.\quad 若 $\mathbf{A}_{1}$ 与 $\mathbf{A}_{2}$ 独立, 其分布分别为 $W_{m_{1}}(\mathbf{A}_{1}\mid\boldsymbol{\Sigma})$ 和 $W_{m_{2}}(\mathbf{A}_{2}\mid\boldsymbol{\Sigma})$, 则 $\mathbf{A}_{1}+\mathbf{A}_{2}$ 的分布为
+\[
+W_{m_{1}+m_{2}}(\mathbf{A}_{1}+\mathbf{A}_{2}\mid\boldsymbol{\Sigma}),\ \text{即自由度相加} \tag{4-24}
+\]
+
+2.\quad 若 $\mathbf{A}$ 的分布为 $W_{m}(\mathbf{A}\mid\boldsymbol{\Sigma})$, 则 $\mathbf{C}\mathbf{A}\mathbf{C}'$ 分布为 $W_{m}(\mathbf{C}\mathbf{A}\mathbf{C}'\mid\mathbf{C}\boldsymbol{\Sigma}\mathbf{C}')$.
+
+虽然我们对于威沙特分布的概率密度函数没有任何特殊需要, 但也许有兴趣看看它的相当复杂的形式. 除非样本容量 $n$ 比变量 $p$ 的数目更大, 该密度是不存在的. 当它存在时, 它在正定矩阵 $\mathbf{A}$ 处的值是
+\phantomsection\label{eq:4-25}
+\begin{equation}
+w_{n-1}(\mathbf{A}\mid\boldsymbol{\Sigma})=\frac{|\mathbf{A}|^{(n-p-2)/2}e^{-\operatorname{tr}[\mathbf{A}\boldsymbol{\Sigma}^{-1}]/2}}{2^{p(n-1)/2}\pi^{p(p-1)/4}|\boldsymbol{\Sigma}|^{(n-1)/2}\prod_{i=1}^{p}\Gamma\left(\frac{1}{2}(n-i)\right)},\quad \mathbf{A}\ \text{正定} \tag{4-25}
+\end{equation}
+其中 $\Gamma(\cdot)$ 是伽马函数 (参见文献 [1] 和文献 [11]).
+
+\section{4.5 $\bar{\mathbf{X}}$ 和 $\mathbf{S}$ 的大样本特性}
+\phantomsection\label{sec:4.5}
+
+假定量 $X$ 是由独立的大量原因 $V_{1},V_{2},\cdots,V_{n}$ 所确定, 其中随机变量 $V_{i}$ 表示的原因具有大致相同的变化性. 若 $X$ 为和式
+\[
+X=V_{1}+V_{2}+\cdots+V_{n}
+\]
+则应用中心极限定理, 我们断定 $X$ 的分布近乎正态. 这对于 $V_{i}$ 的几乎任何母体分布, 只要 $n$ 足够大都是正确的.
+
+一元中心极限定理还告诉我们样本均值的抽样分布, 无论基本总体分布是什么形式, 对一个大样本容量都是接近正态的. 对于许多其他重要的一元统计量也有类似的结论.
+
+某些多元统计量, 诸如 $\bar{\mathbf{X}}$ 和 $\mathbf{S}$, 有与一元情形类似的大样本特性. 随样本容量的无限增加, 不管总体的形式如何, 某些规律性影响着 $\bar{\mathbf{X}}$ 和 $\mathbf{S}$ 中的抽样变差. 因此, 本节提到的结论不要求多元正态总体. 不论总体的分布形式如何, 只要具有均值 $\boldsymbol{\mu}$ 与有限协方差 $\boldsymbol{\Sigma}$ 即可.

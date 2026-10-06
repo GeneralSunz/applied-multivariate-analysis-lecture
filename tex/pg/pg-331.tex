@@ -1,0 +1,53 @@
+% ---- pg-331 （书页 319） ----
+
+联系, 我们引进两种略有差异的回归模型表述方式.
+
+\mvsub{回归模型的均值修正形式}
+
+对任一响应变量 $Y$, 多重回归模型假定
+\[
+Y_j=\beta_0+\beta_1z_{1j}+\cdots+\beta_rz_{rj}+\epsilon_j
+\]
+预测变量可以减去其均值, 从而“中心化”. 例如, $\beta_1z_{1j}=\beta_1(z_{1j}-\bar{z}_1)+\beta_1\bar{z}_1$, 我们有
+\phantomsection\label{eq:7-59}
+\begin{equation}
+\begin{aligned}
+Y_j&=(\beta_0+\beta_1\bar{z}_1+\cdots+\beta_r\bar{z}_r)+\beta_1(z_{1j}-\bar{z}_1)+\cdots+\beta_r(z_{rj}-\bar{z}_r)+\epsilon_j\\
+&=\beta_*+\beta_1(z_{1j}-\bar{z}_1)+\cdots+\beta_r(z_{rj}-\bar{z}_r)+\epsilon_j
+\end{aligned} \tag{7-59}
+\end{equation}
+其中 $\beta_*=\beta_0+\beta_1\bar{z}_1+\cdots+\beta_r\bar{z}_r$. 对应于\hyperref[eq:7-59]{式(7-59)}中的参数变换, 均值修正设计矩阵为
+\[
+\mathbf{Z}_c=\begin{bmatrix}
+1&z_{11}-\bar{z}_1&\cdots&z_{1r}-\bar{z}_r\\
+1&z_{21}-\bar{z}_1&\cdots&z_{2r}-\bar{z}_r\\
+\vdots&\vdots&\ddots&\vdots\\
+1&z_{n1}-\bar{z}_1&\cdots&z_{nr}-\bar{z}_r
+\end{bmatrix}
+\]
+其中后 $r$ 列均垂直于第一列, 这是因为
+\[
+\sum_{j=1}^{n}(z_{ji}-\bar{z}_i)=0,\quad i=1,2,\cdots,r
+\]
+进一步, 令 $\mathbf{Z}_c=[\mathbf{1}\ \vdots\ \mathbf{Z}_{c2}]$, 其中 $\mathbf{Z}_{c2}'\mathbf{1}=\mathbf{0}$, 我们有
+\[
+\mathbf{Z}_c'\mathbf{Z}_c=\begin{bmatrix}\mathbf{1}'&\mathbf{1}'\mathbf{Z}_{c2}\\\mathbf{Z}_{c2}'\mathbf{1}&\mathbf{Z}_{c2}'\mathbf{Z}_{c2}\end{bmatrix}=\begin{bmatrix}n&\mathbf{0}'\\\mathbf{0}&\mathbf{Z}_{c2}'\mathbf{Z}_{c2}\end{bmatrix}
+\]
+故
+\phantomsection\label{eq:7-60}
+\begin{equation}
+\left[\begin{array}{c}\hat{\beta}_*\\\hdashline\hat{\beta}_1\\\vdots\\\hat{\beta}_r\end{array}\right]=(\mathbf{Z}_c'\mathbf{Z}_c)^{-1}\mathbf{Z}_c'\mathbf{y}
+=\begin{bmatrix}\frac{1}{n}&\mathbf{0}'\\\mathbf{0}&(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}\end{bmatrix}\begin{bmatrix}\mathbf{1}'\mathbf{y}\\\mathbf{Z}_{c2}'\mathbf{y}\end{bmatrix}
+=\left[\begin{array}{c}\bar{y}\\\hdashline(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}\mathbf{Z}_{c2}'\mathbf{y}\end{array}\right] \tag{7-60}
+\end{equation}
+也就是说, 回归系数 $[\beta_1,\beta_2,\cdots,\beta_r]'$, 由 $(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}\mathbf{Z}_{c2}'\mathbf{y}$ 无偏估计, 而 $\beta_*$ 则由 $\bar{y}$ 估计. 由于在\hyperref[eq:7-59]{式(7-59)}的参数变换中 $\beta_1,\beta_2,\cdots,\beta_r$ 的定义不变, 它们的由设计矩阵 $\mathbf{Z}_c$ 计算的最佳估计与由设计阵 $\mathbf{Z}$ 所计算的最佳估计完全相同. 于是, 令 $\boldsymbol{\beta}_c=[\beta_1,\beta_2,\cdots,\beta_r]'$, $Y$ 的线性预测量可以写为
+\phantomsection\label{eq:7-61}
+\begin{equation}
+\hat{y}=\hat{\beta}_*+\hat{\boldsymbol{\beta}}_c'(\mathbf{z}-\bar{\mathbf{z}})=\bar{y}+\mathbf{y}'\mathbf{Z}_{c2}(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}(\mathbf{z}-\bar{\mathbf{z}}) \tag{7-61}
+\end{equation}
+其中 $(\mathbf{z}-\bar{\mathbf{z}})=[z_1-\bar{z}_1,z_2-\bar{z}_2,\cdots,z_r-\bar{z}_r]'$. 最后
+\phantomsection\label{eq:7-62}
+\begin{equation}
+\begin{bmatrix}\mathrm{Var}(\hat{\beta}_*)&\mathrm{Cov}(\hat{\beta}_*,\hat{\boldsymbol{\beta}}_c)\\\mathrm{Cov}(\hat{\boldsymbol{\beta}}_c,\hat{\beta}_*)&\mathrm{Cov}(\hat{\boldsymbol{\beta}}_c)\end{bmatrix}=(\mathbf{Z}_c'\mathbf{Z}_c)^{-1}\sigma^2=\begin{bmatrix}\frac{\sigma^2}{n}&\mathbf{0}'\\\mathbf{0}&(\mathbf{Z}_{c2}'\mathbf{Z}_{c2})^{-1}\sigma^2\end{bmatrix} \tag{7-62}
+\end{equation}
+\mvsub{评注}\quad 多元多重回归模型对每个响应变量产生相同的均值修正设计阵. 对第 $i$ 个响应变量的系数向量的最小二乘估计为

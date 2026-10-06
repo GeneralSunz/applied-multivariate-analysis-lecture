@@ -1,0 +1,44 @@
+大样本的优越性, 也许部分地被只使用汇总统计量 $\bar{\mathbf{x}}$ 与 $\mathbf{S}$ 而造成的样本信息损失所抵消. 另一方面, 由于 $(\bar{\mathbf{x}},\mathbf{S})$ 是正态总体的充分统计量 [见\hyperref[eq:4-21]{式(4-21)}], 因此总体的分布与多元正态分布越接近, 统计推断中样本信息的利用就越充分.
+
+所有 $\boldsymbol{\mu}$ 的大样本推断都是建立在 $\chi^{2}$ 分布基础上的, 由\hyperref[eq:4-28]{式(4-28)}, 我们知道 $(\bar{\mathbf{X}}-\boldsymbol{\mu})'(n^{-1}\boldsymbol{\Sigma})^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})=n(\bar{\mathbf{X}}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})$ 近似服从自由度为 $p$ 的 $\chi^{2}$ 分布. 因此
+\phantomsection\label{eq:5-31}
+\begin{equation}
+P\bigl[n(\bar{\mathbf{X}}-\boldsymbol{\mu})'\mathbf{S}^{-1}(\bar{\mathbf{X}}-\boldsymbol{\mu})\le\chi_{p}^{2}(a)\bigr]\doteq 1-a
+\tag{5-31}
+\end{equation}
+其中 $\chi_{p}^{2}(a)$ 是 $\chi_{p}^{2}$ 分布的上 $100a$ 百分位数.
+
+由\hyperref[eq:5-31]{式(5-31)} 可立即推得大样本假设检验与联合置信域. 其过程概括在下面的结论 5.4 与结论 5.5 中.
+
+\mvthm{结论 5.4}{设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 为来自均值为 $\boldsymbol{\mu}$, 协方差阵为正定阵 $\boldsymbol{\Sigma}$ 的总体的一个随机样本. 当 $n-p$ 很大时, 若观测值
+\[
+n(\bar{\mathbf{x}}-\boldsymbol{\mu}_{0})'\mathbf{S}^{-1}(\bar{\mathbf{x}}-\boldsymbol{\mu}_{0})>\chi_{p}^{2}(a)
+\]
+我们就在大约为 $a$ 的置信水平下拒绝 $H_{0}:\boldsymbol{\mu}=\boldsymbol{\mu}_{0}$ 而接受 $H_{1}:\boldsymbol{\mu}\ne\boldsymbol{\mu}_{0}$, 这里 $\chi_{p}^{2}(a)$ 是自由度为 $p$ 的上 $100a$ 百分位数.}
+\hfill$\blacksquare$
+
+将结论 5.4 中的检验与\hyperref[eq:5-7]{式(5-7)} 中相应的正态理论检验作比较, 我们发现它们的检验统计量具有相同的结构, 只是临界值有所不同. 但进一步的考察揭示: 当结论 5.4 的 $\chi^{2}$ 检验较为适宜时, 两种检验基本上给出相同的结果. 这主要是因为, 当 $n$ 相对于 $p$ 较大时, $(n-1)pF_{p,n-p}(a)/(n-p)$ 与 $\chi_{p}^{2}(a)$ 近似相等 (见附录中的表 3 和表 4).
+
+\mvthm{结论 5.5}{设 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 为来自均值为 $\boldsymbol{\mu}$, 协方差阵为正定阵 $\boldsymbol{\Sigma}$ 的总体的一个随机样本. 当 $n-p$ 很大时, 对所有的 $\mathbf{a}$, $\mathbf{a}'\bar{\mathbf{X}}\pm\sqrt{\chi_{p}^{2}(a)}\sqrt{\dfrac{\mathbf{a}'\mathbf{S}\mathbf{a}}{n}}$ 包含 $\mathbf{a}'\boldsymbol{\mu}$ 的概率近似为 $1-a$. 因此, 我们有 $100(1-a)\%$ 的联合置信表示}
+
+\begin{center}
+\begin{tabular}{ccccc}
+$\bar{x}_{1}\pm\sqrt{\chi_{p}^{2}(a)}\sqrt{\dfrac{s_{11}}{n}}$ & 包含 & $\mu_{1}$ & &\\[10pt]
+$\bar{x}_{2}\pm\sqrt{\chi_{p}^{2}(a)}\sqrt{\dfrac{s_{22}}{n}}$ & 包含 & $\mu_{2}$ & &\\[10pt]
+$\vdots$ & & $\vdots$ & &\\[6pt]
+$\bar{x}_{p}\pm\sqrt{\chi_{p}^{2}(a)}\sqrt{\dfrac{s_{pp}}{n}}$ & 包含 & $\mu_{p}$ & &
+\end{tabular}
+\end{center}
+
+此外, 对所有 $(\mu_{i},\mu_{k}),i,k=1,2,\cdots,p$, 以样本均值为中心的置信椭圆
+\[
+n\bigl[\bar{x}_{i}-\mu_{i},\bar{x}_{k}-\mu_{k}\bigr]
+\begin{bmatrix}s_{ii}&s_{ik}\\s_{ik}&s_{kk}\end{bmatrix}^{-1}
+\begin{bmatrix}\bar{x}_{i}-\mu_{i}\\\bar{x}_{k}-\mu_{k}\end{bmatrix}\le\chi_{p}^{2}(a)
+\]
+包含 $(\mu_{i},\mu_{k})$ 的概率近似为 $1-a$.
+
+\medskip
+\noindent\mvbold{证明}\quad 第一部分的结论可从结论 5A.1 推出, 其中 $c^{2}=\chi_{p}^{2}(a)$. 概率水平由\hyperref[eq:5-31]{式(5-31)} 给出. 若取 $\mathbf{a}'=[0,\cdots,0,a_{i},0,\cdots,0],a_{i}=1,i=1,2,\cdots,p$, 就可得到 $\mu_{i}$ 的置信表示. 各对均值的置信椭圆的结论可从结论 5A.2 推出, 其中 $c^{2}=\chi_{p}^{2}(a)$. 所有置信表示的总置信水平均为 $1-a$ 这一结论, 同样是\hyperref[eq:5-31]{式(5-31)} 所归纳的大样本分布理论的结果.\hfill$\blacksquare$
+
+很难说什么样的样本才算一个大的样本. 在一维或者二维的情况中, 样本容量在 30 至 50

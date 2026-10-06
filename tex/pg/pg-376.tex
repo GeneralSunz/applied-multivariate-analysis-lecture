@@ -1,0 +1,55 @@
+% ---- pg-376 （书页 364） ----
+
+$x_i,\cdots,x_{ni}-\bar{x}_i]'$ 与其在由 $\mathbf{b}$ 决定的直线上的投影之间的平方距离. 第二主成分使在与第一次选定向量垂直的所有向量中上述平方距离之和最小.
+
+\mvsub{练习}
+
+\noindent 8.1\quad 试确定下述协方差矩阵的总体主成分 $Y_1$ 和 $Y_2$
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}5&2\\2&2\end{bmatrix}
+\]
+并计算总体总方差中第一主成分所解释的比例.
+
+\noindent 8.2\quad 把练习 8.1 中的协方差矩阵换为相关系数矩阵 $\boldsymbol{\rho}$.
+
+(a) 试确定来自 $\boldsymbol{\rho}$ 的主成分 $Y_1$ 和 $Y_2$, 并计算总体总方差中用 $Y_1$ 解释的比例.
+
+(b) 将 (a) 中求得的成分与练习 8.1 中得到的作比较. 它们相同吗? 应该相同吗?
+
+(c) 计算相关系数 $\rho_{Y_1,Z_1},\rho_{Y_1,Z_2}$ 和 $\rho_{Y_2,Z_1}$.
+
+\noindent 8.3\quad 令
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}2&0&0\\0&4&0\\0&0&4\end{bmatrix}
+\]
+试确定主成分 $Y_1,Y_2$ 和 $Y_3$. 对彼此相等的特征值所对应的那些特征向量(及主成分)你能说些什么?
+
+\noindent 8.4\quad 求主成分及总体总方差中用每一个主成分解释的比例, 此时协方差矩阵为
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}\sigma^2&\sigma^2\rho&0\\\sigma^2\rho&\sigma^2&\sigma^2\rho\\0&\sigma^2\rho&\sigma^2\end{bmatrix},\quad -\frac{1}{\sqrt{2}}<\rho<\frac{1}{\sqrt{2}}
+\]
+
+\noindent 8.5\quad (a) 求相关系数矩阵 $\boldsymbol{\rho}$ 的特征值,
+\[
+\boldsymbol{\rho}=\begin{bmatrix}1&\rho&\rho\\\rho&1&\rho\\\rho&\rho&1\end{bmatrix}
+\]
+你的结果与\hyperref[eq:8-16]{式(8-16)}和\hyperref[eq:8-17]{式(8-17)}相一致吗?
+
+(b) 验证\hyperref[eq:8-15]{式(8-15)}给出的 $p\times p$ 矩阵 $\boldsymbol{\rho}$ 的特征值-特征向量对.
+
+\noindent 8.6\quad 对美国 10 家最大的工业公司 $x_1=$ 销售额, $x_2=$ 利润的数据列于第 1 章的练习 1.4. 由例 4.12,
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}155.60\\14.70\end{bmatrix},\quad \mathbf{S}=\begin{bmatrix}7\,476.45&303.62\\303.62&26.19\end{bmatrix}
+\]
+
+(a) 求样本主成分及这些数据的方差(你可能需要用到二次型去解出 $\mathbf{S}$ 的特征值).
+
+(b) 求样本总方差中用 $\hat{y}_1$ 解释的比例.
+
+(c) 画出常数密度椭圆 $(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})=1.4$, 并在图上标出主成分 $\hat{y}_1$ 和 $\hat{y}_2$.
+
+(d) 计算相关系数 $r_{\hat{y}_1,x_k},k=1,2$. 如果可以, 你能对第一主成分作什么解释?
+
+\noindent 8.7\quad 将练习 8.6 中的协方差矩阵 $\mathbf{S}$ 换成样本相关系数矩阵 $\mathbf{R}$.
+
+(a) 求样本主成分 $\hat{y}_1,\hat{y}_2$ 及它们的方差.

@@ -1,0 +1,42 @@
+% ---- pg-404 （书页 392） ----
+
+差和协方差就已经推得了(见文献[10]). 一般说表达式是相当复杂的.
+
+\section{因子旋转}
+\phantomsection\label{sec:9.4}
+
+像我们在 9.2 节中曾指出的那样, 用一个正交变换从初始载荷得到的所有因子载荷, 同样有能力重现协方差(或相关)矩阵[见\hyperref[eq:9-8]{式(9-8)}]. 从矩阵代数我们知道, 一个正交变换对应一个坐标轴的刚性旋转(或反射). 因为这个缘故, 因子载荷的一个正交变换, 与隐含的因子正交变换一样, 称之为因子旋转.
+
+若 $\hat{\mathbf{L}}$ 是从任何方法(主成分、极大似然等)得到的因子载荷估计的 $p\times m$ 矩阵, 则
+\phantomsection\label{eq:9-42}
+\begin{equation}
+\hat{\mathbf{L}}^*=\hat{\mathbf{L}}\mathbf{T}, \quad \text{其中}\quad \mathbf{T}\mathbf{T}'=\mathbf{T}'\mathbf{T}=\mathbf{I} \tag{9-42}
+\end{equation}
+是一个 $p\times m$“旋转过的”载荷矩阵. 其次, 由于
+\phantomsection\label{eq:9-43}
+\begin{equation}
+\hat{\mathbf{L}}\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}=\hat{\mathbf{L}}\mathbf{T}\mathbf{T}'\hat{\mathbf{L}}'+\hat{\boldsymbol{\Psi}}=\hat{\mathbf{L}}^*\hat{\mathbf{L}}^{*'}+\hat{\boldsymbol{\Psi}} \tag{9-43}
+\end{equation}
+协方差(或相关)估计矩阵仍然不变. \hyperref[eq:9-43]{式(9-43)}表明残差矩阵 $\mathbf{S}_n-\hat{\mathbf{L}}\hat{\mathbf{L}}'-\hat{\boldsymbol{\Psi}}=\mathbf{S}_n-\hat{\mathbf{L}}^*\hat{\mathbf{L}}^{*'}-\hat{\boldsymbol{\Psi}}$ 仍然不变. 而且, 特殊方差 $\hat{\psi}_i$ 以及由此的共性方差 $\hat{h}_i^2$, 也是不变的. 这样, 从数学角度看, 是否得到 $\hat{\mathbf{L}}$ 或 $\hat{\mathbf{L}}^*$, 并不重要.
+
+既然原先的载荷不易阐述, 旋转它们直到达到一个“简单结构”为止, 就是常用的办法. 基本原理就是为了更清晰看见细节而使显微镜的焦点更敏锐.
+
+可以想象, 我们将乐于看到一个载荷的模式, 它使各变量在某个因子上有高额载荷, 而在其余因子上只有小到中等的载荷. 然而得到这一简单结构, 并不总是可能的. 虽说旋转了的载荷对例 9.11 中讨论的十项全能运动数据提供一个近于理想的模式.
+
+我们将集中精力去确定正交旋转到一个简单结构的作图方法和分析方法. 当 $m=2$, 或者一次考虑两个公共因子, 经常可用图形确定如何变换到一个简单结构. 因子载荷配对 $(\hat{l}_{i1},\hat{l}_{i2})$ 的图, 产生 $p$ 个点, 各点对应一个变量. 可以直观地旋转坐标轴一个角度(称为 $\phi$)并且从关系式
+\phantomsection\label{eq:9-44}
+\begin{equation}
+\underset{(p\times 2)}{\hat{\mathbf{L}}^*}=\underset{(p\times 2)}{\hat{\mathbf{L}}}\ \underset{(2\times 2)}{\mathbf{T}} \tag{9-44}
+\end{equation}
+决定新的旋转了的载荷 $\hat{l}^*_{ij}$, 其中
+\[
+\begin{aligned}
+\mathbf{T}&=\begin{bmatrix}\cos\phi&\sin\phi\\-\sin\phi&\cos\phi\end{bmatrix} &&\text{顺时针方向旋转}\\[4pt]
+\mathbf{T}&=\begin{bmatrix}\cos\phi&-\sin\phi\\\sin\phi&\cos\phi\end{bmatrix} &&\text{逆时针方向旋转}
+\end{aligned}
+\]
+关系\hyperref[eq:9-44]{式(9-44)}在二维图形分析中很少实行. 在这种情况下, 用眼睛就可以发现变量簇, 并且这些簇能让人们确认公共因子而不必考查旋转后载荷的大小. 另一方面, 对 $m>2$, 不易看到方向, 而旋转后载荷的大小却必须被考察, 以发现对原始数据有意义的阐述. 应立即考虑选取一个正交矩阵 $\mathbf{T}$, 它可对简单结构进行分析测度.
+
+\noindent\textbf{例 9.8}\quad (因子旋转的最初一瞥)
+
+劳雷和马克斯韦尔给出对 $n=220$ 个男学生在 $p=6$ 门学科里测验得分的样本相关矩阵. 这个相关矩阵是

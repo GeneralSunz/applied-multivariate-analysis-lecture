@@ -1,0 +1,52 @@
+% ---- pg-561 （书页 549） ----
+
+对 $N$ 个观测和给定的 $K$ 个类, 似然函数为
+\phantomsection\label{eq:12-18}
+\begin{equation}
+\begin{aligned}
+&L(p_1,\cdots,p_K,\boldsymbol{\mu}_1,\boldsymbol{\Sigma}_1,\cdots,\boldsymbol{\mu}_K,\boldsymbol{\Sigma}_K) = \prod_{j=1}^{N} f_{\mathrm{Mix}}(\mathbf{x}_j\mid \boldsymbol{\mu}_1,\boldsymbol{\Sigma}_1,\cdots,\boldsymbol{\mu}_K,\boldsymbol{\Sigma}_K)\\
+&\qquad = \prod_{j=1}^{N}\left\{ \sum_{k=1}^{K} p_k \frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}_k|^{1/2}}\exp\left( -\frac{1}{2}(\mathbf{x}_j-\boldsymbol{\mu}_k)'\boldsymbol{\Sigma}_k^{-1}(\mathbf{x}_j-\boldsymbol{\mu}_k) \right) \right\}
+\end{aligned}
+\tag{12-18}
+\end{equation}
+其中比例 $p_1,\cdots,p_K$, 均值向量 $\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K$ 和协方差矩阵 $\boldsymbol{\Sigma}_1,\cdots,\boldsymbol{\Sigma}_K$ 是未知的. 不同对象的度量看成是从混合分布中抽出的独立同分布的观测.
+
+当被聚类的对象的数量不太大时, 模型中的未知参数显得太多. 然而, 如果某种启发性有好的效果, 还可以得到某种程度的结论. 特别地, 如果所有协方差矩阵 $\boldsymbol{\Sigma}_k$ 都有 $\eta\mathbf{I}$ 的形式, 其中 $\eta$ 为未知因子, 则基于似然函数的程序大致相当于 $K$ 均值聚类和王尔德方法. 到目前为止, 还没有基于统计模型的聚类方法进展到相当于单连接、完全连接或平均连接的方法.
+
+更重要的是, 对于不同 $K$ 的一系列混合模型(12-17), 选择类的数量和选择适当的聚类方法的问题转化为选择适当的统计模型的问题. 这是一个主要的优点.
+
+选择模型的一个好办法是首先对给定的 $K$ 得到参数的极大似然估计 $\hat{p}_1,\cdots,\hat{p}_K,\hat{\boldsymbol{\mu}}_1,\cdots,\hat{\boldsymbol{\mu}}_K$ 和 $\hat{\boldsymbol{\Sigma}}_1,\cdots,\hat{\boldsymbol{\Sigma}}_K$. 这些估计只能用特别编制的软件求得数值解. 似然函数的极大值
+\[
+L_{\max} = L(\hat{p}_1,\cdots,\hat{p}_K,\hat{\boldsymbol{\mu}}_1,\hat{\boldsymbol{\Sigma}}_1,\cdots,\hat{\boldsymbol{\mu}}_K,\hat{\boldsymbol{\Sigma}}_K)
+\]
+提供模型选择的基础. 我们如何对类的数目 $K$ 确定一个合理的值? 为比较具有不同类数目的模型, 需要从二倍的对数极大似然值中减去一个惩罚项:
+\[
+2\ln L_{\max} - \text{惩罚项}
+\]
+其中惩罚项依赖于参数个数和观测个数 $N$. 由于概率 $p_k$ 之和为 1, 只有 $K-1$ 概率需要估计. 均值有 $K\times p$ 个, 方差-协方差有 $K\times p(p+1)/2$ 个. 对于赤池信息准则(AIC), 惩罚项为 $2N\times$(参数个数), 因此
+\phantomsection\label{eq:12-19}
+\begin{equation}
+\text{AIC} = 2\ln L_{\max} - 2N\left( K\frac{1}{2}(p+1)(p+2)-1 \right) \tag{12-19}
+\end{equation}
+对于贝叶斯准则(BIC), 惩罚项中用观测个数的对数
+\phantomsection\label{eq:12-20}
+\begin{equation}
+\text{BIC} = 2\ln L_{\max} - 2\ln(N)\left( K\frac{1}{2}(p+1)(p+2)-1 \right) \tag{12-20}
+\end{equation}
+但是, 混合模型中参数过多的问题仍然时有发生. 因此对 $\boldsymbol{\Sigma}_k$ 需要假定简单的结构. 下表具体给出一些从简单到较为复杂的协方差结构.
+
+\begin{mvtable}
+\begin{tabular}{lll}
+\toprule
+假定的 $\boldsymbol{\Sigma}_k$ 的形式 & 参数总数 & BIC\\
+\midrule
+$\boldsymbol{\Sigma}_k=\eta\mathbf{I}$ & $K(p+1)$ & $2\ln L_{\max}-2\ln(N)K(p+1)$\\
+$\boldsymbol{\Sigma}_k=\eta_k\mathbf{I}$ & $K(p+2)-1$ & $2\ln L_{\max}-2\ln(N)(K(p+2)-1)$\\
+$\boldsymbol{\Sigma}_k=\eta_k\mathit{Diag}\,(\lambda_1,\cdots,\lambda_p)$ & $K(p+2)+p-1$ & $2\ln L_{\max}-2\ln(N)(K(p+2)+p-1)$\\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+更多的协方差矩阵结构在文献[6]和[9]中讨论.
+
+即使对于固定的类数目, 混合模型的估计仍然是复杂的. 现有一个软件包 MCLUST 可从 R 软件库中得到. 此软件将分层聚类、EM 算法和 BIC 准则结合在一起, 发展出一个适合的模型用于聚类. 在 EM 算法的“E 步”, 创建一个 $(N\times K)$矩阵, 其第 $j$ 行包含观测 $\mathbf{x}_j$ 属于类 $1,\cdots,K$ 的(基于当前参数估计的)条件概率

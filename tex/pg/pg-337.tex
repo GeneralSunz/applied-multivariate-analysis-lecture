@@ -1,0 +1,62 @@
+% ---- pg-337 （书页 325） ----
+
+$\mathbf{Z}_1(\mathbf{Z}_1'\mathbf{Z}_1)^{-1}\mathbf{Z}_1'=\sum_{l=1}^{q+1}\mathbf{g}_l\mathbf{g}_l'$. 类似地, 由于 $(\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}')\mathbf{Z}=\mathbf{Z}$, 我们立刻发现线性组合 $\mathbf{Z}\mathbf{b}_l=\mathbf{g}_l$ 为 $\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'$ 的特征向量, 对应特征值 $\lambda=1$, 故 $\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}'=\sum_{l=1}^{r+1}\mathbf{g}_l\mathbf{g}_l'$.
+
+接下来, 我们有 $\mathbf{P}\mathbf{Z}=[\mathbf{I}-\mathbf{Z}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{Z}']\mathbf{Z}=\mathbf{Z}-\mathbf{Z}=\mathbf{0}$, 故 $\mathbf{g}_l=\mathbf{Z}\mathbf{b}_l$, $l\leqslant r+1$, 为 $\mathbf{P}$ 的特征向量, 对应特征值 0. 还有, 由 $\mathbf{g}_l\ (l>r+1)$ 的构造方法知 $\mathbf{Z}'\mathbf{g}_l=\mathbf{0}$, 故 $\mathbf{P}\mathbf{g}_l=\mathbf{g}_l$. 因此, 这些 $\mathbf{g}_l$ 为 $\mathbf{P}$ 的对应于单位特征值的 $n-r-1$ 个特征向量. 由谱分解(2-16)知 $\mathbf{P}=\sum_{l=r+2}^{n}\mathbf{g}_l\mathbf{g}_l'$, 因而
+\[
+n\hat{\boldsymbol{\Sigma}}=\boldsymbol{\epsilon}'\mathbf{P}\boldsymbol{\epsilon}
+=\sum_{l=r+2}^{n}(\boldsymbol{\epsilon}'\mathbf{g}_l)(\boldsymbol{\epsilon}'\mathbf{g}_l)'
+=\sum_{l=r+2}^{n}\mathbf{V}_l\mathbf{V}_l'
+\]
+其中, 由于 $\mathrm{Cov}(V_{li},V_{jk})=E(\mathbf{g}_l'\boldsymbol{\epsilon}_{(i)}\boldsymbol{\epsilon}_{(k)}'\mathbf{g}_j)=\sigma_{ik}\mathbf{g}_l'\mathbf{g}_j=\mathbf{0}$, $l\neq j$, $\boldsymbol{\epsilon}'\mathbf{g}_l=\mathbf{V}_l=[V_{l1},\cdots,V_{li},\cdots,V_{lm}]'$ 独立地服从 $N_m(\mathbf{0},\boldsymbol{\Sigma})$ 分布. 因此由\hyperref[eq:4-22]{式(4-22)}知 $n\hat{\boldsymbol{\Sigma}}$ 服从 $W_{p,n-r-1}(\boldsymbol{\Sigma})$ 分布. 用同样方法,
+\[
+\mathbf{P}_1\mathbf{g}_l=\begin{cases}
+\mathbf{g}_l & l>q+1\\
+\mathbf{0} & l\leqslant q+1
+\end{cases}
+\]
+故 $\mathbf{P}_1=\sum_{l=q+2}^{n}\mathbf{g}_l\mathbf{g}_l'$. 我们可以将额外平方与交叉乘积和写成
+\[
+n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})=\boldsymbol{\epsilon}'(\mathbf{P}_1-\mathbf{P})\boldsymbol{\epsilon}
+=\sum_{l=q+2}^{r+1}(\boldsymbol{\epsilon}'\mathbf{g}_l)(\boldsymbol{\epsilon}'\mathbf{g}_l)'
+=\sum_{l=q+2}^{r+1}\mathbf{V}_l\mathbf{V}_l'
+\]
+其中 $\mathbf{V}_l$ 独立地服从 $N_m(\mathbf{0},\boldsymbol{\Sigma})$ 分布. 由\hyperref[eq:4-22]{式(4-22)}, $n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})$ 为 $W_{p,r-q}(\boldsymbol{\Sigma})$ 分布, 且独立于 $n\hat{\boldsymbol{\Sigma}}$, 因为 $n(\hat{\boldsymbol{\Sigma}}_1-\hat{\boldsymbol{\Sigma}})$ 所包含的是另外一组独立的 $\mathbf{V}_l$.
+
+由结论 5.2, $-\left[n-r-1-\frac{1}{2}(m-r+q+1)\right]\ln(|\hat{\boldsymbol{\Sigma}}|/|\hat{\boldsymbol{\Sigma}}_1|)$ 的大样本分布为 $\chi^2$, 自由度为 $v-v_0=m(m+1)/2+m(r+1)-m(m+1)/2-m(q+1)=m(r-q)$. 在统计量中用 $\left[n-r-1-\frac{1}{2}(m-r+q+1)\right]$ 代替 $n$ 是源于巴特利特(见文献[4]), 它改进了 $\chi^2$ 近似.
+
+\vspace{6pt}
+{\large\bfseries 练习}
+
+\medskip
+\noindent 7.1\quad 已知数据
+
+\begin{mvtable}
+\begin{tabular}{r|rrrrrr}
+\hline
+$z_1$&10&5&7&19&11&8\\
+\hline
+$y$&15&9&3&25&7&13\\
+\hline
+\end{tabular}
+\end{mvtable}
+
+拟合线性回归模型 $Y_j=\beta_0+\beta_1z_{j1}+\epsilon_j$, $j=1,2,\cdots,6$. 具体说, 计算出最小二乘估计 $\hat{\boldsymbol{\beta}}$, 拟合的响应值 $\hat{\boldsymbol{y}}$, 残差 $\hat{\boldsymbol{\epsilon}}$, 以及残差平方和 $\hat{\boldsymbol{\epsilon}}'\hat{\boldsymbol{\epsilon}}$.
+
+\noindent 7.2\quad 已知数据
+
+\begin{mvtable}
+\begin{tabular}{r|rrrrrr}
+\hline
+$z_1$&10&5&7&19&11&18\\
+$z_2$&2&3&3&6&7&9\\
+\hline
+$y$&15&9&3&25&7&13\\
+\hline
+\end{tabular}
+\end{mvtable}
+
+拟合回归模型
+\[
+Y_j=\beta_1z_{j1}+\beta_2z_{j2}+\epsilon_j,\qquad j=1,2,\cdots,6.
+\]

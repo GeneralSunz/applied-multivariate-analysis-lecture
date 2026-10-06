@@ -1,0 +1,52 @@
+% ---- pg-520 （书页 508） ----
+
+\begin{mvtable}
+\begin{tabular}{ccccc}
+\toprule
+$\mathbf{x}$ & $P(\pi_1\mid \mathbf{x})$ & $P(\pi_2\mid \mathbf{x})$ & $Q$ & 分类\\
+\midrule
+$[10,15]'$ & & & & \\
+$[12,17]'$ & & & & \\
+$\vdots$ & & & & \\
+$[30,35]'$ & & & & \\
+\bottomrule
+\end{tabular}
+\end{mvtable}
+
+(注意: 对每个坐标均用增量 2, 共 11 个点)
+
+将下列各项内容画在 $x_1$-$x_2$ 平面上:
+
+(a) 两个总体的均值.
+
+(b) 对每个总体以 0.95 概率包含 $\mathbf{x}$ 的最小椭圆域.
+
+(c) 区域 $R_1$(对总体 $\pi_1$)和 $\Omega-R_1=R_2$(对总体 $\pi_2$).
+
+(d) 表中所分类的 11 个点.
+
+\noindent 11.18\quad $\mathbf{B}$ 定义为 $c(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)'$, $c$ 为常数. 验证 $\mathbf{e}=c\boldsymbol{\Sigma}^{-1}(\boldsymbol{\mu}_1-\boldsymbol{\mu}_2)$ 是 $\boldsymbol{\Sigma}^{-1}\mathbf{B}$ 的特征向量, 其中 $\boldsymbol{\Sigma}$ 为一个协方差矩阵.
+
+\noindent 11.19\quad (a) 用例 11.7 中所给的原始数据集 $\mathbf{X}_1$ 和 $\mathbf{X}_2$, 计算 $\bar{\mathbf{x}}_i$, $\mathbf{S}_i$, $i=1,2$, 及 $\mathbf{S}_p$, 验证该例所给出的这些量的值.
+
+(b) 用(a)中所得的结果计算费希尔线性判别函数, 并用它根据法则(11-25)对样本观测值分类. 验证例 11.7 中所给出的模糊矩阵是正确的.
+
+(c) 根据观测值 $\mathbf{x}$ 到组均值 $\bar{\mathbf{x}}_1$ 和 $\bar{\mathbf{x}}_2$ 的最小平方距离 $D_i^2(\mathbf{x})$ 对样本观测值进行分类[见\hyperref[eq:11-54]{式(11-54)}]. 将此结果与(b)中所得结果进行比较, 作出评论.
+
+\noindent 11.20\quad 矩阵恒等式(见文献[3])
+\[
+\mathbf{S}_{H,p}^{-1}=\frac{n-3}{n-2}\left(\mathbf{S}_p^{-1}+\frac{c_k}{1-c_k(\mathbf{x}_H-\bar{\mathbf{x}}_k)'\mathbf{S}_p^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_k)}\cdot\mathbf{S}_p^{-1}(\mathbf{x}_H-\bar{\mathbf{x}}_k)(\mathbf{x}_H-\bar{\mathbf{x}}_k)'\mathbf{S}_p^{-1}\right)
+\]
+其中
+\[
+c_k=\frac{n_k}{(n_k-1)(n-2)}
+\]
+可用来由 $\mathbf{S}_p^{-1}$ 计算 $\mathbf{S}_{H,p}^{-1}$. 试用例 11.6 中的数据验证这个恒等式. 特别是令 $n=n_1+n_2$, $k=1$, 以及 $\mathbf{x}_H'=[2,12]$. 用全部数据的 $\bar{\mathbf{x}}_1$ 和 $\mathbf{S}_p^{-1}$ 计算 $\mathbf{S}_{H,p}^{-1}$, 并将所得结果与例 11.7 中的 $\mathbf{S}_{H,p}^{-1}$ 比较.
+
+\noindent 11.21\quad 设 $\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_s>0$ 为 $\boldsymbol{\Sigma}^{-1}\mathbf{B}_\mu$ 的 $s\le\min(g-1,p)$ 个非零特征根, 且 $\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_s$ 为相应的特征向量(标准化为 $\mathbf{e}_i'\boldsymbol{\Sigma}\mathbf{e}_i=1$). 试证: 能使比值
+\[
+\frac{\mathbf{a}'\mathbf{B}_\mu\mathbf{a}}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}=\frac{\mathbf{a}'\left[\sum_{i=1}^{g}(\boldsymbol{\mu}_i-\boldsymbol{\mu})(\boldsymbol{\mu}_i-\boldsymbol{\mu})'\right]\mathbf{a}}{\mathbf{a}'\boldsymbol{\Sigma}\mathbf{a}}
+\]
+最大化的系数向量为 $\mathbf{a}_1=\mathbf{e}_1$. 组性组合 $\mathbf{a}_1'\mathbf{X}$ 称为第一判别量. 证明 $\mathbf{a}_2=\mathbf{e}_2$ 在约束 $\mathrm{Cov}(\mathbf{a}_1'\mathbf{X},\mathbf{a}_2'\mathbf{X})=0$ 的条件下使上述比值最大化. 线性组合 $\mathbf{a}_2'\mathbf{X}$ 称为第二判别量. 如此继续, $\mathbf{a}_k=\mathbf{e}_k$ 在约束 $0=\mathrm{Cov}(\mathbf{a}_h'\mathbf{X},\mathbf{a}_i'\mathbf{X})(i<k)$ 的条件下使上述比值最大化. $\mathbf{a}_k'\mathbf{X}$ 称为第 $k$ 判别量. 还有 $\mathrm{Var}(\mathbf{a}_i'\mathbf{X})=1$, $i=1,\cdots,s$[见\hyperref[eq:11-62]{式(11-62)}].
+
+提示: 我们先把这个最大化问题转化为某个已解决的问题. 由\hyperref[eq:2-20]{式(2-20)}中的谱分解知 $\boldsymbol{\Sigma}=\mathbf{P}'\boldsymbol{\Lambda}\mathbf{P}$, 其中 $\boldsymbol{\Lambda}$ 为对角矩阵, 对角元为诸正元素 $\lambda_i$. 令 $\boldsymbol{\Lambda}^{1/2}$ 为以 $\sqrt{\lambda_i}$ 为对角元的对角阵. 由\hyperref[eq:2-22]{式(2-22)}, 对称平方根矩阵 $\boldsymbol{\Sigma}^{1/2}=\mathbf{P}'\boldsymbol{\Lambda}^{1/2}\mathbf{P}$ 及其逆 $\boldsymbol{\Sigma}^{-1/2}=\mathbf{P}'\boldsymbol{\Lambda}^{-1/2}\mathbf{P}$ 满足 $\boldsymbol{\Sigma}^{1/2}\boldsymbol{\Sigma}^{1/2}=\boldsymbol{\Sigma}$,

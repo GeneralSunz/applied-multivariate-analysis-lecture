@@ -1,0 +1,48 @@
+即 $s_{22}=8/3$. 最后,
+\[
+\mathbf{d}_{1}'\mathbf{d}_{2}=\begin{bmatrix}2&-3&1\end{bmatrix}\begin{bmatrix}-2\\0\\2\end{bmatrix}=-2=3s_{12}
+\]
+即 $s_{12}=-2/3$. 因此,
+\[
+r_{12}=\frac{s_{12}}{\sqrt{s_{11}}\sqrt{s_{22}}}=\frac{-\dfrac{2}{3}}{\sqrt{\dfrac{14}{3}}\times\sqrt{\dfrac{8}{3}}}=-0.189
+\]
+和
+\[
+\mathbf{S}_{n}=\begin{bmatrix}\dfrac{14}{3}&-\dfrac{2}{3}\\[8pt]-\dfrac{2}{3}&\dfrac{8}{3}\end{bmatrix},\quad
+\mathbf{R}=\begin{bmatrix}1&-0.189\\-0.189&1\end{bmatrix}
+\]
+\hfill$\blacksquare$
+
+长度、角度和投影的概念已经给我们提供了样本的几何解释, 可概述如下:
+
+\begin{mvbox}
+\begin{center}
+\textbf{样本的几何解释}
+\end{center}
+1.\quad 数据矩阵 $\mathbf{X}$ 的一列 $\mathbf{y}_{i}$ 在等角向量 $\mathbf{1}$ 上的投影是向量 $\bar{x}_{i}\mathbf{1}$, 向量 $\bar{x}_{i}\mathbf{1}$ 的长度为 $\sqrt{n}\,|\bar{x}_{i}|$. 因此, 第 $i$ 个样本均值 $\bar{x}_{i}$ 与 $\mathbf{y}_{i}$ 在 $\mathbf{1}$ 上的投影的长度有关.
+
+2.\quad 从偏差向量 $\mathbf{d}_{j}=\mathbf{y}_{j}-\bar{x}_{j}\mathbf{1}=[x_{1j}-\bar{x}_{j},x_{2j}-\bar{x}_{j},\cdots,x_{nj}-\bar{x}_{j}]'$ 可得到 $\mathbf{S}_{n}$ 的有关信息. $\mathbf{d}_{j}$ 长度的平方是 $ns_{jj}$, 且 $\mathbf{d}_{j}$ 和 $\mathbf{d}_{k}$ 的 (内) 积是 $ns_{jk}$. \footnote{{\footnotesize 当因子 $n-1$ 用于样本方差和协方差的定义中时, 长度的平方以及内积分别是 $(n-1)s_{jj}$ 和 $(n-1)s_{jk}$.}}
+
+3.\quad 样本相关系数 $r_{jk}$ 是 $\mathbf{d}_{j}$ 和 $\mathbf{d}_{k}$ 之间夹角的余弦.
+\end{mvbox}
+
+\section{随机样本以及样本均值和协方差矩阵的期望值}
+\phantomsection\label{sec:3.3}
+
+为了研究诸如 $\bar{\mathbf{x}}$ 和 $\mathbf{S}_{n}$ 等统计量的抽样变异性, 以便最终作出推断, 我们必须对其观测值构成数据 $\mathbf{X}$ 的变量作出假设.
+
+假定, 数据还没有观测, 但我们想要对 $p$ 个变量收集 $n$ 组测量结果. 在测量之前, 通常不能准确地预计它们的值. 因此, 把它们当做随机变量来处理. 本书中令数据矩阵中第 $(j,k)$ 个元素代表随机变量 $X_{jk}$ 的 $p$ 个变量的每组测量结果 $\mathbf{X}_{j}$, 是一个随机向量, 且有随机矩阵
+\phantomsection\label{eq:3-8}
+\begin{equation}
+\mathbf{X}=\begin{bmatrix}
+X_{11}&X_{12}&\cdots&X_{1p}\\
+X_{21}&X_{22}&\cdots&X_{2p}\\
+\vdots&\vdots&&\vdots\\
+X_{n1}&X_{n2}&\cdots&X_{np}
+\end{bmatrix}
+=\begin{bmatrix}\mathbf{X}_{1}'\\\mathbf{X}_{2}'\\\vdots\\\mathbf{X}_{n}'\end{bmatrix}
+\tag{3-8}
+\end{equation}
+现在就来定义随机样本.
+
+如果\hyperref[eq:3-8]{式(3-8)} 中的行向量 $\mathbf{X}_{1}',\mathbf{X}_{2}',\cdots,\mathbf{X}_{n}'$ 代表来自密度函数为 $f(\mathbf{x})=f(x_{1},x_{2},\cdots,x_{p})$ 的一个公共联合分布的独立观测值, 则称 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 构成一个来自 $f(\mathbf{x})$ 的随机样本. 在数学上, 若 $\mathbf{X}_{1},\mathbf{X}_{2},\cdots,\mathbf{X}_{n}$ 的联合密度函数由乘积 $f(\mathbf{x}_{1})f(\mathbf{x}_{2})\cdots f(\mathbf{x}_{n})$ 给出, 其中 $f(\mathbf{x}_{j})=f(x_{j1},x_{j2},\cdots,x_{jp})$ 是第 $j$ 个行向量的密度函数, 则称它们构成一个随机样本.

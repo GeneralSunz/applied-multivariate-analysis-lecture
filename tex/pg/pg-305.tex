@@ -1,0 +1,79 @@
+% ---- pg-305 （书页 293） ----
+
+的``交互效应''通过设计矩阵连接起来. 设计矩阵为
+
+\[
+\begin{array}{cccc}
+\text{常数} & \text{位置} & \text{性别} & \text{交互效应}\\[-0.3ex]
+& \underbrace{\hspace{3.2em}} & \underbrace{\hspace{1.8em}} & \underbrace{\hspace{6.4em}}
+\end{array}
+\]
+\[
+\mathbf{Z}=\left[\begin{array}{cccccccccccc}
+1&1&0&0&1&0&1&0&0&0&0&0\\
+1&1&0&0&1&0&1&0&0&0&0&0\\
+1&1&0&0&1&0&1&0&0&0&0&0\\
+1&1&0&0&1&0&1&0&0&0&0&0\\
+1&1&0&0&1&0&1&0&0&0&0&0\\[0.7ex]
+1&1&0&0&0&1&0&1&0&0&0&0\\
+1&1&0&0&0&1&0&1&0&0&0&0\\[0.7ex]
+1&0&1&0&1&0&0&0&1&0&0&0\\
+1&0&1&0&1&0&0&0&1&0&0&0\\
+1&0&1&0&1&0&0&0&1&0&0&0\\
+1&0&1&0&1&0&0&0&1&0&0&0\\
+1&0&1&0&1&0&0&0&1&0&0&0\\[0.7ex]
+1&0&1&0&0&1&0&0&0&1&0&0\\
+1&0&1&0&0&1&0&0&0&1&0&0\\[0.7ex]
+1&0&0&1&1&0&0&0&0&0&1&0\\
+1&0&0&1&1&0&0&0&0&0&1&0\\[0.7ex]
+1&0&0&1&0&1&0&0&0&0&0&1\\
+1&0&0&1&0&1&0&0&0&0&0&1
+\end{array}\right]
+\quad
+\begin{array}{l}
+\\ \\
+\smash{\left.\vphantom{\begin{array}{c}1\\1\\1\\1\\1\end{array}}\right\}}\text{5 个响应}\\
+\\ \\[0.7ex]
+\\
+\smash{\left.\vphantom{\begin{array}{c}1\\1\end{array}}\right\}}\text{2 个响应}\\[0.7ex]
+\\ \\
+\smash{\left.\vphantom{\begin{array}{c}1\\1\\1\\1\\1\end{array}}\right\}}\text{5 个响应}\\
+\\ \\[0.7ex]
+\\
+\smash{\left.\vphantom{\begin{array}{c}1\\1\end{array}}\right\}}\text{2 个响应}\\[0.7ex]
+\\
+\smash{\left.\vphantom{\begin{array}{c}1\\1\end{array}}\right\}}\text{2 个响应}\\[0.7ex]
+\\
+\smash{\left.\vphantom{\begin{array}{c}1\\1\end{array}}\right\}}\text{2 个响应}
+\end{array}
+\]
+
+系数向量可设为
+\[
+\boldsymbol{\beta}=\left[\beta_0,\beta_1,\beta_2,\beta_3,\tau_1,\tau_2,\gamma_{11},\gamma_{12},\gamma_{21},\gamma_{22},\gamma_{31},\gamma_{32}\right]'
+\]
+其中诸 $\beta_i(i>0)$ 代表分店位置对服务质量的效应, 诸 $\tau_i$ 代表性别对服务质量指标的不同的效应, 而诸 $\gamma_{ik}$ 则代表位置—性别的交互效应.
+
+设计矩阵 $\mathbf{Z}$ 不是满秩的.(例如, 第 1 列等于第 2$\sim$4 列之和, 也等于第 5$\sim$6 列之和.) 事实上, 秩$(\mathbf{Z})=6$.
+
+对于全模型, 通过计算机计算得到
+\[
+\text{SS}_{\text{残差}}(\mathbf{Z})=2\,977.4
+\]
+及 $n-\text{秩}(\mathbf{Z})=18-6=12$.
+
+不包含交互效应的模型的设计阵 $\mathbf{Z}_1$ 为 $\mathbf{Z}$ 的前 6 列. 我们有
+\[
+\text{SS}_{\text{残差}}(\mathbf{Z}_1)=3\,419.1
+\]
+$n-\text{秩}(\mathbf{Z}_1)=18-4=14$. 为了检验假设 $H_0: \gamma_{11}=\gamma_{12}=\gamma_{21}=\gamma_{22}=\gamma_{31}=\gamma_{32}=0$(无位置—性别交互效应), 我们计算
+\[
+\begin{aligned}
+F&=\frac{\left(\text{SS}_{\text{残差}}(\mathbf{Z}_1)-\text{SS}_{\text{残差}}(\mathbf{Z})\right)/(6-4)}{s^2}
+=\frac{\left(\text{SS}_{\text{残差}}(\mathbf{Z}_1)-\text{SS}_{\text{残差}}(\mathbf{Z})\right)/2}{\text{SS}_{\text{残差}}(\mathbf{Z})/12}\\
+&=\frac{(3\,419.1-2\,977.4)/2}{2\,977.4/12}=0.89
+\end{aligned}
+\]
+此 $F$ 比可与自由度为 2 和 12 的 $F$ 分布的百分位数作比较. 对任一合理的显著性水平 $\alpha$, 这个 $F$ 比均不显著(评者注: 例如对 $\alpha=0.10$, $F_{2,12}(0.10)=2.81>F=0.89$). 结果我们认为服务质量指标不受位置—性别的交互作用的影响, 因此这些项可从模型中剔除.
+
+用额外平方和方法可以验证, 位置之间没有显著差别(无位置效应), 但性别间的差异是

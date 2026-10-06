@@ -1,0 +1,49 @@
+% ---- pg-304 （书页 292） ----
+
+值很大时拒绝 $H_0$. 上述的 $F$ 比服从自由度为 $r-q$ 和 $n-r-1$ 的 $F$ 分布(见文献[22]或结论 7.11, $m=1$). \hfill$\blacksquare$
+
+\noindent\textbf{评注}\quad 似然比检验如下建立. 要检验一个子集中的系数是否全为零, 在模型中有这些系数或没有这些系数(假设为零)两种情况下拟合模型. 则将残差平方和的改进(额外的平方和)与全模型下的残差平方和作比较, 得到 $F$ 比. 同样的程序也适用于方差分析场合, 不过这时 $\mathbf{Z}$ 是不满秩的.\footnote{{\footnotesize 当 $\mathbf{Z}$ 不满秩时, 在结论 7.6 中用秩($\mathbf{Z}$)代替 $r+1$, 并用秩($\mathbf{Z}_1$)代替 $q+1$.}}
+
+更一般的做法是对 $r-q$ 个 $\boldsymbol{\beta}$ 的线性组合陈述形如 $H_0:\mathbf{C}\boldsymbol{\beta}=\mathbf{A}_0$ 的零假设. 设 $(r-q)\times(r+1)$ 矩阵 $\mathbf{C}$ 为满秩, $\mathbf{A}_0=\mathbf{0}$, 考虑假设
+\[
+H_0:\mathbf{C}\boldsymbol{\beta}=\mathbf{0}
+\]
+(当 $\mathbf{C}=\left[\begin{array}{c:c}\mathbf{0}&\underset{(r-q)\times(r-q)}{\mathbf{I}}\end{array}\right]$ 时, 零假设就简化成这种形式.)
+
+在全模型下, $\mathbf{C}\hat{\boldsymbol{\beta}}$ 的分布为 $N_{r-q}(\mathbf{C}\boldsymbol{\beta},\sigma^2\mathbf{C}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{C}')$. 若 $\mathbf{0}$ 不在 $\mathbf{C}\boldsymbol{\beta}$ 的 $100(1-\alpha)\%$ 置信椭球中, 我们在水平 $\alpha$ 下拒绝 $H_0:\mathbf{C}\boldsymbol{\beta}=\mathbf{0}$. 等价地, 若
+\phantomsection\label{eq:7-14}
+\begin{equation}
+\frac{(\mathbf{C}\hat{\boldsymbol{\beta}})'
+(\mathbf{C}(\mathbf{Z}'\mathbf{Z})^{-1}\mathbf{C}')^{-1}
+(\mathbf{C}\hat{\boldsymbol{\beta}})}{s^2}>(r-q)F_{r-q,n-r-1}(\alpha)
+\tag{7-14}
+\end{equation}
+我们便拒绝 $H_0:\mathbf{C}\boldsymbol{\beta}=\mathbf{0}$, 此处 $s^2=(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})'(\mathbf{y}-\mathbf{Z}\hat{\boldsymbol{\beta}})/(n-r-1)$, 而 $F_{r-q,n-r-1}(\alpha)$ 则为自由度为 $r-q$ 和 $n-r-1$ 的 $F$ 分布的上 $100\alpha$ 百分位数. \hyperref[eq:7-14]{式(7-14)} 中的检验便是似然比检验, 而 $F$ 比的分子正好是全模型在 $\mathbf{C}\boldsymbol{\beta}=\mathbf{0}$ 这一约束条件下的额外残差平方和(见文献[23]).
+
+下一个例子说明如何用上面所述的一般理论来方便地处理不平衡实验设计.
+
+\medskip
+\noindent\textbf{例 7.5}\quad (用额外平方和方法检验添加预测量的重要性)
+
+男性和女性主顾对一家大型连锁饭店的三家分店进行服务质量打分. \hyperref[tab:7.2]{表 7.2} 给出 $n=18$ 个顾客的打分. 在\hyperref[tab:7.2]{表 7.2} 中, 每个数据点根据分店位置分为三类(1,2,3), 并按性别分为两类(男=0, 女=1). 这个交叉分类产生一个二维的表, 其中每个格中的观测值数不同. 例如, 对位置 1 和男性的组合有 5 个响应观测值, 而对位置 2 和女性的组合只有两个响应观测值.
+
+\begin{mvtable}
+\phantomsection\label{tab:7.2}\mvtabcap{表 7.2\quad 饭店服务数据}
+\begin{tabular}{ccc|ccc}
+\hline
+位置&性别&服务($Y$)&位置&性别&服务($Y$)\\
+\hline
+1&0&15.2&2&0&9.1\\
+1&0&21.2&2&0&18.2\\
+1&0&27.3&2&0&50.0\\
+1&0&21.2&2&1&44.0\\
+1&0&21.2&2&1&63.6\\
+1&1&36.4&3&0&15.2\\
+1&1&92.4&3&0&30.3\\
+2&0&27.3&3&1&36.4\\
+2&0&15.2&3&1&40.9\\
+\hline
+\end{tabular}
+\end{mvtable}
+
+引进 3 个虚拟变量以考虑(三个)不同分店(位置), 再引进两个虚拟变量以考虑性别. 借助于这些虚拟变量, 我们可得出一个回归模型, 将服务质量指标 $Y$ 与位置、性别以及它们之间

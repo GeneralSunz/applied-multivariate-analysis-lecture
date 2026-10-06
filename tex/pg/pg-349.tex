@@ -1,0 +1,58 @@
+% ---- pg-349 （书页 337） ----
+
+\[
+\boldsymbol{\Sigma}=\begin{bmatrix}1&-2&0\\-2&5&0\\0&0&2\end{bmatrix}
+\]
+可以查验特征值-特征向量对为
+\[
+\begin{aligned}
+\lambda_1&=5.83 & \mathbf{e}_1'&=[0.383,-0.924,0]\\
+\lambda_2&=2.00 & \mathbf{e}_2'&=[0,0,1]\\
+\lambda_3&=0.17 & \mathbf{e}_3'&=[0.924,0.383,0]
+\end{aligned}
+\]
+因此, 主成分为
+\[
+\begin{aligned}
+Y_1&=\mathbf{e}_1'\mathbf{X}=0.383X_1-0.924X_2\\
+Y_2&=\mathbf{e}_2'\mathbf{X}=X_3\\
+Y_3&=\mathbf{e}_3'\mathbf{X}=0.924X_1+0.383X_2
+\end{aligned}
+\]
+变量 $X_3$ 是主成分之一, 因为它与其余的两个变量不相关.
+
+第一主成分可以阐明\hyperref[eq:8-5]{式(8-5)}. 例如,
+\[
+\begin{aligned}
+\mathrm{Var}(Y_1)&=\mathrm{Var}(0.383X_1-0.924X_2)\\
+&=0.383^2\times\mathrm{Var}(X_1)+(-0.924)^2\times\mathrm{Var}(X_2)\\
+&\quad+2\times0.383\times(-0.924)\times\mathrm{Cov}(X_1,X_2)\\
+&=0.147\times1+0.854\times5-0.708\times(-2)\\
+&=5.83=\lambda_1
+\end{aligned}
+\]
+\[
+\begin{aligned}
+\mathrm{Cov}(Y_1,Y_2)&=\mathrm{Cov}(0.383X_1-0.924X_2,X_3)\\
+&=0.383\mathrm{Cov}(X_1,X_3)-0.924\mathrm{Cov}(X_2,X_3)\\
+&=0.383\times0-0.924\times0=0
+\end{aligned}
+\]
+也容易看出
+\[
+\sigma_{11}+\sigma_{22}+\sigma_{33}=1+5+2=\lambda_1+\lambda_2+\lambda_3=5.83+2.00+0.17
+\]
+此例证实\hyperref[eq:8-6]{式(8-6)}正确. 总方差中归因于第一主成分的比例为 $\lambda_1/(\lambda_1+\lambda_2+\lambda_3)=5.83/8=0.73$. 进一步, 前两个主成分占总方差的 $(5.83+2)/8=0.98$. 此时, 两个成分 $Y_1$ 和 $Y_2$ 可以代替原先的三个变量而不会有什么信息损失.
+\[
+\rho_{Y_1,X_1}=\frac{e_{11}\sqrt{\lambda_1}}{\sqrt{\sigma_{11}}}=\frac{0.383\times\sqrt{5.83}}{\sqrt{1}}=0.925
+\]
+\[
+\rho_{Y_1,X_2}=\frac{e_{12}\sqrt{\lambda_1}}{\sqrt{\sigma_{22}}}=\frac{-0.924\times\sqrt{5.83}}{\sqrt{5}}=-0.998
+\]
+注意这里变量 $X_2$ 有系数 $-0.924$, 在主成分 $Y_1$ 中拥有最大的权数. 它也有与 $Y_1$ 最大(按绝对值)的相关系数. $X_1$ 和 $Y_1$ 的相关系数为 $0.925$, 几乎与前者一样大, 这表明此两个变量对第一主成分来说大致同样重要. 然而 $X_1$ 和 $X_2$ 的系数的相对大小说明, 对于 $Y_1$ 的确定, $X_2$ 的贡献比 $X_1$ 要多. 在这种情况下, 由于两个系数均相当大且有相反的正负号, 我们将认为这两个变量均有助于解释 $Y_1$.
+
+最后,
+\[
+\rho_{Y_2,X_1}=\rho_{Y_2,X_2}=0 \text{ 和 } \rho_{Y_2,X_3}=\frac{\sqrt{\lambda_2}}{\sqrt{\sigma_{33}}}=\frac{\sqrt{2}}{\sqrt{2}}=1\qquad(\text{正如所期})
+\]
+由于第三个成分不重要, 所以余下的相关可以忽略. \hfill$\blacksquare$

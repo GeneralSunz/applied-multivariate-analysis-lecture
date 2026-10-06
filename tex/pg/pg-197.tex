@@ -1,0 +1,55 @@
+实现.
+
+两个最常见的多元控制图是(i)椭圆控制图和(ii) $T^{2}$ 控制图.
+
+实践中出现两种情况,需要用不同的方法处理:
+
+1. 监控一个给定的多元观测值样本的稳定性
+
+2. 为未来的观测值设置一个控制域
+
+首先,我们考虑将多元控制方法用于多元观测值样本 $\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n$,然后,再来讨论当观测值为一些子集的均值时的多元方法.
+
+\mvsub{监控单个多元观测值样本稳定性的控制图}
+
+假设 $\mathbf{X}_1,\mathbf{X}_2,\cdots,\mathbf{X}_n$ 独立同分布,分布服从 $N_p(\boldsymbol{\mu},\boldsymbol{\Sigma})$. 由结论 4.8 可知,对
+\[
+\mathbf{X}_j-\bar{\mathbf{X}}=\left(1-\frac{1}{n}\right)\mathbf{X}_j-\frac{1}{n}\mathbf{X}_1-\cdots-\frac{1}{n}\mathbf{X}_{j-1}-\frac{1}{n}\mathbf{X}_{j+1}-\cdots-\frac{1}{n}\mathbf{X}_n
+\]
+有
+\[
+E(\mathbf{X}_j-\bar{\mathbf{X}})=\mathbf{0}=(1-n^{-1})\boldsymbol{\mu}-(n-1)n^{-1}\boldsymbol{\mu}
+\]
+\[
+\operatorname{Cov}(\mathbf{X}_j-\bar{\mathbf{X}})=\left(1-\frac{1}{n}\right)^{2}\boldsymbol{\Sigma}+(n-1)n^{-2}\boldsymbol{\Sigma}=\frac{(n-1)}{n}\boldsymbol{\Sigma}
+\]
+而且服从分布 $N_p(\mathbf{0},\boldsymbol{\Sigma})$. 但由于 $\mathbf{X}_j-\bar{\mathbf{X}}$ 与样本协方差阵 $\mathbf{S}$ 不独立,所以我们只能用近似的 $\chi^{2}$ 分布来确定其控制限.
+
+\mvbold{椭圆控制图}\quad 两变量控制域的椭圆控制图是一种较为直观的控制图,不过这种方法仅限于两个变量. 若将第 $j$ 单元的两个特征画作 $(x_{j1},x_{j2})$,则 $95\%$ 置信椭圆由满足如下不等式的所有 $\mathbf{x}$ 构成:
+\phantomsection\label{eq:5-32}
+\begin{equation}
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\leqslant\chi_2^{2}(0.05)
+\tag{5-32}
+\end{equation}
+
+\noindent\textbf{例 5.9}\quad (加班时数的椭圆控制图)
+
+参看例 5.8,构造一对特征(法定加班出勤时数及特殊事件处理加班时数)的椭圆质量控制图. 由计算机的计算给出
+\[
+\bar{\mathbf{x}}=\begin{bmatrix}3\,558\\1\,478\end{bmatrix}\quad\text{且}\quad \mathbf{S}=\begin{bmatrix}367\,884.7 & -72\,093.8\\-72\,093.8 & 1\,399\,053.1\end{bmatrix}
+\]
+用 $99\%$ 置信椭圆来说明椭圆控制图,构成该椭圆的所有 $\mathbf{x}$ 满足
+\[
+(\mathbf{x}-\bar{\mathbf{x}})'\mathbf{S}^{-1}(\mathbf{x}-\bar{\mathbf{x}})\leqslant\chi_2^{2}(0.01)
+\]
+这里 $p=2$,故 $\chi_2^{2}(0.01)=9.21$,因此,该椭圆为:
+\begin{align*}
+&\frac{s_{11}s_{22}}{s_{11}s_{22}-s_{12}^{2}}\left[\frac{(x_1-\bar{x}_1)^{2}}{s_{11}}-2\frac{s_{12}}{s_{11}s_{22}}(x_1-\bar{x}_1)(x_2-\bar{x}_2)+\frac{(x_2-\bar{x}_2)^{2}}{s_{22}}\right]\\
+&=\frac{367\,884.7\times1\,399\,053.1}{367\,884.7\times1\,399\,053.1-(-72\,093.8)^{2}}\times\\
+&\quad\left[\frac{(x_1-3\,558)^{2}}{367\,884.7}-2\times(-72\,093.8)\times\frac{(x_1-3\,558)(x_2-1\,478)}{367\,884.7\times1\,399\,053.1}+\frac{(x_2-1\,478)^{2}}{1\,399\,053.1}\right]\leqslant9.21
+\end{align*}
+这个椭圆的图形及各数据对所对应的点均示于\hyperref[fig:5.6]{图 5.6}.
+
+注意,箭头所指的那个点在椭圆之外. 当一个点落在控制域外面时,需对 $x_1$ 和 $x_2$ 分别构造 $x$ 控制图. $x_1$ 的 $\bar{X}$ 控制图在\hyperref[fig:5.5]{图 5.5} 中已给出,$x_2$ 的 $\bar{X}$ 控制图见\hyperref[fig:5.7]{图 5.7}.
+
+当必须为非负的数据的控制下限小于 0 时,一般把控制下限设为 0,故\hyperref[fig:5.7]{图 5.7} 中的虚线即

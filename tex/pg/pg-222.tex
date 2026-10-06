@@ -1,0 +1,57 @@
+服从自由度为 $n-1$ 的 $t$ 分布，其中
+\phantomsection\label{eq:6-3}
+\begin{equation}
+\bar{D}=\frac{1}{n}\sum_{j=1}^n D_j,\quad s_d^2=\frac{1}{n-1}\sum_{j=1}^n(D_j-\bar{D})^2 \tag{6-3}
+\end{equation}
+因此，在显著性水平为 $\alpha$ 时，可通过比较 $|t|$ 与 $t_{n-1}(\alpha/2)$，来检验假设 $H_0: \delta=0$（即各种处理的平均差为 0）和 $H_1: \delta\neq 0$. 其中的 $t_{n-1}(\alpha/2)$ 为自由度为 $n-1$ 的 $t$ 分布的上 $100(\alpha/2)$ 百分位数. 其平均差 $\bar{d}=E(X_{j1}-X_{j2})$ 的 $100(1-\alpha)\%$ 置信区间为：
+\phantomsection\label{eq:6-4}
+\begin{equation}
+\bar{d}-t_{n-1}(\alpha/2)\frac{s_d}{\sqrt{n}}\leqslant \delta\leqslant \bar{d}+t_{n-1}(\alpha/2)\frac{s_d}{\sqrt{n}} \tag{6-4}
+\end{equation}
+（例如参见文献[11].）
+
+为了把成对比较方法推广到多元情形，需要再引进一些记号. 有必要区分 $p$ 个响应、两种处理和 $n$ 个试验单元. 为此，将第 $j$ 个单元内的 $p$ 个响应记做：\\
+$X_{1j1}=$ 第 1 种处理下的第 1 个响应.\\
+$X_{1j2}=$ 第 1 种处理下的第 2 个响应.\\
+$\qquad\cdots\cdots$\\
+$X_{1jp}=$ 第 1 种处理下的第 $p$ 个响应.\\
+$\qquad\cdots\cdots$\\
+$X_{2j1}=$ 第 2 种处理下的第 1 个响应.\\
+$X_{2j2}=$ 第 2 种处理下的第 2 个响应.\\
+$\qquad\cdots\cdots$\\
+$X_{2jp}=$ 第 2 种处理下的第 $p$ 个响应.
+
+因而 $p$ 对响应差随机变量为
+\phantomsection\label{eq:6-5}
+\begin{equation}
+\begin{aligned}
+D_{j1}&=X_{1j1}-X_{2j1}\\
+D_{j2}&=X_{1j2}-X_{2j2}\\
+&\qquad\vdots\\
+D_{jp}&=X_{1jp}-X_{2jp}
+\end{aligned}
+\tag{6-5}
+\end{equation}
+令 $\mathbf{D}_j'=[D_{j1},D_{j2},\cdots,D_{jp}]$，并假定对 $j=1,2,\cdots,n$，有
+\phantomsection\label{eq:6-6}
+\begin{equation}
+E(\mathbf{D}_j)=\boldsymbol{\delta}=\begin{bmatrix}\delta_1\\\delta_2\\\vdots\\\delta_p\end{bmatrix}\quad 及\quad \mathrm{Cov}(\mathbf{D}_j)=\boldsymbol{\Sigma}_d \tag{6-6}
+\end{equation}
+另外，若 $\mathbf{D}_1,\mathbf{D}_2,\cdots,\mathbf{D}_n$ 为独立随机向量且服从分布 $N_p(\boldsymbol{\delta},\boldsymbol{\Sigma}_d)$，则根据 $T^2$ 统计量可对均值差向量 $\boldsymbol{\delta}$ 作统计推断，具体有：
+\phantomsection\label{eq:6-7}
+\begin{equation}
+T^2=n(\bar{\mathbf{D}}-\boldsymbol{\delta})'\mathbf{S}_d^{-1}(\bar{\mathbf{D}}-\boldsymbol{\delta}) \tag{6-7}
+\end{equation}
+其中，
+\phantomsection\label{eq:6-8}
+\begin{equation}
+\bar{\mathbf{D}}=\frac{1}{n}\sum_{j=1}^n\mathbf{D}_j\quad 且\quad \mathbf{S}_d=\frac{1}{n-1}\sum_{j=1}^n(\mathbf{D}_j-\bar{\mathbf{D}})(\mathbf{D}_j-\bar{\mathbf{D}})' \tag{6-8}
+\end{equation}
+
+\mvthm{结论 6.1}{设差值 $\mathbf{D}_1,\mathbf{D}_2,\cdots,\mathbf{D}_n$ 为来自总体 $N_p(\boldsymbol{\delta},\boldsymbol{\Sigma}_d)$ 的一个随机样本，此时对任意的 $\boldsymbol{\delta}$ 和 $\boldsymbol{\Sigma}_d$，$T^2=n(\bar{\mathbf{D}}-\boldsymbol{\delta})'\mathbf{S}_d^{-1}(\bar{\mathbf{D}}-\boldsymbol{\delta})$ 与随机变量 $[(n-1)p/(n-p)]F_{p,n-p}$ 同分布.}
+
+若 $n$ 及 $n-p$ 均充分大，则无论差值的总体是什么分布，$T^2$ 总是近似服从 $\chi_p^2$ 分布.
+
+\mvbold{证明}\quad $T^2$ 的精确分布为\hyperref[eq:5-6]{式(5-6)}的另一种表述，只不过将原来的观测值向量换成差值向量罢了，当 $n$ 及 $n-p$ 均充分大时，$T^2$ 的近似分布由\hyperref[eq:4-28]{式(4-28)}推出. \hfill$\blacksquare$
+
+条件 $\boldsymbol{\delta}=\mathbf{0}$ 等价于“两个处理之间无平均差异”，对第 $i$ 个变量（响应）来说，$\delta_i>0$ 表示平
